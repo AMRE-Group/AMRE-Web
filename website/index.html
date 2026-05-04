@@ -95,6 +95,13 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;
 }
 .nav-cta:hover{background:var(--brass-dk);transform:translateY(-1px)}
+.nav-outline{
+  background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);
+  transition:border-color .2s,background .2s;padding:8px 18px;
+}
+.nav-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-1px)}
+.site-nav.is-light .nav-outline{color:var(--forest);border-color:rgba(28,61,49,.3)}
+.site-nav.is-light .nav-outline:hover{border-color:var(--forest);background:rgba(28,61,49,.05)}
 @media(max-width:860px){
   .nav-links{display:none}
   .site-nav{padding:0 20px}
@@ -458,6 +465,13 @@ details[open] .faq-q::after{transform:rotate(45deg)}
   background:var(--blue,#0064e5);color:#fff!important;border-radius:980px;
   font-size:16px!important;font-weight:500!important;padding:16px 32px!important;
   border-bottom:none!important;letter-spacing:.02em}
+.mobile-drawer .drawer-outline{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:32px;width:100%;
+  background:transparent;color:#fff!important;border:1px solid rgba(255,255,255,.6);border-radius:980px;
+  font-size:16px!important;font-weight:500!important;padding:15px 32px!important;
+  border-bottom:none!important;letter-spacing:.02em;transition:border-color .2s,background .2s}
+.mobile-drawer .drawer-outline:hover{border-color:#fff;background:rgba(255,255,255,.08);padding-left:32px!important}
 .mobile-drawer .drawer-cta:hover{background:#0049a8;padding-left:32px!important}
 @media(max-width:860px){
   .nav-links{display:none!important}
@@ -505,7 +519,7 @@ details[open] .faq-q::after{transform:rotate(45deg)}
   </ul>
   <div class="nav-right">
     <a href="/amre-assets/website/#contact" class="nav-cta">Get&nbsp;In&nbsp;Touch</a>
-    <a href="/amre-assets/website/#what-is-your-home-worth-right-now" class="nav-cta">Home Valuation</a>
+    <a href="/amre-assets/website/#what-is-your-home-worth-right-now" class="nav-outline">Home Valuation</a>
     <button class="ham-btn" id="hamBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -521,7 +535,7 @@ details[open] .faq-q::after{transform:rotate(45deg)}
     <li><a href="/amre-assets/website/properties/mulholland-14423/">Featured Transaction</a></li>
     <li><a href="https://hilex2030.github.io/amre-assets/artifacts/dashboard/">Client Dashboard</a></li>
     <li><a href="/amre-assets/website/#contact" class="drawer-cta">Get In Touch</a></li>
-    <li><a href="/amre-assets/website/#what-is-your-home-worth-right-now" class="drawer-cta">Home Valuation</a></li>
+    <li><a href="/amre-assets/website/#what-is-your-home-worth-right-now" class="drawer-outline">Home Valuation</a></li>
   </ul>
 </div>
 
@@ -1019,4 +1033,5 @@ details[open] .faq-q::after{transform:rotate(45deg)}
 })();
 </script>
 </body></html>
+
 
