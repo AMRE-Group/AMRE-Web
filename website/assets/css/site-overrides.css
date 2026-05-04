@@ -635,3 +635,12 @@ html body .testi-text{
   .nav-link-text{display:none !important}
   .nav-cta-outline{display:none !important}
 }
+
+/* Home valuation section — darker copy on light background */
+#valuation .eyebrow,
+#valuation .lede {
+     color: #1a1a1a !important;
+     text-shadow: none !important;
+}
+#valuation .eyebrow{ color:#1a1a1a !important; opacity:1 !important; }
+#valuation .lede{ color:#1a1a1a !important; opacity:1 !important; }
