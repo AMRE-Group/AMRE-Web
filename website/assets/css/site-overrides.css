@@ -610,3 +610,33 @@ html body .testi-text{
   .nav-link-text{display:none !important}
   .nav-right .nav-cta{display:none !important}
 }
+
+
+/* =====================================================================
+   14) VALUATION CTA — light-bg fix
+   The .valuation-cta section has background:#fff, not forest green.
+   Earlier rules in this file mistakenly colored its <p> elements white,
+   making the eyebrow and lede invisible. The .f reveal animation also
+   isn't firing on this section, so opacity stays at 0. Force both.
+===================================================================== */
+.valuation-cta .eyebrow,
+.valuation-cta p,
+.valuation-cta .lede{
+     color: #3a3a3c !important;
+}
+.valuation-cta .eyebrow{
+     color: #1c3d31 !important;
+}
+.valuation-cta .eyebrow::before,
+.valuation-cta .eyebrow::after{
+     background: #1c3d31 !important;
+}
+.valuation-cta .section-h{
+     color: #1a1a1a !important;
+}
+/* Safety net: ensure reveal-animation elements are visible even if the
+   IntersectionObserver JS fails to add the .in class on this section. */
+.valuation-cta .f{
+     opacity: 1 !important;
+     transform: none !important;
+}
