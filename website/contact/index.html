@@ -658,35 +658,11 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
   <div class="split-right">
     <div class="split-right-inner">
 
-      <!-- Agent cards stacked above form -->
-      <div class="contact-agent-cards f" style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px">
-        <div class="contact-agent-mini" itemscope itemtype="https://schema.org/Person">
-          <div class="cam-info">
-            <div class="cam-name" itemprop="name">Michael Abraham</div>
-            <div class="cam-role">Principal Agent &nbsp;·&nbsp; DRE# 02242095</div>
-          </div>
-          <div class="cam-links">
-            <a href="tel:3237198585" itemprop="telephone"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (323) 719-8585</a>
-            <a href="mailto:michael.abraham@compass.com" itemprop="email"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> michael.abraham@compass.com</a>
-          </div>
-        </div>
-        <div class="contact-agent-mini" itemscope itemtype="https://schema.org/Person">
-          <div class="cam-info">
-            <div class="cam-name" itemprop="name">Ania De Pourbaix</div>
-            <div class="cam-role">Principal Agent &nbsp;·&nbsp; DRE# 01891438</div>
-          </div>
-          <div class="cam-links">
-            <a href="tel:3102703879" itemprop="telephone"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.35 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (310) 270-3879</a>
-            <a href="mailto:ania.d@compass.com" itemprop="email"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> ania.d@compass.com</a>
-          </div>
-        </div>
-      </div>
-
       <h2 class="f" style="font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:6px">Send a message</h2>
       <p class="f" style="font-size:13px;font-weight:300;color:var(--mid);line-height:1.6;margin-bottom:20px">We typically respond within a few hours on business days.</p>
 
       <div class="f d1">
-        <iframe data-tally-src="https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0" title="Contact AMRE Real Estate Group"></iframe>
+        <iframe src="https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" data-tally-src="https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="480" frameborder="0" marginheight="0" marginwidth="0" title="Contact AMRE Real Estate Group" style="border:0;display:block;width:100%"></iframe>
       </div>
     </div>
   </div>
@@ -811,7 +787,8 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
 .split-agent{padding:24px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:12px}
 .split-agent-name{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;margin-bottom:4px}
 .split-agent-role{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.split-agent-link{display:block;font-size:13px;font-weight:300;color:rgba(255,255,255,.45);margin-bottom:6px;transition:color .2s}
+.split-agent-link{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:300;color:rgba(255,255,255,.45);margin-bottom:8px;transition:color .2s;line-height:1.4}
+    .split-agent-link .ico{width:16px;height:16px;flex-shrink:0}
 .split-agent-link:hover{color:rgba(255,255,255,.8)}
 .split-office{padding:20px 24px;background:rgba(255,255,255,.03);border-radius:12px;font-size:14px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.45)}
 .split-office-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:8px}
