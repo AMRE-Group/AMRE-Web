@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin | AMRE Client Management</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1c3d31; --navy:#070B33; --brass:#ffc13c; --brass-dk:#e6a800;
+  --ink:#1a1a1a; --mid:#5A5A5A; --red:#c0392b; --green:#248A3D;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:#F5F5F7;-webkit-font-smoothing:antialiased;min-height:100vh}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--sans);cursor:pointer;border:none}
+input,textarea,select{font-family:var(--sans)}
+
+/* ===== GATE ===== */
+#gate{
+  position:fixed;inset:0;z-index:9999;background:#F5F5F7;
+  display:flex;align-items:center;justify-content:center;
+}
+#gate.hidden{display:none}
+.gate-card{
+  background:#fff;border:1px solid rgba(28,61,49,.15);
+  border-radius:2px;padding:48px 40px;max-width:400px;width:100%;text-align:center;
+}
+.gate-brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:32px}
+.gate-amre{font-family:var(--sans);font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.gate-sep{width:1px;height:16px;background:rgba(28,61,49,.2)}
+.gate-compass{font-size:12px;letter-spacing:.25em;color:var(--mid);text-transform:uppercase}
+.gate-card h2{font-family:var(--serif);font-weight:400;font-size:26px;margin-bottom:8px}
+.gate-card p{font-size:13px;color:var(--mid);margin-bottom:28px}
+
+.gate-input{
+  width:100%;padding:13px 16px;margin-bottom:12px;
+  font-size:14px;font-weight:400;letter-spacing:.06em;
+  border:1px solid rgba(28,61,49,.25);border-radius:2px;outline:none;
+  transition:border-color .2s;
+}
+.gate-input:focus{border-color:var(--forest)}
+
+.gate-pat-group{text-align:left;margin-bottom:16px}
+.gate-pat-group label{
+  display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:600;color:var(--mid);margin-bottom:6px;
+}
+.gate-pat-group .hint{font-size:11px;color:var(--mid);margin-top:6px;line-height:1.5}
+
+.btn-gate{
+  width:100%;padding:13px;background:var(--forest);color:#fff;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  border-radius:2px;cursor:pointer;transition:background .2s;
+}
+.btn-gate:hover{background:#2a5a47}
+.gate-error{
+  display:none;margin-top:12px;font-size:12px;color:var(--red);
+}
+.gate-error.visible{display:block}
+
+/* ===== ADMIN LAYOUT ===== */
+#admin{display:none}
+.admin-nav{
+  background:var(--navy);color:#fff;padding:0 32px;
+  display:flex;align-items:center;justify-content:space-between;height:52px;
+  position:sticky;top:0;z-index:100;
+}
+.admin-nav-brand{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500}
+.admin-nav-brand strong{letter-spacing:.05em}
+.admin-nav-pill{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(255,193,60,.2);color:var(--brass);
+  padding:3px 10px;border-radius:2px;font-weight:600;
+}
+.admin-nav-meta{font-size:11px;color:rgba(255,255,255,.5)}
+.admin-nav-signout{
+  font-size:11px;color:rgba(255,255,255,.5);cursor:pointer;
+  padding:6px 12px;border:1px solid rgba(255,255,255,.15);border-radius:2px;
+  background:none;transition:color .2s,border-color .2s;
+}
+.admin-nav-signout:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+
+.admin-body{max-width:1100px;margin:0 auto;padding:40px 24px 80px}
+
+.admin-header{margin-bottom:32px}
+.admin-header h1{font-family:var(--serif);font-weight:400;font-size:36px;margin-bottom:8px}
+.admin-header p{font-size:13px;color:var(--mid)}
+
+/* Stats bar */
+.admin-stats{display:flex;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.stat-box{
+  background:#fff;border:1px solid rgba(28,61,49,.12);border-radius:2px;
+  padding:20px 24px;flex:1;min-width:160px;
+}
+.stat-box .num{font-family:var(--serif);font-size:36px;font-weight:400;color:var(--forest);margin-bottom:4px}
+.stat-box .lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mid)}
+
+/* Toolbar */
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:20px;flex-wrap:wrap;gap:12px;
+}
+.toolbar h2{font-family:var(--serif);font-weight:400;font-size:26px}
+.btn-add{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--forest);color:#fff;
+  padding:11px 22px;border-radius:2px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s;border:none;
+}
+.btn-add:hover{background:#2a5a47}
+.btn-add svg{flex-shrink:0}
+
+/* Client table */
+.client-table{width:100%;border-collapse:collapse}
+.client-table th{
+  text-align:left;padding:10px 16px;
+  font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--mid);font-weight:600;
+  border-bottom:2px solid rgba(28,61,49,.12);background:#fff;
+}
+.client-table td{
+  padding:16px;border-bottom:1px solid rgba(28,61,49,.08);
+  background:#fff;font-size:13px;vertical-align:middle;
+}
+.client-table tr:last-child td{border-bottom:none}
+.client-table tr:hover td{background:#fafaf8}
+
+.client-name{font-weight:500;color:var(--ink);margin-bottom:2px}
+.client-email{font-size:11px;color:var(--mid)}
+.client-deals{display:flex;flex-wrap:wrap;gap:6px}
+.deal-pill{
+  font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(28,61,49,.08);color:var(--forest);
+  padding:3px 8px;border-radius:2px;font-weight:500;
+}
+.deal-pill a{color:inherit}
+.deal-pill a:hover{text-decoration:underline}
+
+.action-btns{display:flex;gap:8px;white-space:nowrap}
+.btn-edit,.btn-delete{
+  font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 14px;border-radius:2px;cursor:pointer;transition:all .2s;
+}
+.btn-edit{
+  background:none;border:1px solid rgba(28,61,49,.25);color:var(--forest);
+}
+.btn-edit:hover{background:rgba(28,61,49,.06)}
+.btn-delete{
+  background:none;border:1px solid rgba(192,57,43,.25);color:var(--red);
+}
+.btn-delete:hover{background:rgba(192,57,43,.06)}
+
+.empty-state{
+  text-align:center;padding:80px 24px;background:#fff;
+  border:1px solid rgba(28,61,49,.1);border-radius:2px;
+}
+.empty-state h3{font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:8px}
+.empty-state p{font-size:13px;color:var(--mid);margin-bottom:24px}
+
+/* ===== MODAL ===== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.45);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+}
+.modal-overlay.hidden{display:none}
+.modal{
+  background:#fff;border-radius:2px;width:100%;max-width:560px;
+  max-height:90vh;overflow-y:auto;
+}
+.modal-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 28px;border-bottom:1px solid rgba(28,61,49,.1);
+}
+.modal-head h3{font-family:var(--serif);font-weight:400;font-size:24px}
+.modal-close{
+  font-size:20px;color:var(--mid);cursor:pointer;
+  background:none;border:none;padding:4px 8px;line-height:1;
+}
+.modal-close:hover{color:var(--ink)}
+.modal-body{padding:28px}
+.modal-footer{
+  padding:20px 28px;border-top:1px solid rgba(28,61,49,.1);
+  display:flex;gap:12px;justify-content:flex-end;
+}
+
+.field{margin-bottom:20px}
+.field label{
+  display:block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:600;color:var(--forest);margin-bottom:7px;
+}
+.field input{
+  width:100%;padding:11px 14px;
+  font-size:13px;font-weight:400;
+  border:1px solid rgba(28,61,49,.25);border-radius:2px;outline:none;
+  transition:border-color .2s;
+}
+.field input:focus{border-color:var(--forest)}
+.field .hint{font-size:11px;color:var(--mid);margin-top:5px}
+
+/* Tracker checkboxes */
+.tracker-list{
+  border:1px solid rgba(28,61,49,.2);border-radius:2px;
+  max-height:220px;overflow-y:auto;
+}
+.tracker-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;border-bottom:1px solid rgba(28,61,49,.06);
+  cursor:pointer;transition:background .15s;
+}
+.tracker-item:last-child{border-bottom:none}
+.tracker-item:hover{background:#fafaf8}
+.tracker-item input[type=checkbox]{
+  width:15px;height:15px;cursor:pointer;accent-color:var(--forest);flex-shrink:0;
+}
+.tracker-item .tracker-slug{font-size:12px;font-weight:500;color:var(--ink)}
+.tracker-item .tracker-url{font-size:11px;color:var(--mid)}
+.tracker-loading{padding:20px;text-align:center;font-size:12px;color:var(--mid)}
+.tracker-none{padding:20px;text-align:center;font-size:12px;color:var(--mid)}
+
+.btn-save{
+  background:var(--forest);color:#fff;padding:11px 28px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  border-radius:2px;cursor:pointer;border:none;transition:background .2s;
+}
+.btn-save:hover{background:#2a5a47}
+.btn-save:disabled{opacity:.6;cursor:not-allowed}
+.btn-cancel{
+  background:none;color:var(--mid);padding:11px 20px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  border-radius:2px;cursor:pointer;border:1px solid rgba(28,61,49,.2);
+  transition:all .2s;
+}
+.btn-cancel:hover{color:var(--ink);border-color:rgba(28,61,49,.4)}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:24px;right:24px;z-index:9999;
+  background:var(--forest);color:#fff;padding:14px 20px;border-radius:2px;
+  font-size:13px;font-weight:500;
+  transform:translateY(80px);opacity:0;
+  transition:transform .3s,opacity .3s;pointer-events:none;
+}
+.toast.show{transform:none;opacity:1}
+.toast.error{background:var(--red)}
+
+/* Password strength */
+.pw-strength{
+  height:3px;border-radius:2px;margin-top:6px;
+  background:rgba(28,61,49,.1);transition:all .3s;
+}
+.pw-strength-bar{height:100%;border-radius:2px;width:0;transition:width .3s,background .3s}
+
+@media(max-width:680px){
+  .admin-body{padding:20px 16px 60px}
+  .client-table{display:none}
+  .action-btns{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== GATE ===== -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-brand">
+      <span class="gate-amre">AMRE</span>
+      <span class="gate-sep"></span>
+      <span class="gate-compass">Compass</span>
+    </div>
+    <h2>Admin access.</h2>
+    <p>For AMRE agents only. Enter your admin password to continue.</p>
+    <input type="password" class="gate-input" id="gate-pw" placeholder="Admin password" autocomplete="off">
+    <div class="gate-pat-group">
+      <label>GitHub PAT (session only)</label>
+      <input type="password" class="gate-input" id="gate-pat" placeholder="github_pat_…" autocomplete="off" style="margin-bottom:0">
+      <p class="hint">Stored in memory for this tab only. Never saved. Required to add or edit clients.</p>
+    </div>
+    <button class="btn-gate" onclick="handleGate()">Enter Admin Dashboard</button>
+    <div class="gate-error" id="gate-error">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<!-- ===== ADMIN ===== -->
+<div id="admin">
+  <nav class="admin-nav">
+    <div class="admin-nav-brand">
+      <strong>AMRE</strong>
+      <span class="admin-nav-pill">Admin</span>
+    </div>
+    <span class="admin-nav-meta" id="pat-status">PAT: loaded</span>
+    <button class="admin-nav-signout" onclick="signOut()">Sign out</button>
+  </nav>
+
+  <div class="admin-body">
+    <div class="admin-header">
+      <h1>Client management.</h1>
+      <p>Add clients, set their access codes, and assign deals. Changes save immediately to GitHub.</p>
+    </div>
+
+    <div class="admin-stats">
+      <div class="stat-box"><div class="num" id="stat-clients">0</div><div class="lbl">Clients</div></div>
+      <div class="stat-box"><div class="num" id="stat-deals">0</div><div class="lbl">Active deals</div></div>
+      <div class="stat-box"><div class="num" id="stat-trackers">0</div><div class="lbl">Trackers live</div></div>
+    </div>
+
+    <div class="toolbar">
+      <h2>Clients.</h2>
+      <button class="btn-add" onclick="openAddModal()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        Add client
+      </button>
+    </div>
+
+    <div id="clients-container">
+      <div class="empty-state">
+        <h3>No clients yet.</h3>
+        <p>Add your first client to get started.</p>
+        <button class="btn-add" onclick="openAddModal()">Add first client</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay hidden" id="modal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-title">Add client.</h3>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <input type="hidden" id="edit-index" value="">
+      <div class="field">
+        <label>Client name (household)</label>
+        <input type="text" id="f-name" placeholder="e.g. Muthyala Family">
+      </div>
+      <div class="field">
+        <label>Email (optional, for your reference)</label>
+        <input type="text" id="f-email" placeholder="e.g. vasu@example.com">
+      </div>
+      <div class="field">
+        <label>Access code</label>
+        <input type="text" id="f-password" placeholder="e.g. muthyala2026" autocomplete="off" autocapitalize="none" oninput="updateStrength(this.value)">
+        <div class="pw-strength"><div class="pw-strength-bar" id="pw-bar"></div></div>
+        <div class="hint">Clients will type this to log in. Suggest: lastname + year (e.g. muthyala2026). Min 8 characters.</div>
+      </div>
+      <div class="field">
+        <label>Assign trackers</label>
+        <div class="tracker-list" id="tracker-list">
+          <div class="tracker-loading">Loading trackers…</div>
+        </div>
+        <div class="hint">Check all deals this client should see.</div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" id="save-btn" onclick="saveClient()">Save client</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const REPO = 'Hilex2030/amre-assets';
+const BRANCH = 'main';
+const CLIENTS_PATH = 'data/clients.json';
+const RAW_CLIENTS = 'https://raw.githubusercontent.com/' + REPO + '/' + BRANCH + '/' + CLIENTS_PATH;
+const BASE_TRACKER = 'https://hilex2030.github.io/amre-assets/artifacts/';
+const ADMIN_HASH_EXPECTED = '670b1182b07a19a8f99082fbec6e627157cfba79ae7ffa8325693bd626687b51'; // amre#compass
+
+let PAT = '';
+let clients = [];
+let trackers = [];
+let editIndex = -1;
+
+// ── GATE ──────────────────────────────────────────────────────────────────
+async function sha256(s) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function handleGate() {
+  const pw = document.getElementById('gate-pw').value.trim();
+  const pat = document.getElementById('gate-pat').value.trim();
+  const err = document.getElementById('gate-error');
+  err.classList.remove('visible');
+
+  const hash = await sha256(pw);
+  if (hash !== ADMIN_HASH_EXPECTED) {
+    err.classList.add('visible');
+    return;
+  }
+
+  PAT = pat;
+  sessionStorage.setItem('amre_admin_session', '1');
+  document.getElementById('gate').classList.add('hidden');
+  document.getElementById('admin').style.display = 'block';
+  document.getElementById('pat-status').textContent = PAT ? 'PAT: loaded ✓' : 'PAT: not set (read-only)';
+  await loadAll();
+}
+
+document.getElementById('gate-pw').addEventListener('keydown', e => { if(e.key==='Enter') handleGate(); });
+document.getElementById('gate-pat').addEventListener('keydown', e => { if(e.key==='Enter') handleGate(); });
+
+function signOut() {
+  PAT = '';
+  sessionStorage.removeItem('amre_admin_session');
+  location.reload();
+}
+
+// ── LOAD ──────────────────────────────────────────────────────────────────
+async function loadAll() {
+  await Promise.all([loadClients(), loadTrackers()]);
+  renderClients();
+  updateStats();
+}
+
+async function loadClients() {
+  try {
+    const r = await fetch(RAW_CLIENTS + '?t=' + Date.now());
+    const data = await r.json();
+    clients = data.clients || [];
+  } catch { clients = []; }
+}
+
+async function loadTrackers() {
+  if (!PAT) { trackers = []; return; }
+  try {
+    const r = await fetch(`https://api.github.com/repos/${REPO}/contents/artifacts?ref=${BRANCH}`, {
+      headers: { Authorization: `Bearer ${PAT}`, Accept: 'application/vnd.github+json' }
+    });
+    const items = await r.json();
+    trackers = Array.isArray(items)
+      ? items.filter(i => i.type === 'dir' && i.name.startsWith('tracker-')).map(i => i.name)
+      : [];
+    document.getElementById('stat-trackers').textContent = trackers.length;
+  } catch { trackers = []; }
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────
+function renderClients() {
+  const container = document.getElementById('clients-container');
+  if (!clients.length) {
+    container.innerHTML = `<div class="empty-state">
+      <h3>No clients yet.</h3>
+      <p>Add your first client to get started.</p>
+      <button class="btn-add" onclick="openAddModal()">Add first client</button>
+    </div>`;
+    return;
+  }
+
+  container.innerHTML = `<table class="client-table">
+    <thead>
+      <tr>
+        <th>Client</th>
+        <th>Access code</th>
+        <th>Deals assigned</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>${clients.map((c,i) => `
+      <tr>
+        <td>
+          <div class="client-name">${esc(c.name)}</div>
+          ${c.email ? `<div class="client-email">${esc(c.email)}</div>` : ''}
+        </td>
+        <td><code style="font-size:12px;color:var(--mid)">${c.passwordHint || '••••••••'}</code></td>
+        <td>
+          <div class="client-deals">
+            ${(c.deals||[]).map(d => `
+              <span class="deal-pill">
+                <a href="${BASE_TRACKER}${d.slug}/" target="_blank" title="Open tracker">${esc(d.slug)}</a>
+              </span>`).join('')}
+            ${!(c.deals||[]).length ? '<span style="font-size:12px;color:var(--mid)">None assigned</span>' : ''}
+          </div>
+        </td>
+        <td>
+          <div class="action-btns">
+            <button class="btn-edit" onclick="openEditModal(${i})">Edit</button>
+            <button class="btn-delete" onclick="deleteClient(${i})">Delete</button>
+          </div>
+        </td>
+      </tr>`).join('')}
+    </tbody>
+  </table>`;
+}
+
+function updateStats() {
+  document.getElementById('stat-clients').textContent = clients.length;
+  const totalDeals = clients.reduce((s,c) => s + (c.deals||[]).length, 0);
+  document.getElementById('stat-deals').textContent = totalDeals;
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────────────
+function openAddModal() {
+  editIndex = -1;
+  document.getElementById('modal-title').textContent = 'Add client.';
+  document.getElementById('f-name').value = '';
+  document.getElementById('f-email').value = '';
+  document.getElementById('f-password').value = '';
+  document.getElementById('pw-bar').style.width = '0';
+  document.getElementById('edit-index').value = '';
+  populateTrackers([]);
+  document.getElementById('modal').classList.remove('hidden');
+  setTimeout(() => document.getElementById('f-name').focus(), 100);
+}
+
+function openEditModal(i) {
+  editIndex = i;
+  const c = clients[i];
+  document.getElementById('modal-title').textContent = 'Edit client.';
+  document.getElementById('f-name').value = c.name || '';
+  document.getElementById('f-email').value = c.email || '';
+  document.getElementById('f-password').value = '';
+  document.getElementById('f-password').placeholder = 'Leave blank to keep current';
+  document.getElementById('edit-index').value = i;
+  const assigned = (c.deals||[]).map(d => d.slug);
+  populateTrackers(assigned);
+  document.getElementById('modal').classList.remove('hidden');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.add('hidden');
+  document.getElementById('f-password').placeholder = 'e.g. muthyala2026';
+  editIndex = -1;
+}
+
+function populateTrackers(selectedSlugs) {
+  const list = document.getElementById('tracker-list');
+  if (!trackers.length) {
+    list.innerHTML = PAT
+      ? '<div class="tracker-none">No trackers found in /artifacts/. Build a tracker first.</div>'
+      : '<div class="tracker-none">Enter PAT at login to load trackers.</div>';
+    return;
+  }
+  list.innerHTML = trackers.map(slug => `
+    <label class="tracker-item">
+      <input type="checkbox" name="tracker" value="${slug}" ${selectedSlugs.includes(slug) ? 'checked' : ''}>
+      <div>
+        <div class="tracker-slug">${slug}</div>
+        <div class="tracker-url">${BASE_TRACKER}${slug}/</div>
+      </div>
+    </label>
+  `).join('');
+}
+
+function updateStrength(val) {
+  const bar = document.getElementById('pw-bar');
+  const len = val.length;
+  let width = 0, color = '';
+  if (len === 0) { bar.style.width = '0'; return; }
+  if (len < 8) { width = 25; color = '#e74c3c'; }
+  else if (len < 12) { width = 55; color = '#f39c12'; }
+  else { width = 100; color = '#248A3D'; }
+  bar.style.width = width + '%';
+  bar.style.background = color;
+}
+
+// ── SAVE ──────────────────────────────────────────────────────────────────
+async function saveClient() {
+  const name = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const pw = document.getElementById('f-password').value.trim();
+  const saveBtn = document.getElementById('save-btn');
+
+  if (!name) { showToast('Client name is required.', true); return; }
+
+  const checked = [...document.querySelectorAll('input[name=tracker]:checked')].map(cb => ({
+    slug: cb.value,
+    address: cb.value.replace(/^tracker-/, '').replace(/-/g, ' ')
+  }));
+
+  // Build client object
+  let clientObj;
+  if (editIndex >= 0) {
+    clientObj = { ...clients[editIndex] };
+    clientObj.name = name;
+    if (email) clientObj.email = email;
+    if (pw) {
+      clientObj.passwordHash = await sha256(pw.toLowerCase());
+      clientObj.passwordHint = pw.substring(0,3) + '•'.repeat(Math.max(0, pw.length-3));
+    }
+    clientObj.deals = checked;
+    clients[editIndex] = clientObj;
+  } else {
+    if (!pw) { showToast('Access code is required for new clients.', true); return; }
+    clientObj = {
+      id: 'client_' + Date.now(),
+      name,
+      email: email || '',
+      passwordHash: await sha256(pw.toLowerCase()),
+      passwordHint: pw.substring(0,3) + '•'.repeat(Math.max(0, pw.length-3)),
+      deals: checked,
+      createdAt: new Date().toISOString()
+    };
+    clients.push(clientObj);
+  }
+
+  saveBtn.disabled = true;
+  saveBtn.textContent = 'Saving…';
+
+  const ok = await pushClients();
+  saveBtn.disabled = false;
+  saveBtn.textContent = 'Save client';
+
+  if (ok) {
+    closeModal();
+    renderClients();
+    updateStats();
+    showToast(editIndex >= 0 ? 'Client updated.' : 'Client added.');
+  } else {
+    showToast('Save failed. Check PAT.', true);
+    if (editIndex < 0) clients.pop(); // rollback
+  }
+}
+
+async function deleteClient(i) {
+  if (!confirm(`Delete "${clients[i].name}"? This cannot be undone.`)) return;
+  const removed = clients.splice(i, 1);
+  const ok = await pushClients();
+  if (ok) {
+    renderClients();
+    updateStats();
+    showToast('Client deleted.');
+  } else {
+    clients.splice(i, 0, ...removed); // rollback
+    showToast('Delete failed. Check PAT.', true);
+  }
+}
+
+// ── GITHUB PUSH ───────────────────────────────────────────────────────────
+async function pushClients() {
+  if (!PAT) { showToast('No PAT loaded — cannot save.', true); return false; }
+  try {
+    // GET current SHA
+    const getR = await fetch(
+      `https://api.github.com/repos/${REPO}/contents/${CLIENTS_PATH}?ref=${BRANCH}`,
+      { headers: { Authorization: `Bearer ${PAT}`, Accept: 'application/vnd.github+json' }}
+    );
+    const existing = await getR.json();
+    const sha = existing.sha || null;
+
+    const content = btoa(unescape(encodeURIComponent(
+      JSON.stringify({ clients }, null, 2) + '\n'
+    )));
+
+    const payload = {
+      message: `Update clients.json — ${clients.length} client(s)`,
+      content,
+      branch: BRANCH,
+      ...(sha ? { sha } : {})
+    };
+
+    const putR = await fetch(
+      `https://api.github.com/repos/${REPO}/contents/${CLIENTS_PATH}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: `Bearer ${PAT}`,
+          Accept: 'application/vnd.github+json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      }
+    );
+    return putR.status === 200 || putR.status === 201;
+  } catch { return false; }
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+let toastTimer;
+function showToast(msg, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError ? ' error' : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.className = 'toast', 3000);
+}
+
+// Close modal on overlay click
+document.getElementById('modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal')) closeModal();
+});
+</script>
+</body>
+</html>
