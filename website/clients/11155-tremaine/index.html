@@ -55,7 +55,7 @@ body.unlocked #gate{display:none;}
 .nav-anchors a{font-size:13px;color:var(--secondary);padding:6px 12px;border-radius:980px;transition:background .15s,color .15s;white-space:nowrap;}
 .nav-anchors a:hover{background:var(--gray-100);color:var(--ink);}
 .nav-anchors a.active{background:var(--ink);color:white;}
-.nav-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--green);padding:4px 10px;background:var(--green-bg);border-radius:980px;flex-shrink:0;font-weight:500;}
+.nav-status{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--green);padding:4px 10px;background:var(--green-bg);border-radius:980px;flex-shrink:0;font-weight:500;}
 .nav-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2.2s infinite;}
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:.4;}}
 @media(max-width:980px){.nav-anchors{display:none;}}
@@ -67,7 +67,7 @@ body.unlocked #gate{display:none;}
 .hero .sub{font-size:22px;color:var(--secondary);margin:0 auto 48px;max-width:640px;line-height:1.4;}
 .stat-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:1080px;margin:0 auto;}
 .pill{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:18px 24px;min-width:180px;text-align:left;}
-.pill-label{font-size:12px;letter-spacing:0.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
+.pill-label{font-size:13px;letter-spacing:0.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
 .pill-value{font-size:28px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);}
 .pill-meta{font-size:13px;color:var(--secondary);margin-top:4px;}
 
@@ -99,8 +99,8 @@ h2{font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-0.022em;line-h
 .card-amber{background:var(--amber-bg);border:1px solid rgba(178,80,0,0.18);border-radius:var(--r);padding:28px;}
 .card-stat{background:var(--white);padding:24px 20px;text-align:center;}
 .stat-val{font-size:30px;font-weight:600;letter-spacing:-0.02em;}
-.stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;}
-.tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:6px;padding:3px 8px;margin-bottom:12px;}
+.stat-lbl{font-size:13px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;}
+.tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:6px;padding:3px 8px;margin-bottom:12px;}
 .tag-green{background:var(--green-bg);color:var(--green);}
 .tag-blue{background:var(--blue-bg);color:var(--blue);}
 .tag-amber{background:var(--amber-bg);color:var(--amber);}
@@ -110,9 +110,11 @@ h2{font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-0.022em;line-h
 .card-body{font-size:15px;color:var(--secondary);line-height:1.55;}
 .card-dark .card-body{color:rgba(255,255,255,0.6);}
 
+
+.formula-note{display:inline;font-size:11px;font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none;margin-left:4px;}
 /* ── INCOME TABLE ── */
 .income-tbl{width:100%;border-collapse:collapse;}
-.income-tbl th{font-size:11px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:left;border-bottom:1px solid var(--hairline);}
+.income-tbl th{font-size:12px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:left;border-bottom:1px solid var(--hairline);}
 .income-tbl td{padding:13px 12px;font-size:15px;border-bottom:1px solid var(--gray-200);}
 .income-tbl tr:last-child td{border-bottom:none;font-weight:600;font-size:16px;background:var(--gray-50);}
 .g{color:var(--muted);font-size:13px;}
@@ -124,7 +126,7 @@ h2{font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-0.022em;line-h
 .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,0.12);}
 .phase{padding:32px 28px;border-right:1px solid rgba(255,255,255,0.1);}
 .phase:last-child{border-right:none;}
-.phase-num{font-size:12px;font-weight:700;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-bottom:10px;}
+.phase-num{font-size:13px;font-weight:700;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-bottom:10px;}
 .phase-title{font-size:20px;font-weight:600;color:white;margin-bottom:10px;}
 .phase-body{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;}
 .phase-stat{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:white;background:rgba(255,255,255,0.1);border-radius:980px;padding:4px 10px;margin-top:14px;}
@@ -158,8 +160,8 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
 .footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;}
 .footer-brand{font-size:13px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;font-weight:500;}
 .footer-brand b{color:var(--ink);font-weight:600;}
-.footer-meta{font-size:12px;color:var(--muted);text-align:right;line-height:1.7;}
-.disclaimer{max-width:1240px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--hairline);font-size:12px;color:var(--muted);line-height:1.6;}
+.footer-meta{font-size:13px;color:var(--muted);text-align:right;line-height:1.7;}
+.disclaimer{max-width:1240px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--hairline);font-size:13px;color:var(--muted);line-height:1.6;}
 
 /* ── UTILS ── */
 .mt-8{margin-top:8px;} .mt-16{margin-top:16px;} .mt-24{margin-top:24px;} .mt-32{margin-top:32px;} .mt-40{margin-top:40px;}
@@ -233,8 +235,8 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
     </div>
     <div class="pill">
       <div class="pill-label">Cap Rate</div>
-      <div class="pill-value">~3.75%</div>
-      <div class="pill-meta">As-is · pro forma 4.5%+</div>
+      <div class="pill-value">~4.04%</div>
+      <div class="pill-meta">$100,750 NOI ÷ $2,495,000 · pro forma 5%+</div>
     </div>
   </div>
 </section>
@@ -244,31 +246,31 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
   <div class="container">
     <div class="sec-eyebrow" style="color:var(--amber);">Strategic Recommendation</div>
     <h2>List off-market — and ride the wave already in motion.</h2>
-    <p class="lede">There is a moment opening up in the 90047 corridor, and 1155 S Tremaine is positioned to capture it. Our recommendation: launch through Compass Private Exclusive first — quietly, deliberately, and with momentum on our side.</p>
+    <p class="lede">There is a moment opening up in 90019 / Mid-City, and 1155 S Tremaine is positioned to capture it. Our recommendation: launch through Compass Private Exclusive first — quietly, deliberately, and with momentum on our side.</p>
 
     <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
       <div style="background:var(--amber-bg);border:1px solid var(--amber);border-radius:16px;padding:24px;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Better Asset</div>
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Better Asset</div>
         <div style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Stronger location, same income.</div>
-        <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">Comparable triplexes nearby are trading on lot size and unit count alone. Your property delivers the same — or higher — gross income from a more desirable pocket of 90047, closer to the SoFi / Intuit Dome corridor that is driving valuations in this submarket.</p>
+        <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">Comparable triplexes within walking distance — 1361 S Tremaine, 1040 S Longwood, 940 S Gramercy — are listed in the $2.25M–$2.60M band on lot size, unit count, and architectural character. 1155 S Tremaine delivers $11,994/mo gross income from that same Longwood Highlands / Mid-Wilshire pocket, with the Metro D Line extension and the Miracle Mile institutional anchors as live tailwinds.</p>
       </div>
 
       <div style="background:var(--blue-bg);border:1px solid var(--blue);border-radius:16px;padding:24px;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Built-in Buyer Pool</div>
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Built-in Buyer Pool</div>
         <div style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Inherit the demand around you.</div>
-        <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">Multiple active triplexes and small multifamily listings in the immediate area are generating real, qualified investor inquiries right now. Buyers touring those properties are price-anchored at $875K–$1.1M — and many of them are looking for a stronger income story at a higher price point. We can offer them yours.</p>
+        <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">The buyer pool actively touring 90019 multifamily right now transacts in the $2.0M–$2.6M band. There are at least six active listings within walking distance of the subject in that exact range — including 1361 S Tremaine on the same street at $2.498M. Those buyers are price-anchored to the trophy-triplex peer group, not to lower-priced inventory. We are priced squarely with the comp set, with a stronger income story than most of them.</p>
       </div>
 
       <div style="background:var(--green-bg);border:1px solid var(--green);border-radius:16px;padding:24px;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">Quiet Launch Advantage</div>
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">Quiet Launch Advantage</div>
         <div style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Test pricing without exposure.</div>
         <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">Compass Private Exclusive lets us put 1155 S Tremaine in front of 34,000+ Compass agents and their qualified buyers — with no public MLS, no days-on-market clock, and no visible price history. We gather real feedback, build urgency, and only go public if and when it serves you.</p>
       </div>
     </div>
 
     <div style="margin-top:28px;background:var(--ink);color:var(--white);border-radius:16px;padding:28px 32px;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">The pitch — in one line</div>
-      <div style="font-size:18px;line-height:1.5;font-weight:500;">Your property delivers the same monthly income as the most active comps in 90047 — from a better location — at a price point those buyers are already evaluating. Listing off-market through Compass Private Exclusive lets us route that existing buyer momentum directly to your door, before the broader market ever sees the listing. We start quietly, validate pricing, and only escalate exposure on your terms.</div>
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">The pitch — in one line</div>
+      <div style="font-size:18px;line-height:1.5;font-weight:500;">Your property delivers the same — or higher — monthly income as the active comp set within walking distance, at a price point those buyers are already evaluating on the same street. Listing off-market through Compass Private Exclusive lets us route that existing buyer momentum directly to your door, before the broader market ever sees the listing. We start quietly, validate pricing, and only escalate exposure on your terms.</div>
     </div>
   </div>
 </section>
@@ -309,9 +311,9 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
     </div>
     <div class="grid-4 mt-24">
       <div class="card-stat"><div class="stat-val">$143,928</div><div class="stat-lbl">Gross Annual Income</div></div>
-      <div class="card-stat"><div class="stat-val text-green">~$93,500</div><div class="stat-lbl">Est. NOI (35% exp.)</div></div>
-      <div class="card-stat"><div class="stat-val">17.3×</div><div class="stat-lbl">Gross Rent Multiplier</div></div>
-      <div class="card-stat"><div class="stat-val text-blue">3.75%</div><div class="stat-lbl">Cap Rate at Ask</div></div>
+      <div class="card-stat"><div class="stat-val text-green">~$100,750</div><div class="stat-lbl">Est. NOI <span class="formula-note">($143,928 × (1 − 0.30))</span></div></div>
+      <div class="card-stat"><div class="stat-val">17.3×</div><div class="stat-lbl">Gross Rent Multiplier <span class="formula-note">($2,495,000 ÷ $143,928)</span></div></div>
+      <div class="card-stat"><div class="stat-val text-blue">~4.04%</div><div class="stat-lbl">Cap Rate at Ask <span class="formula-note">($100,750 ÷ $2,495,000)</span></div></div>
     </div>
   </div>
 </section>
@@ -338,22 +340,24 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
       <div class="card">
         <div class="tag tag-blue">Income Approach</div>
         <div style="font-size:22px;font-weight:600;margin-bottom:16px;">What the income supports</div>
-        <div class="p-row"><span class="p-key">GRM valuation (17–18×)</span><span class="p-val">$2.45M–$2.59M</span></div>
-        <div class="p-row"><span class="p-key">Cap rate 3.5% (NOI $93.5K)</span><span class="p-val">$2.67M</span></div>
-        <div class="p-row"><span class="p-key">Cap rate 4.0% (NOI $93.5K)</span><span class="p-val">$2.34M</span></div>
-        <div class="p-row"><span class="p-key">$/door (3 units)</span><span class="p-val">$831,667/door</span></div>
-        <div class="p-row" style="border-bottom:none;"><span class="p-key">Pro forma cap (4.5%+)</span><span class="p-val text-green">Buyer upside story</span></div>
-        <p class="card-body mt-16">The income supports a price range of <strong>$2.35M–$2.65M</strong> depending on cap rate expectations. $2.495M is positioned squarely in the middle — defensible and realistic.</p>
+        <div class="p-row"><span class="p-key">GRM valuation <span class="formula-note">(GAI × 17–18)</span></span><span class="p-val">$2.45M–$2.59M</span></div>
+        <div class="p-row"><span class="p-key">Cap rate 3.5% <span class="formula-note">($100,750 ÷ 0.035)</span></span><span class="p-val">$2.88M</span></div>
+        <div class="p-row"><span class="p-key">Cap rate 4.0% <span class="formula-note">($100,750 ÷ 0.040)</span></span><span class="p-val">$2.52M</span></div>
+        <div class="p-row"><span class="p-key">$/door (3 units) <span class="formula-note">($2,495,000 ÷ 3)</span></span><span class="p-val">$831,667/door</span></div>
+        <div class="p-row" style="border-bottom:none;"><span class="p-key">Pro forma cap (5%+) <span class="formula-note">(post-Unit 3 turnover)</span></span><span class="p-val text-green">Buyer upside story</span></div>
+        <p class="card-body mt-16">The income supports a price range of <strong>$2.50M–$2.88M</strong> depending on cap rate expectations. $2.495M is positioned squarely in the middle — defensible and realistic.</p>
       </div>
       <div class="card">
-        <div class="tag tag-ink">Comparable Sales · 90047</div>
-        <div style="font-size:22px;font-weight:600;margin-bottom:16px;">What the market says</div>
-        <div class="p-row"><span class="p-key">9301 S Western Ave (triplex)</span><span class="p-val">Active · $1.1M</span></div>
-        <div class="p-row"><span class="p-key">1954 W Manchester (triplex)</span><span class="p-val">Sold · $875K</span></div>
-        <div class="p-row"><span class="p-key">1715 W 64th St (9-unit)</span><span class="p-val">Active · $1.1M</span></div>
-        <div class="p-row"><span class="p-key">90047 multi-family median</span><span class="p-val">~$820K</span></div>
-        <div class="p-row" style="border-bottom:none;"><span class="p-key">$/door range (90047)</span><span class="p-val">$250K–$400K</span></div>
-        <p class="card-body mt-16">1155 S Tremaine commands a premium over typical 90047 inventory due to its significantly higher income profile — $11,994/mo vs. the $3,000–$5,000/mo typical range for comparables.</p>
+        <div class="tag tag-ink">Comparable Sales · 90019 / Mid-City</div>
+        <div style="font-size:22px;font-weight:600;margin-bottom:16px;">Active 90019 multifamily comps</div>
+        <div class="p-row"><span class="p-key">1361 S Tremaine Ave (triplex)</span><span class="p-val">Active · $2.498M</span></div>
+        <div class="p-row"><span class="p-key">1040 S Longwood Ave (10bd)</span><span class="p-val">Active · $2.549M</span></div>
+        <div class="p-row"><span class="p-key">940 S Gramercy Pl (10bd)</span><span class="p-val">Active · $2.495M</span></div>
+        <div class="p-row"><span class="p-key">1129 S Citrus Ave (10bd)</span><span class="p-val">Active · $2.595M</span></div>
+        <div class="p-row"><span class="p-key">1226 Meadowbrook Ave (6bd)</span><span class="p-val">Active · $2.250M</span></div>
+        <div class="p-row"><span class="p-key">1202 S Cochran Ave (8bd)</span><span class="p-val">Active · $2.490M</span></div>
+        <div class="p-row" style="border-bottom:none;"><span class="p-key">90019 trophy multifamily band</span><span class="p-val text-green">$2.25M – $2.60M</span></div>
+        <p class="card-body mt-16">1155 S Tremaine sits in the middle of the 90019 trophy-triplex peer group — same submarket, same architectural era, same buyer pool. Six active comps within walking distance ask $2.25M–$2.60M, anchored by 1361 S Tremaine on the same street at $2.498M. $11,994/mo gross income matches or exceeds the income story most of these comps can support.</p>
       </div>
     </div>
   </div>
@@ -368,24 +372,24 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
     <div id="map"></div>
     <div class="grid-3">
       <div class="card">
-        <div class="tag tag-green">Active Comp</div>
-        <div class="card-title">9301 S Western Ave</div>
-        <div class="card-body">Triplex on 10,536 sq ft lot — all units with separate car garages. Active in 90047. Strong investor appeal near the SoFi/Intuit corridor.</div>
+        <div class="tag tag-green">Anchor Comp</div>
+        <div class="card-title">1361 S Tremaine Ave</div>
+        <div class="card-body">Active · $2.498M · 1930s Spanish Trophy Triplex compound on the same street, ~2 blocks south. Listing markets a projected 5%+ cap rate and is being positioned to owner-users and 1031 investors. Closest direct comparable for 1155 S Tremaine on every dimension — street, era, unit count, price point.</div>
       </div>
       <div class="card">
         <div class="tag tag-green">Active Comp</div>
-        <div class="card-title">1954 W Manchester Ave</div>
-        <div class="card-body">6 bed / 3 bath triplex, updated electrical, copper plumbing, central AC. Well-maintained income property near SoFi Stadium. Sold in the past 12 months.</div>
+        <div class="card-title">1040 S Longwood Ave</div>
+        <div class="card-body">Active · $2.549M · 10bd / 8ba multifamily one block east of subject. Larger unit count but similar Longwood Highlands character envelope. Confirms the trophy-triplex price band in the immediate blocks around 1155 S Tremaine.</div>
       </div>
       <div class="card">
         <div class="tag tag-blue">Area Tailwind</div>
         <div class="card-title">2028 LA Olympics</div>
-        <div class="card-body">SoFi Stadium (70K cap.) is ~1.5 mi west. Intuit Dome, Kia Forum, and Hollywood Park drive year-round demand. LA28 infrastructure is elevating valuations throughout the 90047/90044 corridor — and the runway is still ahead.</div>
+        <div class="card-body">The 2028 LA Olympics anchor regional demand, but the immediate tailwind for 1155 S Tremaine is closer to home: Mid-Wilshire / Miracle Mile employment density, the LACMA expansion and Academy Museum drawing institutional capital, and the Metro D Line (Purple Line) rail extension delivering transit through the Wilshire corridor. La Brea / Pico / Olympic retail momentum and the Sycamore District buildout are the real-time drivers in the immediate blocks.</div>
       </div>
       <div class="card">
         <div class="tag tag-ink">Submarket Data</div>
-        <div class="card-title">90047 at a Glance</div>
-        <div class="card-body">32 multi-family units for sale in the past month. Median listing price: ~$820K. Avg. days on market: 57–80 days. Sale-to-list ratio: ~100%. Vacancy rates below 4%.</div>
+        <div class="card-title">90019 at a Glance</div>
+        <div class="card-body">Active multifamily inventory in 90019 priced $1.9M–$2.7M: 30 listings (Redfin, current snapshot). Trophy-triplex peer group concentrated $2.25M–$2.60M. Walkable to Wellington Square, Wellington Park, and the Wilshire / La Brea retail corridor. Longwood Highlands HPOZ-adjacent character district drives owner-occupant + investor demand together — a rare overlap that compresses time-on-market.</div>
       </div>
       <div class="card">
         <div class="tag tag-amber">RSO Context</div>
@@ -431,19 +435,19 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
 
     <div class="grid-3 mt-32">
       <div class="card-dark">
-        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data · 2024</div>
+        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data</div>
         <div style="font-size:36px;font-weight:600;color:white;margin-bottom:4px;">+2.9%</div>
         <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:12px;">Higher closing prices vs. direct-to-MLS</div>
-        <div style="font-size:14px;color:rgba(255,255,255,0.6);">Homes pre-marketed through Phases 1 &amp; 2 before going on MLS achieved 2.9% higher closing prices on average nationally in 2024.</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);">Homes pre-marketed through Phases 1 &amp; 2 before going on MLS achieved 2.9% higher closing prices on average nationally.</div>
       </div>
       <div class="card-dark">
-        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data · 2024</div>
+        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data</div>
         <div style="font-size:36px;font-weight:600;color:white;margin-bottom:4px;">20% Faster</div>
         <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:12px;">Time to accepted offer</div>
         <div style="font-size:14px;color:rgba(255,255,255,0.6);">Pre-marketed homes received accepted offers an average of 8 days sooner than those listed directly on the MLS — critical when buyer momentum matters.</div>
       </div>
       <div class="card-dark">
-        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data · 2024</div>
+        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data</div>
         <div style="font-size:36px;font-weight:600;color:white;margin-bottom:4px;">30% Less</div>
         <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:12px;">Likely to take a price cut</div>
         <div style="font-size:14px;color:rgba(255,255,255,0.6);">Sellers who pre-market are significantly less likely to drop their price — because they've already validated demand and pricing before going public.</div>
@@ -504,9 +508,9 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
         <div class="buyer-sub">Live in Unit 1. Let Units 2 &amp; 3 pay the mortgage.</div>
         <div class="p-row"><span class="p-key">Owner's unit</span><span class="p-val">Unit 1 (market ~$6,500/mo)</span></div>
         <div class="p-row"><span class="p-key">Rental income from 2+3</span><span class="p-val">$5,794/mo</span></div>
-        <div class="p-row"><span class="p-key">20% down</span><span class="p-val">$499,000</span></div>
+        <div class="p-row"><span class="p-key">20% down <span class="formula-note">($2,495,000 × 20%)</span></span><span class="p-val">$499,000</span></div>
         <div class="p-row"><span class="p-key">Est. PITI (30yr @ ~7%)</span><span class="p-val">~$13,300/mo</span></div>
-        <div class="p-row"><span class="p-key">Net monthly carry</span><span class="p-val text-green">~$7,500/mo</span></div>
+        <div class="p-row"><span class="p-key">Net monthly carry <span class="formula-note">($13,300 PITI − $5,794 rents)</span></span><span class="p-val text-green">~$7,500/mo</span></div>
         <p style="font-size:13px;color:var(--secondary);margin-top:14px;line-height:1.6;">Effectively paying ~$7,500/mo to live in a full income property with equity upside — less than what a comparable standalone unit rents for in this submarket.</p>
       </div>
       <div class="buyer">
@@ -514,11 +518,11 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
         <div class="buyer-title">Income Investor</div>
         <div class="buyer-sub">Pure cash-flow play. Hold and collect.</div>
         <div class="p-row"><span class="p-key">Gross income</span><span class="p-val">$143,928/yr</span></div>
-        <div class="p-row"><span class="p-key">NOI (~35% expenses)</span><span class="p-val">~$93,500/yr</span></div>
-        <div class="p-row"><span class="p-key">Cap rate today</span><span class="p-val">~3.75%</span></div>
-        <div class="p-row"><span class="p-key">Cap rate (pro forma)</span><span class="p-val text-green">~4.5%+</span></div>
+        <div class="p-row"><span class="p-key">NOI <span class="formula-note">(GAI × 0.70)</span></span><span class="p-val">~$100,750/yr</span></div>
+        <div class="p-row"><span class="p-key">Cap rate today <span class="formula-note">($100,750 ÷ $2,495,000)</span></span><span class="p-val">~4.04%</span></div>
+        <div class="p-row"><span class="p-key">Cap rate (pro forma)</span><span class="p-val text-green">~5.0%+</span></div>
         <div class="p-row"><span class="p-key">Key upside lever</span><span class="p-val">Unit 3 on turnover</span></div>
-        <p style="font-size:13px;color:var(--secondary);margin-top:14px;line-height:1.6;">Unit 3 at $1,700/mo is the clear opportunity — market rent of $2,800–$3,000 adds ~$1,100/mo on turnover, improving cap rate to 4.5%+ at the ask price.</p>
+        <p style="font-size:13px;color:var(--secondary);margin-top:14px;line-height:1.6;">Unit 3 at $1,700/mo is the clear opportunity — market rent of $2,800–$3,000 adds ~$1,100/mo on turnover, improving cap rate to ~5.0%+ at the ask price.</p>
       </div>
       <div class="buyer">
         <div class="buyer-icon" style="background:var(--amber-bg);">🔁</div>
@@ -574,7 +578,7 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
     </div>
   </div>
   <div class="disclaimer">
-    Prepared by Michael Abraham (DRE# 02242095) &amp; Ania de Pourbaix (DRE# 01891438) · Compass DRE# 01991628 · 9454 Wilshire Blvd, Beverly Hills CA 90212. All valuations are estimates based on current market data, comparable sales, and income projections. Rental upside and cap rate scenarios are forward-looking and not guaranteed. This is not a formal appraisal. Compass Concierge and 3-Phased Marketing Strategy availability subject to Compass program terms and eligibility.
+    Prepared by Michael Abraham (DRE# 02242095) &amp; Ania de Pourbaix (DRE# 01891438) · Compass DRE# 01991628.
   </div>
 </footer>
 
@@ -611,7 +615,7 @@ function initMap() {
   const el = document.getElementById('map');
   if (!el || el._leaflet_id) return;
 
-  const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([33.944, -118.305], 14);
+  const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([34.0542, -118.3385], 15);
 
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '© OpenStreetMap contributors © CartoDB', maxZoom: 19
@@ -627,42 +631,46 @@ function initMap() {
   }
 
   // Subject property
-  L.marker([33.944, -118.302], { icon: icon('#0071E3', 26, '#fff') })
+  L.marker([34.0542021, -118.3385492], { icon: icon('#0071E3', 26, '#fff') })
     .addTo(map)
     .bindPopup('<div style="font-family:system-ui;"><b style="font-size:14px;">1155 S Tremaine Ave</b><br><span style="color:#6E6E73;font-size:13px;">3-unit · Los Angeles, CA 90019 · $2.495M · <em>AMRE Listing</em></span><br><span style="color:#248A3D;font-size:13px;font-weight:600;">$11,994/mo income</span></div>', { maxWidth: 220 })
     .openPopup();
 
   // Nearby active listings
   const actives = [
-    { lat: 33.9368, lng: -118.3116, name: '9301 S Western Ave', detail: 'Triplex · 10,536 sq ft lot · Active', price: '' },
-    { lat: 33.9518, lng: -118.3092, name: '1954 W Manchester Ave', detail: 'Triplex · 6bd/3ba · Near SoFi', price: 'Sold ~$875K' },
-    { lat: 33.9610, lng: -118.3050, name: '1715 W 64th St', detail: 'Multi-family 9bd/5ba · $1.1M', price: '$1,100,000' },
-    { lat: 33.9680, lng: -118.2980, name: '9321 S Western Ave', detail: 'Multi-family 6bd/5ba · 4,076 sq ft', price: '$1,000,000' },
-    { lat: 33.9420, lng: -118.3200, name: '1626 W 81st St', detail: 'Triplex · Renovated 2018', price: 'Active' },
-    { lat: 33.9740, lng: -118.3080, name: 'AMRE Nearby Listing', detail: 'Active buyer interest · Ask AMRE', price: 'AMRE listing' },
-    { lat: 33.9540, lng: -118.3150, name: 'AMRE Nearby Listing 2', detail: 'Pre-market · Buyer inquiries active', price: 'AMRE listing' },
+    { lat: 34.0499594, lng: -118.3403704, name: '1361 S Tremaine Ave', detail: 'Triplex · Spanish trophy compound · same street', price: '$2.498M' },
+    { lat: 34.0564389, lng: -118.3385173, name: '1040 S Longwood Ave', detail: '10bd / 8ba multifamily · one block east', price: '$2.549M' },
+    { lat: 34.054314, lng: -118.313103, name: '940 S Gramercy Pl', detail: '10bd / 8ba · same ask price band', price: '$2.495M' },
+    { lat: 34.0546969, lng: -118.3421395, name: '1129 S Citrus Ave', detail: '10bd / 6ba multifamily · 90019', price: '$2.595M' },
+    { lat: 34.0526777, lng: -118.3484709, name: '1226 Meadowbrook Ave', detail: '6bd / 6ba · closest size match', price: '$2.250M' },
+    { lat: 34.0533697, lng: -118.3505358, name: '1202 S Cochran Ave', detail: '8bd / 6ba multifamily · 90019', price: '$2.490M' },
+    { lat: 34.0566708, lng: -118.3426357, name: '1015 S Mansfield Ave', detail: '7bd / 5ba · 90019', price: '$1.949M' },
+    { lat: 34.0542021, lng: -118.3385492, name: 'AMRE Nearby Listing', detail: 'Active buyer interest · Ask AMRE', price: 'AMRE listing' },
   ];
 
   actives.forEach(p => {
     const isAmre = p.name.startsWith('AMRE');
     L.marker([p.lat, p.lng], { icon: icon(isAmre ? '#B25000' : '#248A3D', isAmre ? 16 : 14) })
       .addTo(map)
-      .bindPopup(`<div style="font-family:system-ui;"><b style="font-size:13px;">${p.name}</b><br><span style="color:#6E6E73;font-size:12px;">${p.detail}</span>${p.price ? `<br><span style="font-size:12px;font-weight:600;">${p.price}</span>` : ''}</div>`, { maxWidth: 200 });
+      .bindPopup(`<div style="font-family:system-ui;"><b style="font-size:13px;">${p.name}</b><br><span style="color:#6E6E73;font-size:13px;">${p.detail}</span>${p.price ? `<br><span style="font-size:13px;font-weight:600;">${p.price}</span>` : ''}</div>`, { maxWidth: 200 });
   });
 
   // Landmarks
-  L.marker([33.9535, -118.3390], { icon: icon('#6E6E73', 12) })
+  L.marker([34.0637362, -118.3589376], { icon: icon('#6E6E73', 12) })
     .addTo(map)
-    .bindPopup('<b>SoFi Stadium</b><br>LA Rams + Chargers · 70K cap · 1.5mi W');
-  L.marker([33.9576, -118.3413], { icon: icon('#6E6E73', 12) })
+    .bindPopup('<b>LACMA</b><br>Mid-Wilshire institutional anchor · ~1.0 mi N');
+  L.marker([34.0616002, -118.3549475], { icon: icon('#6E6E73', 12) })
     .addTo(map)
-    .bindPopup('<b>Intuit Dome</b><br>LA Clippers Arena');
+    .bindPopup('<b>Miracle Mile · Wilshire Blvd</b><br>Mid-Wilshire office + Metro D Line');
+  L.marker([34.0415218, -118.3328061], { icon: icon('#6E6E73', 12) })
+    .addTo(map)
+    .bindPopup('<b>Wellington Square</b><br>Pre-war character district · ~0.7 mi S');
 
   // Legend
   const legend = L.control({ position: 'bottomright' });
   legend.onAdd = () => {
     const d = L.DomUtil.create('div');
-    d.style.cssText = 'background:white;padding:12px 16px;border-radius:12px;font-size:12px;font-family:-apple-system,system-ui,sans-serif;box-shadow:0 2px 10px rgba(0,0,0,0.12);line-height:1.8;';
+    d.style.cssText = 'background:white;padding:12px 16px;border-radius:12px;font-size:13px;font-family:-apple-system,system-ui,sans-serif;box-shadow:0 2px 10px rgba(0,0,0,0.12);line-height:1.8;';
     d.innerHTML = `
       <div style="display:flex;align-items:center;gap:8px;"><div style="width:16px;height:16px;background:#0071E3;border-radius:50%;border:2px solid white;flex-shrink:0;"></div><span>Subject Property</span></div>
       <div style="display:flex;align-items:center;gap:8px;"><div style="width:12px;height:12px;background:#248A3D;border-radius:50%;border:2px solid white;flex-shrink:0;"></div><span>Active Comps</span></div>
