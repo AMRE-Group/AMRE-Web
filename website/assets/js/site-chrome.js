@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  var BASE = '/amre-assets/website';
+  var BASE = '/website';
   var LOGO = 'https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos';
 
   // ── Nav links — edit here, propagates everywhere ──
