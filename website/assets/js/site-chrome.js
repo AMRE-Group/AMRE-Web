@@ -24,7 +24,6 @@
   // ── Right-side actions — edit here, propagates everywhere ──
   // Order: leftmost first. Render in nav AND drawer.
   var ACTIONS = [
-    { href: BASE + '/clients/', label: 'Client Dashboard', style: 'text',   match: /\/clients\// },
     { href: BASE + '/contact/', label: 'Get In Touch',     style: 'button', match: null            }
   ];
 
