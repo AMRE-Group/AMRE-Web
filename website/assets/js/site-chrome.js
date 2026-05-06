@@ -138,4 +138,48 @@
       });
     });
   })();
+
+  // ── BreadcrumbList JSON-LD — auto-generated from URL path for every page ──
+  (function () {
+    try {
+      var path = (location.pathname || '/').replace(/\/+$/, '');
+      if (!path) path = '/';
+      var origin = 'https://amre.group';
+      var crumbs = [{
+        '@type':'ListItem',
+        position: 1,
+        name: 'Home',
+        item: origin + '/'
+      }];
+      if (path !== '/') {
+        var parts = path.split('/').filter(Boolean);
+        var acc = '';
+        parts.forEach(function (p, i) {
+          acc += '/' + p;
+          // Title-case the slug for the breadcrumb name
+          var name = p.replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+          crumbs.push({
+            '@type':'ListItem',
+            position: i + 2,
+            name: name,
+            item: origin + acc + '/'
+          });
+        });
+      }
+      var ld = {
+        '@context':'https://schema.org',
+        '@type':'BreadcrumbList',
+        itemListElement: crumbs
+      };
+      var tag = document.createElement('script');
+      tag.type = 'application/ld+json';
+      tag.id = 'amre-breadcrumb-jsonld';
+      tag.textContent = JSON.stringify(ld);
+      // Avoid duplicate injection
+      if (!document.getElementById('amre-breadcrumb-jsonld')) {
+        document.head.appendChild(tag);
+      }
+    } catch (e) { /* breadcrumb is non-critical */ }
+  })();
+
 })();
