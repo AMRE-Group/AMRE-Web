@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amre.group/sitemap.xml
+Sitemap: https://amre.group/sitemap.xml<!-- Cutover deploy 2026-05-06T23:09:35Z -->
