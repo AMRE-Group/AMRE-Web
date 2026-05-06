@@ -640,3 +640,21 @@ html body .testi-text{
      opacity: 1 !important;
      transform: none !important;
 }
+
+
+/* =====================================================================
+   15) NAV-LINKS — natural flex centering, prevents overlap with brand
+   The page-level inline CSS positions .nav-links absolutely at left:50%,
+   which causes the centered link cluster to overlap the brand logos when
+   the link list is long (e.g. with the OUR PROCESS entry). Switch to a
+   natural flex distribution: brand on the left, nav-links growing into
+   the available middle space (centered within it), CTAs on the right.
+   ===================================================================== */
+.nav-links{
+  position: static !important;
+  left: auto !important;
+  transform: none !important;
+  flex: 1 1 auto !important;
+  justify-content: center !important;
+  min-width: 0 !important;
+}
