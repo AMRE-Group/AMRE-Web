@@ -181,6 +181,27 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .exit-stat-val{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--f)}
 .exit-stat-val.brass{color:#b8860b}
 
+/* ── Return Sources (Where Returns Come From) ── */
+.exit-sources{padding:24px 24px 28px;border-top:1px solid var(--bdr);background:var(--mist)}
+.exit-sources-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--f);margin-bottom:6px}
+.exit-sources-sub{font-size:11px;color:#5a7060;line-height:1.55;margin-bottom:18px}
+.src-row{display:grid;grid-template-columns:170px 1fr 110px;gap:14px;align-items:center;padding:9px 0;font-size:12px}
+.src-row-lbl{color:var(--ink);font-weight:600}
+.src-row-bar{height:8px;background:rgba(28,61,49,.08);border-radius:4px;overflow:hidden}
+.src-row-fill{height:100%;background:var(--f);border-radius:4px;transition:width .5s ease}
+.src-row-fill.brass{background:var(--b)}
+.src-row-fill.neg{background:var(--neg)}
+.src-row-val{font-family:'Playfair Display',serif;font-weight:700;color:var(--f);text-align:right;font-size:15px}
+.src-row-val.neg{color:var(--neg)}
+.src-total{margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#5a7060;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.src-total-val{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--f);text-transform:none;letter-spacing:0}
+@media (max-width:680px){
+  .src-row{grid-template-columns:1fr 90px;grid-template-rows:auto auto;gap:6px 12px}
+  .src-row-lbl{grid-column:1/2;grid-row:1}
+  .src-row-val{grid-column:2/3;grid-row:1}
+  .src-row-bar{grid-column:1/3;grid-row:2}
+}
+
 
 /* ── EMAIL MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(7,11,51,.6);backdrop-filter:blur(6px);z-index:900;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -275,7 +296,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
         <div class="field-head">
           <label>Number of Units</label>
           <div class="tip" tabindex="0"><span>?</span>
-            <div class="tip-box">Total rentable units including ADUs. Each unit is assumed to rent at the same monthly rate below.</div>
+            <div class="tip-box">Total rentable units including ADUs. Used with the per-unit rent below to compute total rent roll.</div>
           </div>
         </div>
         <input type="number" id="units" value="2" oninput="calc()">
@@ -371,12 +392,12 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
       <!-- Rent per unit -->
       <div class="field">
         <div class="field-head">
-          <label>Total Monthly Rent Collected</label>
+          <label>Avg Monthly Rent per Unit</label>
           <div class="tip" tabindex="0"><span>?</span>
-            <div class="tip-box">Total rent collected across all units per month. Use actuals from the rent roll, or estimated market rents. For rent-controlled buildings, legal rent may be below market.</div>
+            <div class="tip-box">Average rent per unit per month. Multiplied by the unit count to compute total rent roll. Use actuals from the rent roll, or estimated market rents. For rent-controlled buildings, legal rent may be below market.</div>
           </div>
         </div>
-        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="rent" value="7000" oninput="calc()"></div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="rent" value="3500" oninput="calc()"></div>
         <div class="field-hint" id="rent-hint"></div>
       </div>
 
@@ -388,8 +409,8 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">% of time units sit empty. 3–5% is standard for stabilized LA multifamily (~11–18 days/yr per unit). Use 8–10% if turnover is expected.</div>
           </div>
         </div>
-        <div class="irow has-suf"><input type="number" id="vac" value="3" oninput="calc()"><div class="suf">%</div></div>
-        <div class="field-hint">3–5% is standard for stabilized LA multifamily.</div>
+        <div class="irow has-suf"><input type="number" id="vac" value="5" oninput="calc()"><div class="suf">%</div></div>
+        <div class="field-hint">3–5% stabilized · LA metro avg ~5.5%</div>
       </div>
 
       <!-- Annual Growth Assumptions — VISIBLE -->
@@ -398,7 +419,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
           <div class="field-head">
             <label>Annual Rent Growth</label>
             <div class="tip" tabindex="0"><span>?</span>
-              <div class="tip-box">Applied to rent in the 10-year projection table. LA multifamily rent growth has historically averaged 3–5% annually.</div>
+              <div class="tip-box">Applied to rent in the 10-year projection. LA multifamily rent growth has historically averaged 3–4%. Important: LA's RSO caps annual increases on covered buildings — typically 4% or less — so 3% is a reasonable long-run blend.</div>
             </div>
           </div>
           <div class="irow has-suf"><input type="number" id="rent-growth" value="3" step="0.5" oninput="calc()"><div class="suf">% / yr</div></div>
@@ -436,10 +457,10 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
           <label>Insurance</label>
           <span class="auto-tag">Auto</span>
           <div class="tip" tabindex="0"><span>?</span>
-            <div class="tip-box">Landlord policy covering building, liability, and loss of rents. Estimated at 0.35% of purchase price. Adjust up for wood-frame, hillside, or fire-zone properties.</div>
+            <div class="tip-box">Landlord policy covering building, liability, and loss of rents. Estimated at 0.5% of purchase price — LA premiums rose 30%+ in 2024 post-wildfires. Adjust up for wood-frame, hillside, or fire-zone properties.</div>
           </div>
         </div>
-        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="ins" value="3500" oninput="calc()"></div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="ins" value="5000" oninput="calc()"></div>
         <div class="field-hint derived" id="ins-hint"></div>
       </div>
 
@@ -452,8 +473,8 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">Covers routine repairs + big-ticket replacements (roof, HVAC, appliances). Standard: 3–5% for newer buildings, 8–12% for older ones.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="maint" value="3" step="1" oninput="calc()"><div class="suf">% rents</div></div>
-          <div class="field-hint">3–5% newer · 8–12% older</div>
+          <div class="irow has-suf"><input type="number" id="maint" value="5" step="1" oninput="calc()"><div class="suf">% rents</div></div>
+          <div class="field-hint">3–5% newer · 8–12% older LA stock</div>
         </div>
         <div class="field">
           <div class="field-head">
@@ -626,6 +647,33 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
           <span class="exit-row-val" id="ex-profit">—</span>
         </div>
       </div>
+
+      <!-- Where Your Returns Come From -->
+      <div class="exit-sources">
+        <div class="exit-sources-title">Where Your Returns Come From</div>
+        <div class="exit-sources-sub">Real estate compounds wealth through three engines simultaneously. Even when monthly cash flow is modest, appreciation and tenant-funded loan paydown silently build equity year after year.</div>
+
+        <div class="src-row">
+          <div class="src-row-lbl">Property Appreciation</div>
+          <div class="src-row-bar"><div class="src-row-fill brass" id="src-app-bar" style="width:0%"></div></div>
+          <div class="src-row-val" id="src-app-val">—</div>
+        </div>
+        <div class="src-row">
+          <div class="src-row-lbl">Principal Paydown</div>
+          <div class="src-row-bar"><div class="src-row-fill" id="src-pay-bar" style="width:0%"></div></div>
+          <div class="src-row-val" id="src-pay-val">—</div>
+        </div>
+        <div class="src-row">
+          <div class="src-row-lbl">Cumulative Cash Flow</div>
+          <div class="src-row-bar"><div class="src-row-fill" id="src-cf-bar" style="width:0%"></div></div>
+          <div class="src-row-val" id="src-cf-val">—</div>
+        </div>
+
+        <div class="src-total">
+          <span>Combined Gross Return</span>
+          <span class="src-total-val" id="src-total-val">—</span>
+        </div>
+      </div>
     </div>
 
     <!-- CTA -->
@@ -657,12 +705,14 @@ function calc() {
   var closingPct = gv('closing-pct') / 100;
   var origPct    = gv('orig-pct') / 100;
   var resMo      = gv('reserves');
-  var rent       = gv('rent');
+  var rentPerUnit = gv('rent');
+  var totalMonthly = rentPerUnit * units;   // total rent across all units per month
+  var rent       = totalMonthly;            // alias kept for downstream code
   var vacP       = gv('vac') / 100;
   var rentGrowth = gv('rent-growth') / 100;
   var apprec     = gv('apprec') / 100;
   var taxes      = gv('taxes');
-  var insPct     = 0.0035; // 0.35% — used only for hint display
+  var insPct     = 0.005; // 0.5% — used only for hint display
   var maintP     = gv('maint') / 100;
   var mgmtP      = gv('mgmt') / 100;
 
@@ -677,7 +727,7 @@ function calc() {
     : (n > 0 ? loan / n : 0);
   var annDebt = mort * 12;
 
-  var gross   = rent * 12; // rent is now total monthly across all units
+  var gross   = rent * 12; // rent is total monthly across all units
   var eff     = gross * (1 - vacP);
   var maintE  = eff * maintP;
   var mgmtE   = eff * mgmtP;
@@ -704,13 +754,13 @@ function calc() {
     '= ' + f(down) + ' down · ' + f(loan) + ' loan';
 
   document.getElementById('rent-hint').textContent =
-    '= ' + f(gross) + '/yr gross · ' + f(rent/12) + '/yr per unit across ' + units + ' units';
+    '= ' + f(totalMonthly) + '/mo total · ' + f(gross) + '/yr gross across ' + units + ' units';
 
   document.getElementById('tax-hint').innerHTML =
     '📐 1.25% × ' + f(pp) + ' = ' + f(taxes) + '/yr (' + f(taxes/12) + '/mo) · Override with actual bill.';
 
   document.getElementById('ins-hint').innerHTML =
-    '📐 0.35% of ' + f(pp) + ' = ' + f(Math.round(pp*0.0035)) + '/yr · current: ' + f(ins) + '/yr (' + f(ins/12) + '/mo) · override anytime';
+    '📐 0.5% of ' + f(pp) + ' = ' + f(Math.round(pp*0.005)) + '/yr · current: ' + f(ins) + '/yr (' + f(ins/12) + '/mo) · override anytime';
 
   document.getElementById('reserves-hint').textContent =
     '= ' + f(reserveAmt) + ' required post-close (' + resMo + ' × ' + f(monthlyPITI) + '/mo PITI)';
@@ -763,14 +813,14 @@ function calc() {
     var futRent = rent * Math.pow(1 + rentGrowth, yr);
     var futGross = futRent * 12; // futRent is already total
     var futEff   = futGross * (1 - vacP);
-    var futOpExp = (taxes + ins) * Math.pow(1.03, yr) + futEff * (maintP + mgmtP);
+    var futOpExp = taxes * Math.pow(1.02, yr) + ins * Math.pow(1.03, yr) + futEff * (maintP + mgmtP);
     var futCf    = futEff - futOpExp - annDebt;
     rows += '<tr><td>Yr ' + yr + '</td><td>' + f(val) + '</td><td class="eq">' + f(eq) + '</td><td class="cf">' + f(futCf) + '</td></tr>';
   }
   document.getElementById('etbody').innerHTML = rows;
   document.getElementById('proj-note').textContent =
     'Assumes ' + (apprec*100).toFixed(0) + '% annual appreciation · ' +
-    (rentGrowth*100).toFixed(0) + '% annual rent growth · fixed expenses grow at 3%/yr.';
+    (rentGrowth*100).toFixed(0) + '% annual rent growth · taxes grow 2%/yr (Prop 13 cap) · insurance 3%/yr.';
 
   // ── Store state for exit analysis ──
   lastCalcData = {
@@ -846,7 +896,7 @@ function updateExit() {
     var futRent  = rent * Math.pow(1 + rentGrowth, y);
     var futGross = futRent * 12;
     var futEff   = futGross * (1 - vacP);
-    var futOpExp = (taxes + ins) * Math.pow(1.03, y) + futEff * (maintP + mgmtP);
+    var futOpExp = taxes * Math.pow(1.02, y) + ins * Math.pow(1.03, y) + futEff * (maintP + mgmtP);
     var futCf    = futEff - futOpExp - annDebt;
     yearCFs.push(futCf);
     if (y <= yr) cumCF += futCf;
@@ -871,6 +921,28 @@ function updateExit() {
   document.getElementById('ex-invested').textContent  = f(invest);
   document.getElementById('ex-profit').textContent    = f(totalProfit);
   document.getElementById('ex-profit').className      = 'exit-row-val ' + (totalProfit >= 0 ? 'pos' : 'neg');
+
+  // ── Where Returns Come From ──
+  var apprecGain = salePrice - pp;     // property value growth
+  var paydown    = loan - bal;          // tenant paid down loan
+  var cfTotal    = cumCF;               // operations
+  var grossReturn = apprecGain + paydown + cfTotal;
+  var maxAbs = Math.max(Math.abs(apprecGain), Math.abs(paydown), Math.abs(cfTotal), 1);
+
+  document.getElementById('src-app-val').textContent = f(apprecGain);
+  document.getElementById('src-pay-val').textContent = f(paydown);
+  document.getElementById('src-cf-val').textContent  = f(cfTotal);
+  document.getElementById('src-app-bar').style.width = (Math.abs(apprecGain) / maxAbs * 100) + '%';
+  document.getElementById('src-pay-bar').style.width = (Math.abs(paydown)    / maxAbs * 100) + '%';
+  document.getElementById('src-cf-bar').style.width  = (Math.abs(cfTotal)    / maxAbs * 100) + '%';
+
+  // Color-code negative cash flow
+  var cfBar = document.getElementById('src-cf-bar');
+  var cfVal = document.getElementById('src-cf-val');
+  if (cfTotal < 0) { cfBar.classList.add('neg'); cfVal.classList.add('neg'); }
+  else             { cfBar.classList.remove('neg'); cfVal.classList.remove('neg'); }
+
+  document.getElementById('src-total-val').textContent = f(grossReturn);
 
   // Bar chart
   var maxCF = Math.max.apply(null, yearCFs.map(Math.abs)) || 1;
@@ -952,7 +1024,7 @@ function buildAnalysisSummary() {
     var fR  = d.rent * Math.pow(1 + d.rentGrowth, y);
     var fG  = fR * 12;
     var fE  = fG * (1 - d.vacP);
-    var fOE = (d.taxes + d.ins) * Math.pow(1.03, y) + fE * (d.maintP + d.mgmtP);
+    var fOE = d.taxes * Math.pow(1.02, y) + d.ins * Math.pow(1.03, y) + fE * (d.maintP + d.mgmtP);
     cumCF += fE - fOE - d.annDebt;
   }
   var totalProfit = netEquity + cumCF - d.invest;
@@ -1005,6 +1077,12 @@ function buildAnalysisSummary() {
     'Total Profit: ' + f(totalProfit),
     'Total ROI: ' + totalROI.toFixed(0) + '%',
     'Annualized (CAGR): ' + cagr.toFixed(1) + '%/yr',
+    '',
+    '=== WHERE YOUR RETURNS COME FROM ===',
+    'Property Appreciation: ' + f(salePrice - d.pp),
+    'Principal Paydown (tenant-funded): ' + f(loan - bal),
+    'Cumulative Cash Flow: ' + f(cumCF),
+    'Combined Gross Return: ' + f((salePrice - d.pp) + (loan - bal) + cumCF),
   ].join('\n');
 }
 
