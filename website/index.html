@@ -774,27 +774,47 @@ details[open] .faq-q::after{transform:rotate(45deg)}
 
 <!-- NEIGHBORHOODS -->
 <section style="background:#fff;padding:96px 24px" id="neighborhoods">
-  <div class="wrap" style="max-width:1100px;margin:0 auto">
+  <div class="wrap" style="max-width:1200px;margin:0 auto">
     <p class="eyebrow f" style="text-align:center">Where We Work</p>
     <h2 class="section-h f" style="text-align:center;margin-bottom:48px">Neighborhood <em>focus.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
-      <a href="/beverly-hills/" style="display:block;padding:32px 28px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s" onmouseover="this.style.borderColor='#1c3d31';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0,0,0,.08)';this.style.transform=''">
-        <h3 style="font-family:var(--serif);font-size:24px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Beverly Hills</h3>
-        <p style="font-size:14px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">The flats, foothills, Trousdale Estates, and BHPO — three sub-markets, three pricing realities.</p>
-        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore Beverly Hills →</span>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px" id="nb-grid">
+      <a href="/beverly-hills/" class="nb-card" style="display:block;padding:28px 24px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Beverly Hills</h3>
+        <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">The flats, foothills, Trousdale. Rodeo Drive and the Greystone estate.</p>
+        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore →</span>
       </a>
-      <a href="/bel-air/" style="display:block;padding:32px 28px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s" onmouseover="this.style.borderColor='#1c3d31';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0,0,0,.08)';this.style.transform=''">
-        <h3 style="font-family:var(--serif);font-size:24px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Bel Air</h3>
-        <p style="font-size:14px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">East Gate, West Gate, Stone Canyon. Privacy, view, and architectural significance drive value.</p>
-        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore Bel Air →</span>
+      <a href="/bel-air/" class="nb-card" style="display:block;padding:28px 24px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Bel Air</h3>
+        <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">East Gate, Stone Canyon, Mulholland. Hotel Bel-Air and the Skirball.</p>
+        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore →</span>
       </a>
-      <a href="/santa-monica/" style="display:block;padding:32px 28px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s" onmouseover="this.style.borderColor='#1c3d31';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='rgba(0,0,0,.08)';this.style.transform=''">
-        <h3 style="font-family:var(--serif);font-size:24px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Santa Monica</h3>
-        <p style="font-size:14px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">North of Montana, Ocean Park, Sunset Park. Coastal-overlay, rent-control, multi-unit expertise.</p>
-        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore Santa Monica →</span>
+      <a href="/santa-monica/" class="nb-card" style="display:block;padding:28px 24px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Santa Monica</h3>
+        <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">North of Montana, Ocean Park, Sunset Park. The Pier and Bergamot Station.</p>
+        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore →</span>
+      </a>
+      <a href="/culver-city/" class="nb-card" style="display:block;padding:28px 24px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Culver City</h3>
+        <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">Sunkist Park, Hayden Tract. Sony, Helms Bakery, the Wende Museum.</p>
+        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore →</span>
+      </a>
+      <a href="/west-adams/" class="nb-card" style="display:block;padding:28px 24px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;color:#1a1a1a;margin-bottom:8px">West Adams</h3>
+        <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">Lafayette Square, Wellington, Sugar Hill. Victorian and Craftsman gold.</p>
+        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore →</span>
+      </a>
+      <a href="/mid-city/" class="nb-card" style="display:block;padding:28px 24px;border:1px solid rgba(0,0,0,.08);border-radius:12px;background:#fff;transition:all .25s">
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:400;color:#1a1a1a;margin-bottom:8px">Mid-City</h3>
+        <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:12px">Hancock Park, Park La Brea, Carthay. LACMA and Museum Row on Wilshire.</p>
+        <span style="font-size:12px;color:#1c3d31;font-weight:500">Explore →</span>
       </a>
     </div>
   </div>
+  <style>
+  .nb-card:hover{border-color:#1c3d31 !important;transform:translateY(-2px)}
+  @media(max-width:860px){#nb-grid{grid-template-columns:1fr 1fr !important}}
+  @media(max-width:560px){#nb-grid{grid-template-columns:1fr !important}}
+  </style>
 </section>
 
 <!-- TESTIMONIALS -->
