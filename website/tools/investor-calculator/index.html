@@ -103,12 +103,13 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .kpi-val{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:white;line-height:1}
 .kpi-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:6px}
 .badge{background:rgba(255,193,60,.2);border:1px solid rgba(255,193,60,.4);color:var(--b);font-size:10px;font-weight:700;letter-spacing:.05em;padding:5px 12px;border-radius:20px;white-space:nowrap}
-.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:18px}
-.mc{background:var(--mist);border-radius:10px;padding:15px;border:1px solid var(--bdr)}
-.mc-lbl{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8a9e92;margin-bottom:5px}
-.mc-val{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--f)}
-.mc-val.pos{color:var(--pos)}.mc-val.neg{color:var(--neg)}
-.mc-det{font-size:10px;color:#8a9e92;margin-top:3px}
+.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:18px}
+.mc{background:var(--mist);border-radius:10px;padding:13px 12px;border:1px solid var(--bdr)}
+.mc-lbl{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8a9e92;margin-bottom:5px}
+.mc-val{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--f);line-height:1.1}
+.mc-val.pos{color:var(--pos)}.mc-val.neg{color:var(--neg)}.mc-val.warn{color:#b58105}
+.mc-det{font-size:10px;color:#8a9e92;margin-top:3px;line-height:1.3}
+@media(max-width:520px){.mgrid{grid-template-columns:1fr 1fr}}
 .brow{margin-bottom:12px}
 .brow-hd{display:flex;justify-content:space-between;font-size:10px;font-weight:600;margin-bottom:6px}
 .brow-hd .lbl{color:#5a7060;letter-spacing:.06em;text-transform:uppercase}
@@ -507,33 +508,46 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
       </div>
     </div>
 
-    <!-- 4 Metrics -->
+    <!-- 6 Metrics -->
     <div class="mgrid">
       <div class="mc">
         <div class="mc-lbl">Cap Rate</div>
         <div class="mc-val" id="r-cap">—</div>
-        <div class="mc-det">Market avg: 4.5–5.5%</div>
+        <div class="mc-det">LA avg: 4.5–5.5%</div>
       </div>
       <div class="mc">
-        <div class="mc-lbl">Gross Rent Mult.</div>
+        <div class="mc-lbl">GRM</div>
         <div class="mc-val" id="r-grm">—</div>
         <div class="mc-det">Target: &lt;14×</div>
       </div>
       <div class="mc">
-        <div class="mc-lbl">Net Op. Income</div>
-        <div class="mc-val" id="r-noi">—</div>
-        <div class="mc-det" id="r-noimo">—</div>
-      </div>
-      <div class="mc">
         <div class="mc-lbl">DSCR</div>
         <div class="mc-val" id="r-dscr">—</div>
-        <div class="mc-det">Min lender req: 1.25×</div>
+        <div class="mc-det">Lender min: 1.25×</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Price / Unit</div>
+        <div class="mc-val" id="r-ppu">—</div>
+        <div class="mc-det" id="r-ppu-det">LA metro avg ~$283k</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Op. Exp. Ratio</div>
+        <div class="mc-val" id="r-oer">—</div>
+        <div class="mc-det">Healthy: 35–55%</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Break-Even Occ.</div>
+        <div class="mc-val" id="r-beo">—</div>
+        <div class="mc-det">Target: &lt;90%</div>
       </div>
     </div>
 
     <!-- Income vs Expense Bars -->
     <div class="panel" style="margin-bottom:18px;padding:24px">
-      <div class="ptitle" style="font-size:15px;margin-bottom:14px">Annual Income vs. Expenses</div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px">
+        <div class="ptitle" style="font-size:15px">Annual Income vs. Expenses</div>
+        <div style="font-size:11px;color:#8a9e92">NOI: <span id="r-noi" style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--f)">—</span> <span id="r-noimo">—</span></div>
+      </div>
       <div class="brow">
         <div class="brow-hd"><span class="lbl">Effective Income</span><span class="amt" id="b-inc">—</span></div>
         <div class="btrack"><div class="bfill inc" id="bf-inc" style="width:100%"></div></div>
@@ -748,6 +762,9 @@ function calc() {
   var cap  = pp > 0     ? (noi / pp) * 100    : 0;
   var grm  = gross > 0  ? pp / gross           : 0;
   var dscr = annDebt > 0 ? noi / annDebt       : 0;
+  var ppu  = units > 0  ? pp / units           : 0;          // price per unit
+  var oer  = eff > 0    ? (opExp / eff) * 100  : 0;          // operating expense ratio
+  var beo  = gross > 0  ? ((opExp + annDebt) / gross) * 100 : 0; // break-even occupancy %
 
   // ── Update hints ──
   document.getElementById('dp-hint').textContent =
@@ -785,11 +802,37 @@ function calc() {
   // ── Metrics ──
   document.getElementById('r-cap').textContent  = fp(cap);
   document.getElementById('r-cap').className    = 'mc-val ' + (cap  >= 4.5  ? 'pos' : 'neg');
+
   document.getElementById('r-grm').textContent  = grm.toFixed(1) + '×';
-  document.getElementById('r-noi').textContent  = f(noi);
-  document.getElementById('r-noimo').textContent = f(noi/12) + '/mo';
+  document.getElementById('r-grm').className    = 'mc-val ' + (grm <= 12 ? 'pos' : grm <= 14 ? 'warn' : 'neg');
+
   document.getElementById('r-dscr').textContent = dscr.toFixed(2) + '×';
-  document.getElementById('r-dscr').className   = 'mc-val ' + (dscr >= 1.25 ? 'pos' : 'neg');
+  document.getElementById('r-dscr').className   = 'mc-val ' + (dscr >= 1.25 ? 'pos' : dscr >= 1.0 ? 'warn' : 'neg');
+
+  // NOI now lives in the income/expenses panel header
+  document.getElementById('r-noi').textContent  = f(noi);
+  document.getElementById('r-noimo').textContent = '(' + f(noi/12) + '/mo)';
+
+  // Price per Unit + submarket positioning
+  document.getElementById('r-ppu').textContent  = ppu >= 1_000_000 ? '$' + (ppu/1_000_000).toFixed(2) + 'M' : '$' + Math.round(ppu/1000) + 'k';
+  var ppuLabel =
+    ppu >= 500_000 ? 'Westside / trophy tier' :
+    ppu >= 350_000 ? 'Mid-city / urban core' :
+    ppu >= 250_000 ? 'Eastside / Valley tier' :
+    ppu >  0       ? 'Below LA metro avg ($283k)' : 'LA metro avg ~$283k';
+  document.getElementById('r-ppu-det').textContent = ppuLabel;
+
+  // Operating Expense Ratio (lower is better, but very low = likely understated)
+  document.getElementById('r-oer').textContent = oer.toFixed(0) + '%';
+  document.getElementById('r-oer').className   = 'mc-val ' +
+    (oer >= 35 && oer <= 55 ? 'pos' :
+     oer < 35               ? 'warn' :   // suspiciously low
+                              'neg');     // too high
+
+  // Break-Even Occupancy (lower = more margin)
+  document.getElementById('r-beo').textContent = beo.toFixed(0) + '%';
+  document.getElementById('r-beo').className   = 'mc-val ' +
+    (beo <= 90 ? 'pos' : beo <= 95 ? 'warn' : 'neg');
 
   // ── Bars ──
   var mx = Math.max(eff, 1);
@@ -1039,6 +1082,11 @@ function buildAnalysisSummary() {
   var cap   = d.pp > 0 ? (noi / d.pp) * 100 : 0;
   var coc   = d.invest > 0 ? (cf / d.invest) * 100 : 0;
   var dscr  = d.annDebt > 0 ? noi / d.annDebt : 0;
+  var grm   = gross > 0 ? d.pp / gross : 0;
+  var unitsForEmail = gv('units');
+  var ppu   = unitsForEmail > 0 ? d.pp / unitsForEmail : 0;
+  var oer   = eff > 0 ? (opExp / eff) * 100 : 0;
+  var beo   = gross > 0 ? ((opExp + d.annDebt) / gross) * 100 : 0;
   var down  = d.pp * (gv('dp') / 100);
   var closingAmt = d.pp * (gv('closing-pct') / 100);
   var origAmt    = loan * (gv('orig-pct') / 100);
@@ -1050,16 +1098,20 @@ function buildAnalysisSummary() {
   return [
     '=== PROPERTY ANALYSIS ===',
     'Purchase Price: ' + f(d.pp),
+    'Price per Unit: ' + f(ppu) + ' (' + unitsForEmail + ' units)',
     'Down Payment: ' + f(down) + ' (' + gv('dp') + '%)',
     'Loan Amount: ' + f(loan),
     'Interest Rate: ' + gv('ir') + '% / ' + gv('lterm') + '-yr',
     '',
-    '=== RETURNS ===',
+    '=== RETURNS & UNDERWRITING ===',
     'Cash-on-Cash Return: ' + coc.toFixed(2) + '%',
     'Cap Rate: ' + cap.toFixed(2) + '%',
+    'GRM: ' + grm.toFixed(1) + 'x',
     'NOI: ' + f(noi) + '/yr (' + f(noi/12) + '/mo)',
     'Annual Cash Flow: ' + f(cf) + ' (' + f(cf/12) + '/mo)',
     'DSCR: ' + dscr.toFixed(2) + 'x',
+    'Operating Expense Ratio: ' + oer.toFixed(0) + '%',
+    'Break-Even Occupancy: ' + beo.toFixed(0) + '%',
     '',
     '=== CASH TO CLOSE ===',
     'Down Payment: ' + f(down),
