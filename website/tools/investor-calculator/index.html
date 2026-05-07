@@ -153,10 +153,16 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .cf-chart{padding:20px 24px 8px}
 .cf-chart-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8a9e92;margin-bottom:4px}
 .cf-chart-sub{font-size:10px;color:#8a9e92;margin-bottom:14px;line-height:1.4}
-.cf-bars{display:flex;gap:6px;align-items:stretch;height:120px;position:relative;margin-bottom:6px}
-.cf-zeroline{position:absolute;left:0;right:0;height:1px;background:rgba(28,61,49,.25);pointer-events:none;z-index:1}
-.cf-zeroline::before{content:'$0';position:absolute;left:0;top:-8px;font-size:9px;color:#8a9e92;font-weight:600;background:white;padding:0 4px}
-.cf-bar-wrap{flex:1;display:flex;flex-direction:column;cursor:pointer;position:relative}
+.cf-chart-area{position:relative;padding-left:42px;padding-bottom:22px}
+.cf-axis{position:absolute;left:0;top:0;bottom:22px;width:38px;pointer-events:none}
+.cf-axis-pos{position:absolute;left:0;right:6px;top:0;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pos);text-align:right}
+.cf-axis-neg{position:absolute;left:0;right:6px;bottom:0;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--neg);text-align:right}
+.cf-axis-zero{position:absolute;left:0;right:6px;font-size:10px;font-weight:700;color:#1a1a1a;text-align:right;transform:translateY(-50%)}
+.cf-bars{display:flex;gap:6px;align-items:stretch;height:140px;position:relative}
+.cf-zoneline-pos{position:absolute;left:0;right:0;background:rgba(46,125,82,.04);pointer-events:none}
+.cf-zoneline-neg{position:absolute;left:0;right:0;background:rgba(180,83,9,.06);pointer-events:none}
+.cf-zeroline{position:absolute;left:0;right:0;height:1.5px;background:#1a1a1a;pointer-events:none;z-index:2}
+.cf-bar-wrap{flex:1;display:flex;flex-direction:column;cursor:pointer;position:relative;z-index:3}
 .cf-bar-slot{flex:1;position:relative}
 .cf-bar-col{position:absolute;left:10%;right:10%;border-radius:3px 3px 0 0;transition:all .3s ease;background:var(--pos);min-height:2px}
 .cf-bar-col.neg{background:var(--neg);border-radius:0 0 3px 3px}
@@ -613,7 +619,14 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
       <div class="cf-chart">
         <div class="cf-chart-title">Annual Cash Flow by Year</div>
         <div class="cf-chart-sub">Rent grows ~3%/yr, mortgage payment is frozen for 30 years — so the gap between income and debt service widens every year.</div>
-        <div class="cf-bars" id="cfBars"></div>
+        <div class="cf-chart-area">
+          <div class="cf-axis">
+            <div class="cf-axis-pos">Profit ▲</div>
+            <div class="cf-axis-zero" id="cfAxisZero">$0</div>
+            <div class="cf-axis-neg">▼ Loss</div>
+          </div>
+          <div class="cf-bars" id="cfBars"></div>
+        </div>
       </div>
 
       <!-- Stat summary row -->
@@ -1007,7 +1020,16 @@ function updateExit() {
   var zeroPct = (maxPos / range) * 100;
 
   var barsEl = document.getElementById('cfBars');
-  barsEl.innerHTML = '<div class="cf-zeroline" style="top:' + zeroPct.toFixed(2) + '%"></div>';
+  // Zone backgrounds + zero line
+  var bgHtml =
+    '<div class="cf-zoneline-pos" style="top:0;height:' + zeroPct.toFixed(2) + '%"></div>' +
+    '<div class="cf-zoneline-neg" style="top:' + zeroPct.toFixed(2) + '%;bottom:0"></div>' +
+    '<div class="cf-zeroline" style="top:' + zeroPct.toFixed(2) + '%"></div>';
+  barsEl.innerHTML = bgHtml;
+
+  // Position the $0 axis label to match the zero line vertical position
+  var axisZero = document.getElementById('cfAxisZero');
+  if (axisZero) axisZero.style.top = zeroPct.toFixed(2) + '%';
 
   yearCFs.forEach(function(v, i) {
     var y = i + 1;
