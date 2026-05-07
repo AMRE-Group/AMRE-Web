@@ -83,10 +83,10 @@ body.unlocked #gate{display:none;}
 .hero-eyebrow{font-size:13px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;}
 .hero h1{font-size:clamp(52px,7vw,88px);font-weight:600;letter-spacing:-0.04em;line-height:1.04;margin:0 0 16px;max-width:1100px;margin-left:auto;margin-right:auto;}
 .hero .sub{font-size:22px;color:var(--secondary);margin:0 auto 48px;max-width:640px;line-height:1.4;}
-.stat-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:1080px;margin:0 auto;}
-.pill{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:18px 24px;min-width:180px;text-align:left;}
+.stat-pills{display:flex;gap:10px;justify-content:center;flex-wrap:nowrap;max-width:1240px;margin:0 auto;}@media(max-width:980px){.stat-pills{flex-wrap:wrap;}}
+.pill{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:16px 18px;min-width:0;flex:1 1 0;text-align:left;}
 .pill-label{font-size:13px;letter-spacing:0.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
-.pill-value{font-size:28px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);}
+.pill-value{font-size:24px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);white-space:nowrap;}
 .pill-meta{font-size:13px;color:var(--secondary);margin-top:4px;}
 
 /* ── SECTIONS ── */
@@ -99,7 +99,7 @@ section{padding:88px 24px;}
 .section-dark .sec-eyebrow{color:rgba(255,255,255,0.45);}
 h2{font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-0.022em;line-height:1.08;margin:0 0 12px;text-align:center;}
 .section-dark h2{color:white;}
-.lede{font-size:19px;color:var(--secondary);max-width:600px;margin:0 auto 56px;text-align:center;line-height:1.4;}
+.lede{font-size:19px;color:var(--secondary);max-width:600px;margin:0 auto 56px;text-align:center;line-height:1.4;}#recommendation .lede{max-width:900px;}
 .section-dark .lede{color:rgba(255,255,255,0.6);}
 
 /* ── GRID ── */
@@ -342,9 +342,15 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
     <div class="sec-eyebrow">Pricing Analysis</div>
     <h2>How we landed on $2.495M.</h2>
     <p class="lede">A combination of income-based valuation, comparable sales, and the seller's $2.2M net target.</p>
-    <div style="margin-top:18px;background:#FFF3D6;border:1px solid #E8B85B;border-left:4px solid #B25000;border-radius:10px;padding:16px 18px;">
-      <div style="font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:#8A4A0A;font-weight:600;margin-bottom:6px;">Honest context &middot; prior listing</div>
-      <div style="font-size:14px;line-height:1.55;color:var(--ink);">1155 S Tremaine was previously listed on-market at <strong>$2,400,000</strong> and expired after <strong>182 days</strong>. We read that as a <em>channel</em> outcome, not a price outcome &mdash; the active comp set today shows median 82 DOM and two price cuts at $2.50M+, so the on-market path is not currently rewarding even well-priced trophy triplexes. The off-market plan below is structured specifically to avoid creating a third public DOM data point on this property.</div>
+    <div style="margin-top:18px;background:#FFF3D6;border:1px solid #E8B85B;border-left:4px solid #B25000;border-radius:10px;padding:20px 22px;">
+<div style="font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:#8A4A0A;font-weight:600;margin-bottom:10px;">Honest context &middot; the prior listing</div>
+<div style="font-size:14.5px;line-height:1.6;color:var(--ink);">
+<p style="margin:0 0 12px;">1155 S Tremaine was listed publicly at <strong>$2,400,000</strong> and didn't sell after <strong>182 days</strong>. We don't think that means the price was wrong &mdash; we think it means the public market is the wrong channel right now.</p>
+<p style="margin:0 0 12px;">Here's why: comparable triplexes priced at $2.5M+ are also struggling. The median time on market is <strong>82 days</strong>, and <strong>two of them have already cut their price</strong>. So even well-priced trophy triplexes aren't getting rewarded on the MLS today.</p>
+<p style="margin:0 0 12px;">Listing it publicly a second time would risk a third strike &mdash; another expired listing on the property's permanent record, visible to every future buyer. That's the outcome we're structuring this plan to avoid.</p>
+<p style="margin:0;"><strong>The plan:</strong> sell it off-market, quietly, to a curated pool of buyers &mdash; so the property gets a real price without another public failure attached to it.</p>
+</div>
+</div>
     </div>
 
     <div class="grid-3 mt-32">
@@ -352,13 +358,14 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
         <div class="tag tag-green">Seller's Objective</div>
         <div style="font-size:36px;font-weight:600;letter-spacing:-0.02em;margin-bottom:6px;">$2,200,000</div>
         <div style="font-size:13px;color:var(--secondary);">Target net proceeds</div>
-        <div class="mt-16" style="font-size:14px;line-height:1.6;color:var(--secondary);">At $2.495M list with 2.5% commission ($62,375) and estimated closing costs (~$30K–$40K), the seller nets approximately <strong>$2.39M gross</strong>. After all costs, the $2.2M target is well within reach.</div>
+        <div class="mt-16" style="font-size:14px;line-height:1.6;color:var(--secondary);">At $2.495M list with 2.5% AMRE commission ($62,375), a potential 2.5% buyer's agent commission ($62,375), and estimated closing costs (~$30K–$40K), the seller nets approximately <strong>$2.33M–$2.34M</strong>. The $2.2M target is still cleared with cushion to spare.</div>
         <div class="mt-16 p-row" style="border-top:1px solid rgba(36,138,61,0.15);">
           <span class="p-key">List price</span><span class="p-val">$2,495,000</span>
         </div>
-        <div class="p-row"><span class="p-key">AMRE commission (2.5%)</span><span class="p-val">−$62,375</span></div>
-        <div class="p-row"><span class="p-key">Est. closing costs</span><span class="p-val">−$30,000–$40,000</span></div>
-        <div class="p-row" style="border-bottom:none;"><span class="p-key"><strong>Est. net proceeds</strong></span><span class="p-val" style="color:var(--green);"><strong>~$2.39M+</strong></span></div>
+        <div class="p-row"><span class="p-key">AMRE commission (2.5%)</span><span class="p-val">&minus;$62,375</span></div>
+  <div class="p-row"><span class="p-key">Buyer&#39;s agent commission (2.5%, potential)</span><span class="p-val">&minus;$62,375</span></div>
+  <div class="p-row"><span class="p-key">Est. closing costs</span><span class="p-val">&minus;$30,000&ndash;$40,000</span></div>
+  <div class="p-row" style="border-bottom:none;"><span class="p-key"><strong>Est. net proceeds</strong></span><span class="p-val" style="color:var(--green);"><strong>~$2.33M&ndash;$2.34M</strong></span></div>
       </div>
       <div class="card">
         <div class="tag tag-blue">Income Approach</div>
@@ -556,7 +563,7 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
       <div class="phase" style="background:rgba(255,255,255,0.04);">
         <div class="phase-num">PHASE 01</div>
         <div class="phase-title">Private Exclusive</div>
-        <div class="phase-body">Your property is quietly marketed to Compass's nationwide network of 34,000+ top agents and their qualified buyers. No public MLS. No days on market accumulating. No public price drops. Test pricing, gather real feedback, and sometimes find a buyer willing to pay a premium for certainty and early access. All inquiries route directly to Michael &amp; Ania — no lead diversion to third-party agents.<br><br><strong style="color:white;">This is where we start for 1155 S Tremaine.</strong> Tenant-occupied status makes discretion the right call.</div>
+        <div class="phase-body">Your property is quietly marketed to Compass's nationwide network of 34,000+ top agents and their qualified buyers. No public MLS. No days on market accumulating. No public price drops. Test pricing, gather real feedback, and sometimes find a buyer willing to pay a premium for certainty and early access. All inquiries route directly to Michael &amp; Ania — no lead diversion to third-party agents.<br><br><strong style="color:white;">This is where we start for 1155 S Tremaine.</strong> Tenant-occupied status makes discretion the right call. In week one, we preview directly to the agents already touring 1361 S Tremaine, 1129 S Citrus, and 4756 Edgewood — the active buyer pool walking the same blocks today.</div>
         <div class="phase-stat">34,000+ Compass agents</div>
       </div>
       <div class="phase" style="background:rgba(255,255,255,0.06);">
@@ -622,13 +629,13 @@ footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--h
         <div class="card-title">Pre-sale improvements that move the needle</div>
         <div class="card-body mt-8">For an income property like 1155 S Tremaine, Compass Concierge can fund:</div>
         <ul style="font-size:15px;color:var(--secondary);line-height:1.7;margin-top:12px;padding-left:20px;">
-          <li>Fresh exterior and common area paint</li>
-          <li>Landscaping and curb appeal improvements</li>
-          <li>Deep cleaning and professional staging for photography</li>
-          <li>Minor plumbing or electrical touchups</li>
-          <li>Roof, gutters, or exterior repairs</li>
-          <li>Unit 3 improvements if delivered vacant (maximizes turnover value)</li>
-        </ul>
+  <li><strong style="color:var(--ink);">Unit 3 turn-ready refresh (priority lever)</strong> &mdash; funds the cosmetic refresh that lets Unit 3 deliver vacant at market rent ($2,800&ndash;$3,000/mo vs. current $1,700). This single move is what takes cap rate from <strong>~4.04% to ~5.0%+</strong> and unlocks the buyer upside story.</li>
+  <li>Fresh exterior and common area paint</li>
+  <li>Landscaping and curb appeal improvements</li>
+  <li>Deep cleaning and professional staging for photography</li>
+  <li>Minor plumbing or electrical touchups</li>
+  <li>Roof, gutters, or exterior repairs</li>
+  </ul>
         <div class="card-body mt-16" style="font-size:13px;background:var(--green-bg);padding:12px;border-radius:10px;color:var(--green);">Even small improvements — fresh exterior paint, cleaned common areas — can meaningfully improve first impressions for investor buyers touring the property. This is especially impactful for Compass Private Exclusive showings where the first impression is everything.</div>
       </div>
     </div>
