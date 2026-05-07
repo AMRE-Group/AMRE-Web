@@ -1121,6 +1121,218 @@
     line-height: 1.5;
   }
 
+  /* ===== SWEEP / TO-DO ===== */
+  .sweep-hero {
+    background: linear-gradient(180deg, #fff 0%, var(--gray-bg-2) 100%);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 32px 32px 28px;
+    margin-bottom: 16px;
+  }
+  .sweep-hero-eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px;
+  }
+  .sweep-hero-title {
+    font-size: 30px; font-weight: 700; letter-spacing: -0.022em;
+    color: var(--ink); margin-bottom: 8px;
+  }
+  .sweep-hero-sub { font-size: 15px; color: var(--ink-2); max-width: 760px; line-height: 1.55; }
+
+  .sweep-scorecard {
+    background: #fff;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+  .sweep-score-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; margin-bottom: 14px;
+  }
+  .sweep-score-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px;
+  }
+  .sweep-score-title { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .sweep-score-meta {
+    font-size: 24px; font-weight: 700; color: var(--blue);
+    font-feature-settings: 'tnum';
+  }
+  .sweep-score-meta-of { font-size: 14px; color: var(--ink-3); font-weight: 500; }
+  .sweep-score-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+  }
+  .sweep-score-cell {
+    background: var(--gray-bg); border: 1.5px solid transparent;
+    border-radius: 12px; padding: 12px 8px;
+    cursor: pointer; transition: all 0.15s;
+    font-family: inherit;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .sweep-score-cell:hover { background: #ECECF0; transform: translateY(-1px); }
+  .sweep-score-cell.done {
+    background: rgba(52, 199, 89, 0.1);
+    border-color: var(--green);
+  }
+  .sweep-score-cell-icon { font-size: 20px; }
+  .sweep-score-cell-label { font-size: 11px; font-weight: 600; color: var(--ink-2); }
+  .sweep-score-cell.done .sweep-score-cell-label { color: var(--green); }
+
+  .sweep-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-bottom: 32px;
+  }
+  .sweep-stat {
+    background: #fff; border: 1px solid var(--hairline);
+    border-radius: var(--radius); padding: 18px 16px;
+  }
+  .sweep-stat-num {
+    font-size: 28px; font-weight: 700; color: var(--ink);
+    letter-spacing: -0.02em; line-height: 1; margin-bottom: 6px;
+    font-feature-settings: 'tnum';
+  }
+  .sweep-stat-num.alert { color: var(--amber); }
+  .sweep-stat-label {
+    font-size: 12px; color: var(--ink-3); line-height: 1.35;
+  }
+
+  .sweep-section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .sweep-section-title {
+    font-size: 22px; font-weight: 700; color: var(--ink);
+    letter-spacing: -0.018em;
+  }
+  .sweep-section-count {
+    display: inline-block; margin-left: 8px;
+    background: var(--gray-bg); color: var(--ink-2);
+    font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 12px;
+  }
+  .sweep-section-sub { font-size: 13px; color: var(--ink-3); }
+
+  .sweep-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;
+  }
+  .sweep-card {
+    background: #fff; border: 1px solid var(--hairline);
+    border-radius: var(--radius); padding: 18px 20px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .sweep-card:hover { border-color: #C7C7CC; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+  .sweep-card-skip { background: var(--gray-bg-2); opacity: 0.78; }
+  .sweep-card-routed { background: #FBFAFE; border-color: #E0DDF0; }
+
+  .sweep-card-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 12px; margin-bottom: 6px;
+  }
+  .sweep-card-name {
+    font-size: 16px; font-weight: 600; color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .sweep-card-pills { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+  .sweep-pill {
+    font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px;
+    letter-spacing: 0.02em; white-space: nowrap;
+  }
+  .sweep-pill.owner-michael { background: #E5F0FF; color: #0040A0; }
+  .sweep-pill.owner-ania    { background: #F2EAFE; color: #5B2BB5; }
+  .sweep-pill.hot           { background: #FFE9E5; color: #B8341A; }
+  .sweep-pill.warm          { background: #FFF4D9; color: #8C5800; }
+  .sweep-pill.cool          { background: #E8F2FF; color: #00569E; }
+  .sweep-pill.skip          { background: #ECECF0; color: var(--ink-3); }
+  .sweep-pill.needs-info    { background: #FFF1F4; color: #C73650; }
+
+  .sweep-card-meta {
+    font-size: 12.5px; color: var(--ink-3); margin-bottom: 10px;
+  }
+  .sweep-card-action {
+    font-size: 14px; color: var(--ink); line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .sweep-card-action strong { font-weight: 600; }
+  .sweep-card-action em { color: var(--ink-2); font-style: italic; }
+
+  .sweep-draft {
+    border-top: 1px solid var(--hairline-soft); padding-top: 10px;
+    margin-top: 4px;
+  }
+  .sweep-draft summary {
+    cursor: pointer; font-size: 13px; color: var(--blue); font-weight: 600;
+    list-style: none; padding: 6px 0;
+    transition: color 0.15s;
+  }
+  .sweep-draft summary::-webkit-details-marker { display: none; }
+  .sweep-draft summary::before {
+    content: '›'; display: inline-block;
+    margin-right: 6px; transition: transform 0.2s;
+    font-weight: 700; font-size: 14px;
+  }
+  .sweep-draft[open] summary::before { transform: rotate(90deg); }
+  .sweep-draft summary em {
+    font-style: italic; color: var(--ink-2); font-weight: 500;
+  }
+  .sweep-draft-body {
+    background: var(--gray-bg); border-radius: 10px;
+    padding: 14px 16px; margin-top: 10px;
+    font-size: 13.5px; color: var(--ink); line-height: 1.55;
+    white-space: pre-wrap; font-family: var(--sans);
+  }
+  .sweep-draft-actions {
+    display: flex; gap: 8px; margin-top: 10px;
+  }
+  .sweep-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 7px 14px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 600; cursor: pointer;
+    border: 1px solid transparent; font-family: inherit;
+    transition: all 0.15s;
+  }
+  .sweep-btn.primary { background: var(--blue); color: #fff; }
+  .sweep-btn.primary:hover { background: #005CBF; }
+  .sweep-btn.ghost { background: #fff; color: var(--ink); border-color: var(--hairline); }
+  .sweep-btn.ghost:hover { background: var(--gray-bg); }
+  .sweep-btn.copied { background: var(--green); }
+
+  .sweep-os {
+    margin-top: 40px;
+    background: var(--ink); color: #F5F5F7;
+    border-radius: var(--radius-lg); padding: 28px 32px;
+  }
+  .sweep-os-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5);
+    margin-bottom: 18px;
+  }
+  .sweep-os-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+    margin-bottom: 22px;
+  }
+  .sweep-os-block { }
+  .sweep-os-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: rgba(255,255,255,0.55);
+    margin-bottom: 6px;
+  }
+  .sweep-os-label.red { color: #FF6B5C; }
+  .sweep-os-text { font-size: 13.5px; color: rgba(255,255,255,0.9); line-height: 1.55; }
+  .sweep-os-text strong { color: #fff; font-weight: 600; }
+  .sweep-os-stop {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 18px;
+  }
+
+  @media (max-width: 760px) {
+    .sweep-grid { grid-template-columns: 1fr; }
+    .sweep-strip { grid-template-columns: repeat(2, 1fr); }
+    .sweep-os-grid { grid-template-columns: repeat(2, 1fr); }
+    .sweep-score-grid { grid-template-columns: repeat(5, 1fr); }
+    .sweep-score-cell-label { font-size: 10px; }
+  }
+
   /* ===== PIPELINE / FORECAST ===== */
   .pipe-hero {
     background: linear-gradient(135deg, #0A4D2E 0%, #2E7D32 100%);
@@ -2025,6 +2237,10 @@
         CRM
         <span class="bucket-tab-count">7</span>
       </button>
+      <button class="bucket-tab" data-bucket="sweep" role="tab">
+        Sweep
+        <span class="bucket-tab-count">16</span>
+      </button>
       <button class="bucket-tab" data-bucket="pipeline" role="tab">
         Pipeline
         <span class="bucket-tab-count">$284K</span>
@@ -2749,6 +2965,481 @@
       </div>
 
     </div><!-- /tab-crm -->
+
+    <!-- ===== SWEEP / TO-DO PANE ===== -->
+    <div class="bucket-pane" id="tab-sweep">
+
+      <!-- Hero strip -->
+      <div class="sweep-hero">
+        <div class="sweep-hero-eyebrow">Voice-note sweep · May 7, 2026 · 1:49 PM PT</div>
+        <div class="sweep-hero-title">People &gt; tasks. Be visible. Be decisive.</div>
+        <div class="sweep-hero-sub">Live action items pulled from voice notes + inbox triage. Each card carries draft language ready to send. Owner pills mark whose move it is.</div>
+      </div>
+
+      <!-- Daily scorecard mini -->
+      <div class="sweep-scorecard">
+        <div class="sweep-score-head">
+          <div>
+            <div class="sweep-score-eyebrow">Daily scorecard · 3/5 = good · 5/5 = winning</div>
+            <div class="sweep-score-title">Show up sharp. Talk to people. Build momentum.</div>
+          </div>
+          <div class="sweep-score-meta"><span id="sweepScoreCount">0</span><span class="sweep-score-meta-of">/5</span></div>
+        </div>
+        <div class="sweep-score-grid">
+          <button class="sweep-score-cell" data-score="gym">
+            <div class="sweep-score-cell-icon">🏋️</div>
+            <div class="sweep-score-cell-label">Gym</div>
+          </button>
+          <button class="sweep-score-cell" data-score="sharp">
+            <div class="sweep-score-cell-icon">👔</div>
+            <div class="sweep-score-cell-label">Look sharp</div>
+          </button>
+          <button class="sweep-score-cell" data-score="content">
+            <div class="sweep-score-cell-icon">🎬</div>
+            <div class="sweep-score-cell-label">Content touch</div>
+          </button>
+          <button class="sweep-score-cell" data-score="reachout">
+            <div class="sweep-score-cell-icon">📞</div>
+            <div class="sweep-score-cell-label">Reach out 1–2</div>
+          </button>
+          <button class="sweep-score-cell" data-score="social">
+            <div class="sweep-score-cell-icon">🥂</div>
+            <div class="sweep-score-cell-label">Social presence</div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="sweep-strip">
+        <div class="sweep-stat">
+          <div class="sweep-stat-num">10</div>
+          <div class="sweep-stat-label">Seller<br>action items</div>
+        </div>
+        <div class="sweep-stat">
+          <div class="sweep-stat-num">6</div>
+          <div class="sweep-stat-label">Buyer<br>action items</div>
+        </div>
+        <div class="sweep-stat">
+          <div class="sweep-stat-num alert">9</div>
+          <div class="sweep-stat-label">Drafts ready<br>review &amp; send</div>
+        </div>
+        <div class="sweep-stat">
+          <div class="sweep-stat-num">4</div>
+          <div class="sweep-stat-label">Items routed<br>to Ania</div>
+        </div>
+      </div>
+
+      <!-- ===== SELLERS ===== -->
+      <div class="sweep-section-head">
+        <div class="sweep-section-title">Sellers <span class="sweep-section-count">10</span></div>
+        <div class="sweep-section-sub">Listing pipeline · prep work · re-engagement</div>
+      </div>
+
+      <div class="sweep-grid">
+
+        <!-- Shula -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Shula</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill warm">Warm · re-engage</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Central Malibu · shulamite26@yahoo.com · last touch Apr 21 (no reply)</div>
+          <div class="sweep-card-action">Spring/summer market re-engage. She's been quiet — try a short, specific note tied to current Malibu activity.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>Quick check-in — Malibu</em></summary>
+            <div class="sweep-draft-body">Hi Shula,
+
+Following up on my note from a couple weeks back. Central Malibu has stayed surprisingly active heading into early summer — a few of the properties we've been watching went into contract above ask in the last 10 days.
+
+If selling (or buying back in) is still even a maybe for you, I'd love to set up 15 minutes to walk you through what's actually moving and where the value sits right now. Happy to come to you.
+
+Either way — hope all is well.
+
+Michael
+(323) 719-8585</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:shulamite26@yahoo.com?subject=Quick%20check-in%20%E2%80%94%20Malibu">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Linda -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Linda van Gilder</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill owner-ania">Ania</span>
+              <span class="sweep-pill hot">Hot · listing pre-sign</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">9455 Beckford Ave, Northridge · vangilderlinda@aol.com · already replied today re: stop-by</div>
+          <div class="sweep-card-action">She said "I'll get back to you next week" on May 1. Today's check-in is sent. <strong>Layer in</strong> a pre-listing dashboard offer to give her something tangible to react to before the next call.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>9455 Beckford — pre-listing dashboard</em></summary>
+            <div class="sweep-draft-body">Hi Linda,
+
+While we wait to lock a stop-by, wanted to share one more thing. We build a private, password-protected listing dashboard for every seller we work with — comps, prep timeline, marketing plan, target buyer profile, all in one live page that updates as we go.
+
+Even before you decide on timing, I can put a starter version together for 9455 Beckford so you and your husband can see exactly how we'd position the home and what the run-up looks like. Zero obligation.
+
+Want me to spin it up? Takes me a day.
+
+Thanks,
+Michael</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:vangilderlinda@aol.com?cc=ania.d@compass.com&subject=9455%20Beckford%20%E2%80%94%20pre-listing%20dashboard">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Allison -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Allison Marks</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill warm">Warm · listing decision</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">2610 Highland Ave, Santa Monica (multifamily) · allisonjen22@gmail.com · last touch Apr 17 (no reply)</div>
+          <div class="sweep-card-action">She's familiar with our dashboards — show, don't tell. Offer a 20-min Zoom to walk through Compass Exclusive marketing for 2610 Highland with a live dashboard demo. Re-anchor the value-analysis ($142K NOI / 30% expense load) since her aunt's $2.1–2.2M number is on the table.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>2610 Highland — quick walkthrough</em></summary>
+            <div class="sweep-draft-body">Hi Allison,
+
+Following up on the 1031 + market notes I sent a few weeks back. I'd love to set up a quick 20-minute Zoom to walk you (and your aunt if she wants to join) through how we'd actually market 2610 Highland under Compass Exclusive — including a live look at the listing dashboard we'd build for the property.
+
+You'll get to see exactly how it would be positioned to buyers and the timeline involved before you commit to anything. We've been getting strong traction on Santa Monica multifamily this spring and I'd rather show you the game plan than write another email about it.
+
+Let me know what afternoon next week works.
+
+Thanks,
+Michael</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:allisonjen22@gmail.com?subject=2610%20Highland%20%E2%80%94%20quick%20walkthrough">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Henry Tom (skip) -->
+        <div class="sweep-card sweep-card-skip">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Henry Tom</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill skip">Skip · parked</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">No active interest · removed from working list</div>
+          <div class="sweep-card-action">Not buying or selling. Drop from active sweep — keep on the quarterly sphere touch only.</div>
+        </div>
+
+        <!-- Peter Choi -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Peter Choi</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill owner-ania">Ania</span>
+              <span class="sweep-pill hot">Hot · listing pitch</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Primary residence + 2 Higuera properties · choi.phg@outlook.com · last touch Apr 14</div>
+          <div class="sweep-card-action"><strong>Build a portfolio strategy dashboard</strong> showing all 3 properties in one view — comps, timing scenarios, marketing approach for each, and how a coordinated rollout (vs. one-off) drives outcome. Lead with positioning, not just CMA.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>Your portfolio — a thought</em></summary>
+            <div class="sweep-draft-body">Hi Peter,
+
+Hope you're doing well. Since we got to walk the properties a few weeks back, I've been thinking about your situation differently — you're not really a single-listing decision, you're a small portfolio decision.
+
+I'd like to put together a portfolio strategy dashboard for you. One private page covering all three properties — current value picture, sequencing options (which to lead with, which to hold), buyer-pool profiles, and how a coordinated rollout could materially change the outcome vs. selling one at a time.
+
+It's the same kind of work we'd do for an institutional seller, just sized to your situation. No cost, no obligation — when you're ready to choose an agent it'll already be in your hands.
+
+Want me to spin it up? I can have a working version by end of next week.
+
+Thanks,
+Michael &amp; Ania</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:choi.phg@outlook.com?cc=ania.d@compass.com&subject=Your%20portfolio%20%E2%80%94%20a%20thought">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Andrea & Kimberly (Ania) -->
+        <div class="sweep-card sweep-card-routed">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Andrea &amp; Kimberly</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-ania">Ania</span>
+              <span class="sweep-pill warm">Awaiting Ania's update</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Status check on what they're working on</div>
+          <div class="sweep-card-action">Ania to circle back internally and report what they're each working on so we can decide if there's a coordinated play. No outbound from Michael needed yet.</div>
+        </div>
+
+        <!-- True North + Sam (Ania) -->
+        <div class="sweep-card sweep-card-routed">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">True North + Sam</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-ania">Ania</span>
+              <span class="sweep-pill warm">Multifamily intro</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Multifamily opportunity · routed through Ania's relationship</div>
+          <div class="sweep-card-action">Ania to open the conversation with True North and Sam on the multifamily play. Loop Michael in once there's an angle worth pursuing.</div>
+        </div>
+
+        <!-- Rita -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Rita Tateel</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill owner-ania">Ania</span>
+              <span class="sweep-pill hot">Active · pre-list prep</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">847 N Sierra Bonita, WeHo (duplex + ADU off-market) · rita@thecelebritysource.com · 213-369-8040 · renters out May 8</div>
+          <div class="sweep-card-action">Front-house renters leave <strong>tomorrow (May 8)</strong> — full access opens up. Schedule a site visit early next week, bring lunch, walk the property with her. Master Kim painting + System Pavers in May. Plant sale + piano + painting coordination noted below (Ania to help).</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Reply to <em>847 N Sierra Bonita — checking in on progress</em></summary>
+            <div class="sweep-draft-body">Hi Rita,
+
+Great news that the renters are out tomorrow — that opens up a real walk-through. Could Ania and I come by next week to see where things stand and bring lunch? Tuesday or Wednesday around noon would work well on our end if either lands for you.
+
+We'd also love to help with the moving pieces — happy to coordinate with Leslie on the painting timeline and the piano move, and Ania has offered to lend a hand with the plant sale if that's still on your list.
+
+Let us know what works.
+
+Thanks,
+Michael &amp; Ania</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:rita@thecelebritysource.com?cc=ania.d@compass.com&subject=Re%3A%20847%20N%20Sierra%20Bonita%20%E2%80%94%20visit%20next%20week">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Plant sale (Ania) -->
+        <div class="sweep-card sweep-card-routed">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Plant sale (Sierra Bonita)</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-ania">Ania</span>
+              <span class="sweep-pill warm">Logistics support</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Rita's pre-listing plant sale · part of prep clearance</div>
+          <div class="sweep-card-action">Ania offered to help organize. Coordinate timing once renter move-out is clean (post-May 8). Could double as a soft soft-launch event for neighbors and sphere.</div>
+        </div>
+
+        <!-- Leslie (painting + piano) -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Leslie · painting + piano</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill needs-info">Needs context</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Coordinator for Sierra Bonita prep · contact info needed from Rita</div>
+          <div class="sweep-card-action">Reach out to Leslie to coordinate two open items at Sierra Bonita: <strong>painting</strong> (sequencing with Master Kim's stucco repair) and <strong>piano</strong> (move-out timing relative to listing photography). <em>Action: ask Rita for Leslie's email/phone before pinging her directly.</em></div>
+        </div>
+
+      </div>
+
+      <!-- ===== BUYERS ===== -->
+      <div class="sweep-section-head" style="margin-top:48px;">
+        <div class="sweep-section-title">Buyers <span class="sweep-section-count">6</span></div>
+        <div class="sweep-section-sub">Active searches · sphere conversions · re-engagements</div>
+      </div>
+
+      <div class="sweep-grid">
+
+        <!-- AJ -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">AJ</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill warm">Stay on it</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">West Adams interest · newhjb@gmail.com · received market report Apr 23</div>
+          <div class="sweep-card-action">Don't let it cool. Quick personal touch — push for the 15-min call you originally asked for, with one fresh data point from this week.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>West Adams — one quick update</em></summary>
+            <div class="sweep-draft-body">Hey AJ,
+
+Quick one — the West Adams pace has actually picked up since I sent over the report. A few of the better-positioned listings closed above ask this past week and inventory is tightening earlier than I expected.
+
+Still want to grab 15 minutes? I can come to you, or we can do it on the phone — whatever's easier. Just want to make sure you've got real-time data if buying is still in the picture for this year.
+
+Thanks,
+Michael</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:newhjb@gmail.com?subject=West%20Adams%20%E2%80%94%20one%20quick%20update">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Julie -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Julie Hand</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill cool">Sphere · low priority</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">juliehand@rocketmail.com · just started new job at Ajenda by Dr. Jen Ashton</div>
+          <div class="sweep-card-action">Not on real-estate timeline right now. Light social touch only — keep her on the warm sphere, no pressure. Maybe a casual dinner invite once her job settles.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>Few weeks in?</em></summary>
+            <div class="sweep-draft-body">Hey Julie,
+
+Just thinking about you — how's the new gig going a few weeks in? Not asking real estate, just curious. Drinks or dinner once you've had a chance to settle in?
+
+Michael</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:juliehand@rocketmail.com?subject=Few%20weeks%20in%3F">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Amy & Michael -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Amy &amp; Michael</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill needs-info">Needs context</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Couple buyer · contact info not yet in inbox</div>
+          <div class="sweep-card-action">Follow up — but the relationship history isn't in the inbox yet. <em>Action: confirm full names + email so we can pull the right thread and draft the right ask. Phone/text only?</em></div>
+        </div>
+
+        <!-- Roland -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Roland Williams</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill hot">Hot · network play</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Brown Diamond Holdings · roland.williams@browndiamondholdings.com · twilight invite sent May 6</div>
+          <div class="sweep-card-action">He's "in the mix." Twilight invite is in. <strong>Add the network ask</strong> — a personal note about leveraging his athlete circle for the right buyer/seller intros, framed as collaboration rather than ask. Lunch reschedule from March is overdue.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>Lunch + a thought</em></summary>
+            <div class="sweep-draft-body">Roland,
+
+Two things.
+
+First — let's lock that lunch we missed back in March. Free any day next week, your pick of spot.
+
+Second — I've been thinking about your network. We've got a few standout listings coming up that genuinely fit the athlete and entertainment buyer pool, and I'd love to figure out a way we work together on that. Not a one-way intro ask — more of a quiet referral channel where we both win when something fits.
+
+If even one of these clicks for someone in your circle, the economics are real. Easier to walk through it in person.
+
+Thanks,
+Michael</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:roland.williams@browndiamondholdings.com?subject=Lunch%20%2B%20a%20thought">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+        <!-- Max -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Max</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill needs-info">Needs context</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">Tech buyer · "all computer tech" · contact info needed</div>
+          <div class="sweep-card-action">Build a strategic proposal tailored to a tech-native buyer — data-rich, comparison tables, scenario modeling, dashboard-first. Lean into format he'll actually appreciate vs. a glossy PDF. <em>Action: confirm Max's last name + email so we can pull thread context and shape the proposal correctly.</em></div>
+        </div>
+
+        <!-- Lindsay -->
+        <div class="sweep-card">
+          <div class="sweep-card-head">
+            <div class="sweep-card-name">Lindsay Roxon</div>
+            <div class="sweep-card-pills">
+              <span class="sweep-pill owner-michael">Michael</span>
+              <span class="sweep-pill warm">Re-activate · investment thesis</span>
+            </div>
+          </div>
+          <div class="sweep-card-meta">West Adams duplex search · lindsayaroxon@gmail.com · paused Nov, re-engaged Apr 28</div>
+          <div class="sweep-card-action"><strong>Send the case for now.</strong> A direct one-pager on the cost of waiting — what her under-$1.2M West Adams target has done since November, what 12 months of inaction is worth in equity, and why the spring 2026 window beats waiting another cycle.</div>
+          <details class="sweep-draft">
+            <summary>📧 Draft email · Subject: <em>The cost of waiting — a quick read</em></summary>
+            <div class="sweep-draft-body">Hi Lindsay,
+
+I've been meaning to send this for a while.
+
+When we paused in November, your West Adams target was tracking under $1.2M. Six months later, the inventory has thinned, rents are up, and a lot of the deals you were close on have moved 4–7%. None of that is dramatic on its own — what is dramatic is the compounding cost of being on the sidelines.
+
+I put together a one-page read for you specifically: what's actually changed in your target zone since we paused, what 12 months of waiting tends to cost a buyer in your price band, and the 2–3 properties currently in market that I'd actively look at if you re-opened the search.
+
+I'll send the page in a follow-up so you don't have to dig for it. But the headline is — every quiet quarter you wait is buying you a smaller home for the same dollars. Worth a 20-min call this week to talk about whether to flip the search back on.
+
+Let me know.
+
+Michael</div>
+            <div class="sweep-draft-actions">
+              <button class="sweep-btn primary" data-copy-draft>Copy draft</button>
+              <a class="sweep-btn ghost" href="mailto:lindsayaroxon@gmail.com?subject=The%20cost%20of%20waiting%20%E2%80%94%20a%20quick%20read">Open in Mail</a>
+            </div>
+          </details>
+        </div>
+
+      </div>
+
+      <!-- Operating system reminder (footer of sweep) -->
+      <div class="sweep-os">
+        <div class="sweep-os-eyebrow">Daily operating system · read once</div>
+        <div class="sweep-os-grid">
+          <div class="sweep-os-block">
+            <div class="sweep-os-label">Morning</div>
+            <div class="sweep-os-text">Gym. Look sharp. Coffee + thinking. 1–2 outreach. <strong>No inbox.</strong> No scrolling.</div>
+          </div>
+          <div class="sweep-os-block">
+            <div class="sweep-os-label">Midday</div>
+            <div class="sweep-os-text">Client + relationship work only. Calls, in-person, decisions. Ask: <strong>is this building reputation or relationships?</strong></div>
+          </div>
+          <div class="sweep-os-block">
+            <div class="sweep-os-label">Afternoon</div>
+            <div class="sweep-os-text">Batch admin (≤60 min). Improve one system. Delegate the rest. Ship one piece of content.</div>
+          </div>
+          <div class="sweep-os-block">
+            <div class="sweep-os-label">Evening</div>
+            <div class="sweep-os-text">Event, dinner, host, or date. <strong>One meaningful conversation.</strong> Phone away, eye contact on.</div>
+          </div>
+        </div>
+        <div class="sweep-os-stop">
+          <div class="sweep-os-label red">Stop doing</div>
+          <div class="sweep-os-text">Starting day with email · Passive scrolling · Over-polishing · Saying yes to low-energy people · Confusing busy with valuable.</div>
+        </div>
+      </div>
+
+    </div><!-- /tab-sweep -->
 
     <!-- ===== PIPELINE / FORECAST PANE ===== -->
     <div class="bucket-pane" id="tab-pipeline">
@@ -3866,7 +4557,7 @@
 
   <div class="footer">
     <span class="wm-amre" data-logo-amre>AMRE</span> Real Estate Group @ Compass<br>
-    Confidential · Last updated <span id="footerTimestamp">May 5, 2026 at 6:04 AM PT</span>
+    Confidential · Last updated <span id="footerTimestamp">May 7, 2026 at 1:49 PM PT</span>
   </div>
 
   <!-- ===== NOTES MODAL ===== -->
@@ -4715,6 +5406,80 @@
       });
     }
   })();
+
+  // ===== SWEEP: scorecard toggle =====
+  (function(){
+    const cells = document.querySelectorAll('.sweep-score-cell');
+    const counter = document.getElementById('sweepScoreCount');
+    const STORAGE_KEY = 'amre_sweep_score_v1';
+
+    function ptDayKey() {
+      const s = new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' });
+      const d = new Date(s);
+      return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    }
+
+    function loadState() {
+      try {
+        const raw = sessionStorage.getItem(STORAGE_KEY);
+        const state = raw ? JSON.parse(raw) : null;
+        if (!state || state.day !== ptDayKey()) return { day: ptDayKey(), checked: {} };
+        return state;
+      } catch(e) { return { day: ptDayKey(), checked: {} }; }
+    }
+    function saveState(state) {
+      try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+    }
+    function render() {
+      const state = loadState();
+      let count = 0;
+      cells.forEach(c => {
+        const k = c.dataset.score;
+        if (state.checked[k]) { c.classList.add('done'); count++; }
+        else c.classList.remove('done');
+      });
+      if (counter) counter.textContent = count;
+    }
+
+    cells.forEach(c => {
+      c.addEventListener('click', () => {
+        const state = loadState();
+        const k = c.dataset.score;
+        state.checked[k] = !state.checked[k];
+        saveState(state);
+        render();
+      });
+    });
+    render();
+  })();
+
+  // ===== SWEEP: copy-draft buttons =====
+  document.querySelectorAll('[data-copy-draft]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const card = btn.closest('.sweep-draft');
+      const body = card ? card.querySelector('.sweep-draft-body') : null;
+      if (!body) return;
+      const text = body.innerText;
+      const restore = btn.textContent;
+      const finish = ok => {
+        btn.textContent = ok ? '✓ Copied' : 'Copy failed';
+        btn.classList.toggle('copied', ok);
+        setTimeout(() => { btn.textContent = restore; btn.classList.remove('copied'); }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => finish(true)).catch(() => finish(false));
+      } else {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+          finish(true);
+        } catch(e) { finish(false); }
+      }
+    });
+  });
 
 </script>
 </body>
