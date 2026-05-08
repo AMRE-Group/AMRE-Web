@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://res.cloudinary.com">
 <link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="/assets/forms/forms.css">
 
 <title>Contact AMRE Real Estate Group | Los Angeles | (323) 719-8585</title>
 <meta name="description" content="Contact Michael Abraham and Ania De Pourbaix at AMRE Real Estate Group. Compass Beverly Hills. (323) 719-8585 · michael.abraham@compass.com · 9454 Wilshire Blvd Suite 100.">
@@ -50,6 +51,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <!-- Tally -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="/assets/forms/forms.js" defer></script>
 <!-- Schema.org -->
 <script type="application/ld+json">{
   "@context":"https://schema.org",
@@ -684,215 +686,64 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
       <h2 class="f" style="font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:6px">Send a message</h2>
       <p class="f" style="font-size:16px;font-weight:400;color:var(--mid);line-height:1.65;margin-bottom:20px">We’d love to hear from you. Drop us a note and we’ll be in touch within a few hours on business days.</p>
 
-      <!-- ═══ Inquiry chips + native EmailJS contact form ═══ -->
-      <style>
-        /* Chips */
-        .inquiry-chips{margin-bottom:22px}
-        .inquiry-chips-label{display:block;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;color:#1a1a1a;letter-spacing:.02em;margin-bottom:10px}
-        .inquiry-chips-optional{font-weight:400;color:#9a9a9a}
-        .inquiry-chips-row{display:flex;flex-wrap:wrap;gap:8px}
-        .inquiry-chip{appearance:none;-webkit-appearance:none;background:#fff;border:1px solid #e0e0e0;color:#1a1a1a;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;letter-spacing:.01em;padding:10px 18px;border-radius:999px;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease;line-height:1.2;min-height:40px}
-        .inquiry-chip:hover{border-color:#1c3d31;color:#1c3d31}
-        .inquiry-chip:focus-visible{outline:2px solid #1c3d31;outline-offset:2px}
-        .inquiry-chip.is-selected{background:#1c3d31;border-color:#1c3d31;color:#fff}
-        .inquiry-chip.is-selected:hover{background:#163025;border-color:#163025;color:#fff}
-        @media (max-width:520px){
-          .inquiry-chip{font-size:13px;padding:9px 14px;flex:1 1 calc(50% - 4px);text-align:center}
-        }
-        /* Form */
-        .cf-form{display:flex;flex-direction:column;gap:16px}
-        .cf-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-        @media(max-width:520px){.cf-row-2{grid-template-columns:1fr;gap:16px}}
-        .cf-field{display:flex;flex-direction:column;gap:6px}
-        .cf-label{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;color:#1a1a1a;letter-spacing:.01em}
-        .cf-required{color:#1c3d31}
-        .cf-input,.cf-textarea{width:100%;padding:12px 14px;border:1px solid #e0e0e0;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:15px;color:#1a1a1a;background:#fff;transition:border-color .18s,box-shadow .18s;-webkit-appearance:none;appearance:none;box-sizing:border-box}
-        .cf-input:focus,.cf-textarea:focus{outline:none;border-color:#1c3d31;box-shadow:0 0 0 3px rgba(28,61,49,.1)}
-        .cf-textarea{resize:vertical;min-height:110px;line-height:1.55;font-family:inherit}
-        .cf-input::placeholder,.cf-textarea::placeholder{color:#a8a8a8}
-        .cf-consent{display:flex;align-items:flex-start;gap:10px;font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.55;color:#5a5a5a;cursor:pointer;margin-top:4px}
-        .cf-consent input{margin:3px 0 0 0;flex-shrink:0;accent-color:#1c3d31;width:15px;height:15px;cursor:pointer}
-        .cf-consent a{color:#1c3d31;text-decoration:underline}
-        .cf-submit{margin-top:8px;background:#1c3d31;color:#fff;border:none;padding:14px 28px;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background .18s,opacity .18s;align-self:flex-start}
-        .cf-submit:hover:not(:disabled){background:#163025}
-        .cf-submit:disabled{opacity:.55;cursor:wait}
-        .cf-submit:focus-visible{outline:2px solid #1c3d31;outline-offset:3px}
-        .cf-error{font-family:'Montserrat',sans-serif;font-size:13px;line-height:1.5;color:#a73a2a;background:#fdf2f0;border:1px solid #f5d4cd;border-radius:10px;padding:12px 14px;display:none}
-        .cf-error.is-visible{display:block}
-        .cf-error a{color:#1c3d31;font-weight:500;text-decoration:underline}
-        /* Success state */
-        .cf-success{display:none;padding:36px 28px;text-align:center;background:#f5f0e8;border-radius:14px;border:1px solid #e8dfce}
-        .cf-success.is-visible{display:block}
-        .cf-success-icon{width:52px;height:52px;border-radius:50%;background:#1c3d31;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px}
-        .cf-success-h{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:400;color:#1a1a1a;margin:0 0 10px}
-        .cf-success-p{font-family:'Montserrat',sans-serif;font-size:14px;line-height:1.65;color:#5a5a5a;margin:0;max-width:380px;margin-left:auto;margin-right:auto}
-      </style>
+<form class="amre-form" data-amre-form data-form-type="contact" data-source="amre.group/contact/" novalidate>
 
-      <div class="inquiry-chips f" role="group" aria-label="What brings you here? (optional)">
-        <span class="inquiry-chips-label">I’m a… <span class="inquiry-chips-optional">(optional)</span></span>
-        <div class="inquiry-chips-row">
-          <button type="button" class="inquiry-chip" data-value="Buyer" aria-pressed="false">Buyer</button>
-          <button type="button" class="inquiry-chip" data-value="Seller" aria-pressed="false">Seller</button>
-          <button type="button" class="inquiry-chip" data-value="Investor" aria-pressed="false">Investor</button>
-          <button type="button" class="inquiry-chip" data-value="Just Curious" aria-pressed="false">Just Curious</button>
+      <div class="amre-chips" role="group" aria-label="What brings you here? (optional)">
+        <span class="amre-chips-label">I’m a… <span class="amre-chips-optional">(optional)</span></span>
+        <div class="amre-chips-row">
+          <button type="button" class="amre-chip" data-value="Buyer" aria-pressed="false">Buyer</button>
+          <button type="button" class="amre-chip" data-value="Seller" aria-pressed="false">Seller</button>
+          <button type="button" class="amre-chip" data-value="Investor" aria-pressed="false">Investor</button>
+          <button type="button" class="amre-chip" data-value="Just Curious" aria-pressed="false">Just Curious</button>
         </div>
       </div>
+        <input type="hidden" name="inquiry_type" value="">
 
-      <form class="cf-form f" id="amre-contact-form" novalidate>
-        <input type="hidden" id="cf-inquiry-type" name="inquiry_type" value="">
-
-        <div class="cf-row-2">
-          <div class="cf-field">
-            <label class="cf-label" for="cf-fname">First name <span class="cf-required">*</span></label>
-            <input class="cf-input" id="cf-fname" name="first_name" type="text" required autocomplete="given-name">
+        <div class="amre-row-2">
+          <div class="amre-field">
+            <label class="amre-label" for="cf-contact-fname">First name <span class="amre-required">*</span></label>
+            <input class="amre-input" id="cf-contact-fname" name="first_name" type="text" required autocomplete="given-name">
           </div>
-          <div class="cf-field">
-            <label class="cf-label" for="cf-lname">Last name</label>
-            <input class="cf-input" id="cf-lname" name="last_name" type="text" autocomplete="family-name">
+          <div class="amre-field">
+            <label class="amre-label" for="cf-contact-lname">Last name</label>
+            <input class="amre-input" id="cf-contact-lname" name="last_name" type="text" autocomplete="family-name">
           </div>
         </div>
 
-        <div class="cf-field">
-          <label class="cf-label" for="cf-email">Email <span class="cf-required">*</span></label>
-          <input class="cf-input" id="cf-email" name="email" type="email" required autocomplete="email" inputmode="email">
+        <div class="amre-field">
+          <label class="amre-label" for="cf-contact-email">Email <span class="amre-required">*</span></label>
+          <input class="amre-input" id="cf-contact-email" name="email" type="email" required autocomplete="email" inputmode="email">
         </div>
 
-        <div class="cf-field">
-          <label class="cf-label" for="cf-phone">Phone</label>
-          <input class="cf-input" id="cf-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(optional)">
+        <div class="amre-field">
+          <label class="amre-label" for="cf-contact-phone">Phone</label>
+          <input class="amre-input" id="cf-contact-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(optional)">
         </div>
 
-        <div class="cf-field">
-          <label class="cf-label" for="cf-message">Message</label>
-          <textarea class="cf-textarea" id="cf-message" name="message" rows="5" placeholder="Tell us about your goals, timing, or any questions…"></textarea>
+        <div class="amre-field">
+          <label class="amre-label" for="cf-contact-message">Message</label>
+          <textarea class="amre-textarea" id="cf-contact-message" name="message" rows="5" placeholder="Tell us about your goals, timing, or any questions…"></textarea>
         </div>
 
-        <label class="cf-consent">
-          <input type="checkbox" id="cf-optin" required>
+        <label class="amre-consent">
+          <input type="checkbox" name="optin" required>
           <span>I agree to be contacted by AMRE Real Estate Group via call, email, and text for real estate services. Reply ‘stop’ to opt out at any time. Message and data rates may apply. <a href="/terms-and-conditions/">Privacy Policy</a>.</span>
         </label>
 
-        <button type="submit" class="cf-submit" id="cf-submit-btn">
-          <span id="cf-btn-text">Send message</span>
+        <button type="submit" class="amre-submit">
+          <span class="amre-btn-text">Send message</span>
         </button>
 
-        <div class="cf-error" id="cf-error" role="alert">
+        <div class="amre-error" role="alert">
           Something went wrong sending your message. Please try again, call <a href="tel:3237198585">(323) 719-8585</a>, or email <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a> directly.
         </div>
       </form>
 
-      <div class="cf-success" id="cf-success" role="status" aria-live="polite">
-        <div class="cf-success-icon" aria-hidden="true">✓</div>
-        <h3 class="cf-success-h">Message received.</h3>
-        <p class="cf-success-p">Thanks for reaching out — we typically respond within a few hours on business days. A confirmation copy is on its way to your inbox.</p>
+      <div class="amre-success" role="status" aria-live="polite">
+        <div class="amre-success-icon" aria-hidden="true">✓</div>
+        <h3 class="amre-success-h">Message received.</h3>
+        <p class="amre-success-p">Thanks for reaching out — we typically respond within a few hours on business days. A confirmation copy is on its way to your inbox.</p>
       </div>
-
-      <script>
-        (function(){
-          // ── EmailJS credentials (shared with investor calculator) ──
-          var EMAILJS_PUBLIC_KEY    = 'yWt3TMJ6ysOrH3vH1';
-          var EMAILJS_SERVICE_ID    = 'service_rvg801y';
-          // TODO: replace these with contact-specific template IDs once created in EmailJS
-          var EMAILJS_TEMPLATE_USER = 'template_xwvinyi';   // Contact Form — Auto Reply
-          var EMAILJS_TEMPLATE_LEAD = 'template_9y2zh4b';   // Contact Form — Lead
-
-          if (typeof emailjs !== 'undefined') {
-            emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-          }
-
-          // ── Chips ──
-          var chips       = document.querySelectorAll('.inquiry-chip');
-          var hiddenInput = document.getElementById('cf-inquiry-type');
-          var selected    = null;
-          chips.forEach(function(chip){
-            chip.addEventListener('click', function(){
-              var value = this.dataset.value;
-              if (selected === value) {
-                selected = null;
-                hiddenInput.value = '';
-                chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); c.classList.remove('is-selected'); });
-              } else {
-                selected = value;
-                hiddenInput.value = value;
-                chips.forEach(function(c){
-                  var match = c.dataset.value === value;
-                  c.setAttribute('aria-pressed', match ? 'true' : 'false');
-                  c.classList.toggle('is-selected', match);
-                });
-              }
-            });
-          });
-
-          // ── Form submit ──
-          var form     = document.getElementById('amre-contact-form');
-          var success  = document.getElementById('cf-success');
-          var errorEl  = document.getElementById('cf-error');
-          var btn      = document.getElementById('cf-submit-btn');
-          var btnText  = document.getElementById('cf-btn-text');
-          if (!form) return;
-
-          form.addEventListener('submit', function(e){
-            e.preventDefault();
-
-            var fname   = document.getElementById('cf-fname').value.trim();
-            var lname   = document.getElementById('cf-lname').value.trim();
-            var email   = document.getElementById('cf-email').value.trim();
-            var phone   = document.getElementById('cf-phone').value.trim();
-            var message = document.getElementById('cf-message').value.trim();
-            var inquiry = document.getElementById('cf-inquiry-type').value;
-            var optin   = document.getElementById('cf-optin').checked;
-
-            if (!fname)                          { alert('Please enter your first name.'); return; }
-            if (!email || !email.includes('@'))  { alert('Please enter a valid email address.'); return; }
-            if (!optin)                          { alert('Please agree to the contact terms to continue.'); return; }
-
-            btn.disabled = true;
-            btnText.textContent = 'Sending…';
-            errorEl.classList.remove('is-visible');
-
-            var params = {
-              to_name:      fname,
-              to_email:     email,
-              full_name:    fname + (lname ? ' ' + lname : ''),
-              first_name:   fname,
-              last_name:    lname || '',
-              email:        email,
-              phone:        phone   || 'Not provided',
-              message:      message || 'No message provided',
-              inquiry_type: inquiry || 'Not specified',
-              optin:        optin ? 'Yes' : 'No',
-              source:       'amre.group/contact/',
-              reply_to:     email
-            };
-
-            if (typeof emailjs === 'undefined') {
-              btn.disabled = false;
-              btnText.textContent = 'Send message';
-              errorEl.classList.add('is-visible');
-              return;
-            }
-
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_USER, params)
-              .then(function(){
-                return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD, params);
-              })
-              .then(function(){
-                form.style.display = 'none';
-                success.classList.add('is-visible');
-                if (window.scrollTo) {
-                  var rect = success.getBoundingClientRect();
-                  window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
-                }
-              })
-              .catch(function(err){
-                console.error('EmailJS error:', err);
-                btn.disabled = false;
-                btnText.textContent = 'Send message';
-                errorEl.classList.add('is-visible');
-              });
-          });
-        })();
-      </script>
     </div>
   </div>
 </div>
