@@ -100,11 +100,32 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 
 /* RESULTS */
 .rp{position:sticky;top:76px}
-.kpi{background:var(--f);border-radius:12px;padding:24px;margin-bottom:18px;display:flex;justify-content:space-between;align-items:flex-end}
-.kpi-lbl{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px}
-.kpi-val{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:white;line-height:1}
-.kpi-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:6px}
+.kpi{background:var(--f);border-radius:12px;padding:24px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.kpi-lbl{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.kpi-val{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:white;line-height:1}
+.kpi-val .unit{font-size:18px;font-weight:600;color:rgba(255,255,255,.7);margin-left:3px}
+.kpi-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:8px;line-height:1.5}
+.kpi-mult{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--b);line-height:1}
+.kpi-mult-lbl{font-size:9px;color:rgba(255,255,255,.5);margin-top:5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700}
+.kpi-hint{font-size:10px;color:rgba(255,255,255,.4);margin-top:10px;font-style:italic}
 .badge{background:rgba(255,193,60,.2);border:1px solid rgba(255,193,60,.4);color:var(--b);font-size:10px;font-weight:700;letter-spacing:.05em;padding:5px 12px;border-radius:20px;white-space:nowrap}
+
+/* CoC time-period row */
+.coc-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:18px}
+.coc-card{background:white;border:1px solid var(--bdr);border-radius:10px;padding:11px 9px;text-align:center}
+.coc-lbl{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8a9e92;margin-bottom:4px}
+.coc-val{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--f);line-height:1.1}
+.coc-val.pos{color:var(--pos)} .coc-val.neg{color:var(--neg)} .coc-val.warn{color:#b58105}
+
+/* ADU + Depreciation educational callouts */
+.adu-tip{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,rgba(255,193,60,.10),rgba(255,193,60,.02));border:1px solid rgba(255,193,60,.35);border-radius:10px;padding:14px 16px;margin-bottom:18px}
+.adu-tip-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--b);color:#1a1a1a;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1}
+.adu-tip-title{font-size:12px;font-weight:700;color:var(--f);margin-bottom:4px;letter-spacing:.02em}
+.adu-tip-body{font-size:11px;color:#3d4f44;line-height:1.55}
+.adu-tip-body strong{color:var(--f)}
+
+.depreciation-note{background:var(--mist);border:1px solid var(--bdr);border-left:3px solid var(--f);border-radius:8px;padding:12px 16px;margin-bottom:18px;font-size:11px;color:#5a7060;line-height:1.55}
+.depreciation-note strong{color:var(--f);display:block;margin-bottom:3px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
 .mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:18px}
 .mc{background:var(--mist);border-radius:10px;padding:13px 12px;border:1px solid var(--bdr)}
 .mc-lbl{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8a9e92;margin-bottom:5px}
@@ -150,25 +171,14 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
 .yr-pill.active{background:var(--b);border-color:var(--b);color:var(--n)}
 
 /* Cash flow bar chart */
-.cf-chart{padding:20px 24px 8px}
-.cf-chart-title{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8a9e92;margin-bottom:4px}
-.cf-chart-sub{font-size:10px;color:#8a9e92;margin-bottom:14px;line-height:1.4}
-.cf-chart-area{position:relative;padding-left:42px;padding-bottom:22px}
-.cf-axis{position:absolute;left:0;top:0;bottom:22px;width:38px;pointer-events:none}
-.cf-axis-pos{position:absolute;left:0;right:6px;top:0;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pos);text-align:right}
-.cf-axis-neg{position:absolute;left:0;right:6px;bottom:0;font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--neg);text-align:right}
-.cf-axis-zero{position:absolute;left:0;right:6px;font-size:10px;font-weight:700;color:#1a1a1a;text-align:right;transform:translateY(-50%)}
-.cf-bars{display:flex;gap:6px;align-items:stretch;height:140px;position:relative}
-.cf-zoneline-pos{position:absolute;left:0;right:0;background:rgba(46,125,82,.04);pointer-events:none}
-.cf-zoneline-neg{position:absolute;left:0;right:0;background:rgba(180,83,9,.06);pointer-events:none}
-.cf-zeroline{position:absolute;left:0;right:0;height:1.5px;background:#1a1a1a;pointer-events:none;z-index:2}
-.cf-bar-wrap{flex:1;display:flex;flex-direction:column;cursor:pointer;position:relative;z-index:3}
-.cf-bar-slot{flex:1;position:relative}
-.cf-bar-col{position:absolute;left:10%;right:10%;border-radius:3px 3px 0 0;transition:all .3s ease;background:var(--pos);min-height:2px}
-.cf-bar-col.neg{background:var(--neg);border-radius:0 0 3px 3px}
-.cf-bar-wrap.active .cf-bar-col{background:var(--b);filter:brightness(1.05)}
-.cf-bar-lbl{font-size:9px;font-weight:600;color:#8a9e92;text-align:center;padding:6px 0 0 0}
-.cf-bar-wrap.active .cf-bar-lbl{color:var(--f);font-weight:700}
+/* Wealth Growth Chart */
+.wealth-chart{padding:22px 24px 18px}
+.wealth-chart-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--f);margin-bottom:5px}
+.wealth-chart-sub{font-size:10px;color:#8a9e92;margin-bottom:14px;line-height:1.45}
+#wealthSvg{display:block;width:100%;height:auto;aspect-ratio:600/240;overflow:visible}
+.wealth-legend{display:flex;justify-content:center;gap:18px;margin-top:8px;flex-wrap:wrap}
+.wleg-item{display:flex;align-items:center;gap:6px;font-size:10px;color:#5a7060;font-weight:600}
+.wleg-dot{width:10px;height:10px;border-radius:2px;display:inline-block}
 
 /* Exit breakdown */
 .exit-breakdown{padding:20px 24px}
@@ -508,16 +518,39 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
   <!-- ── RIGHT: RESULTS ── -->
   <div class="rp">
 
-    <!-- CoC KPI -->
+    <!-- HERO: Annualized Return over Hold Period -->
     <div class="kpi">
       <div>
-        <div class="kpi-lbl">Cash-on-Cash Return</div>
-        <div class="kpi-val" id="r-coc">—</div>
-        <div class="kpi-sub" id="r-acf">Annual cash flow: —</div>
+        <div class="kpi-lbl"><span id="kpi-yr">10</span>-Year Annualized Return</div>
+        <div class="kpi-val"><span id="r-cagr">—</span><span class="unit">/yr</span></div>
+        <div class="kpi-sub">
+          Total profit: <span id="kpi-profit">—</span> on <span id="kpi-invest">—</span> invested
+        </div>
+        <div class="kpi-hint">→ Adjust hold period using the year pills in Exit Analysis below.</div>
       </div>
       <div style="text-align:right">
-        <div class="badge" id="r-badge">Analyzing…</div>
-        <div style="font-size:10px;color:rgba(255,255,255,.3);margin-top:6px">vs. 5% benchmark</div>
+        <div class="kpi-mult" id="r-eqmult">—</div>
+        <div class="kpi-mult-lbl">Equity Multiple</div>
+      </div>
+    </div>
+
+    <!-- Cash-on-Cash by Time Period -->
+    <div class="coc-row">
+      <div class="coc-card">
+        <div class="coc-lbl">Year 1 CoC</div>
+        <div class="coc-val" id="coc-y1">—</div>
+      </div>
+      <div class="coc-card">
+        <div class="coc-lbl">5-Yr Avg CoC</div>
+        <div class="coc-val" id="coc-y5">—</div>
+      </div>
+      <div class="coc-card">
+        <div class="coc-lbl">10-Yr Avg CoC</div>
+        <div class="coc-val" id="coc-y10">—</div>
+      </div>
+      <div class="coc-card">
+        <div class="coc-lbl">30-Yr Avg CoC</div>
+        <div class="coc-val" id="coc-y30">—</div>
       </div>
     </div>
 
@@ -552,6 +585,15 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
         <div class="mc-lbl">Break-Even Occ.</div>
         <div class="mc-val" id="r-beo">—</div>
         <div class="mc-det">Target: &lt;90%</div>
+      </div>
+    </div>
+
+    <!-- ADU Upside Callout -->
+    <div class="adu-tip">
+      <div class="adu-tip-icon">+</div>
+      <div>
+        <div class="adu-tip-title">ADU Upside (Not Modeled Above)</div>
+        <div class="adu-tip-body">LA's 2024 streamlined ADU permits make adding an ADU one of the highest-ROI value-add moves in multifamily. A new ADU typically adds <strong>$24,000–$54,000/yr</strong> in rent and <strong>$200,000–$400,000</strong> in property value. The numbers above don't include this — meaning the upside on most LA properties is materially higher than shown.</div>
       </div>
     </div>
 
@@ -602,30 +644,23 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
           </div>
         </div>
         <div class="year-pills" id="yearPills">
-          <button class="yr-pill" onclick="setYear(1)">1</button>
-          <button class="yr-pill" onclick="setYear(2)">2</button>
-          <button class="yr-pill" onclick="setYear(3)">3</button>
-          <button class="yr-pill" onclick="setYear(4)">4</button>
           <button class="yr-pill" onclick="setYear(5)">5</button>
-          <button class="yr-pill" onclick="setYear(6)">6</button>
-          <button class="yr-pill" onclick="setYear(7)">7</button>
-          <button class="yr-pill" onclick="setYear(8)">8</button>
-          <button class="yr-pill" onclick="setYear(9)">9</button>
           <button class="yr-pill active" onclick="setYear(10)">10</button>
+          <button class="yr-pill" onclick="setYear(15)">15</button>
+          <button class="yr-pill" onclick="setYear(20)">20</button>
+          <button class="yr-pill" onclick="setYear(30)">30</button>
         </div>
       </div>
 
-      <!-- Cash flow bar chart -->
-      <div class="cf-chart">
-        <div class="cf-chart-title">Annual Cash Flow by Year</div>
-        <div class="cf-chart-sub">Rent grows ~3%/yr, mortgage payment is frozen for 30 years — so the gap between income and debt service widens every year.</div>
-        <div class="cf-chart-area">
-          <div class="cf-axis">
-            <div class="cf-axis-pos">Profit ▲</div>
-            <div class="cf-axis-zero" id="cfAxisZero">$0</div>
-            <div class="cf-axis-neg">▼ Loss</div>
-          </div>
-          <div class="cf-bars" id="cfBars"></div>
+      <!-- Wealth Growth Chart -->
+      <div class="wealth-chart">
+        <div class="wealth-chart-title">Total Wealth Built Over Time</div>
+        <div class="wealth-chart-sub">Three engines compound together — appreciation + paydown + cash flow — even when monthly cash flow is modest.</div>
+        <svg id="wealthSvg" viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="wealth-legend">
+          <div class="wleg-item"><span class="wleg-dot" style="background:var(--b)"></span>Appreciation</div>
+          <div class="wleg-item"><span class="wleg-dot" style="background:var(--f)"></span>Paydown</div>
+          <div class="wleg-item"><span class="wleg-dot" style="background:#9bbfa8"></span>Cash Flow</div>
         </div>
       </div>
 
@@ -713,6 +748,12 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
           <span class="src-total-val" id="src-total-val">—</span>
         </div>
       </div>
+    </div>
+
+    <!-- Depreciation footnote -->
+    <div class="depreciation-note">
+      <strong>Pre-Tax Returns</strong>
+      All numbers above are before tax. Depreciation typically shelters <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit">$25,000–$40,000/yr</strong> of income from federal and state taxes for a $1M LA multifamily property — meaningfully boosting net-of-tax returns. Consult your CPA for personalized projections.
     </div>
 
     <!-- CTA -->
@@ -815,14 +856,31 @@ function calc() {
   document.getElementById('ctc-res-lbl').textContent = 'Reserves (' + resMo + ' mo PITI)';
   document.getElementById('ctc-total').textContent   = f(totalCash);
 
-  // ── KPI ──
-  document.getElementById('r-coc').textContent = fp(coc);
-  document.getElementById('r-acf').textContent =
-    'Annual cash flow: ' + f(cf) + ' (' + f(cf/12) + '/mo)';
-  var badge = coc >= 8  ? '🟢 Strong Deal'   :
-              coc >= 5  ? '🟡 Solid Return'  :
-              coc >= 2  ? '🟠 Below Target'  : '🔴 Negative CF';
-  document.getElementById('r-badge').textContent = badge;
+  // ── CoC by Time Period (computes year-by-year cash flow up to 30 yrs) ──
+  var cumCFAll = 0;
+  var cocSum = {y1:0, y5:0, y10:0, y30:0};
+  for (var yy = 1; yy <= 30; yy++) {
+    var fR = rent * Math.pow(1 + rentGrowth, yy);
+    var fG = fR * 12;
+    var fE = fG * (1 - vacP);
+    var fOE = taxes * Math.pow(1.02, yy) + ins * Math.pow(1.03, yy) + fE * (maintP + mgmtP);
+    var fCf = fE - fOE - annDebt;
+    cumCFAll += fCf;
+    if (yy === 1)  cocSum.y1  = fCf;
+    if (yy === 5)  cocSum.y5  = cumCFAll / 5;
+    if (yy === 10) cocSum.y10 = cumCFAll / 10;
+    if (yy === 30) cocSum.y30 = cumCFAll / 30;
+  }
+  function setCoc(id, avgCf) {
+    var pct = invest > 0 ? (avgCf / invest) * 100 : 0;
+    var el = document.getElementById(id);
+    el.textContent = (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%';
+    el.className = 'coc-val ' + (pct >= 5 ? 'pos' : pct >= 0 ? 'warn' : 'neg');
+  }
+  setCoc('coc-y1',  cocSum.y1);
+  setCoc('coc-y5',  cocSum.y5);
+  setCoc('coc-y10', cocSum.y10);
+  setCoc('coc-y30', cocSum.y30);
 
   // ── Metrics ──
   document.getElementById('r-cap').textContent  = fp(cap);
@@ -911,7 +969,7 @@ function calc() {
 document.getElementById('pp').addEventListener('input', function() {
   var p = gv('pp');
   document.getElementById('taxes').value = Math.round(p * 0.0125);
-  document.getElementById('ins').value   = Math.round(p * 0.0035);
+  document.getElementById('ins').value   = Math.round(p * 0.005);
   calc();
 });
 
@@ -921,8 +979,9 @@ var lastCalcData = {};
 
 function setYear(yr) {
   selectedYear = yr;
-  document.querySelectorAll('.yr-pill').forEach(function(p, i) {
-    p.classList.toggle('active', i + 1 === yr);
+  document.querySelectorAll('.yr-pill').forEach(function(p) {
+    var pillYr = parseInt(p.textContent, 10);
+    p.classList.toggle('active', pillYr === yr);
   });
   updateExit();
 }
@@ -957,17 +1016,15 @@ function updateExit() {
   var saleCost   = salePrice * saleCostPct;
   var netEquity  = salePrice - bal - saleCost;
 
-  // Cumulative cash flow: sum year 1..yr
+  // Cumulative cash flow: sum year 1..selectedYear
   var cumCF = 0;
-  var yearCFs = [];
-  for (var y = 1; y <= 10; y++) {
+  for (var y = 1; y <= yr; y++) {
     var futRent  = rent * Math.pow(1 + rentGrowth, y);
     var futGross = futRent * 12;
     var futEff   = futGross * (1 - vacP);
     var futOpExp = taxes * Math.pow(1.02, y) + ins * Math.pow(1.03, y) + futEff * (maintP + mgmtP);
     var futCf    = futEff - futOpExp - annDebt;
-    yearCFs.push(futCf);
-    if (y <= yr) cumCF += futCf;
+    cumCF += futCf;
   }
 
   var totalProfit = netEquity + cumCF - invest;
@@ -1012,47 +1069,129 @@ function updateExit() {
 
   document.getElementById('src-total-val').textContent = f(grossReturn);
 
-  // Bar chart — signed values around a zero baseline
-  var maxPos = Math.max(0, Math.max.apply(null, yearCFs));
-  var maxNeg = Math.min(0, Math.min.apply(null, yearCFs));
-  var range  = (maxPos - maxNeg) || 1;
-  // Zero-line position: % from top of chart area
-  var zeroPct = (maxPos / range) * 100;
+  // ── HERO Banner: Annualized Return over Hold Period ──
+  document.getElementById('kpi-yr').textContent     = yr;
+  var cagrEl = document.getElementById('r-cagr');
+  cagrEl.textContent = (cagr >= 0 ? '+' : '') + cagr.toFixed(1) + '%';
+  document.getElementById('kpi-profit').textContent = f(totalProfit);
+  document.getElementById('kpi-invest').textContent = f(invest);
+  document.getElementById('r-eqmult').textContent   = eqMult.toFixed(2) + '×';
 
-  var barsEl = document.getElementById('cfBars');
-  // Zone backgrounds + zero line
-  var bgHtml =
-    '<div class="cf-zoneline-pos" style="top:0;height:' + zeroPct.toFixed(2) + '%"></div>' +
-    '<div class="cf-zoneline-neg" style="top:' + zeroPct.toFixed(2) + '%;bottom:0"></div>' +
-    '<div class="cf-zeroline" style="top:' + zeroPct.toFixed(2) + '%"></div>';
-  barsEl.innerHTML = bgHtml;
+  // ── Wealth Growth Area Chart (SVG) ──
+  renderWealthChart();
+}
 
-  // Position the $0 axis label to match the zero line vertical position
-  var axisZero = document.getElementById('cfAxisZero');
-  if (axisZero) axisZero.style.top = zeroPct.toFixed(2) + '%';
+// SVG wealth-growth area chart (stacked: cash flow + paydown + appreciation)
+function renderWealthChart() {
+  var d = lastCalcData;
+  if (!d.pp) return;
+  var maxYr = selectedYear;
 
-  yearCFs.forEach(function(v, i) {
-    var y = i + 1;
-    var barPct = Math.abs(v) / range * 100;
-    var top, height;
-    if (v >= 0) {
-      height = barPct;
-      top    = zeroPct - barPct;
-    } else {
-      top    = zeroPct;
-      height = barPct;
-    }
-    var negClass = v < 0 ? ' neg' : '';
-    var wrap = document.createElement('div');
-    wrap.className = 'cf-bar-wrap' + (y === yr ? ' active' : '');
-    wrap.onclick = (function(yy){ return function(){ setYear(yy); }; })(y);
-    wrap.innerHTML =
-      '<div class="cf-bar-slot">' +
-        '<div class="cf-bar-col' + negClass + '" style="top:' + top.toFixed(2) + '%;height:' + Math.max(1, height).toFixed(2) + '%"></div>' +
-      '</div>' +
-      '<div class="cf-bar-lbl">Y' + y + '</div>';
-    barsEl.appendChild(wrap);
+  // Year-by-year stack values from year 0 to selectedYear
+  var pts = [{yr:0, cumCF:0, paydown:0, apprec:0}];
+  var cumCFh = 0;
+  for (var y = 1; y <= maxYr; y++) {
+    var fR = d.rent * Math.pow(1 + d.rentGrowth, y);
+    var fG = fR * 12;
+    var fE = fG * (1 - d.vacP);
+    var fOE = d.taxes * Math.pow(1.02, y) + d.ins * Math.pow(1.03, y) + fE * (d.maintP + d.mgmtP);
+    cumCFh += fE - fOE - d.annDebt;
+    var balY = (d.mr > 0 && d.n > 0)
+      ? d.loan * (Math.pow(1+d.mr, d.n) - Math.pow(1+d.mr, 12*y)) / (Math.pow(1+d.mr, d.n) - 1)
+      : Math.max(0, d.loan - (d.loan/d.n) * y * 12);
+    var paydownY = d.loan - balY;
+    var apprecY  = d.pp * Math.pow(1 + d.apprec, y) - d.pp;
+    pts.push({yr:y, cumCF:cumCFh, paydown:paydownY, apprec:apprecY});
+  }
+
+  // Find chart bounds
+  var maxTotal = 0, minVal = 0;
+  pts.forEach(function(p) {
+    var tot = p.cumCF + p.paydown + p.apprec;
+    if (tot > maxTotal) maxTotal = tot;
+    if (p.cumCF < minVal) minVal = p.cumCF;
   });
+  var range = (maxTotal - minVal) || 1;
+
+  // SVG layout
+  var W = 600, H = 240;
+  var padL = 60, padR = 18, padT = 18, padB = 30;
+  var chartW = W - padL - padR;
+  var chartH = H - padT - padB;
+
+  function xC(yr) { return padL + (yr / maxYr) * chartW; }
+  function yC(v)  { return padT + chartH - ((v - minVal) / range) * chartH; }
+
+  function buildPath(getLow, getHigh) {
+    var path = '';
+    pts.forEach(function(p, i) {
+      path += (i === 0 ? 'M ' : ' L ') + xC(p.yr).toFixed(1) + ' ' + yC(getHigh(p)).toFixed(1);
+    });
+    for (var i = pts.length - 1; i >= 0; i--) {
+      path += ' L ' + xC(pts[i].yr).toFixed(1) + ' ' + yC(getLow(pts[i])).toFixed(1);
+    }
+    return path + ' Z';
+  }
+
+  var pathCF  = buildPath(function(p){return 0}, function(p){return p.cumCF});
+  var pathPay = buildPath(function(p){return p.cumCF}, function(p){return p.cumCF + p.paydown});
+  var pathApp = buildPath(function(p){return p.cumCF + p.paydown}, function(p){return p.cumCF + p.paydown + p.apprec});
+
+  // Y-axis grid + labels
+  function fmt$(v) {
+    var sign = v < 0 ? '−' : '';
+    var a = Math.abs(v);
+    if (a >= 1000000) return sign + '$' + (a/1000000).toFixed(1) + 'M';
+    if (a >= 1000)    return sign + '$' + Math.round(a/1000) + 'k';
+    return sign + '$' + Math.round(a);
+  }
+  var gridHtml = '';
+  var ySteps = 4;
+  for (var s = 0; s <= ySteps; s++) {
+    var v = minVal + range * (s / ySteps);
+    var py = yC(v);
+    gridHtml += '<line x1="' + padL + '" x2="' + (W - padR) + '" y1="' + py.toFixed(1) + '" y2="' + py.toFixed(1) + '" stroke="#e8ede8" stroke-width="1" stroke-dasharray="2,3"/>';
+    gridHtml += '<text x="' + (padL - 8) + '" y="' + (py + 3).toFixed(1) + '" text-anchor="end" font-size="10" fill="#8a9e92" font-weight="500">' + fmt$(v) + '</text>';
+  }
+  // Emphasize zero line if data crosses below
+  if (minVal < 0) {
+    var zy = yC(0);
+    gridHtml += '<line x1="' + padL + '" x2="' + (W - padR) + '" y1="' + zy.toFixed(1) + '" y2="' + zy.toFixed(1) + '" stroke="#1a1a1a" stroke-width="1" opacity="0.45"/>';
+  }
+
+  // X-axis year labels
+  var xLabels = '';
+  var stepInc = maxYr <= 5 ? 1 : maxYr <= 10 ? 2 : maxYr <= 20 ? 5 : 5;
+  for (var yi = 0; yi <= maxYr; yi += stepInc) {
+    var px = xC(yi);
+    xLabels += '<text x="' + px.toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10" fill="#8a9e92" font-weight="600">' + (yi === 0 ? 'Today' : 'Y' + yi) + '</text>';
+  }
+  // Always label final year
+  if ((maxYr % stepInc) !== 0) {
+    xLabels += '<text x="' + xC(maxYr).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10" fill="#8a9e92" font-weight="600">Y' + maxYr + '</text>';
+  }
+
+  // Final position marker (small dot + value at top-right of chart)
+  var finalTotal = pts[pts.length-1].cumCF + pts[pts.length-1].paydown + pts[pts.length-1].apprec;
+  var finalX = xC(maxYr);
+  var finalY = yC(finalTotal);
+
+  var svgContent =
+    '<defs>' +
+      '<linearGradient id="appGrad" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0%" stop-color="#ffc13c" stop-opacity="0.95"/>' +
+        '<stop offset="100%" stop-color="#ffc13c" stop-opacity="0.65"/>' +
+      '</linearGradient>' +
+    '</defs>' +
+    gridHtml +
+    '<path d="' + pathCF  + '" fill="#9bbfa8" opacity="0.85"/>' +
+    '<path d="' + pathPay + '" fill="#1c3d31" opacity="0.92"/>' +
+    '<path d="' + pathApp + '" fill="url(#appGrad)"/>' +
+    '<circle cx="' + finalX.toFixed(1) + '" cy="' + finalY.toFixed(1) + '" r="4" fill="white" stroke="#1c3d31" stroke-width="2"/>' +
+    '<text x="' + (finalX - 6).toFixed(1) + '" y="' + (finalY - 8).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="#1c3d31">' + fmt$(finalTotal) + '</text>' +
+    xLabels;
+
+  document.getElementById('wealthSvg').innerHTML = svgContent;
 }
 
 // Nav scroll
