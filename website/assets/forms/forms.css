@@ -1,0 +1,62 @@
+/* ════════════════════════════════════════════════════════════════════
+   AMRE shared form styles — used by contact + valuation forms
+   site-wide. Brand colors: forest #1c3d31, ink #1a1a1a, mid #5a5a5a.
+   ════════════════════════════════════════════════════════════════════ */
+
+.amre-form{display:flex;flex-direction:column;gap:16px;font-family:'Montserrat',sans-serif}
+
+/* Inquiry chips (contact form variant) */
+.amre-chips{margin-bottom:6px}
+.amre-chips-label{display:block;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;color:#1a1a1a;letter-spacing:.02em;margin-bottom:10px}
+.amre-chips-optional{font-weight:400;color:#9a9a9a}
+.amre-chips-row{display:flex;flex-wrap:wrap;gap:8px}
+.amre-chip{appearance:none;-webkit-appearance:none;background:#fff;border:1px solid #e0e0e0;color:#1a1a1a;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;letter-spacing:.01em;padding:10px 18px;border-radius:999px;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease;line-height:1.2;min-height:40px}
+.amre-chip:hover{border-color:#1c3d31;color:#1c3d31}
+.amre-chip:focus-visible{outline:2px solid #1c3d31;outline-offset:2px}
+.amre-chip.is-selected{background:#1c3d31;border-color:#1c3d31;color:#fff}
+.amre-chip.is-selected:hover{background:#163025;border-color:#163025;color:#fff}
+@media(max-width:520px){
+  .amre-chip{font-size:13px;padding:9px 14px;flex:1 1 calc(50% - 4px);text-align:center}
+}
+
+/* Property context badge (listing pages) */
+.amre-prop-context{background:#f5f0e8;border:1px solid #e8dfce;border-radius:10px;padding:12px 14px;font-size:13px;color:#5a5a5a;line-height:1.5}
+.amre-prop-context strong{color:#1a1a1a;font-weight:600}
+
+/* Layout */
+.amre-row-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.amre-row-2{grid-template-columns:1fr;gap:16px}}
+.amre-field{display:flex;flex-direction:column;gap:6px}
+.amre-label{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;color:#1a1a1a;letter-spacing:.01em}
+.amre-required{color:#1c3d31}
+
+/* Inputs */
+.amre-input,.amre-textarea,.amre-select{width:100%;padding:12px 14px;border:1px solid #e0e0e0;border-radius:10px;font-family:'Montserrat',sans-serif;font-size:15px;color:#1a1a1a;background:#fff;transition:border-color .18s,box-shadow .18s;-webkit-appearance:none;appearance:none;box-sizing:border-box;line-height:1.4}
+.amre-input:focus,.amre-textarea:focus,.amre-select:focus{outline:none;border-color:#1c3d31;box-shadow:0 0 0 3px rgba(28,61,49,.1)}
+.amre-textarea{resize:vertical;min-height:110px;line-height:1.55;font-family:'Montserrat',sans-serif}
+.amre-input::placeholder,.amre-textarea::placeholder{color:#a8a8a8}
+.amre-select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'><path d='M3 5l4 4 4-4' stroke='%231c3d31' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px;cursor:pointer}
+
+/* Consent */
+.amre-consent{display:flex;align-items:flex-start;gap:10px;font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.55;color:#5a5a5a;cursor:pointer;margin-top:4px}
+.amre-consent input{margin:3px 0 0 0;flex-shrink:0;accent-color:#1c3d31;width:15px;height:15px;cursor:pointer}
+.amre-consent a{color:#1c3d31;text-decoration:underline}
+
+/* Submit */
+.amre-submit{margin-top:8px;background:#1c3d31;color:#fff;border:none;padding:14px 28px;border-radius:999px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:background .18s,opacity .18s;align-self:flex-start}
+.amre-submit:hover:not(:disabled){background:#163025}
+.amre-submit:disabled{opacity:.55;cursor:wait}
+.amre-submit:focus-visible{outline:2px solid #1c3d31;outline-offset:3px}
+@media(max-width:520px){.amre-submit{align-self:stretch;text-align:center}}
+
+/* Error */
+.amre-error{font-family:'Montserrat',sans-serif;font-size:13px;line-height:1.5;color:#a73a2a;background:#fdf2f0;border:1px solid #f5d4cd;border-radius:10px;padding:12px 14px;display:none}
+.amre-error.is-visible{display:block}
+.amre-error a{color:#1c3d31;font-weight:500;text-decoration:underline}
+
+/* Success */
+.amre-success{display:none;padding:36px 28px;text-align:center;background:#f5f0e8;border-radius:14px;border:1px solid #e8dfce}
+.amre-success.is-visible{display:block}
+.amre-success-icon{width:52px;height:52px;border-radius:50%;background:#1c3d31;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 18px}
+.amre-success-h{font-family:'Playfair Display',Georgia,serif;font-size:24px;font-weight:400;color:#1a1a1a;margin:0 0 10px}
+.amre-success-p{font-family:'Montserrat',sans-serif;font-size:14px;line-height:1.65;color:#5a5a5a;margin:0;max-width:380px;margin-left:auto;margin-right:auto}
