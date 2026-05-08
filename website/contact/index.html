@@ -682,11 +682,69 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
     <div class="split-right-inner">
 
       <h2 class="f" style="font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);margin-bottom:6px">Send a message</h2>
-      <p class="f" style="font-size:16px;font-weight:400;color:var(--mid);line-height:1.65;margin-bottom:24px">We’d love to hear from you. Drop us a note and we’ll be in touch within a few hours on business days.</p>
+      <p class="f" style="font-size:16px;font-weight:400;color:var(--mid);line-height:1.65;margin-bottom:20px">We’d love to hear from you. Drop us a note and we’ll be in touch within a few hours on business days.</p>
+
+      <!-- ─── Inquiry-type chips (optional) ─── -->
+      <style>
+        .inquiry-chips{margin-bottom:24px}
+        .inquiry-chips-label{display:block;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:500;color:#5a5a5a;letter-spacing:.02em;margin-bottom:10px}
+        .inquiry-chips-optional{font-weight:400;color:#9a9a9a}
+        .inquiry-chips-row{display:flex;flex-wrap:wrap;gap:8px}
+        .inquiry-chip{appearance:none;-webkit-appearance:none;background:#fff;border:1px solid #e5e5e5;color:#1a1a1a;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;letter-spacing:.01em;padding:10px 18px;border-radius:999px;cursor:pointer;transition:background .18s ease,border-color .18s ease,color .18s ease;line-height:1.2;min-height:40px}
+        .inquiry-chip:hover{border-color:#1c3d31;color:#1c3d31}
+        .inquiry-chip:focus-visible{outline:2px solid #1c3d31;outline-offset:2px}
+        .inquiry-chip.is-selected{background:#1c3d31;border-color:#1c3d31;color:#fff}
+        .inquiry-chip.is-selected:hover{background:#163025;border-color:#163025;color:#fff}
+        @media (max-width:520px){
+          .inquiry-chip{font-size:13px;padding:9px 14px;flex:1 1 calc(50% - 4px);text-align:center}
+        }
+      </style>
+      <div class="inquiry-chips f" role="group" aria-label="What brings you here? (optional)">
+        <span class="inquiry-chips-label">I’m a… <span class="inquiry-chips-optional">(optional)</span></span>
+        <div class="inquiry-chips-row">
+          <button type="button" class="inquiry-chip" data-value="Buyer" aria-pressed="false">Buyer</button>
+          <button type="button" class="inquiry-chip" data-value="Seller" aria-pressed="false">Seller</button>
+          <button type="button" class="inquiry-chip" data-value="Investor" aria-pressed="false">Investor</button>
+          <button type="button" class="inquiry-chip" data-value="Just Curious" aria-pressed="false">Just Curious</button>
+        </div>
+      </div>
 
       <div class="f d1">
-        <iframe src="https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" data-tally-src="https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" title="Contact AMRE Real Estate Group" style="border:0;display:block;width:100%;min-height:1100px"></iframe>
+        <iframe id="amre-contact-iframe" src="https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" data-tally-src="https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" width="100%" height="1100" frameborder="0" marginheight="0" marginwidth="0" title="Contact AMRE Real Estate Group" style="border:0;display:block;width:100%;min-height:1100px"></iframe>
       </div>
+
+      <script>
+        (function(){
+          var chips=document.querySelectorAll('.inquiry-chip');
+          var iframe=document.getElementById('amre-contact-iframe');
+          if(!iframe||!chips.length)return;
+          var baseSrc='https://tally.so/embed/aQZxXX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1';
+          var selected=null;
+          function update(value){
+            var newSrc=value?baseSrc+'&inquiry_type='+encodeURIComponent(value):baseSrc;
+            iframe.src=newSrc;
+            if(iframe.dataset.tallySrc)iframe.dataset.tallySrc=newSrc;
+          }
+          chips.forEach(function(chip){
+            chip.addEventListener('click',function(){
+              var value=this.dataset.value;
+              if(selected===value){
+                selected=null;
+                chips.forEach(function(c){c.setAttribute('aria-pressed','false');c.classList.remove('is-selected');});
+                update(null);
+              }else{
+                selected=value;
+                chips.forEach(function(c){
+                  var match=c.dataset.value===value;
+                  c.setAttribute('aria-pressed',match?'true':'false');
+                  c.classList.toggle('is-selected',match);
+                });
+                update(value);
+              }
+            });
+          });
+        })();
+      </script>
     </div>
   </div>
 </div>
