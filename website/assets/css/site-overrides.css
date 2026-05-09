@@ -164,12 +164,20 @@ body{
   color: #ffc13c !important;
 }
 .mobile-drawer .drawer-cta{
-  margin: 8px 24px 0 !important;
-  display: inline-block !important;
-  background: #ffc13c !important;
-  color: #070B33 !important;
-  padding: 10px 20px !important;
-  border-radius: 2px !important;
+  margin: 0 !important;
+  display: block !important;
+  background: none !important;
+  color: #ffc13c !important;
+  padding: 12px 24px !important;
+  border-radius: 0 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+}
+.mobile-drawer .drawer-cta:hover{
+  color: #fff !important;
+  background: none !important;
 }
 
 /* =====================================================================
