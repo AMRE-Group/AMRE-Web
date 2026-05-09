@@ -1155,25 +1155,7 @@ details[open] .faq-q::after{transform:rotate(45deg)}
   document.querySelectorAll('.f').forEach(function(el){io.observe(el)});
 })();
 
-  // ── Hamburger menu ──
-  (function(){
-    var btn=document.getElementById('hamBtn');
-    var drawer=document.getElementById('mobileDrawer');
-    if(!btn||!drawer)return;
-    btn.addEventListener('click',function(){
-      var open=btn.classList.toggle('open');
-      btn.setAttribute('aria-expanded',open);
-      drawer.classList.toggle('open',open);
-      document.body.style.overflow=open?'hidden':'';
-    });
-    drawer.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click',function(){
-        btn.classList.remove('open');
-        drawer.classList.remove('open');
-        document.body.style.overflow='';
-      });
-    });
-  })();
+
 </script>
 <!-- STICKY VALUATION BAR -->
 <div class="sticky-val-bar" id="stickyValBar" role="complementary" aria-label="Free home valuation offer">
