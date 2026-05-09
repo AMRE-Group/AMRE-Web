@@ -652,9 +652,44 @@ html body .testi-text{
 /* Make sure .nav-right gives the two CTAs + plain link an even gap */
 .nav-right{ display:flex !important; align-items:center !important; gap: 14px !important; }
 
+/* ── Hamburger button — global rules (index.html only had these inline) ── */
+.ham-btn{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.ham-btn span{
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .25s, opacity .2s, width .25s;
+}
+/* Dark bars when nav goes light (scrolled) — white-on-white was invisible */
+.site-nav.is-light .ham-btn span{
+  background: #1a1a1a !important;
+}
+/* X animation */
+.ham-btn.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.ham-btn.open span:nth-child(2){ opacity: 0; width: 0; }
+.ham-btn.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
 @media(max-width:860px){
   .nav-link-text{display:none !important}
   .nav-right .nav-cta{display:none !important}
+  .ham-btn{display:flex !important}
+}
+@media(min-width:861px){
+  .ham-btn{display:none !important}
 }
 
 
