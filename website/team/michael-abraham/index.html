@@ -144,13 +144,13 @@ img{display:block;max-width:100%}
 button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 [id]{scroll-margin-top:calc(var(--nav-h) + 24px)}
 
-/* ── HERO (split layout: dark text panel + photo) ── */
+/* ── HERO (split layout: dark text panel + seated photo) ── */
 .bio-hero{
   position:relative;
   background:#0a0a0c;
   display:grid;
   grid-template-columns:1fr 1fr;
-  min-height:clamp(560px,75vh,760px);
+  min-height:clamp(440px,58vh,560px);
   padding-top:var(--nav-h);
   overflow:hidden;
   align-items:stretch;
@@ -158,7 +158,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 .bio-hero-text{
   position:relative;
   z-index:3;
-  padding:64px clamp(32px,5vw,72px);
+  padding:48px clamp(28px,4.5vw,64px);
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -167,7 +167,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 .bio-hero-photo{
   position:relative;
   background-size:cover;
-  background-position:center 12%;
+  background-position:center 30%;
   background-color:#0a0a0c;
 }
 .bio-hero-photo::before{
@@ -177,10 +177,10 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   z-index:1;
   background:linear-gradient(to right,
     #0a0a0c 0%,
-    rgba(10,10,12,.92) 12%,
-    rgba(10,10,12,.5) 30%,
-    rgba(10,10,12,.08) 58%,
-    transparent 78%);
+    rgba(10,10,12,.95) 14%,
+    rgba(10,10,12,.55) 32%,
+    rgba(10,10,12,.12) 60%,
+    transparent 82%);
   pointer-events:none;
 }
 .bio-hero-eyebrow{
@@ -190,15 +190,15 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   text-transform:uppercase;
   font-weight:500;
   color:var(--brass);
-  margin-bottom:24px;
+  margin-bottom:20px;
 }
 .bio-hero-name{
   font-family:var(--serif);
   font-weight:500;
   font-style:italic;
-  font-size:clamp(40px,5.2vw,76px);
-  line-height:1.04;
-  margin:0 0 24px;
+  font-size:clamp(36px,4.6vw,64px);
+  line-height:1.05;
+  margin:0 0 20px;
   letter-spacing:-.01em;
 }
 .bio-hero-role{
@@ -207,19 +207,19 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   font-weight:300;
   letter-spacing:.01em;
   color:rgba(255,255,255,.84);
-  max-width:480px;
+  max-width:460px;
   line-height:1.65;
 }
 @media(max-width:860px){
   .bio-hero{
     grid-template-columns:1fr;
-    grid-template-rows:380px auto;
+    grid-template-rows:340px auto;
     min-height:auto;
     padding-top:0;
   }
   .bio-hero-photo{
     order:1;
-    background-position:center 8%;
+    background-position:center 30%;
     margin-top:var(--nav-h);
   }
   .bio-hero-photo::before{
@@ -231,9 +231,9 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   }
   .bio-hero-text{
     order:2;
-    padding:48px 24px 56px;
+    padding:40px 24px 48px;
   }
-  .bio-hero-name{font-size:clamp(40px,11vw,64px)}
+  .bio-hero-name{font-size:clamp(36px,10vw,56px)}
 }
 
 /* ── QUICK FACTS BAR ── */
@@ -843,7 +843,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
     <h1 class="bio-hero-name">Michael Abraham</h1>
     <p class="bio-hero-role">Principal Agent, Licensed Architect, and member of the National Association of Realtors®, advising clients across Los Angeles from Compass Beverly Hills.</p>
   </div>
-  <div class="bio-hero-photo" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-stairs-suit.jpg')"></div>
+  <div class="bio-hero-photo" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-couch-white.jpg')"></div>
 </section>
 
 <!-- ══════════ QUICK FACTS ══════════ -->
