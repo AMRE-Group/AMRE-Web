@@ -166,8 +166,9 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 }
 .bio-hero-photo{
   position:relative;
-  background-size:cover;
-  background-position:center 30%;
+  background-size:contain;
+  background-position:right center;
+  background-repeat:no-repeat;
   background-color:#0a0a0c;
 }
 .bio-hero-photo::before{
@@ -177,10 +178,10 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   z-index:1;
   background:linear-gradient(to right,
     #0a0a0c 0%,
-    rgba(10,10,12,.95) 14%,
-    rgba(10,10,12,.55) 32%,
-    rgba(10,10,12,.12) 60%,
-    transparent 82%);
+    rgba(10,10,12,.92) 18%,
+    rgba(10,10,12,.45) 36%,
+    rgba(10,10,12,.1) 58%,
+    transparent 78%);
   pointer-events:none;
 }
 .bio-hero-eyebrow{
@@ -219,7 +220,8 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   }
   .bio-hero-photo{
     order:1;
-    background-position:center 30%;
+    background-position:center center;
+    background-size:contain;
     margin-top:var(--nav-h);
   }
   .bio-hero-photo::before{
