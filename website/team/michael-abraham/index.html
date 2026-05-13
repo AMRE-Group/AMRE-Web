@@ -144,36 +144,44 @@ img{display:block;max-width:100%}
 button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 [id]{scroll-margin-top:calc(var(--nav-h) + 24px)}
 
-/* ── HERO ── */
+/* ── HERO (split layout: dark text panel + photo) ── */
 .bio-hero{
   position:relative;
-  min-height:88vh;
-  background:var(--forest-deep);
+  background:#0a0a0c;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:clamp(560px,75vh,760px);
+  padding-top:var(--nav-h);
   overflow:hidden;
+  align-items:stretch;
+}
+.bio-hero-text{
+  position:relative;
+  z-index:3;
+  padding:64px clamp(32px,5vw,72px);
   display:flex;
-  align-items:flex-end;
+  flex-direction:column;
+  justify-content:center;
+  color:#fff;
 }
 .bio-hero-photo{
-  position:absolute;inset:0;
+  position:relative;
   background-size:cover;
-  background-position:center 25%;
-  filter:brightness(.78);
+  background-position:center 12%;
+  background-color:#0a0a0c;
 }
-.bio-hero-grad{
-  position:absolute;inset:0;
-  background:linear-gradient(180deg,
-    rgba(7,11,51,.18) 0%,
-    rgba(7,11,51,.05) 35%,
-    rgba(20,43,34,.55) 75%,
-    rgba(20,43,34,.92) 100%);
-}
-.bio-hero-inner{
-  position:relative;z-index:2;
-  width:100%;
-  max-width:1200px;
-  margin:0 auto;
-  padding:96px 32px 64px;
-  color:#fff;
+.bio-hero-photo::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(to right,
+    #0a0a0c 0%,
+    rgba(10,10,12,.92) 12%,
+    rgba(10,10,12,.5) 30%,
+    rgba(10,10,12,.08) 58%,
+    transparent 78%);
+  pointer-events:none;
 }
 .bio-hero-eyebrow{
   display:inline-block;
@@ -188,23 +196,44 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   font-family:var(--serif);
   font-weight:500;
   font-style:italic;
-  font-size:clamp(48px,8vw,104px);
-  line-height:1;
+  font-size:clamp(40px,5.2vw,76px);
+  line-height:1.04;
   margin:0 0 24px;
   letter-spacing:-.01em;
 }
 .bio-hero-role{
   font-family:var(--sans);
-  font-size:clamp(15px,1.4vw,18px);
-  font-weight:400;
-  letter-spacing:.02em;
-  color:rgba(255,255,255,.88);
-  max-width:640px;
+  font-size:clamp(14px,1.05vw,16px);
+  font-weight:300;
+  letter-spacing:.01em;
+  color:rgba(255,255,255,.84);
+  max-width:480px;
+  line-height:1.65;
 }
-@media(max-width:680px){
-  .bio-hero{min-height:80vh}
-  .bio-hero-inner{padding:64px 20px 40px}
-  .bio-hero-name{font-size:clamp(44px,12vw,72px)}
+@media(max-width:860px){
+  .bio-hero{
+    grid-template-columns:1fr;
+    grid-template-rows:380px auto;
+    min-height:auto;
+    padding-top:0;
+  }
+  .bio-hero-photo{
+    order:1;
+    background-position:center 8%;
+    margin-top:var(--nav-h);
+  }
+  .bio-hero-photo::before{
+    background:linear-gradient(to bottom,
+      transparent 0%,
+      rgba(10,10,12,.05) 55%,
+      rgba(10,10,12,.78) 88%,
+      #0a0a0c 100%);
+  }
+  .bio-hero-text{
+    order:2;
+    padding:48px 24px 56px;
+  }
+  .bio-hero-name{font-size:clamp(40px,11vw,64px)}
 }
 
 /* ── QUICK FACTS BAR ── */
@@ -809,13 +838,12 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 
 <!-- ══════════ HERO ══════════ -->
 <section class="bio-hero" aria-label="Michael Abraham">
-  <div class="bio-hero-photo" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-stairs-suit.jpg')"></div>
-  <div class="bio-hero-grad"></div>
-  <div class="bio-hero-inner">
+  <div class="bio-hero-text">
     <span class="bio-hero-eyebrow">AMRE Real Estate Group · Compass Beverly Hills</span>
     <h1 class="bio-hero-name">Michael Abraham</h1>
     <p class="bio-hero-role">Principal Agent, Licensed Architect, and member of the National Association of Realtors®, advising clients across Los Angeles from Compass Beverly Hills.</p>
   </div>
+  <div class="bio-hero-photo" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-stairs-suit.jpg')"></div>
 </section>
 
 <!-- ══════════ QUICK FACTS ══════════ -->
