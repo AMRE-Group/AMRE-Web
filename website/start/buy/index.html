@@ -17,7 +17,7 @@
 <script src="/assets/forms/forms.js" defer></script>
 
 <title>The Off-Market Access List | Homes Before They Hit MLS — AMRE</title>
-<meta name="description" content="Get early access to LA homes before they hit MLS. Compass Private Exclusives + 25-year agent network. A curated weekly brief from Michael and Ania at Compass Beverly Hills.">
+<meta name="description" content="Get early access to Los Angeles homes before they hit MLS, Zillow, and Redfin. Compass Private Exclusives + 25-year agent network. A curated weekly brief from Michael and Ania at Compass Beverly Hills.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="https://amre.group/start/buy/">
 <meta property="og:type" content="website">
@@ -628,6 +628,92 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 .f.d1{transition-delay:.08s}.f.d2{transition-delay:.16s}
 .f.d3{transition-delay:.24s}.f.d4{transition-delay:.32s}
 </style>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ACQUISITION-INSPIRED PALETTE OVERRIDE
+   Shift from forest-green dominant → white/navy dominant
+   Brass remains as accent only. AMRE editorial polish preserved.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── HERO: white background with subtle photo, navy text ─── */
+.hero{
+  background:#fff !important;
+  color:var(--ink) !important;
+}
+.hero-bg{
+  opacity:.28 !important;
+  filter:saturate(.85) !important;
+}
+.hero-grad{
+  background:
+    radial-gradient(ellipse at 50% 55%,rgba(255,255,255,.55) 0%,rgba(255,255,255,.92) 65%),
+    linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.82) 55%,rgba(255,255,255,1) 100%) !important;
+}
+.hero h1 em{ color:var(--navy) !important; }
+.hero-sub{ color:var(--mid) !important; }
+.hero-sub strong{ color:var(--ink) !important; }
+.cta-meta{ color:var(--mid) !important; }
+.cta-meta .dot{ color:var(--navy) !important; opacity:.5 !important; }
+
+/* Trust strip: light borders, dark text */
+.trust-strip{ border-top:1px solid var(--rule) !important; }
+.trust-item{ color:var(--mid) !important; }
+.trust-item strong{ color:var(--ink) !important; }
+.trust-item span{ color:var(--mid) !important; }
+
+/* ─── PRIMARY CTA: navy with white text (Acquisition.com style) ─── */
+.cta-primary{
+  background:var(--navy) !important;
+  color:#fff !important;
+}
+.cta-primary:hover{
+  background:#101743 !important;
+}
+
+/* ─── SECTION ACCENTS: forest → navy ─── */
+.section-eyebrow{ color:var(--navy) !important; }
+.section-eyebrow::before,
+.section-eyebrow::after{ background:var(--navy) !important; opacity:.5 !important; }
+.section-h em{ color:var(--navy) !important; }
+.proof-stat-n{ color:var(--navy) !important; }
+.letter-sig-line{ color:var(--navy) !important; }
+.faq-q:hover{ color:var(--navy) !important; }
+
+/* ─── VALUE STACK: keep cream cards, navy accents ─── */
+.stack-item:hover{
+  border-color:var(--navy) !important;
+  box-shadow:0 8px 24px rgba(7,11,51,.08) !important;
+}
+.stack-check{ background:var(--navy) !important; }
+.stack-total{ background:var(--navy) !important; }
+/* (stack-total already had navy gradient feel — now solid navy) */
+
+/* ─── BOTTOM CTA: forest → cream (lighter feel, button still navy) ─── */
+.bottom-cta{
+  background:var(--paper) !important;
+  color:var(--ink) !important;
+}
+.bottom-cta-eyebrow{ color:var(--navy) !important; }
+.bottom-cta h2{ color:var(--ink) !important; }
+.bottom-cta h2 em{ color:var(--navy) !important; }
+.bottom-cta p{ color:var(--mid) !important; }
+.buyer-link{
+  color:var(--mid) !important;
+  border-bottom-color:var(--rule) !important;
+}
+.buyer-link:hover{
+  color:var(--ink) !important;
+  border-bottom-color:var(--mid) !important;
+}
+
+/* ─── GUARANTEE: navy preserved (already correct) ─── */
+/* No overrides needed — navy bg + white text + brass seal is exactly the look. */
+
+/* ─── LETTER: cream preserved (already correct) ─── */
+/* No overrides needed. */
+
+</style>
 </head>
 <body>
 
@@ -647,8 +733,8 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   <div class="hero-grad" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow f">The Off-Market Access List</div>
-    <h1 class="f d1">See the LA homes the <em>rest of the market</em> isn't seeing yet.</h1>
-    <p class="hero-sub f d2">We're <strong>Michael &amp; Ania</strong>. Compass Private Exclusives plus our 25-year LA agent network give us access to homes <strong>30–90 days before they hit MLS</strong>. Tell us what you're looking for and we'll send a curated weekly list — plus a private market briefing on the neighborhoods you actually care about. Free. No obligation.</p>
+    <h1 class="f d1">See the Los Angeles homes the <em>rest of the market</em> isn't seeing yet.</h1>
+    <p class="hero-sub f d2">We're <strong>Michael &amp; Ania</strong>. Compass Private Exclusives plus our 25-year LA agent network give us access to homes <strong>30–90 days before they hit MLS, Zillow, and Redfin</strong>. Tell us what you're looking for and we'll send a curated weekly list — plus a private market briefing on the neighborhoods you actually care about. Free. No obligation.</p>
 
     <div class="hero-cta-wrap f d3">
       <button class="cta-primary" type="button" onclick="openValuationModal()" aria-haspopup="dialog">
@@ -693,7 +779,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
         <div class="stack-check" aria-hidden="true">✓</div>
         <div class="stack-content">
           <div class="stack-title"><span class="num">01</span>Compass Private Exclusives Access</div>
-          <div class="stack-desc">Homes listed off-market through Compass before they hit MLS. In some LA submarkets this is 15–20% of inventory — and only Compass agents can see it. You get a curated drop matched to your criteria.</div>
+          <div class="stack-desc">Homes listed off-market through Compass before they hit MLS, Zillow, or Redfin. In some LA submarkets this is 15–20% of inventory — and only Compass agents can see it. You get a curated drop matched to your criteria.</div>
         </div>
       </div>
 
@@ -857,7 +943,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 <section class="bottom-cta">
   <div class="bottom-cta-inner">
     <div class="bottom-cta-eyebrow f">Curated · Weekly · Free</div>
-    <h2 class="f d1">The best home in LA<br><em>might not be on Zillow.</em></h2>
+    <h2 class="f d1">The best home in Los Angeles<br><em>might not be on Zillow.</em></h2>
     <p class="f d2">Take 60 seconds to tell us what you're looking for. We'll send your first curated brief by Saturday — with at least one off-market home you'd never have seen otherwise.</p>
     <button class="cta-primary f d3" type="button" onclick="openValuationModal()" aria-haspopup="dialog">
       Send Me My Private Access List
