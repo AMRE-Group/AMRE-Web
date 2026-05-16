@@ -155,6 +155,29 @@
               window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
             } catch(_){}
           }
+          // ── Analytics: Lead event ──
+          var leadValue = (type === 'valuation') ? 1500 : 500;
+          try {
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', {
+                event_category: 'engagement',
+                event_label: type,
+                form_source: params.source || '',
+                value: leadValue,
+                currency: 'USD'
+              });
+            }
+          } catch(_){}
+          try {
+            if (typeof fbq === 'function') {
+              fbq('track', 'Lead', {
+                content_category: type,
+                content_name: form.dataset.source || type + '_form',
+                value: leadValue,
+                currency: 'USD'
+              });
+            }
+          } catch(_){}
         })
         .catch(function(err){
           console.error('AMRE form: EmailJS error', err);
