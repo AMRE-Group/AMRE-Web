@@ -16,7 +16,8 @@
   // ── Template registry per form type ──
   var TEMPLATES = {
     contact:   { lead: 'template_9y2zh4b', user: 'template_xwvinyi' },
-    valuation: { lead: 'template_p5rtsi8', user: 'template_8h3fkqu' }
+    valuation: { lead: 'template_p5rtsi8', user: 'template_8h3fkqu' },
+    buyer:     { lead: 'template_s7ggyxb', user: 'template_9jgb96g' }
   };
 
   function initEmailJS(){
