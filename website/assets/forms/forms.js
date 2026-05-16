@@ -82,6 +82,8 @@
       address:       data.address || '',
       property_type: data.property_type || '',
       timeline:      data.timeline || '',
+      price_range:   data.price_range || '',
+      bedrooms:      data.bedrooms || '',
       property:      form.dataset.property || '',
       optin:         data.optin || 'No',
       source:        form.dataset.source || (window.location.host + window.location.pathname),
