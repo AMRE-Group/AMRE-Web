@@ -267,6 +267,25 @@ img{display:block;max-width:100%}
   .site-footer-disclosure-eho img{height:48px}
 }
 @media(max-width:480px){.footer-grid{grid-template-columns:1fr !important}}
+
+/* ═══ MOBILE-FIRST POLISH (added) ═══ */
+@media (max-width:520px){
+  .choice{ padding:calc(var(--nav-h) + 36px) 18px 56px !important; }
+  .choice h1{ font-size:clamp(34px,10vw,50px) !important; letter-spacing:-.02em; line-height:1.06; }
+  .choice-eyebrow{ font-size:10px !important; letter-spacing:.22em !important; margin-bottom:22px !important; }
+  .choice-eyebrow::before,.choice-eyebrow::after{ width:20px !important; }
+  .choice-sub{ font-size:15px !important; line-height:1.6 !important; margin-bottom:44px !important; }
+  .card{ padding:30px 22px 24px !important; }
+  .card-h{ font-size:22px !important; line-height:1.22 !important; margin-bottom:12px !important; }
+  .card-desc{ font-size:13.5px !important; line-height:1.6 !important; margin-bottom:24px !important; }
+  .card-eyebrow{ font-size:9px !important; letter-spacing:.22em !important; margin-bottom:16px !important; }
+  .card-cta{ font-size:12px !important; letter-spacing:.12em !important; }
+  .both-link{ font-size:12px !important; margin-top:36px !important; }
+}
+@media (max-width:380px){
+  .choice{ padding-left:14px !important; padding-right:14px !important; }
+  .choice h1{ font-size:30px !important; }
+}
 </style>
 </head>
 <body>
