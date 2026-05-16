@@ -628,6 +628,92 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 .f.d1{transition-delay:.08s}.f.d2{transition-delay:.16s}
 .f.d3{transition-delay:.24s}.f.d4{transition-delay:.32s}
 </style>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ACQUISITION-INSPIRED PALETTE OVERRIDE
+   Shift from forest-green dominant → white/navy dominant
+   Brass remains as accent only. AMRE editorial polish preserved.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── HERO: white background with subtle photo, navy text ─── */
+.hero{
+  background:#fff !important;
+  color:var(--ink) !important;
+}
+.hero-bg{
+  opacity:.28 !important;
+  filter:saturate(.85) !important;
+}
+.hero-grad{
+  background:
+    radial-gradient(ellipse at 50% 55%,rgba(255,255,255,.55) 0%,rgba(255,255,255,.92) 65%),
+    linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.82) 55%,rgba(255,255,255,1) 100%) !important;
+}
+.hero h1 em{ color:var(--navy) !important; }
+.hero-sub{ color:var(--mid) !important; }
+.hero-sub strong{ color:var(--ink) !important; }
+.cta-meta{ color:var(--mid) !important; }
+.cta-meta .dot{ color:var(--navy) !important; opacity:.5 !important; }
+
+/* Trust strip: light borders, dark text */
+.trust-strip{ border-top:1px solid var(--rule) !important; }
+.trust-item{ color:var(--mid) !important; }
+.trust-item strong{ color:var(--ink) !important; }
+.trust-item span{ color:var(--mid) !important; }
+
+/* ─── PRIMARY CTA: navy with white text (Acquisition.com style) ─── */
+.cta-primary{
+  background:var(--navy) !important;
+  color:#fff !important;
+}
+.cta-primary:hover{
+  background:#101743 !important;
+}
+
+/* ─── SECTION ACCENTS: forest → navy ─── */
+.section-eyebrow{ color:var(--navy) !important; }
+.section-eyebrow::before,
+.section-eyebrow::after{ background:var(--navy) !important; opacity:.5 !important; }
+.section-h em{ color:var(--navy) !important; }
+.proof-stat-n{ color:var(--navy) !important; }
+.letter-sig-line{ color:var(--navy) !important; }
+.faq-q:hover{ color:var(--navy) !important; }
+
+/* ─── VALUE STACK: keep cream cards, navy accents ─── */
+.stack-item:hover{
+  border-color:var(--navy) !important;
+  box-shadow:0 8px 24px rgba(7,11,51,.08) !important;
+}
+.stack-check{ background:var(--navy) !important; }
+.stack-total{ background:var(--navy) !important; }
+/* (stack-total already had navy gradient feel — now solid navy) */
+
+/* ─── BOTTOM CTA: forest → cream (lighter feel, button still navy) ─── */
+.bottom-cta{
+  background:var(--paper) !important;
+  color:var(--ink) !important;
+}
+.bottom-cta-eyebrow{ color:var(--navy) !important; }
+.bottom-cta h2{ color:var(--ink) !important; }
+.bottom-cta h2 em{ color:var(--navy) !important; }
+.bottom-cta p{ color:var(--mid) !important; }
+.buyer-link{
+  color:var(--mid) !important;
+  border-bottom-color:var(--rule) !important;
+}
+.buyer-link:hover{
+  color:var(--ink) !important;
+  border-bottom-color:var(--mid) !important;
+}
+
+/* ─── GUARANTEE: navy preserved (already correct) ─── */
+/* No overrides needed — navy bg + white text + brass seal is exactly the look. */
+
+/* ─── LETTER: cream preserved (already correct) ─── */
+/* No overrides needed. */
+
+</style>
 </head>
 <body>
 
@@ -647,7 +733,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
   <div class="hero-grad" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="hero-eyebrow f">The 48-Hour Maximum Price Report</div>
-    <h1 class="f d1">What's the <em>most</em> your LA home could sell for in 2026?</h1>
+    <h1 class="f d1">What's the <em>most</em> your Los Angeles home could sell for in 2026?</h1>
     <p class="hero-sub f d2">We're <strong>Michael &amp; Ania</strong>. In the next 48 hours, we'll personally analyze your home, your block, and your competition — then deliver a five-part report showing exactly what we'd list it for, why, and how to push that number higher. No phone call required. No pressure to ever list with us.</p>
 
     <div class="hero-cta-wrap f d3">
