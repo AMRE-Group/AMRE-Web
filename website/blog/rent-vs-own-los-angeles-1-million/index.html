@@ -392,6 +392,41 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   .footer-grid{grid-template-columns:1fr}
   .site-footer-disclosure-eho img{height:48px}
 }
+
+/* ── Article anchor nav ─────────────────────────────────── */
+.article-anchor-nav{
+  position:sticky;top:56px;z-index:200;
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid #e8ede9;
+  padding:0 44px;
+}
+.article-anchor-nav-inner{
+  max-width:780px;margin-inline:auto;
+  display:flex;gap:0;overflow-x:auto;
+  scrollbar-width:none;
+}
+.article-anchor-nav-inner::-webkit-scrollbar{display:none}
+.article-anchor-nav a{
+  font-family:var(--sans);font-size:11px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--mid);text-decoration:none;
+  padding:12px 14px;white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;
+}
+.article-anchor-nav a:hover,
+.article-anchor-nav a.active{
+  color:var(--forest);border-bottom-color:var(--forest);
+}
+@media(max-width:860px){
+  .article-anchor-nav{padding:0 20px}
+  .article-anchor-nav a{font-size:10px;padding:10px 10px}
+}
+/* scroll-margin so sticky nav doesn't cover headings */
+#setup,#monthly,#comparison,#leverage,#frozen,#duplex,#verdict,#faq{
+  scroll-margin-top:104px;
+}
 </style>
 </head>
 <body>
@@ -439,6 +474,19 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   </nav>
 </div>
 
+<nav class="article-anchor-nav" aria-label="Jump to section">
+  <div class="article-anchor-nav-inner">
+    <a href="#setup">The Setup</a>
+    <a href="#monthly">Monthly Costs</a>
+    <a href="#comparison">Fair Comparison</a>
+    <a href="#leverage">Leverage</a>
+    <a href="#frozen">Fixed Payment</a>
+    <a href="#duplex">Duplex Play</a>
+    <a href="#verdict">Verdict</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
 <section class="article-body-section">
   <div class="article-body" itemprop="articleBody">
 
@@ -446,7 +494,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 
     <p>The answer is clearer than you might expect. Let's walk through it.</p>
 
-    <h2>The setup: same $200,000. Two paths.</h2>
+    <h2 id="setup">The setup: same $200,000. Two paths.</h2>
 
     <p>Our subject is a <strong>$1,000,000 home</strong> &mdash; a 2-bed, 2-bath in the kind of neighborhoods our clients are actively shopping right now: <strong>West Adams, Culver City, and South LA</strong>. Real bones, real architecture, real momentum.</p>
 
@@ -459,7 +507,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 
     <p>This is the correct comparison. Both people deploy the same capital at the start. After that, each pays their own housing costs from income &mdash; rent on one side, mortgage + taxes + insurance + maintenance on the other. Nobody is banking the "difference" every month and reinvesting it, because in the real world that money goes toward rent.</p>
 
-    <h2>The monthly reality</h2>
+    <h2 id="monthly">The monthly reality</h2>
 
     <p>A comparable 2-bed, 2-bath in West Adams, Culver City, or South LA rents for roughly <strong>$3,500 a month</strong> today. Here's what owning the same caliber property at 20% down actually costs, with everything included:</p>
 
@@ -493,7 +541,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 
     <p>So the owner spends about <strong>$7,200 a month</strong> on housing versus the renter's <strong>$3,500</strong>. That extra $3,700 a month is real money &mdash; and it's the cost of controlling a leveraged, appreciating million-dollar asset.</p>
 
-    <h2>The correct comparison: same $200k, different destination</h2>
+    <h2 id="comparison">The correct comparison: same $200k, different destination</h2>
 
     <p>Now for the part most rent-vs-own analyses get wrong. They assume the renter takes every dollar they save versus the owner and invests it. That's not realistic &mdash; that money pays rent. The honest apples-to-apples is simpler: <strong>both parties start with $200,000 and deploy it on day one</strong>. The owner puts it into the home; the renter puts it into the index fund. Then both pay their respective housing costs from their income and go about their lives.</p>
 
@@ -538,7 +586,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 
     <p>The renter's index fund grows well &mdash; $200,000 at 8% for 10 years becomes about $431,000. That's a strong return. But the owner's equity at the same 10 years is over <strong>$1,000,000</strong> &mdash; more than double. The reason is leverage, and it's worth understanding exactly how it works.</p>
 
-    <h2>Why the owner wins: the leverage no one else can offer you</h2>
+    <h2 id="leverage">Why the owner wins: the leverage no one else can offer you</h2>
 
     <p>When you invest $200,000 in an index fund at 8%, you made 8% on $200,000. Simple. But when you put $200,000 down on a $1,000,000 home and it appreciates 6% in a year, you didn't make 6%. The <em>entire asset</em> gained $60,000 &mdash; and you controlled it with just $200,000. That's a <strong>30% return on your cash</strong> from appreciation alone, in year one. The bank funded the rest at a fixed rate they can never raise.</p>
 
@@ -568,7 +616,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 
     <p>Warren Buffett has called the long fixed-rate mortgage one of the best financial instruments a household can access &mdash; and it's easy to see why. The loan is fixed while inflation quietly erodes the real value of the debt. If rates fall, you refinance. If rates rise, you keep your cheap payment and laugh. The bank cannot call the loan if the market dips. No margin call. No forced liquidation. There is no comparable instrument that lets an ordinary person deploy this kind of leverage on a real asset with this degree of downside protection.</p>
 
-    <h2>The other quiet advantage: your payment is frozen. Rent isn't.</h2>
+    <h2 id="frozen">The other quiet advantage: your payment is frozen. Rent isn't.</h2>
 
     <p>There's a second force working in the owner's favor that doesn't show up clearly in year one &mdash; but compounds powerfully over time. The biggest piece of your mortgage payment (principal and interest) is <em>locked</em> for 30 years. Rent, meanwhile, climbs about 3% a year. Watch what that does:</p>
 
@@ -707,7 +755,7 @@ tenant</text>
     </div>
 
 
-        <h2>So what's the smart move?</h2>
+        <h2 id="verdict">So what's the smart move?</h2>
 
     <p>The math here is not a coin flip. With the same starting capital, the homeowner's leveraged equity significantly outpaces the renter's stock portfolio at every time horizon we modeled. The discipline of a mortgage, the freeze on your biggest expense, and the leverage effect on an appreciating asset all compound in the owner's favor in ways the index fund can't match from the same base.</p>
 
@@ -715,7 +763,7 @@ tenant</text>
 
     <p>The conversation we love having is: what does "the right price, right neighborhood" actually look like for <em>your</em> situation? That's where strategy matters more than the model.</p>
 
-    <h2>Frequently asked questions</h2>
+    <h2 id="faq">Frequently asked questions</h2>
 
     <h3>Is it cheaper to rent or buy in Los Angeles right now?</h3>
     <p>Month to month, renting is cheaper &mdash; a comparable 2BR in West Adams or Culver City runs ~$3,500 versus ~$7,200 all-in to own a $1M home with 20% down. But monthly cost isn't the right comparison: the question is what happens to the same starting capital over 5, 7, and 10 years.</p>
@@ -828,6 +876,30 @@ tenant</text>
     btn.addEventListener('click',function(){var open=btn.classList.toggle('open');btn.setAttribute('aria-expanded',open);drawer.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';});
     drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';});});
   }
+})();
+</script>
+
+<script>
+(function(){
+  var ids=["setup","monthly","comparison","leverage","frozen","duplex","verdict","faq"];
+  var links={};
+  ids.forEach(function(id){
+    var a=document.querySelector('.article-anchor-nav a[href="#'+id+'"]');
+    if(a) links[id]=a;
+  });
+  function onScroll(){
+    var pos=window.scrollY+120;
+    var active=null;
+    ids.forEach(function(id){
+      var el=document.getElementById(id);
+      if(el && el.offsetTop<=pos) active=id;
+    });
+    Object.keys(links).forEach(function(id){
+      links[id].classList.toggle("active", id===active);
+    });
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});
+  onScroll();
 })();
 </script>
 </body>
