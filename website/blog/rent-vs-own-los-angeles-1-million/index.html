@@ -424,9 +424,39 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   .article-anchor-nav a{font-size:10px;padding:10px 10px}
 }
 /* scroll-margin so sticky nav doesn't cover headings */
-#setup,#monthly,#comparison,#leverage,#frozen,#duplex,#verdict,#faq{
+#setup,#monthly,#comparison,#leverage,#equity-builds,#frozen,#duplex,#verdict,#side-by-side,#faq{
   scroll-margin-top:104px;
 }
+
+/* ── Article summary / key takeaways ──────────────────── */
+.article-summary{
+  background:#f4f7f5;border:1px solid #d4e2da;border-radius:16px;
+  padding:32px 36px;margin:0 0 40px;
+}
+.article-summary-eyebrow{
+  font-family:var(--sans);font-size:10px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--forest);
+  margin-bottom:14px;
+}
+.article-summary h3{
+  font-family:var(--serif);font-size:20px;font-weight:500;
+  color:var(--ink);margin:0 0 16px;
+}
+.article-summary ul{
+  margin:0;padding-left:20px;
+}
+.article-summary ul li{
+  font-family:var(--sans);font-size:14px;line-height:1.75;
+  color:#2d4a3e;font-weight:400;margin-bottom:6px;
+}
+.article-summary ul li strong{color:var(--forest)}
+/* PMI explainer inline box */
+.pmi-box{
+  background:#fffbf0;border:1px solid #f0d98a;border-radius:10px;
+  padding:16px 20px;margin:24px 0;
+  font-family:var(--sans);font-size:13px;line-height:1.7;color:#5a4a00;
+}
+.pmi-box strong{color:#3d3000}
 </style>
 </head>
 <body>
@@ -483,12 +513,28 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
     <a href="#frozen">Fixed Payment</a>
     <a href="#duplex">Duplex Play</a>
     <a href="#verdict">Verdict</a>
+    <a href="#equity-builds">Equity</a>
+    <a href="#side-by-side">Side-by-Side</a>
     <a href="#faq">FAQ</a>
   </div>
 </nav>
 
 <section class="article-body-section">
   <div class="article-body" itemprop="articleBody">
+
+    <!-- SUMMARY -->
+    <div class="article-summary">
+      <div class="article-summary-eyebrow">What you'll learn</div>
+      <h3>The key takeaways from this analysis</h3>
+      <ul>
+        <li><strong>Monthly cost reality:</strong> Renting a comparable 2BR/2BA runs ~$3,500/mo. Owning the same $1M home with 20% down costs ~$7,223/mo all-in — roughly double.</li>
+        <li><strong>The correct comparison:</strong> Both paths start with the same cash. Deploy $200k into the home or into an index fund — the owner's leveraged equity leads the renter's portfolio by $215k at 5 years and $573k at 10.</li>
+        <li><strong>Automatic savings:</strong> A mortgage forces you to build equity every single month, whether you feel like it or not. Most renters never actually invest the difference.</li>
+        <li><strong>Equity is real wealth:</strong> By year 10, a 20%-down owner has paid down ~$122k in principal <em>and</em> captured ~$791k in appreciation — all from one $200k starting investment.</li>
+        <li><strong>Leverage multiplies returns:</strong> A 6% rise on a $1M home = $60k gain on $200k down = 30% cash-on-cash. An index fund at 8% returns 8% on the same $200k.</li>
+        <li><strong>The duplex is the best play:</strong> Same $1M property, 5% down ($50k), tenant pays $2k/mo — your net cost drops to $6,928/mo and your $50k builds $878k in equity by year 10.</li>
+      </ul>
+    </div>
 
     <p>Here's a question we get almost every week: "Should I keep renting, or is it finally time to buy?" It usually comes with a knot of anxiety &mdash; the sense that renting is throwing money away, that prices only go up, that you're falling behind. So we built the real model, with today's rates and a real rental comp, and committed to letting the numbers land wherever they land.</p>
 
@@ -511,41 +557,48 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 
     <p>A comparable 2-bed, 2-bath in West Adams, Culver City, or South LA rents for roughly <strong>$3,500 a month</strong> today. Here's what owning the same caliber property at 20% down actually costs, with everything included:</p>
 
-    <div class="infographic" role="group" aria-label="Monthly Cost: Rent vs. Own a $1M Home (20% Down)">
-  <div class="infographic-title">Monthly Cost: Rent vs. Own a $1M Home (20% Down)</div>
-  <svg viewBox="0 0 500 320" width="100%" height="auto" role="img" aria-label="Monthly rent $3,500 versus all-in ownership cost $7,223" xmlns="http://www.w3.org/2000/svg" style="font-family:Montserrat,sans-serif">
-<line x1="46" y1="248" x2="470" y2="248" stroke="#ececec"/>
+    <div class="infographic" role="group" aria-label="Side-by-Side: Monthly Cost — Rent vs. Own a $1M Home vs. Duplex">
+  <div class="infographic-title">Side-by-Side: Monthly Cost — Rent vs. Own a $1M Home vs. Duplex</div>
+  <svg viewBox="0 0 580 320" width="100%" height="auto" role="img" aria-label="Monthly cost side-by-side: rent 3500, SFR owner 7223, duplex net 6928" xmlns="http://www.w3.org/2000/svg" style="font-family:Montserrat,sans-serif">
+<line x1="46" y1="248" x2="560" y2="248" stroke="#ececec"/>
 <text x="38" y="252" text-anchor="end" font-size="10" fill="#a0a0a0">$0k</text>
-<line x1="46" y1="173" x2="470" y2="173" stroke="#ececec"/>
+<line x1="46" y1="173" x2="560" y2="173" stroke="#ececec"/>
 <text x="38" y="177" text-anchor="end" font-size="10" fill="#a0a0a0">$3k</text>
-<line x1="46" y1="99" x2="470" y2="99" stroke="#ececec"/>
+<line x1="46" y1="99" x2="560" y2="99" stroke="#ececec"/>
 <text x="38" y="103" text-anchor="end" font-size="10" fill="#a0a0a0">$6k</text>
-<line x1="46" y1="24" x2="470" y2="24" stroke="#ececec"/>
+<line x1="46" y1="24" x2="560" y2="24" stroke="#ececec"/>
 <text x="38" y="28" text-anchor="end" font-size="10" fill="#a0a0a0">$9k</text>
-<rect x="97" y="161" width="110" height="87" rx="8" fill="#c9c9c9"/>
-<text x="152" y="151" text-anchor="middle" font-size="18" font-weight="700" fill="#1a1a1a">$3,500</text>
-<text x="152" y="276" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Rent</text>
-<text x="152" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">(comparable 2BR)</text>
-<text x="152" y="308" text-anchor="middle" font-size="10" fill="#a0a0a0">~$3,500/mo</text>
-<rect x="309" y="68" width="110" height="180" rx="8" fill="#1c3d31"/>
-<text x="364" y="58" text-anchor="middle" font-size="18" font-weight="700" fill="#1a1a1a">$7,223</text>
-<text x="364" y="276" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Own</text>
-<text x="364" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">20% down</text>
-<text x="364" y="308" text-anchor="middle" font-size="10" fill="#a0a0a0">all-in, yr 1</text>
-<line x1="258" y1="68" x2="258" y2="161" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4 3"/>
-<text x="266" y="119" font-size="11" font-weight="700" fill="#c0392b">+$3,723/mo</text>
+<rect x="84" y="161" width="96" height="87" rx="8" fill="#c9c9c9"/>
+<text x="132" y="152" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">$3,500</text>
+<text x="132" y="276" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Rent</text>
+<text x="132" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">2BR/2BA</text>
+<text x="132" y="310" text-anchor="middle" font-size="9" fill="#777">~$3,500/mo · $0 equity</text>
+<rect x="255" y="68" width="96" height="180" rx="8" fill="#1c3d31"/>
+<text x="303" y="59" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">$7,223</text>
+<text x="303" y="276" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Own</text>
+<text x="303" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Single-family</text>
+<text x="303" y="310" text-anchor="middle" font-size="9" fill="#777">$200k down · building equity</text>
+<rect x="426" y="76" width="96" height="172" rx="8" fill="#8fb5a3"/>
+<text x="474" y="67" text-anchor="middle" font-size="16" font-weight="700" fill="#1a1a1a">$6,928</text>
+<text x="474" y="276" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Own</text>
+<text x="474" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#1a1a1a">Duplex</text>
+<text x="474" y="310" text-anchor="middle" font-size="9" fill="#777">$50k down · tenant offsets $2k</text>
 </svg>
-  <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:#1c3d31;background:#eef3f0;border-left:3px solid #1c3d31;padding:12px 16px;border-radius:0 8px 8px 0;margin:18px 0 0;font-weight:400">Owning costs about $3,700 more per month than renting &mdash; roughly double. That gap is real, and it doesn't disappear. What changes the calculus is what both parties do with their $200,000 and what happens to each over time.</p>
-  <p style="font-family:var(--sans);font-size:11px;color:#a0a0a0;margin:12px 0 0;font-weight:300">All-in owner cost = P&amp;I ($5,057) + property tax ~1.25% ($1,042) + insurance ~0.35% ($292) + maintenance reserve 1% ($833). Rate ~6.5% 30-yr fixed, May 2026.</p>
+  <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:#1c3d31;background:#eef3f0;border-left:3px solid #1c3d31;padding:12px 16px;border-radius:0 8px 8px 0;margin:18px 0 0;font-weight:400">Renting is the cheapest month-to-month. But the owner is building equity with every payment; the renter is building none. The duplex splits the difference — costs more than renting but the tenant chips in $2k, and you own a $1M appreciating asset with only $50k down.</p>
+  <p style="font-family:var(--sans);font-size:11px;color:#a0a0a0;margin:12px 0 0;font-weight:300">SFR all-in: P&amp;I ($5,057) + property tax 1.25% ($1,042) + insurance ($292) + maintenance reserve 1% ($833). Duplex net: same components on $950k loan + PMI ($673) minus $2k tenant rent. Rate ~6.5% 30-yr fixed, May 2026.</p>
 </div>
 
-    <p>So the owner spends about <strong>$7,200 a month</strong> on housing versus the renter's <strong>$3,500</strong>. That extra $3,700 a month is real money &mdash; and it's the cost of controlling a leveraged, appreciating million-dollar asset.</p>
+    <p>So the SFR owner spends about <strong>$7,200 a month</strong>, the duplex owner nets <strong>$6,928</strong> after the tenant's contribution, and the renter pays <strong>$3,500</strong>. The monthly gap is real &mdash; and it doesn't disappear. What changes the calculus is what both parties do with their capital and what happens to it over time.</p>
+
+    <div class="pmi-box">
+      <strong>What is PMI?</strong> Private Mortgage Insurance is a monthly premium lenders require when your down payment is less than 20% of the purchase price. It protects the <em>lender</em> (not you) against default. On a $950,000 loan with 5% down, PMI runs about $673/month &mdash; adding roughly $8,000/year to your carrying cost. The good news: PMI automatically drops off once your loan balance falls below 80% of the home's original value, typically around year 7–10. It's the price of getting into a $1M asset with $50,000 instead of $200,000.
+    </div>
 
     <h2 id="comparison">The correct comparison: same $200k, different destination</h2>
 
     <p>Now for the part most rent-vs-own analyses get wrong. They assume the renter takes every dollar they save versus the owner and invests it. That's not realistic &mdash; that money pays rent. The honest apples-to-apples is simpler: <strong>both parties start with $200,000 and deploy it on day one</strong>. The owner puts it into the home; the renter puts it into the index fund. Then both pay their respective housing costs from their income and go about their lives.</p>
 
-    <p>Here's where $200,000 ends up under each path &mdash; at 5, 7, and 10 years:</p>
+    <p>Here's where $200,000 ends up under each path at 5, 7, and 10 years:</p>
 
     <div class="infographic" role="group" aria-label="Net Wealth by Horizon — Owner Equity vs. Renter Portfolio">
   <div class="infographic-title">Net Wealth by Horizon — Owner Equity vs. Renter Portfolio</div>
@@ -614,7 +667,59 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   <p style="font-family:var(--sans);font-size:11px;color:#a0a0a0;margin:12px 0 0;font-weight:300">Cash-on-cash from appreciation only ($60k on $1M asset) before costs and taxes. Leverage amplifies losses as well as gains. Illustrative. May 2026.</p>
 </div>
 
-    <p>Warren Buffett has called the long fixed-rate mortgage one of the best financial instruments a household can access &mdash; and it's easy to see why. The loan is fixed while inflation quietly erodes the real value of the debt. If rates fall, you refinance. If rates rise, you keep your cheap payment and laugh. The bank cannot call the loan if the market dips. No margin call. No forced liquidation. There is no comparable instrument that lets an ordinary person deploy this kind of leverage on a real asset with this degree of downside protection.</p>
+    <p>Warren Buffett has called the long fixed-rate mortgage one of the best financial instruments a household can access. The loan is fixed while inflation quietly erodes the real value of the debt. If rates fall, you refinance. If rates rise, you keep your cheap payment and laugh. The bank cannot call the loan if the market dips. No margin call. No forced liquidation. There is no comparable instrument that lets an ordinary person deploy this kind of leverage on a real asset with this degree of downside protection.</p>
+
+    <h2 id="equity-builds">Where your equity actually comes from</h2>
+
+    <p>Every mortgage payment has two jobs: paying interest to the bank, and paying down the loan balance. That second piece &mdash; <strong>principal reduction</strong> &mdash; is equity you're building whether you think about it or not. On top of that, your home's value is rising. Watch how those two forces stack up year by year:</p>
+
+    <div class="infographic" role="group" aria-label="Your Equity Stack — Year by Year (SFR, 20% Down)">
+  <div class="infographic-title">Your Equity Stack — Year by Year (SFR, 20% Down)</div>
+  <svg viewBox="0 0 700 340" width="100%" height="auto" role="img" aria-label="Equity buildup year by year: down payment, principal paid, and appreciation" xmlns="http://www.w3.org/2000/svg" style="font-family:Montserrat,sans-serif">
+<line x1="56" y1="284" x2="680" y2="284" stroke="#ececec"/>
+<text x="48" y="288" text-anchor="end" font-size="10" fill="#a0a0a0">$0</text>
+<line x1="56" y1="219" x2="680" y2="219" stroke="#ececec"/>
+<text x="48" y="223" text-anchor="end" font-size="10" fill="#a0a0a0">$300k</text>
+<line x1="56" y1="154" x2="680" y2="154" stroke="#ececec"/>
+<text x="48" y="158" text-anchor="end" font-size="10" fill="#a0a0a0">$600k</text>
+<line x1="56" y1="89" x2="680" y2="89" stroke="#ececec"/>
+<text x="48" y="93" text-anchor="end" font-size="10" fill="#a0a0a0">$900k</text>
+<line x1="56" y1="24" x2="680" y2="24" stroke="#ececec"/>
+<text x="48" y="28" text-anchor="end" font-size="10" fill="#a0a0a0">$1200k</text>
+<polygon points="56.0,240.7 125.3,240.7 194.7,240.7 264.0,240.7 333.3,240.7 402.7,240.7 472.0,240.7 541.3,240.7 610.7,240.7 680.0,240.7 680.0,284.0 610.7,284.0 541.3,284.0 472.0,284.0 402.7,284.0 333.3,284.0 264.0,284.0 194.7,284.0 125.3,284.0 56.0,284.0" fill="rgba(28,61,49,0.18)"/>
+<polygon points="56.0,238.7 125.3,236.7 194.7,234.5 264.0,232.1 333.3,229.6 402.7,226.9 472.0,224.1 541.3,221.0 610.7,217.8 680.0,214.3 680.0,240.7 610.7,240.7 541.3,240.7 472.0,240.7 402.7,240.7 333.3,240.7 264.0,240.7 194.7,240.7 125.3,240.7 56.0,240.7" fill="rgba(28,61,49,0.42)"/>
+<polygon points="56.0,225.7 125.3,209.9 194.7,193.1 264.0,175.2 333.3,156.3 402.7,136.2 472.0,114.9 541.3,92.3 610.7,68.4 680.0,42.9 680.0,214.3 610.7,217.8 541.3,221.0 472.0,224.1 402.7,226.9 333.3,229.6 264.0,232.1 194.7,234.5 125.3,236.7 56.0,238.7" fill="#1c3d31"/>
+<polyline points="56.0,225.7 125.3,209.9 194.7,193.1 264.0,175.2 333.3,156.3 402.7,136.2 472.0,114.9 541.3,92.3 610.7,68.4 680.0,42.9" fill="none" stroke="#1c3d31" stroke-width="2"/>
+<text x="56" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 1</text>
+<text x="125" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 2</text>
+<text x="195" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 3</text>
+<text x="264" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 4</text>
+<text x="333" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 5</text>
+<text x="403" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 6</text>
+<text x="472" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 7</text>
+<text x="541" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 8</text>
+<text x="611" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 9</text>
+<text x="680" y="310" text-anchor="middle" font-size="10" fill="#a0a0a0">Yr 10</text>
+<circle cx="680" cy="43" r="4" fill="#1c3d31"/>
+<text x="674" y="33" text-anchor="end" font-size="12" font-weight="700" fill="#1c3d31">$1,112,639</text>
+<text x="674" y="19" text-anchor="end" font-size="10" fill="#555">gross equity yr 10</text>
+<rect x="56" y="326" width="12" height="9" rx="2" fill="rgba(28,61,49,0.18)"/>
+<text x="72" y="334" font-size="9" fill="#1a1a1a">Down payment ($200k)</text>
+<rect x="271" y="326" width="12" height="9" rx="2" fill="rgba(28,61,49,0.42)"/>
+<text x="287" y="334" font-size="9" fill="#1a1a1a">Principal paid (~$122k by yr10)</text>
+<rect x="486" y="326" width="12" height="9" rx="2" fill="#1c3d31"/>
+<text x="502" y="334" font-size="9" fill="#1a1a1a">Appreciation gain (~$791k by yr10)</text>
+</svg>
+  <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:#1c3d31;background:#eef3f0;border-left:3px solid #1c3d31;padding:12px 16px;border-radius:0 8px 8px 0;margin:18px 0 0;font-weight:400">Three layers build your equity simultaneously: your original $200k down payment, ~$122k in principal you pay down over 10 years, and ~$791k in appreciation. By year 10 you have $1,112,639 in gross equity from a single $200k starting investment.</p>
+  <p style="font-family:var(--sans);font-size:11px;color:#a0a0a0;margin:12px 0 0;font-weight:300">Home appreciates 6%/yr from $1M. Principal paydown from 30-yr fixed at 6.5% on $800k. Figures gross of selling costs. Illustrative. May 2026.</p>
+</div>
+
+    <p>In year one alone you pay down nearly <strong>$9,000 in principal</strong> &mdash; money that stays in your pocket as equity, not the bank's. By year 10 that's <strong>$121,791</strong> in principal paydown, on top of the appreciation. The index fund investor has no equivalent of this: they're earning returns on their capital, but they're building nothing in the real world that someone else is partially funding.</p>
+
+    <div class="callout-box">
+      <div class="callout-box-label">The automatic savings machine</div>
+      <p>Here's the behavioral truth most financial analyses skip: <strong>almost nobody actually invests the difference.</strong> The idea sounds rational &mdash; rent, save the gap, put it in an index fund each month. In practice, that money goes toward life &mdash; a car, travel, restaurant bills, the things that happen when cash isn't committed elsewhere. A mortgage removes the choice. <strong>Every payment automatically builds equity.</strong> For most people, that forced discipline is worth more than the theoretical return on the difference &mdash; because the "invest the difference" path only works if you actually do it, every month, for ten years.</p>
+    </div>
 
     <h2 id="frozen">The other quiet advantage: your payment is frozen. Rent isn't.</h2>
 
@@ -653,12 +758,6 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 </div>
 
     <p>In year one, owning costs significantly more. By year 20, the renter is paying a housing bill that has grown every single year while the owner's core payment hasn't moved since closing day. Inflation is the renter's relentless adversary and the homeowner's quiet ally.</p>
-
-    <div class="callout-box">
-      <div class="callout-box-label">The honest summary</div>
-      <p>Owning a home is not the only way to build wealth. But at a $1,000,000 price point with <strong>the same $200,000 in starting capital</strong>, leverage turns a 6% appreciating asset into outcomes the stock market simply cannot match over the medium term &mdash; because you are compounding 8% on $200k while the owner is compounding appreciation and principal paydown on <strong>$1,000,000</strong>. The numbers aren't close.</p>
-    </div>
-
 
     <h2 id="duplex">The bonus move: buy a duplex, let a tenant pay your mortgage</h2>
 
@@ -754,27 +853,67 @@ tenant</text>
       <p>With 5% down on a duplex, your $50,000 is controlling a $1,000,000 appreciating asset. A tenant covers $2,000 of your monthly cost every single month &mdash; and as rent grows 3% a year, that offset increases while your mortgage payment stays frozen. You're living in the property, building equity on the full asset, and a stranger is funding a significant portion of it. No other single move puts this much leverage and income in the hands of a first-time or entry-level buyer.</p>
     </div>
 
+    <h2 id="side-by-side">The three paths — side by side at 10 years</h2>
 
-        <h2 id="verdict">So what's the smart move?</h2>
+    <p>Here's the full picture in one view. Three people, same neighborhood, same starting point. Where does each stand a decade later?</p>
 
-    <p>The math here is not a coin flip. With the same starting capital, the homeowner's leveraged equity significantly outpaces the renter's stock portfolio at every time horizon we modeled. The discipline of a mortgage, the freeze on your biggest expense, and the leverage effect on an appreciating asset all compound in the owner's favor in ways the index fund can't match from the same base.</p>
+    <div class="infographic" role="group" aria-label="10-Year Net Wealth: Rent vs. Own Single-Family vs. Own Duplex">
+  <div class="infographic-title">10-Year Net Wealth: Rent vs. Own Single-Family vs. Own Duplex</div>
+  <svg viewBox="0 0 620 360" width="100%" height="auto" role="img" aria-label="10-year net wealth: renter 431k, SFR owner 1005k, duplex owner 878k" xmlns="http://www.w3.org/2000/svg" style="font-family:Montserrat,sans-serif">
+<line x1="56" y1="280" x2="600" y2="280" stroke="#ececec"/>
+<text x="48" y="284" text-anchor="end" font-size="10" fill="#a0a0a0">$0k</text>
+<line x1="56" y1="226" x2="600" y2="226" stroke="#ececec"/>
+<text x="48" y="230" text-anchor="end" font-size="10" fill="#a0a0a0">$250k</text>
+<line x1="56" y1="171" x2="600" y2="171" stroke="#ececec"/>
+<text x="48" y="175" text-anchor="end" font-size="10" fill="#a0a0a0">$500k</text>
+<line x1="56" y1="117" x2="600" y2="117" stroke="#ececec"/>
+<text x="48" y="121" text-anchor="end" font-size="10" fill="#a0a0a0">$750k</text>
+<line x1="56" y1="63" x2="600" y2="63" stroke="#ececec"/>
+<text x="48" y="67" text-anchor="end" font-size="10" fill="#a0a0a0">$1000k</text>
+<rect x="92" y="186" width="110" height="94" rx="8" fill="#c9c9c9"/>
+<text x="147" y="177" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">$431k</text>
+<text x="147" y="308" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Rent</text>
+<text x="147" y="323" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">(keep $200k</text>
+<text x="147" y="338" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">@ 8% index)</text>
+<rect x="273" y="61" width="110" height="219" rx="8" fill="#1c3d31"/>
+<text x="328" y="52" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">$1005k</text>
+<text x="328" y="308" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Own</text>
+<text x="328" y="323" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Single-family</text>
+<text x="328" y="338" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">(20% down)</text>
+<rect x="454" y="89" width="110" height="191" rx="8" fill="#8fb5a3"/>
+<text x="509" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#1a1a1a">$878k</text>
+<text x="509" y="308" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Own</text>
+<text x="509" y="323" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">Duplex</text>
+<text x="509" y="338" text-anchor="middle" font-size="11" font-weight="600" fill="#1a1a1a">(5% down)</text>
+<text x="56" y="354" font-size="9" fill="#a0a0a0">Note: Renter deployed $200k (fair vs SFR). Duplex owner deployed $50k — 4× less capital.</text>
+</svg>
+  <p style="font-family:var(--sans);font-size:14px;line-height:1.6;color:#1c3d31;background:#eef3f0;border-left:3px solid #1c3d31;padding:12px 16px;border-radius:0 8px 8px 0;margin:18px 0 0;font-weight:400">At 10 years, owning either way beats holding an index fund by a significant margin. The SFR owner ($1,005k) deployed $200k to get there. The duplex owner ($878k) deployed just $50k &mdash; a 4&times; more efficient use of capital. The renter ($431k) has a solid portfolio but no home, no forced savings history, and rent that keeps climbing.</p>
+  <p style="font-family:var(--sans);font-size:11px;color:#a0a0a0;margin:12px 0 0;font-weight:300">All owner figures net of ~6% selling costs. Renter deployed $200k (fair comparison vs SFR). Duplex owner deployed $50k. Home appreciates 6%/yr. Index fund at 8%/yr. Illustrative; not a forecast. May 2026.</p>
+</div>
 
-    <p>Owning a home is not the <em>only</em> path to wealth. A disciplined investor can build real assets. But if your alternative to buying is renting and leaving your down payment in a brokerage account, the numbers show that the home &mdash; bought right, at the right price, in the right neighborhood &mdash; is a remarkably powerful wealth-building machine.</p>
+    <h2 id="verdict">So what's the smart move?</h2>
 
-    <p>The conversation we love having is: what does "the right price, right neighborhood" actually look like for <em>your</em> situation? That's where strategy matters more than the model.</p>
+    <p>The math here is not a coin flip. With the same starting capital, the homeowner's leveraged equity significantly outpaces the renter's stock portfolio at every time horizon we modeled. The discipline of a mortgage, the freeze on your biggest expense while rents climb, the automatic principal paydown, and the leverage effect on an appreciating asset all compound in the owner's favor in ways the index fund can't match from the same base.</p>
+
+    <p>Owning a home is not the <em>only</em> path to wealth. A disciplined investor can build real assets. But for most people &mdash; who won't actually invest the difference every month for ten years, because life gets in the way &mdash; owning wins because it makes the right financial behavior <strong>automatic</strong>.</p>
+
+    <p>The wrong question is "rent or own?" in the abstract. The right question is: what does the right price, right neighborhood, and right structure look like for <em>your</em> cash and timeline? <a href="/tools/investor-calculator/" style="color:var(--forest);font-weight:600">Run your own numbers in our mortgage calculator &rarr;</a></p>
 
     <h2 id="faq">Frequently asked questions</h2>
 
     <h3>Is it cheaper to rent or buy in Los Angeles right now?</h3>
-    <p>Month to month, renting is cheaper &mdash; a comparable 2BR in West Adams or Culver City runs ~$3,500 versus ~$7,200 all-in to own a $1M home with 20% down. But monthly cost isn't the right comparison: the question is what happens to the same starting capital over 5, 7, and 10 years.</p>
+    <p>Month to month, renting is cheaper &mdash; a comparable 2BR/2BA in West Adams or Culver City runs ~$3,500 versus ~$7,200 all-in to own a $1M home with 20% down. But the right comparison is what happens to the same starting capital over 5, 7, and 10 years &mdash; and there the homeowner wins by a wide margin.</p>
 
-    <h3>What's the correct way to compare renting vs. buying?</h3>
-    <p>Deploy the same capital at the start &mdash; the down payment either goes into the home or into an index fund. Both parties then pay their respective housing costs from income. The renter's portfolio compounds; the owner's equity compounds via leverage on a much larger asset. At a $1M price with 20% down, the owner wins at every horizon we modeled.</p>
+    <h3>What does PMI stand for, and do I have to pay it?</h3>
+    <p>PMI stands for Private Mortgage Insurance. Lenders require it when your down payment is less than 20% of the purchase price. It protects the lender (not you) if you default. On a $950,000 loan with 5% down, PMI runs ~$673/month. It automatically drops off once your loan balance reaches 80% of the original value &mdash; typically around year 7–10 at a 6.5% rate.</p>
 
-    <h3>Why is a fixed-rate mortgage such powerful leverage?</h3>
-    <p>A 30-year fixed mortgage lets you control a full-priced, appreciating asset with a fraction of the cash, at a locked rate that inflation slowly erodes. A 6% gain on a $1M home is $60,000 &mdash; a 30% return on a $200k down payment. The lender can never raise the rate, and you can refinance if rates fall.</p>
+    <h3>What's the correct way to compare renting versus buying?</h3>
+    <p>Deploy the same starting capital at the outset: the down payment goes either into the home or into an index fund. Both parties pay housing costs from income. The renter's portfolio compounds on $200k; the owner's equity compounds via leverage on $1,000,000. At 6% home appreciation and 8% index return, the owner leads by $215k at 5 years, $347k at 7 years, and $573k at 10 years.</p>
 
-    <h3>What is house hacking and does it work in LA?</h3>
+    <h3>Why is a fixed-rate mortgage considered such powerful leverage?</h3>
+    <p>A 30-year fixed mortgage lets you control a full-priced appreciating asset at a locked rate the lender can never raise. A 6% gain on a $1,000,000 home is $60,000 &mdash; a 30% return on a $200,000 down payment. You can refinance if rates fall, keep your payment if they rise, and inflation erodes the real value of the debt over time.</p>
+
+    <h3>What is house hacking and does it work in Los Angeles?</h3>
     <p>House hacking means buying a duplex, living in one unit, and renting the other &mdash; often with just 5% down. On a $1,000,000 duplex at 5% down ($50,000 in), the gross carry is about $8,928/month. A tenant paying $2,000/month drops your net effective cost to $6,928/month. Over 10 years that $50,000 builds ~$878,000 in equity versus ~$108,000 in an index fund &mdash; a $770,000 advantage from the same capital.</p>
 
     <p style="font-size:13px;color:#888;font-style:italic;margin-top:32px;border-top:1px solid #e5e5e5;padding-top:20px">This article is for general informational and educational purposes only and is not financial, investment, tax, or legal advice. All figures are approximate and illustrative as of May 2026. Appreciation, index returns, and rents are not guaranteed. Leverage magnifies losses as well as gains. Consult your own financial, tax, and legal advisors before making any decision.</p>
