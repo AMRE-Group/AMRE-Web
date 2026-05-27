@@ -45,6 +45,9 @@ Beverly Hills, Bel Air, Santa Monica, West Adams, Culver City, Mid-City, Malibu,
 - Culver City: https://amre.group/culver-city/
 - West Adams: https://amre.group/west-adams/
 - Mid-City: https://amre.group/mid-city/
+- Brentwood real estate: https://amre.group/brentwood/
+- Malibu real estate: https://amre.group/malibu/
+- Studio City real estate: https://amre.group/studio-city/
 
 ## Featured Articles
 
