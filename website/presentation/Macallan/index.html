@@ -743,16 +743,17 @@ footer.page-foot{
   grid-template-columns:1.05fr 1fr;
   gap:0;
   background:var(--black);
+  aspect-ratio:16/5;
 }
 .dip-cell{
   position:relative;
-  aspect-ratio:5/3;
   overflow:hidden;
 }
 .dip-cell img{
   width:100%;height:100%;object-fit:cover;
   transition:transform 10s ease-out;
 }
+.dip-cell:nth-child(2) img{object-position:center 65%}
 .dip-cell:hover img{transform:scale(1.04)}
 .dip-cell::after{
   content:'';position:absolute;inset:0;
@@ -779,7 +780,7 @@ footer.page-foot{
   text-shadow:0 1px 16px rgba(0,0,0,.4);
 }
 @media (max-width:860px){
-  .diptych{grid-template-columns:1fr}
+  .diptych{grid-template-columns:1fr;aspect-ratio:auto}
   .dip-cell{aspect-ratio:4/3}
   .dip-overlay{left:20px;right:20px;bottom:20px}
 }
@@ -1254,7 +1255,7 @@ footer.page-foot{
 <footer class="page-foot">
   <div class="foot-mark">The Macallan <em>×</em> Compass Beverly Hills <em>×</em> Haps Club</div>
   <div class="foot-divider"></div>
-  <p class="foot-fine"><span style="opacity:.7">Last updated May 27, 2026 at 12:24 PM PT</span><br><br>Confidential partnership proposal. Prepared by AMRE Real Estate Group at Compass Beverly Hills. Event details, timing, and estates are illustrative and subject to mutual planning. Photo credit: Courtesy of The Macallan. The Macallan and Haps Club marks are referenced for proposal context only and remain the property of their respective owners. Michael Abraham · DRE #02242095 · Ania De Pourbaix · DRE #01891438 · Compass · DRE #01991628.</p>
+  <p class="foot-fine"><span style="opacity:.7">Last updated May 27, 2026 at 12:38 PM PT</span><br><br>Confidential partnership proposal. Prepared by AMRE Real Estate Group at Compass Beverly Hills. Event details, timing, and estates are illustrative and subject to mutual planning. Photo credit: Courtesy of The Macallan. The Macallan and Haps Club marks are referenced for proposal context only and remain the property of their respective owners. Michael Abraham · DRE #02242095 · Ania De Pourbaix · DRE #01891438 · Compass · DRE #01991628.</p>
 </footer>
 
 <script>
