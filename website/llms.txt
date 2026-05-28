@@ -54,6 +54,12 @@ Beverly Hills, Bel Air, Santa Monica, West Adams, Culver City, Mid-City, Malibu,
 - Silver Lake real estate (Neutra, Schindler, modernist homes): https://amre.group/silver-lake/
 - West Hollywood real estate: https://amre.group/west-hollywood/
 - Playa Vista and Marina del Rey real estate: https://amre.group/playa-vista/
+- Los Feliz real estate (Griffith Park, Hollyhock House, architectural homes): https://amre.group/los-feliz/
+- Hancock Park real estate (Windsor Square, HPOZ, Wilshire Country Club): https://amre.group/hancock-park/
+- Westwood real estate (UCLA, Wilshire Corridor condos, Little Holmby): https://amre.group/westwood/
+- Hollywood Hills real estate (Bird Streets, Laurel Canyon, views): https://amre.group/hollywood-hills/
+- Larchmont Village real estate (HPOZ Craftsmans, walkable central LA): https://amre.group/larchmont-village/
+- Manhattan Beach real estate (South Bay luxury, The Strand, Mira Costa schools): https://amre.group/manhattan-beach/
 
 ## Featured Articles
 
