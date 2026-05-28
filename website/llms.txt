@@ -48,6 +48,12 @@ Beverly Hills, Bel Air, Santa Monica, West Adams, Culver City, Mid-City, Malibu,
 - Brentwood real estate: https://amre.group/brentwood/
 - Malibu real estate: https://amre.group/malibu/
 - Studio City real estate: https://amre.group/studio-city/
+- Venice real estate: https://amre.group/venice/
+- Pacific Palisades real estate: https://amre.group/pacific-palisades/
+- Mar Vista real estate: https://amre.group/mar-vista/
+- Silver Lake real estate (Neutra, Schindler, modernist homes): https://amre.group/silver-lake/
+- West Hollywood real estate: https://amre.group/west-hollywood/
+- Playa Vista and Marina del Rey real estate: https://amre.group/playa-vista/
 
 ## Featured Articles
 
