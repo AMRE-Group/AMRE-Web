@@ -655,6 +655,29 @@ em{font-style:italic}
   color:rgba(245,237,224,.8);font-weight:500;
 }
 
+/* ============ CTA HAPS ATTRIBUTION ============ */
+.cta-haps{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  margin-bottom:40px;
+}
+.cta-haps-label{
+  font-family:var(--sans);
+  font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--amber-light);font-weight:500;
+}
+.cta-haps-logo{
+  height:108px;
+  width:auto;
+  opacity:.96;
+  display:block;
+}
+@media (max-width:680px){
+  .cta-haps-logo{height:88px}
+}
+
 /* ============ CTA ============ */
 .cta{
   text-align:center;
@@ -1244,10 +1267,13 @@ footer.page-foot{
 
 <!-- ===== CTA ===== -->
 <section class="cta" id="invitation">
-  <div class="cta-ey r">The Invitation</div>
+  <div class="cta-haps r">
+    <div class="cta-haps-label">An invitation from</div>
+    <img class="cta-haps-logo" src="haps-club-white.svg" alt="Haps Club">
+  </div>
   <h2 class="r d1">By invitation, <em>only.</em></h2>
   <p class="cta-lede r d2">No public ticketing. No guest list at the door. A small, hand-vetted room — top agents, sophisticated clients, and the people who move quietly between them.</p>
-  <a href="mailto:michael@amre.group?subject=Request%20%E2%80%94%20An%20Afternoon%20at%20The%20Macallan%20Villa" class="cta-btn r d3">Begin the Conversation</a>
+  <a href="mailto:michael@haps.club?subject=Request%20%E2%80%94%20An%20Afternoon%20at%20The%20Macallan%20Villa" class="cta-btn r d3">Begin the Conversation</a>
   <div class="cta-foot r d4">Presented by Haps Club · Hosted by AMRE at Compass Beverly Hills · The Macallan</div>
 </section>
 
@@ -1255,7 +1281,7 @@ footer.page-foot{
 <footer class="page-foot">
   <div class="foot-mark">The Macallan <em>×</em> Compass Beverly Hills <em>×</em> Haps Club</div>
   <div class="foot-divider"></div>
-  <p class="foot-fine"><span style="opacity:.7">Last updated May 27, 2026 at 12:52 PM PT</span><br><br>Confidential partnership proposal. Prepared by AMRE Real Estate Group at Compass Beverly Hills. Event details, timing, and estates are illustrative and subject to mutual planning. Photo credit: Courtesy of The Macallan. The Macallan and Haps Club marks are referenced for proposal context only and remain the property of their respective owners. Michael Abraham · DRE #02242095 · Ania De Pourbaix · DRE #01891438 · Compass · DRE #01991628.</p>
+  <p class="foot-fine"><span style="opacity:.7">Last updated May 27, 2026 at 1:08 PM PT</span><br><br>Confidential partnership proposal. Prepared by AMRE Real Estate Group at Compass Beverly Hills. Event details, timing, and estates are illustrative and subject to mutual planning. Photo credit: Courtesy of The Macallan. The Macallan and Haps Club marks are referenced for proposal context only and remain the property of their respective owners. Michael Abraham · DRE #02242095 · Ania De Pourbaix · DRE #01891438 · Compass · DRE #01991628.</p>
 </footer>
 
 <script>
