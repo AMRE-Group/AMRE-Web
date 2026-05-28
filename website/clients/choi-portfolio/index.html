@@ -216,13 +216,15 @@
   .reveal.in{opacity:1;transform:none;}
 
   /* ===== TYPOGRAPHY: widow control + explicit left-align ===== */
+  /* Headings stay constrained for typographic rhythm; body text fills the container */
   h1, h2, h3, h4 { text-wrap: balance; text-align: left; }
   p, .lede, .sub, .card p, .card-title, .meta, dt, dd, li { text-wrap: pretty; text-align: left; }
-  .banner h1, .hero h2, .sec h2 { max-width: 28ch; }
-  .banner .sub, .hero .lede, .sec .lede { max-width: 68ch; }
-  .card p, .card ul { max-width: 56ch; }
-  .insight h2 { max-width: 30ch; }
-  .insight p { max-width: 68ch; }
+  /* Heading max-widths (still constrained so they don't run to 120ch) */
+  .banner h1 { max-width: 22ch; }
+  .hero h2, .sec h2 { max-width: 34ch; }
+  .insight h2 { max-width: 36ch; }
+  /* Body text fills container — override original max-widths */
+  .banner .sub, .hero .lede, .sec .lede, .card p, .card ul, .insight p { max-width: none; }
 
   /* ===== MAP / NEIGHBORHOOD SECTION ===== */
   .map-frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hairline);box-shadow:var(--shadow-lg);margin-top:28px;background:var(--cream);}
@@ -729,7 +731,7 @@
       <div class="fb">AMRE Real Estate Group</div>
       <div class="fs">Michael Abraham · REALTOR® DRE# 02242095<br>Ania de Pourbaix · Principal Agent DRE# 01891438<br>9454 Wilshire Blvd, Beverly Hills, CA 90212</div>
     </div>
-    <div class="fm">Prepared for Peter Choi<br>The Higuera Launch · Updated May 27, 2026 at 6:07 PM PT<br>amre.group · Compass</div>
+    <div class="fm">Prepared for Peter Choi<br>The Higuera Launch · Updated May 27, 2026 at 6:12 PM PT<br>amre.group · Compass</div>
   </div>
   <div class="conf">Confidential — prepared as a seller strategy for discussion purposes. Pricing, comparable selections, and sequencing are preliminary and subject to refinement once the Higuera homes are complete and the off-market response is read. The Higuera homes are two single-family dwellings on one lot (small-lot subdivision); comps shown are primarily detached homes on separate parcels and are used to gauge neighborhood demand. An additional detached single-family residence in the portfolio is held in reserve and is not part of the current active marketing plan. Not an offer of representation or a guarantee of sale price.</div>
 </footer>
