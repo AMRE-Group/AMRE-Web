@@ -139,6 +139,13 @@
   .spec-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
 
   .comp-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:var(--r);margin-top:24px;box-shadow:var(--shadow);}
+  /* Sortable table headers */
+  .comp-wrap th{cursor:pointer;user-select:none;transition:background .15s,color .15s;position:relative;padding-right:24px !important;}
+  .comp-wrap th:hover{background:var(--cream);color:var(--ink);}
+  .comp-wrap th .sort-ind{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:9px;color:var(--hairline);line-height:1;letter-spacing:-1px;font-weight:700;transition:color .15s;}
+  .comp-wrap th:hover .sort-ind{color:var(--muted);}
+  .comp-wrap th.sort-asc, .comp-wrap th.sort-desc{background:var(--cream);color:var(--ink);}
+  .comp-wrap th.sort-asc .sort-ind, .comp-wrap th.sort-desc .sort-ind{color:var(--terra);font-size:11px;letter-spacing:0;}
   table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:720px;}
   th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
     padding:14px 16px;background:var(--bg);border-bottom:1px solid var(--hairline);white-space:nowrap;}
@@ -578,7 +585,7 @@
 <!-- MARKET -->
 <section id="market"><div class="wrap sec">
   <div class="sec-head reveal"><span class="sec-num">06</span><div><div class="sec-eyebrow">The Active Market · Lucerne-Higuera</div><h2>The comps, weighted to right now.</h2></div></div>
-  <p class="lede reveal">Recent sales <span class="star">★</span> carry the most weight. Note these are largely older, detached homes on their own lots — useful for reading neighborhood demand and velocity, with the small-lot adjustment applied to the new Higuera homes. The pattern is unambiguous: homes are moving fast and often over ask in the immediate blocks around Higuera.</p>
+  <p class="lede reveal">Recent sales <span class="star">★</span> carry the most weight. Note these are largely older, detached homes on their own lots — useful for reading neighborhood demand and velocity, with the small-lot adjustment applied to the new Higuera homes. The pattern is unambiguous: homes are moving fast and often over ask in the immediate blocks around Higuera. <em style="color:var(--muted);font-style:normal;">Click any column header to sort.</em></p>
 
   <div class="comp-wrap reveal">
     <table>
@@ -731,7 +738,7 @@
       <div class="fb">AMRE Real Estate Group</div>
       <div class="fs">Michael Abraham · REALTOR® DRE# 02242095<br>Ania de Pourbaix · Principal Agent DRE# 01891438<br>9454 Wilshire Blvd, Beverly Hills, CA 90212</div>
     </div>
-    <div class="fm">Prepared for Peter Choi<br>The Higuera Launch · Updated May 27, 2026 at 6:12 PM PT<br>amre.group · Compass</div>
+    <div class="fm">Prepared for Peter Choi<br>The Higuera Launch · Updated May 27, 2026 at 6:15 PM PT<br>amre.group · Compass</div>
   </div>
   <div class="conf">Confidential — prepared as a seller strategy for discussion purposes. Pricing, comparable selections, and sequencing are preliminary and subject to refinement once the Higuera homes are complete and the off-market response is read. The Higuera homes are two single-family dwellings on one lot (small-lot subdivision); comps shown are primarily detached homes on separate parcels and are used to gauge neighborhood demand. An additional detached single-family residence in the portfolio is held in reserve and is not part of the current active marketing plan. Not an offer of representation or a guarantee of sale price.</div>
 </footer>
@@ -791,6 +798,89 @@
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',onScroll);
   onScroll();
+
+  // ===== Sortable comps table =====
+  (function(){
+    const table = document.querySelector('#market table');
+    if(!table) return;
+    const headers = table.querySelectorAll('thead th');
+    const tbody = table.querySelector('tbody');
+    const originalRows = Array.from(tbody.querySelectorAll('tr'));
+
+    // Add sortability indicator to each header
+    headers.forEach((th, i) => {
+      const ind = document.createElement('span');
+      ind.className = 'sort-ind';
+      ind.textContent = '▲▼';
+      th.appendChild(ind);
+      th.addEventListener('click', () => sortBy(i, th));
+    });
+
+    // Parse cell value based on column type
+    // Columns: 0=Address, 1=Status, 2=Price, 3=$/SF, 4=SF, 5=Bd/Ba, 6=Yr, 7=Sold, 8=Note
+    function parseVal(cell, col){
+      const raw = cell.textContent.trim();
+      if(col === 2 || col === 3) return parseFloat(raw.replace(/[$,]/g,'')) || 0;
+      if(col === 4 || col === 6) return parseFloat(raw.replace(/,/g,'')) || 0;
+      if(col === 5){
+        const [b,ba] = raw.split('/').map(s => parseFloat(s) || 0);
+        return b * 100 + ba;
+      }
+      if(col === 7){
+        // "Apr '26" → numeric for sort; "—" or empty sorts last
+        const months = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
+        const m = raw.match(/([A-Za-z]+)\s*'(\d+)/);
+        if(!m) return 0;
+        return (parseInt(m[2]) || 0) * 100 + (months[m[1]] || 0);
+      }
+      if(col === 1){
+        // Status priority: Closed/Sold > Active > Coming Soon
+        const t = raw.toLowerCase();
+        if(t.includes('closed') || t.includes('sold')) return 1;
+        if(t.includes('active')) return 2;
+        if(t.includes('coming')) return 3;
+        return 4;
+      }
+      return raw.toLowerCase();
+    }
+
+    let currentCol = -1;
+    let currentDir = null;
+
+    function sortBy(col, th){
+      // Toggle direction; 3rd click on same column restores original order
+      let dir;
+      if(col === currentCol){
+        if(currentDir === 'asc'){ dir = 'desc'; }
+        else if(currentDir === 'desc'){ dir = null; }
+        else { dir = 'asc'; }
+      } else {
+        dir = 'asc';
+      }
+      currentCol = col;
+      currentDir = dir;
+
+      headers.forEach(h => h.classList.remove('sort-asc','sort-desc'));
+
+      if(dir === null){
+        originalRows.forEach(r => tbody.appendChild(r));
+        currentCol = -1;
+        return;
+      }
+
+      th.classList.add(dir === 'asc' ? 'sort-asc' : 'sort-desc');
+
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort((a, b) => {
+        const av = parseVal(a.cells[col], col);
+        const bv = parseVal(b.cells[col], col);
+        if(av < bv) return dir === 'asc' ? -1 : 1;
+        if(av > bv) return dir === 'asc' ?  1 : -1;
+        return 0;
+      });
+      rows.forEach(r => tbody.appendChild(r));
+    }
+  })();
 </script>
 </body>
 </html>
