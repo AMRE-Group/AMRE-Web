@@ -215,6 +215,26 @@
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
   .reveal.in{opacity:1;transform:none;}
 
+  /* ===== TYPOGRAPHY: widow control + explicit left-align ===== */
+  h1, h2, h3, h4 { text-wrap: balance; text-align: left; }
+  p, .lede, .sub, .card p, .card-title, .meta, dt, dd, li { text-wrap: pretty; text-align: left; }
+  .banner h1, .hero h2, .sec h2 { max-width: 28ch; }
+  .banner .sub, .hero .lede, .sec .lede { max-width: 68ch; }
+  .card p, .card ul { max-width: 56ch; }
+  .insight h2 { max-width: 30ch; }
+  .insight p { max-width: 68ch; }
+
+  /* ===== MAP / NEIGHBORHOOD SECTION ===== */
+  .map-frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hairline);box-shadow:var(--shadow-lg);margin-top:28px;background:var(--cream);}
+  .map-frame iframe{display:block;width:100%;height:460px;border:0;}
+  .poi-card{padding:22px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;}
+  .poi-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+  .poi-card .dist{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);}
+  .poi-card h4{font-family:var(--serif);font-size:18px;font-weight:600;margin-top:6px;letter-spacing:-.01em;}
+  .poi-card p{font-size:13.5px;color:var(--secondary);margin-top:8px;line-height:1.55;}
+  .poi-card .tag-active{margin-top:10px;display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:6px;background:var(--green-bg);color:var(--green);}
+  @media(max-width:880px){ .map-frame iframe{height:340px;} }
+
   @media(max-width:880px){
     .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
     .lane{grid-template-columns:1fr;}
@@ -298,11 +318,12 @@
     <a class="wf" href="#recommendation">Recommendation</a>
     <a class="wf" href="#buyers">The Buyers</a>
     <a class="wf" href="#product">The Homes</a>
+    <a class="wf" href="#neighborhood">Neighborhood</a>
     <a class="wf" href="#pricing">Pricing</a>
     <a class="wf" href="#market">The Market</a>
     <a class="wf" href="#strategy">3-Phase Launch</a>
     <a class="wf" href="#sequence">Sequence</a>
-    <a class="wf" href="#schaefer">Schaefer Reserve</a>
+    <a class="wf" href="#reserve">In Reserve</a>
     <a class="wf" href="#next">Next Steps</a>
   </div>
 </div>
@@ -312,7 +333,7 @@
   <div class="banner-in">
     <span class="kick reveal"><span class="dot"></span>The Higuera Launch · Choi Portfolio</span>
     <h1 class="reveal">Two brand-new Higuera homes — launched <em>together</em>, on the data, the right way.</h1>
-    <p class="sub reveal">We focus the campaign on the two new-construction Higuera homes — freestanding, no HOA, identical pricing, distinct floor plans — and let buyers tell us which they value more. Schaefer stays in our pocket, ready for the buyer who wants a true detached single-family home and is willing to pay for it.</p>
+    <p class="sub reveal">We focus the campaign on the two new-construction Higuera homes — freestanding, no HOA, identical pricing, two distinct floor plans — and let buyers tell us which they value more. One coordinated launch, three buyer profiles, every losing bidder warm for the next unit.</p>
     <div class="pact">
       <div class="reveal"><span class="ic">N</span>Brand-new, freestanding, no HOA</div>
       <div class="reveal"><span class="ic">L</span>Culver City — true new construction is rare</div>
@@ -324,21 +345,21 @@
 
 <header class="hero" id="approach"><div class="wrap">
   <div class="hero-eyebrow reveal">The Higuera Launch · Seller Strategy · May 2026</div>
-  <h2 class="reveal">Launch both Higuera new-builds at once. Let buyers compete. Hold Schaefer in reserve.</h2>
-  <p class="lede reveal">Inventory of true new construction in Culver City is tight. Bringing both Higuera homes online simultaneously — same price, two distinct floor plans — creates a competitive dynamic the moment the campaign opens. Buyers self-select between Unit A and Unit B; underbidders on one become the warm pool for the other. Schaefer stays held until a buyer specifically wants a true detached SFR — at which point we lead with it.</p>
+  <h2 class="reveal">Launch both Higuera new-builds at once. Let buyers compete.</h2>
+  <p class="lede reveal">Inventory of true new construction in Culver City is tight. Bringing both Higuera homes online simultaneously — same price, two distinct floor plans — creates a competitive dynamic the moment the campaign opens. Buyers self-select between Unit A and Unit B; underbidders on one become the warm pool for the other. One coordinated launch, the full Compass 3-Phase engine, three sharply defined buyer profiles.</p>
   <p class="meta reveal">An Architect's Field Notes — Michael Abraham &amp; Ania de Pourbaix, AMRE Real Estate Group at Compass</p>
 
   <div class="stat-pills reveal">
     <div class="card-stat s-forest"><div class="stat-lbl">Launch Now</div><div class="stat-val text-forest">2 Higuera</div><div class="stat-note">Side-by-side · same pricing</div></div>
     <div class="card-stat s-green"><div class="stat-lbl">New Construction</div><div class="stat-val text-green">Freestanding</div><div class="stat-note">No HOA · 3bd · 2-story</div></div>
     <div class="card-stat s-blue"><div class="stat-lbl">Location</div><div class="stat-val text-blue">90232</div><div class="stat-note">Lucerne-Higuera, Culver City</div></div>
-    <div class="card-stat"><div class="stat-lbl">In Reserve</div><div class="stat-val">Schaefer</div><div class="stat-note">Held for the SFR buyer</div></div>
+    <div class="card-stat"><div class="stat-lbl">Market Velocity</div><div class="stat-val">12–16<small> days</small></div><div class="stat-note">Recent sales, over ask</div></div>
   </div>
 </div></header>
 
 <section id="recommendation"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">01</span><div><div class="sec-eyebrow">Strategic Recommendation</div><h2>Lead with both Higuera. Hold Schaefer in reserve.</h2></div></div>
-  <p class="lede reveal">Two freestanding, brand-new townhouse-style homes, priced the same, launched in parallel. Buyers decide what they value more — and that head-to-head dynamic does the work pricing alone can't. Schaefer stays in our pocket: useful later if a buyer surfaces who wants a true single-family home and is willing to pay the premium for that.</p>
+  <div class="sec-head reveal"><span class="sec-num">01</span><div><div class="sec-eyebrow">Strategic Recommendation</div><h2>Lead with both Higuera. Let buyers choose.</h2></div></div>
+  <p class="lede reveal">Two freestanding, brand-new townhouse-style homes, priced the same, launched in parallel. Buyers decide what they value more — and that head-to-head dynamic does the work pricing alone can't. One coordinated launch, two real options, and a buyer pool that compounds with every showing.</p>
 
   <div class="grid-2 mt-32">
     <div class="card lift reveal">
@@ -363,11 +384,6 @@
         <div><dt>Living</dt><dd>Open kitchen/dining</dd></div>
       </dl>
     </div>
-  </div>
-
-  <div class="card card-forest mt-24 reveal" style="padding:22px 26px;">
-    <div class="card-title" style="color:rgba(255,255,255,.55);">In Reserve · 3616 Schaefer</div>
-    <p style="margin-top:10px;font-size:15px;line-height:1.6;color:rgba(245,245,247,.86);">Schaefer is the back-pocket play. True detached single-family residence on its own lot — turnkey, in the high $2Ms — but a different buyer and a different pricing conversation. We hold it until the Higuera campaign surfaces a buyer who specifically wants an SFR, or until market conditions argue for it. See <a href="#schaefer" style="color:#E9C9B3;text-decoration:underline;">the Schaefer note</a> below.</p>
   </div>
 </div></section>
 
@@ -460,9 +476,69 @@
   </div>
 </div></section>
 
+<!-- THE NEIGHBORHOOD / MAP -->
+<section id="neighborhood"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">04</span><div><div class="sec-eyebrow">The Neighborhood · What's Around &amp; What's Coming</div><h2>You're not just buying a house. You're buying the block.</h2></div></div>
+  <p class="lede reveal">Lucerne-Higuera sits at the geographic and economic center of Culver City's tech-and-entertainment transformation. Within a 12-minute walk: Apple's new 536,000 SF Culver Crossings campus rising at Venice &amp; National, the Helms Bakery District, Sony Pictures Studios, Amazon MGM at Culver Studios, Warner Bros. Discovery at Ivy Station, and the Metro E Line. This is the most important block of context for any buyer considering these homes.</p>
+
+  <div class="map-frame reveal">
+    <iframe
+      src="https://maps.google.com/maps?q=4108%20Higuera%20Street%2C%20Culver%20City%2C%20CA%2090232&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="4108-4110 Higuera Street, Culver City — neighborhood map">
+    </iframe>
+  </div>
+
+  <div class="grid-3 mt-32">
+    <div class="poi-card reveal">
+      <div class="dist">~4 blocks · 0.4 mi</div>
+      <h4>Apple Culver Crossings Campus</h4>
+      <p>536,000 SF, two-building tech campus at Venice &amp; National. Construction underway — designed by Gensler, targeting up to 2,400 employees. Part of Apple's commitment to grow to 3,000+ Culver City employees.</p>
+      <span class="tag-active">Under construction</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~5 blocks · 0.4 mi</div>
+      <h4>Helms Bakery District</h4>
+      <p>The Westside's design-and-dining destination — Father's Office, La Dijonaise, Lukshon, Arcana, and 250,000 SF of restored 1930s industrial. Weekend gravitational pull. Walking distance from the front door.</p>
+      <span class="tag-active">Anchor district</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.8 mi north</div>
+      <h4>Amazon MGM Studios + Culver Studios</h4>
+      <p>Roughly 600,000 SF of office and production space spanning the Culver Studios complex and Culver Steps. Amazon's primary West Coast TV/film footprint. Major employer for the buyer pool we're selling to.</p>
+      <span class="tag-active">Major employer</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.5 mi south</div>
+      <h4>Sony Pictures Studios</h4>
+      <p>45-acre studio campus headquartered in Culver City. Long-standing anchor employer that's been a primary force shaping local housing demand for decades. Easy walk or bike from Higuera.</p>
+      <span class="tag-active">Anchor employer</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.6 mi · 12 min walk</div>
+      <h4>Metro E Line · Culver City Station</h4>
+      <p>The Expo Line connection straight into Downtown LA and Santa Monica. Ivy Station — the 500-unit mixed-use development above the station — anchors a Warner Bros. Discovery office (240,000 SF) plus a hotel and ground-floor retail.</p>
+      <span class="tag-active">Transit gateway</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.8 mi east</div>
+      <h4>Downtown Culver City</h4>
+      <p>The Culver Hotel, the Kirk Douglas Theatre, Father's Office, Akasha, Citizen Public Market, the Saturday Farmers Market. The neighborhood's social and culinary core — and the reason buyers fall for Culver City in the first place.</p>
+      <span class="tag-active">Lifestyle core</span>
+    </div>
+  </div>
+
+  <div class="insight reveal mt-24" style="background:var(--forest);">
+    <div class="k" style="color:#E9C9B3;">What's Going On of Significance</div>
+    <h2 style="color:#F2EFE8;">Apple, Amazon, Warner Bros., Sony, and TikTok are all <em>within walking distance</em>. The buyer pool is being built right now — on this block.</h2>
+    <p style="color:rgba(242,239,232,.85);">Apple's Culver Crossings campus alone will bring 2,400 employees to within four blocks of these homes. Amazon's expansion at Culver Steps, Warner Bros.' Ivy Station lease, and Sony's continued anchor presence mean Lucerne-Higuera is being reshaped from "good Culver City pocket" to "epicenter of the Westside creative-tech economy." Buyers who get in now are buying a block that hasn't fully repriced yet.</p>
+  </div>
+</div></section>
+
 <!-- PRICING -->
 <section id="pricing"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">04</span><div><div class="sec-eyebrow">Pricing · Both Higuera Homes</div><h2>Priced the same. Let buyers choose.</h2></div></div>
+  <div class="sec-head reveal"><span class="sec-num">05</span><div><div class="sec-eyebrow">Pricing · Both Higuera Homes</div><h2>Priced the same. Let buyers choose.</h2></div></div>
   <p class="lede reveal">Identical price on Unit A and Unit B. That's intentional — it removes price as the decision variable and forces buyers to choose on what they actually value (master suite + balconies vs. open great-room). Two distinct floor plans, one price point, head-to-head competitive tension. Positioned at the small-lot-subdivision discount to detached SFRs, plus the new-construction premium added back.
 
   <div class="grid-3 mt-32">
@@ -491,8 +567,8 @@
 
 <!-- MARKET -->
 <section id="market"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">05</span><div><div class="sec-eyebrow">The Active Market · Lucerne-Higuera</div><h2>The comps, weighted to right now.</h2></div></div>
-  <p class="lede reveal">Recent sales <span class="star">★</span> carry the most weight. Note these are largely older, detached homes on their own lots — useful for reading neighborhood demand and velocity, with the small-lot adjustment applied to the new Higuera homes.</p>
+  <div class="sec-head reveal"><span class="sec-num">06</span><div><div class="sec-eyebrow">The Active Market · Lucerne-Higuera</div><h2>The comps, weighted to right now.</h2></div></div>
+  <p class="lede reveal">Recent sales <span class="star">★</span> carry the most weight. Note these are largely older, detached homes on their own lots — useful for reading neighborhood demand and velocity, with the small-lot adjustment applied to the new Higuera homes. The pattern is unambiguous: homes are moving fast and often over ask in the immediate blocks around Higuera.</p>
 
   <div class="comp-wrap reveal">
     <table>
@@ -508,7 +584,7 @@
         <tr><td class="addr">3635 Wesley St</td><td><span class="tag tag-sold">Sold</span></td><td>$2,050,000</td><td class="ppsf">$1,130</td><td>1,814</td><td>3/2</td><td>1928</td><td>Sep '25</td><td>Closest SF match · 54 DOM</td></tr>
         <tr><td class="addr">3588 Helms Ave</td><td><span class="tag tag-sold">Sold</span></td><td>$1,651,000</td><td class="ppsf">$1,314</td><td>1,256</td><td>2/2</td><td>1927</td><td>Sep '25</td><td>Well over ask · 12 DOM</td></tr>
         <tr><td class="addr">9030 Carson St</td><td><span class="tag tag-sold">Sold</span></td><td>$1,612,000</td><td class="ppsf">$1,518</td><td>1,062</td><td>2/1</td><td>1924</td><td>Sep '25</td><td>Small footprint · 16 DOM</td></tr>
-        <tr><td class="addr">3552 Schaefer St</td><td><span class="tag tag-active">Active</span></td><td>$1,999,000</td><td class="ppsf">$1,306</td><td>1,531</td><td>3/2</td><td>1948</td><td>—</td><td>Schaefer same-street active · 171 DOM</td></tr>
+        <tr><td class="addr">3552 Schaefer St</td><td><span class="tag tag-active">Active</span></td><td>$1,999,000</td><td class="ppsf">$1,306</td><td>1,531</td><td>3/2</td><td>1948</td><td>—</td><td>Older SFR · 171 DOM · stale</td></tr>
         <tr><td class="addr">4071 Lafayette Pl 2</td><td><span class="tag tag-soon">Coming Soon</span></td><td>$1,699,000</td><td class="ppsf">$722</td><td>2,352</td><td>3/2.5</td><td>2004</td><td>—</td><td>Townhome · HOA · larger</td></tr>
       </tbody>
     </table>
@@ -518,7 +594,7 @@
 
 <!-- 3-PHASE -->
 <section id="strategy"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">06</span><div><div class="sec-eyebrow">The Compass 3-Phase Launch</div><h2>The engine we run for both Higuera homes.</h2></div></div>
+  <div class="sec-head reveal"><span class="sec-num">07</span><div><div class="sec-eyebrow">The Compass 3-Phase Launch</div><h2>The engine we run for both Higuera homes.</h2></div></div>
   <p class="lede reveal">We don't just "put it on the market." Both Higuera homes move through the same three phases — together, in parallel — so each phase compounds demand for the pair. Quiet first. Controlled second. Public only when the data tells us to.</p>
 
   <div class="grid-3 mt-32">
@@ -566,8 +642,8 @@
 
 <!-- SEQUENCE -->
 <section id="sequence"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">07</span><div><div class="sec-eyebrow">The Sequence</div><h2>Both Higuera at once. Schaefer held in reserve.</h2></div></div>
-  <p class="lede reveal">Unit A and Unit B run the same three-phase timeline, in parallel. Same off-market launch, same private-exclusive window, same on-market debut if we need it. Schaefer sits to the side — ready to deploy the moment we hear "I really want a true single-family home on its own lot."</p>
+  <div class="sec-head reveal"><span class="sec-num">08</span><div><div class="sec-eyebrow">The Sequence</div><h2>Both Higuera at once. One coordinated launch.</h2></div></div>
+  <p class="lede reveal">Unit A and Unit B run the same three-phase timeline, in parallel. Same off-market launch, same private-exclusive window, same on-market debut if we need it. Every showing on one home is a showing on the other, and every losing bidder becomes a warm lead for the next unit.</p>
 
   <div class="lanes reveal">
     <div class="lane">
@@ -594,16 +670,6 @@
         <div class="seg seg-mkt" style="flex:30;"><span>On-Market</span></div>
       </div>
     </div>
-    <div class="lane">
-      <div class="lane-l">
-        <div class="a">3616 Schaefer</div>
-        <div class="m">Detached SFR · turnkey · high $2Ms</div>
-        <span class="c c-soon">Reserve · Held</span>
-      </div>
-      <div class="lane-r" style="opacity:.55;">
-        <div class="seg seg-gap" style="flex:94;background:var(--cream);box-shadow:none;border:1px dashed var(--hairline);height:34px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-style:italic;"><span>In pocket — deployed when an SFR buyer surfaces or market conditions argue for it</span></div>
-      </div>
-    </div>
   </div>
   <div class="legend reveal">
     <div><i style="background:var(--navy);"></i>Off-Market — quiet demand test</div>
@@ -612,31 +678,31 @@
   </div>
 </div></section>
 
-<!-- SCHAEFER RESERVE -->
-<section id="schaefer"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">08</span><div><div class="sec-eyebrow">3616 Schaefer · In Reserve</div><h2>Held — but ready to deploy.</h2></div></div>
-  <p class="lede reveal">Schaefer is a different product and a different buyer. True detached single-family residence on its own lot, turnkey, in the high $2Ms — and the right play <em>after</em> the Higuera launch surfaces a buyer who tells us, in plain language, that what they really want is an SFR on its own lot, and they're willing to pay for it.</p>
+<!-- IN RESERVE -->
+<section id="reserve"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">09</span><div><div class="sec-eyebrow">In Reserve · A Detached SFR Option</div><h2>Held — and ready to deploy when the right buyer surfaces.</h2></div></div>
+  <p class="lede reveal">There's an additional property in the portfolio — a true detached single-family residence on its own lot — that stays in our pocket. It's not part of the active Higuera launch, and it doesn't need to be. The right play is to keep it ready for the buyer who tells us, in plain language, that what they really want is an SFR on its own lot and they have the budget for it.</p>
 
   <div class="grid-2 mt-32">
     <div class="card lift reveal">
-      <div class="card-title">When We Deploy Schaefer</div>
+      <div class="card-title">When We Deploy It</div>
       <ul class="clean" style="margin-top:14px;">
-        <li><strong>A Higuera underbidder wants a real SFR.</strong> The losing offer on Unit A or B who says "I really wanted detached, single-family, my own lot." We have a warm answer ready.</li>
-        <li><strong>Inventory tightens further.</strong> If true SFR supply on the Westside compresses, Schaefer commands a premium it doesn't today.</li>
-        <li><strong>The Higuera campaign locks comps.</strong> Closing the Higuera pair gives us defensible street-level data to price Schaefer with conviction.</li>
+        <li><strong>A Higuera underbidder wants a true detached SFR.</strong> Someone who looked at Unit A or B and walked away saying "I really wanted single-family, my own lot, larger budget" — we have a warm answer ready.</li>
+        <li><strong>Inventory tightens further.</strong> If true SFR supply on the Westside continues to compress, the reserve property commands a premium it doesn't today.</li>
+        <li><strong>The Higuera campaign locks comps.</strong> Closing the Higuera pair gives us defensible street-level data to price the reserve home with conviction.</li>
       </ul>
     </div>
     <div class="card card-forest reveal">
       <div class="card-title">Why Not Lead With It</div>
-      <p style="margin-top:12px;font-size:15.5px;color:rgba(245,245,247,.86);">Three simultaneous launches dilute the campaign and risk our own homes competing against each other on price. Lead with the matched pair — two distinct floor plans at the same price — and the Higuera buyer pool tells us when, and at what number, Schaefer should come out.</p>
-      <p style="margin-top:14px;font-size:14.5px;color:rgba(245,245,247,.7);font-style:italic;">Schaefer doesn't lose value sitting. The neighborhood is moving in the right direction, and a held listing in a tight market is an advantage, not a liability.</p>
+      <p style="margin-top:12px;font-size:15.5px;color:rgba(245,245,247,.86);">A third simultaneous launch dilutes the campaign and risks the portfolio's own homes competing against each other on price. Lead with the matched Higuera pair — two distinct floor plans at the same price — and the buyer pool tells us when, and at what number, the reserve home should come out.</p>
+      <p style="margin-top:14px;font-size:14.5px;color:rgba(245,245,247,.7);font-style:italic;">A held listing in a tight market is an advantage, not a liability. The neighborhood is moving in the right direction, and the reserve property doesn't lose value sitting.</p>
     </div>
   </div>
 </div></section>
 
 <!-- CONCIERGE -->
 <section id="concierge"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">09</span><div><div class="sec-eyebrow">Compass Concierge &amp; Full-Service Marketing</div><h2>Updates now. Pay nothing until closing.</h2></div></div>
+  <div class="sec-head reveal"><span class="sec-num">10</span><div><div class="sec-eyebrow">Compass Concierge &amp; Full-Service Marketing</div><h2>Updates now. Pay nothing until closing.</h2></div></div>
   <p class="lede reveal">Any staging, finishing touches, or pre-sale improvements across the Higuera launch are fronted by us through Compass Concierge — recovered only at closing. All upfront marketing costs are handled by AMRE.</p>
   <ul class="clean reveal">
     <li><strong>Architecture &amp; development fluency</strong> — we read your floor plans, ceiling heights, and finish schedules the way you do, and translate them into buyer-facing value.</li>
@@ -648,12 +714,12 @@
 
 <!-- NEXT STEPS -->
 <section id="next"><div class="wrap sec">
-  <div class="sec-head reveal"><span class="sec-num">10</span><div><div class="sec-eyebrow">Ready When You Are</div><h2>What happens next.</h2></div></div>
+  <div class="sec-head reveal"><span class="sec-num">11</span><div><div class="sec-eyebrow">Ready When You Are</div><h2>What happens next.</h2></div></div>
   <p class="lede reveal">No cost, no obligation. When you're ready to choose an agent, this work is already in your hands.</p>
   <div class="grid-3 mt-32">
     <div class="card lift reveal"><div class="phase-stat">01</div><h3 style="margin-top:8px;">Walk Higuera together</h3><p class="mt-8" style="color:var(--secondary);">We walk both Unit A and Unit B with you on site, finalize the side-by-side positioning, and lock the matched list price ahead of Phase 01.</p></div>
     <div class="card lift reveal"><div class="phase-stat">02</div><h3 style="margin-top:8px;">Open Phase 01 quietly</h3><p class="mt-8" style="color:var(--secondary);">Off-market launch for both units in parallel — agent-to-agent outreach to the three buyer profiles. We read the response and confirm the public number.</p></div>
-    <div class="card lift reveal"><div class="phase-stat">03</div><h3 style="margin-top:8px;">Hold Schaefer · ready to deploy</h3><p class="mt-8" style="color:var(--secondary);">Schaefer stays in reserve. We deploy it when the Higuera buyer pool surfaces an SFR-specific buyer, or when conditions argue for it.</p></div>
+    <div class="card lift reveal"><div class="phase-stat">03</div><h3 style="margin-top:8px;">Hold reserve · ready to deploy</h3><p class="mt-8" style="color:var(--secondary);">The reserve detached SFR option stays in pocket. We deploy it when the Higuera buyer pool surfaces an SFR-specific buyer with the right budget, or when conditions argue for it.</p></div>
   </div>
   <div class="cta-row reveal">
     <a class="btn btn-pri" href="mailto:Michael.Abraham@Compass.com?subject=Higuera%20Launch%20%E2%80%94%20Let%27s%20Talk&cc=ania.d@compass.com">Let's set a time →</a>
@@ -667,9 +733,9 @@
       <div class="fb">AMRE Real Estate Group</div>
       <div class="fs">Michael Abraham · REALTOR® DRE# 02242095<br>Ania de Pourbaix · Principal Agent DRE# 01891438<br>9454 Wilshire Blvd, Beverly Hills, CA 90212</div>
     </div>
-    <div class="fm">Prepared for Peter Choi<br>The Higuera Launch · Updated May 27, 2026 at 5:38 PM PT<br>amre.group · Compass</div>
+    <div class="fm">Prepared for Peter Choi<br>The Higuera Launch · Updated May 27, 2026 at 5:55 PM PT<br>amre.group · Compass</div>
   </div>
-  <div class="conf">Confidential — prepared as a seller strategy for discussion purposes. Pricing, comparable selections, and sequencing are preliminary and subject to refinement once the Higuera homes are complete and the off-market response is read. The Higuera homes are two single-family dwellings on one lot (small-lot subdivision); comps shown are primarily detached homes on separate parcels and are used to gauge neighborhood demand. 3616 Schaefer is held in reserve and not currently part of the active marketing plan. Not an offer of representation or a guarantee of sale price.</div>
+  <div class="conf">Confidential — prepared as a seller strategy for discussion purposes. Pricing, comparable selections, and sequencing are preliminary and subject to refinement once the Higuera homes are complete and the off-market response is read. The Higuera homes are two single-family dwellings on one lot (small-lot subdivision); comps shown are primarily detached homes on separate parcels and are used to gauge neighborhood demand. An additional detached single-family residence in the portfolio is held in reserve and is not part of the current active marketing plan. Not an offer of representation or a guarantee of sale price.</div>
 </footer>
 
 <script>
