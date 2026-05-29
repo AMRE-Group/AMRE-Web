@@ -1,6 +1,6 @@
 {
   "generated": "May 28, 2026 10:17 PM PT",
-  "period": "May 18 → May 25, 2026",
+  "period": "May 18 \u2192 May 25, 2026",
   "summary": {
     "clicks": 3,
     "impressions": 891,
@@ -10,102 +10,1025 @@
     "indexed_pages": 25
   },
   "queries": [
-    {"query": "amre group", "clicks": 1, "impressions": 6, "ctr": 0.1667, "position": 4.5},
-    {"query": "sunset park neighborhood santa monica", "clicks": 1, "impressions": 2, "ctr": 0.5, "position": 14.0},
-    {"query": "real estate companies in california", "clicks": 1, "impressions": 1, "ctr": 1.0, "position": 81.0},
-    {"query": "amre", "clicks": 0, "impressions": 35, "ctr": 0.0, "position": 5.3},
-    {"query": "amre real estate", "clicks": 0, "impressions": 8, "ctr": 0.0, "position": 1.4},
-    {"query": "bel air ca neighborhood guide", "clicks": 0, "impressions": 12, "ctr": 0.0, "position": 12.6},
-    {"query": "beverly hills post office condos for sale", "clicks": 0, "impressions": 8, "ctr": 0.0, "position": 25.1},
-    {"query": "beverly hills neighborhoods", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 34.4},
-    {"query": "compass beverly hills", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 16.8},
-    {"query": "compass real estate", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 2.6},
-    {"query": "condos for sale venice", "clicks": 0, "impressions": 6, "ctr": 0.0, "position": 34.5},
-    {"query": "los angeles rental market 2025 trends", "clicks": 0, "impressions": 6, "ctr": 0.0, "position": 43.5},
-    {"query": "los angeles real estate buyer's agent", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 72.0},
-    {"query": "mid city", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 4.5},
-    {"query": "mid city la", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 16.4},
-    {"query": "los angeles mid city", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 23.3},
-    {"query": "living in santa monica", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 36.5},
-    {"query": "living in beverly hills", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 36.5},
-    {"query": "homes for sale in west adams los angeles", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 70.5},
-    {"query": "culver city living", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 32.0},
-    {"query": "living in culver city", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 18.0},
-    {"query": "is culver city its own city", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 5.0},
-    {"query": "is culver city part of los angeles", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 17.0},
-    {"query": "la mid city", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 20.0},
-    {"query": "beverly hills neighborhood", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 30.5}
+    {
+      "query": "amre group",
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.1667,
+      "position": 4.5
+    },
+    {
+      "query": "sunset park neighborhood santa monica",
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 14.0
+    },
+    {
+      "query": "real estate companies in california",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1.0,
+      "position": 81.0
+    },
+    {
+      "query": "amre",
+      "clicks": 0,
+      "impressions": 35,
+      "ctr": 0.0,
+      "position": 5.3
+    },
+    {
+      "query": "amre real estate",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0.0,
+      "position": 1.4
+    },
+    {
+      "query": "bel air ca neighborhood guide",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0.0,
+      "position": 12.6
+    },
+    {
+      "query": "beverly hills post office condos for sale",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0.0,
+      "position": 25.1
+    },
+    {
+      "query": "beverly hills neighborhoods",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 34.4
+    },
+    {
+      "query": "compass beverly hills",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 16.8
+    },
+    {
+      "query": "compass real estate",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 2.6
+    },
+    {
+      "query": "condos for sale venice",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0.0,
+      "position": 34.5
+    },
+    {
+      "query": "los angeles rental market 2025 trends",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0.0,
+      "position": 43.5
+    },
+    {
+      "query": "los angeles real estate buyer's agent",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 72.0
+    },
+    {
+      "query": "mid city",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 4.5
+    },
+    {
+      "query": "mid city la",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 16.4
+    },
+    {
+      "query": "los angeles mid city",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 23.3
+    },
+    {
+      "query": "living in santa monica",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 36.5
+    },
+    {
+      "query": "living in beverly hills",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 36.5
+    },
+    {
+      "query": "homes for sale in west adams los angeles",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 70.5
+    },
+    {
+      "query": "culver city living",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 32.0
+    },
+    {
+      "query": "living in culver city",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 18.0
+    },
+    {
+      "query": "is culver city its own city",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 5.0
+    },
+    {
+      "query": "is culver city part of los angeles",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 17.0
+    },
+    {
+      "query": "la mid city",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 20.0
+    },
+    {
+      "query": "beverly hills neighborhood",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 30.5
+    }
   ],
   "pages": [
-    {"page": "https://amre.group/", "clicks": 4, "impressions": 154, "ctr": 0.026, "position": 13.5},
-    {"page": "https://amre.group/blog/living-in-mid-city-los-angeles-neighborhood-guide/", "clicks": 1, "impressions": 189, "ctr": 0.0053, "position": 16.2},
-    {"page": "https://amre.group/blog/35-years-housing-appreciation-los-angeles/", "clicks": 1, "impressions": 76, "ctr": 0.013, "position": 6.9},
-    {"page": "https://amre.group/blog/sunset-park-santa-monicas-hidden-gem/", "clicks": 1, "impressions": 32, "ctr": 0.031, "position": 13.3},
-    {"page": "https://amre.group/about/", "clicks": 1, "impressions": 27, "ctr": 0.037, "position": 5.8},
-    {"page": "https://amre.group/agent/michael-abraham", "clicks": 0, "impressions": 27, "ctr": 0.0, "position": 5.5},
-    {"page": "https://amre.group/blog/living-in-bel-air-neighborhood-guide/", "clicks": 0, "impressions": 22, "ctr": 0.0, "position": 10.2},
-    {"page": "https://amre.group/blog/living-in-santa-monica-neighborhood-guide/", "clicks": 0, "impressions": 44, "ctr": 0.0, "position": 42.1},
-    {"page": "https://amre.group/blog/living-in-beverly-hills-neighborhood-guide/", "clicks": 0, "impressions": 32, "ctr": 0.0, "position": 30.1},
-    {"page": "https://amre.group/blog/is-tic-right-for-me/", "clicks": 0, "impressions": 27, "ctr": 0.0, "position": 43.5},
-    {"page": "https://amre.group/blog/living-in-culver-city-neighborhood-guide/", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 21.0},
-    {"page": "https://amre.group/blog/power-duplex-ownership-los-angeles/", "clicks": 0, "impressions": 13, "ctr": 0.0, "position": 10.6},
-    {"page": "https://amre.group/blog/living-in-west-adams-los-angeles-neighborhood-guide/", "clicks": 0, "impressions": 14, "ctr": 0.0, "position": 34.4},
-    {"page": "https://amre.group/blog/rent-vs-own-los-angeles-1-million/", "clicks": 0, "impressions": 7, "ctr": 0.0, "position": 10.3},
-    {"page": "https://amre.group/blog/california-migration-trends-2023/", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 8.3},
-    {"page": "https://amre.group/blog/culver-city-real-estate-ikea-helms-design-district/", "clicks": 0, "impressions": 9, "ctr": 0.0, "position": 9.4},
-    {"page": "https://amre.group/blog/dream-beach-property-under-1-million/", "clicks": 0, "impressions": 8, "ctr": 0.0, "position": 9.3},
-    {"page": "https://amre.group/blog/duplex-investing-in-los-angeles-how-to-build-wealth-while-living-for-less", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 12.9},
-    {"page": "https://amre.group/blog/the-power-of-selling-with-compass-concierge-in-los-angeles", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 5.7},
-    {"page": "https://amre.group/contact/", "clicks": 0, "impressions": 13, "ctr": 0.0, "position": 24.8}
+    {
+      "page": "https://amre.group/",
+      "clicks": 4,
+      "impressions": 154,
+      "ctr": 0.026,
+      "position": 13.5
+    },
+    {
+      "page": "https://amre.group/blog/living-in-mid-city-los-angeles-neighborhood-guide/",
+      "clicks": 1,
+      "impressions": 189,
+      "ctr": 0.0053,
+      "position": 16.2
+    },
+    {
+      "page": "https://amre.group/blog/35-years-housing-appreciation-los-angeles/",
+      "clicks": 1,
+      "impressions": 76,
+      "ctr": 0.013,
+      "position": 6.9
+    },
+    {
+      "page": "https://amre.group/blog/sunset-park-santa-monicas-hidden-gem/",
+      "clicks": 1,
+      "impressions": 32,
+      "ctr": 0.031,
+      "position": 13.3
+    },
+    {
+      "page": "https://amre.group/about/",
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037,
+      "position": 5.8
+    },
+    {
+      "page": "https://amre.group/agent/michael-abraham",
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0.0,
+      "position": 5.5
+    },
+    {
+      "page": "https://amre.group/blog/living-in-bel-air-neighborhood-guide/",
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0.0,
+      "position": 10.2
+    },
+    {
+      "page": "https://amre.group/blog/living-in-santa-monica-neighborhood-guide/",
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0.0,
+      "position": 42.1
+    },
+    {
+      "page": "https://amre.group/blog/living-in-beverly-hills-neighborhood-guide/",
+      "clicks": 0,
+      "impressions": 32,
+      "ctr": 0.0,
+      "position": 30.1
+    },
+    {
+      "page": "https://amre.group/blog/is-tic-right-for-me/",
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0.0,
+      "position": 43.5
+    },
+    {
+      "page": "https://amre.group/blog/living-in-culver-city-neighborhood-guide/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0.0,
+      "position": 21.0
+    },
+    {
+      "page": "https://amre.group/blog/power-duplex-ownership-los-angeles/",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0.0,
+      "position": 10.6
+    },
+    {
+      "page": "https://amre.group/blog/living-in-west-adams-los-angeles-neighborhood-guide/",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0.0,
+      "position": 34.4
+    },
+    {
+      "page": "https://amre.group/blog/rent-vs-own-los-angeles-1-million/",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0.0,
+      "position": 10.3
+    },
+    {
+      "page": "https://amre.group/blog/california-migration-trends-2023/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0.0,
+      "position": 8.3
+    },
+    {
+      "page": "https://amre.group/blog/culver-city-real-estate-ikea-helms-design-district/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0.0,
+      "position": 9.4
+    },
+    {
+      "page": "https://amre.group/blog/dream-beach-property-under-1-million/",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0.0,
+      "position": 9.3
+    },
+    {
+      "page": "https://amre.group/blog/duplex-investing-in-los-angeles-how-to-build-wealth-while-living-for-less",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0.0,
+      "position": 12.9
+    },
+    {
+      "page": "https://amre.group/blog/the-power-of-selling-with-compass-concierge-in-los-angeles",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0.0,
+      "position": 5.7
+    },
+    {
+      "page": "https://amre.group/contact/",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0.0,
+      "position": 24.8
+    }
   ],
   "movers": [
-    {"query": "los angeles rental market 2025 trends", "position": 43.5, "delta": 27.5},
-    {"query": "beverly hills neighborhoods", "position": 34.4, "delta": 16.4},
-    {"query": "compass beverly hills", "position": 16.8, "delta": 15.8},
-    {"query": "condos for sale venice", "position": 34.5, "delta": 12.4},
-    {"query": "living in culver city", "position": 18.0, "delta": -8.5},
-    {"query": "mid city", "position": 4.5, "delta": -8.0},
-    {"query": "living in beverly hills", "position": 36.5, "delta": -5.5},
-    {"query": "amre", "position": 5.3, "delta": -4.2}
+    {
+      "query": "los angeles rental market 2025 trends",
+      "position": 43.5,
+      "delta": 27.5
+    },
+    {
+      "query": "beverly hills neighborhoods",
+      "position": 34.4,
+      "delta": 16.4
+    },
+    {
+      "query": "compass beverly hills",
+      "position": 16.8,
+      "delta": 15.8
+    },
+    {
+      "query": "condos for sale venice",
+      "position": 34.5,
+      "delta": 12.4
+    },
+    {
+      "query": "living in culver city",
+      "position": 18.0,
+      "delta": -8.5
+    },
+    {
+      "query": "mid city",
+      "position": 4.5,
+      "delta": -8.0
+    },
+    {
+      "query": "living in beverly hills",
+      "position": 36.5,
+      "delta": -5.5
+    },
+    {
+      "query": "amre",
+      "position": 5.3,
+      "delta": -4.2
+    }
   ],
   "opportunities": [
-    {"page": "https://amre.group/blog/living-in-mid-city-los-angeles-neighborhood-guide/", "impressions": 189, "ctr": 0.0053, "position": 16.2, "action": "Rewrite title", "type": "title"},
-    {"page": "https://amre.group/", "impressions": 154, "ctr": 0.026, "position": 13.5, "action": "Rewrite title", "type": "title"},
-    {"page": "https://amre.group/blog/35-years-housing-appreciation-los-angeles/", "impressions": 76, "ctr": 0.013, "position": 6.9, "action": "Rewrite title", "type": "title"},
-    {"page": "https://amre.group/blog/living-in-santa-monica-neighborhood-guide/", "impressions": 44, "ctr": 0.0, "position": 42.1, "action": "Build links", "type": "new"},
-    {"page": "https://amre.group/blog/living-in-beverly-hills-neighborhood-guide/", "impressions": 32, "ctr": 0.0, "position": 30.1, "action": "Build links", "type": "new"},
-    {"page": "https://amre.group/agent/michael-abraham", "impressions": 27, "ctr": 0.0, "position": 5.5, "action": "Add meta desc", "type": "title"},
-    {"page": "https://amre.group/blog/is-tic-right-for-me/", "impressions": 27, "ctr": 0.0, "position": 43.5, "action": "Build links", "type": "new"},
-    {"page": "https://amre.group/blog/living-in-west-adams-los-angeles-neighborhood-guide/", "impressions": 14, "ctr": 0.0, "position": 34.4, "action": "Add FAQ", "type": "faq"}
+    {
+      "page": "https://amre.group/blog/living-in-mid-city-los-angeles-neighborhood-guide/",
+      "impressions": 189,
+      "ctr": 0.0053,
+      "position": 16.2,
+      "action": "Rewrite title",
+      "type": "title"
+    },
+    {
+      "page": "https://amre.group/",
+      "impressions": 154,
+      "ctr": 0.026,
+      "position": 13.5,
+      "action": "Rewrite title",
+      "type": "title"
+    },
+    {
+      "page": "https://amre.group/blog/35-years-housing-appreciation-los-angeles/",
+      "impressions": 76,
+      "ctr": 0.013,
+      "position": 6.9,
+      "action": "Rewrite title",
+      "type": "title"
+    },
+    {
+      "page": "https://amre.group/blog/living-in-santa-monica-neighborhood-guide/",
+      "impressions": 44,
+      "ctr": 0.0,
+      "position": 42.1,
+      "action": "Build links",
+      "type": "new"
+    },
+    {
+      "page": "https://amre.group/blog/living-in-beverly-hills-neighborhood-guide/",
+      "impressions": 32,
+      "ctr": 0.0,
+      "position": 30.1,
+      "action": "Build links",
+      "type": "new"
+    },
+    {
+      "page": "https://amre.group/agent/michael-abraham",
+      "impressions": 27,
+      "ctr": 0.0,
+      "position": 5.5,
+      "action": "Add meta desc",
+      "type": "title"
+    },
+    {
+      "page": "https://amre.group/blog/is-tic-right-for-me/",
+      "impressions": 27,
+      "ctr": 0.0,
+      "position": 43.5,
+      "action": "Build links",
+      "type": "new"
+    },
+    {
+      "page": "https://amre.group/blog/living-in-west-adams-los-angeles-neighborhood-guide/",
+      "impressions": 14,
+      "ctr": 0.0,
+      "position": 34.4,
+      "action": "Add FAQ",
+      "type": "faq"
+    }
   ],
   "ai": {
-    "headline": "891 impressions but only 3 clicks this week — the Mid City guide alone has 189 impressions at 0.5% CTR, representing the single biggest immediate win on the site.",
-    "summary": "The site is ranking for the right neighborhood queries but failing to convert impressions to clicks — titles and meta descriptions are the bottleneck, not rankings. Mid City, Bel Air, and Sunset Park guides are all within striking distance of page 1. The agent page for Michael Abraham is ranking #5 for branded queries with zero clicks, likely missing a meta description entirely, which is a quick fix with outsized impact.",
+    "headline": "891 GSC impressions but only 3 clicks this week \u2014 and 43% of GA4 sessions are likely Singapore bot traffic inflating every metric.",
+    "summary": "Two separate problems: GSC shows the site ranking but not converting impressions to clicks (title/meta issue), while GA4 shows the contact form is nearly invisible \u2014 only 9 users started a form across 683 sessions in 28 days. The good news: organic search visitors stay for 9.7 minutes on average, ChatGPT and Gemini are already sending referrals, and the /contact/ page itself has 0% bounce (people who find it convert). The bottleneck is getting them there.",
     "actions": [
       {
         "priority": "high",
         "title": "Fix Mid City guide title & meta",
-        "detail": "Rewrite the title tag of /blog/living-in-mid-city-los-angeles-neighborhood-guide/ to 'Living in Mid-City Los Angeles: 2026 Neighborhood Guide' and add a compelling meta description with a hook. 189 impressions at pos 16 with 0.5% CTR means the title is not compelling people to click — this single fix could 5-10x clicks from this page."
+        "detail": "Rewrite the title tag of /blog/living-in-mid-city-los-angeles-neighborhood-guide/ to 'Living in Mid-City Los Angeles: 2026 Neighborhood Guide' and add a compelling meta description with a hook. 189 impressions at pos 16 with 0.5% CTR means the title is not compelling people to click \u2014 this single fix could 5-10x clicks from this page."
       },
       {
         "priority": "high",
         "title": "Add meta description to agent page",
-        "detail": "The /agent/michael-abraham page ranks #5.5 for branded queries but has 0 clicks from 27 impressions — it almost certainly has no meta description. Add: 'Michael Abraham is a licensed architect and real estate agent at Compass Beverly Hills — a rare dual credential that gives AMRE clients an edge in LA's luxury market.' This should immediately convert branded searches."
+        "detail": "The /agent/michael-abraham page ranks #5.5 for branded queries but has 0 clicks from 27 impressions \u2014 it almost certainly has no meta description. Add: 'Michael Abraham is a licensed architect and real estate agent at Compass Beverly Hills \u2014 a rare dual credential that gives AMRE clients an edge in LA's luxury market.' This should immediately convert branded searches."
       },
       {
         "priority": "high",
         "title": "Write Venice condo buyer's guide article",
-        "detail": "Queries like 'condos for sale venice', 'condos in venice', and 'condos for sale venice ca' are driving consistent impressions but landing nowhere useful. Write a new article: 'Venice Condos for Sale: What Buyers Need to Know in 2026' — include price ranges, best streets, architect-designed buildings (Michael's angle), and HOA considerations. High commercial intent, underserved on the site."
+        "detail": "Queries like 'condos for sale venice', 'condos in venice', and 'condos for sale venice ca' are driving consistent impressions but landing nowhere useful. Write a new article: 'Venice Condos for Sale: What Buyers Need to Know in 2026' \u2014 include price ranges, best streets, architect-designed buildings (Michael's angle), and HOA considerations. High commercial intent, underserved on the site."
       },
       {
         "priority": "med",
         "title": "Publish Silver Lake or Los Feliz neighborhood guide",
-        "detail": "The neighborhood guide format is clearly working (Mid City, Bel Air, Sunset Park all ranking). Next guide should target Silver Lake or Los Feliz — both have strong architect-designed home inventory (Neutra, Schindler, Lautner connections) which ties directly to AMRE's positioning. Title: 'Living in Silver Lake, Los Angeles: The Architect-Designed Neighborhood Guide'."
+        "detail": "The neighborhood guide format is clearly working (Mid City, Bel Air, Sunset Park all ranking). Next guide should target Silver Lake or Los Feliz \u2014 both have strong architect-designed home inventory (Neutra, Schindler, Lautner connections) which ties directly to AMRE's positioning. Title: 'Living in Silver Lake, Los Angeles: The Architect-Designed Neighborhood Guide'."
       },
       {
         "priority": "med",
         "title": "Recover Beverly Hills neighborhoods ranking",
-        "detail": "'Beverly Hills neighborhoods' dropped from pos 18 → 34 this week. The /blog/living-in-beverly-hills-neighborhood-guide/ page has 32 impressions but 0 CTR. Add internal links from the homepage and buyers page pointing to it, and add a Beverly Hills neighborhoods FAQ section to the page targeting queries like 'Beverly Hills Post Office', 'Trousdale Estates', 'Flats vs Hills'."
+        "detail": "'Beverly Hills neighborhoods' dropped from pos 18 \u2192 34 this week. The /blog/living-in-beverly-hills-neighborhood-guide/ page has 32 impressions but 0 CTR. Add internal links from the homepage and buyers page pointing to it, and add a Beverly Hills neighborhoods FAQ section to the page targeting queries like 'Beverly Hills Post Office', 'Trousdale Estates', 'Flats vs Hills'."
+      }
+    ]
+  },
+  "ga": {
+    "total_sessions": 683,
+    "unique_users": 553,
+    "organic_sessions": 104,
+    "organic_pct": "15% of total (target: 40%+)",
+    "organic_duration": 582.0,
+    "lead_events": 67,
+    "lead_rate": "3.6% session-to-lead rate",
+    "form_starts": 9,
+    "scroll_users": 61,
+    "ads_conversions": 3,
+    "singapore_sessions": 298,
+    "bot_note": "\u26a0 incl. ~298 suspected bot sessions (Singapore)",
+    "ai_referrals": 10,
+    "start_views": 10,
+    "trend": [
+      {
+        "d": "Apr 30",
+        "s": 21,
+        "p": 26
+      },
+      {
+        "d": "May 1",
+        "s": 19,
+        "p": 20
+      },
+      {
+        "d": "May 2",
+        "s": 43,
+        "p": 52
+      },
+      {
+        "d": "May 3",
+        "s": 19,
+        "p": 33
+      },
+      {
+        "d": "May 4",
+        "s": 19,
+        "p": 25
+      },
+      {
+        "d": "May 5",
+        "s": 16,
+        "p": 19
+      },
+      {
+        "d": "May 6",
+        "s": 32,
+        "p": 212
+      },
+      {
+        "d": "May 7",
+        "s": 23,
+        "p": 35
+      },
+      {
+        "d": "May 8",
+        "s": 40,
+        "p": 90
+      },
+      {
+        "d": "May 9",
+        "s": 13,
+        "p": 22
+      },
+      {
+        "d": "May 10",
+        "s": 16,
+        "p": 18
+      },
+      {
+        "d": "May 11",
+        "s": 24,
+        "p": 40
+      },
+      {
+        "d": "May 12",
+        "s": 47,
+        "p": 161
+      },
+      {
+        "d": "May 13",
+        "s": 28,
+        "p": 43
+      },
+      {
+        "d": "May 14",
+        "s": 29,
+        "p": 119
+      },
+      {
+        "d": "May 15",
+        "s": 17,
+        "p": 20
+      },
+      {
+        "d": "May 16",
+        "s": 53,
+        "p": 74
+      },
+      {
+        "d": "May 17",
+        "s": 22,
+        "p": 22
+      },
+      {
+        "d": "May 18",
+        "s": 10,
+        "p": 10
+      },
+      {
+        "d": "May 19",
+        "s": 23,
+        "p": 35
+      },
+      {
+        "d": "May 20",
+        "s": 34,
+        "p": 70
+      },
+      {
+        "d": "May 21",
+        "s": 16,
+        "p": 24
+      },
+      {
+        "d": "May 22",
+        "s": 21,
+        "p": 38
+      },
+      {
+        "d": "May 23",
+        "s": 10,
+        "p": 13
+      },
+      {
+        "d": "May 24",
+        "s": 8,
+        "p": 9
+      },
+      {
+        "d": "May 25",
+        "s": 8,
+        "p": 10
+      },
+      {
+        "d": "May 26",
+        "s": 30,
+        "p": 70
+      },
+      {
+        "d": "May 27",
+        "s": 18,
+        "p": 48
+      }
+    ],
+    "channels": [
+      {
+        "channel": "Direct",
+        "sessions": 509,
+        "engaged_sessions": 71,
+        "avg_duration": 46.3,
+        "bounce_rate": 0.861
+      },
+      {
+        "channel": "Organic Search",
+        "sessions": 104,
+        "engaged_sessions": 66,
+        "avg_duration": 582.0,
+        "bounce_rate": 0.365
+      },
+      {
+        "channel": "Referral",
+        "sessions": 41,
+        "engaged_sessions": 28,
+        "avg_duration": 792.0,
+        "bounce_rate": 0.317
+      },
+      {
+        "channel": "Organic Social",
+        "sessions": 23,
+        "engaged_sessions": 13,
+        "avg_duration": 115.9,
+        "bounce_rate": 0.435
+      },
+      {
+        "channel": "Organic Video",
+        "sessions": 4,
+        "engaged_sessions": 2,
+        "avg_duration": 502.3,
+        "bounce_rate": 0.5
+      },
+      {
+        "channel": "Unassigned",
+        "sessions": 2,
+        "engaged_sessions": 1,
+        "avg_duration": 9.9,
+        "bounce_rate": 0.5
+      }
+    ],
+    "sources": [
+      {
+        "source": "(direct) / (none)",
+        "sessions": 509,
+        "engaged": 71,
+        "bounce_rate": 0.861
+      },
+      {
+        "source": "google / organic",
+        "sessions": 95,
+        "engaged": 62,
+        "bounce_rate": 0.347
+      },
+      {
+        "source": "facebook.com / referral",
+        "sessions": 13,
+        "engaged": 8,
+        "bounce_rate": 0.385
+      },
+      {
+        "source": "hilex2030.github.io / referral",
+        "sessions": 12,
+        "engaged": 11,
+        "bounce_rate": 0.083
+      },
+      {
+        "source": "mail.google.com / referral",
+        "sessions": 8,
+        "engaged": 6,
+        "bounce_rate": 0.25
+      },
+      {
+        "source": "chatgpt.com / referral",
+        "sessions": 7,
+        "engaged": 4,
+        "bounce_rate": 0.429
+      },
+      {
+        "source": "compass.com / referral",
+        "sessions": 5,
+        "engaged": 4,
+        "bounce_rate": 0.2
+      },
+      {
+        "source": "gemini.google.com / referral",
+        "sessions": 3,
+        "engaged": 2,
+        "bounce_rate": 0.333
+      },
+      {
+        "source": "ig / social",
+        "sessions": 4,
+        "engaged": 3,
+        "bounce_rate": 0.25
+      },
+      {
+        "source": "youtube.com / referral",
+        "sessions": 4,
+        "engaged": 2,
+        "bounce_rate": 0.5
+      },
+      {
+        "source": "bing / organic",
+        "sessions": 4,
+        "engaged": 2,
+        "bounce_rate": 0.5
+      },
+      {
+        "source": "yahoo / organic",
+        "sessions": 5,
+        "engaged": 2,
+        "bounce_rate": 0.6
+      }
+    ],
+    "devices": [
+      {
+        "device": "desktop",
+        "sessions": 591,
+        "users": 485,
+        "bounce_rate": 0.738
+      },
+      {
+        "device": "mobile",
+        "sessions": 90,
+        "users": 66,
+        "bounce_rate": 0.7
+      },
+      {
+        "device": "tablet",
+        "sessions": 3,
+        "users": 3,
+        "bounce_rate": 1.0
+      }
+    ],
+    "geo": [
+      {
+        "country": "United States",
+        "sessions": 305,
+        "users": 185
+      },
+      {
+        "country": "Singapore",
+        "sessions": 298,
+        "users": 298
+      },
+      {
+        "country": "Pakistan",
+        "sessions": 10,
+        "users": 8
+      },
+      {
+        "country": "Philippines",
+        "sessions": 10,
+        "users": 4
+      },
+      {
+        "country": "India",
+        "sessions": 9,
+        "users": 9
+      },
+      {
+        "country": "Germany",
+        "sessions": 7,
+        "users": 7
+      },
+      {
+        "country": "Sweden",
+        "sessions": 7,
+        "users": 7
+      },
+      {
+        "country": "China",
+        "sessions": 6,
+        "users": 6
+      },
+      {
+        "country": "Netherlands",
+        "sessions": 5,
+        "users": 5
+      },
+      {
+        "country": "Egypt",
+        "sessions": 3,
+        "users": 1
+      }
+    ],
+    "events": [
+      {
+        "event": "page_view",
+        "count": 1432,
+        "users": 553
+      },
+      {
+        "event": "session_start",
+        "count": 685,
+        "users": 553
+      },
+      {
+        "event": "user_engagement",
+        "count": 650,
+        "users": 96
+      },
+      {
+        "event": "first_visit",
+        "count": 546,
+        "users": 546
+      },
+      {
+        "event": "scroll",
+        "count": 238,
+        "users": 61
+      },
+      {
+        "event": "generate_lead",
+        "count": 67,
+        "users": 20
+      },
+      {
+        "event": "form_start",
+        "count": 32,
+        "users": 9
+      },
+      {
+        "event": "click",
+        "count": 5,
+        "users": 4
+      },
+      {
+        "event": "ads_conversion_Contact_Us_1",
+        "count": 3,
+        "users": 2
+      }
+    ],
+    "pages": [
+      {
+        "path": "/",
+        "views": 477,
+        "users": 254,
+        "avg_duration": 136.2,
+        "bounce_rate": 0.647
+      },
+      {
+        "path": "/properties/",
+        "views": 79,
+        "users": 15,
+        "avg_duration": 274.0,
+        "bounce_rate": 0.364
+      },
+      {
+        "path": "/about/",
+        "views": 65,
+        "users": 13,
+        "avg_duration": 250.7,
+        "bounce_rate": 0.12
+      },
+      {
+        "path": "/contact/",
+        "views": 63,
+        "users": 18,
+        "avg_duration": 116.6,
+        "bounce_rate": 0.0
+      },
+      {
+        "path": "/blog/",
+        "views": 45,
+        "users": 18,
+        "avg_duration": 51.7,
+        "bounce_rate": 0.545
+      },
+      {
+        "path": "/properties/mulholland-14423/",
+        "views": 35,
+        "users": 11,
+        "avg_duration": 66.9,
+        "bounce_rate": 0.2
+      },
+      {
+        "path": "/buyers/",
+        "views": 33,
+        "users": 14,
+        "avg_duration": 90.2,
+        "bounce_rate": 0.261
+      },
+      {
+        "path": "/sellers/",
+        "views": 33,
+        "users": 12,
+        "avg_duration": 201.6,
+        "bounce_rate": 0.238
+      },
+      {
+        "path": "/start/",
+        "views": 32,
+        "users": 11,
+        "avg_duration": 202.6,
+        "bounce_rate": 0.435
+      },
+      {
+        "path": "/beverly-hills/",
+        "views": 28,
+        "users": 7,
+        "avg_duration": 178.0,
+        "bounce_rate": 0.235
+      },
+      {
+        "path": "/blog/los-angeles-market-now-2026/",
+        "views": 28,
+        "users": 19,
+        "avg_duration": 70.3,
+        "bounce_rate": 0.75
+      },
+      {
+        "path": "/santa-monica/",
+        "views": 26,
+        "users": 6,
+        "avg_duration": 93.5,
+        "bounce_rate": 0.231
+      },
+      {
+        "path": "/brentwood/",
+        "views": 23,
+        "users": 3,
+        "avg_duration": 479.1,
+        "bounce_rate": 0.667
+      },
+      {
+        "path": "/bel-air/",
+        "views": 20,
+        "users": 6,
+        "avg_duration": 14.9,
+        "bounce_rate": 0.25
+      },
+      {
+        "path": "/mid-city/",
+        "views": 18,
+        "users": 9,
+        "avg_duration": 8.7,
+        "bounce_rate": 0.357
+      },
+      {
+        "path": "/blog/west-adams-los-angeles-transformation/",
+        "views": 17,
+        "users": 11,
+        "avg_duration": 103.5,
+        "bounce_rate": 0.667
+      },
+      {
+        "path": "/blog/rent-vs-own-los-angeles-1-million/",
+        "views": 16,
+        "users": 4,
+        "avg_duration": 1213.5,
+        "bounce_rate": 0.333
+      },
+      {
+        "path": "/start/sell/",
+        "views": 10,
+        "users": 2,
+        "avg_duration": 92.3,
+        "bounce_rate": 0.111
+      },
+      {
+        "path": "/team/michael-abraham/",
+        "views": 13,
+        "users": 2,
+        "avg_duration": 350.8,
+        "bounce_rate": 0.0
+      },
+      {
+        "path": "/blog/35-years-housing-appreciation-los-angeles/",
+        "views": 12,
+        "users": 12,
+        "avg_duration": 4.0,
+        "bounce_rate": 0.833
+      },
+      {
+        "path": "/culver-city/",
+        "views": 12,
+        "users": 5,
+        "avg_duration": 99.8,
+        "bounce_rate": 0.182
+      },
+      {
+        "path": "/team/ania-de-pourbaix/",
+        "views": 12,
+        "users": 2,
+        "avg_duration": 497.0,
+        "bounce_rate": 0.0
+      },
+      {
+        "path": "/blog/living-in-sherman-oaks-neighborhood-guide/",
+        "views": 11,
+        "users": 1,
+        "avg_duration": 1174.6,
+        "bounce_rate": 0.0
+      },
+      {
+        "path": "/blog/rent-vs-own-los-angeles-1-million/",
+        "views": 16,
+        "users": 4,
+        "avg_duration": 1213.5,
+        "bounce_rate": 0.333
       }
     ]
   }
