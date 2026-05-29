@@ -1,10 +1,112 @@
 {
-  "generated": null,
-  "period": null,
-  "summary": null,
-  "queries": [],
-  "pages": [],
-  "movers": [],
-  "opportunities": [],
-  "ai": null
+  "generated": "May 28, 2026 10:17 PM PT",
+  "period": "May 18 → May 25, 2026",
+  "summary": {
+    "clicks": 3,
+    "impressions": 891,
+    "avg_position": 24.1,
+    "ctr": 0.0034,
+    "position_delta": -2.1,
+    "indexed_pages": 25
+  },
+  "queries": [
+    {"query": "amre group", "clicks": 1, "impressions": 6, "ctr": 0.1667, "position": 4.5},
+    {"query": "sunset park neighborhood santa monica", "clicks": 1, "impressions": 2, "ctr": 0.5, "position": 14.0},
+    {"query": "real estate companies in california", "clicks": 1, "impressions": 1, "ctr": 1.0, "position": 81.0},
+    {"query": "amre", "clicks": 0, "impressions": 35, "ctr": 0.0, "position": 5.3},
+    {"query": "amre real estate", "clicks": 0, "impressions": 8, "ctr": 0.0, "position": 1.4},
+    {"query": "bel air ca neighborhood guide", "clicks": 0, "impressions": 12, "ctr": 0.0, "position": 12.6},
+    {"query": "beverly hills post office condos for sale", "clicks": 0, "impressions": 8, "ctr": 0.0, "position": 25.1},
+    {"query": "beverly hills neighborhoods", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 34.4},
+    {"query": "compass beverly hills", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 16.8},
+    {"query": "compass real estate", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 2.6},
+    {"query": "condos for sale venice", "clicks": 0, "impressions": 6, "ctr": 0.0, "position": 34.5},
+    {"query": "los angeles rental market 2025 trends", "clicks": 0, "impressions": 6, "ctr": 0.0, "position": 43.5},
+    {"query": "los angeles real estate buyer's agent", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 72.0},
+    {"query": "mid city", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 4.5},
+    {"query": "mid city la", "clicks": 0, "impressions": 5, "ctr": 0.0, "position": 16.4},
+    {"query": "los angeles mid city", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 23.3},
+    {"query": "living in santa monica", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 36.5},
+    {"query": "living in beverly hills", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 36.5},
+    {"query": "homes for sale in west adams los angeles", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 70.5},
+    {"query": "culver city living", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 32.0},
+    {"query": "living in culver city", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 18.0},
+    {"query": "is culver city its own city", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 5.0},
+    {"query": "is culver city part of los angeles", "clicks": 0, "impressions": 1, "ctr": 0.0, "position": 17.0},
+    {"query": "la mid city", "clicks": 0, "impressions": 2, "ctr": 0.0, "position": 20.0},
+    {"query": "beverly hills neighborhood", "clicks": 0, "impressions": 4, "ctr": 0.0, "position": 30.5}
+  ],
+  "pages": [
+    {"page": "https://amre.group/", "clicks": 4, "impressions": 154, "ctr": 0.026, "position": 13.5},
+    {"page": "https://amre.group/blog/living-in-mid-city-los-angeles-neighborhood-guide/", "clicks": 1, "impressions": 189, "ctr": 0.0053, "position": 16.2},
+    {"page": "https://amre.group/blog/35-years-housing-appreciation-los-angeles/", "clicks": 1, "impressions": 76, "ctr": 0.013, "position": 6.9},
+    {"page": "https://amre.group/blog/sunset-park-santa-monicas-hidden-gem/", "clicks": 1, "impressions": 32, "ctr": 0.031, "position": 13.3},
+    {"page": "https://amre.group/about/", "clicks": 1, "impressions": 27, "ctr": 0.037, "position": 5.8},
+    {"page": "https://amre.group/agent/michael-abraham", "clicks": 0, "impressions": 27, "ctr": 0.0, "position": 5.5},
+    {"page": "https://amre.group/blog/living-in-bel-air-neighborhood-guide/", "clicks": 0, "impressions": 22, "ctr": 0.0, "position": 10.2},
+    {"page": "https://amre.group/blog/living-in-santa-monica-neighborhood-guide/", "clicks": 0, "impressions": 44, "ctr": 0.0, "position": 42.1},
+    {"page": "https://amre.group/blog/living-in-beverly-hills-neighborhood-guide/", "clicks": 0, "impressions": 32, "ctr": 0.0, "position": 30.1},
+    {"page": "https://amre.group/blog/is-tic-right-for-me/", "clicks": 0, "impressions": 27, "ctr": 0.0, "position": 43.5},
+    {"page": "https://amre.group/blog/living-in-culver-city-neighborhood-guide/", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 21.0},
+    {"page": "https://amre.group/blog/power-duplex-ownership-los-angeles/", "clicks": 0, "impressions": 13, "ctr": 0.0, "position": 10.6},
+    {"page": "https://amre.group/blog/living-in-west-adams-los-angeles-neighborhood-guide/", "clicks": 0, "impressions": 14, "ctr": 0.0, "position": 34.4},
+    {"page": "https://amre.group/blog/rent-vs-own-los-angeles-1-million/", "clicks": 0, "impressions": 7, "ctr": 0.0, "position": 10.3},
+    {"page": "https://amre.group/blog/california-migration-trends-2023/", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 8.3},
+    {"page": "https://amre.group/blog/culver-city-real-estate-ikea-helms-design-district/", "clicks": 0, "impressions": 9, "ctr": 0.0, "position": 9.4},
+    {"page": "https://amre.group/blog/dream-beach-property-under-1-million/", "clicks": 0, "impressions": 8, "ctr": 0.0, "position": 9.3},
+    {"page": "https://amre.group/blog/duplex-investing-in-los-angeles-how-to-build-wealth-while-living-for-less", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 12.9},
+    {"page": "https://amre.group/blog/the-power-of-selling-with-compass-concierge-in-los-angeles", "clicks": 0, "impressions": 10, "ctr": 0.0, "position": 5.7},
+    {"page": "https://amre.group/contact/", "clicks": 0, "impressions": 13, "ctr": 0.0, "position": 24.8}
+  ],
+  "movers": [
+    {"query": "los angeles rental market 2025 trends", "position": 43.5, "delta": 27.5},
+    {"query": "beverly hills neighborhoods", "position": 34.4, "delta": 16.4},
+    {"query": "compass beverly hills", "position": 16.8, "delta": 15.8},
+    {"query": "condos for sale venice", "position": 34.5, "delta": 12.4},
+    {"query": "living in culver city", "position": 18.0, "delta": -8.5},
+    {"query": "mid city", "position": 4.5, "delta": -8.0},
+    {"query": "living in beverly hills", "position": 36.5, "delta": -5.5},
+    {"query": "amre", "position": 5.3, "delta": -4.2}
+  ],
+  "opportunities": [
+    {"page": "https://amre.group/blog/living-in-mid-city-los-angeles-neighborhood-guide/", "impressions": 189, "ctr": 0.0053, "position": 16.2, "action": "Rewrite title", "type": "title"},
+    {"page": "https://amre.group/", "impressions": 154, "ctr": 0.026, "position": 13.5, "action": "Rewrite title", "type": "title"},
+    {"page": "https://amre.group/blog/35-years-housing-appreciation-los-angeles/", "impressions": 76, "ctr": 0.013, "position": 6.9, "action": "Rewrite title", "type": "title"},
+    {"page": "https://amre.group/blog/living-in-santa-monica-neighborhood-guide/", "impressions": 44, "ctr": 0.0, "position": 42.1, "action": "Build links", "type": "new"},
+    {"page": "https://amre.group/blog/living-in-beverly-hills-neighborhood-guide/", "impressions": 32, "ctr": 0.0, "position": 30.1, "action": "Build links", "type": "new"},
+    {"page": "https://amre.group/agent/michael-abraham", "impressions": 27, "ctr": 0.0, "position": 5.5, "action": "Add meta desc", "type": "title"},
+    {"page": "https://amre.group/blog/is-tic-right-for-me/", "impressions": 27, "ctr": 0.0, "position": 43.5, "action": "Build links", "type": "new"},
+    {"page": "https://amre.group/blog/living-in-west-adams-los-angeles-neighborhood-guide/", "impressions": 14, "ctr": 0.0, "position": 34.4, "action": "Add FAQ", "type": "faq"}
+  ],
+  "ai": {
+    "headline": "891 impressions but only 3 clicks this week — the Mid City guide alone has 189 impressions at 0.5% CTR, representing the single biggest immediate win on the site.",
+    "summary": "The site is ranking for the right neighborhood queries but failing to convert impressions to clicks — titles and meta descriptions are the bottleneck, not rankings. Mid City, Bel Air, and Sunset Park guides are all within striking distance of page 1. The agent page for Michael Abraham is ranking #5 for branded queries with zero clicks, likely missing a meta description entirely, which is a quick fix with outsized impact.",
+    "actions": [
+      {
+        "priority": "high",
+        "title": "Fix Mid City guide title & meta",
+        "detail": "Rewrite the title tag of /blog/living-in-mid-city-los-angeles-neighborhood-guide/ to 'Living in Mid-City Los Angeles: 2026 Neighborhood Guide' and add a compelling meta description with a hook. 189 impressions at pos 16 with 0.5% CTR means the title is not compelling people to click — this single fix could 5-10x clicks from this page."
+      },
+      {
+        "priority": "high",
+        "title": "Add meta description to agent page",
+        "detail": "The /agent/michael-abraham page ranks #5.5 for branded queries but has 0 clicks from 27 impressions — it almost certainly has no meta description. Add: 'Michael Abraham is a licensed architect and real estate agent at Compass Beverly Hills — a rare dual credential that gives AMRE clients an edge in LA's luxury market.' This should immediately convert branded searches."
+      },
+      {
+        "priority": "high",
+        "title": "Write Venice condo buyer's guide article",
+        "detail": "Queries like 'condos for sale venice', 'condos in venice', and 'condos for sale venice ca' are driving consistent impressions but landing nowhere useful. Write a new article: 'Venice Condos for Sale: What Buyers Need to Know in 2026' — include price ranges, best streets, architect-designed buildings (Michael's angle), and HOA considerations. High commercial intent, underserved on the site."
+      },
+      {
+        "priority": "med",
+        "title": "Publish Silver Lake or Los Feliz neighborhood guide",
+        "detail": "The neighborhood guide format is clearly working (Mid City, Bel Air, Sunset Park all ranking). Next guide should target Silver Lake or Los Feliz — both have strong architect-designed home inventory (Neutra, Schindler, Lautner connections) which ties directly to AMRE's positioning. Title: 'Living in Silver Lake, Los Angeles: The Architect-Designed Neighborhood Guide'."
+      },
+      {
+        "priority": "med",
+        "title": "Recover Beverly Hills neighborhoods ranking",
+        "detail": "'Beverly Hills neighborhoods' dropped from pos 18 → 34 this week. The /blog/living-in-beverly-hills-neighborhood-guide/ page has 32 impressions but 0 CTR. Add internal links from the homepage and buyers page pointing to it, and add a Beverly Hills neighborhoods FAQ section to the page targeting queries like 'Beverly Hills Post Office', 'Trousdale Estates', 'Flats vs Hills'."
+      }
+    ]
+  }
 }
