@@ -109,6 +109,25 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
 .goal-num{font-family:'Playfair Display',serif;font-weight:500;font-size:38px;color:#1c3d31;line-height:1}
 .goal-sub{font-size:13px;color:#5a5a5a;margin-top:6px;line-height:1.5}
 
+/* Recommendations */
+.rec-band{background:linear-gradient(180deg,#faf6ef 0%,#f4f3ef 100%);border-bottom:1px solid #e8e4dc;padding:36px 0 32px}
+.rec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
+.rec-head h2{font-family:'Playfair Display',serif;font-weight:500;font-size:24px;color:#1a1a1a;display:flex;align-items:center;gap:12px}
+.rec-head h2::before{content:"";width:6px;height:24px;background:#ffc13c;border-radius:2px}
+.rec-head .rec-meta{font-size:11px;color:#86868b;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.rec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:860px){.rec-grid{grid-template-columns:1fr}}
+.rec{background:#fff;border:1px solid #e8e4dc;border-radius:12px;padding:20px 22px;position:relative;transition:border-color .15s,transform .15s}
+.rec:hover{border-color:#1c3d31;transform:translateY(-1px)}
+.rec-num{position:absolute;top:-10px;left:20px;width:28px;height:28px;background:#1c3d31;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:600}
+.rec-title{font-family:'Playfair Display',serif;font-weight:500;font-size:17px;color:#1a1a1a;margin-bottom:8px;margin-top:4px;line-height:1.3}
+.rec-time{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#7a5a00;background:rgba(255,193,60,.18);padding:3px 8px;border-radius:4px;margin-bottom:10px}
+.rec-time.auto{color:#1c3d31;background:rgba(28,61,49,.08)}
+.rec-body{font-size:13px;color:#5a5a5a;line-height:1.55;margin-bottom:12px}
+.rec-body code{background:#f0eee8;padding:1px 5px;border-radius:3px;font-size:11px;color:#1c3d31}
+.rec-action{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1c3d31;border-bottom:1px solid #1c3d31;padding-bottom:1px}
+.rec-action:hover{color:#ffc13c;border-color:#ffc13c}
+
 .foot{padding:32px 24px;text-align:center;font-size:12px;color:#86868b;border-top:1px solid #e8e4dc;background:#fff;margin-top:32px}
 .foot a{color:#1c3d31;font-weight:600;border-bottom:1px solid #1c3d31}
 .foot a + a{margin-left:18px}
@@ -150,6 +169,60 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
     </div>
   </div>
 </header>
+
+<!-- ===== THIS WEEK'S PRIORITIES ===== -->
+<section class="rec-band">
+  <div class="wrap">
+    <div class="rec-head">
+      <h2>This Week's Priorities</h2>
+      <div class="rec-meta">5 actions · based on the data above</div>
+    </div>
+    <div class="rec-grid">
+      <div class="rec">
+        <div class="rec-num">1</div>
+        <div class="rec-title">Resubmit the sitemap to Google</div>
+        <span class="rec-time">2 min · in GSC</span>
+        <div class="rec-body">Last fetched <strong>May 27</strong> &mdash; before the 3 new cornerstone posts + 14 page updates shipped. Forcing a fresh crawl gets the new content indexed in days instead of weeks.</div>
+        <a href="https://search.google.com/search-console/sitemaps?resource_id=sc-domain%3Aamre.group" target="_blank" rel="noopener" class="rec-action">Open Sitemaps in GSC &rarr;</a>
+      </div>
+
+      <div class="rec">
+        <div class="rec-num">2</div>
+        <div class="rec-title">Request indexing on the 3 new cornerstone posts</div>
+        <span class="rec-time">5 min · in GSC</span>
+        <div class="rec-body">URL Inspection &rarr; Request indexing skips the natural crawl queue. Submit each:<br>
+          <code>/blog/compass-private-exclusives-explained/</code><br>
+          <code>/blog/how-to-buy-a-home-in-los-angeles/</code><br>
+          <code>/blog/1031-exchange-los-angeles/</code></div>
+        <a href="https://search.google.com/search-console?resource_id=sc-domain%3Aamre.group" target="_blank" rel="noopener" class="rec-action">Open URL Inspection &rarr;</a>
+      </div>
+
+      <div class="rec">
+        <div class="rec-num">3</div>
+        <div class="rec-title">Add a GA4 bot-traffic filter</div>
+        <span class="rec-time">10 min · in GA4</span>
+        <div class="rec-body">~340 of the 651 sessions this period came from Singapore + AWS data center cities (Ashburn, Boardman, Prineville). Filtering these out makes every future report reflect real human traffic.</div>
+        <a href="https://analytics.google.com/analytics/web/#/a358264812p492854192/admin/streams/table/" target="_blank" rel="noopener" class="rec-action">Open GA4 Admin &rarr;</a>
+      </div>
+
+      <div class="rec">
+        <div class="rec-num">4</div>
+        <div class="rec-title">Audit the <code style="background:rgba(255,193,60,.2);padding:1px 5px;border-radius:3px;font-size:14px">generate_lead</code> trigger</div>
+        <span class="rec-time">15 min · in GTM</span>
+        <div class="rec-body">70 <code>generate_lead</code> events fired from only 32 <code>form_start</code>s &mdash; the lead event is firing without a form start in ~half the cases. Likely a phone-click or email-link trigger. Worth confirming what's being counted as a "lead."</div>
+        <a href="https://tagmanager.google.com/" target="_blank" rel="noopener" class="rec-action">Open GTM &rarr;</a>
+      </div>
+
+      <div class="rec">
+        <div class="rec-num">5</div>
+        <div class="rec-title">Compress hero + team photos to WebP</div>
+        <span class="rec-time auto">~1 hour · Claude can do this</span>
+        <div class="rec-body">Mobile CTR (1.33%) is already beating desktop (1.07%) and mobile users benefit most from faster images. Core Web Vitals LCP win &mdash; the homepage hero is the biggest payload on the site.</div>
+        <span class="rec-action" style="color:#86868b;border-color:transparent">Ask Claude: "compress the hero images"</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="block" style="padding-top:32px;padding-bottom:16px">
   <div class="wrap">
