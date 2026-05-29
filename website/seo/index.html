@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEO Intelligence — AMRE Internal</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#070B33;
+  --forest:#1c3d31;
+  --brass:#ffc13c;
+  --ink:#1a1a1a;
+  --bg:#f5f4f0;
+  --card:#ffffff;
+  --up:#22863a;
+  --down:#cb2431;
+  --flat:#6a737d;
+  --border:rgba(7,11,51,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+
+/* ── LOCK SCREEN ── */
+#lock{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:24px}
+#lock.hidden{display:none}
+.lock-logo{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.lock-logo-mark{width:40px;height:40px;background:var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:18px}
+.lock-title{font-family:'Playfair Display',serif;color:#fff;font-size:22px;font-weight:600}
+.lock-sub{color:rgba(255,255,255,.45);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center}
+.lock-form{display:flex;flex-direction:column;gap:12px;width:280px}
+.lock-input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#fff;padding:12px 16px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.lock-input:focus{border-color:var(--brass)}
+.lock-input::placeholder{color:rgba(255,255,255,.3)}
+.lock-btn{background:var(--brass);color:var(--navy);border:none;padding:12px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:opacity .2s}
+.lock-btn:hover{opacity:.88}
+.lock-err{color:#ff6b6b;font-size:12px;text-align:center;min-height:16px}
+
+/* ── LAYOUT ── */
+#app{display:none}
+#app.visible{display:block}
+
+header.dash-header{background:var(--navy);padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
+.dash-logo-wrap{display:flex;align-items:center;gap:10px}
+.dash-logo-mark{width:32px;height:32px;background:var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:14px}
+.dash-title{font-family:'Playfair Display',serif;color:#fff;font-size:18px;font-weight:600}
+.dash-badge{background:rgba(255,193,60,.15);color:var(--brass);font-size:11px;font-weight:600;letter-spacing:.06em;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,193,60,.25)}
+.dash-meta{color:rgba(255,255,255,.4);font-size:12px;text-align:right}
+.dash-meta strong{color:rgba(255,255,255,.7);display:block;font-size:13px}
+
+main{max-width:1200px;margin:0 auto;padding:36px 40px}
+
+/* ── STATUS BAR ── */
+.status-bar{background:var(--forest);border-radius:10px;padding:20px 28px;margin-bottom:32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.status-label{color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.status-val{color:#fff;font-size:22px;font-weight:600;font-family:'Playfair Display',serif}
+.status-val.up{color:#6ee7a0}
+.status-val.down{color:#ff9090}
+.status-divider{width:1px;height:44px;background:rgba(255,255,255,.12)}
+
+/* ── SECTION TITLES ── */
+.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;margin-top:36px}
+.section-head h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--navy)}
+.section-head .pill{background:var(--navy);color:#fff;font-size:10px;font-weight:600;letter-spacing:.08em;padding:3px 9px;border-radius:20px;text-transform:uppercase}
+.section-head .pill.green{background:var(--forest)}
+.section-head .pill.amber{background:#9a6700}
+
+/* ── AI RECOMMENDATION CARD ── */
+.ai-card{background:var(--navy);border-radius:10px;padding:28px 32px;margin-bottom:32px;position:relative;overflow:hidden}
+.ai-card::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,193,60,.12),transparent 70%);pointer-events:none}
+.ai-card-label{color:var(--brass);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.ai-card-label::before{content:'';width:6px;height:6px;background:var(--brass);border-radius:50%;flex-shrink:0}
+.ai-card h3{font-family:'Playfair Display',serif;color:#fff;font-size:18px;font-weight:600;margin-bottom:12px}
+.ai-card p{color:rgba(255,255,255,.65);font-size:13.5px;line-height:1.7}
+.ai-actions{margin-top:20px;display:flex;flex-direction:column;gap:8px}
+.ai-action-item{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.05);border-radius:6px;padding:10px 14px}
+.ai-action-priority{font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
+.ai-action-priority.high{background:rgba(255,90,90,.2);color:#ff9090}
+.ai-action-priority.med{background:rgba(255,193,60,.2);color:var(--brass)}
+.ai-action-priority.low{background:rgba(100,200,100,.15);color:#6ee7a0}
+.ai-action-text{color:rgba(255,255,255,.8);font-size:13px;line-height:1.5}
+.ai-action-text strong{color:#fff;display:block;font-size:12.5px;margin-bottom:2px}
+
+/* ── DATA TABLES ── */
+.card{background:var(--card);border-radius:10px;border:1px solid var(--border);overflow:hidden;margin-bottom:20px}
+.card-head{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-head-title{font-size:13px;font-weight:600;color:var(--navy);letter-spacing:.02em}
+.card-head-sub{font-size:11px;color:rgba(7,11,51,.4)}
+table{width:100%;border-collapse:collapse}
+th{padding:10px 18px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(7,11,51,.4);border-bottom:1px solid var(--border);background:#fafaf8}
+td{padding:11px 18px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafaf8}
+.query-cell{font-weight:500;color:var(--navy);max-width:280px}
+.pos-badge{display:inline-flex;align-items:center;gap:5px;font-weight:600;font-size:13px}
+.pos-badge.up{color:var(--up)}
+.pos-badge.down{color:var(--down)}
+.pos-badge.flat{color:var(--flat)}
+.delta{font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px}
+.delta.up{background:#dcffe4;color:var(--up)}
+.delta.down{background:#ffdce0;color:var(--down)}
+.delta.flat{background:#f1f2f3;color:var(--flat)}
+.ctr-bar{display:flex;align-items:center;gap:8px}
+.ctr-track{width:60px;height:5px;background:#eee;border-radius:3px;overflow:hidden}
+.ctr-fill{height:100%;background:var(--forest);border-radius:3px}
+.opp-tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px}
+.opp-tag.title{background:#fff3cd;color:#856404}
+.opp-tag.content{background:#d1ecf1;color:#0c5460}
+.opp-tag.faq{background:#d4edda;color:#155724}
+.opp-tag.new{background:#f3d9ff;color:#5a1a7a}
+
+/* ── GRID ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+
+/* ── EMPTY / LOADING ── */
+.empty-state{text-align:center;padding:48px 20px;color:rgba(7,11,51,.35)}
+.empty-state .empty-icon{font-size:36px;margin-bottom:12px}
+.empty-state p{font-size:13px}
+.loading{display:flex;align-items:center;justify-content:center;gap:10px;padding:40px;color:rgba(7,11,51,.4);font-size:13px}
+.spinner{width:20px;height:20px;border:2px solid rgba(7,11,51,.1);border-top-color:var(--forest);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── RUN BUTTON ── */
+.run-wrap{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.run-btn{background:var(--forest);color:#fff;border:none;padding:11px 22px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:opacity .2s}
+.run-btn:hover{opacity:.85}
+.run-btn:disabled{opacity:.5;cursor:not-allowed}
+.run-status{font-size:12px;color:rgba(7,11,51,.5)}
+.run-status.running{color:var(--forest)}
+
+/* ── FOOTER ── */
+footer.dash-footer{text-align:center;padding:32px 40px;color:rgba(7,11,51,.3);font-size:11px;border-top:1px solid var(--border);margin-top:40px}
+
+@media(max-width:860px){
+  header.dash-header,main{padding-left:20px;padding-right:20px}
+  .grid-2{grid-template-columns:1fr}
+  .status-bar{flex-wrap:wrap;gap:16px}
+  .status-divider{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lock">
+  <div class="lock-logo">
+    <div class="lock-logo-mark">A</div>
+    <span class="lock-title">AMRE SEO Intelligence</span>
+  </div>
+  <p class="lock-sub">Internal dashboard — restricted access</p>
+  <div class="lock-form">
+    <input type="password" id="pw-input" class="lock-input" placeholder="Enter access code" autocomplete="current-password">
+    <button class="lock-btn" onclick="checkPw()">Access Dashboard</button>
+    <div class="lock-err" id="pw-err"></div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="app">
+  <header class="dash-header">
+    <div class="dash-logo-wrap">
+      <div class="dash-logo-mark">A</div>
+      <span class="dash-title">SEO Intelligence</span>
+      <span class="dash-badge">INTERNAL</span>
+    </div>
+    <div class="dash-meta">
+      <strong id="report-date">—</strong>
+      <span>amre.group · Weekly Report</span>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- RUN BUTTON -->
+    <div class="run-wrap">
+      <button class="run-btn" id="run-btn" onclick="runAnalysis()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Run Analysis Now
+      </button>
+      <span class="run-status" id="run-status">Next scheduled run: Monday 7 AM PT</span>
+    </div>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar" id="status-bar">
+      <div>
+        <div class="status-label">Weekly Clicks</div>
+        <div class="status-val" id="stat-clicks">—</div>
+      </div>
+      <div class="status-divider"></div>
+      <div>
+        <div class="status-label">Weekly Impressions</div>
+        <div class="status-val" id="stat-impr">—</div>
+      </div>
+      <div class="status-divider"></div>
+      <div>
+        <div class="status-label">Avg Position</div>
+        <div class="status-val" id="stat-pos">—</div>
+      </div>
+      <div class="status-divider"></div>
+      <div>
+        <div class="status-label">Avg CTR</div>
+        <div class="status-val" id="stat-ctr">—</div>
+      </div>
+      <div class="status-divider"></div>
+      <div>
+        <div class="status-label">Indexed Pages</div>
+        <div class="status-val" id="stat-pages">—</div>
+      </div>
+    </div>
+
+    <!-- AI RECOMMENDATIONS -->
+    <div class="section-head">
+      <h2>AI Recommendations</h2>
+      <span class="pill green">Claude Analysis</span>
+    </div>
+    <div class="ai-card" id="ai-card">
+      <div class="loading"><div class="spinner"></div>Load report to generate recommendations</div>
+    </div>
+
+    <!-- RANKING MOVERS + OPPORTUNITIES -->
+    <div class="grid-2">
+      <div>
+        <div class="section-head">
+          <h2>Ranking Movers</h2>
+          <span class="pill">vs prior week</span>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <span class="card-head-title">Position changes (top queries)</span>
+            <span class="card-head-sub">Last 7 days</span>
+          </div>
+          <div id="movers-table"><div class="loading"><div class="spinner"></div>No data</div></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-head">
+          <h2>Quick Win Opportunities</h2>
+          <span class="pill amber">High impressions, low CTR</span>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <span class="card-head-title">Pages to optimize</span>
+            <span class="card-head-sub">Sorted by opportunity score</span>
+          </div>
+          <div id="opps-table"><div class="loading"><div class="spinner"></div>No data</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP QUERIES -->
+    <div class="section-head"><h2>Top Queries</h2><span class="pill">Last 28 days</span></div>
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-title">Search queries driving traffic to amre.group</span>
+        <span class="card-head-sub" id="queries-period">—</span>
+      </div>
+      <div id="queries-table"><div class="loading"><div class="spinner"></div>No data loaded</div></div>
+    </div>
+
+    <!-- TOP PAGES -->
+    <div class="section-head"><h2>Top Pages</h2><span class="pill">Last 28 days</span></div>
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-title">Pages by click performance</span>
+        <span class="card-head-sub" id="pages-period">—</span>
+      </div>
+      <div id="pages-table"><div class="loading"><div class="spinner"></div>No data loaded</div></div>
+    </div>
+
+  </main>
+  <footer class="dash-footer">AMRE Real Estate Group · Internal SEO Dashboard · Not for distribution</footer>
+</div>
+
+<script>
+// ── ACCESS CONTROL ──
+var ACCESS_CODE = 'amreseo2026';
+function checkPw(){
+  var v = document.getElementById('pw-input').value;
+  var err = document.getElementById('pw-err');
+  if(v === ACCESS_CODE){
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('app').classList.add('visible');
+    loadReport();
+  } else {
+    err.textContent = 'Incorrect access code.';
+    document.getElementById('pw-input').value = '';
+  }
+}
+document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPw();});
+
+// ── HELPERS ──
+function fmt(n){if(n===null||n===undefined)return '—';if(n>=1000)return (n/1000).toFixed(1)+'K';return n.toString();}
+function fmtPct(n){if(n===null||n===undefined)return '—';return (n*100).toFixed(1)+'%';}
+function fmtPos(n){if(n===null||n===undefined)return '—';return n.toFixed(1);}
+function deltaClass(d){if(d>0)return 'up';if(d<0)return 'down';return 'flat';}
+function deltaSign(d){if(d>0)return '▲ '+Math.abs(d).toFixed(1);if(d<0)return '▼ '+Math.abs(d).toFixed(1);return '—';}
+
+// ── LOAD REPORT ──
+function loadReport(){
+  fetch('/seo/report.json?v='+Date.now())
+    .then(function(r){if(!r.ok)throw new Error('no report');return r.json();})
+    .then(function(d){renderReport(d);})
+    .catch(function(){
+      // Show empty state with run prompt
+      document.getElementById('ai-card').innerHTML = '<div class="empty-state"><div class="empty-icon">📊</div><p>No report found. Click <strong>Run Analysis Now</strong> to generate the first report.</p></div>';
+    });
+}
+
+function renderReport(d){
+  // Date
+  document.getElementById('report-date').textContent = d.generated ? 'Report: '+d.generated : '—';
+
+  // Stats
+  if(d.summary){
+    var s = d.summary;
+    var posClass = s.position_delta < 0 ? ' up' : (s.position_delta > 0 ? ' down' : '');
+    document.getElementById('stat-clicks').textContent = fmt(s.clicks);
+    document.getElementById('stat-impr').textContent = fmt(s.impressions);
+    document.getElementById('stat-pos').className = 'status-val'+posClass;
+    document.getElementById('stat-pos').textContent = fmtPos(s.avg_position);
+    document.getElementById('stat-ctr').textContent = fmtPct(s.ctr);
+    document.getElementById('stat-pages').textContent = s.indexed_pages || '—';
+  }
+
+  // AI Card
+  if(d.ai){
+    var html = '<div class="ai-card-label">Claude Analysis</div>';
+    html += '<h3>'+escHtml(d.ai.headline)+'</h3>';
+    html += '<p>'+escHtml(d.ai.summary)+'</p>';
+    if(d.ai.actions && d.ai.actions.length){
+      html += '<div class="ai-actions">';
+      d.ai.actions.forEach(function(a){
+        html += '<div class="ai-action-item">';
+        html += '<span class="ai-action-priority '+a.priority+'">'+a.priority.toUpperCase()+'</span>';
+        html += '<div class="ai-action-text"><strong>'+escHtml(a.title)+'</strong>'+escHtml(a.detail)+'</div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    }
+    document.getElementById('ai-card').innerHTML = html;
+  }
+
+  // Top Queries table
+  if(d.queries && d.queries.length){
+    document.getElementById('queries-period').textContent = d.period || '';
+    var h = '<table><thead><tr><th>#</th><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th></tr></thead><tbody>';
+    d.queries.slice(0,20).forEach(function(q,i){
+      h += '<tr><td style="color:rgba(7,11,51,.3);font-size:12px">'+(i+1)+'</td>';
+      h += '<td class="query-cell">'+escHtml(q.query)+'</td>';
+      h += '<td><strong>'+fmt(q.clicks)+'</strong></td>';
+      h += '<td>'+fmt(q.impressions)+'</td>';
+      h += '<td><div class="ctr-bar"><div class="ctr-track"><div class="ctr-fill" style="width:'+Math.min(100,(q.ctr*100*5))+'%"></div></div>'+fmtPct(q.ctr)+'</div></td>';
+      h += '<td>'+fmtPos(q.position)+'</td></tr>';
+    });
+    h += '</tbody></table>';
+    document.getElementById('queries-table').innerHTML = h;
+  }
+
+  // Top Pages table
+  if(d.pages && d.pages.length){
+    document.getElementById('pages-period').textContent = d.period || '';
+    var h = '<table><thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead><tbody>';
+    d.pages.slice(0,15).forEach(function(p){
+      var slug = p.page.replace('https://amre.group','') || '/';
+      h += '<tr><td class="query-cell"><a href="'+escHtml(p.page)+'" target="_blank" style="color:var(--forest);text-decoration:none">'+escHtml(slug)+'</a></td>';
+      h += '<td><strong>'+fmt(p.clicks)+'</strong></td>';
+      h += '<td>'+fmt(p.impressions)+'</td>';
+      h += '<td>'+fmtPct(p.ctr)+'</td>';
+      h += '<td>'+fmtPos(p.position)+'</td></tr>';
+    });
+    h += '</tbody></table>';
+    document.getElementById('pages-table').innerHTML = h;
+  }
+
+  // Movers
+  if(d.movers && d.movers.length){
+    var h = '<table><thead><tr><th>Query</th><th>Current</th><th>Change</th></tr></thead><tbody>';
+    d.movers.forEach(function(m){
+      var dc = deltaClass(-m.delta); // negative delta = improved rank
+      h += '<tr><td class="query-cell">'+escHtml(m.query)+'</td>';
+      h += '<td><span class="pos-badge">'+fmtPos(m.position)+'</span></td>';
+      h += '<td><span class="delta '+dc+'">'+deltaSign(-m.delta)+'</span></td></tr>';
+    });
+    h += '</tbody></table>';
+    document.getElementById('movers-table').innerHTML = h;
+  } else {
+    document.getElementById('movers-table').innerHTML = '<div class="empty-state"><p>Run analysis to see ranking changes</p></div>';
+  }
+
+  // Opportunities
+  if(d.opportunities && d.opportunities.length){
+    var h = '<table><thead><tr><th>Page</th><th>Impr.</th><th>CTR</th><th>Action</th></tr></thead><tbody>';
+    d.opportunities.slice(0,8).forEach(function(o){
+      var slug = o.page.replace('https://amre.group','') || '/';
+      h += '<tr><td class="query-cell">'+escHtml(slug)+'</td>';
+      h += '<td>'+fmt(o.impressions)+'</td>';
+      h += '<td>'+fmtPct(o.ctr)+'</td>';
+      h += '<td><span class="opp-tag '+o.type+'">'+escHtml(o.action)+'</span></td></tr>';
+    });
+    h += '</tbody></table>';
+    document.getElementById('opps-table').innerHTML = h;
+  } else {
+    document.getElementById('opps-table').innerHTML = '<div class="empty-state"><p>Run analysis to surface opportunities</p></div>';
+  }
+}
+
+// ── RUN ANALYSIS ──
+function runAnalysis(){
+  var btn = document.getElementById('run-btn');
+  var status = document.getElementById('run-status');
+  btn.disabled = true;
+  btn.innerHTML = '<div class="spinner" style="border-top-color:#fff"></div> Running…';
+  status.className = 'run-status running';
+  status.textContent = 'Fetching GSC + GA4 data…';
+
+  // Call the engine endpoint
+  fetch('/seo/engine.php', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({trigger:'manual'})})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.success){
+        status.textContent = 'Analysis complete — refreshing…';
+        setTimeout(function(){window.location.reload();},1500);
+      } else {
+        throw new Error(d.error || 'engine error');
+      }
+    })
+    .catch(function(e){
+      // Fallback: redirect to GitHub Actions trigger or show instructions
+      status.className = 'run-status';
+      status.textContent = 'Use GitHub Actions to trigger manually, or wait for Monday 7 AM PT';
+      btn.disabled = false;
+      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Run Analysis Now';
+    });
+}
+
+function escHtml(s){if(!s)return '';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+</script>
+</body>
+</html>
