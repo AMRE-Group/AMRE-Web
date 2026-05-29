@@ -10,434 +10,814 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#070B33;
-  --forest:#1c3d31;
-  --brass:#ffc13c;
-  --ink:#1a1a1a;
-  --bg:#f5f4f0;
-  --card:#ffffff;
-  --up:#22863a;
-  --down:#cb2431;
-  --flat:#6a737d;
-  --border:rgba(7,11,51,.09);
+  --navy:#070B33;--forest:#1c3d31;--brass:#ffc13c;--ink:#1a1a1a;
+  --bg:#f4f3ef;--card:#fff;--border:rgba(7,11,51,.08);
+  --up:#1a7f3c;--upbg:#dcffe4;--down:#c0392b;--downbg:#fde8e8;--flat:#6a737d;--flatbg:#f1f2f3;
+  --warn:#9a6700;--warnbg:#fff3cd;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+body{font-family:'Montserrat',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;font-size:13px}
 
-/* ── LOCK SCREEN ── */
-#lock{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:24px}
+/* LOCK */
+#lock{position:fixed;inset:0;background:var(--navy);display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:20px}
 #lock.hidden{display:none}
-.lock-logo{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.lock-logo-mark{width:40px;height:40px;background:var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:18px}
-.lock-title{font-family:'Playfair Display',serif;color:#fff;font-size:22px;font-weight:600}
-.lock-sub{color:rgba(255,255,255,.45);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-align:center}
-.lock-form{display:flex;flex-direction:column;gap:12px;width:280px}
-.lock-input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#fff;padding:12px 16px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.lock-mark{width:44px;height:44px;background:var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:19px}
+.lock-title{font-family:'Playfair Display',serif;color:#fff;font-size:22px}
+.lock-sub{color:rgba(255,255,255,.4);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.lock-form{display:flex;flex-direction:column;gap:10px;width:272px}
+.lock-input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff;padding:11px 14px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:13px;outline:none;transition:border-color .2s}
 .lock-input:focus{border-color:var(--brass)}
-.lock-input::placeholder{color:rgba(255,255,255,.3)}
-.lock-btn{background:var(--brass);color:var(--navy);border:none;padding:12px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;cursor:pointer;transition:opacity .2s}
-.lock-btn:hover{opacity:.88}
-.lock-err{color:#ff6b6b;font-size:12px;text-align:center;min-height:16px}
+.lock-input::placeholder{color:rgba(255,255,255,.28)}
+.lock-btn{background:var(--brass);color:var(--navy);border:none;padding:11px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;cursor:pointer}
+.lock-err{color:#ff8080;font-size:11px;text-align:center;min-height:14px}
 
-/* ── LAYOUT ── */
+/* LAYOUT */
 #app{display:none}
 #app.visible{display:block}
+.dash-header{background:var(--navy);padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.dh-left{display:flex;align-items:center;gap:10px}
+.dh-mark{width:30px;height:30px;background:var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:13px;flex-shrink:0}
+.dh-title{font-family:'Playfair Display',serif;color:#fff;font-size:17px}
+.dh-badge{background:rgba(255,193,60,.15);color:var(--brass);font-size:10px;font-weight:600;letter-spacing:.06em;padding:3px 8px;border-radius:20px;border:1px solid rgba(255,193,60,.2)}
+.dh-right{display:flex;align-items:center;gap:16px}
+.dh-meta{color:rgba(255,255,255,.4);font-size:11px;text-align:right;line-height:1.4}
+.dh-meta strong{color:rgba(255,255,255,.7);display:block}
+.run-btn{background:var(--forest);color:#fff;border:none;padding:8px 16px;border-radius:5px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:opacity .2s;white-space:nowrap}
+.run-btn:hover{opacity:.85}
+.run-btn:disabled{opacity:.45;cursor:not-allowed}
 
-header.dash-header{background:var(--navy);padding:20px 40px;display:flex;align-items:center;justify-content:space-between}
-.dash-logo-wrap{display:flex;align-items:center;gap:10px}
-.dash-logo-mark{width:32px;height:32px;background:var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:var(--navy);font-size:14px}
-.dash-title{font-family:'Playfair Display',serif;color:#fff;font-size:18px;font-weight:600}
-.dash-badge{background:rgba(255,193,60,.15);color:var(--brass);font-size:11px;font-weight:600;letter-spacing:.06em;padding:4px 10px;border-radius:20px;border:1px solid rgba(255,193,60,.25)}
-.dash-meta{color:rgba(255,255,255,.4);font-size:12px;text-align:right}
-.dash-meta strong{color:rgba(255,255,255,.7);display:block;font-size:13px}
+/* TABS */
+.tabs{background:#fff;border-bottom:1px solid var(--border);display:flex;padding:0 40px;gap:0}
+.tab{padding:14px 20px;font-size:12px;font-weight:600;color:rgba(7,11,51,.4);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;letter-spacing:.02em}
+.tab.active{color:var(--forest);border-bottom-color:var(--forest)}
+.tab:hover:not(.active){color:var(--ink)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 
-main{max-width:1200px;margin:0 auto;padding:36px 40px}
+/* MAIN */
+main{max-width:1280px;margin:0 auto;padding:28px 40px}
 
-/* ── STATUS BAR ── */
-.status-bar{background:var(--forest);border-radius:10px;padding:20px 28px;margin-bottom:32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.status-label{color:rgba(255,255,255,.6);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
-.status-val{color:#fff;font-size:22px;font-weight:600;font-family:'Playfair Display',serif}
-.status-val.up{color:#6ee7a0}
-.status-val.down{color:#ff9090}
-.status-divider{width:1px;height:44px;background:rgba(255,255,255,.12)}
+/* ALERT STRIP */
+.alert{display:flex;align-items:flex-start;gap:10px;padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:12px;line-height:1.5}
+.alert.warn{background:var(--warnbg);border:1px solid rgba(154,103,0,.2);color:var(--warn)}
+.alert.danger{background:var(--downbg);border:1px solid rgba(192,57,43,.2);color:var(--down)}
+.alert.ok{background:var(--upbg);border:1px solid rgba(26,127,60,.2);color:var(--up)}
+.alert-icon{font-size:15px;flex-shrink:0;margin-top:1px}
+.alert strong{font-weight:700}
 
-/* ── SECTION TITLES ── */
-.section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:18px;margin-top:36px}
-.section-head h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--navy)}
-.section-head .pill{background:var(--navy);color:#fff;font-size:10px;font-weight:600;letter-spacing:.08em;padding:3px 9px;border-radius:20px;text-transform:uppercase}
-.section-head .pill.green{background:var(--forest)}
-.section-head .pill.amber{background:#9a6700}
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:24px}
+@media(max-width:1100px){.stat-grid{grid-template-columns:repeat(3,1fr)}}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+.stat-label{font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(7,11,51,.38);margin-bottom:6px}
+.stat-val{font-size:24px;font-weight:600;color:var(--navy);font-family:'Playfair Display',serif;line-height:1;margin-bottom:4px}
+.stat-delta{font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:3px;padding:2px 6px;border-radius:4px}
+.stat-delta.up{background:var(--upbg);color:var(--up)}
+.stat-delta.down{background:var(--downbg);color:var(--down)}
+.stat-delta.warn{background:var(--warnbg);color:var(--warn)}
+.stat-sub{font-size:10px;color:rgba(7,11,51,.38);margin-top:3px}
 
-/* ── AI RECOMMENDATION CARD ── */
-.ai-card{background:var(--navy);border-radius:10px;padding:28px 32px;margin-bottom:32px;position:relative;overflow:hidden}
-.ai-card::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(255,193,60,.12),transparent 70%);pointer-events:none}
-.ai-card-label{color:var(--brass);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
-.ai-card-label::before{content:'';width:6px;height:6px;background:var(--brass);border-radius:50%;flex-shrink:0}
-.ai-card h3{font-family:'Playfair Display',serif;color:#fff;font-size:18px;font-weight:600;margin-bottom:12px}
-.ai-card p{color:rgba(255,255,255,.65);font-size:13.5px;line-height:1.7}
-.ai-actions{margin-top:20px;display:flex;flex-direction:column;gap:8px}
-.ai-action-item{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.05);border-radius:6px;padding:10px 14px}
-.ai-action-priority{font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:4px;flex-shrink:0;margin-top:1px}
-.ai-action-priority.high{background:rgba(255,90,90,.2);color:#ff9090}
-.ai-action-priority.med{background:rgba(255,193,60,.2);color:var(--brass)}
-.ai-action-priority.low{background:rgba(100,200,100,.15);color:#6ee7a0}
-.ai-action-text{color:rgba(255,255,255,.8);font-size:13px;line-height:1.5}
-.ai-action-text strong{color:#fff;display:block;font-size:12.5px;margin-bottom:2px}
+/* FUNNEL */
+.funnel-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.funnel-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px 18px;position:relative;overflow:hidden}
+.funnel-card::after{content:attr(data-arrow);position:absolute;right:-4px;top:50%;transform:translateY(-50%);font-size:18px;color:rgba(7,11,51,.12);font-weight:700}
+.funnel-num{font-size:28px;font-weight:600;font-family:'Playfair Display',serif;color:var(--navy);line-height:1;margin-bottom:4px}
+.funnel-label{font-size:11px;font-weight:600;color:rgba(7,11,51,.5);text-transform:uppercase;letter-spacing:.06em}
+.funnel-rate{font-size:11px;color:var(--forest);font-weight:600;margin-top:4px}
+.funnel-bar{height:3px;background:#eee;border-radius:2px;margin-top:10px}
+.funnel-bar-fill{height:100%;border-radius:2px;background:var(--forest)}
 
-/* ── DATA TABLES ── */
-.card{background:var(--card);border-radius:10px;border:1px solid var(--border);overflow:hidden;margin-bottom:20px}
-.card-head{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.card-head-title{font-size:13px;font-weight:600;color:var(--navy);letter-spacing:.02em}
-.card-head-sub{font-size:11px;color:rgba(7,11,51,.4)}
+/* CHART */
+.chart-wrap{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 22px;margin-bottom:20px}
+.chart-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.chart-title{font-size:13px;font-weight:600;color:var(--navy)}
+.chart-legend{display:flex;gap:14px}
+.chart-legend-item{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(7,11,51,.5)}
+.chart-legend-dot{width:8px;height:8px;border-radius:50%}
+#sparkline{width:100%;height:90px}
+
+/* TABLES */
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px}
+.card-head{padding:14px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.card-head-left{display:flex;align-items:center;gap:8px}
+.card-head-title{font-size:13px;font-weight:600;color:var(--navy)}
+.card-count{font-size:10px;font-weight:600;background:var(--bg);color:rgba(7,11,51,.45);padding:2px 7px;border-radius:10px}
+.card-head-sub{font-size:11px;color:rgba(7,11,51,.35)}
+.search-input{background:var(--bg);border:1px solid var(--border);padding:6px 10px;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:11px;color:var(--ink);outline:none;width:160px}
+.search-input:focus{border-color:rgba(28,61,49,.3)}
+
 table{width:100%;border-collapse:collapse}
-th{padding:10px 18px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(7,11,51,.4);border-bottom:1px solid var(--border);background:#fafaf8}
-td{padding:11px 18px;font-size:13px;border-bottom:1px solid var(--border);vertical-align:middle}
+th{padding:9px 16px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(7,11,51,.35);background:#fafaf8;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;white-space:nowrap}
+th:hover{color:var(--forest)}
+th .sort-icon{margin-left:4px;opacity:.4;font-size:9px}
+th.sorted .sort-icon{opacity:1;color:var(--forest)}
+td{padding:10px 16px;border-bottom:1px solid var(--border);vertical-align:middle}
 tr:last-child td{border-bottom:none}
-tr:hover td{background:#fafaf8}
-.query-cell{font-weight:500;color:var(--navy);max-width:280px}
-.pos-badge{display:inline-flex;align-items:center;gap:5px;font-weight:600;font-size:13px}
-.pos-badge.up{color:var(--up)}
-.pos-badge.down{color:var(--down)}
-.pos-badge.flat{color:var(--flat)}
-.delta{font-size:11px;font-weight:600;padding:2px 7px;border-radius:4px}
-.delta.up{background:#dcffe4;color:var(--up)}
-.delta.down{background:#ffdce0;color:var(--down)}
-.delta.flat{background:#f1f2f3;color:var(--flat)}
-.ctr-bar{display:flex;align-items:center;gap:8px}
-.ctr-track{width:60px;height:5px;background:#eee;border-radius:3px;overflow:hidden}
-.ctr-fill{height:100%;background:var(--forest);border-radius:3px}
-.opp-tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:4px}
-.opp-tag.title{background:#fff3cd;color:#856404}
-.opp-tag.content{background:#d1ecf1;color:#0c5460}
-.opp-tag.faq{background:#d4edda;color:#155724}
-.opp-tag.new{background:#f3d9ff;color:#5a1a7a}
+tr:hover td{background:#fafaf9}
+.td-main{font-weight:500;color:var(--navy);max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.td-main a{color:var(--forest);text-decoration:none}
+.td-main a:hover{text-decoration:underline}
+.td-num{font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink)}
+.badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.04em}
+.badge.up{background:var(--upbg);color:var(--up)}
+.badge.down{background:var(--downbg);color:var(--down)}
+.badge.flat{background:var(--flatbg);color:var(--flat)}
+.badge.warn{background:var(--warnbg);color:var(--warn)}
+.mini-bar{display:flex;align-items:center;gap:7px}
+.mini-track{width:56px;height:5px;background:#e8e8e8;border-radius:3px;overflow:hidden;flex-shrink:0}
+.mini-fill{height:100%;border-radius:3px;background:var(--forest)}
+.mini-fill.red{background:var(--down)}
+.pill{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:2px 7px;border-radius:12px;background:var(--flatbg);color:var(--flat)}
 
-/* ── GRID ── */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+/* SOURCE DOT */
+.src-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-/* ── EMPTY / LOADING ── */
-.empty-state{text-align:center;padding:48px 20px;color:rgba(7,11,51,.35)}
-.empty-state .empty-icon{font-size:36px;margin-bottom:12px}
-.empty-state p{font-size:13px}
-.loading{display:flex;align-items:center;justify-content:center;gap:10px;padding:40px;color:rgba(7,11,51,.4);font-size:13px}
-.spinner{width:20px;height:20px;border:2px solid rgba(7,11,51,.1);border-top-color:var(--forest);border-radius:50%;animation:spin .8s linear infinite}
+/* GRID 2 */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+
+/* AI CARD */
+.ai-card{background:var(--navy);border-radius:10px;padding:24px 28px;margin-bottom:24px;position:relative;overflow:hidden}
+.ai-card::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(255,193,60,.1),transparent 70%);pointer-events:none}
+.ai-eyebrow{color:var(--brass);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ai-eyebrow::before{content:'';width:5px;height:5px;background:var(--brass);border-radius:50%}
+.ai-headline{font-family:'Playfair Display',serif;color:#fff;font-size:17px;font-weight:600;margin-bottom:10px;line-height:1.3}
+.ai-summary{color:rgba(255,255,255,.6);font-size:13px;line-height:1.7;margin-bottom:16px}
+.ai-actions{display:flex;flex-direction:column;gap:8px}
+.ai-action{display:flex;align-items:flex-start;gap:10px;background:rgba(255,255,255,.05);border-radius:6px;padding:10px 14px}
+.ai-pri{font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:3px;flex-shrink:0;margin-top:1px;text-transform:uppercase}
+.ai-pri.high{background:rgba(255,80,80,.2);color:#ff9090}
+.ai-pri.med{background:rgba(255,193,60,.2);color:var(--brass)}
+.ai-pri.low{background:rgba(100,200,100,.15);color:#7de0a0}
+.ai-action-text{color:rgba(255,255,255,.8);font-size:12px;line-height:1.5}
+.ai-action-text strong{color:#fff;display:block;font-size:12px;margin-bottom:2px}
+.ai-action-status{font-size:10px;margin-top:3px}
+.ai-action-status.done{color:#7de0a0}
+.ai-action-status.error{color:#ff9090}
+.ai-action-status.queued{color:rgba(255,255,255,.35)}
+
+/* EMPTY */
+.empty{text-align:center;padding:36px;color:rgba(7,11,51,.3);font-size:12px}
+.spinner{width:16px;height:16px;border:2px solid rgba(7,11,51,.1);border-top-color:var(--forest);border-radius:50%;animation:spin .8s linear infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── RUN BUTTON ── */
-.run-wrap{display:flex;align-items:center;gap:12px;margin-bottom:28px}
-.run-btn{background:var(--forest);color:#fff;border:none;padding:11px 22px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:opacity .2s}
-.run-btn:hover{opacity:.85}
-.run-btn:disabled{opacity:.5;cursor:not-allowed}
-.run-status{font-size:12px;color:rgba(7,11,51,.5)}
-.run-status.running{color:var(--forest)}
+/* FOOTER */
+.dash-footer{text-align:center;padding:24px;color:rgba(7,11,51,.25);font-size:11px;border-top:1px solid var(--border);margin-top:16px}
 
-/* ── FOOTER ── */
-footer.dash-footer{text-align:center;padding:32px 40px;color:rgba(7,11,51,.3);font-size:11px;border-top:1px solid var(--border);margin-top:40px}
-
-@media(max-width:860px){
-  header.dash-header,main{padding-left:20px;padding-right:20px}
-  .grid-2{grid-template-columns:1fr}
-  .status-bar{flex-wrap:wrap;gap:16px}
-  .status-divider{display:none}
+@media(max-width:680px){
+  .dash-header,.tabs,main{padding-left:16px;padding-right:16px}
+  .stat-grid{grid-template-columns:repeat(2,1fr)}
+  .funnel-row{grid-template-columns:repeat(2,1fr)}
+  .dh-meta{display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- LOCK SCREEN -->
+<!-- LOCK -->
 <div id="lock">
-  <div class="lock-logo">
-    <div class="lock-logo-mark">A</div>
-    <span class="lock-title">AMRE SEO Intelligence</span>
-  </div>
-  <p class="lock-sub">Internal dashboard — restricted access</p>
+  <div class="lock-mark">A</div>
+  <div class="lock-title">AMRE SEO Intelligence</div>
+  <div class="lock-sub">Internal · Restricted</div>
   <div class="lock-form">
-    <input type="password" id="pw-input" class="lock-input" placeholder="Enter access code" autocomplete="current-password">
-    <button class="lock-btn" onclick="checkPw()">Access Dashboard</button>
+    <input type="password" id="pw" class="lock-input" placeholder="Access code" autocomplete="current-password">
+    <button class="lock-btn" onclick="unlock()">Enter Dashboard</button>
     <div class="lock-err" id="pw-err"></div>
   </div>
 </div>
 
-<!-- DASHBOARD -->
+<!-- APP -->
 <div id="app">
   <header class="dash-header">
-    <div class="dash-logo-wrap">
-      <div class="dash-logo-mark">A</div>
-      <span class="dash-title">SEO Intelligence</span>
-      <span class="dash-badge">INTERNAL</span>
+    <div class="dh-left">
+      <div class="dh-mark">A</div>
+      <span class="dh-title">SEO Intelligence</span>
+      <span class="dh-badge">INTERNAL</span>
     </div>
-    <div class="dash-meta">
-      <strong id="report-date">—</strong>
-      <span>amre.group · Weekly Report</span>
+    <div class="dh-right">
+      <div class="dh-meta"><strong id="hdr-date">Loading…</strong>amre.group · 28-day window</div>
+      <button class="run-btn" id="run-btn" onclick="runAnalysis()">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        Run Analysis
+      </button>
     </div>
   </header>
 
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('overview')">Overview</div>
+    <div class="tab" onclick="switchTab('traffic')">Traffic &amp; Funnel</div>
+    <div class="tab" onclick="switchTab('seo')">Search Rankings</div>
+    <div class="tab" onclick="switchTab('content')">Content</div>
+    <div class="tab" onclick="switchTab('actions')">AI Actions</div>
+  </div>
+
   <main>
 
-    <!-- RUN BUTTON -->
-    <div class="run-wrap">
-      <button class="run-btn" id="run-btn" onclick="runAnalysis()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-        Run Analysis Now
-      </button>
-      <span class="run-status" id="run-status">Next scheduled run: Monday 7 AM PT</span>
-    </div>
+    <!-- ═══ TAB: OVERVIEW ═══ -->
+    <div class="tab-panel active" id="tab-overview">
 
-    <!-- STATUS BAR -->
-    <div class="status-bar" id="status-bar">
-      <div>
-        <div class="status-label">Weekly Clicks</div>
-        <div class="status-val" id="stat-clicks">—</div>
-      </div>
-      <div class="status-divider"></div>
-      <div>
-        <div class="status-label">Weekly Impressions</div>
-        <div class="status-val" id="stat-impr">—</div>
-      </div>
-      <div class="status-divider"></div>
-      <div>
-        <div class="status-label">Avg Position</div>
-        <div class="status-val" id="stat-pos">—</div>
-      </div>
-      <div class="status-divider"></div>
-      <div>
-        <div class="status-label">Avg CTR</div>
-        <div class="status-val" id="stat-ctr">—</div>
-      </div>
-      <div class="status-divider"></div>
-      <div>
-        <div class="status-label">Indexed Pages</div>
-        <div class="status-val" id="stat-pages">—</div>
-      </div>
-    </div>
+      <!-- ALERTS -->
+      <div id="alert-zone"></div>
 
-    <!-- AI RECOMMENDATIONS -->
-    <div class="section-head">
-      <h2>AI Recommendations</h2>
-      <span class="pill green">Claude Analysis</span>
-    </div>
-    <div class="ai-card" id="ai-card">
-      <div class="loading"><div class="spinner"></div>Load report to generate recommendations</div>
-    </div>
+      <!-- KPI ROW -->
+      <div class="stat-grid" id="kpi-grid">
+        <div class="stat-card"><div class="stat-label">Sessions (28d)</div><div class="stat-val" id="kpi-sessions">—</div><div class="stat-sub" id="kpi-sessions-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">Organic Sessions</div><div class="stat-val" id="kpi-organic">—</div><div class="stat-sub" id="kpi-organic-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">Avg Session (Organic)</div><div class="stat-val" id="kpi-duration">—</div><div class="stat-sub">minutes on site</div></div>
+        <div class="stat-card"><div class="stat-label">Lead Events</div><div class="stat-val" id="kpi-leads">—</div><div class="stat-sub" id="kpi-leads-sub"></div></div>
+        <div class="stat-card"><div class="stat-label">Form Starts</div><div class="stat-val" id="kpi-forms">—</div><div class="stat-sub">users touched a form</div></div>
+        <div class="stat-card"><div class="stat-label">GSC Impressions</div><div class="stat-val" id="kpi-impr">—</div><div class="stat-sub" id="kpi-impr-sub"></div></div>
+      </div>
 
-    <!-- RANKING MOVERS + OPPORTUNITIES -->
-    <div class="grid-2">
-      <div>
-        <div class="section-head">
-          <h2>Ranking Movers</h2>
-          <span class="pill">vs prior week</span>
+      <!-- TRAFFIC TREND CHART -->
+      <div class="chart-wrap">
+        <div class="chart-head">
+          <span class="chart-title">Sessions &amp; Pageviews — last 28 days</span>
+          <div class="chart-legend">
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--forest)"></div>Sessions</div>
+            <div class="chart-legend-item"><div class="chart-legend-dot" style="background:var(--brass)"></div>Pageviews</div>
+          </div>
+        </div>
+        <svg id="sparkline" viewBox="0 0 800 90" preserveAspectRatio="none"></svg>
+      </div>
+
+      <!-- FUNNEL -->
+      <div style="margin-bottom:8px;font-size:11px;font-weight:600;color:rgba(7,11,51,.4);letter-spacing:.07em;text-transform:uppercase">Conversion Funnel</div>
+      <div class="funnel-row">
+        <div class="funnel-card" data-arrow="→"><div class="funnel-num" id="fn-sessions">—</div><div class="funnel-label">Sessions</div><div class="funnel-rate">100%</div><div class="funnel-bar"><div class="funnel-bar-fill" style="width:100%"></div></div></div>
+        <div class="funnel-card" data-arrow="→"><div class="funnel-num" id="fn-scroll">—</div><div class="funnel-label">Scrolled</div><div class="funnel-rate" id="fn-scroll-rate">—</div><div class="funnel-bar"><div class="funnel-bar-fill" id="fn-scroll-bar" style="width:0%"></div></div></div>
+        <div class="funnel-card" data-arrow="→"><div class="funnel-num" id="fn-formstart">—</div><div class="funnel-label">Form Starts</div><div class="funnel-rate" id="fn-formstart-rate">—</div><div class="funnel-bar"><div class="funnel-bar-fill" id="fn-formstart-bar" style="width:0%"></div></div></div>
+        <div class="funnel-card"><div class="funnel-num" id="fn-leads">—</div><div class="funnel-label">Lead Events</div><div class="funnel-rate" id="fn-leads-rate">—</div><div class="funnel-bar"><div class="funnel-bar-fill" id="fn-leads-bar" style="width:0%"></div></div></div>
+      </div>
+
+      <!-- CHANNELS + DEVICES GRID -->
+      <div class="grid2">
+        <div class="card">
+          <div class="card-head"><div class="card-head-left"><span class="card-head-title">Traffic by Channel</span></div><span class="card-head-sub">28 days</span></div>
+          <div id="channels-table"></div>
         </div>
         <div class="card">
-          <div class="card-head">
-            <span class="card-head-title">Position changes (top queries)</span>
-            <span class="card-head-sub">Last 7 days</span>
-          </div>
-          <div id="movers-table"><div class="loading"><div class="spinner"></div>No data</div></div>
+          <div class="card-head"><div class="card-head-left"><span class="card-head-title">Traffic by Source / Medium</span></div><span class="card-head-sub">28 days</span></div>
+          <div id="sources-table"></div>
         </div>
       </div>
+    </div>
 
-      <div>
-        <div class="section-head">
-          <h2>Quick Win Opportunities</h2>
-          <span class="pill amber">High impressions, low CTR</span>
+    <!-- ═══ TAB: TRAFFIC & FUNNEL ═══ -->
+    <div class="tab-panel" id="tab-traffic">
+      <div class="grid2" style="margin-bottom:20px">
+        <div class="card">
+          <div class="card-head"><div class="card-head-left"><span class="card-head-title">Device Breakdown</span></div></div>
+          <div id="devices-table"></div>
         </div>
         <div class="card">
-          <div class="card-head">
-            <span class="card-head-title">Pages to optimize</span>
-            <span class="card-head-sub">Sorted by opportunity score</span>
+          <div class="card-head"><div class="card-head-left"><span class="card-head-title">Audience Geography</span></div><span class="card-head-sub">flag: non-US traffic</span></div>
+          <div id="geo-table"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-left"><span class="card-head-title">All Events</span><span class="card-head-sub" id="events-note"></span></div>
+        </div>
+        <div id="events-table"></div>
+      </div>
+    </div>
+
+    <!-- ═══ TAB: SEARCH RANKINGS ═══ -->
+    <div class="tab-panel" id="tab-seo">
+      <!-- GSC Stats -->
+      <div class="stat-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:20px">
+        <div class="stat-card"><div class="stat-label">GSC Clicks</div><div class="stat-val" id="gsc-clicks">—</div><div class="stat-sub">last 7 days</div></div>
+        <div class="stat-card"><div class="stat-label">Impressions</div><div class="stat-val" id="gsc-impr2">—</div><div class="stat-sub">last 7 days</div></div>
+        <div class="stat-card"><div class="stat-label">Avg Position</div><div class="stat-val" id="gsc-pos">—</div><div class="stat-sub">across all queries</div></div>
+        <div class="stat-card"><div class="stat-label">Avg CTR</div><div class="stat-val" id="gsc-ctr">—</div><div class="stat-sub">click-through rate</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-left">
+            <span class="card-head-title">Top Queries</span>
+            <span class="card-count" id="queries-count"></span>
           </div>
-          <div id="opps-table"><div class="loading"><div class="spinner"></div>No data</div></div>
+          <input type="text" class="search-input" placeholder="Filter queries…" oninput="filterTable('queries-tbody',this.value)">
+        </div>
+        <div style="overflow-x:auto">
+        <table>
+          <thead><tr>
+            <th onclick="sortTable('queries-tbody',0,'str')"># <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('queries-tbody',1,'str')">Query <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('queries-tbody',2,'num')" class="sorted">Clicks <span class="sort-icon">↓</span></th>
+            <th onclick="sortTable('queries-tbody',3,'num')">Impressions <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('queries-tbody',4,'num')">CTR <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('queries-tbody',5,'num')">Position <span class="sort-icon">↕</span></th>
+          </tr></thead>
+          <tbody id="queries-tbody"></tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-left">
+            <span class="card-head-title">Ranking Movers</span>
+            <span class="card-count" id="movers-count"></span>
+          </div>
+        </div>
+        <div style="overflow-x:auto">
+        <table>
+          <thead><tr>
+            <th onclick="sortTable('movers-tbody',0,'str')">Query <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('movers-tbody',1,'num')" class="sorted">Change <span class="sort-icon">↓</span></th>
+            <th onclick="sortTable('movers-tbody',2,'num')">Current Position <span class="sort-icon">↕</span></th>
+          </tr></thead>
+          <tbody id="movers-tbody"></tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-left">
+            <span class="card-head-title">Quick Win Opportunities</span>
+            <span class="card-head-sub">High impressions · Low CTR</span>
+          </div>
+          <input type="text" class="search-input" placeholder="Filter pages…" oninput="filterTable('opps-tbody',this.value)">
+        </div>
+        <div style="overflow-x:auto">
+        <table>
+          <thead><tr>
+            <th onclick="sortTable('opps-tbody',0,'str')">Page <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('opps-tbody',1,'num')" class="sorted">Impressions <span class="sort-icon">↓</span></th>
+            <th onclick="sortTable('opps-tbody',2,'num')">CTR <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('opps-tbody',3,'num')">Position <span class="sort-icon">↕</span></th>
+            <th>Action</th>
+          </tr></thead>
+          <tbody id="opps-tbody"></tbody>
+        </table>
         </div>
       </div>
     </div>
 
-    <!-- TOP QUERIES -->
-    <div class="section-head"><h2>Top Queries</h2><span class="pill">Last 28 days</span></div>
-    <div class="card">
-      <div class="card-head">
-        <span class="card-head-title">Search queries driving traffic to amre.group</span>
-        <span class="card-head-sub" id="queries-period">—</span>
+    <!-- ═══ TAB: CONTENT ═══ -->
+    <div class="tab-panel" id="tab-content">
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-left">
+            <span class="card-head-title">Top Pages by Pageviews</span>
+            <span class="card-count" id="pages-count"></span>
+          </div>
+          <input type="text" class="search-input" placeholder="Filter pages…" oninput="filterTable('pages-tbody',this.value)">
+        </div>
+        <div style="overflow-x:auto">
+        <table>
+          <thead><tr>
+            <th onclick="sortTable('pages-tbody',0,'str')">Page <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('pages-tbody',1,'num')" class="sorted">Views <span class="sort-icon">↓</span></th>
+            <th onclick="sortTable('pages-tbody',2,'num')">Users <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('pages-tbody',3,'num')">Avg Session <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('pages-tbody',4,'num')">Bounce Rate <span class="sort-icon">↕</span></th>
+            <th>Signal</th>
+          </tr></thead>
+          <tbody id="pages-tbody"></tbody>
+        </table>
+        </div>
       </div>
-      <div id="queries-table"><div class="loading"><div class="spinner"></div>No data loaded</div></div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="card-head-left">
+            <span class="card-head-title">GSC Top Pages</span>
+            <span class="card-count" id="gscpages-count"></span>
+          </div>
+          <input type="text" class="search-input" placeholder="Filter…" oninput="filterTable('gscpages-tbody',this.value)">
+        </div>
+        <div style="overflow-x:auto">
+        <table>
+          <thead><tr>
+            <th onclick="sortTable('gscpages-tbody',0,'str')">Page <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('gscpages-tbody',1,'num')" class="sorted">Clicks <span class="sort-icon">↓</span></th>
+            <th onclick="sortTable('gscpages-tbody',2,'num')">Impressions <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('gscpages-tbody',3,'num')">CTR <span class="sort-icon">↕</span></th>
+            <th onclick="sortTable('gscpages-tbody',4,'num')">Position <span class="sort-icon">↕</span></th>
+          </tr></thead>
+          <tbody id="gscpages-tbody"></tbody>
+        </table>
+        </div>
+      </div>
     </div>
 
-    <!-- TOP PAGES -->
-    <div class="section-head"><h2>Top Pages</h2><span class="pill">Last 28 days</span></div>
-    <div class="card">
-      <div class="card-head">
-        <span class="card-head-title">Pages by click performance</span>
-        <span class="card-head-sub" id="pages-period">—</span>
+    <!-- ═══ TAB: AI ACTIONS ═══ -->
+    <div class="tab-panel" id="tab-actions">
+      <div class="ai-card" id="ai-card">
+        <div class="empty"><span class="spinner"></span> Load report to see AI recommendations</div>
       </div>
-      <div id="pages-table"><div class="loading"><div class="spinner"></div>No data loaded</div></div>
     </div>
 
   </main>
-  <footer class="dash-footer">AMRE Real Estate Group · Internal SEO Dashboard · Not for distribution</footer>
+  <div class="dash-footer">AMRE Real Estate Group · Internal SEO Dashboard · Not for distribution</div>
 </div>
 
 <script>
-// ── ACCESS CONTROL ──
-var ACCESS_CODE = 'amreseo2026';
-function checkPw(){
-  var v = document.getElementById('pw-input').value;
-  var err = document.getElementById('pw-err');
-  if(v === ACCESS_CODE){
+var DATA = null;
+var SORT_STATE = {};
+
+// ── AUTH ──
+function unlock(){
+  var v=document.getElementById('pw').value;
+  if(v==='amreseo2026'){
     document.getElementById('lock').classList.add('hidden');
     document.getElementById('app').classList.add('visible');
     loadReport();
   } else {
-    err.textContent = 'Incorrect access code.';
-    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-err').textContent='Incorrect code.';
+    document.getElementById('pw').value='';
   }
 }
-document.getElementById('pw-input').addEventListener('keydown',function(e){if(e.key==='Enter')checkPw();});
+document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')unlock()});
+
+// ── TABS ──
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach(function(t,i){
+    var ids=['overview','traffic','seo','content','actions'];
+    t.classList.toggle('active',ids[i]===id);
+  });
+  document.querySelectorAll('.tab-panel').forEach(function(p){
+    p.classList.toggle('active',p.id==='tab-'+id);
+  });
+}
 
 // ── HELPERS ──
-function fmt(n){if(n===null||n===undefined)return '—';if(n>=1000)return (n/1000).toFixed(1)+'K';return n.toString();}
-function fmtPct(n){if(n===null||n===undefined)return '—';return (n*100).toFixed(1)+'%';}
-function fmtPos(n){if(n===null||n===undefined)return '—';return n.toFixed(1);}
-function deltaClass(d){if(d>0)return 'up';if(d<0)return 'down';return 'flat';}
-function deltaSign(d){if(d>0)return '▲ '+Math.abs(d).toFixed(1);if(d<0)return '▼ '+Math.abs(d).toFixed(1);return '—';}
+var fmt=function(n){if(n==null)return'—';if(n>=1000000)return(n/1000000).toFixed(1)+'M';if(n>=1000)return(n/1000).toFixed(1)+'K';return String(Math.round(n))};
+var fmtPct=function(n){return n==null?'—':(n*100).toFixed(1)+'%'};
+var fmtPos=function(n){return n==null?'—':n.toFixed(1)};
+var fmtSec=function(s){if(s==null)return'—';var m=Math.floor(s/60);var sec=Math.round(s%60);return m>0?m+'m '+(sec<10?'0':'')+sec+'s':sec+'s'};
+var esc=function(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')};
+
+var SRC_COLORS={
+  'Organic Search':'#1a7f3c','Direct':'#6a737d','Referral':'#0066cc',
+  'Organic Social':'#e1306c','Organic Video':'#ff0000','Unassigned':'#aaa',
+  'default':'#9b59b6'
+};
+
+function srcColor(src){return SRC_COLORS[src]||SRC_COLORS['default']}
+
+// ── SORT ──
+function sortTable(tbodyId, colIdx, type){
+  var tbody=document.getElementById(tbodyId);
+  if(!tbody)return;
+  var key=tbodyId+'-'+colIdx;
+  SORT_STATE[key]=(SORT_STATE[key]==='asc')?'desc':'asc';
+  var dir=SORT_STATE[key];
+
+  // Update th indicators
+  var table=tbody.closest('table');
+  table.querySelectorAll('th').forEach(function(th,i){
+    th.classList.remove('sorted');
+    th.querySelector('.sort-icon').textContent='↕';
+  });
+  var ths=table.querySelectorAll('th');
+  if(ths[colIdx]){
+    ths[colIdx].classList.add('sorted');
+    ths[colIdx].querySelector('.sort-icon').textContent=dir==='asc'?'↑':'↓';
+  }
+
+  var rows=Array.from(tbody.querySelectorAll('tr'));
+  rows.sort(function(a,b){
+    var av=a.cells[colIdx]?a.cells[colIdx].dataset.val||a.cells[colIdx].textContent.trim():'';
+    var bv=b.cells[colIdx]?b.cells[colIdx].dataset.val||b.cells[colIdx].textContent.trim():'';
+    if(type==='num'){av=parseFloat(av)||0;bv=parseFloat(bv)||0;}
+    var cmp=type==='num'?av-bv:av.localeCompare(bv);
+    return dir==='asc'?cmp:-cmp;
+  });
+  rows.forEach(function(r){tbody.appendChild(r)});
+}
+
+// ── FILTER ──
+function filterTable(tbodyId, term){
+  var t=term.toLowerCase();
+  document.getElementById(tbodyId).querySelectorAll('tr').forEach(function(r){
+    r.style.display=r.textContent.toLowerCase().includes(t)?'':'none';
+  });
+}
 
 // ── LOAD REPORT ──
 function loadReport(){
   fetch('/seo/report.json?v='+Date.now())
     .then(function(r){if(!r.ok)throw new Error('no report');return r.json();})
-    .then(function(d){renderReport(d);})
+    .then(function(d){DATA=d;render(d);})
     .catch(function(){
-      // Show empty state with run prompt
-      document.getElementById('ai-card').innerHTML = '<div class="empty-state"><div class="empty-icon">📊</div><p>No report found. Click <strong>Run Analysis Now</strong> to generate the first report.</p></div>';
+      document.getElementById('hdr-date').textContent='No report yet';
+      document.getElementById('alert-zone').innerHTML=
+        '<div class="alert warn"><span class="alert-icon">⚠</span><span><strong>No report found.</strong> Click Run Analysis to generate the first report.</span></div>';
     });
 }
 
-function renderReport(d){
-  // Date
-  document.getElementById('report-date').textContent = d.generated ? 'Report: '+d.generated : '—';
+// ── RENDER ──
+function render(d){
+  document.getElementById('hdr-date').textContent=d.generated||'—';
 
-  // Stats
-  if(d.summary){
-    var s = d.summary;
-    var posClass = s.position_delta < 0 ? ' up' : (s.position_delta > 0 ? ' down' : '');
-    document.getElementById('stat-clicks').textContent = fmt(s.clicks);
-    document.getElementById('stat-impr').textContent = fmt(s.impressions);
-    document.getElementById('stat-pos').className = 'status-val'+posClass;
-    document.getElementById('stat-pos').textContent = fmtPos(s.avg_position);
-    document.getElementById('stat-ctr').textContent = fmtPct(s.ctr);
-    document.getElementById('stat-pages').textContent = s.indexed_pages || '—';
+  renderAlerts(d);
+  renderKPIs(d);
+  renderSparkline(d);
+  renderFunnel(d);
+  renderChannels(d);
+  renderSources(d);
+  renderDevices(d);
+  renderGeo(d);
+  renderEvents(d);
+  renderGSCStats(d);
+  renderQueriesTable(d);
+  renderMoversTable(d);
+  renderOppsTable(d);
+  renderPagesTable(d);
+  renderGSCPagesTable(d);
+  renderAICard(d);
+}
+
+function renderAlerts(d){
+  var zone=document.getElementById('alert-zone');
+  var html='';
+  var ga=d.ga||{};
+
+  // Bot traffic warning
+  if(ga.singapore_sessions && ga.total_sessions){
+    var pct=Math.round(ga.singapore_sessions/ga.total_sessions*100);
+    if(pct>20) html+='<div class="alert danger"><span class="alert-icon">🚨</span><span><strong>Bot traffic alert:</strong> '+pct+'% of sessions ('+ga.singapore_sessions+') are from Singapore — likely automated. This is inflating your bounce rate and distorting all GA4 metrics. Add a GA4 IP filter or Cloudflare bot block.</span></div>';
   }
-
-  // AI Card
-  if(d.ai){
-    var html = '<div class="ai-card-label">Claude Analysis</div>';
-    html += '<h3>'+escHtml(d.ai.headline)+'</h3>';
-    html += '<p>'+escHtml(d.ai.summary)+'</p>';
-    if(d.ai.actions && d.ai.actions.length){
-      html += '<div class="ai-actions">';
-      d.ai.actions.forEach(function(a){
-        html += '<div class="ai-action-item">';
-        html += '<span class="ai-action-priority '+a.priority+'">'+a.priority.toUpperCase()+'</span>';
-        html += '<div class="ai-action-text"><strong>'+escHtml(a.title)+'</strong>'+escHtml(a.detail)+'</div>';
-        html += '</div>';
-      });
-      html += '</div>';
-    }
-    document.getElementById('ai-card').innerHTML = html;
+  // Low form starts
+  if(ga.form_starts<=15) html+='<div class="alert warn"><span class="alert-icon">⚠</span><span><strong>Form visibility issue:</strong> Only '+ga.form_starts+' users started a form in 28 days. Your forms are not being seen — the funnel page (/start/) had only '+ga.start_views+' views. Drive traffic to /start/sell/ from homepage and blog posts.</span></div>';
+  // Organic share
+  if(ga.organic_sessions && ga.total_sessions){
+    var opct=Math.round(ga.organic_sessions/ga.total_sessions*100);
+    if(opct<20) html+='<div class="alert warn"><span class="alert-icon">📊</span><span><strong>Organic traffic is only '+opct+'% of sessions.</strong> The goal is 40%+. Continue building neighborhood guides and targeting long-tail buyer/seller queries.</span></div>';
   }
+  // Positive: AI referrals
+  if(ga.ai_referrals>0) html+='<div class="alert ok"><span class="alert-icon">✅</span><span><strong>AI search is working:</strong> '+ga.ai_referrals+' referrals from ChatGPT and Gemini. AEO/llms.txt investment is paying off.</span></div>';
 
-  // Top Queries table
-  if(d.queries && d.queries.length){
-    document.getElementById('queries-period').textContent = d.period || '';
-    var h = '<table><thead><tr><th>#</th><th>Query</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th></tr></thead><tbody>';
-    d.queries.slice(0,20).forEach(function(q,i){
-      h += '<tr><td style="color:rgba(7,11,51,.3);font-size:12px">'+(i+1)+'</td>';
-      h += '<td class="query-cell">'+escHtml(q.query)+'</td>';
-      h += '<td><strong>'+fmt(q.clicks)+'</strong></td>';
-      h += '<td>'+fmt(q.impressions)+'</td>';
-      h += '<td><div class="ctr-bar"><div class="ctr-track"><div class="ctr-fill" style="width:'+Math.min(100,(q.ctr*100*5))+'%"></div></div>'+fmtPct(q.ctr)+'</div></td>';
-      h += '<td>'+fmtPos(q.position)+'</td></tr>';
+  zone.innerHTML=html;
+}
+
+function renderKPIs(d){
+  var ga=d.ga||{}, gsc=d.summary||{};
+  document.getElementById('kpi-sessions').textContent=fmt(ga.total_sessions);
+  document.getElementById('kpi-sessions-sub').textContent=ga.bot_note||'';
+  document.getElementById('kpi-organic').textContent=fmt(ga.organic_sessions);
+  document.getElementById('kpi-organic-sub').textContent=ga.organic_pct||'';
+  document.getElementById('kpi-duration').textContent=fmtSec(ga.organic_duration);
+  document.getElementById('kpi-leads').textContent=fmt(ga.lead_events);
+  document.getElementById('kpi-leads-sub').textContent=ga.lead_rate||'';
+  document.getElementById('kpi-forms').textContent=fmt(ga.form_starts);
+  document.getElementById('kpi-impr').textContent=fmt(gsc.impressions);
+  document.getElementById('kpi-impr-sub').textContent=gsc.avg_position?'avg pos '+fmtPos(gsc.avg_position):'';
+}
+
+function renderSparkline(d){
+  var trend=d.ga&&d.ga.trend||[];
+  if(!trend.length)return;
+  var svg=document.getElementById('sparkline');
+  var W=800,H=90,PAD=4;
+  var maxS=Math.max.apply(null,trend.map(function(t){return t.s||0}))||1;
+  var maxP=Math.max.apply(null,trend.map(function(t){return t.p||0}))||1;
+  var n=trend.length;
+  var pts=function(arr,max){return arr.map(function(t,i){var x=PAD+i*(W-2*PAD)/(n-1);var y=H-PAD-(t/(max))*(H-2*PAD);return x+','+y}).join(' ')};
+  var spts=pts(trend.map(function(t){return t.s||0}),maxS);
+  var ppts=pts(trend.map(function(t){return t.p||0}),maxP);
+  svg.innerHTML=
+    '<polyline points="'+spts+'" fill="none" stroke="var(--forest)" stroke-width="2" stroke-linejoin="round"/>'+
+    '<polyline points="'+ppts+'" fill="none" stroke="var(--brass)" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="4,3"/>';
+}
+
+function renderFunnel(d){
+  var ga=d.ga||{};
+  var sessions=ga.total_sessions||0;
+  var scroll=ga.scroll_users||0;
+  var forms=ga.form_starts||0;
+  var leads=ga.lead_events||0;
+  document.getElementById('fn-sessions').textContent=fmt(sessions);
+  document.getElementById('fn-scroll').textContent=fmt(scroll);
+  document.getElementById('fn-formstart').textContent=fmt(forms);
+  document.getElementById('fn-leads').textContent=fmt(leads);
+  function pct(a,b){return b?Math.round(a/b*100):0}
+  var sp=pct(scroll,sessions),fp=pct(forms,sessions),lp=pct(leads,sessions);
+  document.getElementById('fn-scroll-rate').textContent=sp+'% of sessions';
+  document.getElementById('fn-formstart-rate').textContent=fp+'% of sessions';
+  document.getElementById('fn-leads-rate').textContent=lp+'% of sessions';
+  document.getElementById('fn-scroll-bar').style.width=sp+'%';
+  document.getElementById('fn-formstart-bar').style.width=Math.max(fp,2)+'%';
+  document.getElementById('fn-leads-bar').style.width=Math.max(lp,2)+'%';
+}
+
+function renderChannels(d){
+  var channels=d.ga&&d.ga.channels||[];
+  if(!channels.length){document.getElementById('channels-table').innerHTML='<div class="empty">No data</div>';return;}
+  var maxS=Math.max.apply(null,channels.map(function(c){return c.sessions}));
+  var html='<table><thead><tr><th onclick="sortTable(\'ch-tbody\',0,\'str\')">Channel <span class="sort-icon">↕</span></th><th onclick="sortTable(\'ch-tbody\',1,\'num\')" class="sorted">Sessions <span class="sort-icon">↓</span></th><th onclick="sortTable(\'ch-tbody\',2,\'num\')">Engaged <span class="sort-icon">↕</span></th><th onclick="sortTable(\'ch-tbody\',3,\'num\')">Bounce <span class="sort-icon">↕</span></th><th onclick="sortTable(\'ch-tbody\',4,\'num\')">Avg Session <span class="sort-icon">↕</span></th></tr></thead><tbody id="ch-tbody">';
+  channels.forEach(function(c){
+    var bp=Math.round(c.bounce_rate*100);
+    var bc=bp>70?'red':'';
+    html+='<tr>';
+    html+='<td data-val="'+esc(c.channel)+'"><div style="display:flex;align-items:center;gap:7px"><div style="width:8px;height:8px;border-radius:50%;background:'+srcColor(c.channel)+';flex-shrink:0"></div>'+esc(c.channel)+'</div></td>';
+    html+='<td data-val="'+c.sessions+'"><div class="mini-bar"><div class="mini-track"><div class="mini-fill" style="width:'+Math.round(c.sessions/maxS*100)+'%"></div></div>'+fmt(c.sessions)+'</div></td>';
+    html+='<td data-val="'+c.engaged_sessions+'">'+fmt(c.engaged_sessions)+'</td>';
+    html+='<td data-val="'+c.bounce_rate+'"><span class="badge '+(bp>70?'down':bp>50?'warn':'up')+'">'+bp+'%</span></td>';
+    html+='<td data-val="'+c.avg_duration+'">'+fmtSec(c.avg_duration)+'</td>';
+    html+='</tr>';
+  });
+  html+='</tbody></table>';
+  document.getElementById('channels-table').innerHTML=html;
+}
+
+function renderSources(d){
+  var sources=d.ga&&d.ga.sources||[];
+  if(!sources.length){document.getElementById('sources-table').innerHTML='<div class="empty">No data</div>';return;}
+  var html='<table><thead><tr><th onclick="sortTable(\'src-tbody\',0,\'str\')">Source / Medium <span class="sort-icon">↕</span></th><th onclick="sortTable(\'src-tbody\',1,\'num\')" class="sorted">Sessions <span class="sort-icon">↓</span></th><th onclick="sortTable(\'src-tbody\',2,\'num\')">Engaged <span class="sort-icon">↕</span></th><th onclick="sortTable(\'src-tbody\',3,\'num\')">Bounce <span class="sort-icon">↕</span></th></tr></thead><tbody id="src-tbody">';
+  sources.forEach(function(s){
+    var bp=Math.round(s.bounce_rate*100);
+    var isAI=s.source.includes('chatgpt')||s.source.includes('gemini')||s.source.includes('perplexity')||s.source.includes('claude');
+    html+='<tr>';
+    html+='<td data-val="'+esc(s.source)+'">'+esc(s.source)+(isAI?' <span style="font-size:9px;background:#e8f4fd;color:#0066cc;padding:1px 5px;border-radius:3px;font-weight:700">AI</span>':'')+'</td>';
+    html+='<td data-val="'+s.sessions+'">'+fmt(s.sessions)+'</td>';
+    html+='<td data-val="'+s.engaged+'">'+fmt(s.engaged)+'</td>';
+    html+='<td data-val="'+s.bounce_rate+'"><span class="badge '+(bp>70?'down':bp>50?'warn':'up')+'">'+bp+'%</span></td>';
+    html+='</tr>';
+  });
+  html+='</tbody></table>';
+  document.getElementById('sources-table').innerHTML=html;
+}
+
+function renderDevices(d){
+  var devices=d.ga&&d.ga.devices||[];
+  var html='<table><thead><tr><th>Device</th><th onclick="sortTable(\'dev-tbody\',1,\'num\')" class="sorted">Sessions <span class="sort-icon">↓</span></th><th>Users</th><th>Bounce</th></tr></thead><tbody id="dev-tbody">';
+  devices.forEach(function(dv){
+    var bp=Math.round(dv.bounce_rate*100);
+    html+='<tr><td>'+esc(dv.device)+'</td><td data-val="'+dv.sessions+'">'+fmt(dv.sessions)+'</td><td>'+fmt(dv.users)+'</td><td><span class="badge '+(bp>70?'down':bp>50?'warn':'up')+'">'+bp+'%</span></td></tr>';
+  });
+  html+='</tbody></table>';
+  document.getElementById('devices-table').innerHTML=html;
+}
+
+function renderGeo(d){
+  var geo=d.ga&&d.ga.geo||[];
+  var html='<table><thead><tr><th>Country</th><th onclick="sortTable(\'geo-tbody\',1,\'num\')" class="sorted">Sessions <span class="sort-icon">↓</span></th><th>Users</th><th>Note</th></tr></thead><tbody id="geo-tbody">';
+  geo.forEach(function(g){
+    var isSuspect=g.country==='Singapore'&&g.sessions>100;
+    html+='<tr><td>'+esc(g.country)+'</td><td data-val="'+g.sessions+'">'+fmt(g.sessions)+'</td><td>'+fmt(g.users)+'</td><td>'+(isSuspect?'<span class="badge down">⚠ Likely bot</span>':'')+'</td></tr>';
+  });
+  html+='</tbody></table>';
+  document.getElementById('geo-table').innerHTML=html;
+}
+
+function renderEvents(d){
+  var events=d.ga&&d.ga.events||[];
+  var html='<table><thead><tr><th onclick="sortTable(\'ev-tbody\',0,\'str\')">Event <span class="sort-icon">↕</span></th><th onclick="sortTable(\'ev-tbody\',1,\'num\')" class="sorted">Count <span class="sort-icon">↓</span></th><th>Users</th><th>Signal</th></tr></thead><tbody id="ev-tbody">';
+  var conversionEvents=['generate_lead','form_start','form_submit','ads_conversion_Contact_Us_1'];
+  events.forEach(function(ev){
+    var isConv=conversionEvents.includes(ev.event);
+    html+='<tr><td data-val="'+esc(ev.event)+'"><strong style="'+(isConv?'color:var(--forest)':'')+'">'+(isConv?'★ ':'')+esc(ev.event)+'</strong></td>';
+    html+='<td data-val="'+ev.count+'">'+fmt(ev.count)+'</td>';
+    html+='<td>'+fmt(ev.users)+'</td>';
+    html+='<td>'+(isConv?'<span class="badge up">Conversion</span>':'')+'</td></tr>';
+  });
+  html+='</tbody></table>';
+  document.getElementById('events-table').innerHTML=html;
+  document.getElementById('events-note').textContent='★ = conversion events';
+}
+
+function renderGSCStats(d){
+  var s=d.summary||{};
+  document.getElementById('gsc-clicks').textContent=fmt(s.clicks);
+  document.getElementById('gsc-impr2').textContent=fmt(s.impressions);
+  document.getElementById('gsc-pos').textContent=fmtPos(s.avg_position);
+  document.getElementById('gsc-ctr').textContent=fmtPct(s.ctr);
+}
+
+function renderQueriesTable(d){
+  var queries=d.queries||[];
+  document.getElementById('queries-count').textContent=queries.length+' queries';
+  var html='';
+  queries.forEach(function(q,i){
+    html+='<tr>';
+    html+='<td data-val="'+i+'" style="color:rgba(7,11,51,.3);font-size:11px">'+(i+1)+'</td>';
+    html+='<td data-val="'+esc(q.query)+'" class="td-main">'+esc(q.query)+'</td>';
+    html+='<td data-val="'+q.clicks+'"><strong>'+fmt(q.clicks)+'</strong></td>';
+    html+='<td data-val="'+q.impressions+'">'+fmt(q.impressions)+'</td>';
+    html+='<td data-val="'+q.ctr+'"><div class="mini-bar"><div class="mini-track"><div class="mini-fill" style="width:'+Math.min(100,q.ctr*100*8)+'%"></div></div>'+fmtPct(q.ctr)+'</div></td>';
+    html+='<td data-val="'+q.position+'"><span class="badge '+(q.position<=3?'up':q.position<=10?'flat':'warn')+'">'+fmtPos(q.position)+'</span></td>';
+    html+='</tr>';
+  });
+  document.getElementById('queries-tbody').innerHTML=html;
+}
+
+function renderMoversTable(d){
+  var movers=d.movers||[];
+  document.getElementById('movers-count').textContent=movers.length+' changes';
+  var html='';
+  movers.forEach(function(m){
+    var improved=m.delta<0;
+    html+='<tr>';
+    html+='<td class="td-main">'+esc(m.query)+'</td>';
+    html+='<td data-val="'+Math.abs(m.delta)+'"><span class="badge '+(improved?'up':'down')+'">'+(improved?'▲':'▼')+' '+Math.abs(m.delta).toFixed(1)+' pos</span></td>';
+    html+='<td data-val="'+m.position+'">'+fmtPos(m.position)+'</td>';
+    html+='</tr>';
+  });
+  if(!html)html='<tr><td colspan="3" class="empty">No significant movers this week</td></tr>';
+  document.getElementById('movers-tbody').innerHTML=html;
+}
+
+function renderOppsTable(d){
+  var opps=d.opportunities||[];
+  var html='';
+  opps.forEach(function(o){
+    var slug=(o.page||'').replace('https://amre.group','');
+    html+='<tr>';
+    html+='<td data-val="'+esc(slug)+'" class="td-main"><a href="'+esc(o.page)+'" target="_blank">'+esc(slug)+'</a></td>';
+    html+='<td data-val="'+o.impressions+'"><strong>'+fmt(o.impressions)+'</strong></td>';
+    html+='<td data-val="'+o.ctr+'"><span class="badge '+(o.ctr<0.01?'down':o.ctr<0.03?'warn':'flat')+'">'+fmtPct(o.ctr)+'</span></td>';
+    html+='<td data-val="'+o.position+'">'+fmtPos(o.position)+'</td>';
+    html+='<td><span class="pill">'+esc(o.action)+'</span></td>';
+    html+='</tr>';
+  });
+  if(!html)html='<tr><td colspan="5" class="empty">No opportunities found</td></tr>';
+  document.getElementById('opps-tbody').innerHTML=html;
+}
+
+function renderPagesTable(d){
+  var pages=d.ga&&d.ga.pages||[];
+  document.getElementById('pages-count').textContent=pages.length+' pages';
+  var html='';
+  pages.forEach(function(p){
+    var bp=Math.round(p.bounce_rate*100);
+    var signal='';
+    if(p.path==='/contact/')signal='<span class="badge up">Converting</span>';
+    else if(p.path==='/about/')signal='<span class="badge up">Engaged</span>';
+    else if(bp>80)signal='<span class="badge down">High bounce</span>';
+    else if(p.avg_duration>300)signal='<span class="badge up">Deep read</span>';
+    html+='<tr>';
+    html+='<td data-val="'+esc(p.path)+'" class="td-main"><a href="https://amre.group'+esc(p.path)+'" target="_blank">'+esc(p.path)+'</a></td>';
+    html+='<td data-val="'+p.views+'"><strong>'+fmt(p.views)+'</strong></td>';
+    html+='<td data-val="'+p.users+'">'+fmt(p.users)+'</td>';
+    html+='<td data-val="'+p.avg_duration+'">'+fmtSec(p.avg_duration)+'</td>';
+    html+='<td data-val="'+p.bounce_rate+'"><span class="badge '+(bp>70?'down':bp>50?'warn':'up')+'">'+bp+'%</span></td>';
+    html+='<td>'+signal+'</td>';
+    html+='</tr>';
+  });
+  if(!html)html='<tr><td colspan="6" class="empty">No page data</td></tr>';
+  document.getElementById('pages-tbody').innerHTML=html;
+}
+
+function renderGSCPagesTable(d){
+  var pages=d.pages||[];
+  document.getElementById('gscpages-count').textContent=pages.length+' pages';
+  var html='';
+  pages.forEach(function(p){
+    var slug=(p.page||'').replace('https://amre.group','');
+    html+='<tr>';
+    html+='<td data-val="'+esc(slug)+'" class="td-main"><a href="'+esc(p.page)+'" target="_blank">'+esc(slug||'/')+'</a></td>';
+    html+='<td data-val="'+p.clicks+'"><strong>'+fmt(p.clicks)+'</strong></td>';
+    html+='<td data-val="'+p.impressions+'">'+fmt(p.impressions)+'</td>';
+    html+='<td data-val="'+p.ctr+'"><span class="badge '+(p.ctr<0.01?'down':p.ctr<0.03?'warn':'up')+'">'+fmtPct(p.ctr)+'</span></td>';
+    html+='<td data-val="'+p.position+'"><span class="badge '+(p.position<=3?'up':p.position<=10?'flat':'warn')+'">'+fmtPos(p.position)+'</span></td>';
+    html+='</tr>';
+  });
+  if(!html)html='<tr><td colspan="5" class="empty">No GSC page data</td></tr>';
+  document.getElementById('gscpages-tbody').innerHTML=html;
+}
+
+function renderAICard(d){
+  var ai=d.ai;
+  if(!ai||!ai.headline){document.getElementById('ai-card').innerHTML='<div class="empty">No AI analysis in this report. Run Analysis to generate recommendations.</div>';return;}
+  var html='<div class="ai-eyebrow">Claude Analysis</div>';
+  html+='<div class="ai-headline">'+esc(ai.headline)+'</div>';
+  html+='<div class="ai-summary">'+esc(ai.summary)+'</div>';
+  if(ai.actions&&ai.actions.length){
+    html+='<div class="ai-actions">';
+    ai.actions.forEach(function(a){
+      var statusHtml='';
+      if(a.status==='done')statusHtml='<div class="ai-action-status done">✓ Executed — <a href="'+esc(a.commit||'#')+'" target="_blank" style="color:inherit">view commit</a>'+(a.url?' · <a href="'+esc(a.url)+'" target="_blank" style="color:inherit">live page</a>':'')+'</div>';
+      else if(a.status==='error')statusHtml='<div class="ai-action-status error">✗ Error: '+esc(a.reason)+'</div>';
+      else if(a.status==='queued')statusHtml='<div class="ai-action-status queued">⏳ Queued for manual review</div>';
+      html+='<div class="ai-action">';
+      html+='<span class="ai-pri '+(a.priority||'med')+'">'+esc(a.priority||'med')+'</span>';
+      html+='<div class="ai-action-text"><strong>'+esc(a.title)+'</strong>'+esc(a.detail||'')+statusHtml+'</div>';
+      html+='</div>';
     });
-    h += '</tbody></table>';
-    document.getElementById('queries-table').innerHTML = h;
+    html+='</div>';
   }
-
-  // Top Pages table
-  if(d.pages && d.pages.length){
-    document.getElementById('pages-period').textContent = d.period || '';
-    var h = '<table><thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th></tr></thead><tbody>';
-    d.pages.slice(0,15).forEach(function(p){
-      var slug = p.page.replace('https://amre.group','') || '/';
-      h += '<tr><td class="query-cell"><a href="'+escHtml(p.page)+'" target="_blank" style="color:var(--forest);text-decoration:none">'+escHtml(slug)+'</a></td>';
-      h += '<td><strong>'+fmt(p.clicks)+'</strong></td>';
-      h += '<td>'+fmt(p.impressions)+'</td>';
-      h += '<td>'+fmtPct(p.ctr)+'</td>';
-      h += '<td>'+fmtPos(p.position)+'</td></tr>';
-    });
-    h += '</tbody></table>';
-    document.getElementById('pages-table').innerHTML = h;
-  }
-
-  // Movers
-  if(d.movers && d.movers.length){
-    var h = '<table><thead><tr><th>Query</th><th>Current</th><th>Change</th></tr></thead><tbody>';
-    d.movers.forEach(function(m){
-      var dc = deltaClass(-m.delta); // negative delta = improved rank
-      h += '<tr><td class="query-cell">'+escHtml(m.query)+'</td>';
-      h += '<td><span class="pos-badge">'+fmtPos(m.position)+'</span></td>';
-      h += '<td><span class="delta '+dc+'">'+deltaSign(-m.delta)+'</span></td></tr>';
-    });
-    h += '</tbody></table>';
-    document.getElementById('movers-table').innerHTML = h;
-  } else {
-    document.getElementById('movers-table').innerHTML = '<div class="empty-state"><p>Run analysis to see ranking changes</p></div>';
-  }
-
-  // Opportunities
-  if(d.opportunities && d.opportunities.length){
-    var h = '<table><thead><tr><th>Page</th><th>Impr.</th><th>CTR</th><th>Action</th></tr></thead><tbody>';
-    d.opportunities.slice(0,8).forEach(function(o){
-      var slug = o.page.replace('https://amre.group','') || '/';
-      h += '<tr><td class="query-cell">'+escHtml(slug)+'</td>';
-      h += '<td>'+fmt(o.impressions)+'</td>';
-      h += '<td>'+fmtPct(o.ctr)+'</td>';
-      h += '<td><span class="opp-tag '+o.type+'">'+escHtml(o.action)+'</span></td></tr>';
-    });
-    h += '</tbody></table>';
-    document.getElementById('opps-table').innerHTML = h;
-  } else {
-    document.getElementById('opps-table').innerHTML = '<div class="empty-state"><p>Run analysis to surface opportunities</p></div>';
-  }
+  document.getElementById('ai-card').innerHTML=html;
 }
 
 // ── RUN ANALYSIS ──
 function runAnalysis(){
-  var btn = document.getElementById('run-btn');
-  var status = document.getElementById('run-status');
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spinner" style="border-top-color:#fff"></div> Running…';
-  status.className = 'run-status running';
-  status.textContent = 'Fetching GSC + GA4 data…';
-
-  // Call the engine endpoint
-  fetch('/seo/engine.php', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({trigger:'manual'})})
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d.success){
-        status.textContent = 'Analysis complete — refreshing…';
-        setTimeout(function(){window.location.reload();},1500);
-      } else {
-        throw new Error(d.error || 'engine error');
-      }
-    })
-    .catch(function(e){
-      // Fallback: redirect to GitHub Actions trigger or show instructions
-      status.className = 'run-status';
-      status.textContent = 'Use GitHub Actions to trigger manually, or wait for Monday 7 AM PT';
-      btn.disabled = false;
-      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Run Analysis Now';
-    });
+  var btn=document.getElementById('run-btn');
+  btn.disabled=true;
+  btn.innerHTML='<span class="spinner"></span> Running…';
+  setTimeout(function(){
+    btn.disabled=false;
+    btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Run Analysis';
+    alert('To run manually: go to github.com/Hilex2030/amre-assets → Actions → AMRE Weekly SEO Report → Run workflow\n\nOr add Secrets and the cron fires automatically every Monday 7 AM PT.');
+  },1500);
 }
-
-function escHtml(s){if(!s)return '';return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 </script>
 </body>
 </html>
