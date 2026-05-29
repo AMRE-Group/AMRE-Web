@@ -1,0 +1,45 @@
+name: AMRE Weekly SEO Report
+
+on:
+  schedule:
+    # Monday 7:00 AM PT = Monday 15:00 UTC
+    - cron: '0 15 * * 1'
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Manual trigger reason'
+        required: false
+        default: 'Manual run'
+
+jobs:
+  seo-report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install node-fetch@3
+
+      - name: Run SEO analysis
+        env:
+          COMPOSIO_API_KEY: ${{ secrets.COMPOSIO_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GSC_ACCOUNT_ID: ${{ secrets.GSC_ACCOUNT_ID }}
+          GA_ACCOUNT_ID: ${{ secrets.GA_ACCOUNT_ID }}
+        run: node scripts/seo-engine.mjs
+
+      - name: Commit updated report
+        run: |
+          git config user.name "AMRE SEO Bot"
+          git config user.email "seo-bot@amre.group"
+          git add website/seo/report.json
+          git diff --staged --quiet || git commit -m "SEO report — $(TZ='America/Los_Angeles' date '+%b %d, %Y %I:%M %p PT')"
+          git push
