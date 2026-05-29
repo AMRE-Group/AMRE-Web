@@ -15,7 +15,7 @@ body{font-family:'Montserrat',-apple-system,sans-serif;font-weight:300;backgroun
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
-/* ===== Password gate (mirrors main dashboard) ===== */
+/* Gate */
 .gate{position:fixed;inset:0;background:#1c3d31;display:flex;align-items:center;justify-content:center;z-index:1000;padding:24px}
 .gate.hidden{display:none}
 .gate-card{max-width:420px;width:100%;background:#fff;padding:48px 32px;border-radius:16px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25)}
@@ -30,7 +30,7 @@ a{color:inherit;text-decoration:none}
 .gate-btn:hover{background:#2a5e4a}
 .gate-error{color:#c33;font-size:12px;min-height:16px;margin-top:4px}
 
-/* ===== Top nav ===== */
+/* Top nav */
 .topnav{background:#fff;border-bottom:1px solid #e8e4dc;position:sticky;top:0;z-index:100}
 .topnav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1200px;margin:0 auto}
 .topnav-left{font-family:'Playfair Display',serif;font-size:14px;letter-spacing:.18em;color:#1c3d31}
@@ -38,7 +38,7 @@ a{color:inherit;text-decoration:none}
 .topnav-back:hover{color:#ffc13c}
 .topnav-meta{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#86868b}
 
-/* ===== Hero ===== */
+/* Hero */
 .hero{padding:48px 0 24px;background:#fff;border-bottom:1px solid #e8e4dc}
 .hero h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(28px,4vw,42px);line-height:1.1;color:#1a1a1a;margin-bottom:12px}
 .hero p{font-size:14px;color:#5a5a5a;max-width:680px;line-height:1.6}
@@ -46,36 +46,43 @@ a{color:inherit;text-decoration:none}
 .hero-meta-item{display:flex;align-items:center;gap:6px}
 .dot{width:8px;height:8px;background:#34c759;border-radius:50%}
 
-/* ===== Section ===== */
-section.block{padding:40px 0}
+/* Section */
+section.block{padding:36px 0}
 section.block + section.block{border-top:1px solid #e8e4dc}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px}
 .section-head h2{font-family:'Playfair Display',serif;font-weight:500;font-size:24px;color:#1a1a1a}
+.section-head h2 .src-tag{font-family:Montserrat,sans-serif;font-size:11px;color:#86868b;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-left:8px}
 .section-head .period{font-size:11px;color:#86868b;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
 
-/* ===== KPI ===== */
+/* KPI */
 .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:960px){.kpi-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.kpi-grid{grid-template-columns:1fr}}
 .kpi{background:#fff;border:1px solid #e8e4dc;border-radius:12px;padding:20px 22px}
 .kpi-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#86868b;margin-bottom:8px}
 .kpi-value{font-family:'Playfair Display',serif;font-weight:500;font-size:32px;color:#1a1a1a;line-height:1;letter-spacing:-0.5px}
-.kpi-meta{margin-top:10px;font-size:12px;color:#5a5a5a;display:flex;align-items:center;gap:8px}
+.kpi-meta{margin-top:10px;font-size:12px;color:#5a5a5a;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .delta{font-weight:600;font-size:11px;padding:2px 8px;border-radius:4px}
 .delta-up{color:#1c3d31;background:rgba(28,61,49,.08)}
 .delta-down{color:#c33;background:rgba(204,51,51,.08)}
 .delta-flat{color:#86868b}
 .kpi-prior{color:#86868b;font-size:11px}
 
-/* ===== Card ===== */
+/* Card */
 .card{background:#fff;border:1px solid #e8e4dc;border-radius:12px;padding:24px}
 .card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:960px){.card-grid-3{grid-template-columns:1fr}}
 @media(max-width:860px){.card-grid-2{grid-template-columns:1fr}}
 .card-title{font-family:'Playfair Display',serif;font-weight:500;font-size:18px;color:#1a1a1a;margin-bottom:16px}
 
-/* ===== Table ===== */
+/* Table */
 table{width:100%;border-collapse:collapse;font-size:13px}
-table th{text-align:left;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#86868b;padding:10px 8px;border-bottom:1px solid #e8e4dc}
+table th{text-align:left;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#86868b;padding:10px 8px;border-bottom:1px solid #e8e4dc;background:#fafaf7;position:sticky;top:0;z-index:2}
+table.sortable th{cursor:pointer;user-select:none;transition:color .12s,background .12s}
+table.sortable th:hover{color:#1c3d31;background:#f0eee8}
+table.sortable th .sort-arrow{margin-left:4px;font-size:9px;color:#bcb8a8;font-weight:700}
+table.sortable th.sorted-asc .sort-arrow,table.sortable th.sorted-desc .sort-arrow{color:#1c3d31}
 table th.num,table td.num{text-align:right}
 table td{padding:11px 8px;border-bottom:1px solid #f0eee8;vertical-align:middle}
 table tr:last-child td{border-bottom:none}
@@ -83,8 +90,11 @@ table td.path{font-family:ui-monospace,SF Mono,Menlo,monospace;font-size:12px;co
 table td.query{color:#1a1a1a}
 table td.num{font-variant-numeric:tabular-nums;color:#5a5a5a}
 table tr:hover td{background:#faf9f6}
+table .pill{display:inline-block;padding:2px 8px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:4px}
+table .pill.bot{background:rgba(204,51,51,.08);color:#c33}
+table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
 
-/* ===== Channel bars ===== */
+/* Channel bars */
 .channel{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0eee8}
 .channel:last-child{border-bottom:none}
 .channel-name{min-width:130px;font-size:13px;color:#1a1a1a;font-weight:500}
@@ -93,15 +103,24 @@ table tr:hover td{background:#faf9f6}
 .channel-val{min-width:60px;text-align:right;font-size:13px;color:#5a5a5a;font-variant-numeric:tabular-nums}
 .channel-pct{min-width:48px;text-align:right;font-size:11px;color:#86868b;font-variant-numeric:tabular-nums}
 
-/* ===== Sparkline holder ===== */
+/* Sparkline row */
 .spark-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media(max-width:860px){.spark-row{grid-template-columns:1fr}}
 
-/* ===== Note bar ===== */
+/* Note */
 .note{background:#faf6ef;border-left:3px solid #ffc13c;padding:14px 18px;border-radius:0 8px 8px 0;font-size:13px;line-height:1.6;color:#5a5a5a;margin-bottom:20px}
+.note.warn{background:#fdf3f3;border-left-color:#c33}
 .note strong{color:#1a1a1a}
 
-/* ===== Footer ===== */
+/* Goal stat */
+.goal-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.goal-row{grid-template-columns:1fr}}
+.goal{background:#fff;border:1px solid #e8e4dc;border-radius:12px;padding:22px 24px;border-top:3px solid #ffc13c}
+.goal-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#86868b;margin-bottom:8px}
+.goal-num{font-family:'Playfair Display',serif;font-weight:500;font-size:38px;color:#1c3d31;line-height:1}
+.goal-sub{font-size:13px;color:#5a5a5a;margin-top:6px;line-height:1.5}
+
+/* Footer */
 .foot{padding:32px 24px;text-align:center;font-size:12px;color:#86868b;border-top:1px solid #e8e4dc;background:#fff;margin-top:32px}
 .foot a{color:#1c3d31;font-weight:600;border-bottom:1px solid #1c3d31}
 .foot a + a{margin-left:18px}
@@ -109,7 +128,7 @@ table tr:hover td{background:#faf9f6}
 </head>
 <body>
 
-<!-- ===== Gate ===== -->
+<!-- Gate -->
 <div class="gate" id="gate">
   <div class="gate-card">
     <div class="gate-brand"><span>AMRE</span><span class="sep"></span><span>COMPASS</span></div>
@@ -123,7 +142,6 @@ table tr:hover td{background:#faf9f6}
   </div>
 </div>
 
-<!-- ===== Dashboard ===== -->
 <main id="dashboard" style="display:none">
 
 <div class="topnav">
@@ -137,7 +155,7 @@ table tr:hover td{background:#faf9f6}
 <header class="hero">
   <div class="wrap">
     <h1>SEO &amp; Traffic.</h1>
-    <p>Search performance and site traffic for amre.group. Snapshot captures last 28 days (May 1&ndash;28, 2026) versus the prior 28 days (Apr 3&ndash;30, 2026). 90-day sparklines run Feb 28&ndash;May 28, 2026.</p>
+    <p>Search performance and site traffic for amre.group. Snapshot captures last 28 days (May 1&ndash;28, 2026) versus the prior 28 days (Apr 3&ndash;30, 2026). 90-day sparklines run Feb 28&ndash;May 28, 2026. Every table on this page is sortable &mdash; click any column header.</p>
     <div class="hero-meta">
       <div class="hero-meta-item"><span class="dot"></span> GSC connected</div>
       <div class="hero-meta-item"><span class="dot"></span> GA4 connected</div>
@@ -146,117 +164,108 @@ table tr:hover td{background:#faf9f6}
   </div>
 </header>
 
-<!-- ===== Story note ===== -->
+<!-- Story note -->
 <section class="block" style="padding-top:32px;padding-bottom:16px">
   <div class="wrap">
     <div class="note">
-      <strong>What's happening:</strong> Sessions dropped 28% vs prior 28 days, but the people who DID visit went deeper. Pageviews up +34%, average session duration up +458% (from 34s to 188s), engagement rate more than doubled (12% &rarr; 27%). Consistent with the cornerstone content build &mdash; fewer drive-by hits, more readers. The new pages (private-exclusives, architectural-homes, the 3 cornerstone blog posts) shipped at the end of this period; their full impact will show up in the next 28 days.
+      <strong>What's happening:</strong> Raw sessions dipped vs prior 28 days but engagement quality went up sharply &mdash; pageviews +33%, session duration 34s &rarr; 188s, engagement rate 12% &rarr; 27%. <strong>And conversions are real:</strong> 70 <code>generate_lead</code> events from 21 unique users, plus 3 ads conversions on the contact form. The new cornerstone content (private-exclusives, architectural-homes, 3 cornerstone posts) shipped at the very end of this period; their full impact will land in the next 28 days. Note: there's measurable bot/data-center traffic distorting raw counts (see Geography section).
     </div>
   </div>
 </section>
 
-<!-- ===== KPI ROW — GA4 ===== -->
+<!-- KPI ROW — GA4 -->
 <section class="block" style="padding-top:8px">
   <div class="wrap">
-    <div class="section-head"><h2>Site Traffic <span style="font-family:Montserrat,sans-serif;font-size:11px;color:#86868b;letter-spacing:.12em;text-transform:uppercase;font-weight:600">GA4</span></h2><div class="period">Last 28 days · vs prior 28</div></div>
+    <div class="section-head"><h2>Site Traffic <span class="src-tag">GA4</span></h2><div class="period">Last 28 days · vs prior 28</div></div>
     <div class="kpi-grid">
-      <div class="kpi">
-        <div class="kpi-label">Sessions</div>
-        <div class="kpi-value">667</div>
-        <div class="kpi-meta"><span class="delta delta-down">▼ 28.4%</span> <span class="kpi-prior">vs 931 prior</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Total Users</div>
-        <div class="kpi-value">545</div>
-        <div class="kpi-meta"><span class="delta delta-down">▼ 35.7%</span> <span class="kpi-prior">vs 848 prior</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Pageviews</div>
-        <div class="kpi-value">1,470</div>
-        <div class="kpi-meta"><span class="delta delta-up">▲ 33.5%</span> <span class="kpi-prior">vs 1,101 prior</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Engagement Rate</div>
-        <div class="kpi-value">26.7%</div>
-        <div class="kpi-meta"><span class="delta delta-up">▲ 14.3pp</span> <span class="kpi-prior">vs 12.3%</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">New Users</div>
-        <div class="kpi-value">536</div>
-        <div class="kpi-meta"><span class="delta delta-down">▼ 36.3%</span> <span class="kpi-prior">vs 841 prior</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Avg. Session</div>
-        <div class="kpi-value">188s</div>
-        <div class="kpi-meta"><span class="delta delta-up">▲ 457.8%</span> <span class="kpi-prior">vs 33s prior</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Bounce Rate</div>
-        <div class="kpi-value">73.3%</div>
-        <div class="kpi-meta"><span class="delta delta-up">▼ 14.3pp</span> <span class="kpi-prior">vs 87.6%</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Pages / Session</div>
-        <div class="kpi-value">2.20</div>
-        <div class="kpi-meta"><span class="delta delta-up">▲ 86.4%</span> <span class="kpi-prior">vs 1.18</span></div>
-      </div>
+      <div class="kpi"><div class="kpi-label">Sessions</div><div class="kpi-value">667</div><div class="kpi-meta"><span class="delta delta-down">▼ 28.4%</span> <span class="kpi-prior">vs 931 prior</span></div></div>
+      <div class="kpi"><div class="kpi-label">Total Users</div><div class="kpi-value">545</div><div class="kpi-meta"><span class="delta delta-down">▼ 35.7%</span> <span class="kpi-prior">vs 848 prior</span></div></div>
+      <div class="kpi"><div class="kpi-label">Pageviews</div><div class="kpi-value">1,470</div><div class="kpi-meta"><span class="delta delta-up">▲ 33.5%</span> <span class="kpi-prior">vs 1,101 prior</span></div></div>
+      <div class="kpi"><div class="kpi-label">Engagement Rate</div><div class="kpi-value">26.7%</div><div class="kpi-meta"><span class="delta delta-up">▲ 14.3pp</span> <span class="kpi-prior">vs 12.3%</span></div></div>
+      <div class="kpi"><div class="kpi-label">New Users</div><div class="kpi-value">536</div><div class="kpi-meta"><span class="delta delta-down">▼ 36.3%</span> <span class="kpi-prior">vs 841 prior</span></div></div>
+      <div class="kpi"><div class="kpi-label">Avg. Session</div><div class="kpi-value">188s</div><div class="kpi-meta"><span class="delta delta-up">▲ 457.8%</span> <span class="kpi-prior">vs 33s prior</span></div></div>
+      <div class="kpi"><div class="kpi-label">Bounce Rate</div><div class="kpi-value">73.3%</div><div class="kpi-meta"><span class="delta delta-up">▼ 14.3pp</span> <span class="kpi-prior">vs 87.6%</span></div></div>
+      <div class="kpi"><div class="kpi-label">Pages / Session</div><div class="kpi-value">2.20</div><div class="kpi-meta"><span class="delta delta-up">▲ 86.4%</span> <span class="kpi-prior">vs 1.18</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== KPI ROW — GSC ===== -->
+<!-- KPI ROW — GSC -->
 <section class="block">
   <div class="wrap">
-    <div class="section-head"><h2>Search Performance <span style="font-family:Montserrat,sans-serif;font-size:11px;color:#86868b;letter-spacing:.12em;text-transform:uppercase;font-weight:600">Google Search Console</span></h2><div class="period">Last 28 days · vs prior 28</div></div>
+    <div class="section-head"><h2>Search Performance <span class="src-tag">Google Search Console</span></h2><div class="period">Last 28 days · vs prior 28</div></div>
     <div class="kpi-grid">
-      <div class="kpi">
-        <div class="kpi-label">Clicks from Google</div>
-        <div class="kpi-value">61</div>
-        <div class="kpi-meta"><span class="delta delta-down">▼ 29.1%</span> <span class="kpi-prior">vs 86 prior</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Impressions</div>
-        <div class="kpi-value">5,443</div>
-        <div class="kpi-meta"><span class="delta delta-down">▼ 25.4%</span> <span class="kpi-prior">vs 7,292 prior</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">CTR</div>
-        <div class="kpi-value">1.1%</div>
-        <div class="kpi-meta"><span class="delta delta-down">▼ 0.1pp</span> <span class="kpi-prior">vs 1.2%</span></div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-label">Avg. Position</div>
-        <div class="kpi-value">15.3</div>
-        <div class="kpi-meta"><span class="delta delta-down">▲ 9.4%</span> <span class="kpi-prior">vs 14.0</span></div>
-      </div>
+      <div class="kpi"><div class="kpi-label">Clicks from Google</div><div class="kpi-value">61</div><div class="kpi-meta"><span class="delta delta-down">▼ 29.1%</span> <span class="kpi-prior">vs 86 prior</span></div></div>
+      <div class="kpi"><div class="kpi-label">Impressions</div><div class="kpi-value">5,443</div><div class="kpi-meta"><span class="delta delta-down">▼ 25.4%</span> <span class="kpi-prior">vs 7,292 prior</span></div></div>
+      <div class="kpi"><div class="kpi-label">CTR</div><div class="kpi-value">1.1%</div><div class="kpi-meta"><span class="delta delta-down">▼ 0.1pp</span> <span class="kpi-prior">vs 1.2%</span></div></div>
+      <div class="kpi"><div class="kpi-label">Avg. Position</div><div class="kpi-value">15.3</div><div class="kpi-meta"><span class="delta delta-down">▲ 9.4%</span> <span class="kpi-prior">vs 14.0</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Sparklines ===== -->
+<!-- Conversions / Goals -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Goals &amp; Conversions <span class="src-tag">GA4 Events</span></h2><div class="period">Last 28 days</div></div>
+    <div class="goal-row">
+      <div class="goal">
+        <div class="goal-label">Lead-Gen Events</div>
+        <div class="goal-num">70</div>
+        <div class="goal-sub"><strong>21</strong> unique users triggered <code>generate_lead</code>. Avg 3.3 events per converting user.</div>
+      </div>
+      <div class="goal">
+        <div class="goal-label">Form Starts</div>
+        <div class="goal-num">32</div>
+        <div class="goal-sub"><strong>9</strong> unique users started a form. Form-start &rarr; lead-gen ratio: 46% (events) / 43% (users).</div>
+      </div>
+      <div class="goal">
+        <div class="goal-label">Ads Conversions</div>
+        <div class="goal-num">3</div>
+        <div class="goal-sub"><strong>2</strong> unique users hit <code>ads_conversion_Contact_Us_1</code>. Verifies the ad campaign is converting on the contact funnel.</div>
+      </div>
+    </div>
+    <div class="section-head" style="margin-top:28px;margin-bottom:12px"><h3 style="font-family:Playfair Display,serif;font-weight:500;font-size:16px;color:#1a1a1a">All events (sortable)</h3></div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="sortable">
+        <thead><tr><th>Event Name</th><th class="num">Count</th><th class="num">Unique Users</th><th>Key</th></tr></thead>
+        <tbody>
+          <tr><td class="query"><code>page_view</code></td><td class="num">1,470</td><td class="num">544</td><td></td></tr>
+          <tr><td class="query"><code>user_engagement</code></td><td class="num">674</td><td class="num">94</td><td></td></tr>
+          <tr><td class="query"><code>session_start</code></td><td class="num">669</td><td class="num">544</td><td></td></tr>
+          <tr><td class="query"><code>first_visit</code></td><td class="num">536</td><td class="num">536</td><td></td></tr>
+          <tr><td class="query"><code>scroll</code></td><td class="num">252</td><td class="num">59</td><td></td></tr>
+          <tr><td class="query"><code>generate_lead</code></td><td class="num">70</td><td class="num">21</td><td><span class="pill key">Key</span></td></tr>
+          <tr><td class="query"><code>form_start</code></td><td class="num">32</td><td class="num">9</td><td><span class="pill key">Key</span></td></tr>
+          <tr><td class="query"><code>click</code></td><td class="num">6</td><td class="num">4</td><td></td></tr>
+          <tr><td class="query"><code>ads_conversion_Contact_Us_1</code></td><td class="num">3</td><td class="num">2</td><td><span class="pill key">Key</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 90-Day Trend -->
 <section class="block">
   <div class="wrap">
     <div class="section-head"><h2>90-Day Trend</h2><div class="period">Feb 28 – May 28, 2026</div></div>
     <div class="spark-row">
       <div class="card">
-        <div class="card-title">Sessions per day</div>
-        <svg viewBox="0 0 600 90" preserveAspectRatio="none" style="width:100%;height:90px;display:block">
+        <div class="card-title">Sessions per day <span style="font-size:11px;color:#86868b;font-weight:400;font-family:Montserrat,sans-serif">· GA4</span></div>
+<svg viewBox="0 0 600 90" preserveAspectRatio="none" style="width:100%;height:90px;display:block">
   <path d="M 0.0,44.3 L 6.7,32.8 L 13.5,29.9 L 20.2,22.7 L 27.0,31.3 L 33.7,27.0 L 40.4,38.5 L 47.2,40.0 L 53.9,45.7 L 60.7,19.8 L 67.4,37.1 L 74.2,38.5 L 80.9,27.0 L 87.6,21.3 L 94.4,19.8 L 101.1,38.5 L 107.9,54.4 L 114.6,44.3 L 121.3,41.4 L 128.1,4.0 L 134.8,37.1 L 141.6,50.0 L 148.3,52.9 L 155.1,41.4 L 161.8,55.8 L 168.5,52.9 L 175.3,51.5 L 182.0,55.8 L 188.8,45.7 L 195.5,42.8 L 202.2,42.8 L 209.0,28.5 L 215.7,14.1 L 222.5,16.9 L 229.2,25.6 L 236.0,44.3 L 242.7,57.2 L 249.4,27.0 L 256.2,4.0 L 262.9,34.2 L 269.7,40.0 L 276.4,50.0 L 283.1,57.2 L 289.9,12.6 L 296.6,38.5 L 303.4,41.4 L 310.1,65.9 L 316.9,29.9 L 323.6,48.6 L 330.3,19.8 L 337.1,54.4 L 343.8,32.8 L 350.6,31.3 L 357.3,34.2 L 364.0,28.5 L 370.8,12.6 L 377.5,50.0 L 384.3,24.1 L 391.0,37.1 L 397.8,57.2 L 404.5,54.4 L 411.2,55.8 L 418.0,58.7 L 424.7,24.1 L 431.5,58.7 L 438.2,58.7 L 444.9,63.0 L 451.7,40.0 L 458.4,52.9 L 465.2,28.5 L 471.9,67.3 L 478.7,63.0 L 485.4,51.5 L 492.1,18.4 L 498.9,45.7 L 505.6,44.3 L 512.4,61.5 L 519.1,9.8 L 525.8,54.4 L 532.6,71.6 L 539.3,52.9 L 546.1,37.1 L 552.8,63.0 L 559.6,55.8 L 566.3,71.6 L 573.0,74.5 L 579.8,74.5 L 586.5,42.8 L 593.3,60.1 L 600.0,40.0 L 600,90 L 0,90 Z" fill="#1c3d31" fill-opacity="0.08"/>
   <path d="M 0.0,44.3 L 6.7,32.8 L 13.5,29.9 L 20.2,22.7 L 27.0,31.3 L 33.7,27.0 L 40.4,38.5 L 47.2,40.0 L 53.9,45.7 L 60.7,19.8 L 67.4,37.1 L 74.2,38.5 L 80.9,27.0 L 87.6,21.3 L 94.4,19.8 L 101.1,38.5 L 107.9,54.4 L 114.6,44.3 L 121.3,41.4 L 128.1,4.0 L 134.8,37.1 L 141.6,50.0 L 148.3,52.9 L 155.1,41.4 L 161.8,55.8 L 168.5,52.9 L 175.3,51.5 L 182.0,55.8 L 188.8,45.7 L 195.5,42.8 L 202.2,42.8 L 209.0,28.5 L 215.7,14.1 L 222.5,16.9 L 229.2,25.6 L 236.0,44.3 L 242.7,57.2 L 249.4,27.0 L 256.2,4.0 L 262.9,34.2 L 269.7,40.0 L 276.4,50.0 L 283.1,57.2 L 289.9,12.6 L 296.6,38.5 L 303.4,41.4 L 310.1,65.9 L 316.9,29.9 L 323.6,48.6 L 330.3,19.8 L 337.1,54.4 L 343.8,32.8 L 350.6,31.3 L 357.3,34.2 L 364.0,28.5 L 370.8,12.6 L 377.5,50.0 L 384.3,24.1 L 391.0,37.1 L 397.8,57.2 L 404.5,54.4 L 411.2,55.8 L 418.0,58.7 L 424.7,24.1 L 431.5,58.7 L 438.2,58.7 L 444.9,63.0 L 451.7,40.0 L 458.4,52.9 L 465.2,28.5 L 471.9,67.3 L 478.7,63.0 L 485.4,51.5 L 492.1,18.4 L 498.9,45.7 L 505.6,44.3 L 512.4,61.5 L 519.1,9.8 L 525.8,54.4 L 532.6,71.6 L 539.3,52.9 L 546.1,37.1 L 552.8,63.0 L 559.6,55.8 L 566.3,71.6 L 573.0,74.5 L 579.8,74.5 L 586.5,42.8 L 593.3,60.1 L 600.0,40.0" fill="none" stroke="#1c3d31" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-        <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:#86868b">
+</svg>        <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:#86868b">
           <span>Feb 28</span>
           <span>peak: 57 sessions</span>
           <span>May 28</span>
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Search clicks per day</div>
-        <svg viewBox="0 0 600 90" preserveAspectRatio="none" style="width:100%;height:90px;display:block">
+        <div class="card-title">Search clicks per day <span style="font-size:11px;color:#86868b;font-weight:400;font-family:Montserrat,sans-serif">· GSC</span></div>
+<svg viewBox="0 0 600 90" preserveAspectRatio="none" style="width:100%;height:90px;display:block">
   <path d="M 0.0,45.0 L 6.8,75.8 L 13.6,55.2 L 20.5,55.2 L 27.3,45.0 L 34.1,45.0 L 40.9,45.0 L 47.7,75.8 L 54.5,55.2 L 61.4,45.0 L 68.2,75.8 L 75.0,75.8 L 81.8,55.2 L 88.6,45.0 L 95.5,86.0 L 102.3,86.0 L 109.1,24.5 L 115.9,24.5 L 122.7,24.5 L 129.5,24.5 L 136.4,34.8 L 143.2,55.2 L 150.0,65.5 L 156.8,55.2 L 163.6,55.2 L 170.5,34.8 L 177.3,55.2 L 184.1,45.0 L 190.9,65.5 L 197.7,45.0 L 204.5,34.8 L 211.4,34.8 L 218.2,34.8 L 225.0,45.0 L 231.8,55.2 L 238.6,75.8 L 245.5,75.8 L 252.3,34.8 L 259.1,75.8 L 265.9,86.0 L 272.7,55.2 L 279.5,75.8 L 286.4,24.5 L 293.2,45.0 L 300.0,24.5 L 306.8,45.0 L 313.6,55.2 L 320.5,4.0 L 327.3,55.2 L 334.1,45.0 L 340.9,65.5 L 347.7,65.5 L 354.5,55.2 L 361.4,45.0 L 368.2,55.2 L 375.0,14.2 L 381.8,86.0 L 388.6,65.5 L 395.5,65.5 L 402.3,75.8 L 409.1,45.0 L 415.9,55.2 L 422.7,75.8 L 429.5,34.8 L 436.4,45.0 L 443.2,14.2 L 450.0,65.5 L 456.8,55.2 L 463.6,24.5 L 470.5,65.5 L 477.3,45.0 L 484.1,65.5 L 490.9,75.8 L 497.7,55.2 L 504.5,55.2 L 511.4,34.8 L 518.2,65.5 L 525.0,65.5 L 531.8,86.0 L 538.6,75.8 L 545.5,75.8 L 552.3,65.5 L 559.1,86.0 L 565.9,75.8 L 572.7,65.5 L 579.5,75.8 L 586.4,86.0 L 593.2,75.8 L 600.0,86.0 L 600,90 L 0,90 Z" fill="#ffc13c" fill-opacity="0.08"/>
   <path d="M 0.0,45.0 L 6.8,75.8 L 13.6,55.2 L 20.5,55.2 L 27.3,45.0 L 34.1,45.0 L 40.9,45.0 L 47.7,75.8 L 54.5,55.2 L 61.4,45.0 L 68.2,75.8 L 75.0,75.8 L 81.8,55.2 L 88.6,45.0 L 95.5,86.0 L 102.3,86.0 L 109.1,24.5 L 115.9,24.5 L 122.7,24.5 L 129.5,24.5 L 136.4,34.8 L 143.2,55.2 L 150.0,65.5 L 156.8,55.2 L 163.6,55.2 L 170.5,34.8 L 177.3,55.2 L 184.1,45.0 L 190.9,65.5 L 197.7,45.0 L 204.5,34.8 L 211.4,34.8 L 218.2,34.8 L 225.0,45.0 L 231.8,55.2 L 238.6,75.8 L 245.5,75.8 L 252.3,34.8 L 259.1,75.8 L 265.9,86.0 L 272.7,55.2 L 279.5,75.8 L 286.4,24.5 L 293.2,45.0 L 300.0,24.5 L 306.8,45.0 L 313.6,55.2 L 320.5,4.0 L 327.3,55.2 L 334.1,45.0 L 340.9,65.5 L 347.7,65.5 L 354.5,55.2 L 361.4,45.0 L 368.2,55.2 L 375.0,14.2 L 381.8,86.0 L 388.6,65.5 L 395.5,65.5 L 402.3,75.8 L 409.1,45.0 L 415.9,55.2 L 422.7,75.8 L 429.5,34.8 L 436.4,45.0 L 443.2,14.2 L 450.0,65.5 L 456.8,55.2 L 463.6,24.5 L 470.5,65.5 L 477.3,45.0 L 484.1,65.5 L 490.9,75.8 L 497.7,55.2 L 504.5,55.2 L 511.4,34.8 L 518.2,65.5 L 525.0,65.5 L 531.8,86.0 L 538.6,75.8 L 545.5,75.8 L 552.3,65.5 L 559.1,86.0 L 565.9,75.8 L 572.7,65.5 L 579.5,75.8 L 586.4,86.0 L 593.2,75.8 L 600.0,86.0" fill="none" stroke="#ffc13c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-        <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:#86868b">
+</svg>        <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:11px;color:#86868b">
           <span>Feb 28</span>
           <span>peak: 8 clicks</span>
           <span>May 27</span>
@@ -266,13 +275,12 @@ table tr:hover td{background:#faf9f6}
   </div>
 </section>
 
-<!-- ===== Channels + Top Pages (side by side) ===== -->
+<!-- New User Acquisition + Channel breakdown -->
 <section class="block">
   <div class="wrap">
     <div class="card-grid-2">
       <div class="card">
-        <div class="card-title">Traffic by Channel</div>
-        <div style="font-size:11px;color:#86868b;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:14px">Last 28 days · Sessions</div>
+        <div class="card-title">Sessions by Channel <span style="font-size:11px;color:#86868b;font-weight:400;font-family:Montserrat,sans-serif">· last 28d</span></div>
         <div class="channel">
           <div class="channel-name">Direct</div>
           <div class="channel-bar"><div class="channel-fill" style="width:75.0%"></div></div>
@@ -311,26 +319,66 @@ table tr:hover td{background:#faf9f6}
         </div>
       </div>
       <div class="card">
-        <div class="card-title">Top Pages by Pageviews</div>
-        <div style="font-size:11px;color:#86868b;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:14px">Last 28 days · GA4</div>
-        <table>
-          <thead><tr><th>Page</th><th class="num">Pageviews</th><th class="num">Sessions</th></tr></thead>
+        <div class="card-title">New User Acquisition <span style="font-size:11px;color:#86868b;font-weight:400;font-family:Montserrat,sans-serif">· first-touch channel</span></div>
+        <div class="channel">
+          <div class="channel-name">Direct</div>
+          <div class="channel-bar"><div class="channel-fill" style="width:87.3%;background:#ffc13c"></div></div>
+          <div class="channel-val">468</div>
+          <div class="channel-pct">87%</div>
+        </div>
+        <div class="channel">
+          <div class="channel-name">Organic Search</div>
+          <div class="channel-bar"><div class="channel-fill" style="width:8.2%;background:#ffc13c"></div></div>
+          <div class="channel-val">44</div>
+          <div class="channel-pct">8%</div>
+        </div>
+        <div class="channel">
+          <div class="channel-name">Organic Social</div>
+          <div class="channel-bar"><div class="channel-fill" style="width:3.4%;background:#ffc13c"></div></div>
+          <div class="channel-val">18</div>
+          <div class="channel-pct">3%</div>
+        </div>
+        <div class="channel">
+          <div class="channel-name">Referral</div>
+          <div class="channel-bar"><div class="channel-fill" style="width:0.9%;background:#ffc13c"></div></div>
+          <div class="channel-val">5</div>
+          <div class="channel-pct">1%</div>
+        </div>
+        <div class="channel">
+          <div class="channel-name">Unassigned</div>
+          <div class="channel-bar"><div class="channel-fill" style="width:0.2%;background:#ffc13c"></div></div>
+          <div class="channel-val">1</div>
+          <div class="channel-pct">0%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Device breakdown -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Device Breakdown</h2><div class="period">Last 28 days</div></div>
+    <div class="card-grid-2">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:20px 24px 8px 24px"><div class="card-title">Sessions <span class="src-tag">GA4</span></div></div>
+        <table class="sortable">
+          <thead><tr><th>Device</th><th class="num">Sessions</th><th class="num">Users</th><th class="num">Engagement</th></tr></thead>
           <tbody>
-            <tr><td class="path">/</td><td class="num">476</td><td class="num">328</td></tr>
-            <tr><td class="path">/blog/</td><td class="num">82</td><td class="num">34</td></tr>
-            <tr><td class="path">/properties/</td><td class="num">79</td><td class="num">22</td></tr>
-            <tr><td class="path">/about/</td><td class="num">66</td><td class="num">26</td></tr>
-            <tr><td class="path">/contact/</td><td class="num">66</td><td class="num">40</td></tr>
-            <tr><td class="path">/properties/mulholland-14423/</td><td class="num">36</td><td class="num">21</td></tr>
-            <tr><td class="path">/sellers/</td><td class="num">35</td><td class="num">22</td></tr>
-            <tr><td class="path">/buyers/</td><td class="num">34</td><td class="num">24</td></tr>
-            <tr><td class="path">/start/</td><td class="num">32</td><td class="num">23</td></tr>
-            <tr><td class="path">/beverly-hills/</td><td class="num">28</td><td class="num">17</td></tr>
-            <tr><td class="path">/blog/los-angeles-market-now-2026/</td><td class="num">28</td><td class="num">20</td></tr>
-            <tr><td class="path">/santa-monica/</td><td class="num">26</td><td class="num">13</td></tr>
-            <tr><td class="path">/brentwood/</td><td class="num">23</td><td class="num">3</td></tr>
-            <tr><td class="path">/bel-air/</td><td class="num">20</td><td class="num">12</td></tr>
-            <tr><td class="path">/mid-city/</td><td class="num">18</td><td class="num">14</td></tr>
+            <tr><td>Desktop</td><td class="num">580</td><td class="num">476</td><td class="num">26.2%</td></tr>
+            <tr><td>Mobile</td><td class="num">86</td><td class="num">66</td><td class="num">31.4%</td></tr>
+            <tr><td>Tablet</td><td class="num">3</td><td class="num">3</td><td class="num">0.0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:20px 24px 8px 24px"><div class="card-title">Search Performance <span class="src-tag">GSC</span></div></div>
+        <table class="sortable">
+          <thead><tr><th>Device</th><th class="num">Clicks</th><th class="num">Imp.</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
+          <tbody>
+            <tr><td>Desktop</td><td class="num">40</td><td class="num">3,868</td><td class="num">1.0%</td><td class="num">16.3</td></tr>
+            <tr><td>Mobile</td><td class="num">20</td><td class="num">1,550</td><td class="num">1.3%</td><td class="num">12.9</td></tr>
+            <tr><td>Tablet</td><td class="num">1</td><td class="num">25</td><td class="num">4.0%</td><td class="num">5.6</td></tr>
           </tbody>
         </table>
       </div>
@@ -338,12 +386,132 @@ table tr:hover td{background:#faf9f6}
   </div>
 </section>
 
-<!-- ===== GSC Top Pages ===== -->
+<!-- Geography -->
 <section class="block">
   <div class="wrap">
-    <div class="section-head"><h2>Top Pages from Google Search</h2><div class="period">Last 28 days · clicks > 0</div></div>
+    <div class="section-head"><h2>Geography</h2><div class="period">Last 28 days</div></div>
+    <div class="note warn"><strong>Read with caution:</strong> Singapore at 297 sessions and the "Ashburn / Boardman / Prineville" US cities (all AWS &amp; Facebook data center towns) are almost certainly automated bot/crawler traffic, not human visitors. Real US human sessions are closer to ~250 of the 296 US total. Net: legitimate US human traffic ≈ 250&ndash;270 of the 667 raw sessions for this period. Plan to add a Google Analytics filter for known bot origins next iteration.</div>
+    <div class="card-grid-2">
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:20px 24px 8px 24px"><div class="card-title">Top Countries <span class="src-tag">GA4 · Sessions</span></div></div>
+        <table class="sortable">
+          <thead><tr><th>Country</th><th class="num">Sessions</th><th class="num">Users</th><th>Flag</th></tr></thead>
+          <tbody>
+            <tr><td>Singapore</td><td class="num">297</td><td class="num">297</td><td><span class="pill bot">Likely bot</span></td></tr>
+            <tr><td>United States</td><td class="num">296</td><td class="num">180</td><td></td></tr>
+            <tr><td>Pakistan</td><td class="num">10</td><td class="num">8</td><td></td></tr>
+            <tr><td>India</td><td class="num">9</td><td class="num">9</td><td></td></tr>
+            <tr><td>Germany</td><td class="num">7</td><td class="num">7</td><td></td></tr>
+            <tr><td>Philippines</td><td class="num">7</td><td class="num">3</td><td></td></tr>
+            <tr><td>Sweden</td><td class="num">7</td><td class="num">7</td><td></td></tr>
+            <tr><td>China</td><td class="num">6</td><td class="num">6</td><td></td></tr>
+            <tr><td>Netherlands</td><td class="num">5</td><td class="num">5</td><td></td></tr>
+            <tr><td>Egypt</td><td class="num">3</td><td class="num">1</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <div style="padding:20px 24px 8px 24px"><div class="card-title">Top US Cities <span class="src-tag">GA4 · Sessions</span></div></div>
+        <table class="sortable">
+          <thead><tr><th>City</th><th class="num">Sessions</th><th>Flag</th></tr></thead>
+          <tbody>
+            <tr><td>Los Angeles, CA</td><td class="num">111</td><td></td></tr>
+            <tr><td>Ashburn, VA</td><td class="num">23</td><td><span class="pill bot">Data center</span></td></tr>
+            <tr><td>Boardman, OR</td><td class="num">19</td><td><span class="pill bot">Data center</span></td></tr>
+            <tr><td>Santa Monica, CA</td><td class="num">17</td><td></td></tr>
+            <tr><td>(not set)</td><td class="num">13</td><td><span class="pill bot">Data center</span></td></tr>
+            <tr><td>New York, NY</td><td class="num">9</td><td></td></tr>
+            <tr><td>Seattle, WA</td><td class="num">9</td><td></td></tr>
+            <tr><td>San Jose, CA</td><td class="num">7</td><td></td></tr>
+            <tr><td>Inglewood, CA</td><td class="num">6</td><td></td></tr>
+            <tr><td>Prineville, OR</td><td class="num">6</td><td><span class="pill bot">Data center</span></td></tr>
+            <tr><td>Aspen, CO</td><td class="num">5</td><td></td></tr>
+            <tr><td>Des Moines, IA</td><td class="num">5</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card" style="margin-top:20px;padding:0;overflow:hidden">
+      <div style="padding:20px 24px 8px 24px"><div class="card-title">Search by Country <span class="src-tag">GSC</span></div></div>
+      <table class="sortable">
+        <thead><tr><th>Country</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
+        <tbody>
+          <tr><td>United States</td><td class="num">54</td><td class="num">4,461</td><td class="num">1.2%</td><td class="num">15.6</td></tr>
+          <tr><td>India</td><td class="num">2</td><td class="num">60</td><td class="num">3.3%</td><td class="num">20.4</td></tr>
+          <tr><td>Pakistan</td><td class="num">2</td><td class="num">30</td><td class="num">6.7%</td><td class="num">43.0</td></tr>
+          <tr><td>Canada</td><td class="num">1</td><td class="num">117</td><td class="num">0.9%</td><td class="num">11.8</td></tr>
+          <tr><td>Indonesia</td><td class="num">1</td><td class="num">18</td><td class="num">5.6%</td><td class="num">10.3</td></tr>
+          <tr><td>Philippines</td><td class="num">1</td><td class="num">34</td><td class="num">2.9%</td><td class="num">11.7</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Top pages (GA4) -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Top Pages by Pageviews <span class="src-tag">GA4</span></h2><div class="period">Last 28 days</div></div>
     <div class="card" style="padding:0;overflow:hidden">
-      <table>
+      <table class="sortable">
+        <thead><tr><th>Page</th><th class="num">Pageviews</th><th class="num">Sessions</th></tr></thead>
+        <tbody>
+          <tr><td class="path">/</td><td class="num">476</td><td class="num">328</td></tr>
+          <tr><td class="path">/blog/</td><td class="num">82</td><td class="num">34</td></tr>
+          <tr><td class="path">/properties/</td><td class="num">79</td><td class="num">22</td></tr>
+          <tr><td class="path">/about/</td><td class="num">66</td><td class="num">26</td></tr>
+          <tr><td class="path">/contact/</td><td class="num">66</td><td class="num">40</td></tr>
+          <tr><td class="path">/properties/mulholland-14423/</td><td class="num">36</td><td class="num">21</td></tr>
+          <tr><td class="path">/sellers/</td><td class="num">35</td><td class="num">22</td></tr>
+          <tr><td class="path">/buyers/</td><td class="num">34</td><td class="num">24</td></tr>
+          <tr><td class="path">/start/</td><td class="num">32</td><td class="num">23</td></tr>
+          <tr><td class="path">/beverly-hills/</td><td class="num">28</td><td class="num">17</td></tr>
+          <tr><td class="path">/blog/los-angeles-market-now-2026/</td><td class="num">28</td><td class="num">20</td></tr>
+          <tr><td class="path">/santa-monica/</td><td class="num">26</td><td class="num">13</td></tr>
+          <tr><td class="path">/brentwood/</td><td class="num">23</td><td class="num">3</td></tr>
+          <tr><td class="path">/bel-air/</td><td class="num">20</td><td class="num">12</td></tr>
+          <tr><td class="path">/mid-city/</td><td class="num">18</td><td class="num">14</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Landing pages (GA4) -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Top Landing Pages <span class="src-tag">GA4 · where sessions started</span></h2><div class="period">Last 28 days</div></div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="sortable">
+        <thead><tr><th>Landing Page</th><th class="num">Sessions</th><th class="num">Users</th><th class="num">Engagement</th></tr></thead>
+        <tbody>
+          <tr><td class="path">/</td><td class="num">306</td><td class="num">245</td><td class="num">34.3%</td></tr>
+          <tr><td class="path">/blog</td><td class="num">20</td><td class="num">19</td><td class="num">10.0%</td></tr>
+          <tr><td class="path">/blog/los-angeles-market-now-2026</td><td class="num">19</td><td class="num">19</td><td class="num">26.3%</td></tr>
+          <tr><td class="path">(not set)</td><td class="num">18</td><td class="num">10</td><td class="num">5.6%</td></tr>
+          <tr><td class="path">/properties</td><td class="num">15</td><td class="num">15</td><td class="num">46.7%</td></tr>
+          <tr><td class="path">/start</td><td class="num">15</td><td class="num">11</td><td class="num">33.3%</td></tr>
+          <tr><td class="path">/blog/west-adams-los-angeles-transformation</td><td class="num">14</td><td class="num">10</td><td class="num">28.6%</td></tr>
+          <tr><td class="path">/blog/35-years-housing-appreciation-los-angeles</td><td class="num">12</td><td class="num">12</td><td class="num">16.7%</td></tr>
+          <tr><td class="path">/contact</td><td class="num">10</td><td class="num">7</td><td class="num">100.0%</td></tr>
+          <tr><td class="path">/blog/navigating-luxury-real-estate-beverly-hills-bel-air</td><td class="num">8</td><td class="num">8</td><td class="num">0.0%</td></tr>
+          <tr><td class="path">/buyers</td><td class="num">8</td><td class="num">8</td><td class="num">12.5%</td></tr>
+          <tr><td class="path">/about</td><td class="num">6</td><td class="num">6</td><td class="num">66.7%</td></tr>
+          <tr><td class="path">/blog/rent-vs-own-los-angeles-1-million</td><td class="num">6</td><td class="num">4</td><td class="num">50.0%</td></tr>
+          <tr><td class="path">/sellers</td><td class="num">6</td><td class="num">6</td><td class="num">0.0%</td></tr>
+          <tr><td class="path">/terms-and-conditions</td><td class="num">7</td><td class="num">7</td><td class="num">0.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Top pages from search (GSC) -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-head"><h2>Top Pages from Google Search <span class="src-tag">GSC</span></h2><div class="period">Last 28 days · clicks &gt; 0</div></div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <table class="sortable">
         <thead><tr><th>Page</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
         <tbody>
           <tr><td class="path">/</td><td class="num">16</td><td class="num">701</td><td class="num">2.3%</td><td class="num">12.7</td></tr>
@@ -362,12 +530,13 @@ table tr:hover td{background:#faf9f6}
   </div>
 </section>
 
-<!-- ===== GSC Queries ===== -->
+<!-- Top queries (GSC) -->
 <section class="block">
   <div class="wrap">
-    <div class="section-head"><h2>Top Search Queries</h2><div class="period">Last 28 days · clicks > 0</div></div>
+    <div class="section-head"><h2>Top Search Queries <span class="src-tag">GSC</span></h2><div class="period">Last 28 days · top 25</div></div>
+    <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:14px">Queries below sorted by clicks, then impressions. Sort by any column. Zero-click rows are impression-only opportunities &mdash; queries Google is showing the site for but no one is clicking yet.</p>
     <div class="card" style="padding:0;overflow:hidden">
-      <table>
+      <table class="sortable">
         <thead><tr><th>Query</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
         <tbody>
           <tr><td class="query">amre group</td><td class="num">2</td><td class="num">25</td><td class="num">8.0%</td><td class="num">6.1</td></tr>
@@ -377,14 +546,30 @@ table tr:hover td{background:#faf9f6}
           <tr><td class="query">real estate companies in los angeles</td><td class="num">1</td><td class="num">2</td><td class="num">50.0%</td><td class="num">81.0</td></tr>
           <tr><td class="query">real estate company in los angeles</td><td class="num">1</td><td class="num">1</td><td class="num">100.0%</td><td class="num">101.0</td></tr>
           <tr><td class="query">sunset park neighborhood santa monica</td><td class="num">1</td><td class="num">5</td><td class="num">20.0%</td><td class="num">13.4</td></tr>
+          <tr><td class="query">11921 foxboro dr los angeles ca 90049</td><td class="num">0</td><td class="num">21</td><td class="num">0.0%</td><td class="num">6.7</td></tr>
+          <tr><td class="query">10030 toluca lake ave</td><td class="num">0</td><td class="num">12</td><td class="num">0.0%</td><td class="num">9.3</td></tr>
+          <tr><td class="query">1309 davies dr beverly hills ca 90210</td><td class="num">0</td><td class="num">12</td><td class="num">0.0%</td><td class="num">9.8</td></tr>
+          <tr><td class="query">&quot;4197 hayvenhurst dr, encino, ca 91436&quot; sold price</td><td class="num">0</td><td class="num">11</td><td class="num">0.0%</td><td class="num">6.5</td></tr>
+          <tr><td class="query">1309 davies dr</td><td class="num">0</td><td class="num">4</td><td class="num">0.0%</td><td class="num">8.8</td></tr>
+          <tr><td class="query">1309 davies drive</td><td class="num">0</td><td class="num">5</td><td class="num">0.0%</td><td class="num">8.0</td></tr>
+          <tr><td class="query">1309 davies drive beverly hills</td><td class="num">0</td><td class="num">5</td><td class="num">0.0%</td><td class="num">15.6</td></tr>
+          <tr><td class="query">1530 camden ave # 302 los angeles ca</td><td class="num">0</td><td class="num">4</td><td class="num">0.0%</td><td class="num">5.0</td></tr>
+          <tr><td class="query">1282 meadowbrook avenue los angeles ca</td><td class="num">0</td><td class="num">2</td><td class="num">0.0%</td><td class="num">15.0</td></tr>
+          <tr><td class="query">1400 laurel ave</td><td class="num">0</td><td class="num">2</td><td class="num">0.0%</td><td class="num">22.5</td></tr>
+          <tr><td class="query">10960 chalon rd</td><td class="num">0</td><td class="num">2</td><td class="num">0.0%</td><td class="num">10.0</td></tr>
+          <tr><td class="query">1951 hillcrest rd</td><td class="num">0</td><td class="num">3</td><td class="num">0.0%</td><td class="num">73.3</td></tr>
+          <tr><td class="query">1484 s beverly dr los angeles ca 90035</td><td class="num">0</td><td class="num">1</td><td class="num">0.0%</td><td class="num">49.0</td></tr>
+          <tr><td class="query">12753 mulholland drive</td><td class="num">0</td><td class="num">1</td><td class="num">0.0%</td><td class="num">27.0</td></tr>
+          <tr><td class="query">01991628</td><td class="num">0</td><td class="num">1</td><td class="num">0.0%</td><td class="num">8.0</td></tr>
+          <tr><td class="query">119 s highland ave</td><td class="num">0</td><td class="num">1</td><td class="num">0.0%</td><td class="num">7.0</td></tr>
+          <tr><td class="query">1471 s durango</td><td class="num">0</td><td class="num">1</td><td class="num">0.0%</td><td class="num">10.0</td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:12px;color:#86868b;margin-top:14px;line-height:1.6">Queries below the click threshold (zero-click impressions) are excluded for clarity. Several queries are showing in long-tail positions (80+) and represent potential future traffic if ranking improves. The "real estate companies in los angeles" query is currently ranking ~position 81 &mdash; with the new architectural-homes + private-exclusives pages now in the index, this should improve.</p>
   </div>
 </section>
 
-<!-- ===== Sitemap status ===== -->
+<!-- Sitemap -->
 <section class="block">
   <div class="wrap">
     <div class="section-head"><h2>Sitemap &amp; Indexing</h2><div class="period">Google Search Console</div></div>
@@ -392,31 +577,22 @@ table tr:hover td{background:#faf9f6}
       <div class="card">
         <div style="font-size:11px;color:#86868b;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:14px">amre.group/sitemap.xml</div>
         <div style="display:flex;gap:32px;flex-wrap:wrap">
-          <div>
-            <div class="kpi-label">Submitted URLs</div>
-            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:36px;color:#1a1a1a">76</div>
-          </div>
-          <div>
-            <div class="kpi-label">Errors</div>
-            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:36px;color:#1c3d31">0</div>
-          </div>
-          <div>
-            <div class="kpi-label">Warnings</div>
-            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:36px;color:#1c3d31">0</div>
-          </div>
+          <div><div class="kpi-label">Submitted URLs</div><div style="font-family:'Playfair Display',serif;font-weight:500;font-size:36px;color:#1a1a1a">76</div></div>
+          <div><div class="kpi-label">Errors</div><div style="font-family:'Playfair Display',serif;font-weight:500;font-size:36px;color:#1c3d31">0</div></div>
+          <div><div class="kpi-label">Warnings</div><div style="font-family:'Playfair Display',serif;font-weight:500;font-size:36px;color:#1c3d31">0</div></div>
         </div>
         <div style="font-size:12px;color:#86868b;margin-top:14px;line-height:1.6">Last fetched by Google: <strong style="color:#1a1a1a">May 27, 2026</strong></div>
       </div>
       <div class="card">
         <div class="card-title">Recommended next step</div>
-        <p style="font-size:13px;color:#5a5a5a;line-height:1.7">After today's cornerstone build (3 new blog posts + 14 page updates + internal-link pass), <strong style="color:#1a1a1a">resubmit the sitemap in Google Search Console</strong> to speed re-crawl. From the GSC home, go to Sitemaps → "Add a new sitemap" → enter <code style="background:#f0eee8;padding:2px 6px;border-radius:3px;font-size:11px">sitemap.xml</code> and submit.</p>
+        <p style="font-size:13px;color:#5a5a5a;line-height:1.7">After today's cornerstone build (3 new blog posts + 14 page updates + internal-link pass), <strong style="color:#1a1a1a">resubmit the sitemap in Google Search Console</strong> to speed re-crawl.</p>
         <a href="https://search.google.com/search-console?resource_id=sc-domain%3Aamre.group" target="_blank" rel="noopener" style="display:inline-block;margin-top:14px;padding:10px 18px;background:#1c3d31;color:#fff;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border-radius:6px">Open Search Console &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Quick links ===== -->
+<!-- Quick links -->
 <section class="block">
   <div class="wrap">
     <div class="section-head"><h2>Open the source tools</h2></div>
@@ -441,7 +617,7 @@ table tr:hover td{background:#faf9f6}
 </footer>
 
 <script>
-  // ===== Password gate (shares storage key with /dashboard/) =====
+  // Password gate (shares storage key with /dashboard/)
   const CODES = ['amre#compass'];
   const gateForm = document.getElementById('gateForm');
   const gateInput = document.getElementById('gateInput');
@@ -452,6 +628,7 @@ table tr:hover td{background:#faf9f6}
   if (sessionStorage.getItem('amre_dash_auth') === 'true') {
     gate.classList.add('hidden');
     dashboard.style.display = '';
+    initSortable();
   }
 
   gateForm.addEventListener('submit', e => {
@@ -460,12 +637,56 @@ table tr:hover td{background:#faf9f6}
       sessionStorage.setItem('amre_dash_auth', 'true');
       gate.classList.add('hidden');
       dashboard.style.display = '';
+      initSortable();
     } else {
       gateError.textContent = 'Incorrect code.';
       gateInput.value = '';
       gateInput.focus();
     }
   });
+
+  // Sortable tables — every <table class="sortable">
+  function initSortable() {
+    if (window._sortableInit) return;
+    window._sortableInit = true;
+    document.querySelectorAll('table.sortable').forEach(table => {
+      const ths = table.querySelectorAll('thead th');
+      ths.forEach((th, idx) => {
+        // Add arrow span
+        const arrow = document.createElement('span');
+        arrow.className = 'sort-arrow';
+        arrow.textContent = '▴▾';
+        th.appendChild(document.createTextNode(' '));
+        th.appendChild(arrow);
+        th.addEventListener('click', () => {
+          const tbody = table.querySelector('tbody');
+          if (!tbody) return;
+          const rows = Array.from(tbody.querySelectorAll('tr'));
+          const curDir = th.classList.contains('sorted-asc') ? 'asc' : (th.classList.contains('sorted-desc') ? 'desc' : 'none');
+          const newDir = curDir === 'asc' ? 'desc' : 'asc';
+          // Reset all
+          ths.forEach(o => {
+            o.classList.remove('sorted-asc','sorted-desc');
+            const a = o.querySelector('.sort-arrow'); if (a) a.textContent = '▴▾';
+          });
+          th.classList.add(newDir === 'asc' ? 'sorted-asc' : 'sorted-desc');
+          arrow.textContent = newDir === 'asc' ? '▴' : '▾';
+          rows.sort((a, b) => {
+            const av = (a.children[idx]?.innerText || '').trim();
+            const bv = (b.children[idx]?.innerText || '').trim();
+            const an = parseFloat(av.replace(/[^\d.-]/g, ''));
+            const bn = parseFloat(bv.replace(/[^\d.-]/g, ''));
+            const isNum = !isNaN(an) && !isNaN(bn) && av.match(/[\d]/) && bv.match(/[\d]/);
+            let r;
+            if (isNum) r = an - bn;
+            else r = av.localeCompare(bv);
+            return newDir === 'asc' ? r : -r;
+          });
+          rows.forEach(row => tbody.appendChild(row));
+        });
+      });
+    });
+  }
 </script>
 
 </body>
