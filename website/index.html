@@ -831,6 +831,81 @@ details[open] .faq-q::after{transform:rotate(45deg)}
   .mobile-drawer{display:none!important}
 }
 
+
+/* ── CONTACT POPUP ── */
+#amre-popup-overlay{
+  position:fixed;inset:0;background:rgba(4,8,28,.72);z-index:9000;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .35s ease;
+}
+#amre-popup-overlay.open{opacity:1;pointer-events:all}
+#amre-popup{
+  width:100%;max-width:580px;border-radius:14px;overflow:hidden;
+  display:grid;grid-template-columns:1fr 1fr;
+  transform:translateY(18px) scale(.97);transition:transform .35s ease;
+}
+#amre-popup-overlay.open #amre-popup{transform:translateY(0) scale(1)}
+.ap-left{
+  background:#1c3d31;padding:44px 32px;display:flex;flex-direction:column;
+  justify-content:space-between;position:relative;overflow:hidden;min-height:420px;
+}
+.ap-left::before,.ap-left::after{
+  content:'';position:absolute;left:-30%;width:160%;height:1px;
+  background:#ffc13c;opacity:.07;
+}
+.ap-left::before{top:28%;transform:rotate(-12deg)}
+.ap-left::after{top:58%;transform:rotate(-12deg)}
+.ap-rule{width:32px;height:2px;background:#ffc13c;margin-bottom:18px}
+.ap-eyebrow{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(255,193,60,.65);margin:0 0 14px}
+.ap-headline{font-family:'Playfair Display',Georgia,serif;font-size:27px;font-weight:400;
+  line-height:1.18;color:#fff;margin:0}
+.ap-foot{font-family:'Montserrat',sans-serif;font-size:11px;
+  color:rgba(255,255,255,.35);line-height:1.7;margin:0}
+.ap-right{
+  background:#070B33;padding:36px 28px;display:flex;flex-direction:column;
+}
+.ap-close{
+  align-self:flex-end;width:28px;height:28px;border-radius:50%;
+  background:rgba(255,255,255,.07);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;
+  color:rgba(255,255,255,.4);font-size:16px;transition:background .2s;
+}
+.ap-close:hover{background:rgba(255,255,255,.14)}
+.ap-fields{display:flex;flex-direction:column;gap:13px;flex:1;justify-content:center}
+.ap-label{display:block;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:5px}
+.ap-input{
+  width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:6px;padding:11px 13px;color:#fff;font-family:'Montserrat',sans-serif;
+  font-size:13px;outline:none;box-sizing:border-box;transition:border-color .2s;
+}
+.ap-input:focus{border-color:rgba(255,193,60,.55)}
+.ap-input::placeholder{color:rgba(255,255,255,.22)}
+.ap-textarea{resize:none;height:80px}
+.ap-submit{
+  width:100%;background:#ffc13c;color:#070B33;border:none;
+  padding:13px;border-radius:6px;font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;margin-top:6px;transition:opacity .2s;
+}
+.ap-submit:hover{opacity:.88}
+.ap-submit:disabled{opacity:.5;cursor:not-allowed}
+.ap-disclaimer{font-family:'Montserrat',sans-serif;font-size:10px;
+  color:rgba(255,255,255,.18);text-align:center;margin:8px 0 0;line-height:1.5}
+.ap-success{display:none;flex-direction:column;align-items:center;justify-content:center;
+  height:100%;gap:14px;text-align:center;padding:20px 0}
+.ap-success-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,193,60,.15);
+  display:flex;align-items:center;justify-content:center;color:#ffc13c;font-size:22px}
+.ap-success h3{font-family:'Playfair Display',Georgia,serif;font-size:19px;
+  font-weight:400;color:#fff;margin:0}
+.ap-success p{font-family:'Montserrat',sans-serif;font-size:12px;
+  color:rgba(255,255,255,.45);margin:0;line-height:1.6}
+@media(max-width:560px){
+  #amre-popup{grid-template-columns:1fr}
+  .ap-left{display:none}
+  .ap-right{border-radius:14px}
+}
 </style>
 <link rel="stylesheet" href="/assets/css/site-overrides.css">
 
@@ -1617,6 +1692,143 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
+})();
+</script>
+
+<!-- ── CONTACT POPUP ── -->
+<div id="amre-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="ap-title">
+  <div id="amre-popup">
+
+    <div class="ap-left">
+      <div>
+        <div class="ap-rule"></div>
+        <p class="ap-eyebrow">AMRE Real Estate Group</p>
+        <h2 class="ap-headline" id="ap-title">Let's Talk<br>Real Estate.</h2>
+      </div>
+      <p class="ap-foot">Michael Abraham &amp; Ania De Pourbaix<br>Compass Beverly Hills<br><span style="opacity:.6">DRE #02242095 · #01891438</span></p>
+    </div>
+
+    <div class="ap-right">
+      <button class="ap-close" id="apClose" aria-label="Close">&#x2715;</button>
+
+      <form class="ap-fields" id="apForm" novalidate>
+        <div>
+          <label class="ap-label" for="ap-name">Name</label>
+          <input class="ap-input" id="ap-name" name="user_name" type="text" placeholder="Your name" autocomplete="name" required>
+        </div>
+        <div>
+          <label class="ap-label" for="ap-email">Email</label>
+          <input class="ap-input" id="ap-email" name="user_email" type="email" placeholder="you@email.com" autocomplete="email" required>
+        </div>
+        <div>
+          <label class="ap-label" for="ap-message">Message</label>
+          <textarea class="ap-input ap-textarea" id="ap-message" name="message" placeholder="What are you looking for?" required></textarea>
+        </div>
+        <button class="ap-submit" id="apSubmit" type="submit">Send Message</button>
+        <p class="ap-disclaimer">No spam. We respond within one business day.</p>
+      </form>
+
+      <div class="ap-success" id="apSuccess">
+        <div class="ap-success-icon">&#10003;</div>
+        <h3>Message sent.</h3>
+        <p>We'll be in touch within one business day.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── POPUP LOGIC ── -->
+<script>
+(function(){
+  var COOKIE='amre_popup_dismissed';
+  var DAYS=7;
+
+  function getCookie(n){
+    var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');
+    return m?m.pop():'';
+  }
+  function setCookie(n,v,d){
+    var e=new Date();e.setTime(e.getTime()+d*864e5);
+    document.cookie=n+'='+v+';expires='+e.toUTCString()+';path=/;SameSite=Lax';
+  }
+
+  if(getCookie(COOKIE))return;
+
+  var overlay=document.getElementById('amre-popup-overlay');
+  var closeBtn=document.getElementById('apClose');
+  var form=document.getElementById('apForm');
+  var submitBtn=document.getElementById('apSubmit');
+  var successEl=document.getElementById('apSuccess');
+  if(!overlay)return;
+
+  function openPopup(){overlay.classList.add('open');document.body.style.overflow='hidden';}
+  function closePopup(){
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+    setCookie(COOKIE,'1',DAYS);
+  }
+
+  closeBtn.addEventListener('click',closePopup);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)closePopup();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closePopup();});
+
+  // Trigger: 10s elapsed AND scrolled past 25%
+  var triggered=false;
+  var scrollMet=false;
+  var timerMet=false;
+
+  function tryTrigger(){
+    if(!triggered&&scrollMet&&timerMet){triggered=true;openPopup();}
+  }
+
+  window.addEventListener('scroll',function(){
+    if(!scrollMet){
+      var pct=window.scrollY/(document.body.scrollHeight-window.innerHeight);
+      if(pct>=0.25){scrollMet=true;tryTrigger();}
+    }
+  },{passive:true});
+
+  setTimeout(function(){timerMet=true;tryTrigger();},10000);
+
+  // Submit via EmailJS — match existing amre-form pattern
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('ap-name').value.trim();
+    var email=document.getElementById('ap-email').value.trim();
+    var message=document.getElementById('ap-message').value.trim();
+    if(!name||!email||!message)return;
+
+    submitBtn.disabled=true;
+    submitBtn.textContent='Sending…';
+
+    var params={
+      user_name:name,
+      user_email:email,
+      message:message,
+      form_type:'popup_contact',
+      source:'amre.group/ popup'
+    };
+
+    // Use same service ID as site forms
+    if(window.emailjs){
+      emailjs.send('service_rvg801y','template_contact',params)
+        .then(function(){
+          form.style.display='none';
+          successEl.style.display='flex';
+          if(window.gtag)gtag('event','generate_lead',{form_type:'popup_contact',value:500});
+          setTimeout(closePopup,3000);
+        })
+        .catch(function(){
+          submitBtn.disabled=false;
+          submitBtn.textContent='Send Message';
+          alert('Something went wrong. Please email michael.abraham@compass.com directly.');
+        });
+    } else {
+      // EmailJS not loaded fallback — redirect to contact
+      window.location.href='/contact/?popup=1';
+    }
+  });
 })();
 </script>
 </body></html>
