@@ -1381,7 +1381,7 @@ function renderShortlist() {
     const query = `${p.addr.replace(/–/g,'-')}, ${CITY[p.area] || 'Los Angeles'} CA for sale`;
     const target = p.url || ('https://www.google.com/search?q=' + encodeURIComponent(query));
     return `
-      <div class="prop-card" onclick="openListing(${JSON.stringify(target)})" title="View listing for ${p.addr}">
+      <div class="prop-card" data-url="${target}" title="View listing for ${p.addr}">
         <div class="pc-photo">
           <img src="${p.photo}" alt="${p.addr}" loading="lazy" onerror="this.parentNode.classList.add('no-img')">
           <span class="pc-rank">${p.rank}</span>
@@ -1409,8 +1409,13 @@ function renderShortlist() {
   }).join('');
 }
 function openListing(url) {
-  window.open(url, '_blank', 'noopener');
+  if (url) window.open(url, '_blank', 'noopener');
 }
+// Delegated click — survives re-render on filter/sort
+document.getElementById('sl-grid').addEventListener('click', function(e) {
+  const card = e.target.closest('.prop-card');
+  if (card && card.dataset.url) openListing(card.dataset.url);
+});
 renderShortlist();
 </script>
 </body>
