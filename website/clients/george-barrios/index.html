@@ -582,13 +582,30 @@
   }
   .pc-arrow { transition: transform 0.2s; }
   .prop-card:hover .pc-arrow { transform: translateX(4px); }
-  .pc-top { padding: 22px 24px 18px; display: flex; align-items: flex-start; gap: 14px; }
-  .pc-rank {
-    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
-    background: var(--forest); color: var(--white);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700;
+  .pc-photo {
+    position: relative; width: 100%; height: 180px;
+    background: linear-gradient(135deg, #e8ebe8, #dde3dd);
+    overflow: hidden;
   }
+  .pc-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+  .prop-card:hover .pc-photo img { transform: scale(1.05); }
+  .pc-photo.no-img img { display: none; }
+  .pc-rank {
+    position: absolute; top: 12px; left: 12px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(28,61,49,0.92); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700;
+    backdrop-filter: blur(4px); box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  }
+  .pc-type-ov {
+    position: absolute; bottom: 12px; left: 12px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 980px;
+    background: rgba(255,255,255,0.94); color: var(--forest);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .pc-top { padding: 18px 24px 14px; display: flex; align-items: flex-start; gap: 14px; }
   .pc-head { flex: 1; min-width: 0; }
   .pc-addr { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.2; }
   .pc-hood { font-size: 12px; color: var(--body); margin-top: 3px; }
@@ -1309,26 +1326,26 @@ function selectArea(key) {
 
 /* ── SHORTLIST ── */
 const PROPS = [
-  { rank:1,  addr:'6720 Ferrara St',        hood:'Highland Park',  area:'Highland Park',  price:1148000, type:'Multi-Family', beds:6, baths:3, sqft:2454, lot:0.17, ppsf:468, dom:1,   flags:[['Fresh','green'],['Big lot','gold'],['Low $/SF','gold']] },
-  { rank:2,  addr:'4057 Baywood St',        hood:'Atwater Village',area:'Atwater Village',price:1190000, type:'Triplex',      beds:6, baths:4, sqft:2275, lot:0.16, ppsf:523, dom:4,   flags:[['Fresh','green'],['Triplex','blue'],['Big lot','gold']] },
-  { rank:3,  addr:'4413 La Clede Ave',      hood:'Atwater Village',area:'Atwater Village',price:1150000, type:'Duplex',       beds:4, baths:3, sqft:1891, lot:0.17, ppsf:608, dom:46,  flags:[['Big lot','gold'],['His top area','blue']] },
-  { rank:4,  addr:'219 S Avenue 60',        hood:'Highland Park',  area:'Highland Park',  price:1049000, type:'Duplex',       beds:4, baths:2, sqft:1677, lot:0.15, ppsf:626, dom:14,  flags:[['Value entry','gold']] },
-  { rank:5,  addr:'4563–4565 Lexington Ave',hood:'Silver Lake',    area:'Silver Lake',    price:1038000, type:'Duplex',       beds:4, baths:3, sqft:1600, lot:0.14, ppsf:649, dom:116, flags:[['Lowest price','gold'],['Neg. leverage','amber']] },
-  { rank:6,  addr:'228 Rosemont Ave',       hood:'Silver Lake',    area:'Silver Lake',    price:1200000, type:'Duplex',       beds:0, baths:0, sqft:2094, lot:0.13, ppsf:573, dom:94,  flags:[['$200K price cut','amber'],['Neg. leverage','amber']] },
-  { rank:7,  addr:'327 S Ave 57',           hood:'Highland Park',  area:'Highland Park',  price:1125000, type:'Quadruplex',   beds:7, baths:4, sqft:2898, lot:0.12, ppsf:388, dom:245, flags:[['4 units','blue'],['Low $/SF','gold']] },
-  { rank:8,  addr:'5745 Arroyo Dr',         hood:'Highland Park',  area:'Highland Park',  price:1200000, type:'Multi-Family', beds:12,baths:6, sqft:4092, lot:0.13, ppsf:293, dom:9,   flags:[['Income machine','blue'],['Low $/SF','gold']] },
-  { rank:9,  addr:'2726 Council St',        hood:'Silver Lake',    area:'Silver Lake',    price:1167200, type:'Multi-Family', beds:6, baths:6, sqft:3356, lot:0.11, ppsf:348, dom:23,  flags:[['Multi-unit','blue'],['Low $/SF','gold']] },
-  { rank:10, addr:'1209 Hyperion Ave',      hood:'Silver Lake',    area:'Silver Lake',    price:1129000, type:'Fourplex',     beds:4, baths:4, sqft:2945, lot:0.11, ppsf:383, dom:31,  flags:[['4 units','blue'],['Low $/SF','gold']] },
-  { rank:11, addr:'2644 Glendale Blvd',     hood:'Silver Lake',    area:'Silver Lake',    price:1099000, type:'Duplex',       beds:2, baths:2, sqft:1664, lot:0.12, ppsf:660, dom:15,  flags:[['Silver Lake','blue']] },
-  { rank:12, addr:'415 N Mentor Ave',       hood:'NE Pasadena',    area:'Pasadena',       price:1100000, type:'Multi-Family', beds:5, baths:3, sqft:2932, lot:0.22, ppsf:375, dom:75,  flags:[['Biggest lot','gold'],['Low $/SF','gold']] },
-  { rank:13, addr:'1428 N Hill Ave',        hood:'NE Pasadena',    area:'Pasadena',       price:1100000, type:'Duplex',       beds:5, baths:2, sqft:1881, lot:0.17, ppsf:585, dom:44,  flags:[['Big lot','gold']] },
-  { rank:14, addr:'3809 W 30th St',         hood:'Mid-City',       area:'Mid-City',       price:1180000, type:'Multi-Family', beds:6, baths:4, sqft:5213, lot:0.12, ppsf:226, dom:260, flags:[['Lowest $/SF','gold'],['Neg. leverage','amber']] },
-  { rank:15, addr:'343 Concord St',         hood:'South Glendale', area:'Glendale',       price:1199000, type:'Triplex',      beds:5, baths:5, sqft:1816, lot:0.14, ppsf:660, dom:77,  flags:[['Triplex','blue']] },
-  { rank:16, addr:'464 W Wilson Ave',       hood:'South Glendale', area:'Glendale',       price:1150000, type:'Duplex',       beds:3, baths:3, sqft:1708, lot:0.15, ppsf:673, dom:130, flags:[['Big lot','gold'],['Neg. leverage','amber']] },
-  { rank:17, addr:'2620 Alsace Ave',        hood:'Mid-City',       area:'Mid-City',       price:1150000, type:'Multi-Family', beds:4, baths:2, sqft:1736, lot:0.11, ppsf:662, dom:30,  flags:[['West Adams adj.','blue']] },
-  { rank:18, addr:'2821 S Sycamore Ave',    hood:'Mid-City',       area:'Mid-City',       price:1095000, type:'Multi-Family', beds:4, baths:3, sqft:1674, lot:0.11, ppsf:654, dom:31,  flags:[['West Adams adj.','blue']] },
-  { rank:19, addr:'44 N Berkeley Ave',      hood:'SE Pasadena',    area:'Pasadena',       price:1100000, type:'Duplex',       beds:3, baths:2, sqft:1436, lot:0.13, ppsf:766, dom:32,  flags:[['Duplex','blue']] },
-  { rank:20, addr:'3309 Hamilton Way',      hood:'Silver Lake',    area:'Silver Lake',    price:1200000, type:'Triplex',      beds:3, baths:0, sqft:2284, lot:0.06, ppsf:525, dom:25,  flags:[['Triplex','blue'],['Silver Lake','blue']] },
+  { rank:1,  addr:'6720 Ferrara St',        hood:'Highland Park',  area:'Highland Park',  price:1148000, type:'Multi-Family', beds:6, baths:3, sqft:2454, lot:0.17, ppsf:468, dom:1,   flags:[['Fresh','green'],['Big lot','gold'],['Low $/SF','gold']], url:'https://www.compass.com/homedetails/6720-Ferrara-St-Los-Angeles-CA-90042/1JIL24_pid/', photo:'https://www.compass.com/m/6a6953cde1b70288c806e743dc118d40fb4e99b9ae57a60dfbb27c412d659587/640x480.jpg' },
+  { rank:2,  addr:'4057 Baywood St',        hood:'Atwater Village',area:'Atwater Village',price:1190000, type:'Triplex',      beds:6, baths:4, sqft:2275, lot:0.16, ppsf:523, dom:4,   flags:[['Fresh','green'],['Triplex','blue'],['Big lot','gold']], url:'https://www.compass.com/homedetails/4057-Baywood-St-Los-Angeles-CA-90039/1J0FJP_pid/', photo:'https://www.compass.com/m/30396428dd4166f139b1f51c9b70d26a8f5515588806cecce5af7d2a3659860c/640x480.jpg' },
+  { rank:3,  addr:'4413 La Clede Ave',      hood:'Atwater Village',area:'Atwater Village',price:1150000, type:'Duplex',       beds:4, baths:3, sqft:1891, lot:0.17, ppsf:608, dom:46,  flags:[['Big lot','gold'],['His top area','blue']], url:'https://www.compass.com/homedetails/4413-La-Clede-Ave-Los-Angeles-CA-90039/1I832W_pid/', photo:'https://www.compass.com/m/106f2116f525b429a1b78980a3b04e6f16e39e33_img_0_184b9/640x480.jpg' },
+  { rank:4,  addr:'219 S Avenue 60',        hood:'Highland Park',  area:'Highland Park',  price:1049000, type:'Duplex',       beds:4, baths:2, sqft:1677, lot:0.15, ppsf:626, dom:14,  flags:[['Value entry','gold']], url:'https://www.compass.com/homedetails/219-S-Avenue-60-Los-Angeles-CA-90042/1ISW5W_pid/', photo:'https://www.compass.com/m/256ecd284c90083a29dd3eec3fb829cd66475cf5_img_0_759a0/640x480.jpg' },
+  { rank:5,  addr:'4563–4565 Lexington Ave',hood:'Silver Lake',    area:'Silver Lake',    price:1038000, type:'Duplex',       beds:4, baths:3, sqft:1600, lot:0.14, ppsf:649, dom:116, flags:[['Lowest price','gold'],['Neg. leverage','amber']], url:'https://www.compass.com/homedetails/4563-4565-Lexington-Ave-Los-Angeles-CA-90029/267UA1_pid/', photo:'https://www.compass.com/m/04f3b2cb7ac6bd201ec6c6e4f7b06150d9db6f5c_img_0_4a25f/640x480.jpg' },
+  { rank:6,  addr:'228 Rosemont Ave',       hood:'Silver Lake',    area:'Silver Lake',    price:1200000, type:'Duplex',       beds:0, baths:0, sqft:2094, lot:0.13, ppsf:573, dom:94,  flags:[['$200K price cut','amber'],['Neg. leverage','amber']], url:'https://www.compass.com/homedetails/228-Rosemont-Ave-Los-Angeles-CA-90026/1JNJ7Y_pid/', photo:'https://www.compass.com/m/9a0c534f429720e92fc7fd54ad3ba9d326c7e828_img_0_c2d12/640x480.jpg' },
+  { rank:7,  addr:'327 S Ave 57',           hood:'Highland Park',  area:'Highland Park',  price:1125000, type:'Quadruplex',   beds:7, baths:4, sqft:2898, lot:0.12, ppsf:388, dom:245, flags:[['4 units','blue'],['Low $/SF','gold']], url:'https://www.compass.com/homedetails/327-S-Ave-57-Los-Angeles-CA-90042/1K6BGE_pid/', photo:'https://www.compass.com/m/aa49aee8127fbe08d1ad8bb3d3cbbe1793204dcf_img_0_1f75e/640x480.jpg' },
+  { rank:8,  addr:'5745 Arroyo Dr',         hood:'Highland Park',  area:'Highland Park',  price:1200000, type:'Multi-Family', beds:12,baths:6, sqft:4092, lot:0.13, ppsf:293, dom:9,   flags:[['Income machine','blue'],['Low $/SF','gold']], url:'https://www.compass.com/homedetails/5745-Arroyo-Dr-Los-Angeles-CA-90042/1J4F03_pid/', photo:'https://www.compass.com/m/51bc5c3d6edc8e934f0cdbb7e87e44c85dabfd395717240e4d13b6a3737d729c/640x480.jpg' },
+  { rank:9,  addr:'2726 Council St',        hood:'Silver Lake',    area:'Silver Lake',    price:1167200, type:'Multi-Family', beds:6, baths:6, sqft:3356, lot:0.11, ppsf:348, dom:23,  flags:[['Multi-unit','blue'],['Low $/SF','gold']], url:'https://www.compass.com/homedetails/2726-Council-St-Los-Angeles-CA-90026/1L09N1_pid/', photo:'https://www.compass.com/m/396cf2fde073f560348a006ba110b20e111c3266_img_0_9519b/640x480.jpg' },
+  { rank:10, addr:'1209 Hyperion Ave',      hood:'Silver Lake',    area:'Silver Lake',    price:1129000, type:'Fourplex',     beds:4, baths:4, sqft:2945, lot:0.11, ppsf:383, dom:31,  flags:[['4 units','blue'],['Low $/SF','gold']], url:'https://www.compass.com/homedetails/1209-Hyperion-Ave-Los-Angeles-CA-90029/1IG3FB_pid/', photo:'https://www.compass.com/m/effd40805a5e7bbe973d9665f7fe5c9ac4fac7ae_img_0_36a83/640x480.jpg' },
+  { rank:11, addr:'2644 Glendale Blvd',     hood:'Silver Lake',    area:'Silver Lake',    price:1099000, type:'Duplex',       beds:2, baths:2, sqft:1664, lot:0.12, ppsf:660, dom:15,  flags:[['Silver Lake','blue']], url:'https://www.compass.com/homedetails/2644-Glendale-Blvd-Los-Angeles-CA-90039/1KP9KR_pid/', photo:'https://www.compass.com/m/8d77522fedd8b9c5bd619f4ccda23eb6ab06dfd2_img_0_9a505/640x480.jpg' },
+  { rank:12, addr:'415 N Mentor Ave',       hood:'NE Pasadena',    area:'Pasadena',       price:1100000, type:'Multi-Family', beds:5, baths:3, sqft:2932, lot:0.22, ppsf:375, dom:75,  flags:[['Biggest lot','gold'],['Low $/SF','gold']], url:'https://www.compass.com/homedetails/415-N-Mentor-Ave-Pasadena-CA-91106/2062716128335158201_lid/', photo:'https://www.compass.com/m/e5f17e8429dec4a9d5f87c64f396eec586e53c70_img_0_c43dd/640x480.jpg' },
+  { rank:13, addr:'1428 N Hill Ave',        hood:'NE Pasadena',    area:'Pasadena',       price:1100000, type:'Duplex',       beds:5, baths:2, sqft:1881, lot:0.17, ppsf:585, dom:44,  flags:[['Big lot','gold']], url:'https://www.compass.com/homedetails/1428-N-Hill-Ave-Pasadena-CA-91104/1HY1AO_pid/', photo:'https://www.compass.com/m/1b8e0264adcdb8ee3905f3c76bbffa86b39decd2_img_0_ae0e4/640x480.jpg' },
+  { rank:14, addr:'3809 W 30th St',         hood:'Mid-City',       area:'Mid-City',       price:1180000, type:'Multi-Family', beds:6, baths:4, sqft:5213, lot:0.12, ppsf:226, dom:260, flags:[['Lowest $/SF','gold'],['Neg. leverage','amber']], url:'https://www.compass.com/homedetails/3809-W-30th-St-Los-Angeles-CA-90016/1K20PE_pid/', photo:'https://www.compass.com/m/fd4edb8187cc6f09e8ff27a4d0dff0efffeccc63_img_0_40260/640x480.jpg' },
+  { rank:15, addr:'343 Concord St',         hood:'South Glendale', area:'Glendale',       price:1199000, type:'Triplex',      beds:5, baths:5, sqft:1816, lot:0.14, ppsf:660, dom:77,  flags:[['Triplex','blue']], url:'https://www.compass.com/homedetails/343-Concord-St-Glendale-CA-91203/1HY2IU_pid/', photo:'https://www.compass.com/m/63f198bb0968d2e6b978702d4560338b7c1257de_img_0_42255/640x480.jpg' },
+  { rank:16, addr:'464 W Wilson Ave',       hood:'South Glendale', area:'Glendale',       price:1150000, type:'Duplex',       beds:3, baths:3, sqft:1708, lot:0.15, ppsf:673, dom:130, flags:[['Big lot','gold'],['Neg. leverage','amber']], url:'https://www.compass.com/homedetails/464-W-Wilson-Ave-Glendale-CA-91203/1KLU1Z_pid/', photo:'https://www.compass.com/m/f492b065f3789c3ef56be71600725a22929ba99c_img_0_f2ecc/640x480.jpg' },
+  { rank:17, addr:'2620 Alsace Ave',        hood:'Mid-City',       area:'Mid-City',       price:1150000, type:'Multi-Family', beds:4, baths:2, sqft:1736, lot:0.11, ppsf:662, dom:30,  flags:[['West Adams adj.','blue']], url:'https://www.compass.com/homedetails/2620-Alsace-Ave-Los-Angeles-CA-90016/1L6GKZ_pid/', photo:'https://www.compass.com/m/66e4912844601b9ee92e7044659fb67694c790bd_img_0_5e7b4/640x480.jpg' },
+  { rank:18, addr:'2821 S Sycamore Ave',    hood:'Mid-City',       area:'Mid-City',       price:1095000, type:'Multi-Family', beds:4, baths:3, sqft:1674, lot:0.11, ppsf:654, dom:31,  flags:[['West Adams adj.','blue']], url:'https://www.compass.com/homedetails/2821-S-Sycamore-Ave-Los-Angeles-CA-90016/1JNLND_pid/', photo:'https://www.compass.com/m/8db5ff9bf63d8b1cb64d73de8f96595f67edacfa_img_0_aa163/640x480.jpg' },
+  { rank:19, addr:'44 N Berkeley Ave',      hood:'SE Pasadena',    area:'Pasadena',       price:1100000, type:'Duplex',       beds:3, baths:2, sqft:1436, lot:0.13, ppsf:766, dom:32,  flags:[['Duplex','blue']], url:'https://www.compass.com/homedetails/44-N-Berkeley-Ave-Pasadena-CA-91107/1J9U1D_pid/', photo:'https://www.compass.com/m/c4a4f8df399f98ce0dc5ed9f2310441add070e58_img_0_2db48/640x480.jpg' },
+  { rank:20, addr:'3309 Hamilton Way',      hood:'Silver Lake',    area:'Silver Lake',    price:1200000, type:'Triplex',      beds:3, baths:0, sqft:2284, lot:0.06, ppsf:525, dom:25,  flags:[['Triplex','blue'],['Silver Lake','blue']], url:'https://www.compass.com/homedetails/3309-Hamilton-Way-Los-Angeles-CA-90026/1J19T4_pid/', photo:'https://www.compass.com/m/6c5271344de1f162ff3cb3cec97d54d3a45491cd_img_0_18967/640x480.jpg' },
 ];
 
 let hoodFilter = 'all';
@@ -1362,10 +1379,15 @@ function renderShortlist() {
       : 'Multi-unit';
     const flags = p.flags.map(f => `<span class="pc-flag pcf-${f[1]}">${f[0]}</span>`).join('');
     const query = `${p.addr.replace(/–/g,'-')}, ${CITY[p.area] || 'Los Angeles'} CA for sale`;
+    const target = p.url || ('https://www.google.com/search?q=' + encodeURIComponent(query));
     return `
-      <div class="prop-card" onclick="openListing(${JSON.stringify(query)})" title="View listing for ${p.addr}">
+      <div class="prop-card" onclick="openListing(${JSON.stringify(target)})" title="View listing for ${p.addr}">
+        <div class="pc-photo">
+          <img src="${p.photo}" alt="${p.addr}" loading="lazy" onerror="this.parentNode.classList.add('no-img')">
+          <span class="pc-rank">${p.rank}</span>
+          <span class="pc-type-ov">${p.type}</span>
+        </div>
         <div class="pc-top">
-          <div class="pc-rank">${p.rank}</div>
           <div class="pc-head">
             <div class="pc-addr">${p.addr}</div>
             <div class="pc-hood">${p.hood}</div>
@@ -1375,7 +1397,6 @@ function renderShortlist() {
             <div class="pc-price-l">${bb}</div>
           </div>
         </div>
-        <span class="pc-type">${p.type}</span>
         <div class="pc-stats">
           <div class="pc-stat"><div class="pc-stat-v">$${p.ppsf}</div><div class="pc-stat-l">$/Sq Ft</div></div>
           <div class="pc-stat"><div class="pc-stat-v">${p.lot} AC</div><div class="pc-stat-l">Lot</div></div>
@@ -1383,12 +1404,12 @@ function renderShortlist() {
           <div class="pc-stat"><div class="pc-stat-v">${p.dom}</div><div class="pc-stat-l">Days</div></div>
         </div>
         <div class="pc-flags">${flags}</div>
-        <div class="pc-foot"><span>View listing</span><span class="pc-arrow">→</span></div>
+        <div class="pc-foot"><span>View on Compass</span><span class="pc-arrow">→</span></div>
       </div>`;
   }).join('');
 }
-function openListing(q) {
-  window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank', 'noopener');
+function openListing(url) {
+  window.open(url, '_blank', 'noopener');
 }
 renderShortlist();
 </script>
