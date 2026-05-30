@@ -1283,6 +1283,9 @@ function selectArea(key) {
   if (markerEl) markerEl.classList.add('selected');
 
   // Fly map
+  map.flyTo([data.lat, data.lng], data.zoom, { duration: 0.9, easeLinearity: 0.35 });
+}
+
 /* ── SHORTLIST ── */
 const PROPS = [
   { rank:1,  addr:'6720 Ferrara St',        hood:'Highland Park',  area:'Highland Park',  price:1148000, type:'Multi-Family', beds:6, baths:3, sqft:2454, lot:0.17, ppsf:468, dom:1,   flags:[['Fresh','green'],['Big lot','gold'],['Low $/SF','gold']] },
