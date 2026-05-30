@@ -444,19 +444,28 @@
   }
   .ac-perk::before { content: '→'; position: absolute; left: 0; color: var(--brass); font-size: 11px; }
 
-  /* Leaflet custom markers */
-  .custom-marker {
-    background: var(--forest); color: white;
-    border-radius: 980px; padding: 5px 12px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px; font-weight: 700;
-    white-space: nowrap;
-    border: 2px solid white;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: background 0.2s;
+  /* Leaflet markers — clean dot + legible label */
+  .map-pin { display: flex; align-items: center; cursor: pointer; }
+  .map-pin .dot {
+    width: 15px; height: 15px; border-radius: 50%;
+    background: var(--forest); border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    flex-shrink: 0; transition: background 0.2s, transform 0.2s;
   }
-  .custom-marker.selected { background: #b8920e; border-color: var(--brass); }
+  .map-pin .lbl {
+    margin-left: 7px;
+    background: #fff; color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.01em;
+    padding: 4px 11px; border-radius: 980px;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.22);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: background 0.2s, color 0.2s;
+  }
+  .map-pin:hover .dot { transform: scale(1.15); }
+  .map-pin.selected .dot { background: var(--brass); transform: scale(1.2); }
+  .map-pin.selected .lbl { background: var(--forest); color: #fff; }
 
   /* ── DUPLEX SECTION ───────────── */
   #duplex { background: var(--forest); padding: 96px 0; }
@@ -557,10 +566,19 @@
   .prop-card {
     border: 1px solid var(--hairline); border-radius: 18px;
     overflow: hidden; background: var(--white);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     display: flex; flex-direction: column;
+    cursor: pointer;
   }
-  .prop-card:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(0,0,0,0.08); }
+  .prop-card:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(0,0,0,0.08); border-color: var(--forest); }
+  .pc-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; border-top: 1px solid var(--hairline);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    color: var(--forest); margin-top: auto;
+  }
+  .pc-arrow { transition: transform 0.2s; }
+  .prop-card:hover .pc-arrow { transform: translateX(4px); }
   .pc-top { padding: 22px 24px 18px; display: flex; align-items: flex-start; gap: 14px; }
   .pc-rank {
     flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
@@ -588,7 +606,7 @@
   .pc-stat { background: var(--cream); padding: 14px 12px; text-align: center; }
   .pc-stat-v { font-size: 14px; font-weight: 700; color: var(--ink); }
   .pc-stat-l { font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
-  .pc-flags { padding: 16px 24px 22px; display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+  .pc-flags { padding: 16px 24px 18px; display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
   .pc-flag {
     font-size: 10px; font-weight: 600; letter-spacing: 0.03em;
     padding: 4px 11px; border-radius: 980px;
@@ -1244,8 +1262,8 @@ let selectedArea = null;
 Object.entries(AREAS).forEach(([key, data]) => {
   const icon = L.divIcon({
     className: '',
-    html: `<div class="custom-marker" id="marker-${key}">${data.name}</div>`,
-    iconAnchor: [0, 0]
+    html: `<div class="map-pin" id="marker-${key}"><span class="dot"></span><span class="lbl">${data.name}</span></div>`,
+    iconAnchor: [7, 7]
   });
   const marker = L.marker([data.lat, data.lng], { icon }).addTo(map);
   marker.on('click', () => selectArea(key));
@@ -1334,13 +1352,15 @@ function renderShortlist() {
   document.getElementById('sl-count').textContent = list.length;
 
   const grid = document.getElementById('sl-grid');
+  const CITY = { 'Highland Park':'Los Angeles', 'Silver Lake':'Los Angeles', 'Atwater Village':'Los Angeles', 'Mid-City':'Los Angeles', 'Pasadena':'Pasadena', 'Glendale':'Glendale' };
   grid.innerHTML = list.map(p => {
     const bb = (p.beds || p.baths)
       ? `${p.beds || '—'} bd · ${p.baths || '—'} ba`
       : 'Multi-unit';
     const flags = p.flags.map(f => `<span class="pc-flag pcf-${f[1]}">${f[0]}</span>`).join('');
+    const query = `${p.addr.replace(/–/g,'-')}, ${CITY[p.area] || 'Los Angeles'} CA for sale`;
     return `
-      <div class="prop-card">
+      <div class="prop-card" onclick="openListing(${JSON.stringify(query)})" title="View listing for ${p.addr}">
         <div class="pc-top">
           <div class="pc-rank">${p.rank}</div>
           <div class="pc-head">
@@ -1360,8 +1380,12 @@ function renderShortlist() {
           <div class="pc-stat"><div class="pc-stat-v">${p.dom}</div><div class="pc-stat-l">Days</div></div>
         </div>
         <div class="pc-flags">${flags}</div>
+        <div class="pc-foot"><span>View listing</span><span class="pc-arrow">→</span></div>
       </div>`;
   }).join('');
+}
+function openListing(q) {
+  window.open('https://www.google.com/search?q=' + encodeURIComponent(q), '_blank', 'noopener');
 }
 renderShortlist();
 </script>
