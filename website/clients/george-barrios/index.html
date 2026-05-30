@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Path to Ownership — George Barrios | AMRE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1c3d31;
+    --navy: #070B33;
+    --brass: #ffc13c;
+    --ink: #1a1a1a;
+    --white: #FFFFFF;
+    --cream: #F9F7F4;
+    --muted: #6B7280;
+    --hairline: #E5E7EB;
+    --blue: #0071E3;
+    --green: #248A3D;
+    --amber: #B25000;
+    --red: #C0392B;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── GATE ──────────────────────────────────────────── */
+  #gate {
+    position: fixed; inset: 0; z-index: 1000;
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 32px;
+  }
+  #gate .g-logo {
+    display: flex; align-items: center; gap: 16px;
+  }
+  #gate .g-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--white); letter-spacing: 0.04em;
+  }
+  #gate .g-divider {
+    width: 1px; height: 28px;
+    background: rgba(255,255,255,0.25);
+  }
+  #gate .g-compass {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; font-weight: 500;
+    color: rgba(255,255,255,0.6); letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  #gate h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 400;
+    color: var(--white); text-align: center;
+    line-height: 1.3;
+  }
+  #gate p {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    text-align: center; max-width: 280px;
+  }
+  #gate-form {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 12px; width: 280px;
+  }
+  #gate-input {
+    width: 100%; padding: 14px 20px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px; color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px; text-align: center;
+    letter-spacing: 0.08em;
+    outline: none; transition: border-color 0.2s;
+  }
+  #gate-input::placeholder { color: rgba(255,255,255,0.3); }
+  #gate-input:focus { border-color: var(--brass); }
+  #gate-btn {
+    width: 100%; padding: 14px;
+    background: var(--brass); border: none;
+    border-radius: 980px; color: var(--navy);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px; font-weight: 600;
+    letter-spacing: 0.06em; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  #gate-btn:hover { opacity: 0.88; }
+  #gate-error {
+    font-size: 12px; color: #ff6b6b;
+    display: none; text-align: center;
+  }
+  #gate.shake { animation: shake 0.4s ease; }
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
+  }
+
+  /* ── NAV ──────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+    height: 56px;
+    background: rgba(7,11,51,0.88);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--white); letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-brand span.sep {
+    width: 1px; height: 18px;
+    background: rgba(255,255,255,0.3);
+  }
+  .nav-brand span.comp {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px; font-weight: 500;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; gap: 24px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 12px; font-weight: 500;
+    color: rgba(255,255,255,0.65); letter-spacing: 0.06em;
+    text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--brass); }
+  .nav-pill {
+    font-size: 11px; font-weight: 600;
+    background: rgba(255,193,60,0.15); border: 1px solid rgba(255,193,60,0.3);
+    color: var(--brass); border-radius: 980px;
+    padding: 4px 14px; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ──────────────────────────────────────────── */
+  #hero {
+    background: var(--navy);
+    padding: 140px 32px 96px;
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(28,61,49,0.6) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #hero .eyebrow {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--brass); margin-bottom: 20px;
+  }
+  #hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700; color: var(--white);
+    line-height: 1.1; margin-bottom: 20px;
+    position: relative;
+  }
+  #hero .subtitle {
+    font-size: 16px; font-weight: 300;
+    color: rgba(255,255,255,0.6); line-height: 1.7;
+    max-width: 560px; margin: 0 auto 48px;
+  }
+  .hero-stats {
+    display: flex; gap: 16px; justify-content: center;
+    flex-wrap: wrap;
+  }
+  .stat-pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 980px; padding: 10px 24px;
+    color: var(--white); font-size: 13px; font-weight: 500;
+  }
+  .stat-pill strong {
+    color: var(--brass); font-weight: 700;
+  }
+
+  /* ── SECTIONS ──────────────────────────────────────── */
+  section {
+    padding: 96px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  section.full { max-width: 100%; padding: 96px 0; }
+  section.full .inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--brass); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700; color: var(--ink);
+    line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 15px; font-weight: 300;
+    color: var(--muted); line-height: 1.7;
+    max-width: 600px; margin-bottom: 56px;
+  }
+
+  /* ── PROCESS STEPS ──────────────────────────────────── */
+  #process { background: var(--cream); }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px; background: var(--hairline);
+    border-radius: 20px; overflow: hidden;
+  }
+  .step-card {
+    background: var(--white); padding: 40px 32px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 700;
+    color: rgba(28,61,49,0.12); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-icon {
+    font-size: 28px; margin-bottom: 16px; display: block;
+  }
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .step-desc {
+    font-size: 13px; font-weight: 400;
+    color: var(--muted); line-height: 1.7;
+  }
+  .step-tag {
+    display: inline-block; margin-top: 16px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 980px;
+  }
+  .tag-active { background: rgba(36,138,61,0.1); color: var(--green); }
+  .tag-next { background: rgba(178,80,0,0.1); color: var(--amber); }
+  .tag-future { background: rgba(107,114,128,0.1); color: var(--muted); }
+
+  /* ── TIMELINE BAR ──────────────────────────────────── */
+  .timeline-bar {
+    background: var(--white); border-radius: 20px;
+    padding: 40px; margin-top: 48px;
+    border: 1px solid var(--hairline);
+  }
+  .tl-label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .tl-track {
+    position: relative; height: 6px;
+    background: var(--hairline); border-radius: 3px;
+    margin-bottom: 32px;
+  }
+  .tl-fill {
+    height: 100%; border-radius: 3px;
+    background: linear-gradient(90deg, var(--forest), var(--brass));
+    width: 8%; /* ~1mo of 6-8mo journey */
+    transition: width 1s ease;
+  }
+  .tl-milestones {
+    display: flex; justify-content: space-between;
+    position: relative;
+  }
+  .tl-m {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 8px; flex: 1; position: relative;
+  }
+  .tl-m::before {
+    content: '';
+    position: absolute; top: -37px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--hairline);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--hairline);
+    left: 50%; transform: translateX(-50%);
+  }
+  .tl-m.done::before { background: var(--forest); box-shadow: 0 0 0 2px var(--forest); }
+  .tl-m.now::before {
+    background: var(--brass);
+    box-shadow: 0 0 0 4px rgba(255,193,60,0.3);
+    animation: pulse-dot 2s infinite;
+  }
+  @keyframes pulse-dot {
+    0%,100% { box-shadow: 0 0 0 4px rgba(255,193,60,0.3); }
+    50% { box-shadow: 0 0 0 8px rgba(255,193,60,0.1); }
+  }
+  .tl-m-title { font-size: 12px; font-weight: 600; color: var(--ink); text-align: center; }
+  .tl-m-sub { font-size: 11px; color: var(--muted); text-align: center; }
+
+  /* ── MORTGAGE CALCULATOR ──────────────────────────── */
+  #calculator { background: var(--navy); padding: 96px 0; }
+  #calculator .inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  #calculator .section-title { color: var(--white); }
+  #calculator .section-sub { color: rgba(255,255,255,0.55); }
+  #calculator .section-eyebrow { color: var(--brass); }
+
+  .calc-layout {
+    display: grid; grid-template-columns: 340px 1fr;
+    gap: 24px; align-items: start;
+  }
+  .calc-controls {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 32px;
+    display: flex; flex-direction: column; gap: 24px;
+  }
+  .ctrl-group label {
+    display: block; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 10px;
+  }
+  .ctrl-group .val-display {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 600; color: var(--brass);
+    margin-bottom: 10px;
+  }
+  input[type=range] {
+    width: 100%; height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px; outline: none;
+    -webkit-appearance: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--brass); cursor: pointer;
+    box-shadow: 0 0 0 3px rgba(255,193,60,0.3);
+  }
+  .toggle-row {
+    display: flex; gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px; padding: 4px;
+  }
+  .toggle-btn {
+    flex: 1; padding: 8px 12px;
+    border: none; border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+    color: rgba(255,255,255,0.5);
+    background: transparent;
+  }
+  .toggle-btn.active {
+    background: var(--brass); color: var(--navy);
+  }
+
+  .calc-results {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .result-card {
+    border-radius: 18px; padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .result-card.solo {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .result-card.duplex {
+    background: rgba(28,61,49,0.5);
+    border: 1px solid rgba(28,61,49,0.8);
+  }
+  .result-card .rc-label {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 8px;
+  }
+  .result-card .rc-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px; font-weight: 700;
+    color: var(--white); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .result-card.duplex .rc-main { color: var(--brass); }
+  .result-card .rc-sub {
+    font-size: 13px; color: rgba(255,255,255,0.45);
+  }
+  .result-card .rc-breakdown {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px; margin-top: 24px;
+  }
+  .rc-item {
+    background: rgba(255,255,255,0.05); border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .rc-item .ri-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 4px;
+  }
+  .rc-item .ri-val {
+    font-size: 16px; font-weight: 700; color: var(--white);
+  }
+  .savings-banner {
+    background: linear-gradient(135deg, rgba(255,193,60,0.15), rgba(28,61,49,0.3));
+    border: 1px solid rgba(255,193,60,0.25);
+    border-radius: 14px; padding: 20px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sb-text { font-size: 14px; color: rgba(255,255,255,0.7); }
+  .sb-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 700; color: var(--brass);
+  }
+
+  /* ── AREAS MAP ──────────────────────────────────────── */
+  #areas { background: var(--white); }
+  .areas-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .area-card {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--hairline);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+  }
+  .area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  }
+  .area-header {
+    padding: 28px 28px 20px;
+    position: relative;
+  }
+  .area-flag {
+    position: absolute; top: 20px; right: 20px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; padding: 4px 12px;
+    border-radius: 980px;
+  }
+  .flag-top { background: rgba(28,61,49,0.1); color: var(--forest); }
+  .flag-value { background: rgba(178,80,0,0.1); color: var(--amber); }
+  .flag-hip { background: rgba(0,113,227,0.1); color: var(--blue); }
+  .area-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700; color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .area-tagline {
+    font-size: 12px; color: var(--muted);
+    font-weight: 400;
+  }
+  .area-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--hairline);
+  }
+  .as-item {
+    background: var(--white); padding: 18px 20px;
+  }
+  .as-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .as-value {
+    font-size: 18px; font-weight: 700; color: var(--ink);
+  }
+  .as-note {
+    font-size: 11px; color: var(--muted); margin-top: 2px;
+  }
+  .area-what {
+    padding: 20px 28px 24px;
+    background: var(--cream);
+  }
+  .aw-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .aw-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .aw-items li {
+    font-size: 13px; color: var(--ink); font-weight: 400;
+    padding-left: 16px; position: relative;
+  }
+  .aw-items li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--brass); font-size: 12px;
+  }
+
+  /* ── DUPLEX CASE ──────────────────────────────────── */
+  #duplex { background: var(--forest); padding: 96px 0; color: var(--white); }
+  #duplex .inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  #duplex .section-title { color: var(--white); }
+  #duplex .section-sub { color: rgba(255,255,255,0.6); }
+  #duplex .section-eyebrow { color: var(--brass); }
+
+  .duplex-cards {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2px; background: rgba(255,255,255,0.1);
+    border-radius: 20px; overflow: hidden;
+  }
+  .dc-card {
+    background: rgba(255,255,255,0.05); padding: 40px;
+  }
+  .dc-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--white);
+    margin-bottom: 8px;
+  }
+  .dc-card p {
+    font-size: 13px; color: rgba(255,255,255,0.6);
+    line-height: 1.7; margin-bottom: 24px;
+  }
+  .dc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .dc-list li {
+    font-size: 13px; color: rgba(255,255,255,0.8);
+    padding-left: 20px; position: relative; line-height: 1.5;
+  }
+  .dc-list li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--brass); font-weight: 700;
+  }
+  .duplex-highlight {
+    background: rgba(255,193,60,0.1); border: 1px solid rgba(255,193,60,0.2);
+    border-radius: 18px; padding: 40px; margin-top: 24px;
+  }
+  .dh-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .dh-item .dh-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px;
+  }
+  .dh-item .dh-val {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: var(--brass);
+  }
+  .dh-item .dh-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; }
+
+  /* ── NEXT STEPS ──────────────────────────────────── */
+  #nextsteps { background: var(--cream); }
+  .ns-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .ns-card {
+    background: var(--white); border-radius: 20px;
+    padding: 36px 32px;
+    border: 1px solid var(--hairline);
+  }
+  .ns-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px; font-weight: 700; color: var(--brass);
+    letter-spacing: 0.04em; margin-bottom: 16px;
+  }
+  .ns-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--ink);
+    margin-bottom: 10px; line-height: 1.2;
+  }
+  .ns-body {
+    font-size: 13px; color: var(--muted); line-height: 1.7;
+  }
+  .ns-cta {
+    display: inline-block; margin-top: 20px;
+    font-size: 12px; font-weight: 600; color: var(--forest);
+    text-decoration: none; letter-spacing: 0.06em;
+    border-bottom: 1px solid rgba(28,61,49,0.3);
+    padding-bottom: 2px; transition: opacity 0.2s;
+  }
+  .ns-cta:hover { opacity: 0.65; }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  footer {
+    background: var(--navy); padding: 48px 32px;
+    text-align: center;
+  }
+  .f-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700; color: var(--white);
+    margin-bottom: 12px;
+  }
+  .f-sub {
+    font-size: 12px; color: rgba(255,255,255,0.35);
+    margin-bottom: 8px;
+  }
+  .f-updated {
+    font-size: 11px; color: rgba(255,255,255,0.25);
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────────── */
+  @media (max-width: 860px) {
+    .calc-layout { grid-template-columns: 1fr; }
+    .duplex-cards { grid-template-columns: 1fr; }
+    .ns-grid { grid-template-columns: 1fr; }
+    .dh-grid { grid-template-columns: repeat(2,1fr); }
+    nav .nav-links { display: none; }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 20px; }
+    .hero-stats { flex-direction: column; align-items: center; }
+    .tl-milestones { gap: 8px; }
+    .tl-m-title { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- GATE -->
+<div id="gate">
+  <div class="g-logo">
+    <span class="g-wordmark">AMRE</span>
+    <span class="g-divider"></span>
+    <span class="g-compass">Compass</span>
+  </div>
+  <h1>Your Path to<br>Homeownership</h1>
+  <p>A private guide prepared for George Barrios by Michael Abraham &amp; Ania De Pourbaix</p>
+  <div id="gate-form">
+    <input id="gate-input" type="password" placeholder="Enter access code" autocomplete="off">
+    <button id="gate-btn">View My Dashboard →</button>
+    <div id="gate-error">Incorrect code. Please try again.</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    AMRE <span class="sep"></span><span class="comp">Compass</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#process">Process</a></li>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#duplex">Duplex Strategy</a></li>
+    <li><a href="#nextsteps">Next Steps</a></li>
+  </ul>
+  <span class="nav-pill">Buyer · $1.2M</span>
+</nav>
+
+<!-- HERO -->
+<section id="hero" style="max-width:100%; padding:140px 32px 96px;">
+  <div class="eyebrow">Prepared for George Barrios · May 2026</div>
+  <h1>Your LA Real Estate<br>Journey Starts Here</h1>
+  <p class="subtitle">You're making exactly the right move at the right time. This guide walks you through everything — from the process and true costs, to the areas that fit your life and budget.</p>
+  <div class="hero-stats">
+    <div class="stat-pill">Budget <strong>$1.2M</strong></div>
+    <div class="stat-pill">Down Payment <strong>~$240K</strong></div>
+    <div class="stat-pill">Timeline <strong>6–8 months</strong></div>
+    <div class="stat-pill">Strategy <strong>SFR or Duplex</strong></div>
+    <div class="stat-pill">Lease Out <strong>February 2027</strong></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-eyebrow">The Journey</div>
+  <h2 class="section-title">How buying a home<br>actually works</h2>
+  <p class="section-sub">Most first-time buyers are surprised to learn how long the process takes — and how much of it happens before you ever make an offer. Here's the full picture.</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <span class="step-icon">🎯</span>
+      <div class="step-title">Clarify & Strategize</div>
+      <div class="step-desc">Define your priorities, target areas, and property type. Decide between a single-family home or a duplex that generates rental income from day one.</div>
+      <span class="step-tag tag-active">Where You Are</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <span class="step-icon">🏦</span>
+      <div class="step-title">Get Pre-Approved</div>
+      <div class="step-desc">Meet with a mortgage broker to understand your exact buying power. Pre-approval takes 2–5 days and is required before any serious offer. Your $200K salary + stock options put you in a strong position.</div>
+      <span class="step-tag tag-next">Next Step</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <span class="step-icon">🔍</span>
+      <div class="step-title">Explore & Educate</div>
+      <div class="step-desc">Attend open houses on Sundays and Tuesdays. This is about calibrating your eye — what $1.2M actually looks like in each neighborhood. Takes 4–8 weeks.</div>
+      <span class="step-tag tag-future">Months 1–2</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <span class="step-icon">✍️</span>
+      <div class="step-title">Make an Offer</div>
+      <div class="step-desc">When you find the right property, we craft a competitive offer — price, terms, contingencies. In this market, being prepared means moving fast when the right one appears.</div>
+      <span class="step-tag tag-future">Months 2–5</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num">05</div>
+      <span class="step-icon">🔬</span>
+      <div class="step-title">Inspect & Negotiate</div>
+      <div class="step-desc">17-day inspection window. General inspection, sewer scope, roof, pest — we determine what's material. Findings become leverage for credits or price reductions.</div>
+      <span class="step-tag tag-future">Weeks 3–5 in Escrow</span>
+    </div>
+    <div class="step-card">
+      <div class="step-num">06</div>
+      <span class="step-icon">🗝️</span>
+      <div class="step-title">Close & Move In</div>
+      <div class="step-desc">Sign final docs, wire down payment + closing costs (3–4% of purchase price). Keys in hand. You now own real estate in Los Angeles.</div>
+      <span class="step-tag tag-future">~30 Days After Offer</span>
+    </div>
+  </div>
+
+  <!-- Timeline bar -->
+  <div class="timeline-bar">
+    <div class="tl-label">Your 6–8 Month Journey</div>
+    <div class="tl-track"><div class="tl-fill"></div></div>
+    <div class="tl-milestones">
+      <div class="tl-m done">
+        <div class="tl-m-title">First<br>Conversation</div>
+        <div class="tl-m-sub">May 2026</div>
+      </div>
+      <div class="tl-m now">
+        <div class="tl-m-title">Pre-Approval<br>+ Exploring</div>
+        <div class="tl-m-sub">June–July</div>
+      </div>
+      <div class="tl-m">
+        <div class="tl-m-title">Active<br>Searching</div>
+        <div class="tl-m-sub">Aug–Sep</div>
+      </div>
+      <div class="tl-m">
+        <div class="tl-m-title">Offer<br>Accepted</div>
+        <div class="tl-m-sub">Oct–Nov</div>
+      </div>
+      <div class="tl-m">
+        <div class="tl-m-title">Escrow<br>Closes</div>
+        <div class="tl-m-sub">Nov–Jan</div>
+      </div>
+      <div class="tl-m">
+        <div class="tl-m-title">Lease Ends<br>→ Move In</div>
+        <div class="tl-m-sub">Feb 2027</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MORTGAGE CALCULATOR -->
+<div id="calculator">
+  <div class="inner">
+    <div class="section-eyebrow">Run the Numbers</div>
+    <h2 class="section-title">Mortgage Calculator</h2>
+    <p class="section-sub">See your real monthly cost — and how collecting rent from a second unit changes everything.</p>
+
+    <div class="calc-layout">
+      <!-- Controls -->
+      <div class="calc-controls">
+        <div class="ctrl-group">
+          <label>Purchase Price</label>
+          <div class="val-display" id="disp-price">$1,200,000</div>
+          <input type="range" id="sl-price" min="700000" max="1200000" step="25000" value="1200000">
+          <div style="display:flex;justify-content:space-between;margin-top:6px;">
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">$700K</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">$1.2M</span>
+          </div>
+        </div>
+
+        <div class="ctrl-group">
+          <label>Down Payment</label>
+          <div class="val-display" id="disp-down">20% — $240,000</div>
+          <input type="range" id="sl-down" min="10" max="30" step="5" value="20">
+          <div style="display:flex;justify-content:space-between;margin-top:6px;">
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">10%</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">30%</span>
+          </div>
+        </div>
+
+        <div class="ctrl-group">
+          <label>Interest Rate</label>
+          <div class="val-display" id="disp-rate">6.75%</div>
+          <input type="range" id="sl-rate" min="600" max="800" step="25" value="675">
+          <div style="display:flex;justify-content:space-between;margin-top:6px;">
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">6.0%</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">8.0%</span>
+          </div>
+        </div>
+
+        <div class="ctrl-group">
+          <label>Rental Income (Duplex Unit)</label>
+          <div class="val-display" id="disp-rent">$2,400 / mo</div>
+          <input type="range" id="sl-rent" min="1500" max="3500" step="100" value="2400">
+          <div style="display:flex;justify-content:space-between;margin-top:6px;">
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">$1,500</span>
+            <span style="font-size:11px;color:rgba(255,255,255,0.3)">$3,500</span>
+          </div>
+        </div>
+
+        <div class="ctrl-group">
+          <label>Property Type</label>
+          <div class="toggle-row">
+            <button class="toggle-btn active" id="btn-sfr" onclick="setType('sfr')">Single Family</button>
+            <button class="toggle-btn" id="btn-dpx" onclick="setType('duplex')">Duplex</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="calc-results">
+        <div class="result-card solo">
+          <div class="rc-label" id="rc-label-1">Without Rental Income</div>
+          <div class="rc-main" id="rc-piti">$7,842</div>
+          <div class="rc-sub">Total monthly cost (PITI)</div>
+          <div class="rc-breakdown">
+            <div class="rc-item">
+              <div class="ri-label">Principal + Interest</div>
+              <div class="ri-val" id="rc-pi">$6,242</div>
+            </div>
+            <div class="rc-item">
+              <div class="ri-label">Property Tax</div>
+              <div class="ri-val" id="rc-tax">$1,250</div>
+            </div>
+            <div class="rc-item">
+              <div class="ri-label">Insurance</div>
+              <div class="ri-val" id="rc-ins">$200</div>
+            </div>
+            <div class="rc-item">
+              <div class="ri-label">HOA</div>
+              <div class="ri-val" id="rc-hoa">$0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-card duplex" id="duplex-card" style="display:none;">
+          <div class="rc-label">With Rental Income (Duplex)</div>
+          <div class="rc-main" id="rc-net">$5,442</div>
+          <div class="rc-sub" id="rc-net-sub">After $2,400/mo rent — your net carry cost</div>
+          <div class="rc-breakdown">
+            <div class="rc-item">
+              <div class="ri-label">Gross Monthly Cost</div>
+              <div class="ri-val" id="rc-gross2">$7,842</div>
+            </div>
+            <div class="rc-item">
+              <div class="ri-label">Rental Income</div>
+              <div class="ri-val" id="rc-rent-val" style="color:var(--brass)">−$2,400</div>
+            </div>
+            <div class="rc-item">
+              <div class="ri-label">Net Monthly Cost</div>
+              <div class="ri-val" id="rc-net2" style="color:var(--brass)">$5,442</div>
+            </div>
+            <div class="rc-item">
+              <div class="ri-label">Annual Savings</div>
+              <div class="ri-val" id="rc-annual" style="color:var(--brass)">$28,800</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="savings-banner" id="savings-banner" style="display:none;">
+          <div>
+            <div class="sb-text">Duplex saves you each year</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:2px;">That's your down payment back in ~8 years from rent alone</div>
+          </div>
+          <div class="sb-amount" id="sb-amt">$28,800 / yr</div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:20px 24px;">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;">One-Time Costs to Close</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4)">Down Payment</div>
+              <div style="font-size:17px;font-weight:700;color:var(--white)" id="cc-down">$240,000</div>
+            </div>
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4)">Closing Costs (~3%)</div>
+              <div style="font-size:17px;font-weight:700;color:var(--white)" id="cc-close">$36,000</div>
+            </div>
+            <div>
+              <div style="font-size:11px;color:rgba(255,255,255,0.4)">Total Cash Needed</div>
+              <div style="font-size:17px;font-weight:700;color:var(--brass)" id="cc-total">$276,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AREAS -->
+<section id="areas" style="background:var(--white);max-width:100%;padding:96px 32px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-eyebrow">Location Analysis</div>
+    <h2 class="section-title">What your $1.2M gets you<br>across LA</h2>
+    <p class="section-sub">Every neighborhood has its own math. Here's a realistic look at price per square foot, what's actually available, and what the lifestyle looks like — based on what you told us matters to you.</p>
+
+    <div class="areas-grid">
+
+      <div class="area-card">
+        <div class="area-header" style="background:linear-gradient(135deg,#f0f4f0,#e8efe8);">
+          <span class="area-flag flag-top">Top Pick</span>
+          <div class="area-name">West Adams</div>
+          <div class="area-tagline">East of Culver City · Michael's personal neighborhood</div>
+        </div>
+        <div class="area-stats">
+          <div class="as-item">
+            <div class="as-label">Price / Sq Ft</div>
+            <div class="as-value">$650–750</div>
+            <div class="as-note">SFR avg</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">At $1.2M</div>
+            <div class="as-value">~1,700 sf</div>
+            <div class="as-note">3bd possible</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Duplex Stock</div>
+            <div class="as-value">High</div>
+            <div class="as-note">Lot of inventory</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Walkability</div>
+            <div class="as-value">72/100</div>
+            <div class="as-note">Very walkable</div>
+          </div>
+        </div>
+        <div class="area-what">
+          <div class="aw-title">What you get</div>
+          <ul class="aw-items">
+            <li>Duplexes at $1.1–1.2M range — rent one unit</li>
+            <li>15 min to Santa Monica at off-peak hours</li>
+            <li>Great restaurant row on Adams Blvd</li>
+            <li>Kenneth Hahn State Park (5 min drive)</li>
+            <li>Rapidly appreciating — bought in early, like Michael</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-header" style="background:linear-gradient(135deg,#f0f3f8,#e8edf5);">
+          <span class="area-flag flag-value">Best Value</span>
+          <div class="area-name">Culver City</div>
+          <div class="area-tagline">Tech hub · Great walkability</div>
+        </div>
+        <div class="area-stats">
+          <div class="as-item">
+            <div class="as-label">Price / Sq Ft</div>
+            <div class="as-value">$800–950</div>
+            <div class="as-note">SFR avg</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">At $1.2M</div>
+            <div class="as-value">~1,350 sf</div>
+            <div class="as-note">2bd/3bd tight</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Duplex Stock</div>
+            <div class="as-value">Medium</div>
+            <div class="as-note">Occasional deals</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Walkability</div>
+            <div class="as-value">78/100</div>
+            <div class="as-note">Walker's paradise</div>
+          </div>
+        </div>
+        <div class="area-what">
+          <div class="aw-title">What you get</div>
+          <ul class="aw-items">
+            <li>Smaller SFR or condo at top of budget</li>
+            <li>Amazon, Apple, Sony offices nearby</li>
+            <li>Excellent dining and nightlife on Main Strip</li>
+            <li>KCRW, Erewhon, farmer's market walkable</li>
+            <li>Strong appreciation trajectory continues</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-header" style="background:linear-gradient(135deg,#f5f0ec,#ede8e2);">
+          <span class="area-flag flag-value">Best Value</span>
+          <div class="area-name">Highland Park</div>
+          <div class="area-tagline">Coming up fast · Young &amp; hip energy</div>
+        </div>
+        <div class="area-stats">
+          <div class="as-item">
+            <div class="as-label">Price / Sq Ft</div>
+            <div class="as-value">$600–700</div>
+            <div class="as-note">SFR avg</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">At $1.2M</div>
+            <div class="as-value">~1,800 sf</div>
+            <div class="as-note">3bd comfortable</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Duplex Stock</div>
+            <div class="as-value">Medium</div>
+            <div class="as-note">Growing inventory</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Walkability</div>
+            <div class="as-value">71/100</div>
+            <div class="as-note">Very walkable</div>
+          </div>
+        </div>
+        <div class="area-what">
+          <div class="aw-title">What you get</div>
+          <ul class="aw-items">
+            <li>Most space for your money in a cool area</li>
+            <li>York Blvd corridor — bars, coffee, vintage</li>
+            <li>Arroyo Seco for hiking/biking (your mention)</li>
+            <li>Close to Pasadena, Silver Lake, DTLA</li>
+            <li>Metro L Line to DTLA in 25 min</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-header" style="background:linear-gradient(135deg,#f0f5f0,#e5efe5);">
+          <span class="area-flag flag-hip">Hip Pick</span>
+          <div class="area-name">Silver Lake / Atwater</div>
+          <div class="area-tagline">LA's creative core · Reservoir life</div>
+        </div>
+        <div class="area-stats">
+          <div class="as-item">
+            <div class="as-label">Price / Sq Ft</div>
+            <div class="as-value">$750–900</div>
+            <div class="as-note">SFR avg</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">At $1.2M</div>
+            <div class="as-value">~1,400 sf</div>
+            <div class="as-note">2-3bd</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Duplex Stock</div>
+            <div class="as-value">Low</div>
+            <div class="as-note">Hard to find</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Walkability</div>
+            <div class="as-value">73/100</div>
+            <div class="as-note">Walkable areas</div>
+          </div>
+        </div>
+        <div class="area-what">
+          <div class="aw-title">What you get</div>
+          <ul class="aw-items">
+            <li>Silver Lake Reservoir walk (100% your vibe)</li>
+            <li>Atwater Village — tight community feel</li>
+            <li>Best restaurant-per-block ratio in LA</li>
+            <li>Sunset Junction weekend energy</li>
+            <li>Smaller square footage but premium location</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-header" style="background:linear-gradient(135deg,#f5f4f0,#eeecde);">
+          <span class="area-flag flag-top">Most Space</span>
+          <div class="area-name">Pasadena</div>
+          <div class="area-tagline">Walkable Old Town · Arroyo access</div>
+        </div>
+        <div class="area-stats">
+          <div class="as-item">
+            <div class="as-label">Price / Sq Ft</div>
+            <div class="as-value">$550–680</div>
+            <div class="as-note">SFR avg</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">At $1.2M</div>
+            <div class="as-value">~1,900 sf</div>
+            <div class="as-note">3-4bd possible</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Duplex Stock</div>
+            <div class="as-value">Medium</div>
+            <div class="as-note">Consistent supply</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Walkability</div>
+            <div class="as-value">69/100</div>
+            <div class="as-note">Walkable pockets</div>
+          </div>
+        </div>
+        <div class="area-what">
+          <div class="aw-title">What you get</div>
+          <ul class="aw-items">
+            <li>Most square footage of any area on this list</li>
+            <li>Old Town Pasadena — walkable dining/bars</li>
+            <li>Arroyo Seco cycling right out your door</li>
+            <li>Rose Bowl, Huntington Gardens nearby</li>
+            <li>Calmer energy than the Eastside</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="area-card">
+        <div class="area-header" style="background:linear-gradient(135deg,#f0f2f5,#e5e8f0);">
+          <span class="area-flag flag-hip">Transit Hub</span>
+          <div class="area-name">Glendale</div>
+          <div class="area-tagline">Underrated · Great transit access</div>
+        </div>
+        <div class="area-stats">
+          <div class="as-item">
+            <div class="as-label">Price / Sq Ft</div>
+            <div class="as-value">$580–700</div>
+            <div class="as-note">SFR avg</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">At $1.2M</div>
+            <div class="as-value">~1,800 sf</div>
+            <div class="as-note">3bd SFR</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Duplex Stock</div>
+            <div class="as-value">Medium</div>
+            <div class="as-note">Solid inventory</div>
+          </div>
+          <div class="as-item">
+            <div class="as-label">Walkability</div>
+            <div class="as-value">66/100</div>
+            <div class="as-note">Somewhat walkable</div>
+          </div>
+        </div>
+        <div class="area-what">
+          <div class="aw-title">What you get</div>
+          <ul class="aw-items">
+            <li>Great value, underpriced vs adjacent areas</li>
+            <li>Brand Library & Art Center (hidden gem)</li>
+            <li>Easy freeway access: 2, 5, 134</li>
+            <li>Strong Armenian food/culture scene</li>
+            <li>Quick hop to Burbank, Silver Lake, Pasadena</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DUPLEX STRATEGY -->
+<div id="duplex">
+  <div class="inner">
+    <div class="section-eyebrow">The Smart Move</div>
+    <h2 class="section-title">Why a Duplex Changes<br>Everything</h2>
+    <p class="section-sub">This is the single highest-leverage decision you can make at your price point. Here's why Michael recommends it — and he's done it more than once.</p>
+
+    <div class="duplex-cards">
+      <div class="dc-card">
+        <h3>The Case For</h3>
+        <p>A duplex at your budget means you're not just buying a home — you're buying a cash-flowing investment that pays you back every single month.</p>
+        <ul class="dc-list">
+          <li>Collect $2,000–$3,000/mo from the second unit</li>
+          <li>Reduces your effective mortgage by 30–40%</li>
+          <li>No HOA. No shared walls with strangers. No restrictions.</li>
+          <li>Rent both units if you travel or rent out rooms</li>
+          <li>Entire property appreciates — you own twice the real estate</li>
+          <li>Tax benefits: depreciation + expense deductions on rental unit</li>
+          <li>Live in one unit for 2 years → rent both if you ever relocate</li>
+        </ul>
+      </div>
+      <div class="dc-card">
+        <h3>What to Know</h3>
+        <p>Duplexes require more due diligence upfront — but that's what you have us for. Here's what we check on every one.</p>
+        <ul class="dc-list">
+          <li>Tenant status: occupied or vacant? Rent control applies in LA</li>
+          <li>Current rent vs market rate — key to real yield math</li>
+          <li>Separate utility meters? (big deal for economics)</li>
+          <li>Permits: both units permitted and legal?</li>
+          <li>Deferred maintenance on the second unit</li>
+          <li>Zoning confirmation: can you ADU or add a unit later?</li>
+          <li>West Adams, Highland Park, Pasadena = best duplex hunting grounds</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="duplex-highlight">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:28px;">Duplex at $1.2M — Projected Numbers</div>
+      <div class="dh-grid">
+        <div class="dh-item">
+          <div class="dh-label">Monthly PITI</div>
+          <div class="dh-val">~$7,800</div>
+          <div class="dh-sub">Principal, interest, tax, ins</div>
+        </div>
+        <div class="dh-item">
+          <div class="dh-label">Rental Income</div>
+          <div class="dh-val">$2,400</div>
+          <div class="dh-sub">Conservative unit estimate</div>
+        </div>
+        <div class="dh-item">
+          <div class="dh-label">Net Carry Cost</div>
+          <div class="dh-val">~$5,400</div>
+          <div class="dh-sub">Your true monthly cost</div>
+        </div>
+        <div class="dh-item">
+          <div class="dh-label">Annual Savings vs SFR</div>
+          <div class="dh-val">$28,800</div>
+          <div class="dh-sub">vs buying a single family home</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEXT STEPS -->
+<section id="nextsteps">
+  <div class="section-eyebrow">Getting Started</div>
+  <h2 class="section-title">Your immediate<br>action items</h2>
+  <p class="section-sub">You're already ahead by starting this conversation now. February 2027 is the perfect target — here's what to do in the next 30 days to make that happen.</p>
+
+  <div class="ns-grid">
+    <div class="ns-card">
+      <div class="ns-num">Step 01 — This Week</div>
+      <div class="ns-title">Get Pre-Approved</div>
+      <div class="ns-body">Book 30 min with a mortgage broker this week. With your $200K salary and stock options as down payment, you need to know your exact number, qualify at different rate scenarios, and have a letter ready when the right property appears. Michael can refer you to a great broker.</div>
+      <a href="mailto:michael.abraham@compass.com?subject=Mortgage Broker Referral for George" class="ns-cta">Request referral →</a>
+    </div>
+    <div class="ns-card">
+      <div class="ns-num">Step 02 — June</div>
+      <div class="ns-title">Attend Open Houses</div>
+      <div class="ns-body">Michael will set you up on Compass Private Exclusives so you see off-market deals first. Open houses are Sundays and Tuesdays — plan to hit 2–3 per weekend in different neighborhoods. This calibrates your eye fast. Plan to spend 1–2 weekends in West Adams/Culver, then 1–2 in Highland Park/Pasadena.</div>
+      <a href="mailto:michael.abraham@compass.com?subject=Schedule Open Houses for George" class="ns-cta">Get on the list →</a>
+    </div>
+    <div class="ns-card">
+      <div class="ns-num">Step 03 — Ongoing</div>
+      <div class="ns-title">Stay Connected</div>
+      <div class="ns-body">You're in Michael's system — no pressure, no urgency. You'll receive curated listings that match your criteria. When something looks interesting, we'll go see it. The goal is that when the right property appears — probably in the fall — you feel confident and ready to move. That's the whole plan.</div>
+      <a href="tel:+13105551234" class="ns-cta">Michael: (310) 555-1234 →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand">AMRE Real Estate Group at Compass</div>
+  <div class="f-sub">Michael Abraham DRE #02242095 · Ania De Pourbaix DRE #01891438</div>
+  <div class="f-sub">9454 Wilshire Blvd Suite 100, Beverly Hills CA 90212</div>
+  <div class="f-updated">Last updated May 29, 2026 at 5:19 PM PT · Private &amp; Confidential</div>
+</footer>
+
+<script>
+// GATE
+const CODE = 'george2026';
+if (sessionStorage.getItem('amre_auth') === CODE) {
+  document.getElementById('gate').style.display = 'none';
+}
+document.getElementById('gate-btn').addEventListener('click', checkCode);
+document.getElementById('gate-input').addEventListener('keydown', e => { if (e.key === 'Enter') checkCode(); });
+function checkCode() {
+  const val = document.getElementById('gate-input').value.trim().toLowerCase();
+  if (val === CODE) {
+    sessionStorage.setItem('amre_auth', CODE);
+    document.getElementById('gate').style.opacity = '0';
+    document.getElementById('gate').style.transition = 'opacity 0.4s';
+    setTimeout(() => document.getElementById('gate').style.display = 'none', 400);
+  } else {
+    const gate = document.getElementById('gate');
+    gate.classList.add('shake');
+    gate.addEventListener('animationend', () => gate.classList.remove('shake'), { once: true });
+    document.getElementById('gate-error').style.display = 'block';
+  }
+}
+
+// CALCULATOR
+let propType = 'sfr';
+function setType(t) {
+  propType = t;
+  document.getElementById('btn-sfr').classList.toggle('active', t === 'sfr');
+  document.getElementById('btn-dpx').classList.toggle('active', t === 'duplex');
+  calc();
+}
+function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+function calc() {
+  const price = parseInt(document.getElementById('sl-price').value);
+  const downPct = parseInt(document.getElementById('sl-down').value);
+  const rate = parseInt(document.getElementById('sl-rate').value) / 10000;
+  const rent = parseInt(document.getElementById('sl-rent').value);
+  const down = price * downPct / 100;
+  const loan = price - down;
+  const mo = rate / 12;
+  const n = 360;
+  const pi = loan * mo * Math.pow(1+mo,n) / (Math.pow(1+mo,n)-1);
+  const tax = price * 0.0125 / 12;
+  const ins = price > 1000000 ? 220 : 180;
+  const piti = pi + tax + ins;
+
+  document.getElementById('disp-price').textContent = fmt(price);
+  document.getElementById('disp-down').textContent = downPct + '% — ' + fmt(down);
+  document.getElementById('disp-rate').textContent = (rate * 100).toFixed(2) + '%';
+  document.getElementById('disp-rent').textContent = fmt(rent) + ' / mo';
+
+  document.getElementById('rc-piti').textContent = fmt(piti);
+  document.getElementById('rc-pi').textContent = fmt(pi);
+  document.getElementById('rc-tax').textContent = fmt(tax);
+  document.getElementById('rc-ins').textContent = '$' + ins;
+  document.getElementById('rc-label-1').textContent = propType === 'duplex' ? 'Gross Monthly Cost (before rent)' : 'Total Monthly Cost (PITI)';
+
+  document.getElementById('cc-down').textContent = fmt(down);
+  document.getElementById('cc-close').textContent = fmt(price * 0.03);
+  document.getElementById('cc-total').textContent = fmt(down + price * 0.03);
+
+  const isDuplex = propType === 'duplex';
+  document.getElementById('duplex-card').style.display = isDuplex ? '' : 'none';
+  document.getElementById('savings-banner').style.display = isDuplex ? '' : 'none';
+
+  if (isDuplex) {
+    const net = piti - rent;
+    const annualSave = rent * 12;
+    document.getElementById('rc-net').textContent = fmt(net);
+    document.getElementById('rc-net-sub').textContent = 'After ' + fmt(rent) + '/mo rent — your net carry cost';
+    document.getElementById('rc-gross2').textContent = fmt(piti);
+    document.getElementById('rc-rent-val').textContent = '−' + fmt(rent);
+    document.getElementById('rc-net2').textContent = fmt(net);
+    document.getElementById('rc-annual').textContent = fmt(annualSave);
+    document.getElementById('sb-amt').textContent = fmt(annualSave) + ' / yr';
+  }
+}
+['sl-price','sl-down','sl-rate','sl-rent'].forEach(id => {
+  document.getElementById(id).addEventListener('input', calc);
+});
+calc();
+</script>
+</body>
+</html>
