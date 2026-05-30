@@ -515,6 +515,90 @@
   .f-sub { font-size: 11px; color: rgba(255,255,255,0.3); margin-bottom: 6px; }
   .f-updated { font-size: 10px; color: rgba(255,255,255,0.2); margin-top: 8px; }
 
+  /* ── SHORTLIST ────────────────── */
+  #shortlist { background: var(--white); padding: 96px 0; }
+  #shortlist .section-wrap { max-width: 1100px; }
+  .sl-summary {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2px; background: var(--hairline);
+    border-radius: 18px; overflow: hidden; margin-bottom: 32px;
+  }
+  .sl-sum-item { background: var(--cream); padding: 22px 26px; }
+  .sl-sum-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .sl-sum-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--forest); }
+  .sl-sum-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  .sl-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px; margin-bottom: 28px;
+  }
+  .sl-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sl-chip {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    padding: 8px 16px; border-radius: 980px; cursor: pointer;
+    border: 1px solid var(--hairline); background: var(--white);
+    color: var(--muted); transition: all 0.18s;
+  }
+  .sl-chip:hover { border-color: var(--forest); color: var(--forest); }
+  .sl-chip.active { background: var(--forest); border-color: var(--forest); color: var(--white); }
+  .sl-sort { display: flex; align-items: center; gap: 10px; }
+  .sl-sort label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .sl-sort select {
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+    padding: 8px 32px 8px 14px; border-radius: 980px;
+    border: 1px solid var(--hairline); background: var(--white);
+    color: var(--ink); cursor: pointer; outline: none;
+    -webkit-appearance: none; appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'6'%20viewBox%3D'0%200%2010%206'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cpath%20d%3D'M1%201l4%204%204-4'%20stroke%3D'%236B7280'%20stroke-width%3D'1.5'%20fill%3D'none'%20fill-rule%3D'evenodd'%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat; background-position: right 14px center;
+  }
+
+  .sl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .prop-card {
+    border: 1px solid var(--hairline); border-radius: 18px;
+    overflow: hidden; background: var(--white);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex; flex-direction: column;
+  }
+  .prop-card:hover { transform: translateY(-3px); box-shadow: 0 18px 50px rgba(0,0,0,0.08); }
+  .pc-top { padding: 22px 24px 18px; display: flex; align-items: flex-start; gap: 14px; }
+  .pc-rank {
+    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    background: var(--forest); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700;
+  }
+  .pc-head { flex: 1; min-width: 0; }
+  .pc-addr { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+  .pc-hood { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .pc-price { text-align: right; flex-shrink: 0; }
+  .pc-price-v { font-size: 18px; font-weight: 700; color: var(--forest); }
+  .pc-price-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .pc-type {
+    display: inline-block; margin: 0 24px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 980px;
+    background: rgba(28,61,49,0.09); color: var(--forest);
+  }
+  .pc-stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--hairline);
+    margin: 18px 0 0;
+  }
+  .pc-stat { background: var(--cream); padding: 14px 12px; text-align: center; }
+  .pc-stat-v { font-size: 14px; font-weight: 700; color: var(--ink); }
+  .pc-stat-l { font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+  .pc-flags { padding: 16px 24px 22px; display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+  .pc-flag {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.03em;
+    padding: 4px 11px; border-radius: 980px;
+  }
+  .pcf-gold { background: rgba(255,193,60,0.16); color: #9a6f0a; }
+  .pcf-green { background: rgba(36,138,61,0.1); color: var(--green); }
+  .pcf-blue { background: rgba(0,113,227,0.1); color: var(--blue); }
+  .pcf-amber { background: rgba(178,80,0,0.1); color: var(--amber); }
+  .sl-disclaimer { font-size: 11px; color: var(--muted); margin-top: 28px; line-height: 1.6; }
+
   /* ── RESPONSIVE ───────────────── */
   @media (max-width: 980px) {
     .map-layout { grid-template-columns: 1fr; }
@@ -523,6 +607,8 @@
     .duplex-split { grid-template-columns: 1fr; }
     .ns-grid { grid-template-columns: 1fr 1fr; }
     .dn-grid { grid-template-columns: repeat(2,1fr); }
+    .sl-grid { grid-template-columns: 1fr; }
+    .sl-summary { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 680px) {
     .steps-grid { grid-template-columns: 1fr; }
@@ -576,6 +662,7 @@
     <li><a href="#calculator">Calculator</a></li>
     <li><a href="#areas-map">Areas</a></li>
     <li><a href="#duplex">Duplex</a></li>
+    <li><a href="#shortlist">Shortlist</a></li>
     <li><a href="#nextsteps">Next Steps</a></li>
   </ul>
   <span class="nav-pill">Buyer · $1.2M</span>
@@ -964,6 +1051,48 @@
   </div>
 </div>
 
+<!-- SHORTLIST -->
+<div id="shortlist">
+  <div class="section-wrap">
+    <div class="section-eyebrow">Curated For You</div>
+    <h2 class="section-title">20 value-add picks,<br>hand-screened.</h2>
+    <p class="section-sub">Filtered from this week's market down to income properties only — duplexes and small multi-units in walkable, up-and-coming neighborhoods, weighted toward larger lots and value-add upside. Click a neighborhood to filter, or sort by what matters most to you.</p>
+
+    <div class="sl-summary">
+      <div class="sl-sum-item"><div class="sl-sum-label">Properties</div><div class="sl-sum-val" id="sl-count">20</div><div class="sl-sum-sub">All income / value-add</div></div>
+      <div class="sl-sum-item"><div class="sl-sum-label">Median Price</div><div class="sl-sum-val">$1.15M</div><div class="sl-sum-sub">All within budget</div></div>
+      <div class="sl-sum-item"><div class="sl-sum-label">$/Sq Ft Range</div><div class="sl-sum-val">$226–766</div><div class="sl-sum-sub">Lower = more upside</div></div>
+      <div class="sl-sum-item"><div class="sl-sum-label">Largest Lot</div><div class="sl-sum-val">0.22 AC</div><div class="sl-sum-sub">415 N Mentor, Pasadena</div></div>
+    </div>
+
+    <div class="sl-controls">
+      <div class="sl-filters" id="sl-filters">
+        <div class="sl-chip active" data-hood="all" onclick="filterHood('all', this)">All Areas</div>
+        <div class="sl-chip" data-hood="Highland Park" onclick="filterHood('Highland Park', this)">Highland Park</div>
+        <div class="sl-chip" data-hood="Silver Lake" onclick="filterHood('Silver Lake', this)">Silver Lake</div>
+        <div class="sl-chip" data-hood="Atwater Village" onclick="filterHood('Atwater Village', this)">Atwater</div>
+        <div class="sl-chip" data-hood="Pasadena" onclick="filterHood('Pasadena', this)">Pasadena</div>
+        <div class="sl-chip" data-hood="Glendale" onclick="filterHood('Glendale', this)">Glendale</div>
+        <div class="sl-chip" data-hood="Mid-City" onclick="filterHood('Mid-City', this)">Mid-City</div>
+      </div>
+      <div class="sl-sort">
+        <label for="sl-sort-sel">Sort</label>
+        <select id="sl-sort-sel" onchange="renderShortlist()">
+          <option value="fit">Best Fit</option>
+          <option value="ppsf">$ per Sq Ft (low to high)</option>
+          <option value="lot">Lot Size (large to small)</option>
+          <option value="price">Price (low to high)</option>
+          <option value="dom">Days on Market (most)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sl-grid" id="sl-grid"></div>
+
+    <p class="sl-disclaimer">Active and coming-soon listings as of this week's MLS pull. Price per square foot reflects building size; large lots with low $/SF carry the most renovation and ADU upside. Days on market and recent price reductions are noted as negotiation context. Always subject to verification and availability.</p>
+  </div>
+</div>
+
 <!-- NEXT STEPS -->
 <section id="nextsteps">
   <div class="section-wrap">
@@ -1154,8 +1283,84 @@ function selectArea(key) {
   if (markerEl) markerEl.classList.add('selected');
 
   // Fly map
-  map.flyTo([data.lat, data.lng], data.zoom, { duration: 0.9, easeLinearity: 0.35 });
+/* ── SHORTLIST ── */
+const PROPS = [
+  { rank:1,  addr:'6720 Ferrara St',        hood:'Highland Park',  area:'Highland Park',  price:1148000, type:'Multi-Family', beds:6, baths:3, sqft:2454, lot:0.17, ppsf:468, dom:1,   flags:[['Fresh','green'],['Big lot','gold'],['Low $/SF','gold']] },
+  { rank:2,  addr:'4057 Baywood St',        hood:'Atwater Village',area:'Atwater Village',price:1190000, type:'Triplex',      beds:6, baths:4, sqft:2275, lot:0.16, ppsf:523, dom:4,   flags:[['Fresh','green'],['Triplex','blue'],['Big lot','gold']] },
+  { rank:3,  addr:'4413 La Clede Ave',      hood:'Atwater Village',area:'Atwater Village',price:1150000, type:'Duplex',       beds:4, baths:3, sqft:1891, lot:0.17, ppsf:608, dom:46,  flags:[['Big lot','gold'],['His top area','blue']] },
+  { rank:4,  addr:'219 S Avenue 60',        hood:'Highland Park',  area:'Highland Park',  price:1049000, type:'Duplex',       beds:4, baths:2, sqft:1677, lot:0.15, ppsf:626, dom:14,  flags:[['Value entry','gold']] },
+  { rank:5,  addr:'4563–4565 Lexington Ave',hood:'Silver Lake',    area:'Silver Lake',    price:1038000, type:'Duplex',       beds:4, baths:3, sqft:1600, lot:0.14, ppsf:649, dom:116, flags:[['Lowest price','gold'],['Neg. leverage','amber']] },
+  { rank:6,  addr:'228 Rosemont Ave',       hood:'Silver Lake',    area:'Silver Lake',    price:1200000, type:'Duplex',       beds:0, baths:0, sqft:2094, lot:0.13, ppsf:573, dom:94,  flags:[['$200K price cut','amber'],['Neg. leverage','amber']] },
+  { rank:7,  addr:'327 S Ave 57',           hood:'Highland Park',  area:'Highland Park',  price:1125000, type:'Quadruplex',   beds:7, baths:4, sqft:2898, lot:0.12, ppsf:388, dom:245, flags:[['4 units','blue'],['Low $/SF','gold']] },
+  { rank:8,  addr:'5745 Arroyo Dr',         hood:'Highland Park',  area:'Highland Park',  price:1200000, type:'Multi-Family', beds:12,baths:6, sqft:4092, lot:0.13, ppsf:293, dom:9,   flags:[['Income machine','blue'],['Low $/SF','gold']] },
+  { rank:9,  addr:'2726 Council St',        hood:'Silver Lake',    area:'Silver Lake',    price:1167200, type:'Multi-Family', beds:6, baths:6, sqft:3356, lot:0.11, ppsf:348, dom:23,  flags:[['Multi-unit','blue'],['Low $/SF','gold']] },
+  { rank:10, addr:'1209 Hyperion Ave',      hood:'Silver Lake',    area:'Silver Lake',    price:1129000, type:'Fourplex',     beds:4, baths:4, sqft:2945, lot:0.11, ppsf:383, dom:31,  flags:[['4 units','blue'],['Low $/SF','gold']] },
+  { rank:11, addr:'2644 Glendale Blvd',     hood:'Silver Lake',    area:'Silver Lake',    price:1099000, type:'Duplex',       beds:2, baths:2, sqft:1664, lot:0.12, ppsf:660, dom:15,  flags:[['Silver Lake','blue']] },
+  { rank:12, addr:'415 N Mentor Ave',       hood:'NE Pasadena',    area:'Pasadena',       price:1100000, type:'Multi-Family', beds:5, baths:3, sqft:2932, lot:0.22, ppsf:375, dom:75,  flags:[['Biggest lot','gold'],['Low $/SF','gold']] },
+  { rank:13, addr:'1428 N Hill Ave',        hood:'NE Pasadena',    area:'Pasadena',       price:1100000, type:'Duplex',       beds:5, baths:2, sqft:1881, lot:0.17, ppsf:585, dom:44,  flags:[['Big lot','gold']] },
+  { rank:14, addr:'3809 W 30th St',         hood:'Mid-City',       area:'Mid-City',       price:1180000, type:'Multi-Family', beds:6, baths:4, sqft:5213, lot:0.12, ppsf:226, dom:260, flags:[['Lowest $/SF','gold'],['Neg. leverage','amber']] },
+  { rank:15, addr:'343 Concord St',         hood:'South Glendale', area:'Glendale',       price:1199000, type:'Triplex',      beds:5, baths:5, sqft:1816, lot:0.14, ppsf:660, dom:77,  flags:[['Triplex','blue']] },
+  { rank:16, addr:'464 W Wilson Ave',       hood:'South Glendale', area:'Glendale',       price:1150000, type:'Duplex',       beds:3, baths:3, sqft:1708, lot:0.15, ppsf:673, dom:130, flags:[['Big lot','gold'],['Neg. leverage','amber']] },
+  { rank:17, addr:'2620 Alsace Ave',        hood:'Mid-City',       area:'Mid-City',       price:1150000, type:'Multi-Family', beds:4, baths:2, sqft:1736, lot:0.11, ppsf:662, dom:30,  flags:[['West Adams adj.','blue']] },
+  { rank:18, addr:'2821 S Sycamore Ave',    hood:'Mid-City',       area:'Mid-City',       price:1095000, type:'Multi-Family', beds:4, baths:3, sqft:1674, lot:0.11, ppsf:654, dom:31,  flags:[['West Adams adj.','blue']] },
+  { rank:19, addr:'44 N Berkeley Ave',      hood:'SE Pasadena',    area:'Pasadena',       price:1100000, type:'Duplex',       beds:3, baths:2, sqft:1436, lot:0.13, ppsf:766, dom:32,  flags:[['Duplex','blue']] },
+  { rank:20, addr:'3309 Hamilton Way',      hood:'Silver Lake',    area:'Silver Lake',    price:1200000, type:'Triplex',      beds:3, baths:0, sqft:2284, lot:0.06, ppsf:525, dom:25,  flags:[['Triplex','blue'],['Silver Lake','blue']] },
+];
+
+let hoodFilter = 'all';
+function filterHood(area, el) {
+  hoodFilter = area;
+  document.querySelectorAll('.sl-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderShortlist();
 }
+function moneyShort(n) {
+  return '$' + (n/1000000).toFixed(2) + 'M';
+}
+function renderShortlist() {
+  const sort = document.getElementById('sl-sort-sel').value;
+  let list = PROPS.filter(p => hoodFilter === 'all' || p.area === hoodFilter);
+  const sorters = {
+    fit:   (a,b) => a.rank - b.rank,
+    ppsf:  (a,b) => a.ppsf - b.ppsf,
+    lot:   (a,b) => b.lot - a.lot,
+    price: (a,b) => a.price - b.price,
+    dom:   (a,b) => b.dom - a.dom,
+  };
+  list.sort(sorters[sort]);
+  document.getElementById('sl-count').textContent = list.length;
+
+  const grid = document.getElementById('sl-grid');
+  grid.innerHTML = list.map(p => {
+    const bb = (p.beds || p.baths)
+      ? `${p.beds || '—'} bd · ${p.baths || '—'} ba`
+      : 'Multi-unit';
+    const flags = p.flags.map(f => `<span class="pc-flag pcf-${f[1]}">${f[0]}</span>`).join('');
+    return `
+      <div class="prop-card">
+        <div class="pc-top">
+          <div class="pc-rank">${p.rank}</div>
+          <div class="pc-head">
+            <div class="pc-addr">${p.addr}</div>
+            <div class="pc-hood">${p.hood}</div>
+          </div>
+          <div class="pc-price">
+            <div class="pc-price-v">${moneyShort(p.price)}</div>
+            <div class="pc-price-l">${bb}</div>
+          </div>
+        </div>
+        <span class="pc-type">${p.type}</span>
+        <div class="pc-stats">
+          <div class="pc-stat"><div class="pc-stat-v">$${p.ppsf}</div><div class="pc-stat-l">$/Sq Ft</div></div>
+          <div class="pc-stat"><div class="pc-stat-v">${p.lot} AC</div><div class="pc-stat-l">Lot</div></div>
+          <div class="pc-stat"><div class="pc-stat-v">${p.sqft.toLocaleString()}</div><div class="pc-stat-l">Bldg SF</div></div>
+          <div class="pc-stat"><div class="pc-stat-v">${p.dom}</div><div class="pc-stat-l">Days</div></div>
+        </div>
+        <div class="pc-flags">${flags}</div>
+      </div>`;
+  }).join('');
+}
+renderShortlist();
 </script>
 </body>
 </html>
