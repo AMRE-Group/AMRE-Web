@@ -17,6 +17,7 @@
     --white: #FFFFFF;
     --cream: #F9F7F4;
     --muted: #6B7280;
+    --body: #3c424c;
     --hairline: #E5E7EB;
     --blue: #0071E3;
     --green: #248A3D;
@@ -54,7 +55,7 @@
     color: var(--white); text-align: center; line-height: 1.35;
   }
   #gate p {
-    font-size: 13px; color: rgba(255,255,255,0.45);
+    font-size: 13px; color: rgba(255,255,255,0.62);
     text-align: center; max-width: 300px; line-height: 1.6;
   }
   #gate-form {
@@ -188,13 +189,14 @@
     line-height: 1.18; margin-bottom: 16px;
   }
   .section-sub {
-    font-size: 14px; font-weight: 300;
-    color: var(--muted); line-height: 1.75;
+    font-size: 14px; font-weight: 400;
+    color: var(--body); line-height: 1.75;
     max-width: 580px; margin-bottom: 56px;
+    text-wrap: pretty;
   }
   /* Dark-section overrides */
   .dark-section .section-title { color: var(--white); }
-  .dark-section .section-sub { color: rgba(255,255,255,0.52); }
+  .dark-section .section-sub { color: rgba(255,255,255,0.66); }
   .dark-section .section-eyebrow { color: var(--brass); }
 
   /* ── PROCESS ──────────────────── */
@@ -225,8 +227,9 @@
   }
   .step-desc {
     font-size: 13px; font-weight: 400;
-    color: var(--muted); line-height: 1.72;
-    max-width: 28ch; /* prevents long orphan lines */
+    color: var(--body); line-height: 1.72;
+    max-width: 28ch;
+    text-wrap: pretty;
   }
   /* Remove max-width constraint on desc so grid handles it */
   .steps-grid .step-card .step-desc { max-width: none; }
@@ -415,7 +418,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 17px; font-weight: 700; color: var(--ink);
   }
-  .ac-tagline { font-size: 11px; color: var(--muted); margin-top: 3px; line-height: 1.4; }
+  .ac-tagline { font-size: 11px; color: var(--body); margin-top: 3px; line-height: 1.4; }
   .ac-flag {
     font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
     text-transform: uppercase; padding: 4px 10px; border-radius: 980px;
@@ -480,7 +483,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px;
   }
-  .dc-card p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.72; margin-bottom: 22px; }
+  .dc-card p { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.72; margin-bottom: 22px; text-wrap: pretty; }
   .dc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .dc-list li {
     font-size: 13px; color: rgba(255,255,255,0.8);
@@ -516,7 +519,7 @@
     font-size: 20px; font-weight: 700; color: var(--ink);
     margin-bottom: 12px; line-height: 1.22;
   }
-  .ns-body { font-size: 13px; color: var(--muted); line-height: 1.75; }
+  .ns-body { font-size: 13px; color: var(--body); line-height: 1.75; text-wrap: pretty; }
 
   /* ── FOOTER ───────────────────── */
   footer { background: var(--navy); padding: 48px 32px; text-align: center; }
@@ -588,7 +591,7 @@
   }
   .pc-head { flex: 1; min-width: 0; }
   .pc-addr { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700; color: var(--ink); line-height: 1.2; }
-  .pc-hood { font-size: 12px; color: var(--muted); margin-top: 3px; }
+  .pc-hood { font-size: 12px; color: var(--body); margin-top: 3px; }
   .pc-price { text-align: right; flex-shrink: 0; }
   .pc-price-v { font-size: 18px; font-weight: 700; color: var(--forest); }
   .pc-price-l { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
@@ -615,7 +618,7 @@
   .pcf-green { background: rgba(36,138,61,0.1); color: var(--green); }
   .pcf-blue { background: rgba(0,113,227,0.1); color: var(--blue); }
   .pcf-amber { background: rgba(178,80,0,0.1); color: var(--amber); }
-  .sl-disclaimer { font-size: 11px; color: var(--muted); margin-top: 28px; line-height: 1.6; }
+  .sl-disclaimer { font-size: 11px; color: var(--body); margin-top: 28px; line-height: 1.6; text-wrap: pretty; }
 
   /* ── RESPONSIVE ───────────────── */
   @media (max-width: 980px) {
@@ -655,7 +658,7 @@
     <div class="g-compass">at Compass</div>
   </div>
   <h1>Your Path to<br>Homeownership.</h1>
-  <p>A private guide prepared for George Barrios by Michael Abraham and Ania De Pourbaix.</p>
+  <p>A private guide prepared for George Barrios by Michael Abraham and Ania De&nbsp;Pourbaix.</p>
   <div id="gate-form">
     <input id="gate-input" type="password" placeholder="Enter access code" autocomplete="off">
     <button id="gate-btn">View My Dashboard</button>
@@ -691,7 +694,7 @@
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(28,61,49,0.55) 0%,transparent 68%);pointer-events:none;"></div>
   <div class="eyebrow">Prepared for George Barrios · May 2026</div>
   <h1 style="font-family:'Playfair Display',serif;font-size:clamp(38px,5.5vw,68px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:22px;position:relative;">Your LA Real Estate<br>Journey Starts Here.</h1>
-  <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.75;max-width:520px;margin:0 auto 52px;">You're making the right move at the right time. This guide walks you through everything — from process and true costs, to the neighborhoods that fit your life and budget.</p>
+  <p style="font-size:15px;font-weight:300;color:rgba(255,255,255,0.74);line-height:1.75;max-width:520px;margin:0 auto 52px;text-wrap:pretty;">You're making the right move at the right time. This guide walks you through everything — from process and true costs, to the neighborhoods that fit your life and&nbsp;budget.</p>
   <div class="hero-stats">
     <div class="stat-pill">Budget <strong>$1.2M</strong></div>
     <div class="stat-pill">Down Payment <strong>~$240K</strong></div>
@@ -706,70 +709,70 @@
   <div class="section-wrap">
     <div class="section-eyebrow">The Journey</div>
     <h2 class="section-title">How buying a home<br>actually works.</h2>
-    <p class="section-sub">Most first-time buyers are surprised by how much of the process happens before you ever make an offer. Here's the full picture, from first conversation to keys in hand.</p>
+    <p class="section-sub">Most first-time buyers are surprised by how much of the process happens before you ever make an offer. Here's the full picture, from first conversation to keys in&nbsp;hand.</p>
 
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-num">01</div>
         <span class="step-icon">🎯</span>
         <div class="step-title">Clarify &amp; Strategize</div>
-        <div class="step-desc">Define your priorities, target areas, and property type. Decide between a single-family home or a duplex that generates rental income from day one.</div>
+        <div class="step-desc">Define your priorities, target areas, and property type. Decide between a single-family home or a duplex that generates rental income from day&nbsp;one.</div>
         <span class="step-tag tag-active">Where You Are</span>
       </div>
       <div class="step-card">
         <div class="step-num">02</div>
         <span class="step-icon">🏦</span>
         <div class="step-title">Get Pre-Approved</div>
-        <div class="step-desc">Meet with a mortgage broker to confirm your exact buying power. Pre-approval takes 2–5 days and is required before any serious offer can be submitted.</div>
+        <div class="step-desc">Meet with a mortgage broker to confirm your exact buying power. Pre-approval takes 2–5 days and is required before any serious offer can be&nbsp;submitted.</div>
         <span class="step-tag tag-next">Next Step</span>
       </div>
       <div class="step-card">
         <div class="step-num">03</div>
         <span class="step-icon">🔍</span>
         <div class="step-title">Explore &amp; Educate</div>
-        <div class="step-desc">Attend open houses on Sundays and Tuesdays. This is about calibrating your eye — understanding what $1.2M looks like across different neighborhoods.</div>
+        <div class="step-desc">Attend open houses on Sundays and Tuesdays. This is about calibrating your eye — understanding what $1.2M looks like across different&nbsp;neighborhoods.</div>
         <span class="step-tag tag-future">Months 1–2</span>
       </div>
       <div class="step-card">
         <div class="step-num">04</div>
         <span class="step-icon">✍️</span>
         <div class="step-title">Make an Offer</div>
-        <div class="step-desc">When you find the right property, we craft a competitive offer covering price, terms, and contingencies. Being prepared means moving fast when the right one appears.</div>
+        <div class="step-desc">When you find the right property, we craft a competitive offer covering price, terms, and contingencies. Being prepared means moving fast when the right one&nbsp;appears.</div>
         <span class="step-tag tag-future">Months 2–5</span>
       </div>
       <div class="step-card">
         <div class="step-num">05</div>
         <span class="step-icon">🔬</span>
         <div class="step-title">Inspect &amp; Negotiate</div>
-        <div class="step-desc">A 17-day inspection window covers general, sewer, roof, and pest. What we find becomes leverage for credits or price reductions before you commit.</div>
+        <div class="step-desc">A 17-day inspection window covers general, sewer, roof, and pest. What we find becomes leverage for credits or price reductions before you&nbsp;commit.</div>
         <span class="step-tag tag-future">Weeks 3–5</span>
       </div>
       <div class="step-card">
         <div class="step-num">06</div>
         <span class="step-icon">🔑</span>
         <div class="step-title">Loan Approval</div>
-        <div class="step-desc">Your lender finalizes underwriting during escrow. Expect document requests, an appraisal, and final approval roughly one week before closing.</div>
+        <div class="step-desc">Your lender finalizes underwriting during escrow. Expect document requests, an appraisal, and final approval roughly one week before&nbsp;closing.</div>
         <span class="step-tag tag-future">Weeks 4–6</span>
       </div>
       <div class="step-card">
         <div class="step-num">07</div>
         <span class="step-icon">📋</span>
         <div class="step-title">Remove Contingencies</div>
-        <div class="step-desc">After inspections and loan approval, you formally remove contingencies. This is the point of no return — and your signal that you're confident in the deal.</div>
+        <div class="step-desc">After inspections and loan approval, you formally remove contingencies. This is the point of no return — and your signal that you're confident in the&nbsp;deal.</div>
         <span class="step-tag tag-future">Day 17–21</span>
       </div>
       <div class="step-card">
         <div class="step-num">08</div>
         <span class="step-icon">✏️</span>
         <div class="step-title">Sign &amp; Fund</div>
-        <div class="step-desc">Sign final loan docs, wire your down payment and closing costs (roughly 3–4% of the purchase price). Usually happens 2–3 days before close.</div>
+        <div class="step-desc">Sign final loan docs, wire your down payment and closing costs (roughly 3–4% of the purchase price). Usually happens 2–3 days before&nbsp;close.</div>
         <span class="step-tag tag-future">Day 28–30</span>
       </div>
       <div class="step-card">
         <div class="step-num">09</div>
         <span class="step-icon">🗝️</span>
         <div class="step-title">Close &amp; Move In</div>
-        <div class="step-desc">Deed records, funds transfer, and keys are in your hand. You now own real estate in Los Angeles — and your net worth just took a meaningful step forward.</div>
+        <div class="step-desc">Deed records, funds transfer, and keys are in your hand. You now own real estate in Los Angeles — and your net worth just took a meaningful step&nbsp;forward.</div>
         <span class="step-tag tag-future">Day 30</span>
       </div>
     </div>
@@ -812,7 +815,7 @@
   <div class="section-wrap">
     <div class="section-eyebrow dark-section">Run the Numbers</div>
     <h2 class="section-title" style="color:var(--white);">The real cost of ownership.</h2>
-    <p class="section-sub" style="color:rgba(255,255,255,0.5);">Adjust price, down payment, and interest rate to see your true monthly cost. Toggle to Duplex to see how rental income changes the math entirely.</p>
+    <p class="section-sub" style="color:rgba(255,255,255,0.66);text-wrap:pretty;">Adjust price, down payment, and interest rate to see your true monthly cost. Toggle to Duplex to see how rental income changes the math&nbsp;entirely.</p>
 
     <div class="calc-layout">
       <div class="calc-controls">
@@ -900,7 +903,7 @@
   <div class="section-wrap">
     <div class="section-eyebrow">Location Analysis</div>
     <h2 class="section-title">What $1.2M buys across<br>Los Angeles.</h2>
-    <p class="section-sub">Click any neighborhood to zoom in on the map and see the details. Every area has different math — here's a realistic look at price per square foot and what life actually looks like.</p>
+    <p class="section-sub">Click any neighborhood to zoom in on the map and see the details. Every area has different math — here's a realistic look at price per square foot and what life actually looks&nbsp;like.</p>
 
     <div class="map-layout">
       <div>
@@ -1026,12 +1029,12 @@
   <div class="section-wrap">
     <div class="section-eyebrow" style="color:var(--brass)">The Smart Move</div>
     <h2 class="section-title" style="color:var(--white)">Why a duplex changes<br>everything.</h2>
-    <p class="section-sub" style="color:rgba(255,255,255,0.52)">This is the single highest-leverage decision you can make at your price point. Michael has done it more than once — and the math is hard to argue with.</p>
+    <p class="section-sub" style="color:rgba(255,255,255,0.66);text-wrap:pretty">This is the single highest-leverage decision you can make at your price point. Michael has done it more than once — and the math is hard to argue&nbsp;with.</p>
 
     <div class="duplex-split">
       <div class="dc-card">
         <h3>The Case For</h3>
-        <p>A duplex at your budget means you're not just buying a home — you're buying a cash-flowing investment that pays you back every single month from day one.</p>
+        <p>A duplex at your budget means you're not just buying a home — you're buying a cash-flowing investment that pays you back every single month from day&nbsp;one.</p>
         <ul class="dc-list">
           <li>Collect $2,000–$3,000/mo from the second unit</li>
           <li>Reduces your effective mortgage by 30–40%</li>
@@ -1044,7 +1047,7 @@
       </div>
       <div class="dc-card">
         <h3>What to Know</h3>
-        <p>Duplexes require more due diligence upfront — but that's exactly what we're here for. Here's what gets checked on every one.</p>
+        <p>Duplexes require more due diligence upfront — but that's exactly what we're here for. Here's what gets checked on every&nbsp;one.</p>
         <ul class="dc-list">
           <li>Tenant status: occupied or vacant? LA rent control applies</li>
           <li>Current rent vs. market rate — key to the real yield math</li>
@@ -1074,7 +1077,7 @@
   <div class="section-wrap">
     <div class="section-eyebrow">Curated For You</div>
     <h2 class="section-title">20 value-add picks,<br>hand-screened.</h2>
-    <p class="section-sub">Filtered from this week's market down to income properties only — duplexes and small multi-units in walkable, up-and-coming neighborhoods, weighted toward larger lots and value-add upside. Click a neighborhood to filter, or sort by what matters most to you.</p>
+    <p class="section-sub">Filtered from this week's market down to income properties only — duplexes and small multi-units in walkable, up-and-coming neighborhoods, weighted toward larger lots and value-add upside. Click a neighborhood to filter, or sort by what matters most to&nbsp;you.</p>
 
     <div class="sl-summary">
       <div class="sl-sum-item"><div class="sl-sum-label">Properties</div><div class="sl-sum-val" id="sl-count">20</div><div class="sl-sum-sub">All income / value-add</div></div>
@@ -1107,7 +1110,7 @@
 
     <div class="sl-grid" id="sl-grid"></div>
 
-    <p class="sl-disclaimer">Active and coming-soon listings as of this week's MLS pull. Price per square foot reflects building size; large lots with low $/SF carry the most renovation and ADU upside. Days on market and recent price reductions are noted as negotiation context. Always subject to verification and availability.</p>
+    <p class="sl-disclaimer">Active and coming-soon listings as of this week's MLS pull. Price per square foot reflects building size; large lots with low $/SF carry the most renovation and ADU upside. Days on market and recent price reductions are noted as negotiation context. Always subject to verification and&nbsp;availability.</p>
   </div>
 </div>
 
@@ -1116,23 +1119,23 @@
   <div class="section-wrap">
     <div class="section-eyebrow">Getting Started</div>
     <h2 class="section-title">Your immediate<br>action items.</h2>
-    <p class="section-sub">You're already ahead by starting this conversation now. February 2027 is a realistic, unhurried target — here's what to do in the next 30 days.</p>
+    <p class="section-sub">You're already ahead by starting this conversation now. February 2027 is a realistic, unhurried target — here's what to do in the next 30&nbsp;days.</p>
 
     <div class="ns-grid">
       <div class="ns-card">
         <div class="ns-num">Step 01 — This Week</div>
         <div class="ns-title">Get Pre-Approved</div>
-        <div class="ns-body">Book 30 minutes with a mortgage broker this week. With your salary and stock options as a down payment source, you need to know your exact number, qualify across different rate scenarios, and have a letter ready when the right property appears. Michael can refer you to a trusted broker.</div>
+        <div class="ns-body">Book 30 minutes with a mortgage broker this week. With your salary and stock options as a down payment source, you need to know your exact number, qualify across different rate scenarios, and have a letter ready when the right property appears. Michael can refer you to a trusted&nbsp;broker.</div>
       </div>
       <div class="ns-card">
         <div class="ns-num">Step 02 — June</div>
         <div class="ns-title">Attend Open Houses</div>
-        <div class="ns-body">Michael will set you up on Compass Private Exclusives so you see off-market deals first. Open houses are Sundays and Tuesdays. Plan to hit 2–3 per weekend in different neighborhoods over 4–6 weeks. Start with West Adams and Culver City, then move to Highland Park and Pasadena. This calibrates your eye faster than anything else.</div>
+        <div class="ns-body">Michael will set you up on Compass Private Exclusives so you see off-market deals first. Open houses are Sundays and Tuesdays. Plan to hit 2–3 per weekend in different neighborhoods over 4–6 weeks. Start with West Adams and Culver City, then move to Highland Park and Pasadena. This calibrates your eye faster than anything&nbsp;else.</div>
       </div>
       <div class="ns-card">
         <div class="ns-num">Step 03 — Ongoing</div>
         <div class="ns-title">Stay in the Flow</div>
-        <div class="ns-body">You're in the system — no pressure, no urgency. You'll receive curated listings that match your criteria. The goal is that when the right property appears — likely in the fall — you feel confident and ready to move decisively. That's the whole plan.</div>
+        <div class="ns-body">You're in the system — no pressure, no urgency. You'll receive curated listings that match your criteria. The goal is that when the right property appears — likely in the fall — you feel confident and ready to move decisively. That's the whole&nbsp;plan.</div>
       </div>
     </div>
   </div>
