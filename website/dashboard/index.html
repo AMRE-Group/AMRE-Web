@@ -1853,6 +1853,89 @@
   }
   .stat-label { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
 
+  /* ===== NEW LEAD CALLOUT ===== */
+  .lead-callout {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--white);
+    border: 1px solid var(--hairline-soft);
+    border-left: 4px solid var(--blue);
+    border-radius: var(--radius-lg);
+    padding: 22px 28px;
+    margin-bottom: 24px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .lead-callout:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .lead-callout-badge {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #E8F1FE;
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 6px 14px 6px 22px;
+    border-radius: 100px;
+    position: relative;
+  }
+  .lead-callout-badge::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--blue);
+    box-shadow: 0 0 0 0 rgba(0,113,227,0.5);
+    animation: pulse-blue 2s infinite;
+  }
+  @keyframes pulse-blue {
+    0% { box-shadow: 0 0 0 0 rgba(0,113,227,0.5); }
+    70% { box-shadow: 0 0 0 6px rgba(0,113,227,0); }
+    100% { box-shadow: 0 0 0 0 rgba(0,113,227,0); }
+  }
+  .lead-callout-avatar {
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0071E3, #42A5F5);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lead-callout-name { font-size: 19px; font-weight: 600; letter-spacing: -0.016em; line-height: 1.2; }
+  .lead-callout-meta { font-size: 14px; color: var(--ink-3); margin-top: 3px; }
+  .lead-callout-arrow { margin-left: auto; color: var(--ink-4); font-size: 20px; flex-shrink: 0; }
+  @media (max-width: 680px) {
+    .lead-callout { flex-wrap: wrap; gap: 14px; padding: 18px 20px; }
+    .lead-callout-arrow { display: none; }
+  }
+
+  /* ===== MILESTONE SECTION (Contingencies Removed) ===== */
+  .milestone-section {
+    background: linear-gradient(180deg, #F1FAF3 0%, #FBFEFC 100%);
+    border: 1px solid rgba(27,127,59,0.14);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    margin-bottom: 36px;
+  }
+  .milestone-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .milestone-title { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
+  .milestone-count { font-size: 12px; font-weight: 600; color: #1B7F3B; background: #E1F4E6; padding: 3px 11px; border-radius: 100px; }
+  .milestone-sub { font-size: 14px; color: var(--ink-3); margin-bottom: 22px; max-width: 620px; }
+  .milestone-section .deals-grid { margin-bottom: 0; }
+
   /* ===== DEAL CARDS ===== */
   .section-label {
     font-size: 13px;
@@ -1972,6 +2055,19 @@
     color: #075985;
   }
   .deal-badge.estate::before { background: #0284C7; }
+  .deal-badge.removed { background: #E8F5E9; color: #1B7F3B; }
+  .deal-badge.removed::before {
+    content: '\2713';
+    background: transparent;
+    box-shadow: none;
+    animation: none;
+    width: auto; height: auto;
+    left: 9px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    color: #1B7F3B;
+  }
 
   .deal-card-stats {
     display: grid;
@@ -2209,6 +2305,17 @@
       </div>
     </div>
 
+    <!-- ===== NEW LEAD ===== -->
+    <a class="lead-callout" href="../clients/george-barrios/">
+      <span class="lead-callout-badge">New Lead</span>
+      <div class="lead-callout-avatar">GB</div>
+      <div>
+        <div class="lead-callout-name">George Barrios</div>
+        <div class="lead-callout-meta">Buyer · $1.2M budget · value-add duplex · searching Aug–Sep</div>
+      </div>
+      <span class="lead-callout-arrow">→</span>
+    </a>
+
     <!-- Stats bar -->
     <div class="stats-bar" id="statsBar">
       <div class="stat-item">
@@ -2260,6 +2367,80 @@
     <!-- ===== CLIENTS PANE ===== -->
     <div class="bucket-pane active" id="tab-clients">
 
+    <!-- ===== CONTINGENCIES REMOVED ===== -->
+    <div class="milestone-section">
+      <div class="milestone-head">
+        <div class="milestone-title">Contingencies Removed</div>
+        <span class="milestone-count">2 deals</span>
+      </div>
+      <div class="milestone-sub">Deals past their contingency period — inspections and financing cleared, locked in and heading to close.</div>
+      <div class="deals-grid">
+
+        <a class="deal-card" href="../clients/4248-lasalle/">
+          <img class="deal-card-img" src="../clients/4248-lasalle/property-hero.jpg" alt="4248 La Salle Ave" decoding="async" loading="lazy">
+          <div class="deal-card-body">
+            <div class="deal-card-head">
+              <div>
+                <div class="deal-card-addr">4248 La Salle Ave</div>
+                <div class="deal-card-city">Culver City, CA 90232</div>
+              </div>
+              <span class="deal-badge removed">Contingency Removed</span>
+            </div>
+            <div class="deal-card-stats">
+              <div class="deal-stat">
+                <div class="deal-stat-val">$2,512,500</div>
+                <div class="deal-stat-lbl">Price</div>
+              </div>
+              <div class="deal-stat">
+                <div class="deal-stat-val">May 8</div>
+                <div class="deal-stat-lbl">Removed</div>
+              </div>
+              <div class="deal-stat">
+                <div class="deal-stat-val">Jun 5</div>
+                <div class="deal-stat-lbl">COE</div>
+              </div>
+            </div>
+            <div class="deal-card-footer">
+              <div class="deal-card-agent">Vasu &amp; Cynthia Muthyala · Buyer-side · 3 units · Carlson Park</div>
+              <span class="deal-card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="deal-card" href="../clients/11023-fruitland-401/">
+          <img class="deal-card-img" src="../clients/11023-fruitland-401/property-hero.jpg" alt="11023 Fruitland Dr #401" decoding="async" loading="lazy">
+          <div class="deal-card-body">
+            <div class="deal-card-head">
+              <div>
+                <div class="deal-card-addr">11023 Fruitland Dr #401</div>
+                <div class="deal-card-city">Studio City, CA</div>
+              </div>
+              <span class="deal-badge removed">Contingency Removed</span>
+            </div>
+            <div class="deal-card-stats">
+              <div class="deal-stat">
+                <div class="deal-stat-val">$1.15M</div>
+                <div class="deal-stat-lbl">List price</div>
+              </div>
+              <div class="deal-stat">
+                <div class="deal-stat-val">Confirm</div>
+                <div class="deal-stat-lbl">Removed date</div>
+              </div>
+              <div class="deal-stat">
+                <div class="deal-stat-val">Seller</div>
+                <div class="deal-stat-lbl">Side</div>
+              </div>
+            </div>
+            <div class="deal-card-footer">
+              <div class="deal-card-agent">Pascal De Bruycker · Seller-side · Studio City</div>
+              <span class="deal-card-arrow">→</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
     <!-- Filters -->
     <div class="filters">
       <button class="filter-btn active" data-filter="all">All</button>
@@ -2274,7 +2455,7 @@
     <div class="deals-grid" id="buyerGrid">
 
       <a class="deal-card" href="../clients/4248-lasalle/" data-side="buyer" data-status="active">
-        <img class="deal-card-img" src="../tracker-4248-lasalle/property-hero.jpg" alt="4248 La Salle Ave" decoding="async" loading="lazy">
+        <img class="deal-card-img" src="../clients/4248-lasalle/property-hero.jpg" alt="4248 La Salle Ave" decoding="async" loading="lazy">
         <div class="deal-card-body">
           <div class="deal-card-head">
             <div>
@@ -2342,7 +2523,7 @@
       </a>
 
       <a class="deal-card" href="../clients/11023-fruitland-401/" data-side="seller" data-status="active">
-        <img class="deal-card-img" src="../tracker-11023-fruitland-401/property-hero.jpg" alt="11023 Fruitland Dr #401" decoding="async" loading="lazy">
+        <img class="deal-card-img" src="../clients/11023-fruitland-401/property-hero.jpg" alt="11023 Fruitland Dr #401" decoding="async" loading="lazy">
         <div class="deal-card-body">
           <div class="deal-card-head">
             <div>
@@ -4559,7 +4740,7 @@ Michael</div>
 
   <div class="footer">
     <span class="wm-amre" data-logo-amre>AMRE</span> Real Estate Group @ Compass<br>
-    Confidential · Last updated <span id="footerTimestamp">May 21, 2026 at 1:39 PM PT</span>
+    Confidential · Last updated <span id="footerTimestamp">Jun 1, 2026 at 10:07 AM PT</span>
   </div>
 
   <!-- ===== NOTES MODAL ===== -->
