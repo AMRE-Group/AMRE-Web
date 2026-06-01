@@ -878,6 +878,7 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
               })
               .then(function(){
                 dataLayer.push({event:'lead_submit',form_type:'contact',value:500});
+                fbq('track', 'Lead', { value: 500.00, currency: 'USD' });
                 form.style.display = 'none';
                 success.classList.add('is-visible');
                 if (window.scrollTo) {
