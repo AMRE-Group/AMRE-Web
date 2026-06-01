@@ -877,6 +877,7 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
                 return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD, params);
               })
               .then(function(){
+                dataLayer.push({event:'lead_submit',form_type:'contact',value:500});
                 form.style.display = 'none';
                 success.classList.add('is-visible');
                 if (window.scrollTo) {
