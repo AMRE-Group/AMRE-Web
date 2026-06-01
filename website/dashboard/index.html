@@ -2150,8 +2150,9 @@
     </div>
     <h1 class="gate-title">Client Dashboard</h1>
     <p class="gate-sub">AMRE Real Estate Group transaction summary.<br>Confidential.</p>
-    <form class="gate-form" id="gateForm" autocomplete="off">
-      <input type="password" class="gate-input" id="gateInput" placeholder="Enter access code" autofocus>
+    <form class="gate-form" id="gateForm" method="post" action="#" autocomplete="on">
+      <input type="text" name="username" id="gateUser" value="AMRE Dashboard" autocomplete="username" readonly tabindex="-1" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);border:0;">
+      <input type="password" class="gate-input" id="gateInput" name="password" placeholder="Enter access code" autocomplete="current-password" autofocus>
       <button type="submit" class="gate-btn">Continue</button>
       <div class="gate-error" id="gateError"></div>
     </form>
