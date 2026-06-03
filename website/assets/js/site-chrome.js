@@ -34,7 +34,7 @@
     { href: BASE + '/buyers/',  label: 'Buyers',   match: /\/buyers\//  },
     { href: BASE + '/about/',   label: 'About',    match: /\/about\//   },
     { href: BASE + '/contact/', label: 'Contact',  match: /\/contact\// },
-     { href: BASE + '/properties/mulholland-14423/', label: 'OUR PROCESS', match: /\/properties\/mulholland-14423\// }
+     { href: BASE + '/properties/fruitland-401/', label: 'Recent Sale', match: /\/properties\/fruitland-401\// }
   ];
 
   // ── Right-side actions — edit here, propagates everywhere ──

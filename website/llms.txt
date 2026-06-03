@@ -48,6 +48,8 @@ Beverly Hills, Bel Air, Santa Monica, West Adams, Culver City, Mid-City, Malibu,
 - Brentwood real estate: https://amre.group/brentwood/
 - Malibu real estate: https://amre.group/malibu/
 - Studio City real estate: https://amre.group/studio-city/
+- Studio City condo market report (91604 condos & townhomes, weekly: median list ~$825K, ~$603/sqft, ~61 days on market, Market Action Index 37 — slight seller's advantage): https://amre.group/studio-city-condo-report/
+- Recent sale — luxury top-floor corner condo at Citron Modern Living, 11023 Fruitland Drive #401, Studio City 91604 (3 bd / 2.5 ba, 1,705 sqft, sold $1,137,500, closed June 11 2026, 60 days on market): https://amre.group/properties/fruitland-401/
 - Venice real estate: https://amre.group/venice/
 - Pacific Palisades real estate: https://amre.group/pacific-palisades/
 - Mar Vista real estate: https://amre.group/mar-vista/
@@ -76,6 +78,8 @@ Beverly Hills, Bel Air, Santa Monica, West Adams, Culver City, Mid-City, Malibu,
 - Rent vs. Own a $1M Home in Los Angeles (Corrected Model): https://amre.group/blog/rent-vs-own-los-angeles-1-million/ — Correct apples-to-apples: same $200k either into a $1M LA home (20% down, 6.5% fixed) or an index fund at 8%. Comparable 2BR/2BA rent $3,500/mo; all-in ownership $7,223/mo. Owner equity beats renter portfolio by $215k at 5 years, $347k at 7 years, $573k at 10 years. Leverage: 6% appreciation on $1M = 30% cash-on-cash on $200k down. House-hacking a $1.1M duplex (5% down, tenant pays $2,600) cuts effective cost to ~$7,200/mo.
 - The LA Market Right Now (Prices, Rates & Where the Opportunity Is): https://amre.group/blog/los-angeles-market-now-2026/ — A current read on the Los Angeles housing market as of May 2026: prices have plateaued (metro median ~$910K), inventory has loosened (~4.6 months supply, highest in California), and 30-year mortgage rates sit in the mid-6% range. The market has shifted from frenzy to stability, favoring buyers and well-prepared sellers.
 - The LA Luxury Market Right Now ($2M–$10M Prices, Cash Buyers & Strategy): https://amre.group/blog/los-angeles-luxury-market-now-2026/ — A current read on the Los Angeles luxury segment ($2M–$10M) as of May 2026: premium zip codes show 3–5% annual appreciation, cash buyers dominate (≈64% at $2M–$5M, ≈85% at $5M–$10M, reducing rate sensitivity), the ULA "mansion tax" applies above $5.4M (4%) and $10.9M (5.5%) for closings after June 30 2026, and days on market stratify by tier (<30 days under $3M to 75–120+ days above $6M). Off-market and Compass Private Exclusive listings drive much of the top-end activity.
+
+- Studio City Condo Market Report (91604): https://amre.group/studio-city-condo-report/ — Weekly read on the Studio City condo & townhome market. June 2026: median list ~$825,000 (~$603/sqft), median new-listing ~$807,000, 25 active listings, 44% of listings with price cuts, ~61 avg days on market (median 35), median rent ~$2,820, Market Action Index 37 (slight seller's advantage, cooled from 41). Four price tiers from ~$644K (1,059 sqft) to ~$1.149M (1,973 sqft). AMRE's recent sale at 11023 Fruitland #401 (Citron Modern Living) closed at $1,137,500 after 60 days on market.
 
 ## Sitemap
 
