@@ -131,6 +131,16 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
 .foot{padding:32px 24px;text-align:center;font-size:12px;color:#86868b;border-top:1px solid #e8e4dc;background:#fff;margin-top:32px}
 .foot a{color:#1c3d31;font-weight:600;border-bottom:1px solid #1c3d31}
 .foot a + a{margin-left:18px}
+
+/* ===== Sticky jump nav ===== */
+html{scroll-behavior:smooth}
+.subnav{position:sticky;top:44px;z-index:99;background:rgba(244,243,239,.82);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid #e8e4dc}
+.subnav-inner{max-width:1200px;margin:0 auto;display:flex;gap:6px;overflow-x:auto;padding:9px 24px;scrollbar-width:none;-ms-overflow-style:none}
+.subnav-inner::-webkit-scrollbar{display:none}
+.subnav a{flex:0 0 auto;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5a5a5a;padding:6px 13px;border-radius:999px;white-space:nowrap;transition:color .15s,background .15s;border-bottom:none}
+.subnav a:hover{color:#1c3d31;background:rgba(28,61,49,.07)}
+.subnav a.active{color:#fff;background:#1c3d31}
+section[id]{scroll-margin-top:104px}
 </style>
 </head>
 <body>
@@ -158,6 +168,23 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </div>
 
+
+<nav class="subnav" id="jumpNav" aria-label="Section navigation">
+  <div class="subnav-inner">
+    <a href="#priorities">Priorities</a>
+    <a href="#traffic">Traffic</a>
+    <a href="#search">Search</a>
+    <a href="#goals">Goals</a>
+    <a href="#trend">Trend</a>
+    <a href="#channels">Channels</a>
+    <a href="#devices">Devices</a>
+    <a href="#geography">Geography</a>
+    <a href="#pages">Pages</a>
+    <a href="#queries">Queries</a>
+    <a href="#indexing">Indexing</a>
+  </div>
+</nav>
+
 <header class="hero">
   <div class="wrap">
     <h1>SEO &amp; Traffic.</h1>
@@ -172,7 +199,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
 </header>
 
 <!-- ===== THIS WEEK'S PRIORITIES ===== -->
-<section class="rec-band">
+<section class="rec-band" id="priorities">
   <div class="wrap">
     <div class="rec-head">
       <h2>This Week's Priorities</h2>
@@ -238,7 +265,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block" style="padding-top:8px">
+<section class="block" id="traffic" style="padding-top:8px">
   <div class="wrap">
     <div class="section-head"><h2>Site Traffic <span class="src-tag">GA4</span></h2><div class="period">Last 28 days · vs prior 28</div></div>
     <div class="kpi-grid">
@@ -254,7 +281,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="search">
   <div class="wrap">
     <div class="section-head"><h2>Search Performance <span class="src-tag">Google Search Console</span></h2><div class="period">Last 28 days · vs prior 28</div></div>
     <div class="kpi-grid">
@@ -266,7 +293,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="goals">
   <div class="wrap">
     <div class="section-head"><h2>Goals &amp; Conversions <span class="src-tag">GA4 Events</span></h2><div class="period">Last 28 days</div></div>
     <div class="goal-row">
@@ -306,7 +333,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="trend">
   <div class="wrap">
     <div class="section-head"><h2>90-Day Trend</h2><div class="period">Mar 1 – May 31, 2026</div></div>
     <div class="spark-row">
@@ -338,7 +365,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="channels">
   <div class="wrap">
     <div class="card-grid-2">
       <div class="card">
@@ -417,7 +444,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="devices">
   <div class="wrap">
     <div class="section-head"><h2>Device Breakdown</h2><div class="period">Last 28 days</div></div>
     <div class="card-grid-2">
@@ -447,7 +474,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="geography">
   <div class="wrap">
     <div class="section-head"><h2>Geography</h2><div class="period">Last 28 days</div></div>
     <div class="note warn"><strong>Read with caution:</strong> Singapore at 259 sessions (exactly one user per session) and the "Ashburn / Boardman / Prineville / (not set)" US rows (all AWS &amp; data-center origins) are almost certainly automated bot/crawler traffic, not humans. Real US human sessions are closer to ~230 of the 285 US total. Net: legitimate human traffic ≈ 300&ndash;320 of the 622 raw sessions for this period. Add a GA4 bot-origin filter next iteration (priority 4 above).</div>
@@ -506,7 +533,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="pages">
   <div class="wrap">
     <div class="section-head"><h2>Top Pages by Pageviews <span class="src-tag">GA4</span></h2><div class="period">Last 28 days</div></div>
     <div class="card" style="padding:0;overflow:hidden">
@@ -588,7 +615,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="queries">
   <div class="wrap">
     <div class="section-head"><h2>Top Search Queries <span class="src-tag">GSC</span></h2><div class="period">Last 28 days · top 25</div></div>
     <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:14px">Queries below sorted by clicks, then impressions. Sort by any column. Zero-click rows are impression-only opportunities &mdash; queries Google is showing the site for but no one is clicking yet. Note how many are <strong>address lookups</strong> (sold-listing searches) &mdash; an audience to capture with sold/just-sold pages.</p>
@@ -627,7 +654,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
   </div>
 </section>
 
-<section class="block">
+<section class="block" id="indexing">
   <div class="wrap">
     <div class="section-head"><h2>Sitemap &amp; Indexing</h2><div class="period">Google Search Console</div></div>
     <div class="card-grid-2">
@@ -684,6 +711,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
     gate.classList.add('hidden');
     dashboard.style.display = '';
     initSortable();
+initScrollSpy();
   }
 
   gateForm.addEventListener('submit', e => {
@@ -693,6 +721,7 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
       gate.classList.add('hidden');
       dashboard.style.display = '';
       initSortable();
+initScrollSpy();
     } else {
       gateError.textContent = 'Incorrect code.';
       gateInput.value = '';
@@ -739,6 +768,22 @@ table .pill.key{background:rgba(255,193,60,.18);color:#7a5a00}
       });
     });
   }
+
+function initScrollSpy(){
+  if(window._spyInit) return; window._spyInit=true;
+  const nav=document.getElementById('jumpNav'); if(!nav) return;
+  const links=Array.from(nav.querySelectorAll('a'));
+  const map=links.map(a=>({a,sec:document.querySelector(a.getAttribute('href'))})).filter(x=>x.sec);
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){
+      const id='#'+e.target.id;
+      links.forEach(l=>l.classList.toggle('active', l.getAttribute('href')===id));
+      const act=nav.querySelector('a.active');
+      if(act) act.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    }});
+  },{rootMargin:'-110px 0px -65% 0px',threshold:0});
+  map.forEach(x=>obs.observe(x.sec));
+}
 </script>
 
 </body>
