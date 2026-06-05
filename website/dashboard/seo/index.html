@@ -141,6 +141,25 @@ html{scroll-behavior:smooth}
 .subnav a:hover{color:#1c3d31;background:rgba(28,61,49,.07)}
 .subnav a.active{color:#fff;background:#1c3d31}
 section[id]{scroll-margin-top:104px}
+
+/* ===== Key-metrics scorecard ===== */
+.scorecard{padding:30px 0 6px}
+.score-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:6px}
+.score-head h2{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(20px,3vw,26px);color:#1a1a1a}
+.score-head .period{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#86868b}
+.score-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+@media(max-width:960px){.score-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.score-grid{grid-template-columns:repeat(2,1fr)}}
+.score{position:relative;display:block;background:#fff;border:1px solid #e8e4dc;border-radius:12px;padding:16px 16px 14px;transition:transform .14s,box-shadow .14s,border-color .14s}
+.score:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.07);border-color:#d8d2c4}
+.score-label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#86868b;margin-bottom:7px;padding-right:48px}
+.score-value{font-family:'Playfair Display',serif;font-weight:500;font-size:26px;color:#1a1a1a;line-height:1;letter-spacing:-.5px}
+.score-delta{margin-top:9px;font-weight:600;font-size:10.5px;padding:2px 7px;border-radius:4px;display:inline-block}
+.score-delta.up{color:#1c3d31;background:rgba(28,61,49,.08)}
+.score-delta.down{color:#c33;background:rgba(204,51,51,.08)}
+.score-delta.flat{color:#7a6a2a;background:rgba(255,193,60,.16)}
+.score-jump{position:absolute;top:14px;right:13px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#cfc9bc;transition:color .14s}
+.score:hover .score-jump{color:#1c3d31}
 </style>
 </head>
 <body>
@@ -171,6 +190,7 @@ section[id]{scroll-margin-top:104px}
 
 <nav class="subnav" id="jumpNav" aria-label="Section navigation">
   <div class="subnav-inner">
+    <a href="#overview">Overview</a>
     <a href="#priorities">Priorities</a>
     <a href="#traffic">Traffic</a>
     <a href="#search">Search</a>
@@ -199,6 +219,24 @@ section[id]{scroll-margin-top:104px}
 </header>
 
 <!-- ===== THIS WEEK'S PRIORITIES ===== -->
+<section class="scorecard" id="overview">
+<div class="wrap">
+  <div class="score-head"><h2>Key Metrics</h2><div class="period">Last 28 days · tap any metric to jump</div></div>
+  <div class="score-grid">
+    <a class="score" href="#search"><span class="score-jump">↓ Search</span><div class="score-label">Clicks from Google</div><div class="score-value">57</div><span class="score-delta down">▼ 37.4%</span></a>
+    <a class="score" href="#search"><span class="score-jump">↓ Search</span><div class="score-label">Impressions</div><div class="score-value">5,344</div><span class="score-delta down">▼ 25.2%</span></a>
+    <a class="score" href="#search"><span class="score-jump">↓ Search</span><div class="score-label">Avg. Position</div><div class="score-value">15.7</div><span class="score-delta down">▼ 1.9 spots</span></a>
+    <a class="score" href="#search"><span class="score-jump">↓ Search</span><div class="score-label">Search CTR</div><div class="score-value">1.07%</div><span class="score-delta down">▼ 0.2pp</span></a>
+    <a class="score" href="#traffic"><span class="score-jump">↓ Traffic</span><div class="score-label">Sessions</div><div class="score-value">622</div><span class="score-delta down">▼ 32.5%</span></a>
+    <a class="score" href="#traffic"><span class="score-jump">↓ Traffic</span><div class="score-label">Total Users</div><div class="score-value">501</div><span class="score-delta down">▼ 39.2%</span></a>
+    <a class="score" href="#traffic"><span class="score-jump">↓ Traffic</span><div class="score-label">Engagement Rate</div><div class="score-value">26.5%</div><span class="score-delta up">▲ 12.1pp</span></a>
+    <a class="score" href="#traffic"><span class="score-jump">↓ Traffic</span><div class="score-label">Avg. Session</div><div class="score-value">195s</div><span class="score-delta up">▲ 364%</span></a>
+    <a class="score" href="#goals"><span class="score-jump">↓ Goals</span><div class="score-label">Leads (generate_lead)</div><div class="score-value">70</div><span class="score-delta flat">⚑ 21 users · verify</span></a>
+    <a class="score" href="#goals"><span class="score-jump">↓ Goals</span><div class="score-label">Form Starts</div><div class="score-value">31</div><span class="score-delta flat">8 users</span></a>
+  </div>
+</div>
+</section>
+
 <section class="rec-band" id="priorities">
   <div class="wrap">
     <div class="rec-head">
