@@ -163,6 +163,14 @@ section[id]{scroll-margin-top:104px}
 
 @media(max-width:640px){.card table.sortable,.card table{min-width:540px}}
 .card[style*="overflow-x:auto"]{scrollbar-width:thin}
+
+.rec{position:relative}
+.rec .rec-title{padding-right:88px}
+.rec-status{position:absolute;top:16px;right:16px;font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.rec-status.todo{color:#5a5a5a;background:#eceae3}
+.rec-status.prog{color:#7a5a00;background:rgba(255,193,60,.22)}
+.rec-status.done{color:#1c3d31;background:rgba(28,61,49,.10)}
+.rec.is-done{opacity:.72}
 </style>
 </head>
 <body>
@@ -244,55 +252,62 @@ section[id]{scroll-margin-top:104px}
   <div class="wrap">
     <div class="rec-head">
       <h2>This Week's Priorities</h2>
-      <div class="rec-meta">6 actions · based on the data below</div>
+      <div class="rec-meta">7 actions · 2 done, 1 in progress, 4 open · reviewed Jun 5, 2026</div>
     </div>
-    <div class="rec-grid">
+        <div class="rec-grid">
       <div class="rec">
+        <span class="rec-status todo">Open</span>
         <div class="rec-num">1</div>
         <div class="rec-title">Resubmit the sitemap to Google</div>
         <span class="rec-time">2 min · in GSC</span>
-        <div class="rec-body">Google last fetched the sitemap <strong>May 27</strong> and saw <strong>76 URLs</strong> &mdash; the live <code>sitemap.xml</code> now lists <strong>99</strong>. Google's copy is 23 URLs behind, including the newest cornerstone posts. A resubmit forces a fresh crawl.</div>
+        <div class="rec-body">Live sitemap now lists <strong>110 URLs</strong>; Google last fetched it <strong>May 27</strong> at 76. A resubmit pulls in the newest posts &mdash; plus the 35-Years redirect and Mid-City refresh below &mdash; so Google drops the stale dupe and recrawls the updated page.</div>
         <a href="https://search.google.com/search-console/sitemaps?resource_id=sc-domain%3Aamre.group" target="_blank" rel="noopener" class="rec-action">Open Sitemaps in GSC &rarr;</a>
       </div>
-
       <div class="rec">
+        <span class="rec-status todo">Open</span>
         <div class="rec-num">2</div>
-        <div class="rec-title">Consolidate the duplicate "35 Years" blog URL</div>
-        <span class="rec-time auto">~10 min · Claude can do this</span>
-        <div class="rec-body">The site's #2 organic page is competing with itself. Two live URLs both rank ~position 6.9 and split the clicks: <code>/blog/35-years-of-los-angeles-housing-appreciation-19892024</code> (7 clk / 506 imp) and <code>/blog/35-years-housing-appreciation-los-angeles/</code> (6 clk / 404 imp). The canonical already points to the clean slug, but the old slug still returns 200. A <strong>301 redirect</strong> old&rarr;clean merges the authority.</div>
-        <span class="rec-action" style="color:#86868b;border-color:transparent">Ask Claude: "301 the old 35-years slug"</span>
-      </div>
-
-      <div class="rec">
-        <div class="rec-num">3</div>
-        <div class="rec-title">Optimize the Mid-City guide for page 1</div>
-        <span class="rec-time auto">~30 min · Claude can do this</span>
-        <div class="rec-body"><code>/blog/living-in-mid-city-los-angeles-neighborhood-guide/</code> drew <strong>416 impressions but 1 click</strong> at avg position <strong>17.2</strong> &mdash; stuck on page 2 for real volume. A sharper title tag + meta description and a content refresh could break it onto page 1 and convert those impressions.</div>
-        <span class="rec-action" style="color:#86868b;border-color:transparent">Ask Claude: "optimize the mid-city guide"</span>
-      </div>
-
-      <div class="rec">
-        <div class="rec-num">4</div>
-        <div class="rec-title">Add a GA4 bot-traffic filter</div>
-        <span class="rec-time">10 min · in GA4</span>
-        <div class="rec-body">~315 of the 622 sessions this period are almost certainly bots: Singapore (259 sessions, exactly 1 user each) plus AWS/data-center cities (Ashburn, Boardman, Prineville, "not set"). Filtering these makes every future report reflect real humans (~300 sessions).</div>
-        <a href="https://analytics.google.com/analytics/web/#/a358264812p492854192/admin/streams/table/" target="_blank" rel="noopener" class="rec-action">Open GA4 Admin &rarr;</a>
-      </div>
-
-      <div class="rec">
-        <div class="rec-num">5</div>
-        <div class="rec-title">Audit the <code style="background:rgba(255,193,60,.2);padding:1px 5px;border-radius:3px;font-size:14px">generate_lead</code> trigger</div>
+        <div class="rec-title">Fix the <code style="background:rgba(255,193,60,.2);padding:1px 5px;border-radius:3px;font-size:14px">generate_lead</code> trigger</div>
         <span class="rec-time">15 min · in GTM</span>
-        <div class="rec-body">70 <code>generate_lead</code> events fired from only 31 <code>form_start</code>s (21 vs 8 unique users) &mdash; the lead event is firing ~2.3&times; as often as forms are started. Likely a phone-click or email-link trigger inflating the count. Confirm what's being counted as a "lead."</div>
+        <div class="rec-body"><strong>Confirmed &mdash; these are not real leads.</strong> 70 events from 21 users with no matching inbound: the trigger is firing on a phone-tap / mailto click or leftover test fires, not form submissions. Rebuild it to fire only on a genuine form-submit success. Until then, treat the lead count here as noise.</div>
         <a href="https://tagmanager.google.com/" target="_blank" rel="noopener" class="rec-action">Open GTM &rarr;</a>
       </div>
-
       <div class="rec">
-        <div class="rec-num">6</div>
+        <span class="rec-status todo">Open</span>
+        <div class="rec-num">3</div>
+        <div class="rec-title">Claim AI-search visibility (AEO)</div>
+        <span class="rec-time">strategic · ongoing</span>
+        <div class="rec-body">Buyers increasingly start in ChatGPT, Perplexity &amp; Claude &mdash; and <strong>luxury is the least-contested AI space</strong> right now. Lock NAP consistency across the ~10 priority directories and verify the Google Business Profile so AI engines cite AMRE. The architect&rsquo;s-eye cluster and <code>llms.txt</code> are already the foundation.</div>
+        <span class="rec-action" style="color:#86868b;border-color:transparent">Ask Claude: "draft the AEO citation checklist"</span>
+      </div>
+      <div class="rec">
+        <span class="rec-status todo">Open</span>
+        <div class="rec-num">4</div>
         <div class="rec-title">Compress hero + team photos to WebP</div>
         <span class="rec-time auto">~1 hour · Claude can do this</span>
         <div class="rec-body">Mobile search CTR (1.5%) beats desktop (0.9%) and mobile users benefit most from faster images. The homepage hero is the biggest payload on the site &mdash; a Core Web Vitals LCP win.</div>
         <span class="rec-action" style="color:#86868b;border-color:transparent">Ask Claude: "compress the hero images"</span>
+      </div>
+      <div class="rec">
+        <span class="rec-status prog">In progress</span>
+        <div class="rec-num">5</div>
+        <div class="rec-title">Filter bot traffic in GA4</div>
+        <span class="rec-time">10 min · in GA4</span>
+        <div class="rec-body"><strong>Singapore source blocked at the door.</strong> That removes the ~259 bot sessions (1 user each) that inflated this period. Now apply a <strong>Country = United States</strong> view (or bot filter) in GA4 so historical reports also reflect real humans &mdash; roughly ~300 true sessions.</div>
+        <a href="https://analytics.google.com/analytics/web/#/a358264812p492854192/admin/streams/table/" target="_blank" rel="noopener" class="rec-action">Open GA4 Admin &rarr;</a>
+      </div>
+      <div class="rec is-done">
+        <span class="rec-status done">Done</span>
+        <div class="rec-num">6</div>
+        <div class="rec-title">Optimize the Mid-City guide for page 1</div>
+        <span class="rec-time">done Jun 5</span>
+        <div class="rec-body"><strong>Updated.</strong> Title, meta and FAQ schema were already strong, so the lever was authority: added a contextual inbound link from the West Adams post (a page that earns clicks) and bumped the sitemap <code>lastmod</code> to force a recrawl. Was 416 impressions at position 17.2 &mdash; monitor for the page-1 break.</div>
+      </div>
+      <div class="rec is-done">
+        <span class="rec-status done">Resolved</span>
+        <div class="rec-num">7</div>
+        <div class="rec-title">Consolidate the duplicate "35 Years" URL</div>
+        <span class="rec-time">resolved</span>
+        <div class="rec-body"><strong>Resolved.</strong> The old slug is already a redirect stub (canonical + instant redirect to the clean URL), it&rsquo;s excluded from the sitemap and <code>llms.txt</code>, and the clean slug is indexed. Only the GSC recrawl in #1 remains to drop the dupe from results.</div>
       </div>
     </div>
   </div>
@@ -301,7 +316,7 @@ section[id]{scroll-margin-top:104px}
 <section class="block" style="padding-top:32px;padding-bottom:16px">
   <div class="wrap">
     <div class="note">
-      <strong>What's happening:</strong> Raw sessions fell 32% vs the prior 28 days, but that window captured a spike &mdash; engagement quality is sharply higher: pageviews +28%, session duration 42s &rarr; 195s, engagement rate 14.4% &rarr; 26.5%, pages/session 1.20 &rarr; 2.27. <strong>The US is now clearly the #1 country</strong> (285 sessions vs Singapore's 259 bot sessions). <strong>Conversions held:</strong> 70 <code>generate_lead</code> events from 21 users, plus 3 ads conversions &mdash; though the lead count needs the GTM audit above. <strong>Organic softened this window</strong> (clicks 91 &rarr; 57, avg position 13.8 &rarr; 15.7); the cornerstone content shipped at the end of the prior period, so the lift should land here and next. The single biggest organic win available right now is consolidating the duplicate "35 Years" blog URL (priority 2).
+      <strong>What's happening:</strong> Raw sessions fell 32% vs the prior 28 days, but that window captured a spike &mdash; engagement quality is sharply higher: pageviews +28%, session duration 42s &rarr; 195s, engagement rate 14.4% &rarr; 26.5%, pages/session 1.20 &rarr; 2.27. <strong>The US is now clearly the #1 country</strong> (285 sessions vs Singapore's 259 bot sessions, now blocked at the source). <strong>Lead count is unreliable:</strong> the 70 <code>generate_lead</code> events from 21 users are a misfiring trigger, not real inbound (priority&nbsp;#2) &mdash; only the 3 ads conversions look genuine. <strong>Organic softened this window</strong> (clicks 91 &rarr; 57, avg position 13.8 &rarr; 15.7); the cornerstone content shipped at the end of the prior period, so the lift should land here and next. The duplicate &ldquo;35 Years&rdquo; URL is now resolved; the biggest remaining organic lever is resubmitting the sitemap (priority&nbsp;#1) so Google recrawls &mdash; dropping the dupe and picking up the Mid-City refresh.
     </div>
   </div>
 </section>
