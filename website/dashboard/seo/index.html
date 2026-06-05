@@ -160,6 +160,9 @@ section[id]{scroll-margin-top:104px}
 .score-delta.flat{color:#7a6a2a;background:rgba(255,193,60,.16)}
 .score-jump{position:absolute;top:14px;right:13px;font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#cfc9bc;transition:color .14s}
 .score:hover .score-jump{color:#1c3d31}
+
+@media(max-width:640px){.card table.sortable,.card table{min-width:540px}}
+.card[style*="overflow-x:auto"]{scrollbar-width:thin}
 </style>
 </head>
 <body>
@@ -352,7 +355,7 @@ section[id]{scroll-margin-top:104px}
       </div>
     </div>
     <div class="section-head" style="margin-top:28px;margin-bottom:12px"><h3 style="font-family:Playfair Display,serif;font-weight:500;font-size:16px;color:#1a1a1a">All events (sortable)</h3></div>
-    <div class="card" style="padding:0;overflow:hidden">
+    <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="sortable">
         <thead><tr><th>Event Name</th><th class="num">Count</th><th class="num">Unique Users</th><th>Key</th></tr></thead>
         <tbody>
@@ -486,7 +489,7 @@ section[id]{scroll-margin-top:104px}
   <div class="wrap">
     <div class="section-head"><h2>Device Breakdown</h2><div class="period">Last 28 days</div></div>
     <div class="card-grid-2">
-      <div class="card" style="padding:0;overflow:hidden">
+      <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
         <div style="padding:20px 24px 8px 24px"><div class="card-title">Sessions <span class="src-tag">GA4</span></div></div>
         <table class="sortable">
           <thead><tr><th>Device</th><th class="num">Sessions</th><th class="num">Users</th><th class="num">Engagement</th></tr></thead>
@@ -497,7 +500,7 @@ section[id]{scroll-margin-top:104px}
           </tbody>
         </table>
       </div>
-      <div class="card" style="padding:0;overflow:hidden">
+      <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
         <div style="padding:20px 24px 8px 24px"><div class="card-title">Search Performance <span class="src-tag">GSC</span></div></div>
         <table class="sortable">
           <thead><tr><th>Device</th><th class="num">Clicks</th><th class="num">Imp.</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
@@ -517,7 +520,7 @@ section[id]{scroll-margin-top:104px}
     <div class="section-head"><h2>Geography</h2><div class="period">Last 28 days</div></div>
     <div class="note warn"><strong>Read with caution:</strong> Singapore at 259 sessions (exactly one user per session) and the "Ashburn / Boardman / Prineville / (not set)" US rows (all AWS &amp; data-center origins) are almost certainly automated bot/crawler traffic, not humans. Real US human sessions are closer to ~230 of the 285 US total. Net: legitimate human traffic ≈ 300&ndash;320 of the 622 raw sessions for this period. Add a GA4 bot-origin filter next iteration (priority 4 above).</div>
     <div class="card-grid-2">
-      <div class="card" style="padding:0;overflow:hidden">
+      <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
         <div style="padding:20px 24px 8px 24px"><div class="card-title">Top Countries <span class="src-tag">GA4 · Sessions</span></div></div>
         <table class="sortable">
           <thead><tr><th>Country</th><th class="num">Sessions</th><th class="num">Users</th><th>Flag</th></tr></thead>
@@ -533,7 +536,7 @@ section[id]{scroll-margin-top:104px}
           </tbody>
         </table>
       </div>
-      <div class="card" style="padding:0;overflow:hidden">
+      <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
         <div style="padding:20px 24px 8px 24px"><div class="card-title">Top US Cities <span class="src-tag">GA4 · Sessions</span></div></div>
         <table class="sortable">
           <thead><tr><th>City</th><th class="num">Sessions</th><th>Flag</th></tr></thead>
@@ -554,7 +557,7 @@ section[id]{scroll-margin-top:104px}
         </table>
       </div>
     </div>
-    <div class="card" style="margin-top:20px;padding:0;overflow:hidden">
+    <div class="card" style="margin-top:20px;padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
       <div style="padding:20px 24px 8px 24px"><div class="card-title">Search by Country <span class="src-tag">GSC</span></div></div>
       <table class="sortable">
         <thead><tr><th>Country</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
@@ -574,7 +577,7 @@ section[id]{scroll-margin-top:104px}
 <section class="block" id="pages">
   <div class="wrap">
     <div class="section-head"><h2>Top Pages by Pageviews <span class="src-tag">GA4</span></h2><div class="period">Last 28 days</div></div>
-    <div class="card" style="padding:0;overflow:hidden">
+    <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="sortable">
         <thead><tr><th>Page</th><th class="num">Pageviews</th><th class="num">Sessions</th></tr></thead>
         <tbody>
@@ -602,7 +605,7 @@ section[id]{scroll-margin-top:104px}
 <section class="block">
   <div class="wrap">
     <div class="section-head"><h2>Top Landing Pages <span class="src-tag">GA4 · where sessions started</span></h2><div class="period">Last 28 days</div></div>
-    <div class="card" style="padding:0;overflow:hidden">
+    <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="sortable">
         <thead><tr><th>Landing Page</th><th class="num">Sessions</th><th class="num">Users</th><th class="num">Engagement</th></tr></thead>
         <tbody>
@@ -631,7 +634,7 @@ section[id]{scroll-margin-top:104px}
   <div class="wrap">
     <div class="section-head"><h2>Top Pages from Google Search <span class="src-tag">GSC</span></h2><div class="period">Last 28 days · clicks &gt; 0</div></div>
     <div class="note"><strong>Two flags worth acting on:</strong> the "35 Years" article is indexed under two URLs splitting 13 clicks across both (priority 2 &mdash; 301 the old slug). And the Mid-City guide pulled <strong>416 impressions for 1 click</strong> at position 17.2 &mdash; a striking-distance page-1 opportunity (priority 3).</div>
-    <div class="card" style="padding:0;overflow:hidden">
+    <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="sortable">
         <thead><tr><th>Page</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
         <tbody>
@@ -657,7 +660,7 @@ section[id]{scroll-margin-top:104px}
   <div class="wrap">
     <div class="section-head"><h2>Top Search Queries <span class="src-tag">GSC</span></h2><div class="period">Last 28 days · top 25</div></div>
     <p style="font-size:13px;color:#5a5a5a;line-height:1.6;margin-bottom:14px">Queries below sorted by clicks, then impressions. Sort by any column. Zero-click rows are impression-only opportunities &mdash; queries Google is showing the site for but no one is clicking yet. Note how many are <strong>address lookups</strong> (sold-listing searches) &mdash; an audience to capture with sold/just-sold pages.</p>
-    <div class="card" style="padding:0;overflow:hidden">
+    <div class="card" style="padding:0;overflow-x:auto;-webkit-overflow-scrolling:touch">
       <table class="sortable">
         <thead><tr><th>Query</th><th class="num">Clicks</th><th class="num">Impressions</th><th class="num">CTR</th><th class="num">Position</th></tr></thead>
         <tbody>
