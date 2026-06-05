@@ -106,9 +106,12 @@
   @media(max-width:880px){
     .journey-track{grid-template-columns:1fr;gap:0}
     .journey-track::before{top:0;bottom:0;left:21px;right:auto;width:2px;height:auto}
-    .jstep{display:grid;grid-template-columns:44px 1fr;gap:18px;text-align:left;padding:0 0 28px}
-    .jnode{margin:0}
-    .jstep h4{margin-top:8px}
+    .jstep{display:grid;grid-template-columns:44px 1fr;column-gap:18px;text-align:left;padding:0 0 30px;align-items:start}
+    .jstep > *{grid-column:2;min-width:0}
+    .jstep .jnode{grid-column:1;grid-row:1;margin:0}
+    .jstep .tag{justify-self:start}
+    .jstep h4{margin-top:10px}
+    .jstep p{max-width:44ch}
   }
 
   /* ===== HOMES ===== */
