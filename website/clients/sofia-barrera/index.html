@@ -224,9 +224,56 @@
   footer.site .ftag{font-size:.82rem;color:rgba(255,255,255,.7);max-width:46ch;margin:0 auto 22px}
   footer.site .fmeta{font-size:.72rem;line-height:1.7;color:rgba(255,255,255,.45);max-width:70ch;margin:0 auto}
   footer.site .conf{display:inline-block;margin-top:18px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);border:1px solid rgba(255,193,60,.3);border-radius:999px;padding:6px 16px}
+
+  /* ===== GATE ===== */
+  body.locked{overflow:hidden}
+  #gate{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:28px;
+    background:radial-gradient(120% 90% at 70% 10%,#27543f 0%,var(--forest) 42%,#0c2019 100%);
+    transition:opacity .6s ease,visibility .6s;}
+  #gate.hide{opacity:0;visibility:hidden;pointer-events:none}
+  #gate::after{content:"";position:absolute;inset:0;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 39.5H40M39.5 0V40' stroke='%23ffffff' stroke-opacity='0.04'/%3E%3C/svg%3E");}
+  .gate-card{position:relative;z-index:2;text-align:center;max-width:420px;width:100%}
+  .gate-brand{font-family:'Playfair Display',serif;color:#fff;font-size:1.5rem;letter-spacing:.05em;margin-bottom:8px}
+  .gate-brand .sep{color:rgba(255,255,255,.4);margin:0 9px}
+  .gate-eyebrow{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:40px}
+  .gate-lock{width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,193,60,.4);background:rgba(255,193,60,.1);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:1.4rem;color:var(--brass)}
+  .gate-card h2{color:#fff;font-size:1.7rem;margin-bottom:8px}
+  .gate-card p{color:rgba(255,255,255,.7);font-size:.92rem;margin-bottom:28px}
+  .gate-form{display:flex;flex-direction:column;gap:12px}
+  #gateInput{width:100%;padding:15px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.06);color:#fff;font-family:'Montserrat',sans-serif;font-size:1rem;text-align:center;letter-spacing:.04em;outline:none;transition:border .25s}
+  #gateInput::placeholder{color:rgba(255,255,255,.45)}
+  #gateInput:focus{border-color:var(--brass)}
+  #gateBtn{width:100%;padding:15px;border-radius:14px;border:none;background:var(--brass);color:var(--navy);
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.02em;cursor:pointer;transition:transform .2s,box-shadow .2s}
+  #gateBtn:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(255,193,60,.6)}
+  .gate-err{color:#ffb4a8;font-size:.82rem;margin-top:14px;min-height:18px;opacity:0;transition:opacity .2s}
+  .gate-err.show{opacity:1}
+  .gate-foot{margin-top:34px;font-size:.72rem;color:rgba(255,255,255,.45)}
+  @keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-7px)}40%,60%{transform:translateX(7px)}}
+  .shake{animation:shake .5s}
 </style>
 </head>
-<body>
+<body class="locked">
+
+<!-- GATE -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-brand">AMRE<span class="sep">×</span>Compass</div>
+    <div class="gate-eyebrow">Private &amp; Confidential</div>
+    <div class="gate-lock">⌘</div>
+    <h2>Welcome, Sofia.</h2>
+    <p>This page was prepared just for you. Enter your access code to continue.</p>
+    <div class="gate-form">
+      <input id="gateInput" type="password" placeholder="Access code" autocomplete="off" aria-label="Access code">
+      <button id="gateBtn" type="button">Enter your journey →</button>
+    </div>
+    <div class="gate-err" id="gateErr">That code doesn't match — try again.</div>
+    <div class="gate-foot">AMRE Real Estate Group at Compass</div>
+  </div>
+</div>
 
 <nav id="nav">
   <div class="brand"><b>AMRE</b><span class="sep">×</span><span>Compass</span></div>
@@ -606,6 +653,23 @@
 </footer>
 
 <script>
+  // ===== Gate =====
+  (function(){
+    var CODE="sophia#2026";
+    var gate=document.getElementById('gate'), inp=document.getElementById('gateInput'),
+        btn=document.getElementById('gateBtn'), err=document.getElementById('gateErr'), card=gate.querySelector('.gate-card');
+    function unlock(){gate.classList.add('hide');document.body.classList.remove('locked');try{sessionStorage.setItem('sofia_ok','1')}catch(e){}}
+    function tryCode(){
+      if((inp.value||'').trim().toLowerCase()===CODE){unlock();}
+      else{err.classList.add('show');card.classList.remove('shake');void card.offsetWidth;card.classList.add('shake');inp.value='';inp.focus();}
+    }
+    try{if(sessionStorage.getItem('sofia_ok')==='1'){gate.classList.add('hide');document.body.classList.remove('locked');}}catch(e){}
+    btn.addEventListener('click',tryCode);
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter')tryCode()});
+    inp.addEventListener('input',function(){err.classList.remove('show')});
+    if(!document.body.classList.contains('locked')===false){setTimeout(function(){inp.focus()},300);}
+  })();
+
   // Reveal on scroll
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.f').forEach(function(el){io.observe(el)});
