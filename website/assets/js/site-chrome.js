@@ -32,6 +32,7 @@
   var LINKS = [
     { href: BASE + '/sellers/', label: 'Sellers',  match: /\/sellers\// },
     { href: BASE + '/buyers/',  label: 'Buyers',   match: /\/buyers\//  },
+    { href: BASE + '/cash-and-flow/', label: 'Cash & Flow', match: /\/cash-and-flow\// },
     { href: BASE + '/about/',   label: 'About',    match: /\/about\//   },
     { href: BASE + '/contact/', label: 'Contact',  match: /\/contact\// },
      { href: BASE + '/properties/fruitland-401/', label: 'Recent Sale', match: /\/properties\/fruitland-401\// }
