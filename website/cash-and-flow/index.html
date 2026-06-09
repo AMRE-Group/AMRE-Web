@@ -56,7 +56,7 @@
   "author":{"@type":"Organization","name":"AMRE Real Estate Group","@id":"https://amre.group/#organization","url":"https://amre.group/"},
   "publisher":{"@type":"Organization","@id":"https://amre.group/#organization","name":"AMRE Real Estate Group","url":"https://amre.group/","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-black.svg","width":600,"height":60}},
   "datePublished":"2026-06-04T09:00:00-07:00",
-  "dateModified":"2026-06-08T21:19:23-07:00",
+  "dateModified":"2026-06-08T21:31:56-07:00",
   "url":"https://amre.group/cash-and-flow/",
   "mainEntityOfPage":{"@type":"WebPage","@id":"https://amre.group/cash-and-flow/"},
   "keywords":"LA duplex for sale, multifamily investment Los Angeles, house hacking LA, gross rent multiplier, Park Hills Heights duplex, vacant duplex investment",
@@ -171,7 +171,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 
 /* ───────── CASH & FLOW BODY (scoped) ───────── */
 .cnf{background:var(--paper);}
-.cnf .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+.cnf .wrap{max-width:860px;margin:0 auto;padding:0 28px;}
 .cnf .mono{font-family:'Space Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
 .cnf .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
 
@@ -179,9 +179,9 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .banner-logo{height:34px;width:auto;display:block;margin-bottom:24px;}
 .cnf .banner .eyebrow{display:block;margin-bottom:20px;}
 .cnf .banner .eyebrow b{color:var(--green);font-weight:700;}
-.cnf .banner .stmt{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5.2vw,58px);font-weight:700;line-height:1.02;letter-spacing:-.025em;color:var(--cf-ink);max-width:15ch;text-wrap:balance;}
+.cnf .banner .stmt{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5.2vw,58px);font-weight:700;line-height:1.02;letter-spacing:-.025em;color:var(--cf-ink);max-width:none;text-wrap:balance;}
 .cnf .banner .stmt .hl{color:var(--green);}
-.cnf .banner .dek{font-family:'Space Grotesk',sans-serif;margin-top:22px;font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--body);max-width:44ch;text-wrap:pretty;}
+.cnf .banner .dek{font-family:'Space Grotesk',sans-serif;margin-top:22px;font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--body);max-width:none;text-wrap:pretty;}
 
 .cnf .ticker{background:var(--char);color:#ededea;overflow:hidden;}
 .cnf .ticker-track{display:flex;white-space:nowrap;will-change:transform;animation:cf-ticker 38s linear infinite;}
@@ -201,8 +201,8 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .art-byline{margin-top:22px;padding-bottom:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--hair);}
 .cnf .art-byline b{color:var(--cf-ink);font-weight:700;}
 
-.cnf .art-hero{width:100vw;position:relative;left:50%;transform:translateX(-50%);margin:34px 0 8px;}
-.cnf .art-hero img{width:100%;height:clamp(280px,46vw,520px);object-fit:cover;display:block;}
+.cnf .art-hero{max-width:860px;margin:34px auto 8px;padding:0 28px;}
+.cnf .art-hero img{width:100%;height:clamp(280px,40vw,460px);object-fit:cover;display:block;border-radius:2px;}
 .cnf .art-cap{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--muted);max-width:860px;margin:10px auto 0;padding:0 28px;}
 
 .cnf .specs{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:40px 0;}
@@ -286,7 +286,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
   .cnf .agent .a-cta{margin-left:0;}
 }
 @media(max-width:680px){
-  .cnf .wrap,.cnf .article,.cnf .art-cap{padding-left:20px;padding-right:20px;}
+  .cnf .wrap,.cnf .article,.cnf .art-hero,.cnf .art-cap{padding-left:20px;padding-right:20px;}
   .cnf .banner{padding:88px 0 34px;}
   .cnf .pg.two,.cnf .pg.three{grid-template-columns:1fr;}
   .cnf .pg img{height:240px!important;}
@@ -457,16 +457,6 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
       <div class="faq-item"><div class="faq-q">What is the gross rent multiplier (GRM)?</div><div class="faq-a">At $949,000 with about $62,400 in estimated gross annual rent, the GRM is roughly 15.2&times; &mdash; typical for renovated, vacant small multifamily in this part of LA.</div></div>
       <div class="faq-item"><div class="faq-q">Can you house-hack this property?</div><div class="faq-a">Yes. Live in one unit and rent the other for about $2,600/month to offset most of the mortgage &mdash; a common owner-occupant strategy on LA duplexes.</div></div>
       <div class="faq-item"><div class="faq-q">Is it delivered vacant?</div><div class="faq-a">Yes &mdash; both units are delivered vacant and renovated, so an owner sets market rents from day one with no inherited leases or rent-control tenancy to absorb.</div></div>
-    </div>
-
-    <div class="sec-head"><span class="tick"></span><h2>See it in person</h2><span class="rule"></span></div>
-    <div class="oh">
-      <span class="oh-mark">Open House</span>
-      <div class="oh-dates">
-        <div><div class="oh-day">SAT &middot; JUN 6</div><div class="oh-time">2:00&ndash;4:00 PM</div></div>
-        <div><div class="oh-day">SUN &middot; JUN 7</div><div class="oh-time">2:00&ndash;4:00 PM</div></div>
-        <div><div class="oh-day">4623 6TH AVE</div><div class="oh-time">Los Angeles, CA 90043</div></div>
-      </div>
     </div>
 
     <div class="agent">
