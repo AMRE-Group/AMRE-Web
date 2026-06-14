@@ -2188,35 +2188,55 @@
 
   <div class="wrap">
 
-    <!-- ===== STRATEGIC OBJECTIVE ===== -->
-    <div style="background:#1D1D1F;border-radius:24px;padding:40px 48px;margin-bottom:40px;position:relative;overflow:hidden;">
-      <div style="position:absolute;top:0;right:0;width:320px;height:100%;background:linear-gradient(135deg,rgba(0,113,227,0.12) 0%,transparent 60%);pointer-events:none;"></div>
-      <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#6E6E73;margin-bottom:12px;">North Star · 2026–2029</div>
-      <div style="font-size:28px;font-weight:700;color:#FFFFFF;letter-spacing:-0.02em;line-height:1.2;margin-bottom:8px;">Compress 10 years into 3.</div>
-      <div style="font-size:15px;color:#6b6b6f;margin-bottom:32px;max-width:560px;">Kirman's edge is 25 years of compounding brand. The counterplay: AI handles the volume work while you build the same compounding assets — faster.</div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
-        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:20px 18px;">
-          <div style="font-size:22px;margin-bottom:8px;">🎯</div>
-          <div style="font-size:13px;font-weight:600;color:#FFFFFF;margin-bottom:6px;">Own one niche</div>
-          <div style="font-size:12px;color:#6b6b6f;line-height:1.5;">Westside architectural $2M–$5M. Every post, listing, and pitch reinforces it. Specialists win.</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:20px 18px;">
-          <div style="font-size:22px;margin-bottom:8px;">📹</div>
-          <div style="font-size:13px;font-weight:600;color:#FFFFFF;margin-bottom:6px;">Become a media company</div>
-          <div style="font-size:12px;color:#6b6b6f;line-height:1.5;">Weekly YouTube + Reels: neighborhood tours + deal breakdowns. Claude writes every script → 5 Reels + newsletter + LinkedIn per shoot. 75+ evergreen pieces in 18 months.</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:20px 18px;">
-          <div style="font-size:22px;margin-bottom:8px;">🏛️</div>
-          <div style="font-size:13px;font-weight:600;color:#FFFFFF;margin-bottom:6px;">Show up like a brokerage</div>
-          <div style="font-size:12px;color:#6b6b6f;line-height:1.5;">Every listing pitch: custom valuation deck + marketing plan + property microsite + buyer-persona analysis. Other agents bring a CMA. You bring what looks like a 10-person team. Win rate: 50% → 80%.</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.06);border-radius:14px;padding:20px 18px;">
-          <div style="font-size:22px;margin-bottom:8px;">🤝</div>
-          <div style="font-size:13px;font-weight:600;color:#FFFFFF;margin-bottom:6px;">Build the referral ladder</div>
-          <div style="font-size:12px;color:#6b6b6f;line-height:1.5;">25 architects, wealth managers, entertainment lawyers. Coffee with 2–3/mo. Architects especially — they refer your exact buyer. Haps Club already puts you adjacent to this crowd.</div>
-        </div>
+    <!-- ===== ACROSS THE BUSINESS (interconnected snapshot) ===== -->
+    <div style="margin-bottom:40px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);">Across the business</div>
+        <div style="font-size:12px;color:var(--ink-4);">Live snapshot from each dashboard</div>
+      </div>
+      <div class="xsnap-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <a class="xsnap" href="/dashboard/finance/" style="text-decoration:none;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:22px 24px;display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);">Finance</span>
+            <span style="color:#0071e3;font-size:15px;">&rarr;</span>
+          </div>
+          <div id="snapFinV" style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">+$63,877</div>
+          <div id="snapFinS" style="font-size:12.5px;color:var(--ink-3);margin-top:8px;">Net YTD · $92,442 booked · $148,650 pipeline</div>
+        </a>
+        <a class="xsnap" href="/dashboard/social/" style="text-decoration:none;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:22px 24px;display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);">Social</span>
+            <span style="color:#0071e3;font-size:15px;">&rarr;</span>
+          </div>
+          <div id="snapSocV" style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">35-wk streak</div>
+          <div id="snapSocS" style="font-size:12.5px;color:var(--ink-3);margin-top:8px;">43 posts/wk · top 19% on Buffer</div>
+        </a>
+        <a class="xsnap" href="/dashboard/seo/" style="text-decoration:none;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:22px 24px;display:block;transition:transform .15s,box-shadow .15s;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);">SEO &amp; Traffic</span>
+            <span style="color:#0071e3;font-size:15px;">&rarr;</span>
+          </div>
+          <div id="snapSeoV" style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">Pos 15.6</div>
+          <div id="snapSeoS" style="font-size:12.5px;color:var(--ink-3);margin-top:8px;">54 clicks · 5,526 impressions (28d)</div>
+        </a>
       </div>
     </div>
+    <script>
+      // Pull live snapshots written by each sub-dashboard into the hub (same-origin localStorage).
+      (function(){
+        var usd=function(n){return '$'+Math.round(n).toLocaleString('en-US');};
+        try{var f=JSON.parse(localStorage.getItem('amre_snap_finance')||'null');
+          if(f){document.getElementById('snapFinV').textContent=(f.net<0?'-':'+')+usd(Math.abs(f.net));
+            document.getElementById('snapFinS').textContent='Net YTD · '+usd(f.rev)+' booked · '+usd(f.pipeline)+' pipeline';}}catch(e){}
+        try{var s=JSON.parse(localStorage.getItem('amre_snap_social')||'null');
+          if(s){document.getElementById('snapSocV').textContent=s.streak+'-wk streak';
+            document.getElementById('snapSocS').textContent=s.sub;}}catch(e){}
+        try{var o=JSON.parse(localStorage.getItem('amre_snap_seo')||'null');
+          if(o){document.getElementById('snapSeoV').textContent='Pos '+o.pos;
+            document.getElementById('snapSeoS').textContent=o.sub;}}catch(e){}
+      })();
+    </script>
+    <style>.xsnap:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.06);}@media(max-width:760px){.xsnap-grid{grid-template-columns:1fr!important;}}</style>
 
     <!-- ===== DAILY FIVE ===== -->
     <div class="daily-five-wrap">
@@ -4774,7 +4794,7 @@ Michael</div>
   const gate = document.getElementById('gate');
   const dashboard = document.getElementById('dashboard');
 
-  if (sessionStorage.getItem('amre_dash_auth') === 'true') {
+  if (localStorage.getItem('amre_dash_auth') === 'true') {
     gate.classList.add('hidden');
     dashboard.style.display = '';
   }
@@ -4782,7 +4802,7 @@ Michael</div>
   gateForm.addEventListener('submit', e => {
     e.preventDefault();
     if (CODES.includes(gateInput.value.trim().toLowerCase())) {
-      sessionStorage.setItem('amre_dash_auth', 'true');
+      localStorage.setItem('amre_dash_auth', 'true');
       gate.classList.add('hidden');
       dashboard.style.display = '';
     } else {
