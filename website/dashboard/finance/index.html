@@ -307,10 +307,11 @@ footer b{color:#fff}
 
 <section id="cashflow"><div class="wrap">
   <h2>Cash Flow &amp; Spend</h2>
-  <div class="grid2">
-    <div class="card"><h3>Monthly revenue vs expenses</h3><div class="chartbox"><canvas id="cfChart"></canvas></div></div>
-    <div class="card"><h3>Where the money went</h3><div class="chartbox"><canvas id="catChart"></canvas></div></div>
+  <div class="card"><h3>2026 cash flow — actual + projected</h3>
+    <div class="lead" style="margin-bottom:10px">Monthly revenue vs. expenses across the full year. <b>Jan–Jun are actual</b>; <b>Jul–Dec are projected</b> (faded bars, right of the dashed line) — expenses at the anticipated $2,527/mo run-rate, revenue from the closing pipeline. Revenue is blue, expenses are orange.</div>
+    <div class="chartbox" style="height:340px"><canvas id="cfChart"></canvas></div>
   </div>
+  <div class="card" style="margin-top:18px"><h3>Where the money went</h3><div class="chartbox"><canvas id="catChart"></canvas></div></div>
   <div class="card" style="margin-top:18px"><h3>Monthly expenses, broken down by category</h3>
     <div class="lead" style="margin-bottom:10px">Each month's spend stacked by category — shows what's driving the burn month to month. Hover any segment for the exact figure.</div>
     <div class="chartbox" style="height:360px"><canvas id="stackChart"></canvas></div>
@@ -382,7 +383,7 @@ footer b{color:#fff}
 </main>
 <footer>
   <b>AMRE Real Estate Group</b> · Internal Finance Dashboard · Confidential<br>
-  Reconciled AMEX + Chase ·••0877 + Compass commission statement · Last updated Jun 13, 2026 at 6:30 PM PT
+  Reconciled AMEX + Chase ·••0877 + Compass commission statement · Last updated Jun 13, 2026 at 6:41 PM PT
 </footer>
 
 <script>
@@ -475,7 +476,7 @@ function computeAll(){
 /* ===== CHARTS (destroy + recreate on recompute) ===== */
 const CH={};
 function destroyChart(k){if(CH[k]){CH[k].destroy();CH[k]=null;}}
-const MN={'01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'May','06':'Jun'};
+const MN={'01':'Jan','02':'Feb','03':'Mar','04':'Apr','05':'May','06':'Jun','07':'Jul','08':'Aug','09':'Sep','10':'Oct','11':'Nov','12':'Dec'};
 
 function renderCategorized(){
   computeAll();
@@ -654,14 +655,45 @@ function render(){
    {v:g.contacts_per_deal.target,l:'Contacts / closed deal'},
   ].map(x=>`<div class="tcard"><div class="tv">${x.v}</div><div class="tl">${x.l}</div></div>`).join('');
 
-  // ---- CASH FLOW CHART (revenue vs expenses) ----
-  const months=Object.keys(DATA.mon_exp).sort();
+  // ---- CASH FLOW CHART (full-year actual + projected, colorblind-safe blue/orange) ----
+  const allM=['2026-01','2026-02','2026-03','2026-04','2026-05','2026-06','2026-07','2026-08','2026-09','2026-10','2026-11','2026-12'];
+  const lastActual=5;                       // index of June (last actual month)
+  const projExpMo=DATA.antic_total;         // anticipated run-rate $/mo
+  const projRev={'2026-10':148650};         // closing pipeline (Mulholland + Sierra Bonita), ~Oct
+  const REV_A='#0A84FF', REV_P='rgba(10,132,255,0.32)';   // Apple blue
+  const EXP_A='#FF9F0A', EXP_P='rgba(255,159,10,0.34)';   // Apple orange
+  const revData=allM.map((m,i)=> i<=lastActual ? (DATA.mon_rev[m]||0) : (projRev[m]||0));
+  const expData=allM.map((m,i)=> i<=lastActual ? (DATA.mon_exp[m]||0) : projExpMo);
+  const revBg=allM.map((m,i)=> i<=lastActual ? REV_A : REV_P);
+  const expBg=allM.map((m,i)=> i<=lastActual ? EXP_A : EXP_P);
+  const isProj=allM.map((m,i)=> i>lastActual);
   destroyChart('cf');
-  CH.cf=new Chart(document.getElementById('cfChart'),{type:'bar',data:{labels:months.map(m=>MN[m.split('-')[1]]),
-    datasets:[{label:'Revenue',data:months.map(m=>DATA.mon_rev[m]||0),backgroundColor:'#1c7c54',borderRadius:4},
-              {label:'Expenses',data:months.map(m=>DATA.mon_exp[m]||0),backgroundColor:'#c0392b',borderRadius:4}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{family:'Montserrat'}}}},
-    scales:{y:{ticks:{callback:v=>'$'+(v/1000)+'k'}}}}});
+  // non-color cue: dashed vertical divider between actual and projected
+  const dividerPlugin={id:'cfDivider',afterDraw(c){
+    const xs=c.scales.x, ys=c.scales.y; if(!xs||!ys)return;
+    const x=xs.getPixelForValue(lastActual)+(xs.getPixelForValue(lastActual+1)-xs.getPixelForValue(lastActual))/2;
+    const ctx=c.ctx; ctx.save();
+    ctx.strokeStyle='#9aa3ad'; ctx.lineWidth=1.5; ctx.setLineDash([5,4]);
+    ctx.beginPath(); ctx.moveTo(x,ys.top); ctx.lineTo(x,ys.bottom); ctx.stroke();
+    ctx.setLineDash([]); ctx.fillStyle='#6b6b6f'; ctx.font='600 10px Montserrat';
+    ctx.textAlign='left'; ctx.fillText('Projected →',x+6,ys.top+12);
+    ctx.textAlign='right'; ctx.fillText('← Actual',x-6,ys.top+12);
+    ctx.restore();
+  }};
+  CH.cf=new Chart(document.getElementById('cfChart'),{type:'bar',
+    data:{labels:allM.map(m=>MN[m.split('-')[1]]),
+    datasets:[
+      {label:'Revenue',data:revData,backgroundColor:revBg,borderColor:REV_A,borderWidth:isProj.map(p=>p?1.5:0),borderRadius:4},
+      {label:'Expenses',data:expData,backgroundColor:expBg,borderColor:EXP_A,borderWidth:isProj.map(p=>p?1.5:0),borderRadius:4}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{position:'bottom',labels:{font:{family:'Montserrat'},usePointStyle:true,pointStyle:'rectRounded'}},
+        tooltip:{callbacks:{
+          title:(it)=>it[0].label+(isProj[it[0].dataIndex]?' (projected)':' (actual)'),
+          label:(it)=>it.dataset.label+': $'+Math.round(it.parsed.y).toLocaleString()
+        }}},
+      scales:{y:{ticks:{callback:v=>'$'+(v/1000)+'k'}}}},
+    plugins:[dividerPlugin]});
 
   // ---- ANTICIPATED MONTHLY ----
   document.getElementById('anticMo').textContent=usd2(DATA.antic_total);
