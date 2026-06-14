@@ -121,6 +121,7 @@ tbody tr:hover{background:#faf9f5}
 .bkt{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;border-left:5px solid var(--forest);position:relative;overflow:hidden}
 .bkt .bname{font-family:'Playfair Display',serif;font-size:15px;color:var(--ink);margin-bottom:2px}
 .bkt .bv{font-family:'Playfair Display',serif;font-size:26px;color:var(--ink);line-height:1.1}
+.bkt .bv .bvsub{font-family:'Montserrat',sans-serif;font-size:12px;color:var(--mut2);font-weight:600}
 .bkt .bmeta{font-size:11px;color:var(--mut2);margin-top:3px}
 .bkt .btype{display:inline-block;margin-top:9px;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:5px;background:#f0eee8;color:var(--mut)}
 .bkt .btip{font-size:11px;color:var(--mut);margin-top:8px;line-height:1.4}
@@ -335,7 +336,7 @@ footer b{color:#fff}
 </main>
 <footer>
   <b>AMRE Real Estate Group</b> · Internal Finance Dashboard · Confidential<br>
-  Reconciled AMEX + Chase ·••0877 + Compass commission statement · Last updated Jun 12, 2026 at 2:49 PM PT
+  Reconciled AMEX + Chase ·••0877 + Compass commission statement · Last updated Jun 13, 2026 at 5:56 PM PT
 </footer>
 
 <script>
@@ -438,8 +439,8 @@ function renderCategorized(){
   const maxB=Math.max(...AGG.buckets.map(b=>b.ytd));
   document.getElementById('bucketGrid').innerHTML=AGG.buckets.map(b=>`
     <div class="bkt" style="border-left-color:${b.color}">
-      <div class="bname">${b.name}</div><div class="bv">${usd(b.ytd)}</div>
-      <div class="bmeta">${b.pct}% of spend · ${usd(b.mo)}/mo avg</div>
+      <div class="bname">${b.name}</div><div class="bv">${usd(b.mo)}<span class="bvsub">/mo</span></div>
+      <div class="bmeta">${usd(b.ytd)} YTD · ${b.pct}% of spend</div>
       <span class="btype" style="background:${b.color}1a;color:${b.color}">${b.type}</span>
       <div class="btip">${b.tip}</div>
       <div class="bbar" style="width:${b.ytd/maxB*100}%;background:${b.color}"></div>
