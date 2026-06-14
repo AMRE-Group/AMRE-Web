@@ -2362,6 +2362,48 @@
       </div>
     </div>
 
+    <!-- ===== CLIENT PIPELINE (stage view) ===== -->
+    <div style="margin:8px 0 32px;">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);">Client pipeline</div>
+        <div style="font-size:12px;color:var(--ink-4);">Stage counts · as of Jun 13, 2026</div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:24px;display:flex;align-items:stretch;gap:0;flex-wrap:wrap;">
+        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">73</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Sphere / database</div>
+          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">Book of business</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
+        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">7</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Active leads</div>
+          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">In CRM follow-up</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
+        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">2</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Buyers in search</div>
+          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">Bill, George</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
+        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:#0071e3;line-height:1;">5</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Under contract</div>
+          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">In escrow now</div>
+        </div>
+        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
+        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
+          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:#3f8268;line-height:1;">3</div>
+          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Closed YTD</div>
+          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">$3.66M · $93K GCI</div>
+        </div>
+      </div>
+      <div style="font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.5;">
+        <b>Next instrumentation:</b> lead&rarr;appointment&rarr;signed conversion rates aren't captured yet — once the GTM <code style="font-size:11px;background:var(--gray);padding:1px 5px;border-radius:4px;">generate_lead</code> trigger is fixed and CRM stages are tagged, this becomes a true conversion funnel with rates between each stage.
+      </div>
+    </div>
+
     <!-- ===== BUCKET TABS ===== -->
     <div class="bucket-tabs" role="tablist">
       <button class="bucket-tab active" data-bucket="clients" role="tab">
