@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#1c3d31">
+<meta name="theme-color" content="#2b4a66">
 
 <!-- amre-preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,9 +33,9 @@
     --hairline: #D2D2D7;
     --hairline-soft: rgba(0,0,0,0.06);
     --blue: #4a7fa5;
-    --green: #3f8268;
-    --amber: #bf8b46;
-    --red: #bf5b52;
+    --green: #3f7d82;
+    --amber: #5a6aa6;
+    --red: #b0655c;
     --wrap: 1120px;
     --edge: 24px;
     --radius: 16px;
@@ -278,17 +278,17 @@
     transition: width 0.4s ease, background 0.2s;
     width: 0;
   }
-  .d5-bar-fill.red { background: #bf5b52; }
-  .d5-bar-fill.amber { background: #bf8b46; }
-  .d5-bar-fill.green { background: #3f8268; }
+  .d5-bar-fill.red { background: #b0655c; }
+  .d5-bar-fill.amber { background: #5a6aa6; }
+  .d5-bar-fill.green { background: #3f7d82; }
   .d5-status-dot {
     position: absolute; top: 14px; right: 14px;
     width: 7px; height: 7px; border-radius: 50%;
   }
-  .d5-status-dot.red { background: #bf5b52; }
-  .d5-status-dot.amber { background: #bf8b46; }
+  .d5-status-dot.red { background: #b0655c; }
+  .d5-status-dot.amber { background: #5a6aa6; }
   .d5-status-dot.green {
-    background: #3f8268;
+    background: #3f7d82;
     box-shadow: 0 0 0 0 rgba(52,199,89,0.5);
     animation: pulse 2s infinite;
   }
@@ -335,7 +335,12 @@
     background: var(--gray-bg);
     border-radius: 12px;
     width: fit-content;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .bucket-tabs::-webkit-scrollbar { display: none; }
   .bucket-tab {
     padding: 10px 20px;
     border: none;
@@ -350,6 +355,13 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
+  @media (max-width: 680px) {
+    .bucket-tabs { width: auto; border-radius: 10px; margin-top: 24px; }
+    .bucket-tab { padding: 9px 13px; font-size: 13px; gap: 6px; }
+    .bucket-tab-count { font-size: 11px; }
   }
   .bucket-tab:hover { color: var(--ink); }
   .bucket-tab.active {
@@ -370,7 +382,7 @@
     background: var(--blue);
   }
   .bucket-tab.alert .bucket-tab-count {
-    background: #bf5b52;
+    background: #b0655c;
   }
   .bucket-pane { display: none; }
   .bucket-pane.active { display: block; }
@@ -573,8 +585,8 @@
   }
   .crm-row-touch { font-size: 12px; color: var(--ink-3); text-align: right; }
   .crm-row-touch strong { color: var(--ink); font-weight: 600; }
-  .crm-row-touch.cold strong { color: #bf8b46; }
-  .crm-row-touch.frozen strong { color: #bf5b52; }
+  .crm-row-touch.cold strong { color: #5a6aa6; }
+  .crm-row-touch.frozen strong { color: #b0655c; }
   .crm-row-action {
     padding: 6px 12px;
     background: var(--ink);
@@ -687,7 +699,7 @@
   }
   .day-plan-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #3f8268, #30D158);
+    background: linear-gradient(90deg, #3f7d82, #30D158);
     width: 0%; transition: width 0.5s ease;
   }
 
@@ -771,8 +783,8 @@
   }
   .tb-check:hover { border-color: rgba(255,255,255,0.6); }
   .time-block.done .tb-check {
-    background: #3f8268;
-    border-color: #3f8268;
+    background: #3f7d82;
+    border-color: #3f7d82;
     color: var(--white);
   }
   @media (max-width: 720px) {
@@ -827,7 +839,7 @@
     color: var(--ink);
     font-variant-numeric: tabular-nums;
   }
-  .crm-stat-num.alert { color: #bf8b46; }
+  .crm-stat-num.alert { color: #5a6aa6; }
   .crm-stat-label {
     font-size: 11px;
     color: var(--ink-3);
@@ -840,7 +852,7 @@
 
   /* ===== MARKETING ENGINE ===== */
   .mkt-hero {
-    background: linear-gradient(135deg, #c2774a 0%, #bf5b52 100%);
+    background: linear-gradient(135deg, #c2774a 0%, #b0655c 100%);
     color: var(--white);
     border-radius: 18px;
     padding: 28px 32px;
@@ -1452,7 +1464,7 @@
   }
   .pipe-prob-fill {
     height: 100%; border-radius: 100px;
-    background: linear-gradient(90deg, #3f8268, #2f6b50);
+    background: linear-gradient(90deg, #3f7d82, #2f6b50);
   }
   .pipe-prob-num {
     font-size: 11px; color: var(--ink-3);
@@ -1609,7 +1621,7 @@
   }
   .cf-eyebrow {
     font-size: 11px; font-weight: 600;
-    color: #bf8b46;
+    color: #5a6aa6;
     text-transform: uppercase; letter-spacing: 0.08em;
     margin-bottom: 4px;
   }
@@ -1792,8 +1804,8 @@
   }
   .bob-row-touch strong { color: var(--ink); font-weight: 600; }
   .bob-row-touch.recent strong { color: #2f6b50; }
-  .bob-row-touch.cold strong { color: #bf8b46; }
-  .bob-row-touch.frozen strong { color: #bf5b52; }
+  .bob-row-touch.cold strong { color: #5a6aa6; }
+  .bob-row-touch.frozen strong { color: #b0655c; }
   .bob-row-action {
     padding: 6px 12px;
     background: var(--ink); color: var(--white);
@@ -2027,7 +2039,7 @@
     color: #2f6b50;
   }
   .deal-badge.active::before {
-    background: #3f8268;
+    background: #3f7d82;
     box-shadow: 0 0 0 0 rgba(52, 199, 89, 0.5);
     animation: pulse 2s infinite;
   }
@@ -2047,7 +2059,7 @@
   }
   .deal-badge.offmarket::before { background: #F59E0B; }
   .deal-badge.pending { background: #FFF3E0; color: #b5703a; }
-  .deal-badge.pending::before { background: #bf8b46; }
+  .deal-badge.pending::before { background: #5a6aa6; }
   .deal-badge.closed { background: var(--gray-bg); color: var(--ink-3); }
   .deal-badge.closed::before { background: var(--ink-4); }
   .deal-badge.estate {
@@ -2164,10 +2176,10 @@
 
   <div class="topnav">
     <div class="wrap topnav-inner">
-      <div class="topnav-left">
-        <span class="wm-amre" data-logo-amre>AMRE</span>
-        <span class="topnav-sep"></span>
-        <span class="wm-compass" data-logo-compass></span>
+      <div class="topnav-left" style="display:flex;align-items:center;gap:11px">
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-black.svg" alt="AMRE Real Estate Group" style="height:19px;width:auto;display:block">
+        <span style="width:1px;height:15px;background:#1d1d1f;opacity:.22"></span>
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-black.png" alt="Compass" style="height:13px;width:auto;display:block">
       </div>
       <div class="topnav-meta"><nav class="dashlinks" style="display:flex;align-items:center;gap:22px;flex-wrap:wrap"><a href="/dashboard/" style="font-size:12px;font-weight:600;letter-spacing:.01em;color:#1d1d1f;text-decoration:none">Overview</a><a href="/dashboard/finance/" style="font-size:12px;font-weight:500;letter-spacing:.01em;color:#6e6e73;text-decoration:none">Finance</a><a href="/dashboard/social/" style="font-size:12px;font-weight:500;letter-spacing:.01em;color:#6e6e73;text-decoration:none">Social</a><a href="/dashboard/seo/" style="font-size:12px;font-weight:500;letter-spacing:.01em;color:#6e6e73;text-decoration:none">SEO</a></nav></div>
     </div>
@@ -2197,6 +2209,7 @@
           </div>
           <div id="snapFinV" style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">+$63,877</div>
           <div id="snapFinS" style="font-size:12.5px;color:var(--ink-3);margin-top:8px;">Net YTD · $92,442 booked · $148,650 pipeline</div>
+          <div class="xfresh" id="freshFin"></div>
         </a>
         <a class="xsnap" href="/dashboard/social/" style="text-decoration:none;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:22px 24px;display:block;transition:transform .15s,box-shadow .15s;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
@@ -2205,6 +2218,7 @@
           </div>
           <div id="snapSocV" style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">35-wk streak</div>
           <div id="snapSocS" style="font-size:12.5px;color:var(--ink-3);margin-top:8px;">43 posts/wk · top 19% on Buffer</div>
+          <div class="xfresh" id="freshSoc"></div>
         </a>
         <a class="xsnap" href="/dashboard/seo/" style="text-decoration:none;background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:22px 24px;display:block;transition:transform .15s,box-shadow .15s;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
@@ -2213,6 +2227,7 @@
           </div>
           <div id="snapSeoV" style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">Pos 15.6</div>
           <div id="snapSeoS" style="font-size:12.5px;color:var(--ink-3);margin-top:8px;">54 clicks · 5,526 impressions (28d)</div>
+          <div class="xfresh" id="freshSeo"></div>
         </a>
       </div>
     </div>
@@ -2229,9 +2244,116 @@
         try{var o=JSON.parse(localStorage.getItem('amre_snap_seo')||'null');
           if(o){document.getElementById('snapSeoV').textContent='Pos '+o.pos;
             document.getElementById('snapSeoS').textContent=o.sub;}}catch(e){}
+
+        // Freshness badges — reflect the real vintage of each source's data, not page-load time.
+        // cadence = expected refresh interval (days). Past cadence = aging; past 2x = stale.
+        var SOURCES={
+          freshFin:{asOf:'2026-06-13',cadence:14,fmt:function(d){return 'Reconciled '+d;}},
+          freshSoc:{asOf:'2025-09-01',cadence:14,fmt:function(d){return 'Buffer pull '+d;}},
+          freshSeo:{asOf:'2026-06-10',cadence:7, fmt:function(d){return 'GA4/GSC '+d;}}
+        };
+        var MO=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var now=Date.now();
+        Object.keys(SOURCES).forEach(function(id){
+          var el=document.getElementById(id);if(!el)return;
+          var s=SOURCES[id];var dt=new Date(s.asOf+'T12:00:00');
+          var ageDays=Math.floor((now-dt.getTime())/86400000);
+          var cls,icon,label;
+          var stamp=MO[dt.getMonth()]+' '+dt.getDate()+(dt.getFullYear()!==new Date().getFullYear()?', '+dt.getFullYear():'');
+          if(ageDays>s.cadence*2){cls='stale';icon='⚑';label='Stale · '+s.fmt(stamp);}
+          else if(ageDays>s.cadence){cls='aging';icon='◷';label='Aging · '+s.fmt(stamp);}
+          else{cls='fresh';icon='✓';label='Fresh · '+s.fmt(stamp);}
+          el.className='xfresh '+cls;
+          el.innerHTML='<span aria-hidden="true">'+icon+'</span> '+label;
+        });
       })();
     </script>
-    <style>.xsnap:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.06);}@media(max-width:760px){.xsnap-grid{grid-template-columns:1fr!important;}}</style>
+    <style>.xsnap:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.06);}@media(max-width:760px){.xsnap-grid{grid-template-columns:1fr!important;}}
+      .xfresh{margin-top:12px;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:.02em;padding:3px 8px;border-radius:999px;border:1px solid var(--hairline);}
+      .xfresh.fresh{color:#3f7d82;background:rgba(63,125,130,.08);border-color:rgba(63,125,130,.30);}
+      .xfresh.aging{color:#8a6a2a;background:rgba(191,139,70,.10);border-color:rgba(191,139,70,.32);}
+      .xfresh.stale{color:#a23f37;background:rgba(191,91,82,.10);border-color:rgba(191,91,82,.34);}</style>
+
+    <!-- ===== CONVERSION FUNNEL (business thread: leads → closed) ===== -->
+    <div class="funnel-wrap" id="funnel">
+      <div class="funnel-head">
+        <div>
+          <div class="funnel-title">Conversion funnel</div>
+          <div class="funnel-sub">The thread from lead to close, trailing&nbsp;90&nbsp;days. The ratio between two stages tells you whether a slow month is a <em>volume</em> problem or a <em>conversion</em> problem.</div>
+        </div>
+        <button class="funnel-reset" id="funnelReset" title="Reset to seeded values">Reset</button>
+      </div>
+      <div class="funnel-strip" id="funnelStrip"></div>
+      <div class="funnel-note">
+        <span class="funnel-flag">⚑</span>
+        Lead &amp; appointment counts are <strong>provisional</strong> until the <code>generate_lead</code> trigger is fixed (it currently fires on phone/email clicks, not form submits). Tap any number to edit — it saves to this browser.
+      </div>
+    </div>
+    <style>
+      .funnel-wrap{background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:24px 26px;margin-bottom:40px;}
+      .funnel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px;}
+      .funnel-title{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);}
+      .funnel-sub{font-size:13px;color:var(--ink-2);margin-top:7px;max-width:680px;line-height:1.5;text-wrap:pretty;}
+      .funnel-reset{flex:none;font:inherit;font-size:12px;color:#0071e3;background:none;border:1px solid var(--hairline);border-radius:8px;padding:5px 11px;cursor:pointer;}
+      .funnel-reset:hover{background:#f5f5f7;}
+      .funnel-strip{display:grid;grid-template-columns:repeat(5,1fr) ;gap:0;align-items:stretch;}
+      .fstep{position:relative;padding:4px 6px;text-align:center;}
+      .fstep .fbar{height:6px;border-radius:999px;background:#5a6aa6;margin:0 auto 14px;transition:width .3s;}
+      .fstep .fnum{font-size:30px;font-weight:700;letter-spacing:-.02em;color:var(--ink);line-height:1;outline:none;cursor:text;border-radius:6px;padding:1px 4px;}
+      .fstep .fnum:focus{box-shadow:0 0 0 2px #0071e3;}
+      .fstep .flabel{font-size:12px;color:var(--ink-2);font-weight:600;margin-top:8px;}
+      .fstep .fsrc{font-size:11px;color:var(--ink-4);margin-top:3px;}
+      .fconv{position:absolute;top:-2px;right:-1px;transform:translateX(50%);font-size:11.5px;font-weight:700;color:#5a6aa6;background:var(--white);padding:2px 7px;border:1px solid var(--hairline);border-radius:999px;z-index:2;white-space:nowrap;}
+      .fconv.weak{color:#a23f37;border-color:rgba(191,91,82,.4);}
+      .funnel-note{margin-top:18px;font-size:12px;color:var(--ink-2);line-height:1.5;background:rgba(191,139,70,.07);border:1px solid rgba(191,139,70,.25);border-radius:10px;padding:11px 14px;}
+      .funnel-note code{background:rgba(255,193,60,.22);padding:1px 5px;border-radius:3px;font-size:11.5px;}
+      .funnel-flag{color:#8a6a2a;font-weight:700;margin-right:4px;}
+      @media(max-width:760px){.funnel-strip{grid-template-columns:repeat(5,1fr);gap:0;}.fstep .fnum{font-size:20px;}.fconv{font-size:10px;padding:1px 4px;}.funnel-sub{font-size:12px;}}
+    </style>
+    <script>
+      (function(){
+        var SEED=[
+          {k:'leads',label:'Leads',num:12,src:'Tracked inquiries'},
+          {k:'appts',label:'Appointments',num:6,src:'Showings / consults'},
+          {k:'signed',label:'Signed',num:4,src:'BRBC / listing agr.'},
+          {k:'uc',label:'Under contract',num:2,src:'Entered escrow'},
+          {k:'closed',label:'Closed',num:1,src:'Last 90 days'}
+        ];
+        var KEY='amre_funnel';
+        function load(){try{var s=JSON.parse(localStorage.getItem(KEY));if(s&&s.length===SEED.length)return s;}catch(e){}return SEED.map(function(x){return {k:x.k,num:x.num};});}
+        var state=load();
+        function save(){try{localStorage.setItem(KEY,JSON.stringify(state.map(function(s){return {k:s.k,num:s.num};})));}catch(e){}}
+        function draw(){
+          var strip=document.getElementById('funnelStrip');if(!strip)return;
+          var max=Math.max.apply(null,state.map(function(s){return s.num;}).concat([1]));
+          strip.innerHTML=SEED.map(function(def,i){
+            var n=state[i].num;
+            var conv='';
+            if(i>0){var prev=state[i-1].num;var r=prev>0?Math.round(n/prev*100):0;
+              var weak=(r<30)?' weak':'';
+              conv='<span class="fconv'+weak+'">'+r+'%</span>';}
+            var w=Math.max(14,Math.round(n/max*100));
+            return '<div class="fstep">'+conv+
+              '<div class="fbar" style="width:'+w+'%"></div>'+
+              '<div class="fnum" contenteditable="true" data-i="'+i+'" inputmode="numeric">'+n+'</div>'+
+              '<div class="flabel">'+def.label+'</div>'+
+              '<div class="fsrc">'+def.src+'</div></div>';
+          }).join('');
+          strip.querySelectorAll('.fnum').forEach(function(el){
+            el.addEventListener('blur',commit);
+            el.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();el.blur();}});
+          });
+        }
+        function commit(e){
+          var i=+e.target.getAttribute('data-i');
+          var v=parseInt((e.target.textContent||'').replace(/[^0-9]/g,''),10);
+          state[i].num=isNaN(v)?0:v;save();draw();
+        }
+        var rb=document.getElementById('funnelReset');
+        if(rb)rb.addEventListener('click',function(){state=SEED.map(function(x){return {k:x.k,num:x.num};});save();draw();});
+        draw();
+      })();
+    </script>
 
     <!-- ===== DAILY FIVE ===== -->
     <div class="daily-five-wrap">
@@ -2359,48 +2481,6 @@
       <div class="stat-item">
         <div class="stat-num" id="totalVolume">$23.4M</div>
         <div class="stat-label">Volume in motion</div>
-      </div>
-    </div>
-
-    <!-- ===== CLIENT PIPELINE (stage view) ===== -->
-    <div style="margin:8px 0 32px;">
-      <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">
-        <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);">Client pipeline</div>
-        <div style="font-size:12px;color:var(--ink-4);">Stage counts · as of Jun 13, 2026</div>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--hairline);border-radius:var(--radius);padding:24px;display:flex;align-items:stretch;gap:0;flex-wrap:wrap;">
-        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
-          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">73</div>
-          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Sphere / database</div>
-          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">Book of business</div>
-        </div>
-        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
-        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
-          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">7</div>
-          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Active leads</div>
-          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">In CRM follow-up</div>
-        </div>
-        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
-        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
-          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:var(--ink);line-height:1;">2</div>
-          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Buyers in search</div>
-          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">Bill, George</div>
-        </div>
-        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
-        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
-          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:#0071e3;line-height:1;">5</div>
-          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Under contract</div>
-          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">In escrow now</div>
-        </div>
-        <div style="display:flex;align-items:center;color:var(--ink-4);font-size:18px;padding:0 4px;">›</div>
-        <div style="flex:1;min-width:120px;text-align:center;padding:0 8px;">
-          <div style="font-size:30px;font-weight:700;letter-spacing:-0.02em;color:#3f8268;line-height:1;">3</div>
-          <div style="font-size:12px;font-weight:600;color:var(--ink-2);margin-top:8px;">Closed YTD</div>
-          <div style="font-size:11px;color:var(--ink-4);margin-top:2px;">$3.66M · $93K GCI</div>
-        </div>
-      </div>
-      <div style="font-size:12px;color:var(--ink-3);margin-top:10px;line-height:1.5;">
-        <b>Next instrumentation:</b> lead&rarr;appointment&rarr;signed conversion rates aren't captured yet — once the GTM <code style="font-size:11px;background:var(--gray);padding:1px 5px;border-radius:4px;">generate_lead</code> trigger is fixed and CRM stages are tagged, this becomes a true conversion funnel with rates between each stage.
       </div>
     </div>
 
@@ -4606,7 +4686,7 @@ Michael</div>
             </div>
             <div class="mkt-channel">
               <div class="mkt-channel-name">Total reach</div>
-              <div class="mkt-channel-bar"><div class="mkt-channel-bar-fill" style="width:100%; background:#3f8268"></div></div>
+              <div class="mkt-channel-bar"><div class="mkt-channel-bar-fill" style="width:100%; background:#3f7d82"></div></div>
               <div class="mkt-channel-num">95K+</div>
             </div>
           </div>
@@ -5111,7 +5191,7 @@ Michael</div>
           // Visual confirmation
           const orig = btn.textContent;
           btn.textContent = '✓ Logged';
-          btn.style.background = '#3f8268';
+          btn.style.background = '#3f7d82';
           btn.style.color = 'white';
           setTimeout(() => {
             btn.textContent = orig;
@@ -5300,7 +5380,7 @@ Michael</div>
         bumpContent();
         const orig = btn.textContent;
         btn.textContent = '✓ Shipped';
-        btn.style.background = '#3f8268';
+        btn.style.background = '#3f7d82';
         btn.style.color = 'white';
         setTimeout(() => {
           btn.textContent = orig;
