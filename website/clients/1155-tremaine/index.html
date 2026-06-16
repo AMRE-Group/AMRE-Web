@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- amre-favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1c3d31">
+
+<!-- amre-preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
+<title>1155 S Tremaine Ave · Seller Analysis · AMRE</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<style>
+:root {
+  --white:#FFFFFF; --gray-50:#FBFBFD; --gray-100:#F5F5F7; --gray-200:#E8E8ED;
+  --hairline:#D2D2D7; --muted:#86868B; --secondary:#6E6E73; --ink:#1D1D1F;
+  --blue:#0071E3; --blue-dark:#0058B0; --blue-bg:#E5F1FC;
+  --red:#E30000; --red-bg:#FCEAEA;
+  --green:#248A3D; --green-bg:#E8F5EC;
+  --amber:#B25000; --amber-bg:#FFF4E5;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Monaco,monospace;
+  --r:18px; --r-lg:24px;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--white);color:var(--ink);}
+body{font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.47;letter-spacing:-0.01em;font-size:17px;}
+a{color:var(--blue);text-decoration:none;}
+[id]{scroll-margin-top:58px;}
+
+/* ── GATE ── */
+#gate{position:fixed;inset:0;z-index:1000;background:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;}
+#gate .gate-brand{font-size:13px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;margin-bottom:36px;}
+#gate .gate-brand b{color:var(--ink);font-weight:600;letter-spacing:0.3em;}
+#gate h1{font-size:44px;font-weight:600;letter-spacing:-0.022em;margin:0 0 10px;text-align:center;}
+#gate .eyebrow{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;text-align:center;}
+#gate p{color:var(--secondary);margin:0 0 32px;text-align:center;max-width:420px;font-size:17px;}
+#gate-form{display:flex;gap:8px;}
+#gate-input{font:inherit;font-size:17px;border:1px solid var(--hairline);border-radius:980px;padding:14px 20px;min-width:260px;outline:none;background:var(--white);color:var(--ink);transition:border-color .15s,box-shadow .15s;text-align:center;}
+#gate-input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,0.15);}
+#gate-submit{font:inherit;font-size:17px;font-weight:500;border:none;border-radius:980px;background:var(--blue);color:white;padding:14px 28px;cursor:pointer;transition:background .15s,transform .1s;}
+#gate-submit:hover{background:var(--blue-dark);}
+#gate-submit:active{transform:scale(0.97);}
+#gate.shake .gate-shell{animation:shake 0.35s;}
+@keyframes shake{0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}75%{transform:translateX(8px);}}
+.gate-shell{display:flex;flex-direction:column;align-items:center;}
+.gate-error{color:var(--red);font-size:14px;margin-top:16px;min-height:20px;}
+body.unlocked #gate{display:none;}
+
+/* ── TOP NAV ── */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hairline);}
+.topnav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:54px;}
+.nav-brand{font-size:13px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;font-weight:500;flex-shrink:0;}
+.nav-brand b{color:var(--ink);font-weight:600;}
+.nav-brand img{height:20px;width:auto;display:inline-block;vertical-align:middle;}
+.nav-anchors{display:flex;gap:2px;flex-wrap:nowrap;overflow-x:auto;margin-left:auto;scrollbar-width:none;}
+.nav-anchors::-webkit-scrollbar{display:none;}
+.nav-anchors a{font-size:13px;color:var(--secondary);padding:6px 12px;border-radius:980px;transition:background .15s,color .15s;white-space:nowrap;}
+.nav-anchors a:hover{background:var(--gray-100);color:var(--ink);}
+.nav-anchors a.active{background:var(--ink);color:white;}
+.nav-status{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--green);padding:4px 10px;background:var(--green-bg);border-radius:980px;flex-shrink:0;font-weight:500;}
+.nav-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2.2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.4;}}
+@media(max-width:980px){.nav-anchors{display:none;}}
+
+/* ── HERO ── */
+.hero{padding:96px 24px 64px;text-align:center;background:linear-gradient(to bottom,var(--white) 0%,var(--gray-50) 100%);}
+.hero-eyebrow{font-size:13px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;margin-bottom:16px;}
+.hero h1{font-size:clamp(52px,7vw,88px);font-weight:600;letter-spacing:-0.04em;line-height:1.04;margin:0 0 16px;max-width:1100px;margin-left:auto;margin-right:auto;}
+.hero .sub{font-size:22px;color:var(--secondary);margin:0 auto 48px;max-width:640px;line-height:1.4;}
+.stat-pills{display:flex;gap:10px;justify-content:center;flex-wrap:nowrap;max-width:1240px;margin:0 auto;}@media(max-width:980px){.stat-pills{flex-wrap:wrap;}}
+.pill{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:16px 18px;min-width:0;flex:1 1 0;text-align:left;}
+.pill-label{font-size:13px;letter-spacing:0.06em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
+.pill-value{font-size:24px;font-weight:600;letter-spacing:-0.02em;color:var(--ink);white-space:nowrap;}
+.pill-meta{font-size:13px;color:var(--secondary);margin-top:4px;}
+
+/* ── SECTIONS ── */
+section{padding:88px 24px;}
+.section-gray{background:var(--gray-100);}
+.section-dark{background:var(--ink);color:white;}
+.container{max-width:1240px;margin:0 auto;}
+.container-md{max-width:980px;margin:0 auto;}
+.sec-eyebrow{font-size:13px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;margin-bottom:14px;text-align:center;}
+.section-dark .sec-eyebrow{color:rgba(255,255,255,0.45);}
+h2{font-size:clamp(32px,4vw,52px);font-weight:600;letter-spacing:-0.022em;line-height:1.08;margin:0 0 12px;text-align:center;}
+.section-dark h2{color:white;}
+.lede{font-size:19px;color:var(--secondary);max-width:600px;margin:0 auto 56px;text-align:center;line-height:1.4;}#recommendation .lede{max-width:900px;}
+.section-dark .lede{color:rgba(255,255,255,0.6);}
+
+/* ── GRID ── */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gray-200);border-radius:var(--r);overflow:hidden;border:1px solid var(--gray-200);}
+@media(max-width:980px){.grid-3{grid-template-columns:1fr 1fr;}.grid-2{grid-template-columns:1fr;}.grid-4{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.grid-3{grid-template-columns:1fr;}}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:var(--r);padding:28px;border:1px solid var(--gray-200);}
+.card-dark{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r);padding:28px;color:white;}
+.card-green{background:var(--green-bg);border:1px solid rgba(36,138,61,0.18);border-radius:var(--r);padding:28px;}
+.card-blue{background:var(--blue-bg);border:1px solid rgba(0,113,227,0.18);border-radius:var(--r);padding:28px;}
+.card-amber{background:var(--amber-bg);border:1px solid rgba(178,80,0,0.18);border-radius:var(--r);padding:28px;}
+.card-stat{background:var(--white);padding:24px 20px;text-align:center;}
+.stat-val{font-size:30px;font-weight:600;letter-spacing:-0.02em;}
+.stat-lbl{font-size:13px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;}
+.tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;border-radius:6px;padding:3px 8px;margin-bottom:12px;}
+.tag-green{background:var(--green-bg);color:var(--green);}
+.tag-blue{background:var(--blue-bg);color:var(--blue);}
+.tag-amber{background:var(--amber-bg);color:var(--amber);}
+.tag-red{background:var(--red-bg);color:var(--red);}
+.tag-ink{background:var(--gray-100);color:var(--secondary);}
+.card-title{font-size:19px;font-weight:600;letter-spacing:-0.01em;margin-bottom:8px;}
+.card-body{font-size:15px;color:var(--secondary);line-height:1.55;}
+.card-dark .card-body{color:rgba(255,255,255,0.6);}
+
+
+.formula-note{display:inline;font-size:11px;font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none;margin-left:4px;}
+/* ── INCOME TABLE ── */
+.income-tbl{width:100%;border-collapse:collapse;}
+.income-tbl th{font-size:12px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:left;border-bottom:1px solid var(--hairline);}
+.income-tbl td{padding:13px 12px;font-size:15px;border-bottom:1px solid var(--gray-200);}
+.income-tbl tr:last-child td{border-bottom:none;font-weight:600;font-size:16px;background:var(--gray-50);}
+.g{color:var(--muted);font-size:13px;}
+
+/* ── MAP ── */
+#map{height:500px;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hairline);margin-bottom:32px;}
+
+/* ── PHASE STEPS ── */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,0.12);}
+.phase{padding:32px 28px;border-right:1px solid rgba(255,255,255,0.1);}
+.phase:last-child{border-right:none;}
+.phase-num{font-size:13px;font-weight:700;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-bottom:10px;}
+.phase-title{font-size:20px;font-weight:600;color:white;margin-bottom:10px;}
+.phase-body{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.6;}
+.phase-stat{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:white;background:rgba(255,255,255,0.1);border-radius:980px;padding:4px 10px;margin-top:14px;}
+@media(max-width:980px){.phases{grid-template-columns:1fr;}.phase{border-right:none;border-bottom:1px solid rgba(255,255,255,0.1);}.phase:last-child{border-bottom:none;}}
+
+/* ── PROFILE ROWS ── */
+.p-row{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--gray-200);font-size:14px;}
+.p-row:last-child{border-bottom:none;}
+.p-key{color:var(--secondary);}
+.p-val{font-weight:600;color:var(--ink);}
+.p-val.g{color:var(--green);font-weight:600;}
+.p-val.b{color:var(--blue);font-weight:600;}
+
+/* ── BUYER PROFILES ── */
+.buyer{background:var(--white);border-radius:var(--r-lg);padding:32px;border:1px solid var(--gray-200);}
+.buyer-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;}
+.buyer-title{font-size:21px;font-weight:600;letter-spacing:-0.01em;margin-bottom:4px;}
+.buyer-sub{font-size:14px;color:var(--secondary);margin-bottom:20px;}
+
+/* ── CONTACTS ── */
+.contact{background:var(--white);border-radius:var(--r);padding:28px;border:1px solid var(--gray-200);}
+.contact-name{font-size:19px;font-weight:600;margin-bottom:2px;}
+.contact-role{font-size:13px;color:var(--muted);margin-bottom:16px;}
+.contact-link{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink);margin-bottom:6px;}
+.contact-link a{color:var(--blue);}
+.cta-btn{display:inline-block;padding:16px 40px;background:var(--blue);color:white;border-radius:980px;font-size:17px;font-weight:500;transition:background .15s,transform .1s;}
+.cta-btn:hover{background:var(--blue-dark);}
+
+/* ── FOOTER ── */
+footer{padding:48px 24px;background:var(--gray-100);border-top:1px solid var(--hairline);}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.footer-brand{font-size:13px;letter-spacing:0.3em;color:var(--muted);text-transform:uppercase;font-weight:500;}
+.footer-brand b{color:var(--ink);font-weight:600;}
+.footer-meta{font-size:13px;color:var(--muted);text-align:right;line-height:1.7;}
+.disclaimer{max-width:1240px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--hairline);font-size:13px;color:var(--muted);line-height:1.6;}
+
+/* ── UTILS ── */
+.mt-8{margin-top:8px;} .mt-16{margin-top:16px;} .mt-24{margin-top:24px;} .mt-32{margin-top:32px;} .mt-40{margin-top:40px;}
+.text-green{color:var(--green);} .text-blue{color:var(--blue);} .text-amber{color:var(--amber);}
+</style>
+</head>
+<body>
+
+<!-- ═══ GATE ═══ -->
+<div id="gate">
+  <div class="gate-shell" id="gShell">
+    <div class="gate-brand"><b>AMRE</b> &nbsp;·&nbsp; compass</div>
+    <div class="eyebrow">New Opportunity · Seller Analysis</div>
+    <h1>1155 S Tremaine Ave.</h1>
+    <p>Confidential property analysis prepared by AMRE Real Estate Group. Enter your access code to continue.</p>
+    <div id="gate-form">
+      <input id="gate-input" type="password" placeholder="Access code" autocomplete="off">
+      <button id="gate-submit" onclick="unlock()">View →</button>
+    </div>
+    <div class="gate-error" id="gate-error"></div>
+  </div>
+</div>
+
+<!-- ═══ DASHBOARD ═══ -->
+<div id="dashboard" style="display:none;">
+
+<!-- NAV -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <div class="nav-brand"><b>AMRE</b> &nbsp;·&nbsp; compass</div>
+    <div class="nav-anchors">
+      <a href="#recommendation">Recommendation</a>
+      <a href="#income">Income</a>
+      <a href="#valuation">Valuation</a>
+      <a href="#market">Market</a>
+      <a href="#marketing">Strategy</a>
+      <a href="#concierge">Concierge</a>
+      <a href="#buyers">Buyer Profiles</a>
+      <a href="#contacts">Team</a>
+    </div>
+    <span class="nav-status">New Opportunity</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-eyebrow">Compass Private Exclusive · Seller Presentation · May 2026</div>
+  <div class="hero-photo" style="margin:24px auto 8px;max-width:1080px;border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.12);"><img src="../11155-tremaine/hero-exterior.jpg" alt="1155 S Tremaine Ave exterior" style="display:block;width:100%;height:auto;" decoding="async"></div>
+  <h1>1155 S Tremaine Ave.</h1>
+  <p class="sub">Three-unit income property · Los Angeles, CA 90019 · Prepared by Michael Abraham &amp; Ania de Pourbaix · AMRE Real Estate Group at Compass</p>
+  <div class="stat-pills">
+    <div class="pill">
+      <div class="pill-label">List Price</div>
+      <div class="pill-value">$2.495M</div>
+      <div class="pill-meta">Recommended</div>
+    </div>
+    <div class="pill">
+      <div class="pill-label">Target Net</div>
+      <div class="pill-value">$2.2M</div>
+      <div class="pill-meta">Seller objective</div>
+    </div>
+    <div class="pill">
+      <div class="pill-label">Monthly Income</div>
+      <div class="pill-value">$11,994</div>
+      <div class="pill-meta">All 3 units occupied</div>
+    </div>
+    <div class="pill">
+      <div class="pill-label">Annual Income</div>
+      <div class="pill-value">$143,928</div>
+      <div class="pill-meta">Current rent roll</div>
+    </div>
+    <div class="pill">
+      <div class="pill-label">Cap Rate</div>
+      <div class="pill-value">~4.04%</div>
+      <div class="pill-meta">$100,750 NOI ÷ $2,495,000 · pro forma 5%+</div>
+    </div>
+  </div>
+</section>
+
+<!-- OFF-MARKET RECOMMENDATION -->
+<section class="section" id="recommendation" style="padding-top:48px;padding-bottom:48px;">
+  <div class="container">
+    <div class="sec-eyebrow" style="color:var(--amber);">Strategic Recommendation</div>
+    <h2>List off-market — and ride the wave already in motion.</h2>
+    <p class="lede">There is a moment opening up in 90019 / Mid-City, and 1155 S Tremaine is positioned to capture it. Our recommendation: launch through Compass Private Exclusive first — quietly, deliberately, and with momentum on our side.</p>
+
+    <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+      <div style="background:var(--amber-bg);border:1px solid var(--amber);border-radius:16px;padding:24px;">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">Better Asset</div>
+        <div style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Stronger location, same income.</div>
+        <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">Comparable triplexes within walking distance — 1361 S Tremaine, 1129 S Citrus, 4756 Edgewood — are listed in the $2.00M–$2.95M band on lot size, unit count, and architectural character. 1155 S Tremaine delivers $11,994/mo gross income from that same Longwood Highlands / Mid-Wilshire pocket, with the Metro D Line extension and the Miracle Mile institutional anchors as live tailwinds.</p>
+      </div>
+
+      <div style="background:var(--blue-bg);border:1px solid var(--blue);border-radius:16px;padding:24px;">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Built-in Buyer Pool</div>
+        <div style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Inherit the demand around you.</div>
+        <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">The buyer pool actively touring 90019 multifamily right now transacts in the $2.0M–$2.95M band. There are seven active listings within walking distance of the subject in that exact range — including 1361 S Tremaine on the same street at $2.498M. Those buyers are price-anchored to the trophy-triplex peer group, not to lower-priced inventory. We are priced squarely with the comp set, with a stronger income story than most of them.</p>
+      </div>
+
+      <div style="background:var(--green-bg);border:1px solid var(--green);border-radius:16px;padding:24px;">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:8px;">Quiet Launch Advantage</div>
+        <div style="font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;">Test pricing without exposure.</div>
+        <p style="font-size:14px;color:var(--secondary);margin:0;line-height:1.5;">Compass Private Exclusive lets us put 1155 S Tremaine in front of 34,000+ Compass agents and their qualified buyers — with no public MLS, no days-on-market clock, and no visible price history. We gather real feedback, build urgency, and only go public if and when it serves you.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;background:var(--ink);color:var(--white);border-radius:16px;padding:28px 32px;">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">The pitch — in one line</div>
+      <div style="font-size:18px;line-height:1.5;font-weight:500;">Your property delivers the same — or higher — monthly income as the active comp set within walking distance, at a price point those buyers are already evaluating on the same street. Listing off-market through Compass Private Exclusive lets us route that existing buyer momentum directly to your door, before the broader market ever sees the listing. We start quietly, validate pricing, and only escalate exposure on your terms.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INCOME -->
+<section class="section-gray" id="income">
+  <div class="container">
+    <div class="sec-eyebrow">Income &amp; Rent Roll</div>
+    <h2>The property by the numbers.</h2>
+    <p class="lede">Current rents, upside opportunity, and what this property can generate for the right buyer.</p>
+    <div class="grid-2 mt-32">
+      <div class="card">
+        <div class="tag tag-ink">Current Rent Roll</div>
+        <table class="income-tbl">
+          <thead><tr><th>Unit</th><th>Monthly</th><th>Annual</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Unit 1</td><td>$6,200</td><td>$74,400</td><td><span class="tag tag-green" style="margin:0">Occupied</span></td></tr>
+            <tr><td>Unit 2</td><td>$4,094</td><td>$49,128</td><td><span class="tag tag-green" style="margin:0">Occupied</span></td></tr>
+            <tr><td>Unit 3</td><td>$1,700</td><td>$20,400</td><td><span class="tag tag-amber" style="margin:0">Below Market</span></td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>$11,994/mo</strong></td><td><strong>$143,928</strong></td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <div class="tag tag-blue">Pro Forma · Upside Scenario</div>
+        <table class="income-tbl">
+          <thead><tr><th>Unit</th><th>Market Rent</th><th>Monthly Gain</th><th>Trigger</th></tr></thead>
+          <tbody>
+            <tr><td>Unit 1</td><td>$6,500+</td><td class="text-green">+$300</td><td class="g">Near market</td></tr>
+            <tr><td>Unit 2</td><td>$4,400+</td><td class="text-green">+$306</td><td class="g">At renewal</td></tr>
+            <tr><td>Unit 3</td><td>$2,800–$3,000</td><td class="text-green">+$1,100–$1,300</td><td class="g">On turnover</td></tr>
+            <tr><td><strong>Pro Forma</strong></td><td><strong>$13,700+/mo</strong></td><td class="text-green"><strong>+$1,706+/mo</strong></td><td></td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px;color:var(--secondary);margin-top:12px;">Unit 3 is the clearest value-add lever. An RSO-compliant turnover at market pushes annual income to <strong>~$164,400+</strong> and cap rate at ask to <strong>~5.0%+</strong>.</p>
+      </div>
+    </div>
+    <div class="grid-4 mt-24">
+      <div class="card-stat"><div class="stat-val">$143,928</div><div class="stat-lbl">Gross Annual Income</div></div>
+      <div class="card-stat"><div class="stat-val text-green">~$100,750</div><div class="stat-lbl">Est. NOI <span class="formula-note">($143,928 × (1 − 0.30))</span></div></div>
+      <div class="card-stat"><div class="stat-val">17.3×</div><div class="stat-lbl">Gross Rent Multiplier <span class="formula-note">($2,495,000 ÷ $143,928)</span></div></div>
+      <div class="card-stat"><div class="stat-val text-blue">~4.04%</div><div class="stat-lbl">Cap Rate at Ask <span class="formula-note">($100,750 ÷ $2,495,000)</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUATION -->
+<section id="valuation">
+  <div class="container">
+    <div class="sec-eyebrow">Pricing Analysis</div>
+    <h2>How we landed on $2.495M.</h2>
+    <p class="lede">A combination of income-based valuation, comparable sales, and the seller's $2.2M net target.</p>
+    <div style="margin-top:18px;background:#FFF3D6;border:1px solid #E8B85B;border-left:4px solid #B25000;border-radius:10px;padding:20px 22px;">
+<div style="font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:#8A4A0A;font-weight:600;margin-bottom:10px;">Honest context &middot; the prior listing</div>
+<div style="font-size:14.5px;line-height:1.6;color:var(--ink);">
+<p style="margin:0 0 12px;">1155 S Tremaine was listed publicly at <strong>$2,400,000</strong> and didn't sell after <strong>182 days</strong>. We don't think that means the price was wrong &mdash; we think it means the public market is the wrong channel right now.</p>
+<p style="margin:0 0 12px;">Here's why: comparable triplexes priced at $2.5M+ are also struggling. The median time on market is <strong>82 days</strong>, and <strong>two of them have already cut their price</strong>. So even well-priced trophy triplexes aren't getting rewarded on the MLS today.</p>
+<p style="margin:0 0 12px;">Listing it publicly a second time would risk a third strike &mdash; another expired listing on the property's permanent record, visible to every future buyer. That's the outcome we're structuring this plan to avoid.</p>
+<p style="margin:0;"><strong>The plan:</strong> sell it off-market, quietly, to a curated pool of buyers &mdash; so the property gets a real price without another public failure attached to it.</p>
+</div>
+</div>
+    </div>
+
+
+      <div class="mt-32" style="background:linear-gradient(135deg,#1c3d31 0%,#0f2620 100%);color:white;border-radius:16px;padding:32px 36px;">
+        <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#FFD08A;margin-bottom:12px;font-weight:600;">Pricing Range Strategy &middot; $2.395M &ndash; $2.495M</div>
+        <h3 style="font-size:26px;font-weight:600;letter-spacing:-0.015em;margin:0 0 14px;color:white;">A flexible band, not a fixed flag.</h3>
+        <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.78);margin:0 0 24px;max-width:880px;">Rather than anchoring to a single number, we recommend taking 1155 S Tremaine to market within a <strong style="color:white;">$2.395M&ndash;$2.495M band</strong>. Both ends of the band protect your <strong style="color:white;">$2.2M net</strong> objective. The range gives us room to read buyer feedback, calibrate to PPSF reality, and lean into the location premium when the right buyer surfaces &mdash; without ever signaling weakness through a public price drop.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:24px;">
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:18px;">
+            <div style="font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Floor of band</div>
+            <div style="font-size:28px;font-weight:600;color:white;">$2,395,000</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;line-height:1.5;">PPSF $620 &middot; nets ~$2.24M at full ask &middot; ~$45K cushion before $2.2M floor &middot; closer to active comp ceiling ($594).</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:12px;padding:18px;">
+            <div style="font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;">Midpoint</div>
+            <div style="font-size:28px;font-weight:600;color:white;">$2,445,000</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;line-height:1.5;">PPSF $633 &middot; nets ~$2.28M at full ask &middot; balances PPSF normalization with location premium.</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.10);border:1px solid #FFD08A;border-radius:12px;padding:18px;">
+            <div style="font-size:11px;letter-spacing:.10em;text-transform:uppercase;color:#FFD08A;margin-bottom:8px;">Ceiling of band</div>
+            <div style="font-size:28px;font-weight:600;color:white;">$2,495,000</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;line-height:1.5;">PPSF $646 &middot; nets ~$2.33M at full ask &middot; tests the location premium &middot; widest cushion above $2.2M.</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px;">
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#FFD08A;margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase;">Why a range works here</div>
+            <p style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,0.78);margin:0;">Tremaine is a <strong style="color:white;">preferred address</strong> within the 90019 trophy-triplex pocket &mdash; same street as 1361 S Tremaine ($2.498M active) and walking distance to the Miracle Mile institutional anchors. Location premium is real, and the right buyer (1031 exchange, owner-occupant prioritizing the block) will pay through the comp-set PPSF ceiling. A range lets us hold the high end for that buyer while still being honest with the broader market that the income-only math lives closer to the floor.</p>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:#FFD08A;margin-bottom:8px;letter-spacing:.04em;text-transform:uppercase;">How we use it in practice</div>
+            <p style="font-size:14.5px;line-height:1.6;color:rgba(255,255,255,0.78);margin:0;">Within Compass Private Exclusive, we can quote the band verbally to qualified buyer agents, surface offers across the range, and convert the strongest one without ever publishing a price cut. If we see consistent feedback near the floor, we soft-land at $2.395M&ndash;$2.425M. If a 1031 buyer or owner-occupant emerges with conviction on the location, we hold $2.475M&ndash;$2.495M. Either path clears the $2.2M net objective.</p>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.04);border-left:3px solid #FFD08A;border-radius:0 10px 10px 0;padding:14px 18px;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,0.72);">
+          <strong style="color:white;">Caveat &middot; what the $2.2M net assumes.</strong> Net proceeds at every point in the band are calculated assuming both the AMRE listing commission (2.5%) and a buyer&#39;s-side commission (2.5%) are paid in full, plus ~$30K&ndash;$40K closing costs. If the buyer is unrepresented or the buyer-side commission is negotiated lower, the net rises. Conversely, any in-escrow repair credit, price concession, or extended-rate-lock buy-down comes off the net dollar-for-dollar. The band is sized to absorb normal negotiation friction; unusually aggressive concessions would require a fresh conversation.
+        </div>
+      </div>
+
+    <div class="grid-3 mt-32">
+      <div class="card-green card">
+        <div class="tag tag-green">Seller's Objective</div>
+        <div style="font-size:36px;font-weight:600;letter-spacing:-0.02em;margin-bottom:6px;">$2,200,000</div>
+        <div style="font-size:13px;color:var(--secondary);">Target net proceeds</div>
+        <div class="mt-16" style="font-size:14px;line-height:1.6;color:var(--secondary);">At $2.495M list with 2.5% AMRE commission ($62,375), a potential 2.5% buyer's agent commission ($62,375), and estimated closing costs (~$30K–$40K), the seller nets approximately <strong>$2.33M–$2.34M</strong>. The $2.2M target is still cleared with cushion to spare.</div>
+        <div class="mt-16 p-row" style="border-top:1px solid rgba(36,138,61,0.15);">
+          <span class="p-key">List price</span><span class="p-val">$2,495,000</span>
+        </div>
+        <div class="p-row"><span class="p-key">AMRE commission (2.5%)</span><span class="p-val">&minus;$62,375</span></div>
+  <div class="p-row"><span class="p-key">Buyer&#39;s agent commission (2.5%, potential)</span><span class="p-val">&minus;$62,375</span></div>
+  <div class="p-row"><span class="p-key">Est. closing costs</span><span class="p-val">&minus;$30,000&ndash;$40,000</span></div>
+  <div class="p-row" style="border-bottom:none;"><span class="p-key"><strong>Est. net proceeds</strong></span><span class="p-val" style="color:var(--green);"><strong>~$2.33M&ndash;$2.34M</strong></span></div>
+      </div>
+      <div class="card">
+        <div class="tag tag-blue">Income Approach</div>
+        <div style="font-size:22px;font-weight:600;margin-bottom:16px;">What the income supports</div>
+        <div class="p-row"><span class="p-key">GRM valuation <span class="formula-note">(GAI × 17–18)</span></span><span class="p-val">$2.45M–$2.59M</span></div>
+        <div class="p-row"><span class="p-key">Cap rate 3.5% <span class="formula-note">($100,750 ÷ 0.035)</span></span><span class="p-val">$2.88M</span></div>
+        <div class="p-row"><span class="p-key">Cap rate 4.0% <span class="formula-note">($100,750 ÷ 0.040)</span></span><span class="p-val">$2.52M</span></div>
+        <div class="p-row"><span class="p-key">$/door (3 units) <span class="formula-note">($2,495,000 ÷ 3)</span></span><span class="p-val">$831,667/door</span></div>
+        <div class="p-row" style="border-bottom:none;"><span class="p-key">Pro forma cap (5%+) <span class="formula-note">(post-Unit 3 turnover)</span></span><span class="p-val text-green">Buyer upside story</span></div>
+        <p class="card-body mt-16">The income supports a price range of <strong>$2.50M–$2.88M</strong> depending on cap rate expectations. $2.495M is positioned squarely in the middle — defensible and realistic.</p>
+      </div>
+      <div class="card">
+        <div class="tag tag-ink">Comparable Sales · 90019 / Mid-City</div>
+        <div style="font-size:22px;font-weight:600;margin-bottom:16px;">Active 90019 multifamily comps</div>
+        <div class="p-row"><span class="p-key">1361 S Tremaine Ave (triplex)</span><span class="p-val">Active · $2.498M</span></div>
+        <div class="p-row"><span class="p-key">1040 S Longwood Ave (10bd)</span><span class="p-val">Active · $2.549M</span></div>
+        <div class="p-row"><span class="p-key">4756 Edgewood Pl (6bd)</span><span class="p-val">Active · $2.199M</span></div>
+        <div class="p-row"><span class="p-key">1129 S Citrus Ave (10bd)</span><span class="p-val">Active · $2.595M</span></div>
+        <div class="p-row"><span class="p-key">1337 S Hudson Ave (10bd)</span><span class="p-val">Active · $2.250M</span></div>
+        <div class="p-row"><span class="p-key">942 S Mansfield Ave (8bd)</span><span class="p-val">Active · $2.490M</span></div>
+        <div class="p-row" style="border-bottom:none;"><span class="p-key">90019 trophy multifamily band</span><span class="p-val text-green">$2.00M – $2.95M</span></div>
+        <p class="card-body mt-16">1155 S Tremaine sits in the middle of the 90019 trophy-triplex peer group — same submarket, same architectural era, same buyer pool. Seven active comps within walking distance ask $2.00M–$2.95M, anchored by 1361 S Tremaine on the same street at $2.498M. $11,994/mo gross income matches or exceeds the income story most of these comps can support.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MARKET MAP -->
+<section class="section-gray" id="market">
+  <div class="container">
+    <div class="sec-eyebrow">Active Market</div>
+    <h2>The neighborhood right now.</h2>
+    <p class="lede">Seven active triplex / multi-family listings in 90019 between $2.00M and $2.95M (median ~$2.55M, ~$484 PPSF). Median days on market: <strong>82</strong>. Two listings have already cut price. The blue marker is your property; orange markers are active comps.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0 28px;">
+      <div style="background:white;border:1px solid var(--border);border-radius:12px;padding:14px;">
+        <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--secondary);">Active price band</div>
+        <div style="font-size:22px;font-weight:600;color:var(--ink);margin-top:6px;">$2.00M &#8211; $2.95M</div>
+        <div style="font-size:13px;color:var(--secondary);margin-top:4px;">Median ~$2.55M</div>
+      </div>
+      <div style="background:white;border:1px solid var(--border);border-radius:12px;padding:14px;">
+        <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--secondary);">PPSF band</div>
+        <div style="font-size:22px;font-weight:600;color:var(--ink);margin-top:6px;">$430 &#8211; $594</div>
+        <div style="font-size:13px;color:var(--secondary);margin-top:4px;">Subject ~$646 / SF</div>
+      </div>
+      <div style="background:white;border:1px solid var(--border);border-radius:12px;padding:14px;">
+        <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--secondary);">Median DOM</div>
+        <div style="font-size:22px;font-weight:600;color:var(--ink);margin-top:6px;">82 days</div>
+        <div style="font-size:13px;color:var(--secondary);margin-top:4px;">Range 39 &#8211; 172</div>
+      </div>
+      <div style="background:white;border:1px solid var(--amber);border-radius:12px;padding:14px;">
+        <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);">Price cuts on market</div>
+        <div style="font-size:22px;font-weight:600;color:var(--ink);margin-top:6px;">2 of 7</div>
+        <div style="font-size:13px;color:var(--secondary);margin-top:4px;">&#8722;9% to &#8722;11%</div>
+      </div>
+    </div>
+
+    <div style="overflow-x:auto;border:1px solid var(--border);border-radius:12px;background:white;margin-bottom:28px;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="background:#F7F7F4;text-align:left;">
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);">Address</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);">Status</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);text-align:right;">Price</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);text-align:right;">PPSF</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);text-align:right;">Bldg SF</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);text-align:right;">Lot SF</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);text-align:right;">Beds</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);text-align:right;">Year</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);text-align:right;">DOM</th>
+            <th style="padding:12px 14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--border);">Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#FFF8E6;">
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);font-weight:600;">1155 S Tremaine Ave <span style="color:var(--amber);font-size:11px;font-weight:600;letter-spacing:.06em;">SUBJECT</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);">Expired (prior)</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$2,400,000</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$621</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">3,862</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">6,490</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">7</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">&#8212;</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">182</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);font-size:12px;">Prior on-market run; new strategy proposed</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);font-weight:500;">1361 S Tremaine Ave</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);"><span style="color:#1F8A4C;font-weight:600;">Active</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$2,498,000 <span style="color:var(--amber);font-size:11px;font-weight:600;">&#9660; &#8722;$297K</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$584</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">4,276</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">8,619</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">8</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">1930</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">82</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);font-size:12px;">Same street &middot; Spanish trophy &middot; price cut from $2.795M</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);font-weight:500;">1129 S Citrus Ave</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);"><span style="color:#1F8A4C;font-weight:600;">Active</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$2,595,000</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$594</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">4,371</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">6,438</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">10</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">1931</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">39</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);font-size:12px;">Tightest active competition &middot; highest PPSF</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);font-weight:500;">4756 Edgewood Pl</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);"><span style="color:#1F8A4C;font-weight:600;">Active</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$2,199,000</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$473</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">4,650</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">9,826</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">6</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">1924</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">48</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);font-size:12px;">Value entry point &middot; pulls some buyers down-market</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);font-weight:500;">1119 S Orange Dr</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);"><span style="color:var(--amber);font-weight:600;">Private Excl.</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$2,000,000</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$536</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">3,734</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">5,686</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">4</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">1935</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">&#8212;</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);font-size:12px;">Off-market floor &middot; proves the off-market channel works here</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);font-weight:500;">1040 S Longwood Ave</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);"><span style="color:#1F8A4C;font-weight:600;">Active</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$2,549,000 <span style="color:var(--amber);font-size:11px;font-weight:600;">&#9660; &#8722;$246K</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$320</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">7,962</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">8,922</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">10</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">1926</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">100</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);font-size:12px;">Big building distorts PPSF &middot; 100 DOM &middot; price cut from $2.795M</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);font-weight:500;">1337 S Hudson Ave</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);"><span style="color:#1F8A4C;font-weight:600;">Active</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$2,890,000 <span style="color:var(--amber);font-size:11px;font-weight:600;">&#9660; &#8722;$60K</span></td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">$484</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">5,974</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">7,402</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">10</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">2023</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;">172</td>
+            <td style="padding:12px 14px;border-bottom:1px solid var(--border);color:var(--secondary);font-size:12px;">Newer build, longest DOM in set &middot; ceiling of price band</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;font-weight:500;">942 S Mansfield Ave</td>
+            <td style="padding:12px 14px;"><span style="color:#1F8A4C;font-weight:600;">Active</span></td>
+            <td style="padding:12px 14px;text-align:right;">$2,950,000</td>
+            <td style="padding:12px 14px;text-align:right;">$430</td>
+            <td style="padding:12px 14px;text-align:right;">6,862</td>
+            <td style="padding:12px 14px;text-align:right;">8,337</td>
+            <td style="padding:12px 14px;text-align:right;">8</td>
+            <td style="padding:12px 14px;text-align:right;">1928</td>
+            <td style="padding:12px 14px;text-align:right;">83</td>
+            <td style="padding:12px 14px;color:var(--secondary);font-size:12px;">Adjacent ZIP 90036 &middot; top of band</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="map" style="height:480px;border-radius:12px;overflow:hidden;border:1px solid var(--border);margin-bottom:28px;"></div>
+
+    <div style="background:var(--ink);color:white;border-radius:14px;padding:28px 32px;">
+      <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">What this set tells us</div>
+      <div style="font-size:18px;line-height:1.55;font-weight:500;">
+        Buyers touring 1361 S Tremaine, 1129 S Citrus, and 4756 Edgewood are <em>your</em> buyer pool &mdash; and they&#39;re stalling: median 82 DOM, two price cuts already, no clean trade above $2.6M. Listing 1155 off-market at $2.495M lets us reach those agents directly with a fresh story before joining the discount cycle the active set is now in.
+      </div>
+      <div style="font-size:13px;color:#9A9A9A;margin-top:14px;">Sources: MLS active listings (90019 / 90036 multi-family, May 2026) plus one Private Exclusive comp.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3-PHASE MARKETING -->
+<section class="section-dark" id="marketing">
+  <div class="container">
+    <div class="sec-eyebrow">Compass 3-Phase Marketing Strategy</div>
+    <h2>Sell on your terms.<br>Not the market's.</h2>
+    <p class="lede">The same playbook used by professional homebuilders and real estate developers — now available to every Compass seller.</p>
+
+    <div class="phases mt-40">
+      <div class="phase" style="background:rgba(255,255,255,0.04);">
+        <div class="phase-num">PHASE 01</div>
+        <div class="phase-title">Private Exclusive</div>
+        <div class="phase-body">Your property is quietly marketed to Compass's nationwide network of 34,000+ top agents and their qualified buyers. No public MLS. No days on market accumulating. No public price drops. Test pricing, gather real feedback, and sometimes find a buyer willing to pay a premium for certainty and early access. All inquiries route directly to Michael &amp; Ania — no lead diversion to third-party agents.<br><br><strong style="color:white;">This is where we start for 1155 S Tremaine.</strong> Tenant-occupied status makes discretion the right call. In week one, we preview directly to the agents already touring 1361 S Tremaine, 1129 S Citrus, and 4756 Edgewood — the active buyer pool walking the same blocks today.</div>
+        <div class="phase-stat">34,000+ Compass agents</div>
+      </div>
+      <div class="phase" style="background:rgba(255,255,255,0.06);">
+        <div class="phase-num">PHASE 02</div>
+        <div class="phase-title">Compass Coming Soon</div>
+        <div class="phase-body">The listing moves to Compass.com — publicly visible to all agents and buyers on the internet, but still <em>not</em> on the MLS. No days-on-market clock running. No price drop history visible. You get the buzz and urgency of a full public launch without the downside risk. Engagement data flows back to us — how many agents viewed it, bookmarked it, shared it — letting us fine-tune pricing and presentation before the big launch.</div>
+        <div class="phase-stat">60M+ buyers on Compass.com</div>
+      </div>
+      <div class="phase" style="background:rgba(255,255,255,0.04);">
+        <div class="phase-num">PHASE 03</div>
+        <div class="phase-title">Full MLS Launch</div>
+        <div class="phase-body">Armed with feedback from Phases 1 &amp; 2, we launch on the MLS and all major platforms — Zillow, Redfin, Realtor.com — with a market-tested price and pre-established demand. Your listing enters the public market with momentum. For 1155 S Tremaine, this phase is triggered if a unit becomes vacant or you decide to maximize exposure. The listing agreement amendment clause is already structured to make this seamless.</div>
+        <div class="phase-stat">MLS + all portals</div>
+      </div>
+    </div>
+
+    <div class="grid-3 mt-32">
+      <div class="card-dark">
+        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data</div>
+        <div style="font-size:36px;font-weight:600;color:white;margin-bottom:4px;">+2.9%</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:12px;">Higher closing prices vs. direct-to-MLS</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);">Homes pre-marketed through Phases 1 &amp; 2 before going on MLS achieved 2.9% higher closing prices on average nationally.</div>
+      </div>
+      <div class="card-dark">
+        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data</div>
+        <div style="font-size:36px;font-weight:600;color:white;margin-bottom:4px;">20% Faster</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:12px;">Time to accepted offer</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);">Pre-marketed homes received accepted offers an average of 8 days sooner than those listed directly on the MLS — critical when buyer momentum matters.</div>
+      </div>
+      <div class="card-dark">
+        <div class="tag tag-ink" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">Compass Data</div>
+        <div style="font-size:36px;font-weight:600;color:white;margin-bottom:4px;">30% Less</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:12px;">Likely to take a price cut</div>
+        <div style="font-size:14px;color:rgba(255,255,255,0.6);">Sellers who pre-market are significantly less likely to drop their price — because they've already validated demand and pricing before going public.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPASS CONCIERGE -->
+<section id="concierge">
+  <div class="container">
+    <div class="sec-eyebrow">Compass Concierge</div>
+    <h2>Make updates. Pay nothing until closing.</h2>
+    <p class="lede">Compass fronts the cost of pre-sale improvements — interest-free — so you can maximize your sale price without out-of-pocket expenses today.</p>
+    <div class="grid-2 mt-32">
+      <div class="card-blue card">
+        <div class="tag tag-blue">How It Works</div>
+        <div class="card-title">Zero-cost pre-sale improvements</div>
+        <div class="card-body mt-8">Compass Concierge covers the upfront costs of improvements that help your home sell faster and for more. Fresh paint, deep clean, landscaping, minor repairs — Compass pays the vendors directly. You repay only when the home sells, with <strong>zero interest and zero fees</strong>. If the home doesn't sell, the debt is forgiven per program terms.</div>
+        <div class="mt-24">
+          <div class="p-row" style="border-top:1px solid rgba(0,113,227,0.12);">
+            <span class="p-key">Interest rate</span><span class="p-val text-blue">0%</span>
+          </div>
+          <div class="p-row"><span class="p-key">Fees</span><span class="p-val text-blue">None</span>
+          </div>
+          <div class="p-row"><span class="p-key">Repayment</span><span class="p-val">At close of escrow only</span></div>
+          <div class="p-row" style="border-bottom:none;"><span class="p-key">Out-of-pocket today</span><span class="p-val text-blue">$0</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="tag tag-ink">What Concierge Covers</div>
+        <div class="card-title">Pre-sale improvements that move the needle</div>
+        <div class="card-body mt-8">For an income property like 1155 S Tremaine, Compass Concierge can fund:</div>
+        <ul style="font-size:15px;color:var(--secondary);line-height:1.7;margin-top:12px;padding-left:20px;">
+  <li><strong style="color:var(--ink);">Unit 3 turn-ready refresh (priority lever)</strong> &mdash; funds the cosmetic refresh that lets Unit 3 deliver vacant at market rent ($2,800&ndash;$3,000/mo vs. current $1,700). This single move is what takes cap rate from <strong>~4.04% to ~5.0%+</strong> and unlocks the buyer upside story.</li>
+  <li>Fresh exterior and common area paint</li>
+  <li>Landscaping and curb appeal improvements</li>
+  <li>Deep cleaning and professional staging for photography</li>
+  <li>Minor plumbing or electrical touchups</li>
+  <li>Roof, gutters, or exterior repairs</li>
+  </ul>
+        <div class="card-body mt-16" style="font-size:13px;background:var(--green-bg);padding:12px;border-radius:10px;color:var(--green);">Even small improvements — fresh exterior paint, cleaned common areas — can meaningfully improve first impressions for investor buyers touring the property. This is especially impactful for Compass Private Exclusive showings where the first impression is everything.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUYERS -->
+<section class="section-gray" id="buyers">
+  <div class="container">
+    <div class="sec-eyebrow">Buyer Profiles</div>
+    <h2>We're not just listing.<br>We're targeting.</h2>
+    <p class="lede">Three buyer archetypes for this property. Each one has a different reason to pay full price — or above it.</p>
+    <div class="grid-3 mt-32">
+      <div class="buyer">
+        <div class="buyer-icon" style="background:var(--blue-bg);">🏠</div>
+        <div class="buyer-title">Owner-Occupant</div>
+        <div class="buyer-sub">Live in Unit 1. Let Units 2 &amp; 3 pay the mortgage.</div>
+        <div class="p-row"><span class="p-key">Owner's unit</span><span class="p-val">Unit 1 (market ~$6,500/mo)</span></div>
+        <div class="p-row"><span class="p-key">Rental income from 2+3</span><span class="p-val">$5,794/mo</span></div>
+        <div class="p-row"><span class="p-key">20% down <span class="formula-note">($2,495,000 × 20%)</span></span><span class="p-val">$499,000</span></div>
+        <div class="p-row"><span class="p-key">Est. PITI (30yr @ ~7%)</span><span class="p-val">~$13,300/mo</span></div>
+        <div class="p-row"><span class="p-key">Net monthly carry <span class="formula-note">($13,300 PITI − $5,794 rents)</span></span><span class="p-val text-green">~$7,500/mo</span></div>
+        <p style="font-size:13px;color:var(--secondary);margin-top:14px;line-height:1.6;">Effectively paying ~$7,500/mo to live in a full income property with equity upside — less than what a comparable standalone unit rents for in this submarket.</p>
+      </div>
+      <div class="buyer">
+        <div class="buyer-icon" style="background:var(--green-bg);">📊</div>
+        <div class="buyer-title">Income Investor</div>
+        <div class="buyer-sub">Pure cash-flow play. Hold and collect.</div>
+        <div class="p-row"><span class="p-key">Gross income</span><span class="p-val">$143,928/yr</span></div>
+        <div class="p-row"><span class="p-key">NOI <span class="formula-note">(GAI × 0.70)</span></span><span class="p-val">~$100,750/yr</span></div>
+        <div class="p-row"><span class="p-key">Cap rate today <span class="formula-note">($100,750 ÷ $2,495,000)</span></span><span class="p-val">~4.04%</span></div>
+        <div class="p-row"><span class="p-key">Cap rate (pro forma)</span><span class="p-val text-green">~5.0%+</span></div>
+        <div class="p-row"><span class="p-key">Key upside lever</span><span class="p-val">Unit 3 on turnover</span></div>
+        <p style="font-size:13px;color:var(--secondary);margin-top:14px;line-height:1.6;">Unit 3 at $1,700/mo is the clear opportunity — market rent of $2,800–$3,000 adds ~$1,100/mo on turnover, improving cap rate to ~5.0%+ at the ask price.</p>
+      </div>
+      <div class="buyer">
+        <div class="buyer-icon" style="background:var(--amber-bg);">🔁</div>
+        <div class="buyer-title">1031 Exchange Buyer</div>
+        <div class="buyer-sub">Deferring capital gains. Under the clock.</div>
+        <div class="p-row"><span class="p-key">Asset class</span><span class="p-val">Multifamily ✓</span></div>
+        <div class="p-row"><span class="p-key">Like-kind eligibility</span><span class="p-val">Confirmed ✓</span></div>
+        <div class="p-row"><span class="p-key">ID window</span><span class="p-val">45 days from prior close</span></div>
+        <div class="p-row"><span class="p-key">Price flexibility</span><span class="p-val text-green">Above-ask likely</span></div>
+        <div class="p-row"><span class="p-key">Cash probability</span><span class="p-val">High</span></div>
+        <p style="font-size:13px;color:var(--secondary);margin-top:14px;line-height:1.6;">1031 buyers on a 45-day ID deadline are often the strongest and fastest bidders. Compass Private Exclusive is specifically designed to surface this buyer type first — before the MLS brings in price-anchored retail buyers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts">
+  <div class="container-md">
+    <div class="sec-eyebrow">Your Team</div>
+    <h2>Ready when you are.</h2>
+    <p class="lede">We've done the analysis. We have the buyer pipeline. The only thing left is your signature.</p>
+    <div class="grid-2 mt-32">
+      <div class="contact">
+        <div class="contact-name">Michael Abraham</div>
+        <div class="contact-role">REALTOR® · DRE# 02242095 · AMRE Real Estate Group</div>
+        <div class="contact-link">📞 <a href="tel:3237198585">(323) 719-8585</a></div>
+        <div class="contact-link">✉ <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a></div>
+        <div class="contact-link">🌐 <a href="https://amre.group" target="_blank">amre.group</a></div>
+        <div class="contact-link">📍 9454 Wilshire Blvd, Beverly Hills CA 90212</div>
+      </div>
+      <div class="contact">
+        <div class="contact-name">Ania de Pourbaix</div>
+        <div class="contact-role">Principal Agent · DRE# 01891438 · AMRE Real Estate Group at Compass</div>
+        <div class="contact-link">📞 <a href="tel:3102703879">(310) 270-3879</a></div>
+        <div class="contact-link">✉ <a href="mailto:ania.d@compass.com">ania.d@compass.com</a></div>
+        <div class="contact-link">📍 9454 Wilshire Blvd, Beverly Hills CA 90212</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px;">
+      <a class="cta-btn" href="mailto:michael.abraham@compass.com?cc=ania.d@compass.com&subject=1155%20S%20Tremaine%20%E2%80%94%20Ready%20to%20Proceed&body=Hi%20Michael%20and%20Ania%2C%20I%27m%20ready%20to%20move%20forward%20on%20listing%201155%20S%20Tremaine.">Ready to list? Contact Michael &amp; Ania →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand"><b>AMRE</b> &nbsp;·&nbsp; compass</div>
+    <div class="footer-meta">
+      <div>1155 S Tremaine Ave · Los Angeles, CA 90019 · Seller Opportunity Analysis</div>
+      <div>AMRE Real Estate Group · 9454 Wilshire Blvd, Beverly Hills CA 90212</div>
+      <div>Updated May 2026 · Confidential — not for distribution</div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Prepared by Michael Abraham (DRE# 02242095) &amp; Ania de Pourbaix (DRE# 01891438) · Compass DRE# 01991628.
+  </div>
+</footer>
+
+</div><!-- /dashboard -->
+
+<script>
+const CODE = 'tremaine2026';
+const SK = 'amre_tremaine_v2';
+
+function unlock(auto) {
+  if (!auto) {
+    const v = document.getElementById('gate-input').value.trim().toLowerCase();
+    if (v !== CODE) {
+      document.getElementById('gate-error').textContent = 'Incorrect code — try again.';
+      const g = document.getElementById('gate');
+      g.classList.remove('shake'); void g.offsetWidth; g.classList.add('shake');
+      return;
+    }
+    sessionStorage.setItem(SK, '1');
+  }
+  document.body.classList.add('unlocked');
+  const d = document.getElementById('dashboard');
+  d.style.display = 'block';
+  requestAnimationFrame(() => { d.style.opacity = '0'; d.style.transition = 'opacity 0.5s'; requestAnimationFrame(() => { d.style.opacity = '1'; }); });
+  setTimeout(initMap, 300);
+  initScrollSpy();
+}
+
+document.getElementById('gate-input').addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+if (sessionStorage.getItem(SK) === '1') unlock(true);
+
+/* ── MAP ── */
+function initMap() {
+  const el = document.getElementById('map');
+  if (!el || el._leaflet_id) return;
+
+  const map = L.map('map', { zoomControl: true, scrollWheelZoom: false }).setView([34.0542, -118.3385], 15);
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© OpenStreetMap contributors © CartoDB', maxZoom: 19
+  }).addTo(map);
+
+  function icon(color, size, border) {
+    border = border || '#fff';
+    return L.divIcon({
+      className: '',
+      html: `<div style="width:${size}px;height:${size}px;background:${color};border:3px solid ${border};border-radius:50%;box-shadow:0 2px 10px rgba(0,0,0,0.3);"></div>`,
+      iconSize: [size, size], iconAnchor: [size/2, size/2], popupAnchor: [0, -size/2]
+    });
+  }
+
+  // Subject property
+  L.marker([34.0542021, -118.3385492], { icon: icon('#0071E3', 26, '#fff') })
+    .addTo(map)
+    .bindPopup('<div style="font-family:system-ui;"><b style="font-size:14px;">1155 S Tremaine Ave</b><br><span style="color:#6E6E73;font-size:13px;">Triplex &middot; 7bd / 4ba &middot; 3,862 SF &middot; $2.495M ask &middot; <em>AMRE Off-Market</em></span><br><span style="color:#248A3D;font-size:13px;font-weight:600;">$11,994/mo income</span></div>', { maxWidth: 220 })
+    .openPopup();
+
+  // Nearby active listings
+  const actives = [
+    { lat: 34.0499594, lng: -118.3403704, name: '1361 S Tremaine Ave', detail: 'Active &middot; 8bd / 5ba &middot; 4,276 SF &middot; 82 DOM &middot; &#9660; &#8722;$297K', price: '$2.498M' },
+    { lat: 34.0546969, lng: -118.3421395, name: '1129 S Citrus Ave', detail: 'Active &middot; 10bd / 6ba &middot; 4,371 SF &middot; 39 DOM', price: '$2.595M' },
+    { lat: 34.0544295, lng: -118.3351115, name: '4756 Edgewood Pl', detail: 'Active &middot; 6bd / 4ba &middot; 4,650 SF &middot; 48 DOM', price: '$2.199M' },
+    { lat: 34.0540048, lng: -118.3446925, name: '1119 S Orange Dr', detail: 'Private Exclusive &middot; 4bd / 2ba &middot; 3,734 SF', price: '$2.000M' },
+    { lat: 34.0564389, lng: -118.3385173, name: '1040 S Longwood Ave', detail: 'Active &middot; 10bd / 8ba &middot; 7,962 SF &middot; 100 DOM &middot; &#9660; &#8722;$246K', price: '$2.549M' },
+    { lat: 34.0501736, lng: -118.3378107, name: '1337 S Hudson Ave', detail: 'Active &middot; 10bd / 10ba &middot; 5,974 SF &middot; 172 DOM &middot; &#9660; &#8722;$60K', price: '$2.890M' },
+    { lat: 34.0580484, lng: -118.3420863, name: '942 S Mansfield Ave', detail: 'Active &middot; 8bd / 8ba &middot; 6,862 SF &middot; 83 DOM', price: '$2.950M' }
+  ];
+
+  actives.forEach(p => {
+    const isAmre = p.name.startsWith('AMRE');
+    L.marker([p.lat, p.lng], { icon: icon(isAmre ? '#B25000' : '#248A3D', isAmre ? 16 : 14) })
+      .addTo(map)
+      .bindPopup(`<div style="font-family:system-ui;"><b style="font-size:13px;">${p.name}</b><br><span style="color:#6E6E73;font-size:13px;">${p.detail}</span>${p.price ? `<br><span style="font-size:13px;font-weight:600;">${p.price}</span>` : ''}</div>`, { maxWidth: 200 });
+  });
+
+  // Landmarks
+  L.marker([34.0637362, -118.3589376], { icon: icon('#6E6E73', 12) })
+    .addTo(map)
+    .bindPopup('<b>LACMA</b><br>Mid-Wilshire institutional anchor · ~1.0 mi N');
+  L.marker([34.0616002, -118.3549475], { icon: icon('#6E6E73', 12) })
+    .addTo(map)
+    .bindPopup('<b>Miracle Mile · Wilshire Blvd</b><br>Mid-Wilshire office + Metro D Line');
+  L.marker([34.0415218, -118.3328061], { icon: icon('#6E6E73', 12) })
+    .addTo(map)
+    .bindPopup('<b>Wellington Square</b><br>Pre-war character district · ~0.7 mi S');
+
+  // Legend
+  const legend = L.control({ position: 'bottomright' });
+  legend.onAdd = () => {
+    const d = L.DomUtil.create('div');
+    d.style.cssText = 'background:white;padding:12px 16px;border-radius:12px;font-size:13px;font-family:-apple-system,system-ui,sans-serif;box-shadow:0 2px 10px rgba(0,0,0,0.12);line-height:1.8;';
+    d.innerHTML = `
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:16px;height:16px;background:#0071E3;border-radius:50%;border:2px solid white;flex-shrink:0;"></div><span>Subject Property</span></div>
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:12px;height:12px;background:#248A3D;border-radius:50%;border:2px solid white;flex-shrink:0;"></div><span>Active Comps</span></div>
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:12px;height:12px;background:#B25000;border-radius:50%;border:2px solid white;flex-shrink:0;"></div><span>AMRE Listings</span></div>
+      <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;background:#6E6E73;border-radius:50%;border:2px solid white;flex-shrink:0;"></div><span>Landmarks</span></div>
+    `;
+    return d;
+  };
+  legend.addTo(map);
+}
+
+/* ── SCROLL SPY ── */
+function initScrollSpy() {
+  const links = Array.from(document.querySelectorAll('.nav-anchors a'));
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function onScroll() {
+    const scrollY = window.scrollY + 80;
+    let current = sections[0];
+    sections.forEach(s => { if (scrollY >= s.offsetTop) current = s; });
+    links.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current.id);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+</script>
+</body>
+</html>

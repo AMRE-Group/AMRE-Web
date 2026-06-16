@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- amre-favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1c3d31">
+
+<!-- amre-preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
+<title>Client Dashboard | AMRE Real Estate Group</title>
+<meta name="description" content="Active client dashboards for AMRE Real Estate Group transactions. Enter your access code to view your live transaction tracker.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://amre.group/clients/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#1c3d31; --navy:#070B33; --brass:#ffc13c; --brass-dk:#e6a800;
+  --ink:#1a1a1a; --mid:#5A5A5A; --offwhite:#f7edf0; --cream:#efdbc0;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
+  --nav-h:56px; --ease:cubic-bezier(.25,.46,.45,.94);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-weight:300;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none}
+
+/* Page hero */
+.page-hero{
+  position:relative;background:var(--forest);color:#fff;
+  padding:calc(var(--nav-h) + 96px) 24px 96px;text-align:center;
+}
+.page-hero .eyebrow{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--brass);margin-bottom:24px;
+}
+.page-hero h1{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(40px,6vw,72px);line-height:1.1;margin-bottom:20px;
+}
+.page-hero h1 em{color:var(--brass);font-style:italic}
+.page-hero p.lede{
+  font-size:clamp(15px,1.6vw,18px);line-height:1.6;
+  max-width:640px;margin:0 auto;color:rgba(255,255,255,.78);
+}
+
+/* Content sections */
+section{padding:96px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-head{text-align:center;margin-bottom:64px}
+.section-head .eyebrow{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--forest);margin-bottom:16px;
+}
+.section-head h2{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--ink);
+}
+.section-head h2 em{color:var(--forest);font-style:italic}
+
+.dashboards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.dashboard-card{
+  background:#fff;border:1px solid rgba(28,61,49,.12);
+  border-radius:2px;padding:32px;transition:border-color .2s,transform .2s;
+  display:flex;flex-direction:column;gap:16px;
+}
+.dashboard-card:hover{border-color:var(--forest);transform:translateY(-2px)}
+.dashboard-card .badge{
+  display:inline-block;font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--forest);border:1px solid var(--forest);padding:4px 10px;
+  border-radius:2px;align-self:flex-start;
+}
+.dashboard-card .badge.closed{color:var(--mid);border-color:var(--mid)}
+.dashboard-card h3{
+  font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.2;
+}
+.dashboard-card .meta{font-size:13px;color:var(--mid);line-height:1.6}
+.dashboard-card .actions{
+  margin-top:auto;display:flex;gap:12px;align-items:center;
+  padding-top:16px;border-top:1px solid rgba(28,61,49,.1);
+}
+.dashboard-card .actions a{
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;color:var(--forest);
+}
+.dashboard-card .actions a:hover{color:var(--brass-dk)}
+
+.access-block{background:var(--offwhite);text-align:center}
+.access-block .container{max-width:680px}
+.access-block p{font-size:16px;line-height:1.7;color:var(--mid);margin-bottom:24px}
+.access-block .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-weight:500;font-size:12px;
+  letter-spacing:.06em;text-transform:uppercase;
+  padding:14px 28px;border-radius:2px;transition:all .2s;
+}
+.btn-brass{background:var(--brass);color:var(--navy)}
+.btn-brass:hover{background:var(--brass-dk);transform:translateY(-1px)}
+.btn-outline-dark{border:1px solid rgba(28,61,49,.35);color:var(--forest)}
+.btn-outline-dark:hover{background:rgba(28,61,49,.06)}
+
+/* Footer (locked styles — copied from home) */
+.site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:64px 44px 36px;color:#fff}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px}
+.footer-logos{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.footer-sep{width:1px;height:18px;background:rgba(255,255,255,.25)}
+.footer-tagline{font-size:13px;line-height:1.6;color:#fff;max-width:340px}
+.footer-col-head{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;font-weight:600}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{font-size:13px;color:rgba(255,255,255,.72);transition:color .2s}
+.footer-links a:hover{color:var(--brass)}
+.footer-bottom{max-width:1280px;margin:48px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-legal,.footer-dre{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.04em}
+.site-footer-disclosure-bar{background:#fff;padding:32px 44px;border-top:1px solid rgba(0,0,0,.06)}
+.site-footer-disclosure{max-width:1280px;margin:0 auto;display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.site-footer-disclosure-text{flex:1;min-width:280px;font-size:11px;line-height:1.7;color:rgba(0,0,0,.6)}
+.site-footer-disclosure-text a{color:rgba(0,0,0,.75);text-decoration:underline}
+.site-footer-disclosure-eho img{height:60px;width:auto}
+
+@media(max-width:860px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .site-footer{padding:48px 20px 28px}
+  .site-footer-disclosure-bar{padding:24px 20px}
+  .site-footer-disclosure-eho img{height:48px}
+  section{padding:64px 20px}
+}
+@media(max-width:680px){
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column}
+}
+</style>
+<link rel="stylesheet" href="/assets/css/site-overrides.css">
+</head>
+<body>
+
+<!-- ========== NAV (rendered by site-chrome.js) ========== -->
+<div id="site-nav-mount"></div>
+<div id="site-drawer-mount"></div>
+<script src="/assets/js/site-chrome.js"></script>
+
+<!-- ========== HERO ========== -->
+<header class="page-hero">
+  <div class="eyebrow">Active Client Portal</div>
+  <h1>Your <em>transaction</em>, live.</h1>
+  <p class="lede">Every AMRE client gets a private, password-protected dashboard tracking inspections, contingencies, escrow milestones, and everything in between — updated in real time as the deal moves.</p>
+</header>
+
+<!-- ========== ACCESS ========== -->
+<section class="access-block">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Access your dashboard</div>
+      <h2>Have your <em>access code?</em></h2>
+    </div>
+    <p>Your dashboard URL and access code were sent by email when your transaction opened. If you've misplaced either, reach out and we'll resend immediately.</p>
+    <div class="btn-row">
+      <a href="/contact/" class="btn btn-brass">Request my dashboard link</a>
+      <a href="tel:3237198585" class="btn btn-outline-dark">Call (323) 719-8585</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHAT'S INSIDE ========== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What's inside</div>
+      <h2>One page. <em>Everything</em> on the deal.</h2>
+    </div>
+    <div class="dashboards-grid">
+      <div class="dashboard-card">
+        <span class="badge">Live timeline</span>
+        <h3>Acceptance to close.</h3>
+        <p class="meta">Visual timeline of every milestone — acceptance, contingency removal, loan contingency, COE — with a live countdown to the next deadline.</p>
+      </div>
+      <div class="dashboard-card">
+        <span class="badge">Inspections</span>
+        <h3>All vendors, one view.</h3>
+        <p class="meta">Sewer, mold, chimney, general, termite — scheduled, completed, paid. Reports and findings linked directly to the dashboard.</p>
+      </div>
+      <div class="dashboard-card">
+        <span class="badge">Financial terms</span>
+        <h3>Numbers that matter.</h3>
+        <p class="meta">Purchase price, deposit, loan amount, supplemental tax estimate, ongoing taxes, closing cost projection — clean, current, accurate.</p>
+      </div>
+      <div class="dashboard-card">
+        <span class="badge">Critical week</span>
+        <h3>What's due, when.</h3>
+        <p class="meta">A focused view of the upcoming 7 days — what needs your attention, what we're handling, and what's been completed.</p>
+      </div>
+      <div class="dashboard-card">
+        <span class="badge">Contacts</span>
+        <h3>Everyone on the deal.</h3>
+        <p class="meta">Lender, escrow, title, insurance, listing agent, inspectors — names, roles, direct lines. One tap to call or email.</p>
+      </div>
+      <div class="dashboard-card">
+        <span class="badge closed">Post-close archive</span>
+        <h3>A permanent record.</h3>
+        <p class="meta">After close, your dashboard remains accessible as a record of the transaction — closing statements, warranties, vendor contacts, all preserved.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER (locked) ========== -->
+<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
+  <meta itemprop="name" content="AMRE Real Estate Group">
+  <meta itemprop="telephone" content="+13237198585">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logos">
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async">
+        <div class="footer-sep"></div>
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async">
+      </div>
+      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
+    </div>
+    <div>
+      <div class="footer-col-head">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="/sellers/">Sellers</a></li>
+        <li><a href="/buyers/">Buyers</a></li>
+        <li><a href="/about/">Team</a></li>
+        <li><a href="/blog/">Journal</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Services</div>
+      <ul class="footer-links">
+        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
+        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
+        <li><a href="/buyers/">Buyer Advisory</a></li>
+        <li><a href="/home-valuation/">Home Valuation</a></li>
+        <li><a href="/clients/">Client Dashboard</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Connect</div>
+      <ul class="footer-links">
+        <li><a href="tel:3237198585">(323) 719-8585</a></li>
+        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
+        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
+    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
+  </div>
+</footer>
+<div class="site-footer-disclosure-bar">
+  <div class="site-footer-disclosure">
+    <p class="site-footer-disclosure-text">
+      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
+    </p>
+    <div class="site-footer-disclosure-eho">
+      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

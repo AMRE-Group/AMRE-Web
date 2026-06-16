@@ -1,0 +1,2709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- amre-favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1c3d31">
+
+<!-- amre-preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
+<title>4248 La Salle Avenue · Transaction Tracker</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --gray-bg: #F5F5F7;
+    --gray-bg-2: #FBFBFD;
+    --ink: #1D1D1F;
+    --ink-2: #424245;
+    --ink-3: #6E6E73;
+    --ink-4: #86868B;
+    --hairline: #D2D2D7;
+    --hairline-soft: #E8E8ED;
+    --blue: #0071E3;
+    --blue-hover: #0077ED;
+    --red: #E30000;
+    --red-bg: #FFF1F0;
+    --green: #248A3D;
+    --green-bg: #EBF7EE;
+    --amber: #B25000;
+    --amber-bg: #FFF4E5;
+
+    --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Monaco, "Cascadia Mono", monospace;
+
+    --radius: 18px;
+    --radius-lg: 24px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  html, body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.47;
+    font-size: 17px;
+    letter-spacing: -0.003em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--ink); color: var(--white); }
+
+  /* ===== PASSWORD GATE ===== */
+  #gate {
+    position: fixed;
+    inset: 0;
+    background: var(--white);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-image:
+      radial-gradient(at 20% 20%, rgba(0,113,227,0.04) 0, transparent 50%),
+      radial-gradient(at 80% 80%, rgba(0,0,0,0.03) 0, transparent 50%);
+  }
+  .gate-card {
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    padding: 48px 32px;
+  }
+  .gate-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 40px;
+    color: var(--ink-3);
+  }
+  .gate-brand .sep {
+    width: 1px; height: 18px;
+    background: var(--hairline);
+  }
+  .gate-title {
+    font-size: 48px;
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .gate-sub {
+    font-size: 17px;
+    color: var(--ink-3);
+    margin-bottom: 36px;
+    letter-spacing: -0.01em;
+  }
+  .gate-form { display: flex; flex-direction: column; gap: 12px; }
+  .gate-input {
+    width: 100%;
+    padding: 16px 18px;
+    font-family: var(--sans);
+    font-size: 17px;
+    background: var(--gray-bg);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    color: var(--ink);
+    text-align: center;
+    outline: none;
+    transition: all 0.15s;
+  }
+  .gate-input:focus {
+    background: var(--white);
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0,113,227,0.15);
+  }
+  .gate-input::placeholder { color: var(--ink-4); }
+  .gate-btn {
+    padding: 14px 18px;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    border-radius: 980px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .gate-btn:hover { background: var(--blue-hover); }
+  .gate-btn:active { transform: scale(0.98); }
+  .gate-error {
+    color: var(--red);
+    font-size: 13px;
+    height: 18px;
+    margin-top: 4px;
+  }
+  .gate-card.shake { animation: shake 0.4s; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+  }
+  .gate-foot {
+    margin-top: 36px;
+    font-size: 12px;
+    color: var(--ink-4);
+  }
+
+  /* ===== BRAND WORDMARKS ===== */
+  .wm-amre {
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--ink);
+  }
+  .wm-compass {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .wm-compass::before { content: "compass"; }
+  .wm-amre img, .wm-compass img { height: 22px; width: auto; display: block; }
+  .wm-amre.has-img::before, .wm-compass.has-img::before { content: none; }
+  .wm-amre.has-img, .wm-compass.has-img { font-size: 0; }
+
+  /* ===== MAIN ===== */
+  #dashboard { display: none; }
+  #dashboard.live { display: block; animation: reveal 0.6s ease-out; }
+  @keyframes reveal {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  .wrap-wide { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+
+  /* ===== TOP NAV (frosted) ===== */
+  .topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .topnav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .topnav-left, .topnav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .topnav-sep { width: 1px; height: 16px; background: var(--hairline); }
+  .topnav-meta {
+    font-size: 12px;
+    color: var(--ink-3);
+    letter-spacing: -0.005em;
+  }
+  .topnav-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+  .topnav-status::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2.4s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 96px 0 80px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--white) 0%, var(--gray-bg-2) 100%);
+  }
+  .hero-eyebrow {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: clamp(48px, 7vw, 88px);
+    line-height: 1.04;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    font-size: clamp(21px, 2.4vw, 28px);
+    line-height: 1.2;
+    font-weight: 400;
+    color: var(--ink-3);
+    letter-spacing: -0.012em;
+    max-width: 720px;
+    margin: 0 auto 32px;
+  }
+  .hero-pills {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .hero-pill {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--ink-3);
+    letter-spacing: -0.005em;
+  }
+  .hero-pill strong { color: var(--ink); font-weight: 500; }
+
+  /* ===== OPERATING COSTS ===== */
+  .op-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .op-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid var(--hairline-soft);
+  }
+  .op-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .op-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .op-card-total {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .op-card-total-sub {
+    font-size: 14px;
+    color: var(--ink-3);
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .op-rows { display: flex; flex-direction: column; }
+  .op-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+    padding: 12px 0;
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+  .op-row.op-row-divider {
+    border-top: 1px dashed var(--hairline-soft);
+    margin-top: 8px;
+    padding-top: 16px;
+  }
+  .op-row-label { color: var(--ink-2); }
+  .op-row-value {
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    min-width: 80px;
+  }
+  .op-row-flag {
+    font-size: 11px;
+    color: var(--amber);
+    background: var(--amber-bg, #FFF4E5);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .op-row-tenant { grid-template-columns: 1fr auto; }
+  .op-row-meta {
+    font-size: 12px;
+    color: var(--ink-3);
+    font-weight: 400;
+  }
+  .op-card-foot {
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.5;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--hairline-soft);
+  }
+  .op-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.4fr;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 24px 32px;
+    background: var(--ink);
+    border-radius: var(--radius);
+    color: var(--white);
+  }
+  .op-summary-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 4px;
+  }
+  .op-summary-value {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+  .op-summary-net { border-left: 1px solid rgba(255,255,255,0.15); padding-left: 24px; }
+  .op-pos { color: #30D158; }
+  .op-neg { color: #FF453A; }
+  @media (max-width: 880px) {
+    .op-grid { grid-template-columns: 1fr; }
+    .op-summary { grid-template-columns: 1fr; gap: 12px; }
+    .op-summary-net { border-left: none; padding-left: 0; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
+  }
+
+  /* ===== STICKY NAV ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.85);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--hairline-soft);
+    transition: box-shadow 0.3s;
+  }
+  .sticky-nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
+  .sticky-nav-inner {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 var(--edge);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .sticky-nav-inner::-webkit-scrollbar { display: none; }
+  .sticky-nav a {
+    display: block;
+    padding: 14px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-3);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .sticky-nav a:hover { color: var(--ink); }
+  .sticky-nav a.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+  .sticky-nav .nav-addr {
+    font-weight: 600;
+    color: var(--ink);
+    padding-right: 16px;
+    margin-right: 8px;
+    border-right: 1px solid var(--hairline-soft);
+    border-bottom: none;
+  }
+  .sticky-nav .nav-addr:hover { color: var(--ink); }
+  /* offset anchors for sticky nav */
+  :target { scroll-margin-top: 56px; }
+  [id] { scroll-margin-top: 56px; }
+
+  @media (max-width: 640px) {
+    .sticky-nav a { padding: 12px 10px; font-size: 12px; }
+    .sticky-nav .nav-addr { display: none; }
+  }
+
+  /* ===== PROPERTY OVERVIEW ===== */
+  .prop-section { padding: 0 0 80px; background: linear-gradient(180deg, var(--gray-bg-2) 0%, var(--white) 100%); }
+  .prop-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--hairline-soft);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .prop-img {
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    object-fit: cover;
+  }
+  .prop-info { padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+  .prop-info-title { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+  .prop-info-addr { font-size: 15px; color: var(--ink-3); }
+  .prop-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .prop-stat { display: flex; flex-direction: column; gap: 2px; }
+  .prop-stat-value { font-size: 18px; font-weight: 600; color: var(--ink); }
+  .prop-stat-label { font-size: 12px; color: var(--ink-3); }
+  .prop-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    border-top: 1px solid var(--hairline-soft);
+    padding-top: 20px;
+  }
+  .prop-mls { font-size: 12px; color: var(--ink-4); margin-top: auto; }
+  @media (max-width: 768px) {
+    .prop-card { grid-template-columns: 1fr; }
+    .prop-img { min-height: 240px; }
+  }
+
+  /* ===== PROGRESS OVERVIEW ===== */
+  .progress-section { padding: 80px 0 0; }
+  .progress-grid {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 48px;
+  }
+  .progress-ring-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .progress-ring-container { position: relative; width: 220px; height: 220px; }
+  .progress-ring-container svg { transform: rotate(-90deg); }
+  .progress-ring-bg { fill: none; stroke: var(--hairline-soft); stroke-width: 12; }
+  .progress-ring-fill {
+    fill: none;
+    stroke: var(--blue);
+    stroke-width: 12;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+  .progress-ring-fill.warn { stroke: var(--amber); }
+  .progress-ring-fill.done { stroke: var(--green); }
+  .progress-ring-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .progress-ring-pct {
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .progress-ring-label {
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-top: 4px;
+  }
+  .progress-ring-sub {
+    font-size: 14px;
+    color: var(--ink-3);
+    text-align: center;
+  }
+
+  /* Horizontal bar timeline */
+  .htl { margin-top: 0; }
+  .htl-bar-wrap { position: relative; padding: 40px 0 20px; }
+  .htl-track {
+    height: 6px;
+    background: var(--hairline-soft);
+    border-radius: 3px;
+    position: relative;
+  }
+  .htl-filled {
+    position: absolute;
+    left: 0; top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, var(--green), var(--blue));
+    border-radius: 3px;
+    transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+  }
+  .htl-nodes {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+  }
+  .htl-node {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--hairline);
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s;
+  }
+  .htl-node.done { border-color: var(--green); background: var(--green); }
+  .htl-node.done::after {
+    content: '✓';
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 700;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .htl-node.active {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(0,113,227,0.18);
+    animation: nodePulse 2.4s infinite;
+  }
+  @keyframes nodePulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(0,113,227,0.18); }
+    50% { box-shadow: 0 0 0 8px rgba(0,113,227,0.08); }
+  }
+  .htl-node.pending { border-color: var(--hairline); }
+  .htl-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  .htl-label-item { text-align: center; flex: 1; }
+  .htl-label-item:first-child { text-align: left; }
+  .htl-label-item:last-child { text-align: right; }
+  .htl-label-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .htl-label-date { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+  .htl-label-status { font-size: 11px; font-weight: 500; margin-top: 4px; }
+  .htl-label-status.done { color: var(--green); }
+  .htl-label-status.active { color: var(--blue); }
+  .htl-label-status.pending { color: var(--ink-4); }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .stat-card {
+    background: var(--gray-bg);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .stat-label { font-size: 13px; color: var(--ink-3); margin-top: 6px; }
+
+  /* Financial donut */
+  .fin-section { padding: 80px 0; background: var(--gray-bg); }
+  .fin-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 48px;
+  }
+  .fin-donut-wrap { display: flex; flex-direction: column; align-items: center; }
+  .fin-donut-container { position: relative; width: 200px; height: 200px; }
+  .fin-donut-container svg { transform: rotate(-90deg); }
+  .fin-donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .fin-donut-total {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .fin-donut-label { font-size: 12px; color: var(--ink-3); }
+  .fin-legend { display: flex; flex-direction: column; gap: 20px; }
+  .fin-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .fin-legend-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .fin-legend-info { display: flex; flex-direction: column; }
+  .fin-legend-name { font-size: 15px; font-weight: 500; color: var(--ink); }
+  .fin-legend-value { font-size: 14px; color: var(--ink-3); }
+  .fin-legend-bar-wrap {
+    flex: 1;
+    height: 6px;
+    background: var(--hairline-soft);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .fin-legend-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1.2s;
+  }
+
+  /* Inspection checklist */
+  .insp-progress-wrap { margin-top: 48px; margin-bottom: 32px; }
+  .insp-progress-bar {
+    height: 8px;
+    background: var(--hairline-soft);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .insp-progress-fill {
+    height: 100%;
+    background: var(--green);
+    border-radius: 4px;
+    transition: width 1.2s;
+  }
+  .insp-progress-label {
+    font-size: 13px;
+    color: var(--ink-3);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 980px) {
+    .progress-grid { grid-template-columns: 1fr; }
+    .progress-ring-wrap { margin-bottom: 24px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .fin-grid { grid-template-columns: 1fr; }
+    .fin-donut-wrap { margin-bottom: 24px; }
+  }
+  @media (max-width: 640px) {
+    .stats-row { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .stat-card { padding: 18px; }
+    .stat-value { font-size: 26px; }
+  }
+
+  /* ===== CRITICAL THIS WEEK (dark section) ===== */
+  .critical {
+    padding: 80px 0;
+    background: var(--ink);
+    color: var(--white);
+  }
+  .critical .sec-title { color: var(--white); }
+  .critical .sec-eyebrow { color: var(--ink-4); }
+  .critical .sec-sub { color: rgba(255,255,255,0.72); }
+
+  .crit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .crit-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .crit-card:hover {
+    background: rgba(255,255,255,0.09);
+    transform: translateY(-2px);
+  }
+  .crit-when {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .crit-tag {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    background: var(--red);
+    color: var(--white);
+    font-weight: 600;
+    border-radius: 980px;
+  }
+  .crit-tag.amber { background: #F08028; }
+  .crit-tag.blue { background: var(--blue); }
+  .crit-time {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: -0.005em;
+  }
+  .crit-title {
+    font-size: 24px;
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    color: var(--white);
+    margin-top: 4px;
+  }
+  .crit-detail {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.78);
+    letter-spacing: -0.005em;
+  }
+  .crit-action {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    font-weight: 500;
+    color: #6BA8FF;
+  }
+  .crit-action a { color: inherit; }
+  .crit-action a:hover { color: #97C0FF; }
+
+  /* ===== SECTION BASE ===== */
+  section.lt { padding: 96px 0; background: var(--white); }
+  section.alt { padding: 96px 0; background: var(--gray-bg); }
+  .sec-eyebrow {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  .sec-title {
+    font-size: clamp(36px, 4.4vw, 56px);
+    line-height: 1.07;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    color: var(--ink);
+    max-width: 800px;
+  }
+  .sec-sub {
+    font-size: 19px;
+    color: var(--ink-3);
+    margin-top: 14px;
+    max-width: 720px;
+    letter-spacing: -0.005em;
+    line-height: 1.42;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .tl-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid var(--hairline-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .tl-card.complete {
+    background: var(--green-bg);
+    border-color: transparent;
+  }
+  .tl-card.active {
+    background: var(--ink);
+    color: var(--white);
+    border-color: transparent;
+  }
+  .tl-stage {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+  }
+  .tl-card.complete .tl-stage { color: var(--green); }
+  .tl-card.active .tl-stage { color: rgba(255,255,255,0.6); }
+  .tl-stage::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+  .tl-card.active .tl-stage::before { animation: pulse 2.4s infinite; }
+  .tl-label { font-size: 14px; color: var(--ink-3); margin-top: 4px; }
+  .tl-card.active .tl-label { color: rgba(255,255,255,0.7); }
+  .tl-date {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-top: 4px;
+  }
+  .tl-card.active .tl-date { color: var(--white); }
+  .tl-detail {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-3);
+    margin-top: 6px;
+  }
+  .tl-card.complete .tl-detail { color: var(--ink-2); }
+  .tl-card.active .tl-detail { color: rgba(255,255,255,0.78); }
+  .tl-countdown {
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .tl-card.complete .tl-countdown { color: var(--green); }
+  .tl-card.active .tl-countdown { color: #FFB870; }
+  .tl-card .tl-countdown { color: var(--ink-3); }
+
+  /* ===== TERMS ===== */
+  .terms-head { text-align: center; margin-bottom: 64px; }
+  .terms-head .sec-title { margin: 0 auto; }
+  .terms-head .sec-sub { margin: 14px auto 0; }
+
+  .terms-feature {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 64px 56px;
+    text-align: center;
+    border: 1px solid var(--hairline-soft);
+    margin-bottom: 16px;
+  }
+  .terms-feature-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink-3);
+    margin-bottom: 16px;
+  }
+  .terms-feature-value {
+    font-size: clamp(56px, 8vw, 96px);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .terms-feature-sub {
+    font-size: 19px;
+    color: var(--ink-3);
+  }
+  .terms-feature-sub strong { color: var(--ink); font-weight: 500; }
+
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .term-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid var(--hairline-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .term-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .term-value {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.014em;
+    color: var(--ink);
+  }
+  .term-sub { font-size: 14px; color: var(--ink-3); margin-top: 4px; }
+  .term-card.bafo {
+    background: var(--ink);
+    color: var(--white);
+    border-color: transparent;
+    grid-column: 1 / -1;
+  }
+  .term-card.bafo .term-label { color: rgba(255,255,255,0.6); }
+  .term-card.bafo .term-value { color: var(--white); font-size: 19px; line-height: 1.4; }
+  .term-card.bafo ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 32px;
+    margin-top: 8px;
+  }
+  .term-card.bafo li {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .term-card.bafo li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 12px;
+    height: 6px;
+    border-left: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    transform: rotate(-45deg);
+  }
+
+  /* ===== INSPECTIONS ===== */
+  .insp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 16px;
+    margin-top: 64px;
+  }
+  .insp-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px;
+    border: 1px solid var(--hairline-soft);
+    display: flex;
+    flex-direction: column;
+  }
+  .insp-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .insp-card-date {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+  }
+  .insp-card-tag {
+    font-size: 12px;
+    color: var(--ink-3);
+  }
+  .insp-list { display: flex; flex-direction: column; gap: 18px; }
+  .insp-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .insp-time {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.4;
+    padding-top: 3px;
+  }
+  .insp-info { display: flex; flex-direction: column; gap: 4px; }
+  .insp-name {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.012em;
+  }
+  .insp-vendor { font-size: 14px; color: var(--ink-3); }
+  .insp-vendor a { color: var(--blue); }
+  .insp-vendor a:hover { color: var(--blue-hover); text-decoration: underline; }
+  .insp-cost {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .roof-callout {
+    grid-column: 1 / -1;
+    background: var(--red-bg);
+    border: 1px solid #FFD0CC;
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .roof-text { display: flex; flex-direction: column; gap: 4px; }
+  .roof-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--red);
+    font-weight: 600;
+  }
+  .roof-title {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+  }
+  .roof-detail {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+  .roof-deadline {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--red);
+    background: var(--white);
+    padding: 10px 18px;
+    border-radius: 980px;
+  }
+
+  /* ===== DUE DILIGENCE CHECKLIST ===== */
+  .dd-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .dd-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px;
+    border: 1px solid var(--hairline-soft);
+  }
+  .dd-card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .dd-card-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .dd-card-icon.physical { background: var(--blue); color: var(--white); }
+  .dd-card-icon.legal { background: var(--amber); color: var(--white); }
+  .dd-card-icon.tenant { background: #7B61FF; color: var(--white); }
+  .dd-card-icon.insurance { background: var(--green); color: var(--white); }
+  .dd-card-title {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.016em;
+    color: var(--ink);
+  }
+  .dd-card-sub { font-size: 13px; color: var(--ink-3); margin-top: 2px; }
+  .dd-items { display: flex; flex-direction: column; gap: 14px; }
+  .dd-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.45;
+    color: var(--ink-2);
+  }
+  .dd-check {
+    width: 20px; height: 20px;
+    border-radius: 6px;
+    border: 2px solid var(--hairline);
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: transparent;
+  }
+  .dd-check.done { background: var(--green); border-color: var(--green); color: var(--white); }
+  .dd-check.in-progress { background: var(--amber-bg); border-color: var(--amber); color: var(--amber); }
+  .dd-item-text strong { color: var(--ink); font-weight: 500; }
+  .dd-item-link {
+    display: inline;
+    color: var(--blue);
+    font-size: 13px;
+  }
+  .dd-item-link:hover { text-decoration: underline; }
+
+  /* Contingency removal framework */
+  .cr-card {
+    background: var(--ink);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 48px;
+    margin-top: 48px;
+    grid-column: 1 / -1;
+  }
+  .cr-title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .cr-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 32px;
+    max-width: 640px;
+  }
+  .cr-questions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .cr-q {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .cr-q-num {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    letter-spacing: 0.04em;
+  }
+  .cr-q-text {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.3;
+  }
+  .cr-q-detail {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.45;
+  }
+  .cr-advice {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.55;
+    max-width: 800px;
+  }
+
+  @media (max-width: 980px) {
+    .dd-grid { grid-template-columns: 1fr; }
+    .cr-questions { grid-template-columns: 1fr; }
+  }
+
+  /* ===== CONTACTS ===== */
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 64px;
+  }
+  .contact-group {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 28px;
+    border: 1px solid var(--hairline-soft);
+  }
+  .contact-group-title {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--hairline-soft);
+  }
+  .contact { padding: 14px 0; border-bottom: 1px solid var(--hairline-soft); }
+  .contact:last-child { border-bottom: none; padding-bottom: 0; }
+  .contact:first-of-type { padding-top: 0; }
+  .contact-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.012em;
+    line-height: 1.3;
+  }
+  .contact-role {
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-top: 2px;
+    margin-bottom: 6px;
+  }
+  .contact-line { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .contact-line a { color: var(--blue); }
+  .contact-line a:hover { text-decoration: underline; }
+  .contact-meta {
+    font-size: 12px;
+    color: var(--ink-4);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  /* ===== PROVISIONS ===== */
+  .prov-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 64px;
+  }
+  .prov {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    border: 1px solid var(--hairline-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .prov-tag {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-3);
+    margin-bottom: 4px;
+  }
+  .prov.warn { background: var(--red-bg); border-color: #FFD0CC; }
+  .prov.warn .prov-tag { color: var(--red); }
+  .prov.confirmed { background: var(--green-bg); border-color: #BFE5C8; }
+  .prov.confirmed .prov-tag { color: var(--green); }
+  .prov-title {
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.016em;
+    color: var(--ink);
+  }
+  .prov-detail { font-size: 15px; color: var(--ink-2); line-height: 1.5; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 48px 0;
+    background: var(--gray-bg);
+    border-top: 1px solid var(--hairline-soft);
+  }
+  .foot-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+  }
+  .foot-brands { display: flex; align-items: center; gap: 16px; }
+  .foot-meta { font-size: 12px; color: var(--ink-3); line-height: 1.6; }
+  .foot-confidential {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--hairline-soft);
+    font-size: 11px;
+    color: var(--ink-4);
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  code.acode {
+    background: var(--gray-bg);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 14px;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 980px) {
+    .wrap, .wrap-wide { padding: 0 24px; }
+    .crit-grid { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr; }
+    .insp-grid { grid-template-columns: 1fr; }
+    .contacts-grid { grid-template-columns: 1fr 1fr; }
+    .prov-grid { grid-template-columns: 1fr; }
+    .terms-feature { padding: 48px 32px; }
+    .term-card.bafo ul { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap, .wrap-wide { padding: 0 20px; }
+    .hero { padding: 64px 0 56px; }
+    section.lt, section.alt, .critical { padding: 64px 0; }
+    .terms-grid { grid-template-columns: 1fr; }
+    .contacts-grid { grid-template-columns: 1fr; }
+    .topnav-meta { display: none; }
+    .insp-card { padding: 24px; }
+    .insp-item { grid-template-columns: 88px 1fr; gap: 12px; }
+    .foot-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    #gate { display: none !important; }
+    #dashboard { display: block !important; }
+    .topnav { position: static; }
+    .critical { background: var(--white); color: var(--ink); border: 1px solid var(--ink); }
+    .crit-card { background: var(--white); border: 1px solid var(--hairline); }
+    .critical .sec-title, .crit-title { color: var(--ink); }
+    .crit-detail, .crit-time, .crit-action { color: var(--ink-2); }
+    .tl-card.active { background: var(--white); color: var(--ink); border: 1px solid var(--ink); }
+    .tl-card.active .tl-date, .tl-card.active .tl-detail { color: var(--ink); }
+    section { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PASSWORD GATE ===== -->
+<div id="gate">
+  <div class="gate-card" id="gateCard">
+    <div class="gate-brand">
+      <span class="wm-amre" data-logo-amre>AMRE</span>
+      <span class="sep"></span>
+      <span class="wm-compass" data-logo-compass></span>
+    </div>
+    <h1 class="gate-title">4248 La&nbsp;Salle</h1>
+    <p class="gate-sub">Buyer-side transaction tracker.<br>Confidential.</p>
+    <form class="gate-form" id="gateForm" autocomplete="off">
+      <input type="password" class="gate-input" id="gateInput" placeholder="Enter access code" autofocus>
+      <button type="submit" class="gate-btn">Continue</button>
+      <div class="gate-error" id="gateError"></div>
+    </form>
+    <div class="gate-foot">File 5852-KM · Resolution Escrow</div>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<main id="dashboard">
+
+  <div class="topnav">
+    <div class="wrap-wide topnav-inner">
+      <div class="topnav-left">
+        <span class="wm-amre" data-logo-amre>AMRE</span>
+        <span class="topnav-sep"></span>
+        <span class="wm-compass" data-logo-compass></span>
+      </div>
+      <div class="topnav-right">
+        <span class="topnav-meta">File 5852-KM · Updated <span id="updateStamp"></span></span>
+        <span class="topnav-sep"></span>
+        <span class="topnav-status">In Escrow</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STICKY NAV ===== -->
+  <nav class="sticky-nav" id="stickyNav">
+    <div class="sticky-nav-inner">
+      <a href="#" class="nav-addr">4248 La Salle</a>
+      <a href="#property">Property</a>
+      <a href="#progress">Progress</a>
+      <a href="#thisweek">This week</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#terms">Terms</a>
+      <a href="#operating">Costs</a>
+      <a href="#taxes">Taxes</a>
+      <a href="#inspections">Inspections</a>
+      <a href="#duediligence">Checklist</a>
+      <a href="#contacts">Contacts</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">Buyer-side · Confidential</div>
+      <h1 class="hero-title">4248 La&nbsp;Salle Avenue.</h1>
+      <p class="hero-sub">A three-structure compound in Culver City.<br>Closing June 5.</p>
+      <div class="hero-pills">
+        <div class="hero-pill"><strong>$2,512,500</strong> purchase price</div>
+        <div class="hero-pill"><strong>20%</strong> down</div>
+        <div class="hero-pill"><strong id="contingencyDays">—</strong> days to contingency</div>
+        <div class="hero-pill"><strong id="coeDays">—</strong> days to close</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PROPERTY OVERVIEW ===== -->
+  <section class="prop-section" id="property">
+    <div class="wrap">
+      <div class="prop-card">
+        <img class="prop-img" src="property-hero.jpg" alt="4248 La Salle Avenue — Spanish-style compound in Carlson Park, Culver City" decoding="async">
+        <div class="prop-info">
+          <div>
+            <div class="prop-info-title">Spanish compound · Carlson Park</div>
+            <div class="prop-info-addr">4248 La Salle Ave, Culver City, CA 90232</div>
+          </div>
+          <div class="prop-info-grid">
+            <div class="prop-stat"><div class="prop-stat-value">5 bed / 5 bath</div><div class="prop-stat-label">Across 3 structures</div></div>
+            <div class="prop-stat"><div class="prop-stat-value">2,627 sq ft</div><div class="prop-stat-label">Total living area</div></div>
+            <div class="prop-stat"><div class="prop-stat-value">6,749 sq ft lot</div><div class="prop-stat-label">0.15 acres</div></div>
+            <div class="prop-stat"><div class="prop-stat-value">Built 1923</div><div class="prop-stat-label">Updated / remodeled</div></div>
+            <div class="prop-stat"><div class="prop-stat-value">3 units</div><div class="prop-stat-label">Duplex w/ detached ADU</div></div>
+            <div class="prop-stat"><div class="prop-stat-value">CCR2YY</div><div class="prop-stat-label">Zoning</div></div>
+          </div>
+          <div class="prop-desc">
+            Three detached homes on a cul-de-sac: a 1,250 sf Spanish main (2 bed + office, Batchelder fireplace, Aga range, hot tub), a 750 sf rear unit (2 bed/1 bath, vaulted ceilings, Heartland range), and a 627 sf two-story ADU with rooftop deck and hillside views. All with AC, separate laundry, private outdoor spaces.
+          </div>
+          <div class="prop-mls">MLS #26733329 · Listed $2,469,000 · Last sold Jun 2023 at $1,915,000 · APN 4207-024-027</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRESS OVERVIEW ===== -->
+  <section class="lt progress-section" id="progress">
+    <div class="wrap">
+      <div class="sec-eyebrow">Progress</div>
+      <h2 class="sec-title">Where we stand.</h2>
+      <div class="progress-grid">
+        <div class="progress-ring-wrap">
+          <div class="progress-ring-container">
+            <svg viewBox="0 0 220 220" width="220" height="220">
+              <circle class="progress-ring-bg" cx="110" cy="110" r="96" />
+              <circle class="progress-ring-fill" id="progressRing" cx="110" cy="110" r="96"
+                stroke-dasharray="603.19" stroke-dashoffset="603.19" />
+            </svg>
+            <div class="progress-ring-center">
+              <div class="progress-ring-pct" id="progressPct">—%</div>
+              <div class="progress-ring-label">complete</div>
+            </div>
+          </div>
+          <div class="progress-ring-sub" id="progressSub">Day — of 39</div>
+        </div>
+
+        <div class="htl">
+          <div class="htl-bar-wrap">
+            <div class="htl-track">
+              <div class="htl-filled" id="htlFilled" style="width: 0%"></div>
+              <div class="htl-nodes">
+                <div class="htl-node done" id="htlNode1"></div>
+                <div class="htl-node active" id="htlNode2"></div>
+                <div class="htl-node pending" id="htlNode3"></div>
+              </div>
+            </div>
+          </div>
+          <div class="htl-labels">
+            <div class="htl-label-item">
+              <div class="htl-label-name">Acceptance</div>
+              <div class="htl-label-date">Apr 28</div>
+              <div class="htl-label-status done">✓ Executed</div>
+            </div>
+            <div class="htl-label-item">
+              <div class="htl-label-name">Contingency</div>
+              <div class="htl-label-date">May 8</div>
+              <div class="htl-label-status active" id="htlContStatus">—</div>
+            </div>
+            <div class="htl-label-item">
+              <div class="htl-label-name">Close</div>
+              <div class="htl-label-date">Jun 5</div>
+              <div class="htl-label-status pending" id="htlCoeStatus">—</div>
+            </div>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-value" id="statElapsed">—</div>
+              <div class="stat-label">Days elapsed</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="statRemaining">—</div>
+              <div class="stat-label">Days remaining</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">5</div>
+              <div class="stat-label">Inspections scheduled</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value">8</div>
+              <div class="stat-label">Contacts on file</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="critical" id="thisweek">
+    <div class="wrap">
+      <div class="sec-eyebrow">This week</div>
+      <h2 class="sec-title">Three days to contingency.<br>Reconcile and remove.</h2>
+      <p class="sec-sub">Six of eight inspections done. Termite report in. Seller's answers in. Appraisal cleared over price. Foundation tomorrow.</p>
+      <div class="crit-grid">
+        <div class="crit-card">
+          <div class="crit-when">
+            <span class="crit-tag red">Critical · review</span>
+            <span class="crit-time">Now → Fri May 8</span>
+          </div>
+          <h3 class="crit-title">Reconcile every report before contingency.</h3>
+          <p class="crit-detail">Seller's answers to follow-up questions arrived May 5 (Matt Bauer), with roof invoice and survey. Termite report from Blue Cloud in May 4 — wood repair work not included in estimate; fumigation specialist suggested before any work. Mold remediation quotes out to Acme Clean Air and Accurate Environmental — work expected post-COE since walls won't be opened during escrow. <strong style="color:#fff;">ADU permit gap on file at Culver City</strong> — the rear ADU has no issued ADU permit or finalized C of O in Accela, contradicting the SPQ. Decision to make before May 8.</p>
+          <div class="crit-action">
+            <a href="mailto:ania.d@compass.com">Loop in Ania →</a>
+          </div>
+        </div>
+        <div class="crit-card">
+          <div class="crit-when">
+            <span class="crit-tag amber">Tomorrow · on-site</span>
+            <span class="crit-time">Wed May 6 · 12 – 1 PM</span>
+          </div>
+          <h3 class="crit-title">Foundation &amp; drainage — LA Seismic.</h3>
+          <p class="crit-detail">Renato Sebastian inspecting all three structures · $475. Roof inspection (SLR) cleared this morning May 5 · $500 — bid follow-ups in motion. Plumbing inspection scheduled <strong style="color:#fff;">June 6 — after COE</strong>; seismic shut-off valves and toilet replacement to be quoted then.</p>
+          <div class="crit-action">See full schedule below ↓</div>
+        </div>
+        <div class="crit-card">
+          <div class="crit-when">
+            <span class="crit-tag blue">Action · buyers</span>
+            <span class="crit-time">By Thu May 7</span>
+          </div>
+          <h3 class="crit-title">VICZ-LA LLC formation docs.</h3>
+          <p class="crit-detail">Matt Bauer needs <strong style="color:#fff;">Operating Agreement and Articles of Organization</strong> to execute the Assignment of Agreement Addendum. Insurance (Beverley at Paul Diaz / Nicole at Goosehead as backup) also requesting LLC details to finalize quote. Appraisal cleared <strong style="color:#fff;">$2,520,000</strong> — $7,500 over price; underwriter sign-off pending.</p>
+          <div class="crit-action">
+            <a href="mailto:mattbauertc@gmail.com">Loop in Matt →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lt" id="timeline">
+    <div class="wrap">
+      <div class="sec-eyebrow">Timeline</div>
+      <h2 class="sec-title">From offer to close.<br>Thirty-eight days.</h2>
+      <p class="sec-sub">Ten days for inspections. Twenty-eight to fund.</p>
+      <div class="timeline">
+        <div class="tl-card complete">
+          <div class="tl-stage">Phase 01 · Complete</div>
+          <div class="tl-label">Acceptance</div>
+          <div class="tl-date">Apr 28, 2026</div>
+          <div class="tl-detail">Offer accepted. BAFO terms locked at $2,512,500 with 20% down.</div>
+          <div class="tl-countdown">✓ Executed</div>
+        </div>
+        <div class="tl-card active">
+          <div class="tl-stage">Phase 02 · Active</div>
+          <div class="tl-label">Contingency Removal</div>
+          <div class="tl-date">May 8, 2026</div>
+          <div class="tl-detail">Inspection only. No appraisal or loan contingency. All findings reconciled before this date.</div>
+          <div class="tl-countdown" id="contCountdown">Calculating…</div>
+        </div>
+        <div class="tl-card">
+          <div class="tl-stage">Phase 03 · Pending</div>
+          <div class="tl-label">Close of Escrow</div>
+          <div class="tl-date">Jun 5, 2026</div>
+          <div class="tl-detail">Funding through OriginPoint. Loan signing location TBD — California or Singapore consulate.</div>
+          <div class="tl-countdown" id="coeCountdown">Calculating…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="terms">
+    <div class="wrap">
+      <div class="terms-head">
+        <div class="sec-eyebrow">Deal terms</div>
+        <h2 class="sec-title">The numbers.</h2>
+        <p class="sec-sub">All locked. Singapore-based buyers. Resolution Escrow file 5852-KM.</p>
+      </div>
+
+      <div class="terms-feature">
+        <div class="terms-feature-label">Purchase Price · Locked</div>
+        <div class="terms-feature-value">$2,512,500</div>
+        <div class="terms-feature-sub"><strong>20% down</strong> · $502,500 cash · $2,010,000 financed</div>
+      </div>
+
+      <div class="terms-grid">
+        <div class="term-card">
+          <div class="term-label">Side</div>
+          <div class="term-value">Buyer</div>
+          <div class="term-sub">AMRE @ Compass · representing buyer</div>
+        </div>
+        <div class="term-card">
+          <div class="term-label">Buyers</div>
+          <div class="term-value">Confidential</div>
+          <div class="term-sub">Singapore-based</div>
+        </div>
+        <div class="term-card">
+          <div class="term-label">Sellers</div>
+          <div class="term-value">A. Duchin Shapiro &amp; J. Nagel</div>
+          <div class="term-sub">Listed by Todd Miller</div>
+        </div>
+        <div class="term-card">
+          <div class="term-label">Property</div>
+          <div class="term-value">Three structures</div>
+          <div class="term-sub">Owner-occupied front + 2 tenant units</div>
+        </div>
+        <div class="term-card">
+          <div class="term-label">Escrow</div>
+          <div class="term-value">Resolution · 5852-KM</div>
+          <div class="term-sub">Katie McGuire</div>
+        </div>
+        <div class="term-card">
+          <div class="term-label">Title</div>
+          <div class="term-value">Fidelity National</div>
+          <div class="term-sub">Officer TBD · Prelim by May 4</div>
+        </div>
+        <div class="term-card">
+          <div class="term-label">Lender</div>
+          <div class="term-value">OriginPoint</div>
+          <div class="term-sub">Dan Millstone · NMLS 260491</div>
+        </div>
+        <div class="term-card">
+          <div class="term-label">Insurance</div>
+          <div class="term-value">Paul Diaz Insurance</div>
+          <div class="term-sub">Beverly · quote needed for binding</div>
+        </div>
+
+        <div class="term-card bafo">
+          <div class="term-label">Special terms · BAFO</div>
+          <div class="term-value" style="margin-bottom: 16px;">Seven provisions locked in the best-and-final offer.</div>
+          <ul>
+            <li>No appraisal contingency</li>
+            <li>No loan contingency</li>
+            <li>Tight 10-day inspection window</li>
+            <li>Decorative fireplace as-is per SMCO #1</li>
+            <li>Tenant-owned items excluded from sale</li>
+            <li>Three separate roofs · schedule by May 3</li>
+            <li>Loan signing location TBD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OPERATING COSTS ===== -->
+  <section class="lt" id="operating">
+    <div class="wrap">
+      <div class="sec-eyebrow">Operating costs</div>
+      <h2 class="sec-title">What it costs to own.<br>What it earns back.</h2>
+      <p class="sec-sub">Pulled from seller's actual utility bills (Apr 2026) and signed leases. Critical for contingency removal question #2.</p>
+
+      <div class="op-grid">
+
+        <div class="op-card">
+          <div class="op-card-head">
+            <div class="op-card-title">Monthly utilities</div>
+            <div class="op-card-total">$868<span class="op-card-total-sub">/mo</span></div>
+          </div>
+          <div class="op-rows">
+            <div class="op-row">
+              <div class="op-row-label">Main house electric</div>
+              <div class="op-row-flag">⚠ Address mismatch</div>
+              <div class="op-row-value">$44.72</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Main house gas</div>
+              <div class="op-row-value">$82.46</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Main house water</div>
+              <div class="op-row-value">$128.44</div>
+            </div>
+            <div class="op-row op-row-divider">
+              <div class="op-row-label">Rentals electric (4250)</div>
+              <div class="op-row-value">$328.16</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Rentals gas</div>
+              <div class="op-row-value">$86.37</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Rentals water</div>
+              <div class="op-row-value">$198.07</div>
+            </div>
+          </div>
+          <div class="op-card-foot">
+            <strong>Heads up:</strong> Main house electric bill (acct 8011243043) shows service address <em>8809 Washington Blvd</em>, not 4248 La Salle. Verify with seller before contingency removal — this may not be the right account, and actual electric for the main house could be substantially higher than $44.72/mo.
+          </div>
+        </div>
+
+        <div class="op-card">
+          <div class="op-card-head">
+            <div class="op-card-title">Rent roll</div>
+            <div class="op-card-total">$6,860<span class="op-card-total-sub">/mo</span></div>
+          </div>
+          <div class="op-rows">
+            <div class="op-row op-row-tenant">
+              <div class="op-row-label">
+                <strong>4248 — Unit A</strong><br>
+                <span class="op-row-meta">Mark McKenna · since Oct 2023 · month-to-month</span>
+              </div>
+              <div class="op-row-value">$3,165</div>
+            </div>
+            <div class="op-row op-row-tenant op-row-divider">
+              <div class="op-row-label">
+                <strong>4250 — Back unit</strong><br>
+                <span class="op-row-meta">Sam &amp; Hannah · lease 6/15/25–7/14/26</span>
+              </div>
+              <div class="op-row-value">$3,695</div>
+            </div>
+            <div class="op-row op-row-tenant">
+              <div class="op-row-label">
+                <strong>ADU</strong><br>
+                <span class="op-row-meta">Tenant TBD · estoppels pending</span>
+              </div>
+              <div class="op-row-value">TBD</div>
+            </div>
+          </div>
+          <div class="op-card-foot">
+            Estoppels were sent Apr 29 to verify these figures with tenants directly. ADU rent and remaining lease terms still to be confirmed.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="op-summary">
+        <div class="op-summary-item">
+          <div class="op-summary-label">Documented rental income</div>
+          <div class="op-summary-value">+$6,860/mo</div>
+        </div>
+        <div class="op-summary-item">
+          <div class="op-summary-label">Documented utilities</div>
+          <div class="op-summary-value op-neg">−$868/mo</div>
+        </div>
+        <div class="op-summary-item op-summary-net">
+          <div class="op-summary-label">Net before debt service, taxes, insurance</div>
+          <div class="op-summary-value op-pos">+$5,992/mo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TAXES & SUPPLEMENTAL ===== -->
+  <section class="alt" id="taxes">
+    <div class="wrap">
+      <div class="sec-eyebrow">Property taxes</div>
+      <h2 class="sec-title">The buyer's tax exposure.<br>One-time and ongoing.</h2>
+      <p class="sec-sub">Estimated per LA County Assessor methodology. Closing June 5, 2026 — change of ownership lands in the June 1–Dec 31 window, which produces <strong>one supplemental tax bill</strong> covering FY 2026–27. The bill arrives 1–6 months after close, separate from the regular tax bill, and is not collected through impound. Buyer should plan to set this aside.</p>
+
+      <div class="op-summary" style="grid-template-columns: 1fr 1fr 1.4fr; margin-top: 40px;">
+        <div class="op-summary-item">
+          <div class="op-summary-label">Estimated supplemental bill</div>
+          <div class="op-summary-value op-pos">~$5,835</div>
+        </div>
+        <div class="op-summary-item">
+          <div class="op-summary-label">Estimated annual ongoing</div>
+          <div class="op-summary-value">~$30,527/yr</div>
+        </div>
+        <div class="op-summary-item op-summary-net">
+          <div class="op-summary-label">Monthly carrying tax (impound)</div>
+          <div class="op-summary-value">~$2,543/mo</div>
+        </div>
+      </div>
+
+      <div class="op-grid">
+
+        <div class="op-card">
+          <div class="op-card-head">
+            <div class="op-card-title">Supplemental calculation</div>
+            <div class="op-card-total">~$5,835<span class="op-card-total-sub">one-time</span></div>
+          </div>
+          <div class="op-rows">
+            <div class="op-row">
+              <div class="op-row-label">New base year value (purchase price)</div>
+              <div class="op-row-value">$2,512,500</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Prior assessed value (FY 2026–27 estimate)</div>
+              <div class="op-row-value">$2,032,213</div>
+            </div>
+            <div class="op-row op-row-divider">
+              <div class="op-row-label"><strong>Supplemental assessment</strong></div>
+              <div class="op-row-value">$480,287</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Tax rate (Culver City 90232 estimate)</div>
+              <div class="op-row-value">~1.215%</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Proration (12 of 12 months FY 2026–27)</div>
+              <div class="op-row-value">100%</div>
+            </div>
+            <div class="op-row op-row-divider">
+              <div class="op-row-label"><strong>Estimated supplemental tax bill</strong></div>
+              <div class="op-row-value">$5,730 – $6,004</div>
+            </div>
+          </div>
+          <div class="op-card-foot">
+            <strong>Why one bill, not two:</strong> Closings between Jun 1 and Dec 31 produce a single supplemental for the upcoming fiscal year (the Jan 1 lien for FY 2026–27 was set with the seller's value, so the differential is collected via supplemental). A Jan–May closing would produce two bills.
+          </div>
+        </div>
+
+        <div class="op-card">
+          <div class="op-card-head">
+            <div class="op-card-title">Going-forward annual</div>
+            <div class="op-card-total">~$30,527<span class="op-card-total-sub">/yr est.</span></div>
+          </div>
+          <div class="op-rows">
+            <div class="op-row">
+              <div class="op-row-label">New assessed value</div>
+              <div class="op-row-value">$2,512,500</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Effective tax rate (estimated)</div>
+              <div class="op-row-value">~1.215%</div>
+            </div>
+            <div class="op-row op-row-divider">
+              <div class="op-row-label"><strong>Annual range</strong></div>
+              <div class="op-row-value">$29,974 – $31,406</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label">Monthly impound equivalent</div>
+              <div class="op-row-value">~$2,543/mo</div>
+            </div>
+            <div class="op-row op-row-divider">
+              <div class="op-row-label">Seller's est current FY 2025–26 bill</div>
+              <div class="op-row-value">~$24,207/yr</div>
+            </div>
+            <div class="op-row">
+              <div class="op-row-label"><strong>Buyer's net annual increase</strong></div>
+              <div class="op-row-value">+$6,320/yr</div>
+            </div>
+          </div>
+          <div class="op-card-foot">
+            <strong>Prop 13 reset:</strong> Property last sold June 2023 at $1,915,000 (base year value). Reassessment on this transaction resets the base to $2,512,500. After year one, growth caps at 2%/year.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="op-card" style="margin-top: 16px;">
+        <div class="op-card-head">
+          <div class="op-card-title">Caveats &amp; verification</div>
+          <div class="op-card-total" style="font-size: 14px; color: var(--ink-3); font-weight: 400;">APN 4207-024-027</div>
+        </div>
+        <div style="font-size: 14px; color: var(--ink-2); line-height: 1.6;">
+          <p style="margin-bottom: 12px;">All figures are <strong>estimates</strong>. Three variables determine the actual bill:</p>
+          <ol style="margin-left: 20px; margin-bottom: 16px;">
+            <li style="margin-bottom: 8px;"><strong>Prior assessed value</strong> — calculated by applying Prop 13's 2%/yr cap to the June 2023 sale of $1,915,000. Actual roll value may differ if seller filed a Decline-in-Value review or successful appeal. <a href="https://portal.assessor.lacounty.gov/parceldetail/4207024027" target="_blank" style="color: var(--blue);">Verify on LA Assessor portal →</a></li>
+            <li style="margin-bottom: 8px;"><strong>Tax rate</strong> — Culver City's effective rate for 90232 typically runs 1.19–1.25% depending on the property's specific Tax Rate Area (TRA). The exact TRA for this parcel determines which voter-approved bonds and direct assessments apply. <a href="https://auditor.lacounty.gov/tax-rate-area-lookup/" target="_blank" style="color: var(--blue);">Look up TRA →</a></li>
+            <li style="margin-bottom: 8px;"><strong>Direct assessments</strong> — items like the Culver City school parcel tax, sewer fees, and lighting districts are flat-fee line items not reflected in the % rate. Will appear on the regular bill, not the supplemental.</li>
+          </ol>
+          <p style="margin-bottom: 8px;"><strong>Verify the official estimate before contingency removal:</strong></p>
+          <p style="margin-bottom: 4px;">→ <a href="https://assessor.lacounty.gov/supplemental-tax-estimator/" target="_blank" style="color: var(--blue);">LA County Assessor Supplemental Tax Estimator</a> (run with APN 4207-024-027 and purchase price $2,512,500)</p>
+          <p>→ <a href="https://www.propertytax.lacounty.gov/Home/SupplementalSecuredProperty" target="_blank" style="color: var(--blue);">LA County Treasurer — Supplemental tax bill explainer</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lt" id="inspections">
+    <div class="wrap">
+      <div class="sec-eyebrow">Diligence</div>
+      <h2 class="sec-title">Every report.<br>Front-loaded.</h2>
+      <p class="sec-sub">Sewer cleared. Four on-site May 1. Roof May 5. Foundation May 6. Plumbing post-COE. Reports flowing in. All access via code <code class="acode">lasalle2026</code>.</p>
+
+      <div class="insp-progress-wrap">
+        <div class="insp-progress-bar">
+          <div class="insp-progress-fill" id="inspProgress" style="width: 75%"></div>
+        </div>
+        <div class="insp-progress-label">
+          <span id="inspDone">6 of 8 complete</span>
+          <span id="inspDeadline">Deadline: May 8</span>
+        </div>
+      </div>
+
+      <div class="insp-grid">
+        <div class="insp-card">
+          <div class="insp-card-head">
+            <div class="insp-card-date">Thu Apr 30</div>
+            <div class="insp-card-tag" style="color: var(--green); font-weight: 500;">✓ Complete · Day 1 · Remote</div>
+          </div>
+          <div class="insp-list">
+            <div class="insp-item">
+              <div class="insp-time">10:30 AM<br>11:30 AM</div>
+              <div class="insp-info">
+                <span class="insp-name">Sewer scope</span>
+                <span class="insp-vendor">Sewer Scope Pros · Guillermo</span>
+                <span class="insp-vendor"><a href="mailto:Guillermo@sewerscopeprossfv.com">Guillermo@sewerscopeprossfv.com</a></span>
+                <span class="insp-cost">Google Meet</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="insp-card">
+          <div class="insp-card-head">
+            <div class="insp-card-date">Fri May 1</div>
+            <div class="insp-card-tag" style="color: var(--green); font-weight: 500;">✓ Complete · Day 2 · On-site · Four inspectors</div>
+          </div>
+          <div class="insp-list">
+            <div class="insp-item">
+              <div class="insp-time">9:00 AM<br>10:00 AM</div>
+              <div class="insp-info">
+                <span class="insp-name">Mold inspection</span>
+                <span class="insp-vendor">California Microbial · Scott Ko</span>
+                <span class="insp-cost">$900 · Report in · Remediation quotes out (Acme + Accurate Env)</span>
+              </div>
+            </div>
+            <div class="insp-item">
+              <div class="insp-time">9:00 AM<br>11:00 AM</div>
+              <div class="insp-info">
+                <span class="insp-name">Chimney inspection</span>
+                <span class="insp-vendor">Chimney Saviors</span>
+                <span class="insp-cost">Decorative · per SMCO #1</span>
+              </div>
+            </div>
+            <div class="insp-item">
+              <div class="insp-time">9:30 AM<br>1:30 PM</div>
+              <div class="insp-info">
+                <span class="insp-name">General inspection</span>
+                <span class="insp-vendor">Advanced Property Inspections</span>
+                <span class="insp-cost">Report in · drove follow-up Q's to seller</span>
+              </div>
+            </div>
+            <div class="insp-item">
+              <div class="insp-time">11:30 AM<br>12:30 PM</div>
+              <div class="insp-info">
+                <span class="insp-name">Termite / WDO</span>
+                <span class="insp-vendor">Blue Cloud Exterminators · Ellie</span>
+                <span class="insp-vendor"><a href="mailto:bluecloudexterminators@gmail.com">bluecloudexterminators@gmail.com</a></span>
+                <span class="insp-cost">$225 · Report in May 4 · Wood repair not in estimate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="insp-card">
+          <div class="insp-card-head">
+            <div class="insp-card-date">Tue May 5</div>
+            <div class="insp-card-tag" style="color: var(--green); font-weight: 500;">✓ Complete · Day 3 · On-site</div>
+          </div>
+          <div class="insp-list">
+            <div class="insp-item">
+              <div class="insp-time">9:00 AM<br>10:00 AM</div>
+              <div class="insp-info">
+                <span class="insp-name">Roof inspection</span>
+                <span class="insp-vendor">SLR Construction &amp; Remodeling</span>
+                <span class="insp-vendor"><a href="mailto:slrremodeling6@gmail.com">slrremodeling6@gmail.com</a></span>
+                <span class="insp-cost">$500 · Bid follow-ups in motion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="insp-card">
+          <div class="insp-card-head">
+            <div class="insp-card-date">Wed May 6</div>
+            <div class="insp-card-tag" style="color: var(--blue); font-weight: 500;">Tomorrow · Day 4 · On-site</div>
+          </div>
+          <div class="insp-list">
+            <div class="insp-item">
+              <div class="insp-time">12:00 PM<br>1:00 PM</div>
+              <div class="insp-info">
+                <span class="insp-name">Foundation &amp; drainage</span>
+                <span class="insp-vendor">LA Seismic · Renato Sebastian</span>
+                <span class="insp-cost">$475 · Estimate to follow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="roof-callout">
+          <div class="roof-text">
+            <div class="roof-label">Scheduled · post-COE</div>
+            <div class="roof-title">Plumbing — June 6, 2026.</div>
+            <div class="roof-detail">New Generation Plumbing confirmed June 6 · 12:00 – 1:00 PM · $250. Falls <strong>after close of escrow</strong> — so plumbing is informational only, not a basis for contingency removal. Scope: full plumbing review, new toilet quote, seismic shut-off valves.</div>
+          </div>
+          <div class="roof-deadline">Jun 6 · post-COE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DUE DILIGENCE CHECKLIST ===== -->
+  <section class="lt" id="duediligence">
+    <div class="wrap">
+      <div class="sec-eyebrow">Due diligence</div>
+      <h2 class="sec-title">The full picture.<br>Before your deposit locks.</h2>
+      <p class="sec-sub">Four tracks running in parallel. Complete this checklist before signing the Contingency Removal on May 8.</p>
+
+      <div class="dd-grid">
+        <!-- 1: Physical Inspections -->
+        <div class="dd-card">
+          <div class="dd-card-head">
+            <div class="dd-card-icon physical">🔍</div>
+            <div>
+              <div class="dd-card-title">Physical inspections</div>
+              <div class="dd-card-sub">Structure, systems, hidden conditions</div>
+            </div>
+          </div>
+          <div class="dd-items">
+            <div class="dd-item">
+              <div class="dd-check done">✓</div>
+              <div class="dd-item-text"><strong>Sewer scope</strong> — Thu Apr 30, 10:30 AM (Sewer Scope Pros · Guillermo) · <em style="color: var(--green);">Complete · awaiting written report</em></div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check">✓</div>
+              <div class="dd-item-text"><strong>Mold inspection</strong> — Fri May 1, 9:00 AM (California Microbial · $900 for 3 structures)</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check">✓</div>
+              <div class="dd-item-text"><strong>Chimney inspection</strong> — Fri May 1, 9:00 AM (Chimney Saviors · decorative fireplace, as-is per SMCO #1)</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check">✓</div>
+              <div class="dd-item-text"><strong>General home inspection</strong> — Fri May 1, 9:30 AM–1:30 PM (Advanced Property Inspections · structural, electrical, plumbing red flags)</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check">✓</div>
+              <div class="dd-item-text"><strong>Termite / WDO</strong> — Fri May 1, 11:30 AM (Blue Cloud · Ellie · $225 · Section 1 dry rot/water damage)</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check">✓</div>
+              <div class="dd-item-text"><strong>Roof inspection</strong> — Tue May 5, 9 AM (SLR Construction · $500 · single contractor for all three structures, bid follow-ups in motion).</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check">✓</div>
+              <div class="dd-item-text"><strong>Foundation &amp; drainage</strong> — Wed May 6, 12 PM (LA Seismic · Renato Sebastian · $475).</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Plumbing</strong> — Sat Jun 6, 12 PM (New Generation Plumbing · $250 · post-COE; informational only).</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Repair cost estimates</strong> — For any major issues found, get contractor quotes to confirm they fit budget before contingency removal.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2: Permits & Legal -->
+        <div class="dd-card">
+          <div class="dd-card-head">
+            <div class="dd-card-icon legal">⚖</div>
+            <div>
+              <div class="dd-card-title">Permits &amp; legal</div>
+              <div class="dd-card-sub">Culver City specific</div>
+            </div>
+          </div>
+          <div class="dd-items">
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Verify permits</strong> — Search the <a class="dd-item-link" href="https://aca-prod.accela.com/CULVERCITY/Default.aspx" target="_blank">Culver City Citizen Portal (Accela)</a> to ensure all additions, ADU, and remodels were legally permitted.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Certificate of Occupancy</strong> — Culver City report received. May need to confirm CO status given the 3-unit configuration.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Zoning classification</strong> — Confirm the property is legally classified for current use (Duplex w/ ADU vs. Triplex). Affects insurance, lending, and rental rights.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Remodel documentation</strong> — Upgrade &amp; remodel info received from seller (Apr 29). Cross-reference against permit history on Accela. If mismatch, contact City Building Division.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3: Rent Control & Tenants -->
+        <div class="dd-card">
+          <div class="dd-card-head">
+            <div class="dd-card-icon tenant">🏠</div>
+            <div>
+              <div class="dd-card-title">Rent control &amp; tenants</div>
+              <div class="dd-card-sub">Culver City protections apply</div>
+            </div>
+          </div>
+          <div class="dd-items">
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Registration status</strong> — Verify units are registered on the <a class="dd-item-link" href="https://culvercity.hdlgov.com/Home/SignIn/LandlordRegistration" target="_blank">Culver City Landlord Portal (HdL)</a> or ask seller to clarify.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Rent compliance</strong> — Review rent roll. Ensure current rent hasn't exceeded the annual 3.5% (or current CPI) increase cap. Verify last rent increase date.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check in-progress">…</div>
+              <div class="dd-item-text"><strong>Estoppels &amp; leases</strong> — Sent to buyers Apr 29. Verify seller claims with tenants directly: who owns the fridge? Who pays water?</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check in-progress">…</div>
+              <div class="dd-item-text"><strong>LA AVID forms (3)</strong> — Forwarded to buyers May 1 by Matt Bauer for signature. One AVID per tenant unit.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Relocation liability</strong> — Calculate potential costs if owner move-in eviction is planned. Culver City requires relocation payments to tenants.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Property management</strong> — Get Culver City-specific PM referrals. Separate pricing for medium-term rental on front unit vs. long-term tenant units.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4: Insurance & Disclosures -->
+        <div class="dd-card">
+          <div class="dd-card-head">
+            <div class="dd-card-icon insurance">🛡</div>
+            <div>
+              <div class="dd-card-title">Insurance &amp; disclosures</div>
+              <div class="dd-card-sub">Coverage, title, seller transparency</div>
+            </div>
+          </div>
+          <div class="dd-items">
+            <div class="dd-item">
+              <div class="dd-check in-progress">…</div>
+              <div class="dd-item-text"><strong>Preliminary title report</strong> — Received Apr 30 from Resolution Escrow (Phoebe). Buyers reviewing; sign title amendment via DocuSign. Check for liens or easements restricting use of yard/driveway.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Hazards / claims history</strong> — Review NHD report (received Apr 29 in broker opening package) for past floods, fires, or environmental issues.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check in-progress">…</div>
+              <div class="dd-item-text"><strong>Insurance quote</strong> — Beverly Cavanaugh (Paul Diaz Insurance) contacted Apr 29. Lender needs this for binding. <em>Note: old roof or Federal Pacific electrical panel may spike premium or deny coverage.</em></div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check in-progress">…</div>
+              <div class="dd-item-text"><strong>Seller disclosures</strong> — Formal package delivered Apr 30 (Matt Bauer). Pages 1–9 statutory; balance covers SPQ, TDS, NHD. Read for neighbor noise, past leaks, neighborhood nuisances. Prepare questions for seller.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check in-progress">…</div>
+              <div class="dd-item-text"><strong>Utility verification</strong> — Bills received Apr 29 (electric bill was wrong address — 8809 Washington Blvd — corrected). Golden State Water status unresolved.</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>LLC formation docs</strong> — Provide <em>Operating Agreement</em> and <em>Articles of Organization</em> for VICZ-LA LLC to Matt Bauer, title, and escrow once formation completes (expected early next week per Vasu, May 1).</div>
+            </div>
+            <div class="dd-item">
+              <div class="dd-check"></div>
+              <div class="dd-item-text"><strong>Assignment of Agreement Addendum</strong> — Matt Bauer drafting addendum to transfer vested interests from buyers to VICZ-LA LLC. Sign once delivered.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contingency Removal Framework -->
+        <div class="cr-card">
+          <div class="cr-title">The goal: removing contingencies.</div>
+          <div class="cr-sub">Only sign the Contingency Removal form once you can answer "Yes" to all three questions.</div>
+          <div class="cr-questions">
+            <div class="cr-q">
+              <div class="cr-q-num">QUESTION 01</div>
+              <div class="cr-q-text">Do I know exactly what I am buying?</div>
+              <div class="cr-q-detail">Physical condition &amp; legal standing. Permits, zoning, structural integrity, tenant rights — all verified.</div>
+            </div>
+            <div class="cr-q">
+              <div class="cr-q-num">QUESTION 02</div>
+              <div class="cr-q-text">Do I know what it will cost to own and fix?</div>
+              <div class="cr-q-detail">Insurance premiums, repair estimates, PM costs, and relocation liabilities — all quantified.</div>
+            </div>
+            <div class="cr-q">
+              <div class="cr-q-num">QUESTION 03</div>
+              <div class="cr-q-text">Does the price still make sense?</div>
+              <div class="cr-q-detail">If discoveries change the value equation — negotiate or walk. Your deposit becomes non-refundable after May 8.</div>
+            </div>
+          </div>
+          <div class="cr-advice">Filter every finding through a risk-versus-value mindset: ignore minor cosmetic flaws, budget for aging yet functional systems, and reserve your energy for negotiating structural or safety issues. You are navigating two parallel tracks — physical discoveries from inspections and historical records from seller disclosures — with the goal of identifying deal-breakers before your deposit locks.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="sec-eyebrow" id="contacts">Roster</div>
+      <h2 class="sec-title">Every party.<br>Click to reach them.</h2>
+      <p class="sec-sub">Every email is mailto. Every phone number is tel.</p>
+
+      <div class="contacts-grid">
+        <div class="contact-group">
+          <div class="contact-group-title">Buyer Team</div>
+          <div class="contact">
+            <div class="contact-name">Michael Abraham</div>
+            <div class="contact-role">Lead agent · DRE 02242095</div>
+            <div class="contact-line"><a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a></div>
+            <div class="contact-line"><a href="tel:+13237198585">323-719-8585</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Ania De Pourbaix</div>
+            <div class="contact-role">Co-agent · DRE 01891438</div>
+            <div class="contact-line"><a href="mailto:ania.d@compass.com">ania.d@compass.com</a></div>
+            <div class="contact-line"><a href="tel:+13102703879">310-270-3879</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Matthew Bauer</div>
+            <div class="contact-role">Transaction Coordinator · DRE 02097731</div>
+            <div class="contact-line"><a href="mailto:mattbauertc@gmail.com">mattbauertc@gmail.com</a></div>
+            <div class="contact-line"><a href="tel:+13106148293">310-614-8293</a></div>
+          </div>
+        </div>
+
+        <div class="contact-group">
+          <div class="contact-group-title">Listing Side</div>
+          <div class="contact">
+            <div class="contact-name">Todd Miller</div>
+            <div class="contact-role">Listing agent</div>
+            <div class="contact-line"><a href="mailto:toddmiller22@gmail.com">toddmiller22@gmail.com</a></div>
+            <div class="contact-line"><a href="tel:+13109235353">310-923-5353</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Shellie Griffith</div>
+            <div class="contact-role">Listing TC</div>
+            <div class="contact-line"><a href="mailto:millerteamassistant@gmail.com">millerteamassistant@gmail.com</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">A. Duchin Shapiro &amp; J. Nagel</div>
+            <div class="contact-role">Sellers</div>
+            <div class="contact-meta">Contact via listing agent</div>
+          </div>
+        </div>
+
+        <div class="contact-group">
+          <div class="contact-group-title">Escrow · Resolution</div>
+          <div class="contact">
+            <div class="contact-name">Katie McGuire</div>
+            <div class="contact-role">Escrow officer · File 5852-KM</div>
+            <div class="contact-line"><a href="mailto:katie@resolutionescrow.com">katie@resolutionescrow.com</a></div>
+            <div class="contact-line"><a href="tel:+13104393883">310-439-3883</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Phoebe Browne</div>
+            <div class="contact-role">Escrow assistant</div>
+            <div class="contact-line"><a href="mailto:phoebe@resolutionescrow.com">phoebe@resolutionescrow.com</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Amminadab Barajas</div>
+            <div class="contact-role">Escrow coordinator</div>
+            <div class="contact-line"><a href="mailto:zbarajas55@gmail.com">zbarajas55@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div class="contact-group">
+          <div class="contact-group-title">Lender · OriginPoint</div>
+          <div class="contact">
+            <div class="contact-name">Dan Millstone</div>
+            <div class="contact-role">VP Mortgage Lending · NMLS 260491</div>
+            <div class="contact-line"><a href="mailto:Dan.Millstone@originpoint.com">Dan.Millstone@originpoint.com</a></div>
+            <div class="contact-line"><a href="tel:+13106202987">310-620-2987</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Amy Page</div>
+            <div class="contact-role">Lender assistant</div>
+            <div class="contact-line"><a href="mailto:Amy.Page@originpoint.com">Amy.Page@originpoint.com</a></div>
+          </div>
+        </div>
+
+        <div class="contact-group">
+          <div class="contact-group-title">Title &amp; Insurance</div>
+          <div class="contact">
+            <div class="contact-name">Title · via Resolution Escrow</div>
+            <div class="contact-role">Underwriter TBD on prelim</div>
+            <div class="contact-meta">Preliminary report delivered Apr 30 — buyers reviewing</div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Beverley Kavanagh · Paul Diaz Insurance</div>
+            <div class="contact-role">Primary insurance · awaiting LLC details</div>
+            <div class="contact-line"><a href="mailto:bev@pauldiazins.com">bev@pauldiazins.com</a></div>
+            <div class="contact-meta">Quoting on 3-unit basis · needs Operating Agreement &amp; LLC formation docs</div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Nicole Scott · Goosehead</div>
+            <div class="contact-role">Backup insurance · CA OC56381 / OG05835</div>
+            <div class="contact-line"><a href="mailto:Nicole.Scott@goosehead.com">Nicole.Scott@goosehead.com</a></div>
+            <div class="contact-line"><a href="tel:+16618779982">661-877-9982</a></div>
+          </div>
+        </div>
+
+        <div class="contact-group">
+          <div class="contact-group-title">Inspectors</div>
+          <div class="contact">
+            <div class="contact-name">Sewer Scope Pros</div>
+            <div class="contact-role">Sewer · Guillermo · Apr 30 ✓</div>
+            <div class="contact-line"><a href="mailto:Guillermo@sewerscopeprossfv.com">Guillermo@sewerscopeprossfv.com</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">California Microbial</div>
+            <div class="contact-role">Mold · Scott Ko · May 1 ✓ · $900</div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Chimney Saviors</div>
+            <div class="contact-role">Chimney · May 1 ✓</div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Advanced Property Inspections</div>
+            <div class="contact-role">General · May 1 ✓</div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Blue Cloud Exterminators</div>
+            <div class="contact-role">Termite / WDO · Ellie · May 1 ✓ · $225</div>
+            <div class="contact-line"><a href="mailto:bluecloudexterminators@gmail.com">bluecloudexterminators@gmail.com</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">SLR Construction &amp; Remodeling</div>
+            <div class="contact-role">Roof · May 5 ✓ · $500</div>
+            <div class="contact-line"><a href="mailto:slrremodeling6@gmail.com">slrremodeling6@gmail.com</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">LA Seismic</div>
+            <div class="contact-role">Foundation &amp; drainage · Renato Sebastian · May 6 · $475</div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">New Generation Plumbing</div>
+            <div class="contact-role">Plumbing · Jun 6 (post-COE) · $250</div>
+            <div class="contact-line"><a href="mailto:newgenerationplumbinginc@gmail.com">newgenerationplumbinginc@gmail.com</a></div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Acme Clean Air</div>
+            <div class="contact-role">Mold remediation · quote out</div>
+          </div>
+          <div class="contact">
+            <div class="contact-name">Accurate Environmental</div>
+            <div class="contact-role">Mold remediation · Alfonso · quote out</div>
+            <div class="contact-line"><a href="mailto:alfonso@accurateenv.com">alfonso@accurateenv.com</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lt">
+    <div class="wrap">
+      <div class="sec-eyebrow">Provisions</div>
+      <h2 class="sec-title">What we accepted.<br>What we're watching.</h2>
+      <p class="sec-sub">Eleven provisions across BAFO terms, property quirks, permitting, and logistics.</p>
+
+      <div class="prov-grid">
+        <div class="prov confirmed">
+          <div class="prov-tag">Confirmed · May 5</div>
+          <div class="prov-title">Appraisal cleared at $2,520,000.</div>
+          <div class="prov-detail">Dan Millstone (OriginPoint) confirmed appraisal came in <strong>$7,500 over purchase price</strong>. Underwriter sign-off pending — loan to be submitted to underwriting in the next day or so. No appraisal contingency anyway, but de-risks the file regardless.</div>
+        </div>
+        <div class="prov warn">
+          <div class="prov-tag">Risk · ADU permitting</div>
+          <div class="prov-title">No ADU C of O on file with Culver City.</div>
+          <div class="prov-detail">Accela parcel 4207-024-027 search shows <strong>zero permits</strong> establishing the rear structure as an ADU — only sewer, partial reroof, and a 200-amp subpanel from 2023. Seller paid Culver City for building/electrical/mechanical permits and address assignment per renovation records, but none appear issued or finalized. Contradicts SPQ §8E(2). Cascades into insurance (3-unit basis), rent-control exemption claim, and future financing/resale exposure. Action: demand the issued ADU permit + finalized C of O from listing side, and have Ania or Matt call Culver City Building Safety (310-253-5800) to verbally confirm status.</div>
+        </div>
+        <div class="prov warn">
+          <div class="prov-tag">Risk · BAFO</div>
+          <div class="prov-title">No appraisal or loan contingency.</div>
+          <div class="prov-detail">Buyers carry full financing and valuation risk. OriginPoint timeline must align with COE — no fallback if appraisal misses.</div>
+        </div>
+        <div class="prov warn">
+          <div class="prov-tag">Risk · Tight window</div>
+          <div class="prov-title">Three days to contingency · May 8.</div>
+          <div class="prov-detail">Six of eight inspections complete. Seller's answers received May 5 — Ania reviewing. Foundation inspection May 6. Plumbing falls post-COE. All findings, bids, and reconciliation must complete before May 8.</div>
+        </div>
+        <div class="prov">
+          <div class="prov-tag">Property</div>
+          <div class="prov-title">Three separate roofs.</div>
+          <div class="prov-detail">One per structure. SLR Construction completed the roof inspection May 5 ($500). Bid follow-ups in motion for any repairs flagged. Seller-provided roof invoice and survey received May 5 with seller's answers package.</div>
+        </div>
+        <div class="prov confirmed">
+          <div class="prov-tag">Confirmed · As-is</div>
+          <div class="prov-title">Decorative fireplace.</div>
+          <div class="prov-detail">Sold as-is per SMCO #1. Chimney inspection (May 1) is informational — not a basis for renegotiation.</div>
+        </div>
+        <div class="prov">
+          <div class="prov-tag">Inventory</div>
+          <div class="prov-title">Tenant-owned items excluded.</div>
+          <div class="prov-detail">Items belonging to tenants in rented units are not part of the sale. Walk-throughs should clearly distinguish seller vs. tenant property.</div>
+        </div>
+        <div class="prov">
+          <div class="prov-tag">Coverage</div>
+          <div class="prov-title">Home warranty &amp; landlord policy.</div>
+          <div class="prov-detail">Home warranty: front (owner-occupied) unit only. Landlord policy planned for the two tenant units pending seller confirmation of appliance ownership.</div>
+        </div>
+        <div class="prov warn">
+          <div class="prov-tag">Vesting · Action required</div>
+          <div class="prov-title">Title vesting via VICZ-LA LLC.</div>
+          <div class="prov-detail">Buyers electing LLC vesting (filed Apr 30, formation expected early next week). Matt Bauer drafting an <strong>Assignment of Agreement Addendum</strong> to transfer vested interests to the new entity. Buyers must provide <strong>Operating Agreement and Articles of Organization</strong> to title and escrow once the LLC is formed.</div>
+        </div>
+        <div class="prov">
+          <div class="prov-tag">Logistics</div>
+          <div class="prov-title">Loan signing location TBD.</div>
+          <div class="prov-detail">Buyers Singapore-based — closing signing TBD between California and Singapore consulate. Coordinate with Dan Millstone &amp; escrow once loan docs are ready.</div>
+        </div>
+        <div class="prov confirmed">
+          <div class="prov-tag">Confirmed</div>
+          <div class="prov-title">Down payment locked.</div>
+          <div class="prov-detail">20% down at $502,500. $2,010,000 financed. Terms locked per BAFO — no further price negotiation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap-wide">
+      <div class="foot-inner">
+        <div class="foot-brands">
+          <span class="wm-amre" data-logo-amre>AMRE</span>
+          <span style="width:1px;height:18px;background:var(--hairline);"></span>
+          <span class="wm-compass" data-logo-compass></span>
+        </div>
+        <div class="foot-meta">
+          File 5852-KM · Resolution Escrow<br>
+          Buyer-side · Confidential · Tracker live since Apr 28, 2026 · Last updated May 5, 2026 at 3:20 PM PT
+        </div>
+      </div>
+      <div class="foot-confidential">
+        Confidential — for transaction parties only · Do not redistribute
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+  // ===== Logo swap (drop logo-amre.svg / logo-compass.png next to index.html and they appear) =====
+  function trySwapLogo(selector, src) {
+    const els = document.querySelectorAll(selector);
+    if (!els.length) return;
+    const img = new Image();
+    img.onload = () => {
+      els.forEach(el => {
+        el.classList.add('has-img');
+        el.innerHTML = '';
+        const i = document.createElement('img');
+        i.src = src;
+        i.alt = '';
+        el.appendChild(i);
+      });
+    };
+    img.onerror = () => { /* keep text wordmark */ };
+    img.src = src;
+  }
+  trySwapLogo('[data-logo-amre]', 'logo-amre.svg');
+  trySwapLogo('[data-logo-compass]', 'logo-compass.gif');
+
+  // ===== Password gate =====
+  const ACCESS_CODE = 'lasalle2026';
+  const gate = document.getElementById('gate');
+  const gateCard = document.getElementById('gateCard');
+  const gateForm = document.getElementById('gateForm');
+  const gateInput = document.getElementById('gateInput');
+  const gateError = document.getElementById('gateError');
+  const dashboard = document.getElementById('dashboard');
+
+  function unlock() {
+    gate.style.transition = 'opacity 0.4s';
+    gate.style.opacity = '0';
+    setTimeout(() => {
+      gate.style.display = 'none';
+      dashboard.classList.add('live');
+      try { sessionStorage.setItem('lasalle_unlocked', '1'); } catch(e) {}
+    }, 400);
+  }
+  try {
+    if (sessionStorage.getItem('lasalle_unlocked') === '1') {
+      gate.style.display = 'none';
+      dashboard.classList.add('live');
+    }
+  } catch(e) {}
+
+  gateForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = gateInput.value.trim().toLowerCase();
+    if (v === ACCESS_CODE) {
+      gateError.textContent = '';
+      unlock();
+    } else {
+      gateError.textContent = 'Invalid access code';
+      gateCard.classList.remove('shake');
+      void gateCard.offsetWidth;
+      gateCard.classList.add('shake');
+      gateInput.value = '';
+      gateInput.focus();
+    }
+  });
+
+  // ===== Countdowns (Pacific Time) =====
+  function daysBetween(target) {
+    // Get current Pacific date
+    const now = new Date();
+    const pacificNow = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+    const t = new Date(target);
+    const pacificTarget = new Date(t.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+    // Zero out time to count calendar days only
+    pacificNow.setHours(0,0,0,0);
+    pacificTarget.setHours(0,0,0,0);
+    return Math.round((pacificTarget - pacificNow) / (1000 * 60 * 60 * 24));
+  }
+  function updateCountdowns() {
+    const cont = daysBetween('2026-05-08T23:59:59-07:00');
+    const coe = daysBetween('2026-06-05T23:59:59-07:00');
+
+    const contEl = document.getElementById('contCountdown');
+    const coeEl = document.getElementById('coeCountdown');
+    const contDaysEl = document.getElementById('contingencyDays');
+    const coeDaysEl = document.getElementById('coeDays');
+
+    if (contEl) {
+      if (cont > 0) contEl.textContent = cont + ' day' + (cont === 1 ? '' : 's') + ' to remove';
+      else if (cont === 0) contEl.textContent = 'Today';
+      else contEl.textContent = 'Past · ' + Math.abs(cont) + ' day' + (Math.abs(cont) === 1 ? '' : 's');
+    }
+    if (coeEl) {
+      if (coe > 0) coeEl.textContent = coe + ' day' + (coe === 1 ? '' : 's') + ' to close';
+      else if (coe === 0) coeEl.textContent = 'Closing today';
+      else coeEl.textContent = 'Closed';
+    }
+    if (contDaysEl) contDaysEl.textContent = cont > 0 ? cont : 0;
+    if (coeDaysEl) coeDaysEl.textContent = coe > 0 ? coe : 0;
+  }
+
+  const stampEl = document.getElementById('updateStamp');
+  if (stampEl) {
+    const now = new Date();
+    stampEl.textContent = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+  updateCountdowns();
+  setInterval(updateCountdowns, 60 * 60 * 1000);
+
+  // ===== Progress ring + horizontal timeline =====
+  (function() {
+    const acceptance = new Date('2026-04-28T00:00:00-07:00');
+    const contingency = new Date('2026-05-08T23:59:59-07:00');
+    const coe = new Date('2026-06-05T23:59:59-07:00');
+    const now = new Date();
+
+    const totalDays = Math.ceil((coe - acceptance) / (1000*60*60*24));
+    const elapsed = Math.max(0, Math.ceil((now - acceptance) / (1000*60*60*24)));
+    const remaining = Math.max(0, totalDays - elapsed);
+    const pct = Math.min(100, Math.round((elapsed / totalDays) * 100));
+
+    // Ring
+    const ring = document.getElementById('progressRing');
+    const circumference = 2 * Math.PI * 96; // 603.19
+    if (ring) {
+      setTimeout(() => {
+        ring.style.strokeDashoffset = circumference - (circumference * pct / 100);
+      }, 300);
+    }
+    const pctEl = document.getElementById('progressPct');
+    if (pctEl) pctEl.textContent = pct + '%';
+    const subEl = document.getElementById('progressSub');
+    if (subEl) subEl.textContent = 'Day ' + elapsed + ' of ' + totalDays;
+
+    // Horizontal bar
+    const contPct = Math.ceil((contingency - acceptance) / (coe - acceptance) * 100);
+    const fillPct = Math.min(100, Math.round((now - acceptance) / (coe - acceptance) * 100));
+    const htlFilled = document.getElementById('htlFilled');
+    if (htlFilled) setTimeout(() => { htlFilled.style.width = fillPct + '%'; }, 400);
+
+    // Node states
+    const node2 = document.getElementById('htlNode2');
+    const node3 = document.getElementById('htlNode3');
+    if (now >= contingency && node2) { node2.className = 'htl-node done'; }
+    if (now >= coe && node3) { node3.className = 'htl-node done'; }
+
+    // Labels
+    const contStatus = document.getElementById('htlContStatus');
+    const coeStatus = document.getElementById('htlCoeStatus');
+    const contDays = Math.ceil((contingency - now) / (1000*60*60*24));
+    const coeDays = Math.ceil((coe - now) / (1000*60*60*24));
+    if (contStatus) contStatus.textContent = contDays > 0 ? contDays + ' days' : (contDays === 0 ? 'Today' : '✓ Removed');
+    if (coeStatus) coeStatus.textContent = coeDays > 0 ? coeDays + ' days' : (coeDays === 0 ? 'Today' : '✓ Closed');
+
+    // Stats
+    const statEl = document.getElementById('statElapsed');
+    const statRem = document.getElementById('statRemaining');
+    if (statEl) statEl.textContent = elapsed;
+    if (statRem) statRem.textContent = remaining;
+
+    // Inspection progress (manually set in markup)
+    // const inspProg = document.getElementById('inspProgress');
+    // if (inspProg) inspProg.style.width = '0%';
+  })();
+  // ===== Sticky nav: scroll shadow + active section =====
+  (function() {
+    const nav = document.getElementById('stickyNav');
+    const links = nav.querySelectorAll('a[href^="#"]');
+    const sections = [];
+    links.forEach(a => {
+      const id = a.getAttribute('href').slice(1);
+      if (id) { const el = document.getElementById(id); if (el) sections.push({ el, a }); }
+    });
+
+    function onScroll() {
+      // Shadow
+      if (window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+
+      // Active section
+      let current = null;
+      for (const s of sections) {
+        const rect = s.el.getBoundingClientRect();
+        if (rect.top <= 80) current = s;
+      }
+      links.forEach(a => a.classList.remove('active'));
+      if (current) current.a.classList.add('active');
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Smooth scroll
+    links.forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const target = document.getElementById(id);
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  })();
+
+</script>
+
+</body>
+</html>

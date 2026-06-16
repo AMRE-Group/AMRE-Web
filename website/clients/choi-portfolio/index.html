@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Higuera Launch · Choi Portfolio · AMRE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#FFFFFF; --bg:#F5F5F7; --hairline:#D9D4CB;
+    --ink:#1C1C1E; --secondary:#5C5A55; --muted:#8A857C;
+    --blue:#0071E3; --blue-dark:#0058B0; --blue-bg:#E5F1FC;
+    --green:#1F7A38; --green-bg:#E7F3EB;
+    --amber:#B25000; --amber-bg:#FCEFE0;
+    --forest:#183E31; --forest-2:#1F4E3E; --forest-tint:#E9EEEB;
+    --navy:#013F5C; --terra:#C56A3C; --terra-bg:#F7E9DF; --terra-tint:#F2D9C8;
+    --cream:#F7F4EF;
+    --r:18px; --r-lg:24px;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    --serif:'Playfair Display',Georgia,serif;
+    --shadow:0 1px 2px rgba(28,28,30,.04),0 10px 30px rgba(28,28,30,.06);
+    --shadow-lg:0 2px 6px rgba(28,28,30,.06),0 28px 60px rgba(28,28,30,.12);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--white);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px;}
+  .serif{font-family:var(--serif);}
+
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:120;
+    background:linear-gradient(90deg,var(--forest),var(--terra));transition:width .1s linear;}
+
+  nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hairline);}
+  .nav-in{max-width:1120px;margin:0 auto;padding:13px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand .amre{font-family:var(--serif);font-weight:700;font-size:19px;color:var(--forest);letter-spacing:.04em;}
+  .brand .bar{color:var(--hairline);}
+  .brand .compass{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);opacity:.6;}
+  .nav-status{display:flex;align-items:center;gap:14px;font-size:12.5px;color:var(--muted);}
+  .nav-pill{display:inline-flex;align-items:center;gap:7px;background:var(--green-bg);color:var(--green);padding:5px 12px;border-radius:980px;font-weight:600;font-size:12px;}
+  .nav-pill .d{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,122,56,.4)}70%{box-shadow:0 0 0 6px rgba(31,122,56,0)}100%{box-shadow:0 0 0 0 rgba(31,122,56,0)}}
+
+  .wayfind{position:sticky;top:51px;z-index:90;background:rgba(247,244,239,.9);backdrop-filter:saturate(180%) blur(16px);
+    -webkit-backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--hairline);}
+  .wayfind-in{max-width:1120px;margin:0 auto;padding:0 22px;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;}
+  .wayfind-in::-webkit-scrollbar{display:none;}
+  .wf{flex:0 0 auto;padding:13px 14px;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;
+    border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;letter-spacing:.01em;}
+  .wf:hover{color:var(--ink);}
+  .wf.active{color:var(--forest);border-bottom-color:var(--terra);}
+
+  .banner{background:var(--forest);color:#F2EFE8;position:relative;overflow:hidden;}
+  .banner::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 12% 20%,rgba(197,106,60,.22),transparent 42%),
+               radial-gradient(circle at 88% 90%,rgba(1,63,92,.5),transparent 50%);}
+  .banner-grid{position:absolute;inset:0;opacity:.06;
+    background-image:linear-gradient(rgba(255,255,255,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.6) 1px,transparent 1px);
+    background-size:46px 46px;-webkit-mask-image:linear-gradient(180deg,#000,transparent 80%);mask-image:linear-gradient(180deg,#000,transparent 80%);}
+  .banner-in{position:relative;max-width:1120px;margin:0 auto;padding:64px 32px 60px;}
+  .banner .kick{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+    padding:7px 15px;border-radius:980px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#E9C9B3;}
+  .banner .kick .dot{width:7px;height:7px;border-radius:50%;background:#C56A3C;}
+  .banner h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5.4vw,62px);line-height:1.04;letter-spacing:-.02em;margin-top:24px;max-width:18ch;}
+  .banner h1 em{font-style:italic;color:#E9C9B3;}
+  .banner .sub{margin-top:22px;font-size:clamp(16px,1.9vw,20px);color:rgba(242,239,232,.85);max-width:60ch;line-height:1.6;}
+  .pact{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;}
+  .pact div{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+    border-radius:14px;padding:13px 17px;font-size:13.5px;font-weight:500;color:#EAF0EC;}
+  .pact div .ic{width:26px;height:26px;border-radius:8px;background:rgba(197,106,60,.22);display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:14px;font-weight:700;color:#E9C9B3;flex:0 0 26px;}
+
+  .hero{padding:48px 0 52px;}
+  .hero-eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);margin-bottom:16px;}
+  .hero h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.015em;line-height:1.12;max-width:22ch;}
+  .hero .lede{margin-top:16px;font-size:17px;color:var(--secondary);max-width:62ch;line-height:1.55;}
+  .hero .meta{margin-top:14px;font-size:13px;color:var(--muted);font-style:italic;}
+
+  .stat-pills{display:flex;flex-wrap:wrap;gap:13px;margin-top:36px;}
+  .card-stat{background:var(--white);border:1px solid var(--hairline);border-radius:16px;padding:18px 22px;min-width:158px;flex:1;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;}
+  .card-stat:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+  .card-stat::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--terra);}
+  .card-stat.s-green::after{background:var(--green);} .card-stat.s-blue::after{background:var(--blue);} .card-stat.s-forest::after{background:var(--forest);}
+  .stat-lbl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  .stat-val{font-family:var(--serif);font-size:29px;font-weight:600;margin-top:5px;letter-spacing:-.01em;}
+  .stat-val small{font-family:var(--sans);font-size:14px;color:var(--muted);font-weight:500;}
+  .text-green{color:var(--green);} .text-blue{color:var(--blue);} .text-terra{color:var(--terra);} .text-forest{color:var(--forest);}
+  .stat-note{font-size:11.5px;color:var(--muted);margin-top:3px;}
+
+  section{padding:60px 0;border-top:1px solid var(--hairline);scroll-margin-top:108px;}
+  .sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+  .sec-num{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--terra);background:var(--terra-bg);
+    width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:0 0 34px;}
+  .sec-eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--terra);margin-bottom:13px;}
+  .sec h2{font-family:var(--serif);font-size:clamp(27px,4vw,40px);font-weight:600;letter-spacing:-.015em;line-height:1.08;max-width:20ch;}
+  .sec .lede{margin-top:16px;font-size:17px;color:var(--secondary);max-width:64ch;line-height:1.6;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .mt-32{margin-top:32px;} .mt-24{margin-top:24px;} .mt-16{margin-top:16px;} .mt-8{margin-top:8px;}
+
+  .card{background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);padding:26px;box-shadow:var(--shadow);
+    transition:transform .25s,box-shadow .25s;}
+  .card.lift:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+  .card-blue{background:var(--blue-bg);border-color:#CDE4FA;}
+  .card-green{background:var(--green-bg);border-color:#C5E5CE;}
+  .card-amber{background:var(--amber-bg);border-color:#F2DDC2;}
+  .card-forest{background:var(--forest);color:#EAF0EC;border:none;}
+  .card-title{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .card-forest .card-title{color:rgba(255,255,255,.55);}
+  .card h3{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.01em;}
+  .card p{font-size:14.5px;color:var(--secondary);line-height:1.6;}
+  .card-forest p{color:rgba(245,245,247,.82);}
+  .card .big{font-family:var(--serif);font-size:42px;font-weight:600;letter-spacing:-.01em;line-height:1;}
+
+  .role{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);}
+  .prop-dl{display:grid;grid-template-columns:1fr 1fr;gap:13px 18px;margin-top:16px;}
+  .prop-dl dt{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .prop-dl dd{font-size:15px;font-weight:600;margin-top:2px;}
+  .prop-head{display:flex;align-items:center;justify-content:space-between;}
+  .badge-num{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--forest);background:var(--forest-tint);
+    width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;}
+
+  .feat{display:flex;gap:14px;align-items:flex-start;}
+  .feat .fi{width:40px;height:40px;border-radius:11px;background:var(--forest-tint);color:var(--forest);
+    display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;font-weight:700;flex:0 0 40px;}
+  .feat h4{font-size:15px;font-weight:600;}
+  .feat p{font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.5;}
+
+  .spec-chip{display:inline-flex;align-items:center;gap:7px;background:var(--cream);border:1px solid var(--hairline);
+    border-radius:980px;padding:8px 14px;font-size:13px;font-weight:500;color:var(--secondary);}
+  .spec-chip b{color:var(--forest);font-weight:700;}
+  .spec-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+
+  .comp-wrap{overflow-x:auto;border:1px solid var(--hairline);border-radius:var(--r);margin-top:24px;box-shadow:var(--shadow);}
+  /* Sortable table headers */
+  .comp-wrap th{cursor:pointer;user-select:none;transition:background .15s,color .15s;position:relative;padding-right:24px !important;}
+  .comp-wrap th:hover{background:var(--cream);color:var(--ink);}
+  .comp-wrap th .sort-ind{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:9px;color:var(--hairline);line-height:1;letter-spacing:-1px;font-weight:700;transition:color .15s;}
+  .comp-wrap th:hover .sort-ind{color:var(--muted);}
+  .comp-wrap th.sort-asc, .comp-wrap th.sort-desc{background:var(--cream);color:var(--ink);}
+  .comp-wrap th.sort-asc .sort-ind, .comp-wrap th.sort-desc .sort-ind{color:var(--terra);font-size:11px;letter-spacing:0;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:720px;}
+  th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+    padding:14px 16px;background:var(--bg);border-bottom:1px solid var(--hairline);white-space:nowrap;}
+  td{padding:13px 16px;border-bottom:1px solid #ECEAE4;}
+  tbody tr{transition:background .15s;}
+  tbody tr:hover{background:var(--cream);}
+  tr:last-child td{border-bottom:none;}
+  td.addr{font-weight:600;}
+  .tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:6px;}
+  .tag-sold{background:var(--green-bg);color:var(--green);}
+  .tag-active{background:var(--blue-bg);color:var(--blue);}
+  .tag-soon{background:var(--amber-bg);color:var(--amber);}
+  .row-hl{background:#FBF4ED;}
+  .row-hl:hover{background:#F8EEE3;}
+  .row-hl td.addr{color:var(--terra);}
+  .ppsf{font-variant-numeric:tabular-nums;font-weight:600;}
+  .star{color:var(--terra);font-size:11px;margin-left:5px;}
+
+  .phase-stat{font-family:var(--serif);font-size:14px;color:var(--terra);font-weight:600;}
+  .chip-ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-size:18px;font-weight:700;margin-bottom:14px;}
+  .ic-navy{background:var(--blue-bg);color:var(--navy);} .ic-forest{background:var(--forest-tint);color:var(--forest);} .ic-terra{background:var(--terra-bg);color:var(--terra);}
+
+  .lanes{border:1px solid var(--hairline);border-radius:var(--r);overflow:hidden;margin-top:28px;box-shadow:var(--shadow);}
+  .lane{display:grid;grid-template-columns:210px 1fr;border-bottom:1px solid var(--hairline);}
+  .lane:last-child{border-bottom:none;}
+  .lane-l{padding:20px;border-right:1px solid var(--hairline);background:var(--cream);}
+  .lane-l .a{font-family:var(--serif);font-size:18px;font-weight:600;}
+  .lane-l .m{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45;}
+  .lane-l .c{display:inline-block;margin-top:9px;font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:980px;}
+  .c-now{background:var(--green-bg);color:var(--green);}
+  .c-soon{background:var(--amber-bg);color:var(--amber);}
+  .lane-r{display:flex;align-items:center;padding:20px 16px;gap:5px;}
+  .seg{height:34px;border-radius:8px;display:flex;align-items:center;color:#fff;font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.12);}
+  .seg span{padding:0 11px;}
+  .seg-off{background:var(--navy);} .seg-pe{background:var(--forest);} .seg-mkt{background:var(--terra);}
+  .seg-gap{background:transparent;box-shadow:none;}
+  .legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px;font-size:12.5px;color:var(--secondary);}
+  .legend div{display:flex;align-items:center;gap:7px;font-weight:500;}
+  .legend i{width:13px;height:13px;border-radius:4px;}
+
+  ul.clean{list-style:none;margin-top:14px;}
+  ul.clean li{padding:11px 0 11px 30px;position:relative;font-size:14.5px;color:var(--secondary);border-bottom:1px solid #ECEAE4;}
+  ul.clean li:last-child{border-bottom:none;}
+  ul.clean li::before{content:"✓";position:absolute;left:2px;top:11px;width:18px;height:18px;border-radius:50%;
+    background:var(--forest-tint);color:var(--forest);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+  ul.clean li strong{color:var(--ink);}
+
+  .insight{background:var(--ink);color:#F5F5F7;border-radius:var(--r-lg);padding:46px;position:relative;overflow:hidden;box-shadow:var(--shadow-lg);}
+  .insight::after{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;
+    background:radial-gradient(circle,rgba(197,106,60,.32),transparent 70%);}
+  .insight .k{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);margin-bottom:16px;}
+  .insight .k::before{content:"";width:18px;height:2px;background:var(--terra);}
+  .insight h2{font-family:var(--serif);font-size:clamp(24px,3.5vw,36px);font-weight:500;line-height:1.18;max-width:26ch;position:relative;}
+  .insight h2 em{font-style:italic;color:#E9C9B3;}
+  .insight p{margin-top:18px;font-size:16px;color:rgba(245,245,247,.84);max-width:62ch;line-height:1.62;position:relative;}
+
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:980px;font-size:14.5px;font-weight:600;
+    text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;}
+  .btn-pri{background:var(--forest);color:#fff;box-shadow:var(--shadow);}
+  .btn-pri:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);background:var(--forest-2);}
+  .btn-sec{background:transparent;color:var(--forest);border:1.5px solid var(--forest);}
+  .btn-sec:hover{background:var(--forest-tint);}
+
+  footer{background:var(--forest);color:rgba(234,240,236,.8);margin-top:8px;}
+  .foot{max-width:1120px;margin:0 auto;padding:46px 32px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px;align-items:flex-end;}
+  .foot .fb{font-family:var(--serif);font-size:21px;color:#fff;font-weight:600;letter-spacing:.03em;}
+  .foot .fs{font-size:13px;margin-top:8px;line-height:1.6;}
+  .foot .fm{font-size:12px;text-align:right;opacity:.75;line-height:1.7;}
+  .conf{max-width:1120px;margin:0 auto;padding:16px 32px 38px;font-size:11px;color:rgba(234,240,236,.5);border-top:1px solid rgba(255,255,255,.1);letter-spacing:.03em;}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ===== TYPOGRAPHY: widow control + explicit left-align ===== */
+  /* Headings stay constrained for typographic rhythm; body text fills the container */
+  h1, h2, h3, h4 { text-wrap: balance; text-align: left; }
+  p, .lede, .sub, .card p, .card-title, .meta, dt, dd, li { text-wrap: pretty; text-align: left; }
+  /* Heading max-widths (still constrained so they don't run to 120ch) */
+  .banner h1 { max-width: 22ch; }
+  .hero h2, .sec h2 { max-width: 34ch; }
+  .insight h2 { max-width: 36ch; }
+  /* Body text fills container — override original max-widths */
+  .banner .sub, .hero .lede, .sec .lede, .card p, .card ul, .insight p { max-width: none; }
+
+  /* ===== MAP / NEIGHBORHOOD SECTION ===== */
+  .map-frame{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--hairline);box-shadow:var(--shadow-lg);margin-top:28px;background:var(--cream);}
+  .map-frame iframe{display:block;width:100%;height:460px;border:0;}
+  .poi-card{padding:22px;background:var(--white);border:1px solid var(--hairline);border-radius:var(--r);box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;}
+  .poi-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+  .poi-card .dist{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);}
+  .poi-card h4{font-family:var(--serif);font-size:18px;font-weight:600;margin-top:6px;letter-spacing:-.01em;}
+  .poi-card p{font-size:13.5px;color:var(--secondary);margin-top:8px;line-height:1.55;}
+  .poi-card .tag-active{margin-top:10px;display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;padding:3px 9px;border-radius:6px;background:var(--green-bg);color:var(--green);}
+  @media(max-width:880px){ .map-frame iframe{height:340px;} }
+
+  @media(max-width:880px){
+    .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+    .lane{grid-template-columns:1fr;}
+    .lane-l{border-right:none;border-bottom:1px solid var(--hairline);}
+  }
+  @media(max-width:600px){
+    .wrap,.nav-in,.banner-in,.foot,.conf{padding-left:20px;padding-right:20px;}
+    .nav-status .stamp{display:none;}
+    section{padding:46px 0;}
+    .insight{padding:30px;}
+    .wayfind{top:50px;}
+  }
+  @media print{
+    nav,.wayfind,#progress{position:static;} .reveal{opacity:1;transform:none;}
+    .insight::after,.banner::before,.banner-grid{display:none;} section{page-break-inside:avoid;}
+  }
+
+  /* ===== PASSWORD GATE ===== */
+  #gate{position:fixed;inset:0;background:var(--white);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;
+    background-image:radial-gradient(at 20% 20%,rgba(24,62,49,0.05) 0,transparent 50%),radial-gradient(at 80% 80%,rgba(197,106,60,0.05) 0,transparent 50%);}
+  .gate-card{max-width:440px;width:100%;text-align:center;padding:48px 32px;}
+  .gate-brand{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:38px;}
+  .gate-brand .amre{font-family:var(--serif);font-weight:700;font-size:22px;color:var(--forest);letter-spacing:.04em;}
+  .gate-brand .bar{color:var(--hairline);}
+  .gate-brand .compass{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);opacity:.55;}
+  .gate-title{font-family:var(--serif);font-size:44px;line-height:1.05;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px;}
+  .gate-sub{font-size:16px;color:var(--secondary);margin-bottom:34px;line-height:1.5;}
+  .gate-form{display:flex;flex-direction:column;gap:12px;}
+  .gate-input{width:100%;padding:16px 18px;font-family:var(--sans);font-size:17px;background:var(--bg);border:1px solid transparent;
+    border-radius:12px;color:var(--ink);text-align:center;outline:none;transition:all .15s;}
+  .gate-input:focus{background:var(--white);border-color:var(--forest);box-shadow:0 0 0 3px rgba(24,62,49,0.14);}
+  .gate-input::placeholder{color:var(--muted);}
+  .gate-btn{padding:15px 18px;background:var(--forest);color:#fff;border:none;font-family:var(--sans);font-size:16px;font-weight:600;
+    letter-spacing:-.01em;border-radius:980px;cursor:pointer;transition:background .15s,transform .15s;}
+  .gate-btn:hover{background:var(--forest-2);}
+  .gate-btn:active{transform:scale(.98);}
+  .gate-error{color:#C0392B;font-size:13px;height:18px;margin-top:4px;}
+  .gate-card.shake{animation:gshake .4s;}
+  @keyframes gshake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-8px);}40%,80%{transform:translateX(8px);}}
+  .gate-foot{margin-top:34px;font-size:12px;color:var(--muted);}
+  /* hide page content until unlocked */
+  body.locked #progress,body.locked nav,body.locked .wayfind,body.locked .banner,
+  body.locked header.hero,body.locked section,body.locked footer{display:none !important;}
+
+</style>
+</head>
+<body>
+
+<!-- ===== PASSWORD GATE ===== -->
+<div id="gate">
+  <div class="gate-card" id="gateCard">
+    <div class="gate-brand">
+      <span class="amre">AMRE</span><span class="bar">|</span><span class="compass">Compass</span>
+    </div>
+    <h1 class="gate-title">The Choi&nbsp;Portfolio</h1>
+    <p class="gate-sub">Confidential seller analysis.<br>Prepared for Peter Choi.</p>
+    <form class="gate-form" id="gateForm" autocomplete="off">
+      <input type="password" class="gate-input" id="gateInput" placeholder="Enter access code" autofocus>
+      <button type="submit" class="gate-btn">Continue</button>
+      <div class="gate-error" id="gateError"></div>
+    </form>
+    <div class="gate-foot">The Higuera Launch · Updated May 27, 2026</div>
+  </div>
+</div>
+
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand"><span class="amre">AMRE</span><span class="bar">|</span><span class="compass">Compass</span></div>
+    <div class="nav-status">
+      <span class="stamp">Prepared for Peter Choi · Confidential</span>
+      <span class="nav-pill"><span class="d"></span>Seller Analysis</span>
+    </div>
+  </div>
+</nav>
+
+<div class="wayfind">
+  <div class="wayfind-in" id="wayfind">
+    <a class="wf" href="#approach">The Strategy</a>
+    <a class="wf" href="#recommendation">Recommendation</a>
+    <a class="wf" href="#buyers">The Buyers</a>
+    <a class="wf" href="#product">The Homes</a>
+    <a class="wf" href="#neighborhood">Neighborhood</a>
+    <a class="wf" href="#pricing">Pricing</a>
+    <a class="wf" href="#market">The Market</a>
+    <a class="wf" href="#strategy">3-Phase Launch</a>
+    <a class="wf" href="#sequence">Sequence</a>
+    <a class="wf" href="#reserve">In Reserve</a>
+    <a class="wf" href="#next">Next Steps</a>
+  </div>
+</div>
+
+<div class="banner">
+  <div class="banner-grid"></div>
+  <div class="banner-in">
+    <span class="kick reveal"><span class="dot"></span>The Higuera Launch · Choi Portfolio</span>
+    <h1 class="reveal">Two brand-new Higuera homes — launched <em>together</em>, on the data, the right way.</h1>
+    <p class="sub reveal">We focus the campaign on the two new-construction Higuera homes — freestanding, no HOA, identical pricing, two distinct floor plans — and let buyers tell us which they value more. One coordinated launch, three buyer profiles, every losing bidder warm for the next unit.</p>
+    <div class="pact">
+      <div class="reveal"><span class="ic">N</span>Brand-new, freestanding, no HOA</div>
+      <div class="reveal"><span class="ic">L</span>Culver City — true new construction is rare</div>
+      <div class="reveal"><span class="ic">C</span>Two homes, one launch — competitive tension built in</div>
+      <div class="reveal"><span class="ic">3</span>The full Compass 3-Phase engine</div>
+    </div>
+  </div>
+</div>
+
+<header class="hero" id="approach"><div class="wrap">
+  <div class="hero-eyebrow reveal">The Higuera Launch · Seller Strategy · May 2026</div>
+  <h2 class="reveal">Launch both Higuera new-builds at once. Let buyers compete.</h2>
+  <p class="lede reveal">Inventory of true new construction in Culver City is tight. Bringing both Higuera homes online simultaneously — same price, two distinct floor plans — creates a competitive dynamic the moment the campaign opens. Buyers self-select between Unit A and Unit B; underbidders on one become the warm pool for the other. One coordinated launch, the full Compass 3-Phase engine, three sharply defined buyer profiles.</p>
+  <p class="meta reveal">An Architect's Field Notes — Michael Abraham &amp; Ania de Pourbaix, AMRE Real Estate Group at Compass</p>
+
+  <div class="stat-pills reveal">
+    <div class="card-stat s-forest"><div class="stat-lbl">Launch Now</div><div class="stat-val text-forest">2 Higuera</div><div class="stat-note">Side-by-side · same pricing</div></div>
+    <div class="card-stat s-green"><div class="stat-lbl">New Construction</div><div class="stat-val text-green">Freestanding</div><div class="stat-note">No HOA · 3bd · 2-story</div></div>
+    <div class="card-stat s-blue"><div class="stat-lbl">Location</div><div class="stat-val text-blue">90232</div><div class="stat-note">Lucerne-Higuera, Culver City</div></div>
+    <div class="card-stat"><div class="stat-lbl">Market Velocity</div><div class="stat-val">12–16<small> days</small></div><div class="stat-note">Recent sales, over ask</div></div>
+  </div>
+</div></header>
+
+<section id="recommendation"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">01</span><div><div class="sec-eyebrow">Strategic Recommendation</div><h2>Lead with both Higuera. Let buyers choose.</h2></div></div>
+  <p class="lede reveal">Two freestanding, brand-new townhouse-style homes, priced the same, launched in parallel. Buyers decide what they value more — and that head-to-head dynamic does the work pricing alone can't. One coordinated launch, two real options, and a buyer pool that compounds with every showing.</p>
+
+  <div class="grid-2 mt-32">
+    <div class="card lift reveal">
+      <div class="prop-head"><div class="role">Launch Now · Primary</div><span class="badge-num">A</span></div>
+      <h3 style="margin-top:10px;">4108 Higuera · Unit A</h3>
+      <p style="margin-top:6px;color:var(--secondary);">Master-upstairs config · 250 SF private balcony</p>
+      <dl class="prop-dl">
+        <div><dt>Beds</dt><dd>3 (incl. master suite)</dd></div>
+        <div><dt>Size</dt><dd>~1,780 SF</dd></div>
+        <div><dt>Stories</dt><dd>2 · ~10 ft typical</dd></div>
+        <div><dt>Outdoor</dt><dd>250 + 75 SF balconies</dd></div>
+        <div><dt>Upstairs</dt><dd>Master + WIC + bedroom</dd></div>
+        <div><dt>Downstairs</dt><dd>Kitchen, dining, powder</dd></div>
+      </dl>
+    </div>
+    <div class="card lift reveal">
+      <div class="prop-head"><div class="role">Launch Now · Primary</div><span class="badge-num">B</span></div>
+      <h3 style="margin-top:10px;">4110 Higuera · Unit B</h3>
+      <p style="margin-top:6px;color:var(--secondary);">Bedroom-down config · separate great room</p>
+      <dl class="prop-dl">
+        <div><dt>Beds</dt><dd>3 (1 down · 2 up)</dd></div>
+        <div><dt>Size</dt><dd>~1,770 SF</dd></div>
+        <div><dt>Stories</dt><dd>2 · ~10 ft typical</dd></div>
+        <div><dt>Layout</dt><dd>Flexible / WFH / in-law</dd></div>
+        <div><dt>Downstairs</dt><dd>Living + kit/dining + BR</dd></div>
+        <div><dt>Upstairs</dt><dd>2 bedrooms + bath + WIC</dd></div>
+      </dl>
+    </div>
+  </div>
+</div></section>
+
+<!-- THE BUYERS -->
+<section id="buyers"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">02</span><div><div class="sec-eyebrow">The Buyer We're Selling To</div><h2>Three profiles. One pitch.</h2></div></div>
+  <p class="lede reveal">The Higuera pitch is simple: <strong>turnkey, brand new, freestanding, lower-maintenance, no HOA, in the neighborhood buyers want — likely at a price point below older single-family homes that need work.</strong> That story lands hard with three buyer types, and our outreach hits each one directly.</p>
+
+  <div class="grid-3 mt-32">
+    <div class="card lift reveal">
+      <div class="chip-ic ic-terra serif">01</div>
+      <div class="phase-stat">Buyer Profile 01</div>
+      <h3 style="margin-top:4px;">The affluent move-up</h3>
+      <p class="mt-8" style="color:var(--secondary);">First-time or move-up buyer working in tech, entertainment, or a Culver City-adjacent industry. Wants a real home — not a condo — but won't trade location to get one. Higuera reads as upgrade: <strong>new construction, designer finishes, walkable to Helms and Downtown Culver City</strong>, no compromise.</p>
+      <ul class="clean" style="margin-top:14px;">
+        <li>Values: design, location, modern systems</li>
+        <li>Pays for: turnkey, no deferred maintenance</li>
+      </ul>
+    </div>
+    <div class="card lift reveal">
+      <div class="chip-ic ic-forest serif">02</div>
+      <div class="phase-stat">Buyer Profile 02</div>
+      <h3 style="margin-top:4px;">The downsizer</h3>
+      <p class="mt-8" style="color:var(--secondary);">Leaving a larger SFR — kids out of the house, ready for something new, easy, and low-maintenance. Wants the feel of a single-family home (freestanding walls, private outdoor space, garage) <strong>without the lot, the roof, or the HOA</strong>. Higuera is a clean step down in footprint and a clean step up in quality.</p>
+      <ul class="clean" style="margin-top:14px;">
+        <li>Values: simplicity, no HOA, low upkeep</li>
+        <li>Pays for: warranty-fresh systems, lock-and-leave</li>
+      </ul>
+    </div>
+    <div class="card lift reveal">
+      <div class="chip-ic ic-navy serif">03</div>
+      <div class="phase-stat">Buyer Profile 03</div>
+      <h3 style="margin-top:4px;">The investor</h3>
+      <p class="mt-8" style="color:var(--secondary);">Looking for a turnkey asset in an appreciating Westside neighborhood with strong rental appeal. New construction means <strong>zero capex day one, lower insurance, easier financing, and rentability to the same tech/entertainment tenants who'd buy it</strong>. The numbers work because the building works.</p>
+      <ul class="clean" style="margin-top:14px;">
+        <li>Values: cash flow + appreciation</li>
+        <li>Pays for: tenant-ready, future resale</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight reveal mt-24" style="background:var(--ink);">
+    <div class="k">The Through-Line</div>
+    <h2>Every profile is buying the same thing: <em>a freestanding new-build in Culver City, with no HOA, at a price the older inventory can't compete with</em>.</h2>
+    <p>That's the single sentence we lead with — and the reason both Higuera homes go to market at once. Two distinct floor plans give three different buyer types two real options, and the head-to-head dynamic between Unit A and Unit B does the rest.</p>
+  </div>
+</div></section>
+<section id="product"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">03</span><div><div class="sec-eyebrow">The Higuera Homes</div><h2>New build. Amazing location. No HOA. Unbeatable.</h2></div></div>
+  <p class="lede reveal">Two brand-new, architect-designed, <strong>freestanding</strong> homes on Higuera — modern, efficient, walkable to everything Culver City buyers come for. Same pricing. Two distinct floor plans. Move-in-ready in a neighborhood where the rest of the inventory is older and needs work. That's the asymmetry we're selling.
+
+  <div class="insight reveal mt-24" style="background:var(--forest);">
+    <div class="k" style="color:#E9C9B3;">Why These Sell</div>
+    <h2 style="color:#F2EFE8;">A walkable Westside pocket, a brand-new home, and <em>zero</em> of the compromises buyers usually accept.</h2>
+    <p style="color:rgba(242,239,232,.85);">Most buyers in Lucerne-Higuera are choosing between charming-but-aging 1920s bungalows that need work, or moving out of the neighborhood entirely. These homes erase that trade-off: contemporary design, modern systems, and move-in-ready — right where they want to be. That's the pitch, and it's a strong one.</p>
+  </div>
+
+  <div class="grid-3 mt-24">
+    <div class="card lift reveal">
+      <div class="feat"><span class="fi serif">N</span><div><h4>Genuinely new</h4><p>2025–26 construction to current 2022 CA codes — not a flip, not a remodel. Everything is new.</p></div></div>
+    </div>
+    <div class="card lift reveal">
+      <div class="feat"><span class="fi serif">L</span><div><h4>Prime location</h4><p>Lucerne-Higuera, 90232 — minutes to Downtown Culver City, Helms District, and the Expo Line.</p></div></div>
+    </div>
+    <div class="card lift reveal">
+      <div class="feat"><span class="fi serif">D</span><div><h4>Designed, not built-to-spec</h4><p>Architect-designed by Angela Lee Design — volume, light, and a striking modern stucco-and-wood exterior.</p></div></div>
+    </div>
+  </div>
+
+  <div class="card mt-24 reveal">
+    <div class="card-title">What's Built In — The Spec Sheet</div>
+    <div class="spec-wrap">
+      <span class="spec-chip"><b>3</b> bedrooms each</span>
+      <span class="spec-chip"><b>2</b> stories</span>
+      <span class="spec-chip">Ceilings <b>~10 ft</b> typical</span>
+      <span class="spec-chip">Attached <b>garage</b> + covered stall</span>
+      <span class="spec-chip">Balconies <b>250 + 75 SF</b> (Unit A)</span>
+      <span class="spec-chip">Master suite + <b>WIC</b> (Unit A)</span>
+      <span class="spec-chip">Level-1 <b>bedroom</b> (Unit B)</span>
+      <span class="spec-chip"><b>Heat-pump</b> HVAC</span>
+      <span class="spec-chip"><b>Tankless</b> water heaters</span>
+      <span class="spec-chip"><b>Solar-ready</b> (PV)</span>
+      <span class="spec-chip"><b>EV</b>-ready outlet</span>
+      <span class="spec-chip">Fully <b>fire-sprinklered</b></span>
+      <span class="spec-chip"><b>Gray-water</b> plumbing</span>
+      <span class="spec-chip">Smooth <b>3-coat stucco</b></span>
+      <span class="spec-chip">Synthetic-wood <b>accent</b></span>
+      <span class="spec-chip">Powder-coated <b>metal panel</b></span>
+      <span class="spec-chip">Stone <b>parapet caps</b></span>
+      <span class="spec-chip"><b>CAL Green</b> compliant</span>
+      <span class="spec-chip"><b>2022 CA</b> code</span>
+    </div>
+    <p class="mt-16" style="font-size:13.5px;color:var(--muted);">Unit A (~1,780 SF) is the <strong>master-upstairs configuration</strong>: master suite + walk-in closet + bedroom on Level 2, with a 250 SF private balcony and a smaller 75 SF balcony; kitchen, dining, and powder room on Level 1. Unit B (~1,770 SF) is the <strong>bedroom-down configuration</strong>: kitchen + dining + separate 185 SF living room + Level-1 bedroom and bath on the ground floor, with 2 bedrooms + bath upstairs. Genuinely distinct floor plans — one tuned to the master-floor buyer (downsizer, move-up), one tuned to the flexible / WFH / multi-generational buyer.</p>
+  </div>
+</div></section>
+
+<!-- THE NEIGHBORHOOD / MAP -->
+<section id="neighborhood"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">04</span><div><div class="sec-eyebrow">The Neighborhood · What's Around &amp; What's Coming</div><h2>You're not just buying a house. You're buying the block.</h2></div></div>
+  <p class="lede reveal">Lucerne-Higuera sits at the geographic and economic center of Culver City's tech-and-entertainment transformation. Within a 12-minute walk: Apple's new 536,000 SF Culver Crossings campus rising at Venice &amp; National, the Helms Bakery District, Sony Pictures Studios, Amazon MGM at Culver Studios, Warner Bros. Discovery at Ivy Station, and the Metro E Line. This is the most important block of context for any buyer considering these homes.</p>
+
+  <div class="map-frame reveal">
+    <iframe
+      src="https://maps.google.com/maps?q=4108%20Higuera%20Street%2C%20Culver%20City%2C%20CA%2090232&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="4108-4110 Higuera Street, Culver City — neighborhood map">
+    </iframe>
+  </div>
+
+  <div class="grid-3 mt-32">
+    <div class="poi-card reveal">
+      <div class="dist">~4 blocks · 0.4 mi</div>
+      <h4>Apple Culver Crossings Campus</h4>
+      <p>536,000 SF, two-building tech campus at Venice &amp; National. Construction underway — designed by Gensler, targeting up to 2,400 employees. Part of Apple's commitment to grow to 3,000+ Culver City employees.</p>
+      <span class="tag-active">Under construction</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~5 blocks · 0.4 mi</div>
+      <h4>Helms Bakery District</h4>
+      <p>The Westside's design-and-dining destination — Father's Office, La Dijonaise, Lukshon, Arcana, and 250,000 SF of restored 1930s industrial. Weekend gravitational pull. Walking distance from the front door.</p>
+      <span class="tag-active">Anchor district</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.8 mi north</div>
+      <h4>Amazon MGM Studios + Culver Studios</h4>
+      <p>Roughly 600,000 SF of office and production space spanning the Culver Studios complex and Culver Steps. Amazon's primary West Coast TV/film footprint. Major employer for the buyer pool we're selling to.</p>
+      <span class="tag-active">Major employer</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.5 mi south</div>
+      <h4>Sony Pictures Studios</h4>
+      <p>45-acre studio campus headquartered in Culver City. Long-standing anchor employer that's been a primary force shaping local housing demand for decades. Easy walk or bike from Higuera.</p>
+      <span class="tag-active">Anchor employer</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.6 mi · 12 min walk</div>
+      <h4>Metro E Line · Culver City Station</h4>
+      <p>The Expo Line connection straight into Downtown LA and Santa Monica. Ivy Station — the 500-unit mixed-use development above the station — anchors a Warner Bros. Discovery office (240,000 SF) plus a hotel and ground-floor retail.</p>
+      <span class="tag-active">Transit gateway</span>
+    </div>
+    <div class="poi-card reveal">
+      <div class="dist">~0.8 mi east</div>
+      <h4>Downtown Culver City</h4>
+      <p>The Culver Hotel, the Kirk Douglas Theatre, Father's Office, Akasha, Citizen Public Market, the Saturday Farmers Market. The neighborhood's social and culinary core — and the reason buyers fall for Culver City in the first place.</p>
+      <span class="tag-active">Lifestyle core</span>
+    </div>
+  </div>
+
+  <div class="insight reveal mt-24" style="background:var(--forest);">
+    <div class="k" style="color:#E9C9B3;">What's Going On of Significance</div>
+    <h2 style="color:#F2EFE8;">Apple, Amazon, Warner Bros., Sony, and TikTok are all <em>within walking distance</em>. The buyer pool is being built right now — on this block.</h2>
+    <p style="color:rgba(242,239,232,.85);">Apple's Culver Crossings campus alone will bring 2,400 employees to within four blocks of these homes. Amazon's expansion at Culver Steps, Warner Bros.' Ivy Station lease, and Sony's continued anchor presence mean Lucerne-Higuera is being reshaped from "good Culver City pocket" to "epicenter of the Westside creative-tech economy." Buyers who get in now are buying a block that hasn't fully repriced yet.</p>
+  </div>
+</div></section>
+
+<!-- PRICING -->
+<section id="pricing"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">05</span><div><div class="sec-eyebrow">Pricing · Both Higuera Homes</div><h2>Priced the same. Let buyers choose.</h2></div></div>
+  <p class="lede reveal">Identical price on Unit A and Unit B. That's intentional — it removes price as the decision variable and forces buyers to choose on what they actually value (master suite + balconies vs. open great-room). Two distinct floor plans, one price point, head-to-head competitive tension. Positioned at the small-lot-subdivision discount to detached SFRs, plus the new-construction premium added back.
+
+  <div class="grid-3 mt-32">
+    <div class="card card-green lift reveal">
+      <div class="card-title">The Floor</div>
+      <div class="big text-green mt-8">Resale parity</div>
+      <p class="mt-8">We don't price below comparable resale homes — buyers get a brand-new home for what tired stock is fetching. That's the value hook.</p>
+    </div>
+    <div class="card card-blue lift reveal">
+      <div class="card-title">The Adjustment</div>
+      <div class="big text-blue mt-8">Small-lot</div>
+      <p class="mt-8">Two-on-a-lot trades at a measured discount to a detached SFR on its own parcel. We price into that reality, not against it.</p>
+    </div>
+    <div class="card card-amber lift reveal">
+      <div class="card-title">The Premium</div>
+      <div class="big text-terra mt-8">New build</div>
+      <p class="mt-8">Modern systems, warranty-fresh, zero deferred maintenance, designer finishes — all command a real premium over the 1920s–50s field.</p>
+    </div>
+  </div>
+
+  <div class="card mt-24 reveal">
+    <div class="card-title">How We Set The Number</div>
+    <p class="mt-8" style="color:var(--secondary);font-size:15px;">We'd run a quiet off-market test before committing to a public price — letting real buyer feedback set the figure rather than a guess. Pricing two distinct floor plans also lets us position each home to its own buyer, which protects value across the pair. The exact list numbers get locked once we walk the finished product together and read the off-market response.</p>
+  </div>
+</div></section>
+
+<!-- MARKET -->
+<section id="market"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">06</span><div><div class="sec-eyebrow">The Active Market · Lucerne-Higuera</div><h2>The comps, weighted to right now.</h2></div></div>
+  <p class="lede reveal">Recent sales <span class="star">★</span> carry the most weight. Note these are largely older, detached homes on their own lots — useful for reading neighborhood demand and velocity, with the small-lot adjustment applied to the new Higuera homes. The pattern is unambiguous: homes are moving fast and often over ask in the immediate blocks around Higuera. <em style="color:var(--muted);font-style:normal;">Click any column header to sort.</em></p>
+
+  <div class="comp-wrap reveal">
+    <table>
+      <thead>
+        <tr><th>Address</th><th>Status</th><th>Price</th><th>$/SF</th><th>SF</th><th>Bd/Ba</th><th>Yr</th><th>Sold</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr class="row-hl"><td class="addr">4109 Higuera St<span class="star">★</span></td><td><span class="tag tag-sold">Closed</span></td><td>$1,705,000</td><td class="ppsf">$1,579</td><td>1,080</td><td>2/1</td><td>1923</td><td>Apr '26</td><td>Same street · over ask · 13 DOM</td></tr>
+        <tr class="row-hl"><td class="addr">9515 Lucerne Ave<span class="star">★</span></td><td><span class="tag tag-sold">Sold</span></td><td>$1,817,000</td><td class="ppsf">$1,325</td><td>1,371</td><td>2/2</td><td>1950</td><td>Mar '26</td><td>Over ask · 14 DOM</td></tr>
+        <tr class="row-hl"><td class="addr">4070 Lafayette Pl C<span class="star">★</span></td><td><span class="tag tag-sold">Sold</span></td><td>$1,750,000</td><td class="ppsf">$1,597</td><td>1,096</td><td>2/1.5</td><td>1927</td><td>Mar '26</td><td>~10% over ask · 12 DOM</td></tr>
+        <tr class="row-hl"><td class="addr">4180 Lafayette Pl<span class="star">★</span></td><td><span class="tag tag-sold">Sold</span></td><td>$1,925,000</td><td class="ppsf">$1,296</td><td>1,485</td><td>3/2</td><td>1940</td><td>Feb '26</td><td>3-bed · recent</td></tr>
+        <tr><td class="addr">4070 Lafayette Pl A</td><td><span class="tag tag-sold">Sold</span></td><td>$1,731,000</td><td class="ppsf">$1,188</td><td>1,457</td><td>3/2</td><td>1927</td><td>Nov '25</td><td>3-bed · over ask</td></tr>
+        <tr><td class="addr">3635 Wesley St</td><td><span class="tag tag-sold">Sold</span></td><td>$2,050,000</td><td class="ppsf">$1,130</td><td>1,814</td><td>3/2</td><td>1928</td><td>Sep '25</td><td>Closest SF match · 54 DOM</td></tr>
+        <tr><td class="addr">3588 Helms Ave</td><td><span class="tag tag-sold">Sold</span></td><td>$1,651,000</td><td class="ppsf">$1,314</td><td>1,256</td><td>2/2</td><td>1927</td><td>Sep '25</td><td>Well over ask · 12 DOM</td></tr>
+        <tr><td class="addr">9030 Carson St</td><td><span class="tag tag-sold">Sold</span></td><td>$1,612,000</td><td class="ppsf">$1,518</td><td>1,062</td><td>2/1</td><td>1924</td><td>Sep '25</td><td>Small footprint · 16 DOM</td></tr>
+        <tr><td class="addr">3552 Schaefer St</td><td><span class="tag tag-active">Active</span></td><td>$1,999,000</td><td class="ppsf">$1,306</td><td>1,531</td><td>3/2</td><td>1948</td><td>—</td><td>Older SFR · 171 DOM · stale</td></tr>
+        <tr><td class="addr">4071 Lafayette Pl 2</td><td><span class="tag tag-soon">Coming Soon</span></td><td>$1,699,000</td><td class="ppsf">$722</td><td>2,352</td><td>3/2.5</td><td>2004</td><td>—</td><td>Townhome · HOA · larger</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="lede reveal mt-16" style="font-size:14px;color:var(--muted);">Reading the tape: homes are selling in 12–16 days, routinely over ask. That velocity is exactly what a coordinated off-market → private exclusive rollout is built to capture — and it tells us the demand is here right now.</p>
+</div></section>
+
+<!-- 3-PHASE -->
+<section id="strategy"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">07</span><div><div class="sec-eyebrow">The Compass 3-Phase Launch</div><h2>The engine we run for both Higuera homes.</h2></div></div>
+  <p class="lede reveal">We don't just "put it on the market." Both Higuera homes move through the same three phases — together, in parallel — so each phase compounds demand for the pair. Quiet first. Controlled second. Public only when the data tells us to.</p>
+
+  <div class="grid-3 mt-32">
+    <div class="card lift reveal">
+      <div class="chip-ic ic-navy serif">01</div>
+      <div class="phase-stat">Phase 01</div>
+      <h3 style="margin-top:4px;">Off-Market</h3>
+      <p class="mt-8" style="color:var(--secondary);"><strong>Quiet demand test.</strong> Agent-to-agent outreach, our database, top Westside buyer's agents, the three target audiences. We surface real buyer appetite for both units with <em>zero days-on-market accruing</em> and no public footprint — and we use what we learn to lock the public list price.</p>
+      <ul class="clean" style="margin-top:14px;">
+        <li>Compass internal network + AMRE Sphere</li>
+        <li>Direct outreach to qualified buyer's agents</li>
+        <li>Read which floor plan draws which buyer</li>
+      </ul>
+    </div>
+    <div class="card lift reveal">
+      <div class="chip-ic ic-forest serif">02</div>
+      <div class="phase-stat">Phase 02</div>
+      <h3 style="margin-top:4px;">Private Exclusive</h3>
+      <p class="mt-8" style="color:var(--secondary);"><strong>Controlled exposure.</strong> Both homes listed inside the Compass Private Exclusive network — and shared with Coldwell Banker, Sotheby's, Corcoran, and the top independents — <em>without hitting Zillow, Redfin, or the MLS</em>. Builds urgency among serious buyers while the homes are still "off-market" to the public.</p>
+      <ul class="clean" style="margin-top:14px;">
+        <li>Compass Private Exclusive listing</li>
+        <li>Coming Soon network distribution</li>
+        <li>Showings by qualified appointment only</li>
+      </ul>
+    </div>
+    <div class="card lift reveal">
+      <div class="chip-ic ic-terra serif">03</div>
+      <div class="phase-stat">Phase 03</div>
+      <h3 style="margin-top:4px;">On-Market</h3>
+      <p class="mt-8" style="color:var(--secondary);"><strong>Full public launch.</strong> A polished debut backed by everything we learned in Phases 01–02 — and only if those phases haven't already delivered the buyers. We launch from strength: real pricing intelligence, a warm buyer pool, and a campaign that's already proven the demand.</p>
+      <ul class="clean" style="margin-top:14px;">
+        <li>MLS + Zillow + Redfin + Compass.com</li>
+        <li>Pro photography, drone, video, brochure</li>
+        <li>Targeted social + paid distribution</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight reveal mt-24" style="background:var(--forest);">
+    <div class="k" style="color:#E9C9B3;">Why It Works Here</div>
+    <h2 style="color:#F2EFE8;">Two homes, three phases, three buyer profiles — <em>and every losing bidder becomes the next warm lead.</em></h2>
+    <p style="color:rgba(242,239,232,.85);">The runner-up on Unit A is the buyer for Unit B. The off-market tire-kicker becomes the Phase 2 buyer. The Phase 2 underbidder becomes the Phase 3 cash offer. One coordinated launch, compounding demand at every step — and a pricing read that's earned, not guessed.</p>
+  </div>
+</div></section>
+
+<!-- SEQUENCE -->
+<section id="sequence"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">08</span><div><div class="sec-eyebrow">The Sequence</div><h2>Both Higuera at once. One coordinated launch.</h2></div></div>
+  <p class="lede reveal">Unit A and Unit B run the same three-phase timeline, in parallel. Same off-market launch, same private-exclusive window, same on-market debut if we need it. Every showing on one home is a showing on the other, and every losing bidder becomes a warm lead for the next unit.</p>
+
+  <div class="lanes reveal">
+    <div class="lane">
+      <div class="lane-l">
+        <div class="a">4108 Higuera · Unit A</div>
+        <div class="m">New build · 3bd + master · ~1,780 SF</div>
+        <span class="c c-now">Launch Now</span>
+      </div>
+      <div class="lane-r">
+        <div class="seg seg-off" style="flex:30;"><span>Off-Market</span></div>
+        <div class="seg seg-pe" style="flex:34;"><span>Private Exclusive</span></div>
+        <div class="seg seg-mkt" style="flex:30;"><span>On-Market</span></div>
+      </div>
+    </div>
+    <div class="lane">
+      <div class="lane-l">
+        <div class="a">4110 Higuera · Unit B</div>
+        <div class="m">New build · 3bd · ~1,770 SF</div>
+        <span class="c c-now">Launch Now</span>
+      </div>
+      <div class="lane-r">
+        <div class="seg seg-off" style="flex:30;"><span>Off-Market</span></div>
+        <div class="seg seg-pe" style="flex:34;"><span>Private Exclusive</span></div>
+        <div class="seg seg-mkt" style="flex:30;"><span>On-Market</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="legend reveal">
+    <div><i style="background:var(--navy);"></i>Off-Market — quiet demand test</div>
+    <div><i style="background:var(--forest);"></i>Private Exclusive — controlled exposure</div>
+    <div><i style="background:var(--terra);"></i>On-Market — full public launch</div>
+  </div>
+</div></section>
+
+<!-- IN RESERVE -->
+<section id="reserve"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">09</span><div><div class="sec-eyebrow">In Reserve · A Detached SFR Option</div><h2>Held — and ready to deploy when the right buyer surfaces.</h2></div></div>
+  <p class="lede reveal">There's an additional property in the portfolio — a true detached single-family residence on its own lot — that stays in our pocket. It's not part of the active Higuera launch, and it doesn't need to be. The right play is to keep it ready for the buyer who tells us, in plain language, that what they really want is an SFR on its own lot and they have the budget for it.</p>
+
+  <div class="grid-2 mt-32">
+    <div class="card lift reveal">
+      <div class="card-title">When We Deploy It</div>
+      <ul class="clean" style="margin-top:14px;">
+        <li><strong>A Higuera underbidder wants a true detached SFR.</strong> Someone who looked at Unit A or B and walked away saying "I really wanted single-family, my own lot, larger budget" — we have a warm answer ready.</li>
+        <li><strong>Inventory tightens further.</strong> If true SFR supply on the Westside continues to compress, the reserve property commands a premium it doesn't today.</li>
+        <li><strong>The Higuera campaign locks comps.</strong> Closing the Higuera pair gives us defensible street-level data to price the reserve home with conviction.</li>
+      </ul>
+    </div>
+    <div class="card card-forest reveal">
+      <div class="card-title">Why Not Lead With It</div>
+      <p style="margin-top:12px;font-size:15.5px;color:rgba(245,245,247,.86);">A third simultaneous launch dilutes the campaign and risks the portfolio's own homes competing against each other on price. Lead with the matched Higuera pair — two distinct floor plans at the same price — and the buyer pool tells us when, and at what number, the reserve home should come out.</p>
+      <p style="margin-top:14px;font-size:14.5px;color:rgba(245,245,247,.7);font-style:italic;">A held listing in a tight market is an advantage, not a liability. The neighborhood is moving in the right direction, and the reserve property doesn't lose value sitting.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- NEXT STEPS -->
+<section id="next"><div class="wrap sec">
+  <div class="sec-head reveal"><span class="sec-num">10</span><div><div class="sec-eyebrow">Ready When You Are</div><h2>What happens next.</h2></div></div>
+  <p class="lede reveal">No cost, no obligation. When you're ready to choose an agent, this work is already in your hands.</p>
+  <div class="grid-3 mt-32">
+    <div class="card lift reveal"><div class="phase-stat">01</div><h3 style="margin-top:8px;">Walk Higuera together</h3><p class="mt-8" style="color:var(--secondary);">We walk both Unit A and Unit B with you on site, finalize the side-by-side positioning, and lock the matched list price ahead of Phase 01.</p></div>
+    <div class="card lift reveal"><div class="phase-stat">02</div><h3 style="margin-top:8px;">Open Phase 01 quietly</h3><p class="mt-8" style="color:var(--secondary);">Off-market launch for both units in parallel — agent-to-agent outreach to the three buyer profiles. We read the response and confirm the public number.</p></div>
+    <div class="card lift reveal"><div class="phase-stat">03</div><h3 style="margin-top:8px;">Hold reserve · ready to deploy</h3><p class="mt-8" style="color:var(--secondary);">The reserve detached SFR option stays in pocket. We deploy it when the Higuera buyer pool surfaces an SFR-specific buyer with the right budget, or when conditions argue for it.</p></div>
+  </div>
+  <div class="cta-row reveal">
+    <a class="btn btn-pri" href="mailto:Michael.Abraham@Compass.com?subject=Higuera%20Launch%20%E2%80%94%20Let%27s%20Talk&cc=ania.d@compass.com">Let's set a time →</a>
+    <a class="btn btn-sec" href="tel:3237198585">Call Michael · (323) 719-8585</a>
+  </div>
+</div></section>
+
+<footer>
+  <div class="foot">
+    <div>
+      <div class="fb">AMRE Real Estate Group</div>
+      <div class="fs">Michael Abraham · REALTOR® DRE# 02242095<br>Ania de Pourbaix · Principal Agent DRE# 01891438<br>9454 Wilshire Blvd, Beverly Hills, CA 90212</div>
+    </div>
+    <div class="fm">Prepared for Peter Choi<br>The Higuera Launch · Updated May 27, 2026 at 6:15 PM PT<br>amre.group · Compass</div>
+  </div>
+  <div class="conf">Confidential — prepared as a seller strategy for discussion purposes. Pricing, comparable selections, and sequencing are preliminary and subject to refinement once the Higuera homes are complete and the off-market response is read. The Higuera homes are two single-family dwellings on one lot (small-lot subdivision); comps shown are primarily detached homes on separate parcels and are used to gauge neighborhood demand. An additional detached single-family residence in the portfolio is held in reserve and is not part of the current active marketing plan. Not an offer of representation or a guarantee of sale price.</div>
+</footer>
+
+<script>
+  // ===== Password gate =====
+  (function(){
+    var ACCESS_CODE = 'peterchoi##2026';
+    document.body.classList.add('locked');
+    var gate=document.getElementById('gate');
+    var gateCard=document.getElementById('gateCard');
+    var gateForm=document.getElementById('gateForm');
+    var gateInput=document.getElementById('gateInput');
+    var gateError=document.getElementById('gateError');
+    function unlock(){
+      gate.style.transition='opacity 0.4s';gate.style.opacity='0';
+      setTimeout(function(){
+        gate.style.display='none';
+        document.body.classList.remove('locked');
+        try{sessionStorage.setItem('choi_unlocked','1');}catch(e){}
+        window.dispatchEvent(new Event('scroll'));
+      },400);
+    }
+    try{
+      if(sessionStorage.getItem('choi_unlocked')==='1'){
+        gate.style.display='none';
+        document.body.classList.remove('locked');
+      }
+    }catch(e){}
+    gateForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=gateInput.value.trim();
+      if(v===ACCESS_CODE){gateError.textContent='';unlock();}
+      else{
+        gateError.textContent='Invalid access code';
+        gateCard.classList.remove('shake');void gateCard.offsetWidth;gateCard.classList.add('shake');
+        gateInput.value='';gateInput.focus();
+      }
+    });
+  })();
+
+  const prog=document.getElementById('progress');
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}})},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(Math.min(i,5)*0.05)+'s';obs.observe(el);});
+
+  const sections=[...document.querySelectorAll('section[id], header[id]')];
+  const links=[...document.querySelectorAll('.wf')];
+  function onScroll(){
+    const h=document.documentElement;
+    const pct=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+    prog.style.width=pct+'%';
+    let cur=sections[0]?sections[0].id:'';
+    const mid=window.scrollY+160;
+    for(const s of sections){ if(s.offsetTop<=mid) cur=s.id; }
+    links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+
+  // ===== Sortable comps table =====
+  (function(){
+    const table = document.querySelector('#market table');
+    if(!table) return;
+    const headers = table.querySelectorAll('thead th');
+    const tbody = table.querySelector('tbody');
+    const originalRows = Array.from(tbody.querySelectorAll('tr'));
+
+    // Add sortability indicator to each header
+    headers.forEach((th, i) => {
+      const ind = document.createElement('span');
+      ind.className = 'sort-ind';
+      ind.textContent = '▲▼';
+      th.appendChild(ind);
+      th.addEventListener('click', () => sortBy(i, th));
+    });
+
+    // Parse cell value based on column type
+    // Columns: 0=Address, 1=Status, 2=Price, 3=$/SF, 4=SF, 5=Bd/Ba, 6=Yr, 7=Sold, 8=Note
+    function parseVal(cell, col){
+      const raw = cell.textContent.trim();
+      if(col === 2 || col === 3) return parseFloat(raw.replace(/[$,]/g,'')) || 0;
+      if(col === 4 || col === 6) return parseFloat(raw.replace(/,/g,'')) || 0;
+      if(col === 5){
+        const [b,ba] = raw.split('/').map(s => parseFloat(s) || 0);
+        return b * 100 + ba;
+      }
+      if(col === 7){
+        // "Apr '26" → numeric for sort; "—" or empty sorts last
+        const months = {Jan:1,Feb:2,Mar:3,Apr:4,May:5,Jun:6,Jul:7,Aug:8,Sep:9,Oct:10,Nov:11,Dec:12};
+        const m = raw.match(/([A-Za-z]+)\s*'(\d+)/);
+        if(!m) return 0;
+        return (parseInt(m[2]) || 0) * 100 + (months[m[1]] || 0);
+      }
+      if(col === 1){
+        // Status priority: Closed/Sold > Active > Coming Soon
+        const t = raw.toLowerCase();
+        if(t.includes('closed') || t.includes('sold')) return 1;
+        if(t.includes('active')) return 2;
+        if(t.includes('coming')) return 3;
+        return 4;
+      }
+      return raw.toLowerCase();
+    }
+
+    let currentCol = -1;
+    let currentDir = null;
+
+    function sortBy(col, th){
+      // Toggle direction; 3rd click on same column restores original order
+      let dir;
+      if(col === currentCol){
+        if(currentDir === 'asc'){ dir = 'desc'; }
+        else if(currentDir === 'desc'){ dir = null; }
+        else { dir = 'asc'; }
+      } else {
+        dir = 'asc';
+      }
+      currentCol = col;
+      currentDir = dir;
+
+      headers.forEach(h => h.classList.remove('sort-asc','sort-desc'));
+
+      if(dir === null){
+        originalRows.forEach(r => tbody.appendChild(r));
+        currentCol = -1;
+        return;
+      }
+
+      th.classList.add(dir === 'asc' ? 'sort-asc' : 'sort-desc');
+
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      rows.sort((a, b) => {
+        const av = parseVal(a.cells[col], col);
+        const bv = parseVal(b.cells[col], col);
+        if(av < bv) return dir === 'asc' ? -1 : 1;
+        if(av > bv) return dir === 'asc' ?  1 : -1;
+        return 0;
+      });
+      rows.forEach(r => tbody.appendChild(r));
+    }
+  })();
+</script>
+</body>
+</html>

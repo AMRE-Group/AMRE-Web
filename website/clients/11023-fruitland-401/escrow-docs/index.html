@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11023 Fruitland #401 · Escrow Document Index</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --white:#FFFFFF; --gray-bg:#F5F5F7; --gray-bg-2:#FBFBFD;
+    --ink:#1D1D1F; --ink-2:#424245; --ink-3:#6E6E73; --ink-4:#86868B;
+    --hairline:#D2D2D7; --hairline-soft:#E8E8ED;
+    --blue:#0071E3; --blue-hover:#0077ED;
+    --red:#E30000; --red-bg:#FFF1F0;
+    --green:#248A3D; --green-bg:#EBF7EE;
+    --amber:#B25000; --amber-bg:#FFF4E5;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Monaco,"Cascadia Mono",monospace;
+    --radius:18px; --radius-lg:24px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+  html,body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.47;letter-spacing:-0.003em}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--ink);color:var(--white)}
+
+  #gate{position:fixed;inset:0;background:var(--white);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background-image:radial-gradient(at 20% 20%,rgba(0,113,227,0.04) 0,transparent 50%),radial-gradient(at 80% 80%,rgba(0,0,0,0.03) 0,transparent 50%)}
+  .gate-card{max-width:440px;width:100%;text-align:center;padding:48px 32px}
+  .gate-brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:40px}
+  .gate-brand .sep{width:1px;height:18px;background:var(--hairline)}
+  .gate-title{font-size:48px;line-height:1.05;font-weight:600;letter-spacing:-0.022em;margin-bottom:8px}
+  .gate-sub{font-size:17px;color:var(--ink-3);margin-bottom:36px}
+  .gate-form{display:flex;flex-direction:column;gap:12px}
+  .gate-input{width:100%;padding:16px 18px;font-family:var(--sans);font-size:17px;background:var(--gray-bg);border:1px solid transparent;border-radius:12px;color:var(--ink);text-align:center;outline:none;transition:all 0.15s}
+  .gate-input:focus{background:var(--white);border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,0.15)}
+  .gate-input::placeholder{color:var(--ink-4)}
+  .gate-btn{padding:14px 18px;background:var(--blue);color:var(--white);border:none;font-family:var(--sans);font-size:17px;font-weight:500;border-radius:980px;cursor:pointer;transition:background 0.15s,transform 0.15s}
+  .gate-btn:hover{background:var(--blue-hover)}
+  .gate-btn:active{transform:scale(0.98)}
+  .gate-error{color:var(--red);font-size:13px;height:18px;margin-top:4px}
+  .gate-card.shake{animation:shake 0.4s}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+  .gate-foot{margin-top:36px;font-size:12px;color:var(--ink-4)}
+
+  .wm-amre{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:0.18em;color:var(--ink)}
+  .wm-compass{font-family:var(--sans);font-size:19px;font-weight:400;letter-spacing:-0.01em;color:var(--ink);text-transform:lowercase}
+  .wm-amre::before{content:"AMRE"}
+  .wm-compass::before{content:"compass"}
+
+  #dashboard{display:none}
+  #dashboard.live{display:block;animation:reveal 0.6s ease-out}
+  @keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  .wrap-wide{max-width:1240px;margin:0 auto;padding:0 32px}
+
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hairline-soft)}
+  .topnav-inner{display:flex;align-items:center;justify-content:space-between;height:52px}
+  .topnav-left,.topnav-right{display:flex;align-items:center;gap:16px}
+  .topnav-sep{width:1px;height:16px;background:var(--hairline)}
+  .topnav-meta{font-size:12px;color:var(--ink-3)}
+  .topnav-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-3)}
+  .topnav-status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.85)}}
+
+  .hero{padding:96px 0 80px;text-align:center;background:linear-gradient(180deg,var(--white) 0%,var(--gray-bg-2) 100%)}
+  .hero-eyebrow{font-size:19px;font-weight:600;color:var(--blue);margin-bottom:16px}
+  .hero-title{font-size:clamp(48px,7vw,88px);line-height:1.04;font-weight:600;letter-spacing:-0.025em;margin-bottom:12px}
+  .hero-sub{font-size:clamp(19px,2vw,24px);line-height:1.3;color:var(--ink-3);max-width:760px;margin:0 auto 32px}
+  .hero-pills{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:24px}
+  .hero-pill{display:inline-flex;align-items:baseline;gap:8px;font-size:15px;color:var(--ink-3)}
+  .hero-pill strong{color:var(--ink);font-weight:500;font-size:17px}
+
+  .critical{padding:80px 0;background:var(--ink);color:var(--white)}
+  .critical .sec-title{color:var(--white)}
+  .critical .sec-eyebrow{color:var(--ink-4)}
+  .critical .sec-sub{color:rgba(255,255,255,0.72)}
+  .crit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:48px}
+  .crit-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform 0.2s,background 0.2s}
+  .crit-card:hover{background:rgba(255,255,255,0.09);transform:translateY(-2px)}
+  .crit-when{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .crit-tag{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;background:var(--red);color:var(--white);font-weight:600;border-radius:980px}
+  .crit-tag.amber{background:#F08028}
+  .crit-tag.blue{background:var(--blue)}
+  .crit-time{font-size:13px;color:rgba(255,255,255,0.7)}
+  .crit-title{font-size:22px;line-height:1.2;font-weight:600;letter-spacing:-0.018em;color:var(--white);margin-top:4px}
+  .crit-detail{font-size:15px;line-height:1.5;color:rgba(255,255,255,0.78)}
+  .crit-action{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);font-size:14px;font-weight:500;color:#6BA8FF}
+  .crit-action a:hover{color:#97C0FF}
+
+  section.lt{padding:96px 0;background:var(--white)}
+  section.alt{padding:96px 0;background:var(--gray-bg)}
+  .sec-eyebrow{font-size:15px;font-weight:600;color:var(--blue);margin-bottom:12px;letter-spacing:0.04em;text-transform:uppercase}
+  .sec-title{font-size:clamp(34px,4.5vw,56px);line-height:1.08;font-weight:600;letter-spacing:-0.02em;margin-bottom:12px}
+  .sec-sub{font-size:19px;color:var(--ink-3);max-width:680px;margin-bottom:8px}
+  .sec-head{margin-bottom:48px}
+
+  .doc-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:var(--radius);overflow:hidden;border:1px solid var(--hairline-soft)}
+  section.alt .doc-table{background:var(--white)}
+  .doc-table th{text-align:left;padding:14px 18px;font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-3);background:var(--gray-bg-2);border-bottom:1px solid var(--hairline-soft)}
+  .doc-table td{padding:18px;border-bottom:1px solid var(--hairline-soft);vertical-align:top;font-size:15px;line-height:1.45}
+  .doc-table tr:last-child td{border-bottom:none}
+  .doc-table tr:hover td{background:var(--gray-bg-2)}
+  .doc-name{font-weight:500;color:var(--ink);font-size:15.5px}
+  .doc-meta{font-size:13px;color:var(--ink-3);margin-top:4px}
+  .doc-date{white-space:nowrap;font-family:var(--mono);font-size:13px;color:var(--ink-3)}
+  .doc-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:4px 10px;border-radius:980px;letter-spacing:0.02em}
+  .status-done{background:var(--green-bg);color:var(--green)}
+  .status-pending{background:var(--amber-bg);color:var(--amber)}
+  .status-open{background:rgba(0,113,227,0.08);color:var(--blue)}
+  .status-info{background:var(--gray-bg);color:var(--ink-3)}
+  .doc-links{display:flex;flex-direction:column;gap:6px;white-space:nowrap}
+  .doc-link{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--blue);font-weight:500}
+  .doc-link:hover{color:var(--blue-hover);text-decoration:underline}
+  .doc-link::before{content:'→';opacity:0.6}
+
+  .glance{padding:64px 0;background:var(--gray-bg);border-top:1px solid var(--hairline-soft);border-bottom:1px solid var(--hairline-soft)}
+  .glance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+  .glance-stat{text-align:center}
+  .glance-num{font-size:48px;line-height:1;font-weight:600;letter-spacing:-0.025em;color:var(--ink);font-feature-settings:"tnum"}
+  .glance-label{font-size:13px;color:var(--ink-3);margin-top:8px;letter-spacing:0.04em;text-transform:uppercase;font-weight:500}
+
+  .fact-card{background:var(--white);border:1px solid var(--hairline-soft);border-radius:var(--radius);padding:32px;margin-bottom:32px}
+  .fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px 32px}
+  .fact-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);font-weight:600;margin-bottom:6px}
+  .fact-value{font-size:16px;color:var(--ink);font-weight:500;line-height:1.35}
+  .fact-value span{display:block;font-size:13px;color:var(--ink-3);font-weight:400;margin-top:2px}
+
+  footer{padding:48px 0;background:var(--gray-bg);border-top:1px solid var(--hairline-soft);text-align:center}
+  .foot-brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:16px}
+  .foot-brand .sep{width:1px;height:14px;background:var(--hairline)}
+  .foot-meta{font-size:12px;color:var(--ink-4);letter-spacing:0.02em}
+
+  .noise{padding:48px 0;background:var(--white);border-top:1px solid var(--hairline-soft)}
+  .noise-card{background:var(--gray-bg-2);border:1px solid var(--hairline-soft);border-radius:var(--radius);padding:24px 28px}
+  .noise-label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);font-weight:600;margin-bottom:10px}
+  .noise-text{font-size:14px;color:var(--ink-3);line-height:1.55}
+
+  @media (max-width:980px){
+    .wrap,.wrap-wide{padding:0 24px}
+    section.lt,section.alt{padding:64px 0}
+    .hero{padding:64px 0 56px}
+    .doc-table thead{display:none}
+    .doc-table,.doc-table tbody,.doc-table tr,.doc-table td{display:block;width:100%}
+    .doc-table tr{border-bottom:1px solid var(--hairline-soft);padding:18px 0}
+    .doc-table tr:last-child{border-bottom:none}
+    .doc-table td{padding:6px 18px;border:none}
+    .doc-date{margin-top:4px}
+    .doc-links{flex-direction:row;flex-wrap:wrap;gap:14px;margin-top:8px}
+  }
+  @media (max-width:640px){
+    .topnav-meta{display:none}
+    .hero-pills{gap:20px}
+    .glance-num{font-size:36px}
+  }
+
+  @media print{
+    #gate{display:none}
+    #dashboard{display:block !important}
+    .topnav{position:static}
+    .critical{background:var(--white);color:var(--ink)}
+    .crit-card{background:var(--white);border:1px solid var(--hairline);color:var(--ink)}
+    .crit-title,.crit-detail{color:var(--ink)}
+    section.lt,section.alt{padding:32px 0;page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-card" id="gateCard">
+    <div class="gate-brand">
+      <span class="wm-amre"></span>
+      <span class="sep"></span>
+      <span class="wm-compass"></span>
+    </div>
+    <h1 class="gate-title">Escrow File</h1>
+    <p class="gate-sub">11023 Fruitland Drive · #401</p>
+    <form class="gate-form" onsubmit="event.preventDefault();checkGate()">
+      <input id="gateInput" class="gate-input" type="password" placeholder="Access code" autocomplete="off" autofocus>
+      <button class="gate-btn" type="submit">Continue</button>
+      <div class="gate-error" id="gateError"></div>
+    </form>
+    <div class="gate-foot">Confidential · For AMRE Real Estate Group at Compass</div>
+  </div>
+</div>
+
+<div id="dashboard">
+
+  <nav class="topnav">
+    <div class="wrap-wide topnav-inner">
+      <div class="topnav-left">
+        <span class="wm-amre"></span>
+        <span class="topnav-sep"></span>
+        <span class="wm-compass"></span>
+      </div>
+      <div class="topnav-right">
+        <span class="topnav-meta">Escrow HH-4239</span>
+        <span class="topnav-sep"></span>
+        <span class="topnav-meta">Updated May 11, 2026</span>
+        <span class="topnav-sep"></span>
+        <span class="topnav-status">In Escrow</span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">Escrow Document Index</div>
+      <h1 class="hero-title">11023 Fruitland · #401</h1>
+      <p class="hero-sub">14-day capture window · April 27 – May 11, 2026 · Every document received or sent, with one-tap Gmail links and authoritative source-system pointers.</p>
+      <div class="hero-pills">
+        <span class="hero-pill"><strong>$1,150,000</strong> list</span>
+        <span class="hero-pill"><strong>3 / 2.5 / 1,705 SF</strong></span>
+        <span class="hero-pill"><strong>Studio City · 91604</strong></span>
+        <span class="hero-pill"><strong>APN 2378-008-043</strong></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="glance">
+    <div class="wrap">
+      <div class="glance-grid">
+        <div class="glance-stat"><div class="glance-num">36</div><div class="glance-label">Threads tracked</div></div>
+        <div class="glance-stat"><div class="glance-num">7</div><div class="glance-label">Doc categories</div></div>
+        <div class="glance-stat"><div class="glance-num">4</div><div class="glance-label">Open items</div></div>
+        <div class="glance-stat"><div class="glance-num" id="daysInEscrow">—</div><div class="glance-label">Days in escrow</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="critical">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">Open Items</div>
+        <h2 class="sec-title">Four threads still moving.</h2>
+        <p class="sec-sub">Items needing resolution this week. Tap to open the source.</p>
+      </div>
+      <div class="crit-grid">
+        <div class="crit-card">
+          <div class="crit-when"><span class="crit-tag">Action</span><span class="crit-time">Disclosures · May 11</span></div>
+          <h3 class="crit-title">Clarify TDS C.2 / SPQ 15.D</h3>
+          <p class="crit-detail">Matt flagged both marked NO. Confirm with Pascal whether the property shares common walls / utilities and update Glide before resending the bundle to buyer side.</p>
+          <div class="crit-action"><a href="https://mail.google.com/mail/u/0/#all/19e145991ee54b40">Open thread in Gmail</a></div>
+        </div>
+        <div class="crit-card">
+          <div class="crit-when"><span class="crit-tag amber">Scheduled</span><span class="crit-time">Wed May 13 · 1:00–2:50 PM</span></div>
+          <h3 class="crit-title">General Inspection</h3>
+          <p class="crit-detail">Viktoriia + buyers on-site. Confirm access via call box (M. Abraham #814), bring keys, plan to be present for at least the start.</p>
+          <div class="crit-action"><a href="https://mail.google.com/mail/u/0/#all/19e095d3d63876b5">Open invite</a></div>
+        </div>
+        <div class="crit-card">
+          <div class="crit-when"><span class="crit-tag blue">Pending</span><span class="crit-time">HOA · Rush order placed May 7</span></div>
+          <h3 class="crit-title">HOA cert + CC&Rs from Allstate</h3>
+          <p class="crit-detail">$1,283 transfer/cert fee. Holly Hanks submitted on rush — distribution will come through Chartwell. Follow up if not delivered by mid-week.</p>
+          <div class="crit-action"><a href="https://mail.google.com/mail/u/0/#all/19dfeca4d835092f">Open thread</a></div>
+        </div>
+        <div class="crit-card">
+          <div class="crit-when"><span class="crit-tag blue">Pending</span><span class="crit-time">Title · CTC</span></div>
+          <h3 class="crit-title">Preliminary Title Report</h3>
+          <p class="crit-detail">Kyle Johnson is the title officer (confirmed May 8). Matt asked for the Prelim — not yet delivered. Push Dallas Copsey or Freedom Ozog for ETA.</p>
+          <div class="crit-action"><a href="https://mail.google.com/mail/u/0/#all/19c2aca562a664ba">Open title thread</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">01 · Offer & Counter</div>
+        <h2 class="sec-title">The deal terms.</h2>
+        <p class="sec-sub">Offer package, lender notes, and the signed counter.</p>
+      </div>
+      <table class="doc-table">
+        <thead><tr><th>Document</th><th>Date</th><th>Status</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr><td><div class="doc-name">Buyer offer package (RPA + addenda)</div><div class="doc-meta">From Viktoriia Topalo · Buyers: Butenko &amp; Klymenko</div></td><td class="doc-date">May 6</td><td><span class="doc-status status-done">Received</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19dfe01073642c5e">Gmail</a><a class="doc-link" href="https://www.compass.com/business-tracker">Business Tracker</a></div></td></tr>
+          <tr><td><div class="doc-name">Buyer lender &amp; agent notes</div><div class="doc-meta">802 FICO · 25% DTI · Internal capture from Ania</div></td><td class="doc-date">May 6</td><td><span class="doc-status status-info">Internal</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19dff8f144d80a91">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Counter recommendation to Pascal</div><div class="doc-meta">Internal: counter rationale + 4:30 PM call</div></td><td class="doc-date">May 7</td><td><span class="doc-status status-info">Internal</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19dfe558ff9d9b62">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Seller Counter Offer #1 (signed)</div><div class="doc-meta">Compass signature workflow complete</div></td><td class="doc-date">May 10</td><td><span class="doc-status status-done">Signed</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e129846e58e2fd">Gmail</a><a class="doc-link" href="https://www.compass.com/business-tracker">Business Tracker</a></div></td></tr>
+          <tr><td><div class="doc-name">Offer package assembly thread</div><div class="doc-meta">TC pull from Business Tracker (Listing Agreement + Modification)</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Complete</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e084cd8bb899fd">Gmail</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">02 · Escrow Opening</div>
+        <h2 class="sec-title">Setup &amp; introductions.</h2>
+        <p class="sec-sub">Conversion to escrow, vendor selection, team intros, and scheduling.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-grid">
+          <div><div class="fact-label">Escrow Co.</div><div class="fact-value">Chartwell Escrow Services<span>File HH-4239</span></div></div>
+          <div><div class="fact-label">Escrow Officer</div><div class="fact-value">Holly Hanks<span>hhanks@chartwellescrow.com</span></div></div>
+          <div><div class="fact-label">Buyer Side</div><div class="fact-value">Viktoriia Topalo<span>Arledge Group at Compass</span></div></div>
+          <div><div class="fact-label">Status</div><div class="fact-value">Active Under Contract<span>Backups accepted</span></div></div>
+        </div>
+      </div>
+      <table class="doc-table">
+        <thead><tr><th>Document</th><th>Date</th><th>Status</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr><td><div class="doc-name">Pre-escrow → escrow conversion</div><div class="doc-meta">Title/NHD vendor selection: Consumer's Title + SnapNHD</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Opened</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e052412a157175">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Qualia escrow shared-access invite</div><div class="doc-meta">Login required for Chartwell portal</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Sent</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e05ea1c5b7cae7">Gmail</a><a class="doc-link" href="https://app.qualia.com">Qualia</a></div></td></tr>
+          <tr><td><div class="doc-name">Buyer side introduction</div><div class="doc-meta">Viktoriia → full team (Arledge Group)</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Received</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e09dd2b52cf43a">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Listing team introduction to buyer side</div><div class="doc-meta">Michael → Viktoriia + Denise (incl. Matt &amp; Ania)</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Sent</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e098d5f30a405b">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">General Inspection booked</div><div class="doc-meta">Wed May 13 · 1:00–2:50 PM PDT</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-pending">Upcoming</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e095d3d63876b5">Gmail</a><a class="doc-link" href="https://calendar.google.com">Calendar</a></div></td></tr>
+          <tr><td><div class="doc-name">Status change: Active → Active Under Contract</div><div class="doc-meta">Compass system notification</div></td><td class="doc-date">May 9</td><td><span class="doc-status status-info">Logged</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e0c06b1c56ec65">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Compass weekly progress report</div><div class="doc-meta">04/11 – 05/10 marketing performance</div></td><td class="doc-date">May 11</td><td><span class="doc-status status-info">FYI</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e17c601a0e3b32">Gmail</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="lt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">03 · Disclosures</div>
+        <h2 class="sec-title">TDS, SPQ, AVID.</h2>
+        <p class="sec-sub">Statutory and visual-inspection disclosures. Authoritative copies live in Glide / Compass.</p>
+      </div>
+      <table class="doc-table">
+        <thead><tr><th>Document</th><th>Date</th><th>Status</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr><td><div class="doc-name">Statutory Disclosures kickoff to Pascal</div><div class="doc-meta">Matt Bauer · Glide invite</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Sent</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e097d49da4b6a9">Gmail</a><a class="doc-link" href="https://glide.com">Glide</a></div></td></tr>
+          <tr><td><div class="doc-name">Glide "Seller Disclosures" account created</div><div class="doc-meta">Compass system</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-info">Logged</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e0b10cf03955cb">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Renovation / atrium docs from Pascal</div><div class="doc-meta">Building work documentation</div></td><td class="doc-date">May 10</td><td><span class="doc-status status-done">Received</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e0df9ed3e702f5">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">TDS — Transfer Disclosure Statement</div><div class="doc-meta">Completed via Glide by Pascal</div></td><td class="doc-date">May 10</td><td><span class="doc-status status-done">Complete</span></td><td><div class="doc-links"><a class="doc-link" href="https://glide.com">Glide</a></div></td></tr>
+          <tr><td><div class="doc-name">SPQ — Seller Property Questionnaire</div><div class="doc-meta">Completed via Glide by Pascal</div></td><td class="doc-date">May 10</td><td><span class="doc-status status-done">Complete</span></td><td><div class="doc-links"><a class="doc-link" href="https://glide.com">Glide</a></div></td></tr>
+          <tr><td><div class="doc-name">AVID — Agent Visual Inspection Disclosure</div><div class="doc-meta">Generated by Michael in Glide</div></td><td class="doc-date">May 10</td><td><span class="doc-status status-done">Signed</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e124a108f16b73">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">AVID — Compass signature workflow</div><div class="doc-meta">DocuSign-equivalent complete</div></td><td class="doc-date">May 10–11</td><td><span class="doc-status status-done">Signed</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e144255ee574cb">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Seller Disclosures bundle delivered to buyer</div><div class="doc-meta">TDS + SPQ + AVID → Viktoriia / Arledge</div></td><td class="doc-date">May 10</td><td><span class="doc-status status-done">Delivered</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e1435d4aa988da">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Disclosure status / open questions</div><div class="doc-meta">⚠ TDS C.2 + SPQ 15.D both NO — confirm shared walls</div></td><td class="doc-date">May 11</td><td><span class="doc-status status-open">Open</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e145991ee54b40">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Add AVID to file (request to Matt)</div><div class="doc-meta">Ania routing signed AVID into TC's file</div></td><td class="doc-date">May 11</td><td><span class="doc-status status-open">Open</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e17c3a365e7adb">Gmail</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">04 · NHD &amp; Wildfire</div>
+        <h2 class="sec-title">Natural hazard + fire zone.</h2>
+        <p class="sec-sub">SnapNHD order, report delivery, and the AB-38 fire inspection request.</p>
+      </div>
+      <table class="doc-table">
+        <thead><tr><th>Document</th><th>Date</th><th>Status</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr><td><div class="doc-name">NHD / Wildfire order request</div><div class="doc-meta">Michael → Mindy (SnapNHD)</div></td><td class="doc-date">May 9</td><td><span class="doc-status status-done">Ordered</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e0decc806aa409">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">SnapNHD Premium Report</div><div class="doc-meta">Order 158728-2681924 · Escrow HH-4239</div></td><td class="doc-date">May 9</td><td><span class="doc-status status-done">Received</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e0e95f47826723">Gmail</a><a class="doc-link" href="https://www.snapnhd.com">SnapNHD</a></div></td></tr>
+          <tr><td><div class="doc-name">SnapNHD report forwarded to TC</div><div class="doc-meta">Ania → Matt Bauer</div></td><td class="doc-date">May 11</td><td><span class="doc-status status-done">Sent</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e0e95f47826723">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">AB-38 Fire Inspection request to LAFD</div><div class="doc-meta">Property in high-fire-risk zone per NHD</div></td><td class="doc-date">May 11</td><td><span class="doc-status status-open">Submitted</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e177edda1b96b6">Gmail</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="lt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">05 · Title</div>
+        <h2 class="sec-title">Consumer's Title.</h2>
+        <p class="sec-sub">Title officer confirmed. Property profile in hand. Prelim still pending.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-grid">
+          <div><div class="fact-label">Title Co.</div><div class="fact-value">Consumer's Title Company<span>Westlake Village, CA</span></div></div>
+          <div><div class="fact-label">Title Officer</div><div class="fact-value">Kyle B. Johnson<span>Order 26-9941-KJ</span></div></div>
+          <div><div class="fact-label">Account Reps</div><div class="fact-value">Dallas Copsey · Freedom Ozog<span>Customer service: Ethan Upchurch</span></div></div>
+          <div><div class="fact-label">Profile Findings</div><div class="fact-value">Purchased $700K (10/29/10)<span>Open loan $536K (3/3/15)</span></div></div>
+        </div>
+      </div>
+      <table class="doc-table">
+        <thead><tr><th>Document</th><th>Date</th><th>Status</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr><td><div class="doc-name">Title officer confirmation</div><div class="doc-meta">Kyle Johnson confirmed by Dallas Copsey</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Confirmed</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19c2aca562a664ba">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">CTC Open Order Market Insights</div><div class="doc-meta">Originally Jan 13 · Reactivated May 8</div></td><td class="doc-date">May 8</td><td><span class="doc-status status-done">Received</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19bb801d78055652">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Property Profile Report (PDF)</div><div class="doc-meta">Filename: 11023 FRUITLAND DR APT 401 STUDIO CITY, CA 91604.PDF · From Ethan Upchurch</div></td><td class="doc-date">May 11</td><td><span class="doc-status status-done">Received</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e177e18ba346e4">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Preliminary Title Report</div><div class="doc-meta">Requested by Matt · Not yet delivered</div></td><td class="doc-date">Pending</td><td><span class="doc-status status-pending">Pending</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19e145991ee54b40">Follow-up</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">06 · HOA</div>
+        <h2 class="sec-title">Citron Modern Living.</h2>
+        <p class="sec-sub">Managed by Allstate. Rush order placed — docs en route through Chartwell.</p>
+      </div>
+      <div class="fact-card">
+        <div class="fact-grid">
+          <div><div class="fact-label">HOA</div><div class="fact-value">Citron Modern Living<span>The Citron HOA</span></div></div>
+          <div><div class="fact-label">Management</div><div class="fact-value">Allstate HOA Management<span>310-444-7444</span></div></div>
+          <div><div class="fact-label">Transfer Fee</div><div class="fact-value">$1,283.00<span>Cert + transfer combined</span></div></div>
+          <div><div class="fact-label">Order Status</div><div class="fact-value">Submitted Rush · May 7<span>Awaiting distribution</span></div></div>
+        </div>
+      </div>
+      <table class="doc-table">
+        <thead><tr><th>Document</th><th>Date</th><th>Status</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr><td><div class="doc-name">HOA contact shared with escrow</div><div class="doc-meta">Allstate Mgmt · 11030 Santa Monica Blvd, Suite TBD</div></td><td class="doc-date">May 6</td><td><span class="doc-status status-done">Shared</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19dfeca4d835092f">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">HOA docs ordered ($1,283 rush)</div><div class="doc-meta">Holly Hanks submitting on rush</div></td><td class="doc-date">May 7</td><td><span class="doc-status status-pending">In progress</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19dfeca4d835092f">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">HOA cert · CC&amp;Rs · financials · minutes</div><div class="doc-meta">Allstate Management package</div></td><td class="doc-date">Pending</td><td><span class="doc-status status-pending">Awaiting</span></td><td><div class="doc-links"><a class="doc-link" href="https://app.qualia.com">Qualia</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="lt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-eyebrow">07 · Correspondence</div>
+        <h2 class="sec-title">Showings &amp; buyer Q&amp;A.</h2>
+        <p class="sec-sub">Notes from the trailing 14 days that aren't formal documents but matter for the file.</p>
+      </div>
+      <table class="doc-table">
+        <thead><tr><th>Thread</th><th>Date</th><th>Status</th><th>Open</th></tr></thead>
+        <tbody>
+          <tr><td><div class="doc-name">Richard &amp; Michael 2nd visit · questions for Pascal</div><div class="doc-meta">Alarm system, dishwasher, fireplace · ended in call</div></td><td class="doc-date">Apr 27</td><td><span class="doc-status status-info">Closed</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19dcfe316d88062f">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Viktoriia open-house follow-up + buyer questions</div><div class="doc-meta">HOA name confirmation · balcony EEE through 2033</div></td><td class="doc-date">May 5</td><td><span class="doc-status status-info">Closed</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19df8447a8bdaa47">Gmail</a></div></td></tr>
+          <tr><td><div class="doc-name">Internal open-house tracking note</div><div class="doc-meta">Visitor log for May 4 weekend</div></td><td class="doc-date">May 7</td><td><span class="doc-status status-info">Logged</span></td><td><div class="doc-links"><a class="doc-link" href="https://mail.google.com/mail/u/0/#all/19df4b584cf8b9bf">Gmail</a></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="noise">
+    <div class="wrap">
+      <div class="noise-card">
+        <div class="noise-label">Excluded as noise</div>
+        <div class="noise-text">MediaBoost solicitations (×3), Quo SMS/voicemail notifications (×4), Redfin status pings, Cal Best Title cold outreach (Allan Pohl), VIP Escrow Services pitch (Nima), AMRE contact-form test submissions, Compass daily listing-activity digests. All visible in Gmail via <code>Fruitland newer_than:14d</code>.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-brand">
+        <span class="wm-amre"></span>
+        <span class="sep"></span>
+        <span class="wm-compass"></span>
+      </div>
+      <div class="foot-meta">11023 Fruitland Dr · #401 · Studio City · CA 91604 · Escrow HH-4239 · Confidential</div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const CODE = 'fruitland2026';
+  const STORAGE_KEY = 'amre_fruitland_gate';
+
+  function unlockGate(){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('dashboard').classList.add('live');
+  }
+
+  function checkGate(){
+    const v = (document.getElementById('gateInput').value || '').trim().toLowerCase();
+    if(v === CODE){
+      try { sessionStorage.setItem(STORAGE_KEY,'1'); } catch(e){}
+      unlockGate();
+    } else {
+      const card = document.getElementById('gateCard');
+      card.classList.add('shake');
+      document.getElementById('gateError').textContent = 'Incorrect code';
+      setTimeout(()=>card.classList.remove('shake'),400);
+    }
+  }
+
+  try {
+    if(sessionStorage.getItem(STORAGE_KEY) === '1') unlockGate();
+  } catch(e){}
+
+  function updateDaysInEscrow(){
+    const opened = new Date('2026-05-08T00:00:00-07:00');
+    const now = new Date();
+    const days = Math.max(0, Math.floor((now - opened)/(1000*60*60*24)));
+    const el = document.getElementById('daysInEscrow');
+    if(el) el.textContent = days;
+  }
+  updateDaysInEscrow();
+  setInterval(updateDaysInEscrow, 3600000);
+</script>
+</body>
+</html>
