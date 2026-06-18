@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>900 S Nueva Vista - Listing Tracker</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --white:#FFFFFF;--gray-bg:#F5F5F7;--gray-bg-2:#FBFBFD;--ink:#1D1D1F;--ink-2:#424245;--ink-3:#6E6E73;--ink-4:#86868B;
+    --hairline:#D2D2D7;--hairline-soft:#E8E8ED;--blue:#0071E3;--blue-hover:#0077ED;--red:#E30000;--red-bg:#FFF1F0;
+    --green:#248A3D;--green-bg:#EBF7EE;--amber:#B25000;--amber-bg:#FFF4E5;
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Monaco,"Cascadia Mono",monospace;--radius:18px;--radius-lg:24px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+  html,body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.47;letter-spacing:-0.003em;}
+  a{color:inherit;text-decoration:none;}
+  ::selection{background:var(--ink);color:var(--white);}
+  [id]{scroll-margin-top:64px;}
+  #gate{position:fixed;inset:0;background:var(--white);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background-image:radial-gradient(at 20% 20%,rgba(0,113,227,0.04) 0,transparent 50%),radial-gradient(at 80% 80%,rgba(0,0,0,0.03) 0,transparent 50%);}
+  .gate-card{max-width:440px;width:100%;text-align:center;padding:48px 32px;}
+  .gate-brand{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:40px;}
+  .gate-brand .sep{width:1px;height:18px;background:var(--hairline);}
+  .gate-title{font-size:48px;line-height:1.05;font-weight:600;letter-spacing:-0.022em;margin-bottom:8px;}
+  .gate-sub{font-size:17px;color:var(--ink-3);margin-bottom:36px;}
+  .gate-form{display:flex;flex-direction:column;gap:12px;}
+  .gate-input{width:100%;padding:16px 18px;font-family:var(--sans);font-size:17px;background:var(--gray-bg);border:1px solid transparent;border-radius:12px;color:var(--ink);text-align:center;outline:none;transition:all 0.15s;}
+  .gate-input:focus{background:var(--white);border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,0.15);}
+  .gate-input::placeholder{color:var(--ink-4);}
+  .gate-btn{padding:14px 18px;background:var(--blue);color:var(--white);border:none;font-family:var(--sans);font-size:17px;font-weight:500;border-radius:980px;cursor:pointer;transition:background 0.15s,transform 0.15s;}
+  .gate-btn:hover{background:var(--blue-hover);}
+  .gate-btn:active{transform:scale(0.98);}
+  .gate-error{color:var(--red);font-size:13px;height:18px;margin-top:4px;}
+  .gate-card.shake{animation:shake 0.4s;}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+  .gate-foot{margin-top:36px;font-size:12px;color:var(--ink-4);}
+  .wm-amre{font-family:var(--sans);font-size:17px;font-weight:600;letter-spacing:0.18em;color:var(--ink);}
+  .wm-compass{font-family:var(--sans);font-size:19px;font-weight:400;letter-spacing:-0.01em;color:var(--ink);text-transform:lowercase;}
+  .wm-compass::before{content:"compass";}
+  .wm-amre img,.wm-compass img{height:22px;width:auto;display:block;}
+  .wm-amre.has-img::before,.wm-compass.has-img::before{content:none;}
+  .wm-amre.has-img,.wm-compass.has-img{font-size:0;}
+  #dashboard{display:none;}
+  #dashboard.live{display:block;animation:reveal 0.6s ease-out;}
+  @keyframes reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .wrap-wide{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hairline-soft);}
+  .topnav-inner{display:flex;align-items:center;justify-content:space-between;height:52px;gap:16px;}
+  .topnav-left,.topnav-right{display:flex;align-items:center;gap:16px;}
+  .topnav-sep{width:1px;height:16px;background:var(--hairline);}
+  .topnav-meta{font-size:12px;color:var(--ink-3);}
+  .topnav-status{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-3);}
+  .topnav-status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2.4s infinite;}
+  .topnav-links{display:flex;gap:22px;align-items:center;}
+  .topnav-links a{font-size:13px;color:var(--ink-3);transition:color 0.15s;}
+  .topnav-links a:hover{color:var(--ink);}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.85)}}
+  .hero{padding:96px 0 80px;text-align:center;background:linear-gradient(180deg,var(--white) 0%,var(--gray-bg-2) 100%);}
+  .hero-eyebrow{font-size:19px;font-weight:600;color:var(--blue);margin-bottom:16px;}
+  .hero-title{font-size:clamp(48px,7vw,88px);line-height:1.04;font-weight:600;letter-spacing:-0.025em;margin-bottom:12px;}
+  .hero-sub{font-size:clamp(21px,2.4vw,28px);line-height:1.2;color:var(--ink-3);max-width:760px;margin:0 auto 32px;}
+  .hero-pills{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:24px;}
+  .hero-pill{display:inline-flex;align-items:baseline;gap:8px;font-size:15px;color:var(--ink-3);}
+  .hero-pill strong{color:var(--ink);font-weight:500;}
+  .critical{padding:80px 0;background:var(--ink);color:var(--white);}
+  .critical .sec-title{color:var(--white);}
+  .critical .sec-eyebrow{color:var(--ink-4);}
+  .critical .sec-sub{color:rgba(255,255,255,0.72);}
+  .crit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:48px;}
+  .crit-card{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform 0.2s,background 0.2s;}
+  .crit-card:hover{background:rgba(255,255,255,0.09);transform:translateY(-2px);}
+  .crit-when{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .crit-tag{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;background:var(--red);color:var(--white);font-weight:600;border-radius:980px;}
+  .crit-tag.amber{background:#F08028;}
+  .crit-tag.blue{background:var(--blue);}
+  .crit-time{font-size:13px;color:rgba(255,255,255,0.7);}
+  .crit-title{font-size:24px;line-height:1.15;font-weight:600;letter-spacing:-0.018em;color:var(--white);margin-top:4px;}
+  .crit-detail{font-size:15px;line-height:1.5;color:rgba(255,255,255,0.78);}
+  .crit-action{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);font-size:14px;font-weight:500;color:#6BA8FF;}
+  .crit-action a{color:inherit;}
+  .crit-action a:hover{color:#97C0FF;}
+  section.lt{padding:96px 0;background:var(--white);}
+  section.alt{padding:96px 0;background:var(--gray-bg);}
+  .sec-eyebrow{font-size:19px;font-weight:600;color:var(--blue);margin-bottom:12px;}
+  .sec-title{font-size:clamp(36px,4.4vw,56px);line-height:1.07;font-weight:600;letter-spacing:-0.022em;max-width:800px;}
+  .sec-sub{font-size:19px;color:var(--ink-3);margin-top:14px;max-width:760px;line-height:1.42;}
+  .timeline{margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+  .tl-card{background:var(--white);border-radius:var(--radius);padding:32px;border:1px solid var(--hairline-soft);display:flex;flex-direction:column;gap:8px;}
+  .tl-card.complete{background:var(--green-bg);border-color:transparent;}
+  .tl-card.active{background:var(--ink);color:var(--white);border-color:transparent;}
+  .tl-stage{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-3);}
+  .tl-card.complete .tl-stage{color:var(--green);}
+  .tl-card.active .tl-stage{color:rgba(255,255,255,0.6);}
+  .tl-stage::before{content:'';width:8px;height:8px;border-radius:50%;background:currentColor;}
+  .tl-card.active .tl-stage::before{animation:pulse 2.4s infinite;}
+  .tl-label{font-size:14px;color:var(--ink-3);margin-top:4px;}
+  .tl-card.active .tl-label{color:rgba(255,255,255,0.7);}
+  .tl-date{font-size:32px;font-weight:600;line-height:1.1;letter-spacing:-0.02em;margin-top:4px;}
+  .tl-card.active .tl-date{color:var(--white);}
+  .tl-detail{font-size:14px;line-height:1.5;color:var(--ink-3);margin-top:6px;}
+  .tl-card.complete .tl-detail{color:var(--ink-2);}
+  .tl-card.active .tl-detail{color:rgba(255,255,255,0.78);}
+  .tl-countdown{margin-top:16px;font-size:14px;font-weight:500;}
+  .tl-card.complete .tl-countdown{color:var(--green);}
+  .tl-card.active .tl-countdown{color:#FFB870;}
+  .terms-head{text-align:center;margin-bottom:64px;}
+  .terms-head .sec-title{margin:0 auto;}
+  .terms-head .sec-sub{margin:14px auto 0;}
+  .terms-feature{background:var(--white);border-radius:var(--radius-lg);padding:64px 56px;text-align:center;border:1px solid var(--hairline-soft);margin-bottom:16px;}
+  .terms-feature-label{font-size:15px;font-weight:500;color:var(--ink-3);margin-bottom:16px;}
+  .terms-feature-value{font-size:clamp(56px,8vw,96px);font-weight:600;letter-spacing:-0.025em;line-height:1;margin-bottom:12px;}
+  .terms-feature-sub{font-size:19px;color:var(--ink-3);}
+  .terms-feature-sub strong{color:var(--ink);font-weight:500;}
+  .terms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .term-card{background:var(--white);border-radius:var(--radius);padding:32px;border:1px solid var(--hairline-soft);display:flex;flex-direction:column;gap:6px;}
+  .term-label{font-size:13px;font-weight:500;color:var(--ink-3);margin-bottom:4px;}
+  .term-value{font-size:22px;font-weight:600;line-height:1.2;letter-spacing:-0.014em;}
+  .term-sub{font-size:14px;color:var(--ink-3);margin-top:4px;}
+  .term-card.bafo{background:var(--ink);color:var(--white);border-color:transparent;grid-column:1 / -1;}
+  .term-card.bafo .term-label{color:rgba(255,255,255,0.6);}
+  .term-card.bafo .term-value{color:var(--white);font-size:19px;line-height:1.4;}
+  .term-card.bafo ul{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px;margin-top:8px;}
+  .term-card.bafo li{font-size:15px;color:rgba(255,255,255,0.85);padding-left:22px;position:relative;line-height:1.4;}
+  .term-card.bafo li::before{content:'';position:absolute;left:0;top:8px;width:12px;height:6px;border-left:2px solid var(--blue);border-bottom:2px solid var(--blue);transform:rotate(-45deg);}
+  .comps-wrap{margin-top:56px;display:grid;gap:28px;}
+  .comps-group h3{font-size:13px;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-3);margin-bottom:14px;font-weight:600;}
+  .comp-table{width:100%;border-collapse:collapse;background:var(--white);border:1px solid var(--hairline-soft);border-radius:var(--radius);overflow:hidden;}
+  .comp-table th,.comp-table td{text-align:left;padding:14px 16px;font-size:14px;border-bottom:1px solid var(--hairline-soft);vertical-align:top;}
+  .comp-table th{font-size:11px;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-4);font-weight:600;background:var(--gray-bg-2);}
+  .comp-table tr:last-child td{border-bottom:none;}
+  .comp-table td.num{font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .comp-addr{font-weight:600;color:var(--ink);}
+  .comp-sub{display:block;font-size:12px;color:var(--ink-4);margin-top:2px;}
+  .subject-row{background:#EAF2FB;}
+  .subject-row td{font-weight:600;color:var(--ink);}
+  .delta{color:var(--ink-3);font-variant-numeric:tabular-nums;}
+  .takeaway{margin-top:8px;background:var(--gray-bg);border-radius:var(--radius);padding:24px 28px;font-size:16px;line-height:1.55;color:var(--ink-2);}
+  .takeaway strong{color:var(--ink);font-weight:600;}
+  .checklist{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+  .chk{display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--hairline-soft);border-radius:14px;padding:18px 20px;cursor:pointer;transition:background 0.15s;}
+  .chk:hover{background:var(--gray-bg-2);}
+  .chk input{margin-top:3px;width:18px;height:18px;accent-color:var(--blue);flex:none;cursor:pointer;}
+  .chk-body{display:flex;flex-direction:column;gap:2px;}
+  .chk-title{font-size:16px;font-weight:500;letter-spacing:-0.01em;}
+  .chk-meta{font-size:13px;color:var(--ink-3);}
+  .chk.done .chk-title{text-decoration:line-through;color:var(--ink-4);}
+  .notify{margin-top:64px;background:var(--ink);color:#fff;border-radius:var(--radius-lg);padding:44px 48px;}
+  .notify h3{font-size:26px;font-weight:600;letter-spacing:-0.018em;margin-bottom:10px;}
+  .notify p{font-size:15px;color:rgba(255,255,255,0.72);line-height:1.55;max-width:660px;}
+  .notify-list{list-style:none;margin:26px 0 8px;display:grid;gap:2px;}
+  .notify-list li{display:flex;justify-content:space-between;gap:16px;font-size:15px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.1);}
+  .notify-list li:last-child{border-bottom:none;}
+  .notify-list .nd{color:rgba(255,255,255,0.86);}
+  .notify-list .nw{color:#FFB870;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .notify-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-weight:500;font-size:15px;padding:12px 22px;border-radius:980px;margin-top:14px;transition:transform 0.15s;}
+  .notify-btn:hover{transform:translateY(-1px);}
+  .notify-foot{font-size:12px;color:rgba(255,255,255,0.55);margin-top:18px;}
+  .contacts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:64px;}
+  .contact-group{background:var(--white);border-radius:var(--radius);padding:28px;border:1px solid var(--hairline-soft);}
+  .contact-group-title{font-size:13px;font-weight:600;letter-spacing:0.02em;text-transform:uppercase;color:var(--ink-3);padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid var(--hairline-soft);}
+  .contact{padding:14px 0;border-bottom:1px solid var(--hairline-soft);}
+  .contact:last-child{border-bottom:none;padding-bottom:0;}
+  .contact:first-of-type{padding-top:0;}
+  .contact-name{font-size:16px;font-weight:600;letter-spacing:-0.012em;line-height:1.3;}
+  .contact-role{font-size:13px;color:var(--ink-3);margin-top:2px;margin-bottom:6px;}
+  .contact-line{font-size:14px;color:var(--ink-2);line-height:1.5;}
+  .contact-line a{color:var(--blue);}
+  .contact-line a:hover{text-decoration:underline;}
+  .contact-meta{font-size:12px;color:var(--ink-4);margin-top:2px;font-style:italic;}
+  .prov-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:64px;}
+  .prov{background:var(--white);border-radius:var(--radius);padding:32px;border:1px solid var(--hairline-soft);display:flex;flex-direction:column;gap:8px;}
+  .prov-tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--ink-3);margin-bottom:4px;}
+  .prov.warn{background:var(--red-bg);border-color:#FFD0CC;}
+  .prov.warn .prov-tag{color:var(--red);}
+  .prov.confirmed{background:var(--green-bg);border-color:#BFE5C8;}
+  .prov.confirmed .prov-tag{color:var(--green);}
+  .prov-title{font-size:21px;font-weight:600;line-height:1.2;letter-spacing:-0.016em;}
+  .prov-detail{font-size:15px;color:var(--ink-2);line-height:1.5;}
+  footer{padding:48px 0;background:var(--gray-bg);border-top:1px solid var(--hairline-soft);}
+  .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center;}
+  .foot-brands{display:flex;align-items:center;gap:16px;}
+  .foot-meta{font-size:12px;color:var(--ink-3);line-height:1.6;}
+  .foot-confidential{margin-top:24px;padding-top:24px;border-top:1px solid var(--hairline-soft);font-size:11px;color:var(--ink-4);text-align:center;}
+  @media (max-width:980px){.wrap,.wrap-wide{padding:0 24px;}.crit-grid,.timeline{grid-template-columns:1fr;}.contacts-grid{grid-template-columns:1fr 1fr;}.prov-grid,.terms-grid,.checklist{grid-template-columns:1fr;}.terms-feature{padding:48px 32px;}.term-card.bafo ul{grid-template-columns:1fr;}}
+  @media (max-width:900px){.topnav-links{display:none;}}
+  @media (max-width:640px){.wrap,.wrap-wide{padding:0 20px;}.hero{padding:64px 0 56px;}section.lt,section.alt,.critical{padding:64px 0;}.contacts-grid{grid-template-columns:1fr;}.topnav-meta{display:none;}.notify{padding:32px 24px;}.comp-table th:nth-child(4),.comp-table td:nth-child(4){display:none;}.foot-inner{flex-direction:column;align-items:flex-start;}}
+  @media print{#gate{display:none !important;}#dashboard{display:block !important;}.topnav{position:static;}.critical,.notify{background:var(--white);color:var(--ink);border:1px solid var(--ink);}.crit-card{background:var(--white);border:1px solid var(--hairline);}.critical .sec-title,.crit-title,.notify h3{color:var(--ink);}.crit-detail,.crit-time,.crit-action,.notify p,.notify-list .nd{color:var(--ink-2);}.tl-card.active{background:var(--white);color:var(--ink);border:1px solid var(--ink);}.tl-card.active .tl-date,.tl-card.active .tl-detail{color:var(--ink);}section{page-break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div id="gate">
+  <div class="gate-card" id="gateCard">
+    <div class="gate-brand"><span class="wm-amre" data-logo-amre>AMRE</span><span class="sep"></span><span class="wm-compass" data-logo-compass></span></div>
+    <h1 class="gate-title">900 Nueva&nbsp;Vista</h1>
+    <p class="gate-sub">Listing-side tracker.<br>Confidential.</p>
+    <form class="gate-form" id="gateForm" autocomplete="off">
+      <input type="password" class="gate-input" id="gateInput" placeholder="Enter access code" autofocus>
+      <button type="submit" class="gate-btn">Continue</button>
+      <div class="gate-error" id="gateError"></div>
+    </form>
+    <div class="gate-foot">Nueva Vista BA,&nbsp;LLC &middot; Compass</div>
+  </div>
+</div>
+<main id="dashboard">
+  <div class="topnav"><div class="wrap-wide topnav-inner">
+    <div class="topnav-left"><span class="wm-amre" data-logo-amre>AMRE</span><span class="topnav-sep"></span><span class="wm-compass" data-logo-compass></span></div>
+    <nav class="topnav-links"><a href="#timeline">Timeline</a><a href="#pricing">Pricing</a><a href="#comps">Comps</a><a href="#milestones">Milestones</a><a href="#contacts">Contacts</a><a href="#notes">Notes</a></nav>
+    <div class="topnav-right"><span class="topnav-meta">TheMLS &middot; APN 680-511-009 &middot; Updated <span id="updateStamp"></span></span><span class="topnav-sep"></span><span class="topnav-status">Active Listing</span></div>
+  </div></div>
+  <header class="hero"><div class="wrap">
+    <div class="hero-eyebrow">Listing-side &middot; Confidential</div>
+    <h1 class="hero-title">900 S Nueva&nbsp;Vista Drive.</h1>
+    <p class="hero-sub">Renovated mid-century pool home in South Palm Springs &mdash; 3 bed &middot; 2 bath &middot; 1,328&nbsp;sq&nbsp;ft, with an active short-term-rental permit.<br>Listed June&nbsp;15,&nbsp;2026.</p>
+    <div class="hero-pills">
+      <div class="hero-pill"><strong>$745,000</strong> list price</div>
+      <div class="hero-pill"><strong>$561</strong> per sq ft</div>
+      <div class="hero-pill"><strong id="daysOnMarket">&mdash;</strong> days on market</div>
+      <div class="hero-pill"><strong id="listingDaysLeft">&mdash;</strong> days to expiry</div>
+    </div>
+  </div></header>
+  <section class="critical"><div class="wrap">
+    <div class="sec-eyebrow">This week</div>
+    <h2 class="sec-title">Three things to move now.</h2>
+    <p class="sec-sub">The listing is live &mdash; these are the early actions that protect the sale and set the pace.</p>
+    <div class="crit-grid">
+      <div class="crit-card">
+        <div class="crit-when"><span class="crit-tag">Risk &middot; Deadline</span><span class="crit-time">By Jun 20</span></div>
+        <div class="crit-title">Order seller disclosures.</div>
+        <div class="crit-detail">Per the listing agreement, NHD and seller disclosures (TDS / SPQ) must be ordered within 5 days of the June 15 start. Ordering now protects a future buyer's 3-day disclosure window and keeps escrow on schedule.</div>
+        <div class="crit-action"><a href="mailto:michael.abraham@compass.com?subject=Order%20NHD%20%2F%20TDS%20-%20900%20Nueva%20Vista&body=Order%20NHD%20and%20seller%20disclosure%20package%20for%20900%20S%20Nueva%20Vista%20Dr%2C%20Palm%20Springs.">Send order reminder &rarr;</a></div>
+      </div>
+      <div class="crit-card">
+        <div class="crit-when"><span class="crit-tag amber">Pricing</span><span class="crit-time">Strategy</span></div>
+        <div class="crit-title">Validate $745K vs. comps.</div>
+        <div class="crit-detail">At $561/sq ft you sit just below the recent sold median ($572/sq ft). Confirm the play: hold for the STR-premium story, or sharpen pricing to spark a fast offer while actives sit 87&ndash;134 days.</div>
+        <div class="crit-action"><a href="#comps">See pricing &amp; comps &darr;</a></div>
+      </div>
+      <div class="crit-card">
+        <div class="crit-when"><span class="crit-tag blue">Marketing</span><span class="crit-time">Decision</span></div>
+        <div class="crit-title">Set the go-public date.</div>
+        <div class="crit-detail">Listed as a private exclusive on TheMLS. Decide when to flip to full MLS exposure &mdash; any public marketing triggers Clear Cooperation, requiring submission to the MLS within one business day.</div>
+        <div class="crit-action"><a href="#milestones">Listing milestones &darr;</a></div>
+      </div>
+    </div>
+  </div></section>
+  <section class="lt" id="timeline"><div class="wrap">
+    <div class="sec-eyebrow">Listing timeline</div>
+    <h2 class="sec-title">Listed to expiration.</h2>
+    <p class="sec-sub">Converts to acceptance &rarr; contingency &rarr; close of escrow the moment an offer is accepted.</p>
+    <div class="timeline">
+      <div class="tl-card complete">
+        <div class="tl-stage">Listed</div><div class="tl-label">Agreement signed Jun 12</div><div class="tl-date">Jun 15</div>
+        <div class="tl-detail">Live on TheMLS as a private exclusive. Listing period runs through September 30, 2026.</div><div class="tl-countdown">Complete</div>
+      </div>
+      <div class="tl-card active">
+        <div class="tl-stage">On market</div><div class="tl-label">Private exclusive &middot; TheMLS</div><div class="tl-date"><span id="onMarketDays">&mdash;</span> days</div>
+        <div class="tl-detail">Currently private / office-exclusive. Full-MLS exposure and syndication decision pending.</div><div class="tl-countdown" id="onMarketNote">On market</div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-stage">Listing expires</div><div class="tl-label">RLA term ends</div><div class="tl-date">Sep 30</div>
+        <div class="tl-detail">If not in escrow by this date, the listing renews or relists. A 180-day broker continuation period applies.</div><div class="tl-countdown" id="expiryCountdown">&mdash;</div>
+      </div>
+    </div>
+  </div></section>
+  <section class="alt" id="pricing"><div class="wrap">
+    <div class="terms-head">
+      <div class="sec-eyebrow">Pricing &amp; positioning</div>
+      <h2 class="sec-title">Priced to compete.</h2>
+      <p class="sec-sub">Listed at $745,000 &mdash; below the recent sold median per square foot, with a turnkey STR-permitted pool home as the differentiator.</p>
+    </div>
+    <div class="terms-feature">
+      <div class="terms-feature-label">List price</div>
+      <div class="terms-feature-value">$745,000</div>
+      <div class="terms-feature-sub"><strong>$561</strong> / sq ft &nbsp;&middot;&nbsp; 3 bd &middot; 2 ba &middot; 1,328 sq ft &nbsp;&middot;&nbsp; 6,098 sq ft lot</div>
+    </div>
+    <div class="terms-grid">
+      <div class="term-card"><div class="term-label">Listing period</div><div class="term-value">Jun 15 &ndash; Sep 30, 2026</div><div class="term-sub">180-day broker continuation</div></div>
+      <div class="term-card"><div class="term-label">Seller-side commission</div><div class="term-value">0%</div><div class="term-sub">Owner-listed &mdash; no listing-side fee (per RLA)</div></div>
+      <div class="term-card"><div class="term-label">Acquisition</div><div class="term-value">$600,000</div><div class="term-sub">Dec 2022 &middot; +$145K / ~24% over ~3.5 yrs</div></div>
+      <div class="term-card"><div class="term-label">Annual taxes (2025)</div><div class="term-value">$8,125</div><div class="term-sub">$677/mo &middot; assessed $677,300</div></div>
+      <div class="term-card"><div class="term-label">APN &middot; Zoning</div><div class="term-value">680-511-009 &middot; R1C</div><div class="term-sub">Riverside County &middot; built 1976</div></div>
+      <div class="term-card"><div class="term-label">Area</div><div class="term-value">PS South End</div><div class="term-sub">Area 334 &middot; pool / mountain views</div></div>
+      <div class="term-card bafo">
+        <div class="term-label">Positioning highlights</div>
+        <div class="term-value">What sets 900 Nueva Vista apart</div>
+        <ul>
+          <li>Active short-term-rental permit + 3 yrs income history</li>
+          <li>New pool &amp; spa, sun deck, fire pit, BBQ</li>
+          <li>Renovated kitchen &amp; baths; floor-to-ceiling glass</li>
+          <li>Smart thermostat, digital entry, 2-car garage</li>
+          <li>8 min to downtown; walk to Palm Springs Surf Club</li>
+          <li>Turnkey / furnished &mdash; investor or 2nd-home ready</li>
+        </ul>
+      </div>
+    </div>
+  </div></section>
+  <section class="lt" id="comps"><div class="wrap">
+    <div class="sec-eyebrow">The comps</div>
+    <h2 class="sec-title">Where $745K sits.</h2>
+    <p class="sec-sub">Recent South Palm Springs sales and active competition for a 3-bed pool home. Subject highlighted.</p>
+    <div class="comps-wrap">
+      <div class="comps-group">
+        <h3>Recently sold &middot; comparable 3/2 homes</h3>
+        <table class="comp-table">
+          <thead><tr><th>Address</th><th>Price</th><th>$ / sq ft</th><th>Size &middot; DOM</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr class="subject-row"><td class="comp-addr">900 S Nueva Vista Dr<span class="comp-sub">Subject &middot; this listing</span></td><td class="num">$745,000</td><td class="num">$561</td><td class="num">1,328 sf &middot; &mdash;</td><td>Active</td></tr>
+            <tr><td class="comp-addr">913 Arroyo Vista Dr<span class="comp-sub">Closed May 29, 2026</span></td><td class="num">$751,000</td><td class="num">$621</td><td class="num">1,210 sf &middot; 28 DOM</td><td class="delta">&#9660; 1.8% under ask</td></tr>
+            <tr><td class="comp-addr">812 Arroyo Vista Dr<span class="comp-sub">Closed Jul 10, 2025</span></td><td class="num">$851,000</td><td class="num">$557</td><td class="num">1,528 sf &middot; 89 DOM</td><td class="delta">&#9660; 2.5% under ask</td></tr>
+            <tr><td class="comp-addr">2075 E Calle Felicia<span class="comp-sub">Closed Aug 8, 2025</span></td><td class="num">$817,000</td><td class="num">$572</td><td class="num">1,428 sf &middot; 85 DOM</td><td class="delta">&#9660; 7.1% under ask</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="comps-group">
+        <h3>Active &amp; competing</h3>
+        <table class="comp-table">
+          <thead><tr><th>Address</th><th>Price</th><th>$ / sq ft</th><th>Size &middot; DOM</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="comp-addr">3714 Calle San Raphael<span class="comp-sub">Closest in size</span></td><td class="num">$688,000</td><td class="num">$524</td><td class="num">1,314 sf &middot; 87 DOM</td><td>Active</td></tr>
+            <tr><td class="comp-addr">1661 Olga Way</td><td class="num">$799,000</td><td class="num">$500</td><td class="num">1,597 sf &middot; &mdash;</td><td>Private excl.</td></tr>
+            <tr><td class="comp-addr">3991 Calle San Raphael<span class="comp-sub">Reduced $96K</span></td><td class="num">$899,000</td><td class="num">$569</td><td class="num">1,580 sf &middot; 134 DOM</td><td>Active</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="takeaway">At <strong>$561/sq ft</strong>, 900 Nueva Vista is priced just under the recent sold median (<strong>$572/sq ft</strong>) and undercuts the larger actives on absolute price. The actives are sitting <strong>87&ndash;134 days</strong>, so disciplined pricing plus the <strong>active STR permit</strong> are the levers to drive early showings and a faster offer.</div>
+    </div>
+  </div></section>
+  <section class="alt" id="milestones"><div class="wrap">
+    <div class="sec-eyebrow">Listing milestones</div>
+    <h2 class="sec-title">Marketing checklist.</h2>
+    <p class="sec-sub">Tap to check items off &mdash; your progress saves in this browser.</p>
+    <div class="checklist">
+      <label class="chk"><input type="checkbox" data-k="agreement" checked><span class="chk-body"><span class="chk-title">Listing agreement executed</span><span class="chk-meta">Signed Jun 12, 2026</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="mls" checked><span class="chk-body"><span class="chk-title">Live on TheMLS (private exclusive)</span><span class="chk-meta">Jun 15, 2026</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="photo"><span class="chk-body"><span class="chk-title">Professional photography &amp; media</span><span class="chk-meta">Confirm shoot date</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="disclosures"><span class="chk-body"><span class="chk-title">Seller disclosures ordered (NHD / TDS / SPQ)</span><span class="chk-meta">Due Jun 20 (RLA)</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="exposure"><span class="chk-body"><span class="chk-title">Full MLS exposure / syndication</span><span class="chk-meta">Set go-public date</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="lockbox"><span class="chk-body"><span class="chk-title">Lockbox + showing instructions</span><span class="chk-meta">Confirm access</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="open"><span class="chk-body"><span class="chk-title">Broker preview / open house</span><span class="chk-meta">Schedule</span></span></label>
+      <label class="chk"><input type="checkbox" data-k="pricecheck"><span class="chk-body"><span class="chk-title">Pricing reviewed vs. comps</span><span class="chk-meta">Validate $561/sq ft</span></span></label>
+    </div>
+    <div class="notify">
+      <h3>Project alerts &rarr; your Compass inbox</h3>
+      <p>Email reminders for this listing are scheduled to <strong style="color:#fff">michael.abraham@compass.com</strong> at each milestone below &mdash; so the key dates reach you without checking the dashboard.</p>
+      <ul class="notify-list">
+        <li><span class="nd">Order seller disclosures (RLA)</span><span class="nw">Jun 20, 2026</span></li>
+        <li><span class="nd">30-day pricing &amp; marketing review</span><span class="nw">Jul 15, 2026</span></li>
+        <li><span class="nd">60-day pricing &amp; marketing review</span><span class="nw">Aug 14, 2026</span></li>
+        <li><span class="nd">Listing expiration &mdash; RLA term ends</span><span class="nw">Sep 30, 2026</span></li>
+      </ul>
+      <a class="notify-btn" id="snapshotBtn" href="mailto:michael.abraham@compass.com">Email myself this status &rarr;</a>
+      <div class="notify-foot">Reminders delivered via your connected calendar. Adjust or remove any in Google Calendar.</div>
+    </div>
+  </div></section>
+  <section class="lt" id="contacts"><div class="wrap">
+    <div class="sec-eyebrow">Contacts</div>
+    <h2 class="sec-title">Everyone on the deal.</h2>
+    <p class="sec-sub">Escrow, title, and buyer-side contacts populate here once an offer is accepted.</p>
+    <div class="contacts-grid">
+      <div class="contact-group">
+        <div class="contact-group-title">Ownership &middot; Seller</div>
+        <div class="contact"><div class="contact-name">Nueva Vista BA, LLC</div><div class="contact-role">Seller / owner of record</div><div class="contact-line">Single-asset LLC &middot; acquired Dec 2022</div></div>
+        <div class="contact"><div class="contact-name">Brian Benenati</div><div class="contact-role">Managing member</div><div class="contact-line"><a href="tel:13146062611">(314) 606-2611</a></div><div class="contact-line"><a href="mailto:brian_benenati@hotmail.com">brian_benenati@hotmail.com</a></div></div>
+        <div class="contact"><div class="contact-name">Michael Abraham</div><div class="contact-role">Managing member</div><div class="contact-line"><a href="tel:13108483406">(310) 848-3406</a></div><div class="contact-line"><a href="mailto:michael@hilex.io">michael@hilex.io</a></div></div>
+      </div>
+      <div class="contact-group">
+        <div class="contact-group-title">Listing side</div>
+        <div class="contact"><div class="contact-name">Michael Abraham</div><div class="contact-role">Listing agent &middot; Compass</div><div class="contact-line"><a href="tel:13237198585">(323) 719-8585</a></div><div class="contact-line"><a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a></div><div class="contact-meta">DRE# 02242095</div></div>
+        <div class="contact"><div class="contact-name">Compass</div><div class="contact-role">Listing brokerage</div><div class="contact-line">9454 Wilshire Blvd, Beverly Hills</div><div class="contact-meta">DRE# 01991628</div></div>
+      </div>
+    </div>
+  </div></section>
+  <section class="alt" id="notes"><div class="wrap">
+    <div class="sec-eyebrow">Notes &amp; provisions</div>
+    <h2 class="sec-title">What to keep in view.</h2>
+    <div class="prov-grid">
+      <div class="prov confirmed"><div class="prov-tag">Confirmed &middot; Value driver</div><div class="prov-title">Active short-term-rental permit</div><div class="prov-detail">An active STR permit plus three years of rental-income history conveys &mdash; a rare, material advantage in Palm Springs that supports the price and widens the buyer pool to investors.</div></div>
+      <div class="prov confirmed"><div class="prov-tag">Confirmed &middot; Terms</div><div class="prov-title">Owner-listed &middot; 0% listing-side fee</div><div class="prov-detail">Per the listing agreement, seller-side broker compensation is 0%. The listing entity is owned by the listing agent and partner, so there is no listing commission cost to the sale.</div></div>
+      <div class="prov"><div class="prov-tag">Note &middot; Exposure</div><div class="prov-title">Private exclusive on TheMLS</div><div class="prov-detail">Currently marketed as a private exclusive (not consumer-searchable). Any public marketing triggers Clear Cooperation: the listing must be submitted to the MLS within one business day.</div></div>
+      <div class="prov"><div class="prov-tag">Note &middot; Entity seller</div><div class="prov-title">Two-manager signing</div><div class="prov-detail">Seller is Nueva Vista BA, LLC; both managers (Benenati, Abraham) sign. Entity authority documents are due to the broker within 3 days of execution.</div></div>
+      <div class="prov warn"><div class="prov-tag">Risk &middot; Deadline</div><div class="prov-title">Disclosure package timing</div><div class="prov-detail">NHD and seller disclosures must be ordered within 5 days of the June 15 start (by ~Jun 20). Late delivery to a future buyer opens a 3-day termination window.</div></div>
+    </div>
+  </div></section>
+  <footer><div class="wrap-wide">
+    <div class="foot-inner">
+      <div class="foot-brands"><span class="wm-amre" data-logo-amre>AMRE</span><span style="width:1px;height:18px;background:var(--hairline);"></span><span class="wm-compass" data-logo-compass></span></div>
+      <div class="foot-meta">APN 680-511-009 &middot; Nueva Vista BA, LLC<br>Listing-side &middot; Confidential &middot; Live since June 15, 2026</div>
+    </div>
+    <div class="foot-confidential">Confidential &mdash; for the listing team and owners only &middot; Do not redistribute</div>
+  </div></footer>
+</main>
+<script>
+  function trySwapLogo(sel,src){var els=document.querySelectorAll(sel);if(!els.length)return;var img=new Image();img.onload=function(){els.forEach(function(el){el.classList.add('has-img');el.innerHTML='';var i=document.createElement('img');i.src=src;i.alt='';el.appendChild(i);});};img.src=src;}
+  trySwapLogo('[data-logo-amre]','logo-amre.svg');trySwapLogo('[data-logo-compass]','logo-compass.svg');
+  var ACCESS_CODE='nuevavista2026';
+  var gate=document.getElementById('gate'),gateCard=document.getElementById('gateCard'),gateForm=document.getElementById('gateForm'),gateInput=document.getElementById('gateInput'),gateError=document.getElementById('gateError'),dashboard=document.getElementById('dashboard');
+  function unlock(){gate.style.transition='opacity 0.4s';gate.style.opacity='0';setTimeout(function(){gate.style.display='none';dashboard.classList.add('live');try{sessionStorage.setItem('nv_unlocked','1');}catch(e){}},400);}
+  try{if(sessionStorage.getItem('nv_unlocked')==='1'){gate.style.display='none';dashboard.classList.add('live');}}catch(e){}
+  gateForm.addEventListener('submit',function(e){e.preventDefault();if(gateInput.value.trim().toLowerCase()===ACCESS_CODE){gateError.textContent='';unlock();}else{gateError.textContent='Invalid access code';gateCard.classList.remove('shake');void gateCard.offsetWidth;gateCard.classList.add('shake');gateInput.value='';gateInput.focus();}});
+  var LISTED=new Date('2026-06-15T00:00:00-07:00'),EXPIRY=new Date('2026-09-30T23:59:59-07:00');
+  function setT(id,v){var e=document.getElementById(id);if(e)e.textContent=v;}
+  function refresh(){
+    var now=new Date();
+    var dom=Math.max(0,Math.floor((now-LISTED)/86400000));
+    var left=Math.ceil((EXPIRY-now)/86400000);
+    setT('daysOnMarket',dom);setT('listingDaysLeft',left>0?left:0);setT('onMarketDays',dom);
+    setT('onMarketNote','Day '+(dom+1)+' \u00b7 listed Jun 15');
+    setT('expiryCountdown',left>0?(left+' day'+(left===1?'':'s')+' remaining'):(left===0?'Expires today':'Listing expired'));
+    var subject=encodeURIComponent('900 Nueva Vista - listing status');
+    var body=encodeURIComponent('900 S Nueva Vista Dr, Palm Springs, CA 92264\n\nDay '+(dom+1)+' on market \u00b7 '+(left>0?left:0)+' days to listing expiry (Sep 30, 2026)\nList: $745,000 ($561/sq ft)\n\nTracker: https://amre.group/clients/900-s-nueva-vista/');
+    var b=document.getElementById('snapshotBtn');if(b)b.href='mailto:michael.abraham@compass.com?subject='+subject+'&body='+body;
+  }
+  setT('updateStamp',new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}));
+  refresh();setInterval(refresh,3600000);
+  (function(){var KEY='nv_chk_v1';var saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
+    document.querySelectorAll('.chk input').forEach(function(box){var id=box.getAttribute('data-k');if(id in saved)box.checked=saved[id];var row=box.closest('.chk');function sync(){row.classList.toggle('done',box.checked);}sync();box.addEventListener('change',function(){saved[id]=box.checked;try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}sync();});});
+  })();
+</script>
+</body>
+</html>
