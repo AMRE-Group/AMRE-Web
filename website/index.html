@@ -774,6 +774,11 @@ details[open] .faq-q::after{transform:rotate(45deg)}
 .hero-listing-addr{font-family:var(--serif);font-size:18px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:4px}
 .hero-listing-detail{font-family:var(--sans);font-size:11px;font-weight:300;color:rgba(255,255,255,.6)}
 @media(max-width:680px){.hero-listing{display:none}}
+a.hero-listing{display:block;text-decoration:none;transition:transform .3s ease;cursor:pointer}
+a.hero-listing:hover{transform:translateY(-3px)}
+.hero-listing-slides{position:relative;width:100%;height:140px;margin-bottom:12px;border-radius:3px;overflow:hidden;background:#0b0f33}
+.hero-listing-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease}
+.hero-listing-slides img.on{opacity:1}
 /* SVG illustrations replacing emoji icons */
 .compass-icon{color:var(--brass);margin-bottom:18px}
 .compass-icon svg{width:34px;height:34px;display:block}
@@ -975,14 +980,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="hero-sub">Empowering clients one home at a time — expert advisory for sellers, buyers, and investors of Los Angeles's finest properties. 25 years of combined experience.</p>
     <div class="hero-btns">
       <a href="/#contact" class="btn btn-brass">Get a Free Valuation</a>
-      <a href="/properties/fruitland-401/" class="btn btn-outline-white">Featured Property</a>
+      <a href="/properties/900-s-nueva-vista-dr/" class="btn btn-outline-white">Featured Property</a>
     </div>
   </div>
-  <div class="hero-listing" aria-label="Featured listing">
+  <a class="hero-listing" href="/properties/900-s-nueva-vista-dr/" aria-label="Featured listing: 900 S Nueva Vista Dr, Palm Springs">
+    <div class="hero-listing-slides">
+      <img src="/properties/900-s-nueva-vista-dr/img/hero.jpg" class="on" alt="">
+      <img src="/properties/900-s-nueva-vista-dr/img/pool.jpg" alt="">
+      <img src="/properties/900-s-nueva-vista-dr/img/living.jpg" alt="">
+      <img src="/properties/900-s-nueva-vista-dr/img/kitchen.jpg" alt="">
+      <img src="/properties/900-s-nueva-vista-dr/img/bedroom.jpg" alt="">
+      <img src="/properties/900-s-nueva-vista-dr/img/greatroom.jpg" alt="">
+    </div>
     <div class="hero-listing-label">Featured Listing</div>
-    <div class="hero-listing-addr">11023 Fruitland Dr<br>Unit 401</div>
-    <div class="hero-listing-detail">Studio City · 3 Bed · 2.5 Bath · 1,705 SF</div>
-  </div>
+    <div class="hero-listing-addr">900 S Nueva Vista Dr</div>
+    <div class="hero-listing-detail">Palm Springs · 3 Bed · 2 Bath · 1,328 SF · $745K</div>
+  </a>
 
   <div class="hero-scroll" aria-hidden="true">
     <div class="hero-scroll-bar"></div>
@@ -1629,7 +1642,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="/blog/">Journal</a></li>
         <li><a href="/contact/">Contact</a></li>
         <li><a href="/properties/">Past Transactions</a></li>
-        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
+        <li><a href="/properties/900-s-nueva-vista-dr/">Featured Property</a></li>
       </ul>
     </div>
     <div>
@@ -1844,6 +1857,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 })();
 </script>
+<script>(function(){var s=document.querySelectorAll(".hero-listing-slides img");if(s.length<2)return;var i=0;setInterval(function(){s[i].classList.remove("on");i=(i+1)%s.length;s[i].classList.add("on");},3200);})();</script>
 </body></html>
 
 
