@@ -342,134 +342,23 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 }
 </style>
 <style>
-/* article components (scoped) */
-
-  :root{
+:root{
     --forest:#1c3d31;--forest-soft:#2c5446;--brass:#ffc13c;--brass-dk:#e6a800;
     --ink:#1a1a1a;--mid:#5A5A5A;--subtle:#86868b;--rule:#d2d2d7;
     --sand:#f6f3ec;--paper:#ffffff;
     --serif:'Playfair Display',Georgia,serif;--sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
     --radius:14px;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--sand);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;}
-  img{max-width:100%;display:block;}
-  a{color:var(--forest-soft);}
-  .wrap{max-width:760px;margin:0 auto;padding:0 22px;}
-
-  /* Site nav */
-  .site-nav{position:sticky;top:0;z-index:50;background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:14px 22px;}
-  .nav-brand{display:flex;align-items:center;}
-  .nav-brand img{height:22px;width:auto;}
-  .nav-links{display:flex;align-items:center;gap:22px;}
-  .nav-links a{color:#eef1ee;text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.02em;}
-  .nav-links a:hover{color:#fff;}
-  .nav-cta{background:var(--brass);color:#1a1a1a !important;padding:9px 16px;border-radius:40px;font-weight:600;}
-  .nav-toggle{display:none;}
-  @media (max-width:760px){
-    .nav-links{display:none;}
-    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--forest);flex-direction:column;gap:0;padding:6px 0;}
-    .nav-links.open a{padding:12px 22px;width:100%;}
-    .nav-toggle{display:block;background:none;border:0;color:#fff;font-size:22px;cursor:pointer;}
-  }
-
-  /* Hero */
-  .hero{background:var(--forest);color:#fff;padding:calc(46px + var(--nav-h,56px)) 0 0;}
-  .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
-  .tag{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:40px;}
-  .eyebrow{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:12px;}
-  h1{font-family:var(--serif);font-size:44px;line-height:1.08;margin:0 0 18px;font-weight:600;}
-  .lede{font-size:19px;line-height:1.55;color:#e9ece8;margin:0;max-width:640px;}
-  .byline{display:flex;align-items:center;gap:13px;margin-top:28px;}
-  .avatar{width:44px;height:44px;border-radius:50%;background:var(--brass);color:#1a1a1a;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
-  .byline .name{font-weight:600;font-size:14.5px;color:#fff;}
-  .byline .meta{font-size:12.5px;color:#bcc6c0;}
-  .crumb{font-size:12.5px;color:#aab4ad;margin:22px 0 32px;}
-  .crumb a{color:#cdd5cf;text-decoration:none;}
-  .hero-photo{width:100%;height:440px;object-fit:cover;}
-  .credit{font-size:11.5px;color:var(--subtle);text-align:right;padding:6px 22px 0;max-width:1100px;margin:0 auto;font-style:italic;}
-
-  article{padding:42px 0 10px;}
-  article p{font-size:17.5px;margin:0 0 22px;}
-  .drop::first-letter{font-family:var(--serif);font-size:60px;line-height:.8;float:left;padding:6px 10px 0 0;color:var(--brass-dk);font-weight:600;}
-  .section-head{margin:52px 0 6px;border-top:2px solid var(--rule);padding-top:24px;}
-  .section-head .num{font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--brass-dk);text-transform:uppercase;}
-  h2{font-family:var(--serif);font-size:30px;font-weight:600;margin:6px 0 16px;color:var(--forest);}
-  h3{font-size:16px;font-weight:700;margin:22px 0 8px;color:var(--ink);text-transform:none;}
-  strong{color:var(--forest-soft);}
-  .ps-pull{font-family:var(--serif);font-size:24px;line-height:1.4;font-style:italic;color:var(--forest);border-left:4px solid var(--brass);padding:6px 0 6px 20px;margin:30px 0;}
-
-  .grid{display:grid;gap:14px;margin:30px 0;}
-  .grid figure{margin:0;position:relative;overflow:hidden;border-radius:var(--radius);}
-  .grid img{width:100%;display:block;object-position:center;}
-  .grid figcaption{font-size:12px;color:#fff;position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;background:linear-gradient(transparent,rgba(28,61,49,.82));}
-  .g2{grid-template-columns:1fr 1fr;}.g2 figure{aspect-ratio:3/2;}.g2 img{height:100%;object-fit:cover;}
-  .single figure{aspect-ratio:3/2;}.single img{height:100%;object-fit:cover;}
-  .banner img{height:215px;object-fit:cover;}
-  .gfeature{grid-template-columns:1.55fr 1fr;grid-auto-rows:1fr;}
-  .gfeature .big{grid-row:1/span 2;}.gfeature .big img{height:100%;object-fit:cover;min-height:430px;}
-  .gfeature .small{aspect-ratio:4/3;}.gfeature .small img{height:100%;object-fit:cover;}
-  .gmix{grid-template-columns:1fr 1fr;align-items:start;}.gmix img{height:auto;}
-  .gtext{grid-template-columns:1fr 1fr;align-items:center;gap:24px;}.gtext img{height:auto;border-radius:var(--radius);}
-  .gtext .blurb{font-size:17px;}.gtext .blurb .lab{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-dk);font-weight:700;display:block;margin-bottom:9px;}
-
-  .box{background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);padding:24px 26px;margin:30px 0;}
-  .box .label{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-dk);font-weight:700;margin-bottom:13px;}
-  .box ul{margin:0;padding:0;list-style:none;}
-  .box li{font-size:16px;padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--rule);}
-  .box li:first-child{border-top:none;}
-  .box li:before{content:"\2600";position:absolute;left:0;color:var(--brass-dk);}
-
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0;}
-  .ps-stat{background:var(--forest);color:#fff;border-radius:var(--radius);padding:20px 14px;text-align:center;}
-  .ps-stat .num{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1;}
-  .ps-stat .cap{font-size:12px;color:#c4ccc6;margin-top:8px;line-height:1.35;}
-
-  .picks{background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);padding:18px 22px;margin:22px 0;}
-  .picks .h{font-weight:700;font-size:13.5px;color:var(--forest);margin-bottom:9px;}
-  .picks ul{margin:0;padding-left:18px;}.picks li{font-size:15.5px;margin:7px 0;}
-
-  .ps-infographic{background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);padding:26px;margin:34px 0;}
-  .ps-infographic .kicker{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-dk);font-weight:700;}
-  .ps-infographic h3{font-family:var(--serif);margin:6px 0 4px;font-size:21px;color:var(--forest);font-weight:600;}
-  .ps-infographic .sub{font-size:13px;color:var(--mid);margin:0 0 16px;}
-  .ps-infographic svg{width:100%;height:auto;display:block;}
-  .ig-foot{font-size:12px;color:var(--mid);font-style:italic;margin-top:14px;border-top:1px solid var(--rule);padding-top:12px;}
-
-  .snapshot{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--brass);border-radius:var(--radius);padding:24px 26px;margin:28px 0;}
-  .snapshot .title{font-weight:700;font-size:14.5px;color:var(--forest);margin-bottom:13px;}
-  .snapshot ul{margin:0;padding-left:20px;}.snapshot li{font-size:15.5px;margin:8px 0;}
-  .snapshot .src{font-size:12px;color:var(--mid);font-style:italic;margin-top:13px;}
-
-  .faq h3{font-size:17px;margin-top:22px;}.faq p{font-size:16px;}
-  .cta{background:var(--forest);color:#fff;border-radius:var(--radius);padding:30px;margin:42px 0 10px;text-align:center;}
-  .cta h2{color:#fff;margin:0 0 10px;}.cta p{font-size:16px;color:#dfe4e0;margin:0 0 20px;}
-  .btn{display:inline-block;font-weight:600;font-size:15px;background:var(--brass);color:#1a1a1a;text-decoration:none;padding:13px 26px;border-radius:40px;}
-
-  /* Footer */
-  footer.site-footer{background:#15302699;background:#13261f;color:#cdd5cf;margin-top:50px;padding:48px 0 30px;font-size:14px;}
-  .foot-wrap{max-width:1040px;margin:0 auto;padding:0 22px;}
-  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}
-  .foot-brand img{height:24px;margin-bottom:14px;}
-  .foot-brand p{font-size:13px;color:#aab4ad;max-width:260px;}
-  .foot-col h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0 0 12px;}
-  .foot-col a{display:block;color:#cdd5cf;text-decoration:none;font-size:13.5px;margin:7px 0;}
-  .foot-col a:hover{color:#fff;}
-  .foot-legal{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;font-size:11.5px;color:#8c968f;line-height:1.6;}
-  @media (max-width:760px){
-    h1{font-size:31px;}.lede{font-size:17px;}.hero-photo{height:250px;}
-    .stats{grid-template-columns:repeat(2,1fr);}
-    .g2,.gfeature,.gmix,.gtext{grid-template-columns:1fr;}
-    .gfeature .big{grid-row:auto;}.gfeature .big img,.g2 figure,.single figure{min-height:0;}
-    .ps-pull{font-size:21px;}.foot-top{grid-template-columns:1fr 1fr;}
-  }
-
+  }.ps *{box-sizing:border-box;}.ps{margin:0;background:var(--sand);color:var(--ink);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased;}.ps img{max-width:100%;display:block;}.ps a{color:var(--forest-soft);}.ps .wrap{max-width:760px;margin:0 auto;padding:0 22px;}.ps /* Site nav */
+  .site-nav{position:sticky;top:0;z-index:50;background:var(--forest);display:flex;align-items:center;justify-content:space-between;padding:14px 22px;}.ps .nav-brand{display:flex;align-items:center;}.ps .nav-brand img{height:22px;width:auto;}.ps .nav-links{display:flex;align-items:center;gap:22px;}.ps .nav-links a{color:#eef1ee;text-decoration:none;font-size:13.5px;font-weight:500;letter-spacing:.02em;}.ps .nav-links a:hover{color:#fff;}.ps .nav-cta{background:var(--brass);color:#1a1a1a !important;padding:9px 16px;border-radius:40px;font-weight:600;}.ps .nav-toggle{display:none;}@media (max-width:760px){.ps .nav-links{display:none;}.ps .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--forest);flex-direction:column;gap:0;padding:6px 0;}.ps .nav-links.open a{padding:12px 22px;width:100%;}.ps .nav-toggle{display:block;background:none;border:0;color:#fff;font-size:22px;cursor:pointer;}}.ps /* Hero */
+  .hero{background:var(--forest);color:#fff;padding:calc(46px + 56px) 0 0;}.ps .tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}.ps .tag{font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:40px;}.ps .eyebrow{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);font-weight:700;margin-bottom:12px;}.ps h1{font-family:var(--serif);font-size:44px;line-height:1.08;margin:0 0 18px;font-weight:600;}.ps .lede{font-size:19px;line-height:1.55;color:#e9ece8;margin:0;max-width:640px;}.ps .byline{display:flex;align-items:center;gap:13px;margin-top:28px;}.ps .avatar{width:44px;height:44px;border-radius:50%;background:var(--brass);color:#1a1a1a;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}.ps .byline .name{font-weight:600;font-size:14.5px;color:#fff;}.ps .byline .meta{font-size:12.5px;color:#bcc6c0;}.ps .crumb{font-size:12.5px;color:#aab4ad;margin:22px 0 32px;}.ps .crumb a{color:#cdd5cf;text-decoration:none;}.ps .hero-photo{width:100%;height:440px;object-fit:cover;}.ps .credit{font-size:11.5px;color:var(--subtle);text-align:right;padding:6px 22px 0;max-width:1100px;margin:0 auto;font-style:italic;}.ps article{padding:42px 0 10px;}.ps article p{font-size:17.5px;margin:0 0 22px;}.ps .drop::first-letter{font-family:var(--serif);font-size:60px;line-height:.8;float:left;padding:6px 10px 0 0;color:var(--brass-dk);font-weight:600;}.ps .section-head{margin:52px 0 6px;border-top:2px solid var(--rule);padding-top:24px;}.ps .section-head .num{font-size:12.5px;font-weight:700;letter-spacing:.14em;color:var(--brass-dk);text-transform:uppercase;}.ps h2{font-family:var(--serif);font-size:30px;font-weight:600;margin:6px 0 16px;color:var(--forest);}.ps h3{font-size:16px;font-weight:700;margin:22px 0 8px;color:var(--ink);text-transform:none;}.ps strong{color:var(--forest-soft);}.ps .pull{font-family:var(--serif);font-size:24px;line-height:1.4;font-style:italic;color:var(--forest);border-left:4px solid var(--brass);padding:6px 0 6px 20px;margin:30px 0;}.ps .grid{display:grid;gap:14px;margin:30px 0;}.ps .grid figure{margin:0;position:relative;overflow:hidden;border-radius:var(--radius);}.ps .grid img{width:100%;display:block;object-position:center;}.ps .grid figcaption{font-size:12px;color:#fff;position:absolute;left:0;right:0;bottom:0;padding:22px 14px 10px;background:linear-gradient(transparent,rgba(28,61,49,.82));}.ps .g2{grid-template-columns:1fr 1fr;}.ps .g2 figure{aspect-ratio:3/2;}.ps .g2 img{height:100%;object-fit:cover;}.ps .single figure{aspect-ratio:3/2;}.ps .single img{height:100%;object-fit:cover;}.ps .banner img{height:215px;object-fit:cover;}.ps .gfeature{grid-template-columns:1.55fr 1fr;grid-auto-rows:1fr;}.ps .gfeature .big{grid-row:1/span 2;}.ps .gfeature .big img{height:100%;object-fit:cover;min-height:430px;}.ps .gfeature .small{aspect-ratio:4/3;}.ps .gfeature .small img{height:100%;object-fit:cover;}.ps .gmix{grid-template-columns:1fr 1fr;align-items:start;}.ps .gmix img{height:auto;}.ps .gtext{grid-template-columns:1fr 1fr;align-items:center;gap:24px;}.ps .gtext img{height:auto;border-radius:var(--radius);}.ps .gtext .blurb{font-size:17px;}.ps .gtext .blurb .lab{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-dk);font-weight:700;display:block;margin-bottom:9px;}.ps .box{background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);padding:24px 26px;margin:30px 0;}.ps .box .label{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-dk);font-weight:700;margin-bottom:13px;}.ps .box ul{margin:0;padding:0;list-style:none;}.ps .box li{font-size:16px;padding:9px 0 9px 26px;position:relative;border-top:1px solid var(--rule);}.ps .box li:first-child{border-top:none;}.ps .box li:before{content:"\2600";position:absolute;left:0;color:var(--brass-dk);}.ps .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:30px 0;}.ps .stat{background:var(--forest);color:#fff;border-radius:var(--radius);padding:20px 14px;text-align:center;}.ps .stat .num{font-family:var(--serif);font-size:26px;font-weight:600;line-height:1;}.ps .stat .cap{font-size:12px;color:#c4ccc6;margin-top:8px;line-height:1.35;}.ps .picks{background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);padding:18px 22px;margin:22px 0;}.ps .picks .h{font-weight:700;font-size:13.5px;color:var(--forest);margin-bottom:9px;}.ps .picks ul{margin:0;padding-left:18px;}.ps .picks li{font-size:15.5px;margin:7px 0;}.ps .infographic{background:var(--paper);border:1px solid var(--rule);border-radius:var(--radius);padding:26px;margin:34px 0;}.ps .infographic .kicker{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--brass-dk);font-weight:700;}.ps .infographic h3{font-family:var(--serif);margin:6px 0 4px;font-size:21px;color:var(--forest);font-weight:600;}.ps .infographic .sub{font-size:13px;color:var(--mid);margin:0 0 16px;}.ps .infographic svg{width:100%;height:auto;display:block;}.ps .ig-foot{font-size:12px;color:var(--mid);font-style:italic;margin-top:14px;border-top:1px solid var(--rule);padding-top:12px;}.ps .snapshot{background:var(--paper);border:1px solid var(--rule);border-left:5px solid var(--brass);border-radius:var(--radius);padding:24px 26px;margin:28px 0;}.ps .snapshot .title{font-weight:700;font-size:14.5px;color:var(--forest);margin-bottom:13px;}.ps .snapshot ul{margin:0;padding-left:20px;}.ps .snapshot li{font-size:15.5px;margin:8px 0;}.ps .snapshot .src{font-size:12px;color:var(--mid);font-style:italic;margin-top:13px;}.ps .faq h3{font-size:17px;margin-top:22px;}.ps .faq p{font-size:16px;}.ps .cta{background:var(--forest);color:#fff;border-radius:var(--radius);padding:30px;margin:42px 0 10px;text-align:center;}.ps .cta h2{color:#fff;margin:0 0 10px;}.ps .cta p{font-size:16px;color:#dfe4e0;margin:0 0 20px;}.ps .btn{display:inline-block;font-weight:600;font-size:15px;background:var(--brass);color:#1a1a1a;text-decoration:none;padding:13px 26px;border-radius:40px;}.ps /* Footer */
+  footer.site-footer{background:#15302699;background:#13261f;color:#cdd5cf;margin-top:50px;padding:48px 0 30px;font-size:14px;}.ps .foot-wrap{max-width:1040px;margin:0 auto;padding:0 22px;}.ps .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px;}.ps .foot-brand img{height:24px;margin-bottom:14px;}.ps .foot-brand p{font-size:13px;color:#aab4ad;max-width:260px;}.ps .foot-col h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;margin:0 0 12px;}.ps .foot-col a{display:block;color:#cdd5cf;text-decoration:none;font-size:13.5px;margin:7px 0;}.ps .foot-col a:hover{color:#fff;}.ps .foot-legal{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;font-size:11.5px;color:#8c968f;line-height:1.6;}@media (max-width:760px){.ps h1{font-size:31px;}.ps .lede{font-size:17px;}.ps .hero-photo{height:250px;}.ps .stats{grid-template-columns:repeat(2,1fr);}.ps .g2,.ps .gfeature,.ps .gmix,.ps .gtext{grid-template-columns:1fr;}.ps .gfeature .big{grid-row:auto;}.ps .gfeature .big img,.ps .g2 figure,.ps .single figure{min-height:0;}.ps .pull{font-size:21px;}.ps .foot-top{grid-template-columns:1fr 1fr;}}
 </style>
 </head>
 <body>
 <div id="site-nav-mount"></div>
 <div id="site-drawer-mount"></div>
 <script src="/assets/js/site-chrome.js"></script>
+<div class="ps">
 <header class="hero">
   <div class="wrap">
     <div class="tagrow"><span class="tag">Lifestyle</span><span class="tag">Palm Springs</span><span class="tag">Summer</span></div>
@@ -509,10 +398,10 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   </div>
 
   <div class="stats">
-    <div class="ps-stat"><div class="num">~30°F</div><div class="cap">cooler atop the Aerial Tramway</div></div>
-    <div class="ps-stat"><div class="num">6 nights</div><div class="cap">of Splash House pool parties</div></div>
-    <div class="ps-stat"><div class="num">17+</div><div class="cap">summer golf experiences valley-wide</div></div>
-    <div class="ps-stat"><div class="num">$700K–$1M</div><div class="cap">the single-family sweet spot</div></div>
+    <div class="stat"><div class="num">~30°F</div><div class="cap">cooler atop the Aerial Tramway</div></div>
+    <div class="stat"><div class="num">6 nights</div><div class="cap">of Splash House pool parties</div></div>
+    <div class="stat"><div class="num">17+</div><div class="cap">summer golf experiences valley-wide</div></div>
+    <div class="stat"><div class="num">$700K–$1M</div><div class="cap">the single-family sweet spot</div></div>
   </div>
 
   <div class="section-head"><div class="num">01 — Eat &amp; Drink</div></div>
@@ -523,7 +412,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
     <figure><img src="img/alfresco.jpg" alt="Couple dining al fresco on a shaded Palm Springs patio"><figcaption>Shaded patios and mountain views at every turn.</figcaption></figure>
   </div>
   <p>Lead with <strong>Bougainvillea Fresh Cuisine</strong>, which opened downtown in late 2025 — chef-owner Alex Hernandez plates refined, Latin-inspired dishes (yes, including a genuinely excellent pasta program) from an intimate open kitchen. Pour a glass at <strong>Vinophile Café</strong>, the European-style wine bar that's become a downtown fixture, then climb the stairs to <strong>After Hours</strong>, the moody cocktail lounge above Sunset on North Palm Canyon Drive. Caffeinate at <strong>Coffeeism Co.</strong>, go gloriously kitschy at <strong>Bootlegger Tiki</strong>, and book a shaded patio at the perennial favourite <strong>Farm</strong>. The through-line: there is now something genuinely new worth trying in every direction.</p>
-  <div class="ps-pull">Summer is the only season you can walk into the desert's hottest new restaurant — in both senses of the word.</div>
+  <div class="pull">Summer is the only season you can walk into the desert's hottest new restaurant — in both senses of the word.</div>
 
   <div class="section-head"><div class="num">02 — Music &amp; Nightlife</div></div>
   <h2>Pool Parties and Performances</h2>
@@ -545,7 +434,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   <div class="grid single"><figure><img src="img/golf.jpg" alt="Desert golf course with a water feature and mountain backdrop near Palm Springs"><figcaption>Championship desert layouts — at a fraction of the winter rate.</figcaption></figure></div>
   <p>Here is the open secret of desert golf: the courses you can't afford or can't book in February become wide open — and dramatically cheaper — in July. Play <strong>Pete Dye's famous Stadium Course at PGA West</strong> at reduced summer rates, or get a double dose of old-school Palm Springs at <strong>Indian Canyons Golf Resort</strong>, where the photos of one-time regular Frank Sinatra still hang in the clubhouse.</p>
   <p>Prefer your golf air-conditioned? The desert has quietly become a simulator capital. Swing through more than 100 courses on pro-grade tech at <strong>The Golf Bar</strong> in La Quinta, play Pebble Beach without leaving the AC at the <strong>Topgolf Swing Suite</strong> in Cathedral City, or dial in your bag at <strong>PGA Tour Superstore</strong>. And when it finally cools after dark, <strong>The Lights at Indio</strong> offers a fully lit 18 you can walk under the stars.</p>
-  <div class="ps-pull">In winter, these tee sheets are booked solid. In summer, the course — and the rate — is yours.</div>
+  <div class="pull">In winter, these tee sheets are booked solid. In summer, the course — and the rate — is yours.</div>
 
   <div class="section-head"><div class="num">04 — Game On</div></div>
   <h2>The Pickleball Capital of the Desert</h2>
@@ -576,9 +465,9 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   <h2>And Now, the Good News for Buyers</h2>
   <p>If the city is heating up, the buying conditions are refreshingly cool. The story this summer is the <strong>single-family home</strong> — and specifically the <strong>$700,000 to $1 million</strong> band, which has quietly become the desert's sweet spot. It's the range where you stop compromising: a detached house, room to breathe, very often a private pool and mountain views, and the kind of mid-century character buyers fly in for — all while sitting comfortably below the $1M-plus luxury tier.</p>
   <p>The wider market backdrop makes the case. Palm Springs' median home sale price has hovered around <strong>$651,000</strong> this spring, up roughly <strong>1% year over year</strong> — steady appreciation, not a frothy run-up. That puts $700K–$1M right at the heart of the move-in-ready detached market: enough to buy genuine quality, without the premium that kicks in north of seven figures. Add a healthy supply of listings and you get something buyers haven't had in years — choice, and time to make a smart decision.</p>
-  <div class="ps-pull">$700K to $1M is where Palm Springs stops asking you to compromise — a pool, the views, the mid-century character, all under the luxury line.</div>
+  <div class="pull">$700K to $1M is where Palm Springs stops asking you to compromise — a pool, the views, the mid-century character, all under the luxury line.</div>
 
-  <div class="ps-infographic">
+  <div class="infographic">
     <div class="kicker">Infographic</div>
     <h3>Where $700K–$1M sits in the Palm Springs market</h3>
     <p class="sub">Single-family price landscape, summer 2026</p>
@@ -650,6 +539,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 </div>
 
 
+</div>
 <footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
   <meta itemprop="name" content="AMRE Real Estate Group">
   <meta itemprop="telephone" content="+13237198585">
