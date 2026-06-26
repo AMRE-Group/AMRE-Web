@@ -770,3 +770,17 @@ html body .testi-text{
   .faq-section .faq-a{padding:0 18px 18px;}
   .faq-section .faq-a p{font-size:14px;}
 }
+
+/* =====================================================================
+   19) HERO FEATURED LISTING — hide on mobile (fix H1 overlap)
+   The home hero hides the featured-listing card on phones via
+   @media(max-width:680px){.hero-listing{display:none}}, but a later
+   inline rule `a.hero-listing{display:block}` has higher specificity
+   and no breakpoint, so the card stayed visible on mobile and overlapped
+   the hero headline. This file loads after the inline <style>; matching
+   that selector's specificity here (plus !important) wins on mobile.
+   The card is unaffected on tablet/desktop.
+   ===================================================================== */
+@media (max-width: 680px){
+  a.hero-listing{ display: none !important; }
+}
