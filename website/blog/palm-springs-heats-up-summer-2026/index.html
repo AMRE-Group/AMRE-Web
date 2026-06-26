@@ -670,6 +670,8 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
         <li><a href="/about/">Team</a></li>
         <li><a href="/blog/">Journal</a></li>
         <li><a href="/contact/">Contact</a></li>
+        <li><a href="/properties/">Past Transactions</a></li>
+        <li><a href="/properties/900-s-nueva-vista-dr/">Featured Property</a></li>
       </ul>
     </div>
     <div>
@@ -678,8 +680,9 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
         <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
         <li><a href="/sellers/#concierge">Compass Concierge</a></li>
         <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/contact/">Home Valuation</a></li>
-        <li><a href="/contact/">Investment Advisory</a></li>
+        <li><a href="/#contact">Home Valuation</a></li>
+        <li><a href="/#contact">Investment Advisory</a></li>
+        <li><a href="/tools/investor-calculator/">Investor Calculator</a></li>
       </ul>
     </div>
     <div>
@@ -693,8 +696,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
         <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
       </ul>
     </div>
-  </div>
-  <div class="footer-bottom">
+  </div>  <div class="footer-bottom">
     <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
     <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
   </div>
@@ -713,14 +715,17 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 <script>
 (function(){
   var nav=document.getElementById('siteNav');
-  if(nav){function upd(){nav.classList.toggle('is-light',window.scrollY>80)} upd(); window.addEventListener('scroll',upd,{passive:true});}
-  var btn=document.getElementById('hamBtn'),drawer=document.getElementById('mobileDrawer');
-  if(btn&&drawer){
-    btn.addEventListener('click',function(){var open=btn.classList.toggle('open');btn.setAttribute('aria-expanded',open);drawer.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';});
-    drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';});});
-  }
+  if(!nav)return;
+  function upd(){nav.classList.toggle('is-light',window.scrollY>80)}
+  upd();
+  window.addEventListener('scroll',upd,{passive:true});
+  var io=new IntersectionObserver(function(e){
+    e.forEach(function(el){if(el.isIntersecting){el.target.classList.add('in');io.unobserve(el.target)}})},
+    {threshold:.06,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.f').forEach(function(el){io.observe(el)});
 })();
-</script>
 
+
+</script>
 </body>
 </html>
