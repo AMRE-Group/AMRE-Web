@@ -81,6 +81,12 @@
   .c12{grid-column:span 12} .c8{grid-column:span 8} .c6{grid-column:span 6} .c4{grid-column:span 4}
   .ar-wide{aspect-ratio:16/9} .ar-tall{aspect-ratio:3/4} .ar-4x3{aspect-ratio:4/3}
 
+  /* CONSTRUCTION PROGRESS */
+  .progress{background:var(--paper)}
+  .progress .cap{background:linear-gradient(to top,rgba(20,22,19,.72),transparent)}
+  .prog-note{max-width:760px;margin:34px auto 0;text-align:center;font-size:.82rem;letter-spacing:.03em;color:var(--ink-soft);opacity:.85}
+  .prog-stamp{display:inline-block;margin-bottom:10px;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green);border:1px solid var(--line);padding:7px 16px;border-radius:2px}
+
   /* FEATURES */
   .features{background:var(--green-deep);color:#efe9dd}
   .features .eyebrow{color:#b9c2b1}
@@ -235,6 +241,7 @@
     <nav class="nav-links" id="links">
       <a href="#residence">The Residence</a>
       <a href="#gallery">Gallery</a>
+      <a href="#progress">Progress</a>
       <a href="#plans">Floor Plans</a>
       <a href="#adu">ADU</a>
       <a href="#location">Location</a>
@@ -305,6 +312,29 @@
       <div class="feat"><span class="ic">✦</span><h3>Primary Suite</h3><p>Spa bath, soaking tub, and an oversized walk-in closet.</p></div>
       <div class="feat"><span class="ic">▤</span><h3>Attached 2-Car Garage</h3><p>Direct-access convenience with abundant storage.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- CONSTRUCTION PROGRESS -->
+<section class="progress" id="progress">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="prog-stamp">As of July 2026</span>
+      <span class="eyebrow">On Site</span>
+      <h2>Construction Progress</h2>
+      <p>Recent photos from the field. Exterior stucco is on, windows and doors are set, cabinetry is going in, and interior finishes are underway — on track for Q4 2026 completion.</p>
+    </div>
+    <div class="grid-g" id="pgrid">
+      <div class="g-item c6 ar-4x3" data-cap="Street View · Exterior &amp; Stucco"><img src="assets/3904/progress-01.jpg" alt="Exterior stucco and framing from the street" loading="lazy"><span class="cap">Street View · Exterior &amp; Stucco</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Kitchen &amp; Great Room · Cabinetry Set"><img src="assets/3904/progress-03.jpg" alt="Kitchen and great room with cabinetry installed" loading="lazy"><span class="cap">Kitchen &amp; Great Room · Cabinetry Set</span></div>
+      <div class="g-item c8 ar-wide" data-cap="Great Room · Windows Installed"><img src="assets/3904/progress-04.jpg" alt="Great room with windows installed" loading="lazy"><span class="cap">Great Room · Windows Installed</span></div>
+      <div class="g-item c4 ar-tall" data-cap="Floating Staircase Framed"><img src="assets/3904/progress-06.jpg" alt="Floating staircase framed" loading="lazy"><span class="cap">Floating Staircase Framed</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Living to Dining Sightline"><img src="assets/3904/progress-05.jpg" alt="Living room to dining sightline" loading="lazy"><span class="cap">Living to Dining Sightline</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Gallery Hall &amp; Wall of Glass"><img src="assets/3904/progress-07.jpg" alt="Gallery hall and wall of glass sliders" loading="lazy"><span class="cap">Gallery Hall &amp; Wall of Glass</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Bedroom Suite · Fireplace Niche"><img src="assets/3904/progress-08.jpg" alt="Bedroom suite with fireplace niche" loading="lazy"><span class="cap">Bedroom Suite · Fireplace Niche</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Front Elevation Taking Shape"><img src="assets/3904/progress-02.jpg" alt="Front elevation taking shape" loading="lazy"><span class="cap">Front Elevation Taking Shape</span></div>
+    </div>
+    <p class="prog-note">Active construction site. Photos reflect work in progress and are for illustrative purposes; finishes and details are subject to change.</p>
   </div>
 </section>
 
@@ -475,6 +505,7 @@
     <a href="#top" class="brand">3904 East Boulevard</a>
     <div class="fnav">
       <a href="#gallery">Gallery</a>
+      <a href="#progress">Progress</a>
       <a href="#plans">Floor Plans</a>
       <a href="#adu">ADU</a>
       <a href="#location">Location</a>
@@ -501,7 +532,7 @@
   tog.onclick=()=>links.classList.toggle('show');
   links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('show'));
   // lightbox
-  const items=[...document.querySelectorAll('#ggrid .g-item img')];
+  const items=[...document.querySelectorAll('#ggrid .g-item img, #pgrid .g-item img')];
   const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
   let idx=0;
   function open(i){idx=i;lbimg.src=items[i].src;lb.classList.add('open')}
