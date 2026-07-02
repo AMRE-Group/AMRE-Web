@@ -183,6 +183,30 @@
   .foot-brands{display:flex;align-items:center;gap:16px;}
   .foot-meta{font-size:12px;color:var(--ink-3);line-height:1.6;}
   .foot-confidential{margin-top:24px;padding-top:24px;border-top:1px solid var(--hairline-soft);font-size:11px;color:var(--ink-4);text-align:center;}
+  .ns-wrap{margin-top:56px;display:grid;grid-template-columns:1.15fr 1fr;gap:16px;}
+  .ns-inputs{background:var(--white);border:1px solid var(--hairline-soft);border-radius:var(--radius);padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-content:start;}
+  .ns-field{display:flex;flex-direction:column;gap:8px;}
+  .ns-field label{font-size:13px;font-weight:500;color:var(--ink-3);}
+  .ns-inwrap{display:flex;align-items:center;background:var(--gray-bg);border:1px solid transparent;border-radius:12px;padding:0 14px;transition:all 0.15s;}
+  .ns-inwrap:focus-within{background:var(--white);border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,113,227,0.15);}
+  .ns-pre,.ns-post{font-size:18px;color:var(--ink-3);font-weight:500;flex:none;}
+  .ns-inwrap input{flex:1;width:100%;min-width:0;border:none;background:transparent;outline:none;font-family:var(--sans);font-size:18px;font-weight:600;color:var(--ink);padding:13px 6px;font-variant-numeric:tabular-nums;}
+  .ns-result{background:var(--ink);color:var(--white);border-radius:var(--radius);padding:34px 32px;display:flex;flex-direction:column;justify-content:center;}
+  .ns-result-label{font-size:14px;color:rgba(255,255,255,0.6);font-weight:500;}
+  .ns-result-value{font-size:clamp(38px,5.5vw,54px);font-weight:600;letter-spacing:-0.02em;line-height:1.05;margin:8px 0 12px;color:var(--white);font-variant-numeric:tabular-nums;}
+  .ns-result-sub{font-size:15px;color:rgba(255,255,255,0.72);}
+  .ns-result-sub strong{color:#fff;font-weight:600;}
+  .ns-lines{margin-top:16px;background:var(--white);border:1px solid var(--hairline-soft);border-radius:var(--radius);padding:8px 28px;}
+  .ns-line{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--hairline-soft);font-size:15px;}
+  .ns-line:last-child{border-bottom:none;}
+  .ns-desc{color:var(--ink-2);}
+  .ns-desc small{display:block;color:var(--ink-4);font-size:12px;margin-top:3px;line-height:1.4;}
+  .ns-amt{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .ns-credit .ns-amt{color:var(--green);}
+  .ns-line.ns-total{border-top:2px solid var(--ink);border-bottom:none;margin-top:4px;padding-top:15px;}
+  .ns-line.ns-total .ns-desc,.ns-line.ns-total .ns-amt{color:var(--ink);font-weight:600;font-size:16px;}
+  @media (max-width:860px){.ns-wrap{grid-template-columns:1fr;}}
+  @media (max-width:520px){.ns-inputs{grid-template-columns:1fr;}}
   @media (max-width:980px){.wrap,.wrap-wide{padding:0 24px;}.crit-grid,.timeline{grid-template-columns:1fr;}.contacts-grid{grid-template-columns:1fr 1fr;}.prov-grid,.terms-grid,.checklist{grid-template-columns:1fr;}.terms-feature{padding:48px 32px;}.term-card.bafo ul{grid-template-columns:1fr;}}
   @media (max-width:900px){.topnav-links{display:none;}}
   @media (max-width:640px){.wrap,.wrap-wide{padding:0 20px;}.hero{padding:64px 0 56px;}section.lt,section.alt,.critical{padding:64px 0;}.contacts-grid{grid-template-columns:1fr;}.topnav-meta{display:none;}.notify{padding:32px 24px;}.comp-table th:nth-child(4),.comp-table td:nth-child(4){display:none;}.foot-inner{flex-direction:column;align-items:flex-start;}}
@@ -206,7 +230,7 @@
 <main id="dashboard">
   <div class="topnav"><div class="wrap-wide topnav-inner">
     <div class="topnav-left"><span class="wm-amre" data-logo-amre>AMRE</span><span class="topnav-sep"></span><span class="wm-compass" data-logo-compass></span></div>
-    <nav class="topnav-links"><a href="#timeline">Timeline</a><a href="#openhouse">Open House</a><a href="#pricing">Pricing</a><a href="#comps">Comps</a><a href="#milestones">Milestones</a><a href="#contacts">Contacts</a><a href="#notes">Notes</a></nav>
+    <nav class="topnav-links"><a href="#timeline">Timeline</a><a href="#openhouse">Open House</a><a href="#pricing">Pricing</a><a href="#comps">Comps</a><a href="#netsheet">Net Sheet</a><a href="#milestones">Milestones</a><a href="#contacts">Contacts</a><a href="#notes">Notes</a></nav>
     <div class="topnav-right"><span class="topnav-meta">TheMLS &middot; APN 680-511-009 &middot; Updated <span id="updateStamp"></span></span><span class="topnav-sep"></span><span class="topnav-status">Active Listing</span></div>
   </div></div>
   <header class="hero"><div class="wrap">
@@ -369,6 +393,35 @@
       <div class="takeaway">At <strong>$561/sq ft</strong>, 900 Nueva Vista is priced just under the recent sold median (<strong>$572/sq ft</strong>) and undercuts the larger actives on absolute price. The actives are sitting <strong>87&ndash;134 days</strong>, so disciplined pricing plus the <strong>active STR permit</strong> are the levers to drive early showings and a faster offer.</div>
     </div>
   </div></section>
+  <section class="alt" id="netsheet"><div class="wrap">
+    <div class="sec-eyebrow">Estimated net proceeds</div>
+    <h2 class="sec-title">What the sale nets.</h2>
+    <p class="sec-sub">Enter a sale price and the buyer&rsquo;s-agent commission &mdash; every line recalculates live. Preliminary estimate only; the escrow-prepared statement governs.</p>
+    <div class="ns-wrap">
+      <div class="ns-inputs">
+        <div class="ns-field"><label for="nsPrice">Sale price</label><div class="ns-inwrap"><span class="ns-pre">$</span><input type="text" inputmode="numeric" id="nsPrice" value="715,000"></div></div>
+        <div class="ns-field"><label for="nsComm">Buyer&rsquo;s-agent commission</label><div class="ns-inwrap"><input type="text" inputmode="decimal" id="nsComm" value="2.5"><span class="ns-post">%</span></div></div>
+        <div class="ns-field"><label for="nsPayoff">Mortgage payoff</label><div class="ns-inwrap"><span class="ns-pre">$</span><input type="text" inputmode="numeric" id="nsPayoff" value="400,000"></div></div>
+        <div class="ns-field"><label for="nsWarranty">Home warranty (max)</label><div class="ns-inwrap"><span class="ns-pre">$</span><input type="text" inputmode="numeric" id="nsWarranty" value="895"></div></div>
+      </div>
+      <div class="ns-result">
+        <div class="ns-result-label">Estimated net proceeds</div>
+        <div class="ns-result-value" id="nsNet">&mdash;</div>
+        <div class="ns-result-sub">Net per co-owner (50 / 50): <strong id="nsHalf">&mdash;</strong></div>
+      </div>
+    </div>
+    <div class="ns-lines">
+      <div class="ns-line ns-credit"><span class="ns-desc">Sale price</span><span class="ns-amt" id="nsL_price">&mdash;</span></div>
+      <div class="ns-line"><span class="ns-desc">Mortgage payoff (estimate)</span><span class="ns-amt" id="nsL_payoff">&mdash;</span></div>
+      <div class="ns-line"><span class="ns-desc">Listing-side commission <small>Owner-listed &mdash; no listing-side fee (per RLA)</small></span><span class="ns-amt">$0</span></div>
+      <div class="ns-line"><span class="ns-desc">Buyer&rsquo;s-agent commission (<span id="nsL_commRate">2.5</span>%)</span><span class="ns-amt" id="nsL_comm">&mdash;</span></div>
+      <div class="ns-line"><span class="ns-desc">County transfer tax <small>$1.10 per $1,000 &middot; Palm Springs has no city transfer tax</small></span><span class="ns-amt" id="nsL_ttax">&mdash;</span></div>
+      <div class="ns-line"><span class="ns-desc">Other closing costs (est.) <small>Owner&rsquo;s title policy, escrow settlement &amp; sub-escrow, recording, wires, processing, state withholding, and NHD report</small></span><span class="ns-amt">$4,184</span></div>
+      <div class="ns-line"><span class="ns-desc">Home warranty (max)</span><span class="ns-amt" id="nsL_warranty">&mdash;</span></div>
+      <div class="ns-line ns-total"><span class="ns-desc">Total costs &amp; payoff</span><span class="ns-amt" id="nsL_costs">&mdash;</span></div>
+    </div>
+    <div class="takeaway">Seller is <strong>Nueva Vista BA, LLC</strong> (owner-listed, 0% listing-side fee), so the only commission is the buyer&rsquo;s side. Title, escrow, and disclosure figures are estimates modeled on a comparable Chartwell Escrow statement and scaled to this price; confirm exact amounts with escrow. Excludes property-tax / HOA prorations and per-diem interest.</div>
+  </div></section>
   <section class="alt" id="milestones"><div class="wrap">
     <div class="sec-eyebrow">Listing milestones</div>
     <h2 class="sec-title">Marketing checklist.</h2>
@@ -458,6 +511,22 @@
   refresh();setInterval(refresh,3600000);
   (function(){var KEY='nv_chk_v1';var saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){}
     document.querySelectorAll('.chk input').forEach(function(box){var id=box.getAttribute('data-k');if(id in saved)box.checked=saved[id];var row=box.closest('.chk');function sync(){row.classList.toggle('done',box.checked);}sync();box.addEventListener('change',function(){saved[id]=box.checked;try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}sync();});});
+  })();
+  (function(){
+    var FIXED=4184;
+    function pn(v){v=(''+v).replace(/[^0-9.]/g,'');var n=parseFloat(v);return isNaN(n)?0:n;}
+    function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+    var price=document.getElementById('nsPrice'),comm=document.getElementById('nsComm'),payoff=document.getElementById('nsPayoff'),warr=document.getElementById('nsWarranty');
+    if(!price)return;
+    function calc(){
+      var P=pn(price.value),Cr=pn(comm.value),PO=pn(payoff.value),W=pn(warr.value);
+      var ba=P*(Cr/100),ttax=P/1000*1.10,costs=PO+ba+ttax+W+FIXED,net=P-costs;
+      setT('nsL_price',money(P));setT('nsL_payoff','−'+money(PO));setT('nsL_commRate',(''+Cr));
+      setT('nsL_comm','−'+money(ba));setT('nsL_ttax','−'+money(ttax));setT('nsL_warranty','−'+money(W));
+      setT('nsL_costs','−'+money(costs));setT('nsNet',money(net));setT('nsHalf',money(net/2));
+    }
+    [price,comm,payoff,warr].forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc);});
+    calc();
   })();
 </script>
 </body>
