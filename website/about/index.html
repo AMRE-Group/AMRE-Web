@@ -43,9 +43,7 @@
 <meta name="geo.region" content="US-CA">
 <meta name="geo.placename" content="Beverly Hills, Los Angeles">
 <!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- Schema.org -->
 <script type="application/ld+json">
 {
@@ -376,934 +374,585 @@
   ]
 }
 </script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-:root{
-  --black:#000;--ink:#1d1d1f;--mid:#6e6e73;--subtle:#86868b;
-  --rule:#d2d2d7;--light:#f5f5f7;--white:#fbfbfd;
-  --gold:#b5894e;--gold-lt:#d4aa72;--blue:#0071e3;--blue-dk:#0064c8;
-  --serif:'Playfair Display',Georgia,serif;
-  --sf:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',sans-serif;
-  --nav-h:52px;
-  --ease:cubic-bezier(.25,.46,.45,.94);
-  --ease-out:cubic-bezier(0,0,.2,1);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--sf);background:var(--white);color:var(--ink);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.47059}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-button{font-family:var(--sf);cursor:pointer;border:none;background:none}
-
-/* ── NAV ── */
-.site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 24px;
-  background:rgba(7,11,51,0.88);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:background .35s var(--ease),border-color .35s;
-}
-.site-nav.is-light{
-  background:rgba(255,255,255,.82);
-  border-bottom-color:rgba(0,0,0,.1);
-}
-.nav-brand{display:flex;align-items:center;gap:0;flex-shrink:0}
-.nav-brand img{height:20px;width:auto;transition:opacity .3s}
-.logo-dark{display:none}
-.site-nav.is-light .logo-dark{display:block}
-.site-nav.is-light .logo-white{display:none}
-.nav-sep{width:1px;height:16px;background:rgba(255,255,255,.22);
-  margin:0 12px;transition:background .35s}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
-.nav-links{
-  position:absolute;left:50%;transform:translateX(-50%);
-  display:flex;gap:24px;list-style:none;
-}
-.nav-links a{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;
-}
-.site-nav.is-light .nav-links a{color:rgba(29,29,31,.7)}
-.nav-links a:hover{color:#fff}
-.site-nav.is-light .nav-links a:hover{color:var(--ink)}
-.nav-links a.active{color:#fff}
-.site-nav.is-light .nav-links a.active{color:var(--ink)}
-.nav-cta{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;flex-shrink:0;
-}
-.site-nav.is-light .nav-cta{color:rgba(29,29,31,.7)}
-.nav-cta:hover{color:#fff}
-.site-nav.is-light .nav-cta:hover{color:var(--ink)}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .site-nav{padding:0 16px}
-}
-
-/* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
-  font-family:var(--sf);font-weight:400;border-radius:980px;
-  transition:background .2s,transform .15s,opacity .2s}
-.btn-blue{
-  font-size:14px;padding:12px 22px;
-  background:var(--blue);color:#fff;
-}
-.btn-blue:hover{background:var(--blue-dk);transform:translateY(-1px)}
-.btn-outline-white{
-  font-size:14px;padding:11px 22px;
-  border:1px solid rgba(255,255,255,.42);color:rgba(255,255,255,.9);
-}
-.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7)}
-.btn-outline-dark{
-  font-size:14px;padding:11px 22px;
-  border:1px solid rgba(0,0,0,.25);color:var(--ink);
-}
-.btn-outline-dark:hover{background:rgba(0,0,0,.05)}
-.btn-text{
-  font-size:14px;color:var(--blue);gap:4px;border-radius:0;
-  transition:gap .2s;
-}
-.btn-text:hover{gap:8px}
-.btn-text::after{content:'›';font-size:18px;line-height:1}
-.btn-gold{
-  font-size:14px;padding:12px 22px;
-  background:var(--gold);color:#fff;
-}
-.btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px)}
-
-/* ── PAGE HERO (subpages) ── */
-.page-hero{
-  padding-top:calc(var(--nav-h) + 80px);
-  padding-bottom:80px;
-  padding-inline:44px;
-  background:var(--ink);
-  position:relative;overflow:hidden;
-}
-.page-hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(181,137,78,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(181,137,78,.04) 1px,transparent 1px);
-  background-size:80px 80px;
-}
-.page-hero-bg-img{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:1;
-}
-.page-hero-bg-img::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:1;
-}
-.page-hero-inner{position:relative;z-index:2;max-width:800px}
-.page-eyebrow{
-  font-size:11px;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:20px;
-  display:flex;align-items:center;gap:12px;
-}
-.page-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
-.page-hero h1{
-  font-family:var(--serif);
-  font-size:clamp(44px,6.5vw,88px);
-  font-weight:400;line-height:1.0;
-  letter-spacing:-.01em;
-  color:#fff;
-  margin-bottom:24px;
-}
-.page-hero h1 em{font-style:italic;color:var(--gold-lt)}
-.page-hero-sub{
-  font-size:clamp(15px,1.8vw,18px);
-  font-weight:300;line-height:1.7;
-  color:rgba(255,255,255,.55);
-  max-width:500px;
-}
-@media(max-width:680px){.page-hero{padding-inline:20px}}
-
-/* ── LAYOUT ── */
-.wrap{max-width:1200px;margin-inline:auto;padding-inline:44px}
-.wrap-sm{max-width:860px;margin-inline:auto;padding-inline:44px}
-@media(max-width:680px){.wrap,.wrap-sm{padding-inline:20px}}
-
-/* ── SECTION LABELS ── */
-.eyebrow{
-  font-size:11px;font-weight:500;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);
-  text-align:center;margin-bottom:14px;
-}
-.eyebrow-left{text-align:left}
-.section-h{
-  font-family:var(--serif);
-  font-size:clamp(30px,4vw,52px);
-  font-weight:400;line-height:1.07;
-  letter-spacing:-.01em;
-  color:var(--ink);text-align:center;
-}
-.section-h em{font-style:italic;color:var(--gold)}
-.section-h-left{text-align:left}
-.section-h-white{color:#fff}
-.lede{
-  font-size:17px;font-weight:300;line-height:1.7;
-  color:var(--mid);text-align:center;
-  max-width:580px;margin-inline:auto;
-}
-.lede-left{text-align:left;margin-inline:0}
-.lede-white{color:rgba(255,255,255,.55)}
-.divider{width:40px;height:1px;background:var(--gold);margin:22px 0}
-
-/* ── FADE ANIMATIONS ── */
-.f{opacity:0;transform:translateY(24px);
-  transition:opacity .75s var(--ease),transform .75s var(--ease)}
-.f.in{opacity:1;transform:translateY(0)}
-.f.d1{transition-delay:.08s}.f.d2{transition-delay:.16s}
-.f.d3{transition-delay:.24s}.f.d4{transition-delay:.32s}
-
-/* ── FOOTER ── */
-.site-footer{
-  background:#000;
-  border-top:1px solid rgba(255,255,255,.07);
-  padding:60px 44px 36px;
-}
-.footer-grid{
-  max-width:1200px;margin-inline:auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  margin-bottom:28px;
-}
-.footer-brand img{height:18px;width:auto;opacity:.65;margin-bottom:14px}
-.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.footer-logos img{height:16px;width:auto;opacity:.6}
-.footer-logo-sep{width:1px;height:13px;background:rgba(255,255,255,.18)}
-.footer-tagline{
-  font-size:13px;font-weight:300;line-height:1.6;
-  color:rgba(255,255,255,.3);max-width:240px;
-}
-.footer-col-head{
-  font-size:10px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.22);margin-bottom:16px;
-}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{
-  font-size:13px;font-weight:300;
-  color:rgba(255,255,255,.42);transition:color .2s;
-}
-.footer-links a:hover{color:rgba(255,255,255,.8)}
-.footer-bottom{
-  max-width:1200px;margin-inline:auto;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-}
-.footer-legal{font-size:11px;font-weight:300;color:rgba(255,255,255,.18)}
-.footer-dre{font-size:11px;font-weight:300;color:rgba(255,255,255,.18);text-align:right}
-@media(max-width:860px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .site-footer{padding:48px 20px 28px}
-  .footer-bottom{flex-direction:column}
-  .footer-dre{text-align:left}
-}
-
-
-/* Brand override */
-
-/* ── PLAYFAIR as primary display/header font ── */
-h1,h2,h3,h4,.section-h,.page-hero h1,.hero-h,.hero-headline,
-.agent-name,.svc-title,.phase-title,.testi-text,
-.statement-q,.form-box-title,.prop-cta-h,.compass-card-h,
-.prop-price,.stat-n,.footer-brand-name,.footer-logo,
-.contact-headline,.split-left h1,.team-name,
-.concierge-box .cb-label,.step-title,.buyer-type-title{
-  font-family:'Playfair Display',Georgia,serif !important;
-}
-/* Montserrat for everything else — nav, body, labels, buttons */
-body,p,a,button,input,textarea,select,
-.nav-links a,.nav-cta,.eyebrow,.section-label,.page-eyebrow,
-.btn,.contact-label,.svc-num,.agent-role,.testi-author,
-.footer-col-head,.footer-links a,.footer-legal,.footer-dre,
-.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,
-.phase-desc,.contact-val,.check-list li,.cb-row,
-.split-agent-role,.hero-eyebrow,.hero-sub,.page-hero-sub,
-.prop-addr,.prop-city,.prop-meta span,.plisting-addr,
-.plisting-city,.plisting-specs span,.agent-creds span,
-.agent-creds a,.testi-author,.footer-tagline{
-  font-family:'Montserrat',-apple-system,sans-serif !important;
-}
-
-body{font-family:'Montserrat',-apple-system,sans-serif}
-.nav-links a,.nav-cta,.eyebrow,.section-label,.btn,.contact-label,.svc-num,
-.agent-role,.testi-author,.footer-col-head,.footer-links a,.footer-legal,
-.footer-dre,.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,.phase-desc,
-.contact-val,.check-list li,.cb-row,.split-agent-role,.hero-eyebrow{
-  font-family:'Montserrat',-apple-system,sans-serif !important;
-}
-:root{
-  --forest:#1c3d31;--navy:#070B33;--compass-blue:#0064e5;
-  --brass:#ffc13c;--brass-dk:#e6a800;--cream:#efdbc0;
-  --light-grey:#f7edf0;--white:#ffffff;--ink:#1a1a1a;
-  --mid:#5A5A5A;--subtle:#86868b;--rule:#d2d2d7;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'Montserrat',-apple-system,sans-serif;
-}
-/* Fix nav to match homepage */
-.site-nav,.nav{
-  background:rgba(7,11,51,0.82) !important;
-  border-bottom:1px solid rgba(255,255,255,.08) !important;
-}
-.site-nav.is-light,.nav.scrolled{
-  background:rgba(255,255,255,.90) !important;
-  border-bottom-color:rgba(0,0,0,.1) !important;
-}
-/* Fix nav link colors */
-.nav-links a,.nav-cta,.site-nav:not(.is-light) .nav-links a{color:rgba(255,255,255,.78) !important}
-.site-nav.is-light .nav-links a{color:rgba(28,61,49,.7) !important}
-.nav-cta{background:var(--brass) !important;color:var(--navy) !important;
-  border-radius:2px !important;border:none !important;
-  font-size:11px !important;font-weight:600 !important;letter-spacing:.1em !important;text-transform:uppercase !important;
-  padding:9px 20px !important;}
-.nav-cta:hover{background:var(--brass-dk) !important}
-/* Gold accents */
-.eyebrow,.section-label,.page-eyebrow,.svc-num,.phase-num,.agent-role{color:var(--brass) !important}
-.section-h em,.page-hero h1 em,.hero-h em,.hero-headline em,.prop-cta-h em{color:var(--brass) !important}
-/* Forest green for light backgrounds */
-.section-dark{background:var(--forest) !important}
-.statement{background:var(--forest) !important}
-.compass-adv,.compass-section{background-color:var(--navy) !important}
-/* Fix team photo heads */
-.agent-photo,.team-card-photo{background-position:top center !important}
-.agent-photo img{object-position:top center !important}
-/* Brass dividers */
-.divider{background:var(--brass) !important}
-/* Left-side eyebrow borders */
-.eyebrow::before,.eyebrow::after,.page-eyebrow::before{background:var(--brass) !important}
-/* Testimonial accent */
-.testi-card,.testimonial{border-left:3px solid var(--brass) !important;border-top:none !important;border-right:none !important;border-bottom:none !important}
-/* Buttons */
-.btn-primary,.btn-blue,.btn-gold{background:var(--brass) !important;color:var(--navy) !important;border-radius:2px !important}
-.btn-primary:hover,.btn-blue:hover,.btn-gold:hover{background:var(--brass-dk) !important}
-.btn-dark,.btn-forest{background:var(--forest) !important;color:#fff !important;border-radius:2px !important}
-/* Phase/check list accents */
-.phase-num,.check-list li::before,.step-n{color:var(--brass) !important}
-.phase-stat{background:rgba(255,193,60,.15) !important;color:var(--brass) !important}
-/* Stats */
-.stat-n{color:var(--forest) !important}
-.stat-n sup{color:var(--brass) !important}
-/* Valuation CTA bg */
-.valuation-cta{background:var(--forest) !important}
-/* Filter pills */
-.filter-pill.active,.filter-btn.active{background:var(--forest) !important;border-color:var(--forest) !important}
-/* Prop badges */
-.badge-sale{background:var(--compass-blue) !important}
-.badge-pending{background:var(--brass) !important;color:var(--navy) !important}
-/* Footer */
-.site-footer{background:var(--navy) !important}
-/* Compass advantage cards */
-.compass-card:hover,.compass-card:hover{border-color:rgba(255,193,60,.3) !important}
-/* Nav CTA override for subpages using different class names */
-.nav-cta,.nav a.btn,.nav-cta-btn{
-  background:var(--brass) !important;color:var(--navy) !important;
-  border:none !important;
-}
-
-
-
-/* ====================================================================
-   AMRE 2026 site update — typography refresh, readability bump,
-   footer contrast, hero re-flow.
-   ==================================================================== */
-.hero-h, .section-h, .page-hero h1, .svc-title, .agent-name, .compass-card-h, .prop-cta-h, .prop-price, .form-box-title, .statement-q, .testi-text {
-  font-family: var(--sans);
-  font-weight: 500;
-  letter-spacing: -.015em;
-}
-.hero-h em, .section-h em, .page-hero h1 em, .prop-cta-h em, .compass-card-h em {
-  font-style: italic; font-weight: 400;
-}
-.statement-q, .testi-text { font-weight: 400; font-style: italic; }
-.prop-price { font-weight: 600; letter-spacing: 0; }
-.hero-h { line-height: 1.05; }
-.page-hero h1 { line-height: 1.05; }
-.section-h { line-height: 1.12; }
-.lede { font-size: 18px; line-height: 1.7; }
-.svc-desc, .compass-card-p, .agent-bio, .faq-a p { font-size: 15px; line-height: 1.78; }
-.testi-text { font-size: 17px; line-height: 1.65; }
-.contact-val { font-size: 15px; }
-.form-box-sub { font-size: 14px; }
-.page-hero-sub, .hero-sub { font-size: clamp(15px, 1.7vw, 18px); line-height: 1.7; }
-.footer-tagline { color: rgba(255,255,255,.62); font-size: 13px; max-width: 260px; }
-.footer-col-head { color: rgba(255,255,255,.55); font-size: 10px; }
-.footer-links a { color: rgba(255,255,255,.72); font-size: 13px; }
-.footer-links a:hover { color: #fff; }
-.footer-legal { color: rgba(255,255,255,.50); font-size: 11px; }
-.footer-dre { color: rgba(255,255,255,.40); font-size: 11px; }
-.hero-content { max-width: 880px; }
-.hero-h { font-size: clamp(44px, 6.2vw, 84px); }
-@media (max-width: 680px) { .hero-content { max-width: 100%; } }
-
-/* ═══════════════════════════════════════════════
-   GLOBAL MOBILE FIXES — text overflow, layout
-═══════════════════════════════════════════════ */
-@media(max-width:860px){
-  /* Prevent any horizontal overflow */
-  html,body{overflow-x:hidden;width:100%}
-  *{max-width:100%;word-break:break-word}
-
-  /* Section padding — tighter on mobile */
-  section,[class*="-section"],[class*="section-"]{padding-left:20px !important;padding-right:20px !important}
-  .wrap,.wrap-sm{padding-inline:20px !important}
-
-  /* Hero — full width, correct padding */
-  .hero,.page-hero{padding-left:20px !important;padding-right:20px !important}
-  .hero-h{font-size:clamp(36px,10vw,56px) !important}
-  .hero-listing{display:none !important}
-
-  /* Nav — no overflow */
-  .nav-links{display:none !important}
-  .site-nav,.nav{padding:0 16px !important}
-  .nav-brand img{max-height:18px}
-
-  /* Stats bar */
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-
-  /* Service cards */
-  .svc-grid{grid-template-columns:1fr !important}
-
-  /* Properties grid */
-  .props-grid,.plisting-grid{grid-template-columns:1fr !important}
-
-  /* Compass advantage */
-  .compass-grid{grid-template-columns:1fr !important}
-  .compass-inner{grid-template-columns:1fr !important;gap:40px}
-
-  /* Team cards */
-  .team-grid,.agent-card,.agent-card-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-photo,.team-card-photo{min-height:260px !important}
-  .agent-photo-grad,.team-card-photo-grad{
-    background:linear-gradient(to bottom,transparent 50%,var(--white,#fff)) !important
-  }
-  .agent-info,.team-card-body{padding:28px 20px !important}
-  .agent-name,.team-name{font-size:clamp(24px,7vw,34px) !important}
-
-  /* Testimonials */
-  .testi-grid,.testimonials-grid{grid-template-columns:1fr !important}
-
-  /* Contact split */
-  .contact-split{grid-template-columns:1fr !important}
-  .split-left,.split-right{padding-inline:20px !important}
-
-  /* Two-col layouts */
-  .two-col-layout,.calc-layout,
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns:1fr 1.2fr"],
-  [style*="grid-template-columns:1fr 1fr"]{
-    grid-template-columns:1fr !important;
-    gap:32px !important;
-  }
-  .contact-grid{grid-template-columns:1fr !important}
-  .contact-form-box{padding:24px 18px !important}
-
-  /* Phase cards */
-  .phases-grid,.phase-stats-row{grid-template-columns:1fr !important}
-
-  /* Buyer types */
-  .buyer-types-grid,.bt-card{width:100% !important}
-  .buyer-types-grid{display:flex;flex-direction:column;gap:14px}
-
-  /* Values grid */
-  .values-grid{grid-template-columns:1fr 1fr !important}
-
-  /* Footer */
-  .footer-grid{grid-template-columns:1fr 1fr !important;gap:24px}
-  .footer-bottom{flex-direction:column !important}
-
-  /* Text sizes — prevent clamp from being too big */
-  .section-h,.section-headline{font-size:clamp(26px,8vw,40px) !important}
-  .lede{font-size:15px !important}
-  h1{font-size:clamp(34px,9vw,52px) !important}
-
-  /* Tables / process steps */
-  .process-step{grid-template-columns:1fr !important}
-  .step-extra,.step-n{display:none !important}
-
-  /* Concierge */
-  .concierge-layout,.two-col-layout{grid-template-columns:1fr !important}
-
-  /* Agent profile on team page */
-  .agent-profile,.agent-profile-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-content-col{padding:32px 20px !important}
-
-  /* Intent chips wrap properly */
-  .intent-chips{gap:8px !important}
-  .chip{font-size:11px !important;padding:7px 12px !important}
-}
-
-@media(max-width:480px){
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-  .footer-grid{grid-template-columns:1fr !important}
-  .values-grid{grid-template-columns:1fr !important}
-  .hero-btns,.hero-actions{flex-direction:column !important;align-items:flex-start !important}
-  .hero-btns .btn,.hero-actions .btn,.hero-actions a{width:100% !important;justify-content:center !important}
-  .agent-creds{font-size:11px !important}
-  .testi-card{padding:22px 16px !important}
-}
-
-
-/* dark bg text — lighter, bigger */
-.section-dark p,.section-dark li,.compass-card-p,.phase-desc,.statement-q,
-[style*="background:var(--forest)"] p,[style*="background:var(--navy)"] p{
-  color:rgba(255,255,255,.78)!important;font-size:clamp(14px,1.5vw,16px)!important;
-}
-
-/* Apple-style self-contained team cards */
-.team-cards-wrap{max-width:1200px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:repeat(2,1fr);gap:32px;background:transparent}
-@media (max-width:860px){.team-cards-wrap{grid-template-columns:1fr;padding:48px 20px;gap:24px}}
-section#michael, section#ania{background:transparent !important;padding:0 !important}
-section#michael .agent-profile, section#ania .agent-profile{display:flex !important;flex-direction:column !important;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 1px 2px rgba(7,11,51,.04),0 12px 32px rgba(7,11,51,.06);border:1px solid rgba(7,11,51,.04);height:100%;min-height:auto !important}
-.agent-photo-col{position:relative;width:100% !important;flex:none !important;height:380px !important;background-size:cover;background-position:center top;min-height:0 !important}
-.agent-content-col{padding:32px 36px 36px;display:flex;flex-direction:column;gap:14px}
-.agent-role{font-family:'Montserrat',-apple-system,sans-serif !important;font-size:10px !important;font-weight:600 !important;letter-spacing:.18em !important;text-transform:uppercase !important;color:#1c3d31 !important}
-.agent-name{font-family:'Playfair Display',Georgia,serif !important;font-size:34px !important;line-height:1.05 !important;color:#070B33 !important;margin:0 !important;letter-spacing:-.01em !important}
-.agent-profile .divider{width:36px;height:2px;background:#ffc13c;margin:4px 0 8px}
-.agent-bio{font-family:'Montserrat',-apple-system,sans-serif !important;font-size:14px !important;line-height:1.65 !important;color:#3a3a3c !important;margin:0 !important}
-.agent-bio strong{color:#1c3d31 !important;font-weight:600 !important}
-.agent-creds{display:grid;grid-template-columns:1fr;gap:6px;padding:14px 16px;background:#f7edf0;border-radius:10px;font-size:12px;color:#3a3a3c;margin-top:6px}
-.agent-creds span{color:#1c3d31;font-weight:600;letter-spacing:.04em}
-.agent-actions{display:flex;gap:12px;margin-top:8px;flex-wrap:wrap}
-
-
-/* ── HAMBURGER + MOBILE DRAWER ── */
-.nav-right{display:flex;align-items:center;gap:12px}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;
-  flex-shrink:0}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;
-  transition:transform .25s,opacity .2s,width .25s}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham-btn.open span:nth-child(2){opacity:0;width:0}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{
-  position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;
-  background:rgba(7,11,51,0.97);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  display:flex;flex-direction:column;
-  padding:32px 24px 48px;
-  transform:translateY(-110%);opacity:0;
-  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;
-  pointer-events:none}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a{
-  display:block;color:#fff;font-family:var(--sans);
-  font-size:clamp(20px,5vw,26px);font-weight:300;
-  letter-spacing:-.01em;padding:20px 0;
-  transition:color .2s,padding-left .2s}
-.mobile-drawer a:hover{color:var(--brass,#ffc13c);padding-left:8px}
-.mobile-drawer .drawer-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  margin-top:32px;width:100%;
-  background:var(--blue,#0064e5);color:#fff!important;border-radius:980px;
-  font-size:16px!important;font-weight:500!important;padding:16px 32px!important;
-  border-bottom:none!important;letter-spacing:.02em}
-.mobile-drawer .drawer-cta:hover{background:#0049a8}
-@media(max-width:860px){
-  .nav-links{display:none!important}
-  .nav-cta{display:none!important}
-  .ham-btn{display:flex}
-}
-@media(min-width:861px){
-  .mobile-drawer{display:none!important}
-}
-
-</style>
-<link rel="stylesheet" href="/assets/css/site-overrides.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://amre.group/about/#faq","mainEntity":[{"@type":"Question","name":"Who is AMRE Real Estate Group?","acceptedAnswer":{"@type":"Answer","text":"AMRE Real Estate Group is a Los Angeles real estate advisory partnership at Compass Beverly Hills, led by Michael Abraham (Realtor®, Licensed Architect — DRE #02242095) and Ania De Pourbaix (Realtor® — DRE #01891438). The team represents buyers, sellers, and investors across Beverly Hills, Bel Air, Brentwood, Santa Monica, the Hollywood Hills, Culver City, Mid-City, West Adams, and architecturally significant properties throughout Los Angeles County."}},{"@type":"Question","name":"What's the partnership structure between Michael and Ania?","acceptedAnswer":{"@type":"Answer","text":"Michael and Ania operate as a true two-principal team, with both partners actively engaged on every transaction. Michael leads architectural and design analysis on the physical product, while Ania anchors negotiation, lender coordination, and client advocacy through closing. Clients get two senior agents on every deal — not a single agent and an assistant."}},{"@type":"Question","name":"What kinds of clients does AMRE typically work with?","acceptedAnswer":{"@type":"Answer","text":"First-time owner-occupants, move-up and luxury buyers, sellers preparing properties for market, multifamily and 1031-exchange investors, estate and trust transactions, and out-of-state or international buyers relocating to Los Angeles. Every client receives the same level of advisory service regardless of price point."}},{"@type":"Question","name":"Where is AMRE's office located?","acceptedAnswer":{"@type":"Answer","text":"AMRE Real Estate Group is based at the Compass Beverly Hills office at 9454 Wilshire Boulevard, Suite 100, Beverly Hills, CA 90212. Meetings can be hosted in-office, on-site at properties, at clients' homes, or remotely via video — whatever fits the client's schedule and geography."}},{"@type":"Question","name":"Is AMRE part of Compass?","acceptedAnswer":{"@type":"Answer","text":"Yes. AMRE Real Estate Group operates under Compass (CA DRE #01991628), the largest residential real estate brokerage in the United States by sales volume. This affiliation gives clients access to Compass Private Exclusives, the Compass Concierge home-prep program, and a 34,000+ agent network across 70+ metropolitan markets nationwide."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://amre.group/about/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},{"@type":"ListItem","position":2,"name":"About","item":"https://amre.group/about/"}]}</script>
+<style>
+/* AMRE Design System — single source of truth for site styling.
+   Edit tokens/components here; every page that links this file updates.
+   Modern · AMRE brand colorway (forest green + brass gold + cream). */
+
+:root{
+    --bone:#faf7f1; --bone-2:#efe7d8; --card:#ffffff;
+    --ink:#1a1a1a; --ink-2:#3a3a3c; --mute:#5a5a5a;
+    --clay:#ffc13c; --clay-dk:#e6a800;
+    --sage:#163328; --dark:#1c3d31;
+    --line:rgba(43,46,42,.14); --line-2:rgba(43,46,42,.08);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Instrument Sans',-apple-system,Segoe UI,sans-serif;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bone);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.02em}
+  em{font-style:italic;color:var(--dark)}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+  .eyebrow{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dark);display:inline-flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--clay)}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border-radius:100px;transition:.35s var(--ease);cursor:pointer;border:1px solid transparent}
+  .btn-fill{background:var(--clay);color:var(--ink)}
+  .btn-fill:hover{background:var(--clay-dk);transform:translateY(-2px)}
+  .btn-ink{background:var(--ink);color:var(--bone)}
+  .btn-ink:hover{transform:translateY(-2px);background:#000}
+  .btn-ghost{border-color:rgba(255,255,255,.55);color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:#fff;color:var(--ink)}
+  .btn-line{border-color:var(--line);color:var(--ink)}
+  .btn-line:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .arrow{transition:transform .35s var(--ease)}
+  .btn:hover .arrow{transform:translateX(4px)}
+
+  /* NAV */
+  header.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:.4s var(--ease);padding:20px 0}
+  header.nav.solid{background:rgba(250,247,241,.9);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-2);padding:12px 0}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .brand img.amre{height:22px;width:auto}
+  .brand img.comp{height:15px;width:auto}
+  .brand .sep{width:1px;height:20px;background:rgba(255,255,255,.4)}
+  header.nav.solid .brand .sep{background:var(--line)}
+  .logo-dark{display:none}
+  header.nav.solid .logo-white{display:none}
+  header.nav.solid .logo-dark{display:block}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.9);transition:.3s;letter-spacing:.01em}
+  header.nav.solid .nav-links a{color:var(--ink-2)}
+  .nav-links a:hover{color:#fff}
+  header.nav.solid .nav-links a:hover{color:var(--clay-dk)}
+  .nav-right{display:flex;align-items:center;gap:16px}
+  .ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+  .ham span{width:24px;height:2px;background:#fff;transition:.3s}
+  header.nav.solid .ham span{background:var(--ink)}
+
+  /* HERO — stronger semi-opaque scrim for readability */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url('https://res.cloudinary.com/luxuryp/videos/f_auto,q_auto/so_0,eo_0/woxa6oigeefrvm3lrso0/11023-fruitland-dr-branded-3.jpg') center/cover no-repeat;transform:scale(1.06);animation:kb 18s ease-out forwards}
+  @keyframes kb{to{transform:scale(1)}}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,20,16,.58) 0%,rgba(15,20,16,.42) 42%,rgba(15,20,16,.86) 100%)}
+  .hero-scrim{position:absolute;inset:0;background:rgba(20,28,22,.22);z-index:1}
+  .hero-in{position:relative;z-index:2;width:100%;padding-bottom:clamp(48px,9vh,96px);padding-top:140px}
+  .hero .eyebrow{color:#ffd98a}
+  .hero .eyebrow::before{background:var(--clay)}
+  .hero h1{font-size:clamp(3.4rem,9vw,8rem);font-weight:300;margin:22px 0 20px;letter-spacing:-.035em;max-width:16ch;font-optical-sizing:auto}
+  .hero h1 em{color:var(--clay)}
+  .hero .sub{font-size:clamp(1.05rem,1.7vw,1.35rem);font-weight:400;color:rgba(255,255,255,.9);max-width:46ch;margin-bottom:34px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-tag{position:absolute;right:clamp(20px,4vw,48px);bottom:clamp(48px,9vh,96px);z-index:2;border:1px solid rgba(255,255,255,.25);background:rgba(20,28,22,.34);backdrop-filter:blur(8px);border-radius:16px;padding:18px 22px;max-width:280px}
+  .hero-tag .k{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:#ffd98a;font-weight:600}
+  .hero-tag .v{font-family:var(--serif);font-size:1.15rem;margin-top:6px;line-height:1.25}
+  .hero-tag a{display:inline-flex;gap:7px;align-items:center;margin-top:12px;font-size:.74rem;font-weight:600;color:#fff;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px}
+  @media(max-width:760px){.hero-tag{display:none}}
+
+  /* MARQUEE — thin serif (matches headers) */
+  .marquee{background:var(--dark);color:var(--bone);overflow:hidden;padding:20px 0;border-block:1px solid rgba(255,255,255,.09)}
+  .marquee-track{display:flex;gap:0;white-space:nowrap;width:max-content;animation:scroll 34s linear infinite}
+  .marquee:hover .marquee-track{animation-play-state:paused}
+  .marquee span{font-family:var(--serif);font-weight:300;font-style:normal;font-size:clamp(1.15rem,2vw,1.7rem);letter-spacing:.01em;padding:0 34px;display:inline-flex;align-items:center;gap:34px}
+  .marquee span::after{content:"◆";font-size:.42em;color:var(--clay);font-family:var(--sans)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SECTION */
+  section{padding:clamp(72px,10vw,140px) 0}
+  .head{max-width:780px;margin-bottom:clamp(40px,5vw,64px)}
+  .head.center{margin-inline:auto;text-align:center}
+  .head.wide{max-width:1000px}
+  .head h2{font-size:clamp(2.4rem,5.5vw,4.4rem);font-weight:300;margin:20px 0 18px;letter-spacing:-.03em}
+  .head p{color:var(--mute);font-size:1.08rem;max-width:52ch}
+  .head.center p{margin-inline:auto}
+  .oneline{white-space:nowrap}
+  @media(max-width:640px){.oneline{white-space:normal}}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* PATH */
+  .path{background:var(--bone-2)}
+  .path-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .pcard{position:relative;background:var(--card);border-radius:22px;padding:clamp(34px,4vw,56px);overflow:hidden;transition:.4s var(--ease);border:1px solid var(--line-2)}
+  .pcard:hover{transform:translateY(-6px);box-shadow:0 30px 70px -34px rgba(23,19,16,.45)}
+  .pcard::before{content:"";position:absolute;inset:auto -40px -40px auto;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(255,193,60,.16),transparent 70%);transition:.5s var(--ease)}
+  .pcard:hover::before{transform:scale(1.5)}
+  .pcard .tag{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dark)}
+  .pcard h3{font-size:clamp(1.9rem,3vw,2.7rem);font-weight:300;margin:16px 0 14px;letter-spacing:-.02em}
+  .pcard p{color:var(--mute);margin-bottom:30px;position:relative;z-index:1}
+
+  /* WORK */
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .wcard{border-radius:22px;overflow:hidden;background:var(--card);border:1px solid var(--line-2);transition:.4s var(--ease)}
+  .wcard:hover{transform:translateY(-6px);box-shadow:0 30px 70px -34px rgba(23,19,16,.4)}
+  .wcard .ph{aspect-ratio:5/6;background-size:cover;background-position:center;position:relative}
+  .wcard .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,20,16,.5),transparent 55%)}
+  .wcard .idx{position:absolute;top:20px;left:20px;z-index:2;font-family:var(--serif);font-size:2rem;color:#fff;font-style:italic}
+  .wcard .body{padding:28px 28px 34px}
+  .wcard .k{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--dark)}
+  .wcard h3{font-size:1.7rem;font-weight:400;margin:10px 0 12px}
+  .wcard p{color:var(--mute);font-size:.95rem;margin-bottom:20px}
+  .wcard .go{font-size:.78rem;font-weight:600;display:inline-flex;gap:8px;align-items:center;color:var(--ink)}
+
+  /* STATS */
+  .stats{background:var(--dark);color:var(--bone)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:8px clamp(16px,2.5vw,36px);border-right:1px solid rgba(255,255,255,.12)}
+  .stat:last-child{border-right:none}
+  .stat .n{font-family:var(--serif);font-size:clamp(3rem,6vw,5.2rem);font-weight:300;line-height:.95;letter-spacing:-.03em}
+  .stat .n em{color:var(--clay);font-style:normal}
+  .stat .l{font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,234,.6);margin-top:16px}
+
+  /* FEATURED */
+  .feat{background:var(--bone)}
+  .feat-in{display:grid;grid-template-columns:1.15fr .85fr;gap:0;border-radius:26px;overflow:hidden;box-shadow:0 40px 90px -50px rgba(23,19,16,.5)}
+  .feat-img{background:url('https://amre.group/properties/900-s-nueva-vista-dr/img/hero.jpg') center/cover;min-height:520px}
+  .feat-body{background:var(--dark);color:var(--bone);padding:clamp(40px,5vw,72px);display:flex;flex-direction:column;justify-content:center}
+  .feat-body .eyebrow{color:var(--clay)}
+  .feat-body em{color:var(--clay)}
+  .feat-body h2{color:#fff;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;margin:18px 0 10px;letter-spacing:-.03em}
+  .feat-body .addr{color:rgba(244,241,234,.72);margin-bottom:30px}
+  .feat-specs{display:flex;gap:34px;flex-wrap:wrap;padding:26px 0;border-block:1px solid rgba(255,255,255,.14);margin-bottom:32px}
+  .feat-specs .n{font-family:var(--serif);font-size:1.9rem;font-weight:300}
+  .feat-specs .l{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,234,.55);margin-top:4px}
+
+  /* ADVANTAGE */
+  .adv{background:var(--bone)}
+  .adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+  .acard{background:var(--card);border:1px solid var(--line-2);border-radius:22px;padding:clamp(30px,3vw,44px);transition:.4s var(--ease)}
+  .acard:hover{transform:translateY(-5px);box-shadow:0 26px 60px -34px rgba(23,19,16,.4)}
+  .acard .num{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--clay-dk)}
+  .acard h3{font-size:1.6rem;font-weight:400;margin:10px 0 12px}
+  .acard p{color:var(--mute);font-size:.96rem}
+  .adv-cta{text-align:center;margin-top:44px}
+
+  /* TEAM */
+  .team{background:var(--bone-2)}
+  .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .tcard{background:var(--card);border-radius:24px;overflow:hidden;border:1px solid var(--line-2);display:grid;grid-template-columns:.85fr 1.15fr}
+  .tcard .ph{background-size:cover;background-position:center;min-height:360px}
+  .tcard .body{padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;justify-content:center}
+  .tcard .role{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-dk)}
+  .tcard h3{font-size:2rem;font-weight:400;margin:10px 0 12px}
+  .tcard p{color:var(--mute);font-size:.94rem;margin-bottom:16px}
+  .tcard .dre{font-size:.72rem;letter-spacing:.08em;color:var(--mute);text-transform:uppercase;margin-bottom:16px}
+  .tcard .go{font-size:.78rem;font-weight:600;color:var(--dark);display:inline-flex;gap:8px;align-items:center}
+  @media(max-width:1080px){.team-grid{grid-template-columns:1fr}}
+  @media(max-width:520px){.tcard{grid-template-columns:1fr}.tcard .ph{min-height:280px}}
+
+  /* NEIGHBORHOODS */
+  .hoods-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .hood{border:1px solid var(--line);border-radius:16px;padding:22px 22px 20px;transition:.35s var(--ease);background:var(--card)}
+  .hood:hover{background:var(--dark);border-color:var(--dark);transform:translateY(-4px)}
+  .hood h4{font-family:var(--serif);font-size:1.35rem;font-weight:400}
+  .hood p{font-size:.82rem;color:var(--mute);margin-top:6px}
+  .hood .go{font-size:.72rem;font-weight:600;color:var(--clay-dk);margin-top:14px;display:inline-block;letter-spacing:.04em}
+  .hood:hover h4,.hood:hover p{color:#fff}
+  .hood:hover .go{color:var(--clay)}
+  @media(max-width:900px){.hoods-grid{grid-template-columns:1fr 1fr}}
+
+  /* REVIEWS */
+  .rev{background:var(--bone-2)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rcard{background:var(--card);border:1px solid var(--line-2);border-radius:22px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column}
+  .rcard .stars{color:var(--clay);letter-spacing:3px;font-size:.9rem}
+  .rcard blockquote{font-family:var(--serif);font-size:1.2rem;font-weight:400;line-height:1.4;margin:16px 0 22px;color:var(--ink)}
+  .rcard .who{font-size:.82rem;font-weight:600;margin-top:auto}
+  .rcard .who span{display:block;color:var(--mute);font-weight:400;font-size:.78rem;margin-top:2px}
+  @media(max-width:900px){.rev-grid{grid-template-columns:1fr}}
+
+  /* JOURNAL */
+  .jrn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .jcard{background:var(--card);border:1px solid var(--line-2);border-radius:22px;padding:clamp(28px,3vw,38px);transition:.4s var(--ease);display:flex;flex-direction:column}
+  .jcard:hover{transform:translateY(-5px);box-shadow:0 26px 60px -34px rgba(23,19,16,.4)}
+  .jcard .cat{font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--clay-dk)}
+  .jcard h3{font-size:1.5rem;font-weight:400;margin:12px 0 12px;line-height:1.15}
+  .jcard p{color:var(--mute);font-size:.92rem;margin-bottom:20px}
+  .jcard .go{font-size:.78rem;font-weight:600;margin-top:auto;display:inline-flex;gap:7px;align-items:center}
+  @media(max-width:900px){.jrn-grid{grid-template-columns:1fr}}
+
+  /* CTA */
+  .cta{background:var(--dark);color:#fff;text-align:center}
+  .cta h2{font-size:clamp(2.4rem,6vw,5rem);font-weight:300;letter-spacing:-.03em;color:#fff}
+  .cta h2 em{color:var(--clay)}
+  .cta p{max-width:46ch;margin:20px auto 34px;color:rgba(255,255,255,.85);font-size:1.1rem}
+  .cta-meta{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;margin-top:40px;color:rgba(255,255,255,.75);font-size:.9rem}
+  .cta-meta b{color:#fff;font-weight:600;display:block;font-family:var(--serif);font-size:1.15rem;margin-bottom:2px}
+
+  /* FOOTER */
+  footer{background:var(--dark);color:rgba(244,241,234,.7);padding:0 0 40px}
+  .foot-marq{border-top:1px solid rgba(255,255,255,.1)}
+  .foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding:64px 0 44px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-brand img{height:26px;margin-bottom:18px}
+  .foot-brand p{max-width:32ch;font-size:.95rem}
+  .foot-cols{display:flex;gap:clamp(40px,6vw,88px);flex-wrap:wrap}
+  .foot-cols h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.5);margin-bottom:16px;font-weight:600}
+  .foot-cols a{display:block;color:rgba(244,241,234,.78);font-size:.9rem;margin-bottom:10px;transition:.3s}
+  .foot-cols a:hover{color:var(--clay)}
+  .foot-bot{padding-top:28px;font-size:.78rem;color:rgba(244,241,234,.45);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  .mocknote{position:fixed;bottom:16px;left:16px;z-index:80;background:var(--ink);color:#fff;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:9px 15px;border-radius:100px;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);opacity:.9}
+  .mocknote b{color:var(--clay);font-weight:600}
+
+  @media(max-width:900px){
+    .nav-links,.nav-right .btn{display:none}
+    .ham{display:flex}
+    .path-grid,.work-grid,.adv-grid,.jrn-grid{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:1fr 1fr}
+    .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.12);padding-block:22px}
+    .feat-in{grid-template-columns:1fr}
+    .feat-img{min-height:320px}
+  }
+
+  /* FAQ */
+  .faq{background:var(--bone)}
+  .faq-list{max-width:840px;margin:0 auto}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-item summary{list-style:none;cursor:pointer;padding:26px 0;font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:400;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:24px}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item summary::after{content:"+";font-family:var(--sans);font-size:1.7rem;font-weight:300;color:var(--clay-dk);transition:.3s var(--ease);flex-shrink:0}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-a{padding:0 0 26px}
+  .faq-a p{color:var(--mute);font-size:1rem;max-width:74ch;line-height:1.75}
+
+  /* MOBILE DRAWER (shared chrome) */
+  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:min(84vw,340px);background:var(--dark);color:var(--bone);transform:translateX(100%);transition:transform .4s var(--ease);z-index:55;display:flex;align-items:center;padding:0 34px;box-shadow:-20px 0 60px -30px rgba(0,0,0,.6)}
+  .mobile-drawer.open{transform:none}
+  .mobile-drawer nav{display:flex;flex-direction:column;gap:22px;width:100%}
+  .mobile-drawer nav a{font-family:var(--serif);font-size:1.5rem;color:var(--bone);font-weight:300}
+  .mobile-drawer nav a.btn{font-family:var(--sans);font-size:.82rem;margin-top:12px;align-self:flex-start}
+  .ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .ham.open span:nth-child(2){opacity:0}
+  .ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+</style>
+<style>
+  /* review refinements v2 */
+  p{text-wrap:pretty}
+  h1,h2,h3{text-wrap:balance}
+  .stats h2 em,.stats em{color:var(--clay)}
+  .team-grid{grid-template-columns:1fr 1fr;align-items:start}
+  .tcard{grid-template-columns:1fr;align-items:stretch}
+  .tcard .ph{aspect-ratio:4/3;min-height:0;align-self:auto;width:100%}
+  @media(max-width:1080px){.team-grid{grid-template-columns:1fr}}
+  .rcard{transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+  .rcard:hover{transform:translateY(-6px);box-shadow:0 30px 70px -34px rgba(23,19,16,.4)}
+  .foot-logos{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+  .foot-logos img{height:24px;margin:0;display:block}
+  .foot-logos .fsep{width:1px;height:20px;background:rgba(244,241,234,.3)}
+  /* white legal band at footer bottom (logos are PNGs) */
+  .foot-legal{max-width:none!important;background:#fff;color:#6a6a6a;width:100vw;position:relative;left:50%;transform:translateX(-50%);margin:28px 0 0!important;padding:24px clamp(20px,5vw,64px)!important;display:flex;gap:26px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .foot-legal p{max-width:1040px;font-size:.7rem;line-height:1.6;color:#6a6a6a;flex:1;min-width:300px}
+  .foot-legal a{color:#3a3a3a;text-decoration:underline}
+  .foot-legal img{height:46px;width:auto;flex-shrink:0}
+</style>
+<style>
+  .disclosure{background:var(--card);padding:32px 0}
+  .disclosure-in{display:flex;align-items:center;gap:32px}
+  .disclosure-in p{font-size:.72rem;font-weight:300;line-height:1.7;color:var(--mute);flex:1}
+  .disclosure-in p a{color:#0064e5;text-decoration:underline}
+  .disclosure-in img{height:60px;width:auto;flex-shrink:0}
+  @media(max-width:720px){.disclosure-in{flex-direction:column;gap:18px;text-align:center}}
+</style>
 </head>
 <body>
-<div id="site-nav-mount"></div>
+<div id="amre-nav"></div>
 
-<!-- Mobile navigation drawer -->
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js"></script>
-<div class="page-hero">
-  <div class="page-hero-bg-img" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/team/team-hero.webp')"></div>
-  <div class="page-hero-inner">
-    <p class="page-eyebrow">The Team</p>
+<!-- HERO -->
+<section class="hero" style="min-height:82svh">
+  <div class="hero-bg" style="background:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/team/team-hero.webp') center 30%/cover no-repeat;animation:none;transform:none"></div>
+  <div class="hero-scrim" style="background:rgba(20,28,22,.34)"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">The Team</span>
     <h1>People who<br><em>deliver results.</em></h1>
-    <p class="page-hero-sub">AMRE Real Estate Group merges elite Los Angeles market knowledge, investment-focused expertise, and white-glove service for sellers, buyers, and investors across Beverly Hills, Bel Air, Brentwood, Santa Monica, Malibu, and the LA Westside — built on two Compass agents who genuinely care about outcomes.</p>
-  </div>
-</div>
-
-<div class="team-cards-wrap">
-<!-- MICHAEL -->
-<section style="background:var(--white);padding:0" id="michael" aria-labelledby="michael-abraham">
-  <div class="agent-profile" itemscope itemtype="https://schema.org/Person">
-    <div class="agent-photo-col" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-solo.webp');background-position:center top">
-      <div class="agent-photo-grad"></div>
-    </div>
-    <div class="agent-content-col">
-      <span class="agent-role" itemprop="jobTitle">Principal Agent · Architect · Realtor® · NAR Member</span>
-      <h2 class="agent-name f" itemprop="name" id="michael-abraham">Michael Abraham</h2>
-      <div class="divider f"></div>
-      <p class="agent-bio f" itemprop="description"><strong>Michael Abraham</strong> is a Los Angeles real estate professional, <strong>licensed Realtor®, architect, and member of the National Association of Realtors®.</strong> Based at Compass Beverly Hills, Michael advises sellers, buyers, and investors across <strong>Beverly Hills, Bel Air, Brentwood, Santa Monica, Malibu, Studio City, and Culver City</strong>, and is known for integrity, strategic thinking, and a client-first approach.</p>
-      <p class="agent-bio f">With over a decade investing in <strong>Los Angeles multifamily real estate</strong>, Michael specializes in <strong>value-add and 1031-exchange strategies</strong> that unlock hidden upside and maximize returns. His architectural training shapes how he reads floor plans, evaluates structural integrity, and counsels clients on renovation and design moves that enhance long-term property value.</p>
-      <p class="agent-dre" itemprop="identifier">CA DRE# 02242095</p>
-      <div class="agent-contacts f">
-        <a href="tel:3237198585" class="btn btn-blue" itemprop="telephone">(323) 719-8585</a>
-        <a href="mailto:michael.abraham@compass.com" class="btn btn-outline-dark" itemprop="email">Email Michael</a>
-        <a href="/team/michael-abraham/" class="btn btn-outline-dark">Learn More →</a>
-      </div>
+    <p class="sub">AMRE Real Estate Group merges elite Los Angeles market knowledge, investment-focused expertise, and white-glove service for sellers, buyers, and investors across Beverly Hills, Bel Air, Brentwood, Santa Monica, Malibu, and the LA Westside &mdash; built on two Compass agents who genuinely care about outcomes.</p>
+    <div class="hero-ctas">
+      <a href="#michael-abraham" class="btn btn-fill">Meet the Principals <span class="arrow">&#8594;</span></a>
+      <a href="/contact/" class="btn btn-ghost">Work With Us</a>
     </div>
   </div>
 </section>
 
-<!-- ANIA -->
-<section style="background:var(--white);padding:0" id="ania" aria-labelledby="ania-de-pourbaix">
-  <div class="agent-profile" itemscope itemtype="https://schema.org/Person">
-    <div class="agent-photo-col" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-ania-kitchen-green.webp');background-position:center center">
-      <div class="agent-photo-grad"></div>
+<!-- TEAM -->
+<section class="team">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">The Principals</span>
+      <h2>Two senior agents,<br><em>on every deal.</em></h2>
     </div>
-    <div class="agent-content-col">
-      <span class="agent-role" itemprop="jobTitle">Principal Agent · Realtor® · Compass Beverly Hills</span>
-      <h2 class="agent-name f" itemprop="name" id="ania-de-pourbaix">Ania De Pourbaix</h2>
-      <div class="divider f"></div>
-      <p class="agent-bio f" itemprop="description"><strong>Ania De Pourbaix</strong> is a seasoned <strong>Los Angeles Realtor®</strong> with deep expertise across the <strong>LA Westside luxury market</strong> — Beverly Hills, Bel Air, Brentwood, Santa Monica, and Malibu — and a reputation for <strong>meticulous attention to detail and exceptional client service</strong> at every price point.</p>
-      <p class="agent-bio f">As Principal Agent at AMRE Real Estate Group | Compass Beverly Hills, Ania brings a <strong>collaborative, strategic approach to every transaction</strong>, from first-time buyers to seasoned sellers and investors. Her market intuition, calm negotiation style, and concierge-level service make her an invaluable partner for families, professionals, and post-Palisades-Fire clients rebuilding their next chapter in Los Angeles.</p>
-      <p class="agent-dre" itemprop="identifier">CA DRE# 01891438</p>
-      <div class="agent-contacts f">
-        <a href="tel:3102703879" class="btn btn-blue" itemprop="telephone">(310) 270-3879</a>
-        <a href="mailto:ania.d@compass.com" class="btn btn-outline-dark" itemprop="email">Email Ania</a>
-        <a href="/team/ania-de-pourbaix/" class="btn btn-outline-dark">Learn More →</a>
-      </div>
+    <div class="team-grid">
+
+      <!-- MICHAEL -->
+      <article class="tcard reveal" id="michael" itemscope itemtype="https://schema.org/Person">
+        <div class="ph" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-solo.webp');background-position:center top"></div>
+        <div class="body">
+          <span class="role" itemprop="jobTitle">Principal Agent &middot; Architect &middot; Realtor&reg; &middot; NAR Member</span>
+          <h3 itemprop="name" id="michael-abraham">Michael Abraham</h3>
+          <p itemprop="description"><strong>Michael Abraham</strong> is a Los Angeles real estate professional, <strong>licensed Realtor&reg;, architect, and member of the National Association of Realtors&reg;.</strong> Based at Compass Beverly Hills, Michael advises sellers, buyers, and investors across <strong>Beverly Hills, Bel Air, Brentwood, Santa Monica, Malibu, Studio City, and Culver City</strong>, and is known for integrity, strategic thinking, and a client-first approach.</p>
+          <p>With over a decade investing in <strong>Los Angeles multifamily real estate</strong>, Michael specializes in <strong>value-add and 1031-exchange strategies</strong> that unlock hidden upside and maximize returns. His architectural training shapes how he reads floor plans, evaluates structural integrity, and counsels clients on renovation and design moves that enhance long-term property value.</p>
+          <p class="dre" itemprop="identifier">CA DRE# 02242095</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+            <a href="tel:3237198585" class="btn btn-fill" itemprop="telephone">(323) 719-8585</a>
+            <a href="mailto:michael.abraham@compass.com" class="btn btn-line" itemprop="email">Email Michael</a>
+            <a href="/team/michael-abraham/" class="btn btn-line">Learn More <span class="arrow">&#8594;</span></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ANIA -->
+      <article class="tcard reveal" id="ania" itemscope itemtype="https://schema.org/Person">
+        <div class="ph" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-ania-kitchen-green.webp');background-position:center center"></div>
+        <div class="body">
+          <span class="role" itemprop="jobTitle">Principal Agent &middot; Realtor&reg; &middot; Compass Beverly Hills</span>
+          <h3 itemprop="name" id="ania-de-pourbaix">Ania De Pourbaix</h3>
+          <p itemprop="description"><strong>Ania De Pourbaix</strong> is a seasoned <strong>Los Angeles Realtor&reg;</strong> with deep expertise across the <strong>LA Westside luxury market</strong> &mdash; Beverly Hills, Bel Air, Brentwood, Santa Monica, and Malibu &mdash; and a reputation for <strong>meticulous attention to detail and exceptional client service</strong> at every price point.</p>
+          <p>As Principal Agent at AMRE Real Estate Group | Compass Beverly Hills, Ania brings a <strong>collaborative, strategic approach to every transaction</strong>, from first-time buyers to seasoned sellers and investors. Her market intuition, calm negotiation style, and concierge-level service make her an invaluable partner for families, professionals, and post-Palisades-Fire clients rebuilding their next chapter in Los Angeles.</p>
+          <p class="dre" itemprop="identifier">CA DRE# 01891438</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px">
+            <a href="tel:3102703879" class="btn btn-fill" itemprop="telephone">(310) 270-3879</a>
+            <a href="mailto:ania.d@compass.com" class="btn btn-line" itemprop="email">Email Ania</a>
+            <a href="/team/ania-de-pourbaix/" class="btn btn-line">Learn More <span class="arrow">&#8594;</span></a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-</div>
-
-<!-- ════════════════ OUR STORY ════════════════ -->
-<section style="background:var(--white);padding:96px 24px" aria-label="Our Story">
-  <div style="max-width:880px;margin:0 auto">
-    <div class="eyebrow f" style="text-align:center;margin-bottom:16px;color:var(--forest)">Our Story</div>
-    <h2 class="section-h f" style="text-align:center;margin-bottom:32px">Los Angeles real estate<br>with a <em>different lens.</em></h2>
-    <div style="font-size:18px;line-height:1.7;color:#3a3a3c;text-align:center;max-width:720px;margin:0 auto">
-      <p style="margin-bottom:24px">AMRE Real Estate Group is the partnership of <strong>Michael Abraham</strong> and <strong>Ania De Pourbaix</strong> at <strong>Compass Beverly Hills</strong> — Los Angeles' premier residential brokerage. Twenty-five years of combined experience represent a single conviction: the most important real estate decisions deserve advisors who think like clients, not just transact like agents.</p>
-      <p style="margin-bottom:24px">Michael's training as a licensed architect shapes everything we do — from how we read a floor plan to how we evaluate the long-term value of a Los Angeles home or investment property. Ania brings deep market knowledge across the <strong>LA Westside</strong> and a relentless focus on outcomes for the families, professionals, and investors we represent.</p>
+<!-- OUR STORY -->
+<section>
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Our Story</span>
+      <h2>Los Angeles real estate<br>with a <em>different lens.</em></h2>
+    </div>
+    <div class="reveal" style="max-width:760px;margin:0 auto;font-size:1.12rem;line-height:1.75;color:var(--ink-2)">
+      <p style="margin-bottom:22px">AMRE Real Estate Group is the partnership of <strong>Michael Abraham</strong> and <strong>Ania De Pourbaix</strong> at <strong>Compass Beverly Hills</strong> &mdash; Los Angeles' premier residential brokerage. Twenty-five years of combined experience represent a single conviction: the most important real estate decisions deserve advisors who think like clients, not just transact like agents.</p>
+      <p style="margin-bottom:22px">Michael's training as a licensed architect shapes everything we do &mdash; from how we read a floor plan to how we evaluate the long-term value of a Los Angeles home or investment property. Ania brings deep market knowledge across the <strong>LA Westside</strong> and a relentless focus on outcomes for the families, professionals, and investors we represent.</p>
       <p>Together, we serve sellers, buyers, and investors across <strong>Beverly Hills, Bel Air, Brentwood, Santa Monica, Malibu, Studio City, Culver City, and surrounding LA County neighborhoods</strong>. Whether the property is a $500K starter duplex or a $10M architectural showcase, we apply the same standards: clarity, integrity, and unrelenting advocacy.</p>
     </div>
   </div>
 </section>
 
-<!-- ════════════════ BY THE NUMBERS ════════════════ -->
-<section style="background:var(--light);padding:96px 24px" aria-label="By the numbers">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="eyebrow f" style="text-align:center;margin-bottom:16px;color:var(--forest)">By the numbers</div>
-    <h2 class="section-h f" style="text-align:center;margin-bottom:64px">A team built<br>on <em>results.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:48px;text-align:center">
-      <div>
-        <div style="font-family:var(--serif);font-size:64px;line-height:1;color:var(--forest);margin-bottom:8px;font-weight:400">25<span style="font-size:28px;color:var(--brass)">+</span></div>
-        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);font-weight:500">Years combined experience</div>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:64px;line-height:1;color:var(--forest);margin-bottom:8px;font-weight:400">8</div>
-        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);font-weight:500">LA neighborhoods served</div>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:64px;line-height:1;color:var(--forest);margin-bottom:8px;font-weight:400">5.0<span style="font-size:28px;color:var(--brass)">★</span></div>
-        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);font-weight:500">Average client rating</div>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:64px;line-height:1;color:var(--forest);margin-bottom:8px;font-weight:400">$1.7M</div>
-        <div style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);font-weight:500">14423 Mulholland<br>sold +1.5% over ask in 8 days</div>
-      </div>
+<!-- BY THE NUMBERS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="head reveal" style="margin-bottom:48px">
+      <span class="eyebrow" style="color:var(--clay)">By the numbers</span>
+      <h2 style="color:#fff">A team built<br>on <em>results.</em></h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat reveal"><div class="n">25<em>+</em></div><div class="l">Years combined experience</div></div>
+      <div class="stat reveal"><div class="n">8</div><div class="l">LA neighborhoods served</div></div>
+      <div class="stat reveal"><div class="n">5.0<em>&#9733;</em></div><div class="l">Average client rating</div></div>
+      <div class="stat reveal"><div class="n">$1.7M</div><div class="l">14423 Mulholland &mdash; sold +1.5% over ask in 8 days</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- ════════════════ HOW WE WORK ════════════════ -->
-<section style="background:var(--white);padding:96px 24px" aria-label="Our Methodology">
-  <div style="max-width:1100px;margin:0 auto">
-    <div class="eyebrow f" style="text-align:center;margin-bottom:16px;color:var(--forest)">Our Methodology</div>
-    <h2 class="section-h f" style="text-align:center;margin-bottom:64px">How we <em>work.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px">
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">01</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Architecture-trained eye</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Michael's architecture license isn't a credential we cite — it's how we evaluate every property. Light, scale, circulation, structural integrity, and long-term renovation potential are baked into every walkthrough.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">02</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Compass Concierge advantage</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">For sellers, we deploy Compass's three-phase launch — Private Exclusive, Coming Soon, MLS — and Concierge financing for pre-listing improvements with no payment until close. The result: faster sales at higher prices.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">03</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Concierge end-to-end</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">From first walkthrough to keys at closing, we manage inspections, contractors, lenders, escrow, and every party in the transaction. Clients should focus on the decision; we handle the orchestration.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">04</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Long-term advisors</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Most of our business comes from past clients and referrals. We're not optimizing for the next transaction — we're optimizing for the next twenty years. That changes how every conversation goes.</p>
-      </div>      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">05</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Interior design background</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Ania's interior design background brings a curator's eye to every property — from staging that elevates buyer perception to renovation guidance that maximizes resale value. We help sellers prepare homes that photograph beautifully and show flawlessly, and we help buyers visualize a home's full potential before making the offer.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">06</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Investor-focused</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">We underwrite Los Angeles real estate the way investors do. Cap rate, cash-on-cash, value-add upside, 1031 exchanges, and multifamily fundamentals are part of every conversation — whether you're buying your first duplex or repositioning a portfolio across Beverly Hills, the Westside, and beyond.</p>
-      </div>
-
+<!-- HOW WE WORK -->
+<section class="adv">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">Our Methodology</span>
+      <h2>How we <em>work.</em></h2>
+    </div>
+    <div class="adv-grid">
+      <div class="acard reveal"><div class="num">01</div><h3>Architecture-trained eye</h3><p>Michael's architecture license isn't a credential we cite &mdash; it's how we evaluate every property. Light, scale, circulation, structural integrity, and long-term renovation potential are baked into every walkthrough.</p></div>
+      <div class="acard reveal"><div class="num">02</div><h3>Compass Concierge advantage</h3><p>For sellers, we deploy Compass's three-phase launch &mdash; Private Exclusive, Coming Soon, MLS &mdash; and Concierge financing for pre-listing improvements with no payment until close. The result: faster sales at higher prices.</p></div>
+      <div class="acard reveal"><div class="num">03</div><h3>Concierge end-to-end</h3><p>From first walkthrough to keys at closing, we manage inspections, contractors, lenders, escrow, and every party in the transaction. Clients should focus on the decision; we handle the orchestration.</p></div>
+      <div class="acard reveal"><div class="num">04</div><h3>Long-term advisors</h3><p>Most of our business comes from past clients and referrals. We're not optimizing for the next transaction &mdash; we're optimizing for the next twenty years. That changes how every conversation goes.</p></div>
+      <div class="acard reveal"><div class="num">05</div><h3>Interior design background</h3><p>Ania's interior design background brings a curator's eye to every property &mdash; from staging that elevates buyer perception to renovation guidance that maximizes resale value. We help sellers prepare homes that photograph beautifully and show flawlessly, and we help buyers visualize a home's full potential before making the offer.</p></div>
+      <div class="acard reveal"><div class="num">06</div><h3>Investor-focused</h3><p>We underwrite Los Angeles real estate the way investors do. Cap rate, cash-on-cash, value-add upside, 1031 exchanges, and multifamily fundamentals are part of every conversation &mdash; whether you're buying your first duplex or repositioning a portfolio across Beverly Hills, the Westside, and beyond.</p></div>
     </div>
   </div>
 </section>
-
-
-
-
 
 <!-- VALUES -->
-<section style="background:var(--ink);padding:96px 24px">
+<section class="path">
   <div class="wrap">
-    <p class="eyebrow f" style="color:var(--gold)">What Drives Us</p>
-    <h2 class="section-h section-h-white f" style="margin-bottom:52px">The principles behind<br><em>every transaction.</em></h2>
-    <div class="values-grid">
-      <div class="value-card f"><span class="value-icon"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><h3 class="value-title">Integrity</h3><p class="value-body">Honest assessments, even when it's not what you want to hear. Trust is earned over time, not promised upfront.</p></div>
-      <div class="value-card f d1"><span class="value-icon"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span><h3 class="value-title">Precision</h3><p class="value-body">From valuation to offer strategy, we obsess over every detail that moves the needle. Every number matters.</p></div>
-      <div class="value-card f d2"><span class="value-icon"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span><h3 class="value-title">Partnership</h3><p class="value-body">Our relationship doesn't end at closing. We're your long-term real estate partner — for the next deal, the next stage.</p></div>
-      <div class="value-card f d3"><span class="value-icon"><svg class="ico" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span><h3 class="value-title">Innovation</h3><p class="value-body">Compass technology, market data, and AI-assisted analysis — we give clients a genuine competitive edge.</p></div>
+    <div class="head reveal">
+      <span class="eyebrow">What Drives Us</span>
+      <h2>The principles behind<br><em>every transaction.</em></h2>
+    </div>
+    <div class="adv-grid">
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#9673;</div><h3>Integrity</h3><p>Honest assessments, even when it's not what you want to hear. Trust is earned over time, not promised upfront.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#9906;</div><h3>Precision</h3><p>From valuation to offer strategy, we obsess over every detail that moves the needle. Every number matters.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#129309;</div><h3>Partnership</h3><p>Our relationship doesn't end at closing. We're your long-term real estate partner &mdash; for the next deal, the next stage.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#128161;</div><h3>Innovation</h3><p>Compass technology, market data, and AI-assisted analysis &mdash; we give clients a genuine competitive edge.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#128274;</div><h3>Discretion</h3><p>Private Exclusives, sensitive sales, and high-profile clients demand confidentiality. We protect your privacy at every step.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#128200;</div><h3>Results</h3><p>List-to-sale ratio, days on market, and net proceeds &mdash; we measure ourselves by outcomes, not activity.</p></div>
     </div>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section style="background:var(--white);padding:96px 24px">
+<section class="rev">
   <div class="wrap">
-    <p class="eyebrow f">5.0 ★ across 17 Google reviews</p>
-    <h2 class="section-h f" style="margin-bottom:52px">What people <em>experience.</em></h2>
-    <div class="testi-grid">
-      <blockquote class="testi-card f" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2026-02-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Michael Abraham and Ania De Pourbaix were absolutely great to work with. Their professionalism, expertise, and attentiveness made our home search experience stress free. They are extremely knowledgeable in the housing market and were able to guide us with confidence."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Paulina Flores</span></span> &nbsp;·&nbsp; Buyer</footer></blockquote>
-      <blockquote class="testi-card f d1" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2026-01-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Michael and Ania were absolutely terrific. They found the perfect tenants for my home and handled all the details so that it was a seamless transition for me. I give them full marks and recommend them without hesitation!"</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Kevin Maynard</span></span> &nbsp;·&nbsp; Property Owner</footer></blockquote>
-      <blockquote class="testi-card f d2" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-11-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"If you're looking for trusted real estate guidance in Los Angeles or the South Bay, look no further than Michael Abraham and the AMRE Real Estate Group. Michael is the go-to realtor for buying, selling, and investing in Los Angeles real estate."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">David Crowley</span></span> &nbsp;·&nbsp; Investor</footer></blockquote>
-      <blockquote class="testi-card f d0" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-10-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Michael and Ania are an exceptional real estate team. From start to finish, they guided us through every step of the process with professionalism, patience, and expertise. They truly listened to our needs and provided thoughtful advice."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Ben S.</span></span> &nbsp;·&nbsp; Client</footer></blockquote>
-      <blockquote class="testi-card f d1" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-10-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Ania and her team are truly exceptional. We met Ania and Michael at an open house and were immediately struck by their professionalism, deep market knowledge, and warm demeanor. As newcomers to the LA area, we needed trusted experts — and that's exactly what we got."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Debbie Buckley</span></span> &nbsp;·&nbsp; Buyer · Newcomer to LA</footer></blockquote>
-      <blockquote class="testi-card f d2" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-10-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Michael and Ania were amazing! Best of the best — so collaborative, supportive, and they knew just how to navigate seller-side challenges. They made it happen and I never had to stress in stressful situations. I felt like I had backing every step of the way."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Shaida Tafreshi</span></span> &nbsp;·&nbsp; Seller</footer></blockquote>
-      <blockquote class="testi-card f d0" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-10-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Ania was fabulous — very determined to get us the right house, no question about it. She asked a lot of questions so she really got to know us, and yes, we are in the right house because of her."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">J. Glen Buckley</span></span> &nbsp;·&nbsp; Buyer</footer></blockquote>
-      <blockquote class="testi-card f d1" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-09-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Ania De Pourbaix and Michael Abraham were a breath of fresh air after we lost our home in the Palisades Fire. They had many early leads that put us at an advantage when we were looking for a new house, along with so many others displaced by the fire."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Margaret Yen</span></span> &nbsp;·&nbsp; Buyer · Post Palisades Fire</footer></blockquote>
-      <blockquote class="testi-card f d2" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-05-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"AMRE Real Estate Group | Compass did an outstanding job as our buy-side agents for the purchase of a condo in LA. They know the market extremely well, including the specific attributes and issues of each neighborhood."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Robert Phillippy</span></span> &nbsp;·&nbsp; Buyer · Condo Purchase</footer></blockquote>
-      <blockquote class="testi-card f d0" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-05-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Working with Ania De Pourbaix and Michael Abraham of Compass | AMRE Real Estate Group was an exceptional experience. They meticulously managed every aspect of our estate sale. Their strategic marketing efforts, including Compass's Three-Phased launch, drove the result we needed."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Reuven Regev</span></span> &nbsp;·&nbsp; Estate Sale</footer></blockquote>
-      <blockquote class="testi-card f d1" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-05-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"I worked with the AMRE team when looking for a home in the Los Angeles area, and I couldn't be happier with the experience. They were incredibly knowledgeable about the local market and helped me easily navigate the competitive landscape."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Liza Joy Calungsod</span></span> &nbsp;·&nbsp; Buyer</footer></blockquote>
-      <blockquote class="testi-card f d2" itemscope itemtype="https://schema.org/Review"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-05-06"><div class="testi-stars" aria-label="5 out of 5 stars"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p class="testi-text" itemprop="reviewBody">"Collaborating with Ania De Pourbaix and Michael Abraham of Compass | AMRE Real Estate Group has been a remarkable experience. Their insightful vision and commitment to high-quality videography enabled us to produce captivating property content."</p><footer class="testi-author"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jessica Choi</span></span> &nbsp;·&nbsp; Collaborator · Property Videography</footer></blockquote>
+    <div class="head reveal">
+      <span class="eyebrow">5.0 &#9733; across 17 Google reviews</span>
+      <h2>What people <em>experience.</em></h2>
+    </div>
+    <div class="rev-grid">
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-paulina-flores">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2026-02-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Michael Abraham and Ania De Pourbaix were absolutely great to work with. Their professionalism, expertise, and attentiveness made our home search experience stress free. They are extremely knowledgeable in the housing market and were able to guide us with confidence.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Paulina Flores</span></span><span>Buyer</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-kevin-maynard">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2026-01-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Michael and Ania were absolutely terrific. They found the perfect tenants for my home and handled all the details so that it was a seamless transition for me. I give them full marks and recommend them without hesitation!&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Kevin Maynard</span></span><span>Property Owner</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-david-crowley">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-11-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;If you're looking for trusted real estate guidance in Los Angeles or the South Bay, look no further than Michael Abraham and the AMRE Real Estate Group. Michael is the go-to realtor for buying, selling, and investing in Los Angeles real estate.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">David Crowley</span></span><span>Investor</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-ben-s">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-10-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Michael and Ania are an exceptional real estate team. From start to finish, they guided us through every step of the process with professionalism, patience, and expertise. They truly listened to our needs and provided thoughtful advice.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Ben S.</span></span><span>Client</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-debbie-buckley">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-10-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Ania and her team are truly exceptional. We met Ania and Michael at an open house and were immediately struck by their professionalism, deep market knowledge, and warm demeanor. As newcomers to the LA area, we needed trusted experts &mdash; and that's exactly what we got.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Debbie Buckley</span></span><span>Buyer &middot; Newcomer to LA</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-shaida-tafreshi">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-10-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Michael and Ania were amazing! Best of the best &mdash; so collaborative, supportive, and they knew just how to navigate seller-side challenges. They made it happen and I never had to stress in stressful situations. I felt like I had backing every step of the way.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Shaida Tafreshi</span></span><span>Seller</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-j-glen-buckley">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-10-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Ania was fabulous &mdash; very determined to get us the right house, no question about it. She asked a lot of questions so she really got to know us, and yes, we are in the right house because of her.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">J. Glen Buckley</span></span><span>Buyer</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-margaret-yen">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-09-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Ania De Pourbaix and Michael Abraham were a breath of fresh air after we lost our home in the Palisades Fire. They had many early leads that put us at an advantage when we were looking for a new house, along with so many others displaced by the fire.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Margaret Yen</span></span><span>Buyer &middot; Post Palisades Fire</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-robert-phillippy">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-05-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;AMRE Real Estate Group | Compass did an outstanding job as our buy-side agents for the purchase of a condo in LA. They know the market extremely well, including the specific attributes and issues of each neighborhood.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Robert Phillippy</span></span><span>Buyer &middot; Condo Purchase</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-reuven-regev">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-05-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Working with Ania De Pourbaix and Michael Abraham of Compass | AMRE Real Estate Group was an exceptional experience. They meticulously managed every aspect of our estate sale. Their strategic marketing efforts, including Compass's Three-Phased launch, drove the result we needed.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Reuven Regev</span></span><span>Estate Sale</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-liza-joy-calungsod">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-05-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;I worked with the AMRE team when looking for a home in the Los Angeles area, and I couldn't be happier with the experience. They were incredibly knowledgeable about the local market and helped me easily navigate the competitive landscape.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Liza Joy Calungsod</span></span><span>Buyer</span></div>
+      </blockquote>
+      <blockquote class="rcard reveal" itemscope itemtype="https://schema.org/Review" id="review-jessica-choi">
+        <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div>
+        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div>
+        <meta itemprop="datePublished" content="2025-05-06">
+        <div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p itemprop="reviewBody" style="font-family:var(--serif);font-size:1.05rem;line-height:1.5;margin:14px 0 20px;color:var(--ink)">&ldquo;Collaborating with Ania De Pourbaix and Michael Abraham of Compass | AMRE Real Estate Group has been a remarkable experience. Their insightful vision and commitment to high-quality videography enabled us to produce captivating property content.&rdquo;</p>
+        <div class="who" style="margin-top:auto"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jessica Choi</span></span><span>Collaborator &middot; Property Videography</span></div>
+      </blockquote>
     </div>
   </div>
 </section>
 
 <!-- CONTACT CTA -->
-<section style="background:var(--light);padding:96px 24px" id="contact">
-  <div class="wrap-sm" style="text-align:center">
-    <p class="eyebrow f">Work With Us</p>
-    <h2 class="section-h f" style="margin-bottom:14px">Ready to get <em>started?</em></h2>
-    <p class="lede f" style="margin-bottom:36px">Whether you're buying, selling, or just beginning to think about your next move — we're ready to listen and advise.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap" class="f">
-      <a href="tel:3237198585" class="btn btn-blue">(323) 719-8585</a>
-      <a href="/contact/" class="btn btn-outline-dark">Send a Message</a>
+<section class="cta" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--clay)">Work With Us</span>
+    <h2>Ready to get <em>started?</em></h2>
+    <p>Whether you're buying, selling, or just beginning to think about your next move &mdash; we're ready to listen and advise.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="tel:3237198585" class="btn btn-fill">(323) 719-8585</a>
+      <a href="/contact/" class="btn btn-ghost">Send a Message</a>
     </div>
   </div>
 </section>
 
-<section class="faq-section" itemscope itemtype="https://schema.org/FAQPage" aria-label="Frequently asked questions">
-  <p class="faq-eyebrow">About AMRE</p>
-  <h2 class="faq-h2">Frequently <em>asked.</em></h2>
-  <div class="faq-list">
+<!-- FAQ -->
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage" aria-label="Frequently asked questions">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">About AMRE</span>
+      <h2>Frequently <em>asked.</em></h2>
+    </div>
+    <div class="faq-list">
       <details class="faq-item" itemscope itemtype="https://schema.org/Question">
-        <summary class="faq-q" itemprop="name">Who is AMRE Real Estate Group?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">AMRE Real Estate Group is a Los Angeles real estate advisory partnership at Compass Beverly Hills, led by Michael Abraham (Realtor®, Licensed Architect — DRE #02242095) and Ania De Pourbaix (Realtor® — DRE #01891438). The team represents buyers, sellers, and investors across Beverly Hills, Bel Air, Brentwood, Santa Monica, the Hollywood Hills, Culver City, Mid-City, West Adams, and architecturally significant properties throughout Los Angeles County.</p>
-        </div>
+        <summary class="faq-q" itemprop="name">Who is AMRE Real Estate Group?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">AMRE Real Estate Group is a Los Angeles real estate advisory partnership at Compass Beverly Hills, led by Michael Abraham (Realtor&reg;, Licensed Architect &mdash; DRE #02242095) and Ania De Pourbaix (Realtor&reg; &mdash; DRE #01891438). The team represents buyers, sellers, and investors across Beverly Hills, Bel Air, Brentwood, Santa Monica, the Hollywood Hills, Culver City, Mid-City, West Adams, and architecturally significant properties throughout Los Angeles County.</p></div>
       </details>
       <details class="faq-item" itemscope itemtype="https://schema.org/Question">
         <summary class="faq-q" itemprop="name">What's the partnership structure between Michael and Ania?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Michael and Ania operate as a true two-principal team, with both partners actively engaged on every transaction. Michael leads architectural and design analysis on the physical product, while Ania anchors negotiation, lender coordination, and client advocacy through closing. Clients get two senior agents on every deal — not a single agent and an assistant.</p>
-        </div>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Michael and Ania operate as a true two-principal team, with both partners actively engaged on every transaction. Michael leads architectural and design analysis on the physical product, while Ania anchors negotiation, lender coordination, and client advocacy through closing. Clients get two senior agents on every deal &mdash; not a single agent and an assistant.</p></div>
       </details>
       <details class="faq-item" itemscope itemtype="https://schema.org/Question">
         <summary class="faq-q" itemprop="name">What kinds of clients does AMRE typically work with?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">First-time owner-occupants, move-up and luxury buyers, sellers preparing properties for market, multifamily and 1031-exchange investors, estate and trust transactions, and out-of-state or international buyers relocating to Los Angeles. Every client receives the same level of advisory service regardless of price point.</p>
-        </div>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">First-time owner-occupants, move-up and luxury buyers, sellers preparing properties for market, multifamily and 1031-exchange investors, estate and trust transactions, and out-of-state or international buyers relocating to Los Angeles. Every client receives the same level of advisory service regardless of price point.</p></div>
       </details>
       <details class="faq-item" itemscope itemtype="https://schema.org/Question">
         <summary class="faq-q" itemprop="name">Where is AMRE's office located?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">AMRE Real Estate Group is based at the Compass Beverly Hills office at 9454 Wilshire Boulevard, Suite 100, Beverly Hills, CA 90212. Meetings can be hosted in-office, on-site at properties, at clients' homes, or remotely via video — whatever fits the client's schedule and geography.</p>
-        </div>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">AMRE Real Estate Group is based at the Compass Beverly Hills office at 9454 Wilshire Boulevard, Suite 100, Beverly Hills, CA 90212. Meetings can be hosted in-office, on-site at properties, at clients' homes, or remotely via video &mdash; whatever fits the client's schedule and geography.</p></div>
       </details>
       <details class="faq-item" itemscope itemtype="https://schema.org/Question">
         <summary class="faq-q" itemprop="name">Is AMRE part of Compass?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Yes. AMRE Real Estate Group operates under Compass (CA DRE #01991628), the largest residential real estate brokerage in the United States by sales volume. This affiliation gives clients access to Compass Private Exclusives, the Compass Concierge home-prep program, and a 34,000+ agent network across 70+ metropolitan markets nationwide.</p>
-        </div>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. AMRE Real Estate Group operates under Compass (CA DRE #01991628), the largest residential real estate brokerage in the United States by sales volume. This affiliation gives clients access to Compass Private Exclusives, the Compass Concierge home-prep program, and a 34,000+ agent network across 70+ metropolitan markets nationwide.</p></div>
       </details>
+    </div>
   </div>
 </section>
 
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/properties/">Past Transactions</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/contact/">Home Valuation</a></li>
-        <li><a href="/contact/">Investment Advisory</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/michaelabraham.realtor/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@MichaelAbraham.Realtor" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. Information deemed reliable but not guaranteed. Equal Housing Opportunity.</p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095  ·  Ania De Pourbaix CA DRE# 01891438  ·  Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div>
 
-<script>
-(function(){
-  var nav=document.getElementById('siteNav');
-  if(!nav)return;
-  function upd(){nav.classList.toggle('is-light',window.scrollY>80)}
-  upd();
-  window.addEventListener('scroll',upd,{passive:true});
-  // reveal animation
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
-    })
-  },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.f').forEach(function(el){io.observe(el)});
-})();
-
-  // ── Hamburger menu ──
-  (function(){
-    var btn=document.getElementById('hamBtn');
-    var drawer=document.getElementById('mobileDrawer');
-    if(!btn||!drawer)return;
-    btn.addEventListener('click',function(){
-      var open=btn.classList.toggle('open');
-      btn.setAttribute('aria-expanded',open);
-      drawer.classList.toggle('open',open);
-      document.body.style.overflow=open?'hidden':'';
-    });
-    drawer.querySelectorAll('a').forEach(function(a){
-      a.addEventListener('click',function(){
-        btn.classList.remove('open');
-        drawer.classList.remove('open');
-        document.body.style.overflow='';
-      });
-    });
-  })();
-</script>
-<style>
-.agent-profile{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
-.agent-profile-rev{}
-.agent-photo-col{background-size:cover;background-position:top center;position:relative;min-height:480px}
-.agent-photo-grad{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--white))}
-.agent-content-col{padding:72px 60px;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
-.agent-role{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:block}
-.agent-name{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:400;line-height:1.05;color:var(--ink);margin-bottom:0}
-.agent-bio{font-size:15px;font-weight:300;line-height:1.8;color:var(--mid);margin-bottom:16px}
-.agent-bio strong{color:var(--ink);font-weight:500}
-.agent-creds{display:flex;flex-direction:column;gap:10px;margin:20px 0 28px;padding:20px;background:var(--light);border-radius:12px}
-.cred-item{display:flex;align-items:center;gap:16px}
-.cred-label{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--subtle);width:72px;flex-shrink:0}
-.cred-val{font-size:13px;font-weight:400;color:var(--ink)}
-.agent-contacts{display:flex;gap:12px;flex-wrap:wrap}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.value-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);padding:28px 22px;border-radius:14px}
-.value-icon{font-size:26px;display:block;margin-bottom:14px;color:rgba(255,255,255,.70)}
-.value-icon svg,.value-icon .ico{color:rgba(255,255,255,.70)}
-.value-title{font-family:var(--serif);font-size:20px;font-weight:400;color:#fff;margin-bottom:10px}
-.value-body{font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.42)}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.testi-card{background:var(--light);padding:30px 26px;border-radius:18px;transition:box-shadow .3s,transform .3s}
-.testi-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.07);transform:translateY(-3px)}
-.testi-stars{color:#ffd60a;font-size:13px;letter-spacing:2px;margin-bottom:16px}
-.testi-text{font-family:var(--serif);font-size:15px;font-style:italic;line-height:1.7;color:var(--ink);margin-bottom:18px}
-.testi-author{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--subtle);text-transform:uppercase;display:block}
-@media(max-width:860px){
-  .agent-profile,.agent-profile-rev{grid-template-columns:1fr}
-  .agent-content-col{padding:40px 24px}
-  .agent-photo-col{min-height:280px}
-  .agent-photo-grad{background:linear-gradient(to bottom,transparent 60%,var(--white))}
-  .values-grid{grid-template-columns:1fr 1fr}
-  .testi-grid{grid-template-columns:1fr}
-}
-/* ── TEAM BANNER ── */
-.page-hero::before{
-  background-image: none !important;
-  background: rgba(0,0,0,0.30) !important;
-}
-.page-hero-bg-img{
-  opacity: 0.88 !important;
-  background-position: center 30% !important;
-}
-</style></body></html>
+<div id="amre-footer"></div>
 
 
 
+
+
+<script src="/assets/js/amre-chrome.js" defer></script>
+</body>
+</html>
