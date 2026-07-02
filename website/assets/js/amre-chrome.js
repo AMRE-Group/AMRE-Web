@@ -6,10 +6,26 @@
   'use strict';
   var LOGO = 'https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos';
 
+  // ---- required chrome CSS (injected so nav/drawer are correct on ANY page, even ones that don't inline it) ----
+  (function () {
+    var css =
+      '.mobile-drawer{position:fixed;inset:0 0 0 auto;width:min(84vw,340px);background:var(--dark,#1c3d31);color:var(--bone,#f7f5f1);transform:translateX(100%);transition:transform .4s var(--ease,ease);z-index:55;display:flex;align-items:center;padding:0 34px;box-shadow:-20px 0 60px -30px rgba(0,0,0,.6)}'
+      + '.mobile-drawer.open{transform:none}'
+      + '.mobile-drawer nav{display:flex;flex-direction:column;gap:22px;width:100%}'
+      + '.mobile-drawer nav a{font-family:var(--serif,serif);font-size:1.5rem;color:var(--bone,#f7f5f1);font-weight:300}'
+      + '.mobile-drawer nav a.btn{font-family:var(--sans,sans-serif);font-size:.82rem;margin-top:12px;align-self:flex-start;color:var(--ink,#1a1a1a)}'
+      + '.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}'
+      + '.ham.open span:nth-child(2){opacity:0}'
+      + '.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}';
+    var st = document.createElement('style'); st.id = 'amre-chrome-css'; st.textContent = css;
+    document.head.appendChild(st);
+  })();
+
   // ---- nav links (edit once) ----
   var LINKS = [
     ['/sellers/', 'Sellers'], ['/buyers/', 'Buyers'],
-    ['/cash-and-flow/', 'Cash &amp; Flow'], ['/about/', 'About'], ['/contact/', 'Contact']
+    ['/cash-and-flow/', 'Cash &amp; Flow'], ['/about/', 'About'], ['/contact/', 'Contact'],
+    ['/properties/fruitland-401/', 'Recent Sale']
   ];
   var active = function (h) { return location.pathname.replace(/\/$/, '') === h.replace(/\/$/, '') ? ' aria-current="page"' : ''; };
   var navLinks = LINKS.map(function (l) { return '<a href="' + l[0] + '"' + active(l[0]) + '>' + l[1] + '</a>'; }).join('');
