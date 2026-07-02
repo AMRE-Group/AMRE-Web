@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- amre-favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -12,17 +12,11 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#1c3d31">
 
-<!-- amre-preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://raw.githubusercontent.com">
-<link rel="preconnect" href="https://res.cloudinary.com">
-<link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
 <title>Venice Real Estate | AMRE Group | Compass Beverly Hills</title>
 <meta name="description" content="Venice CA homes for sale — buyer and seller advisory from AMRE at Compass. Silicon Beach, the canals, Abbot Kinney, and architectural homes.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://amre.group/venice/">
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Venice Real Estate | AMRE Group | Compass Beverly Hills">
@@ -31,766 +25,125 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/venice/neighborhood-hero.webp">
-<meta name="twitter:site" content="@AMRE_Real_Estate">
 <meta property="og:url" content="https://amre.group/venice/">
 <meta property="og:site_name" content="AMRE Real Estate Group">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@AMRE_Real_Estate">
 <meta name="twitter:title" content="Venice Real Estate | AMRE Group | Compass Beverly Hills">
 <meta name="twitter:description" content="Venice CA homes for sale — buyer and seller advisory from AMRE at Compass. Silicon Beach, the canals, Abbot Kinney, and architectural homes.">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/venice/neighborhood-hero.webp">
 <!-- Geo / Local SEO -->
 <meta name="geo.region" content="US-CA">
 <meta name="geo.placename" content="Beverly Hills, Los Angeles">
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
 <!-- Schema.org -->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-:root{
-  --black:#000;--ink:#1d1d1f;--mid:#6e6e73;--subtle:#86868b;
-  --rule:#d2d2d7;--light:#f5f5f7;--white:#fbfbfd;
-  --gold:#b5894e;--gold-lt:#d4aa72;--blue:#0071e3;--blue-dk:#0064c8;
-  --serif:'Playfair Display',Georgia,serif;
-  --sf:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',sans-serif;
-  --nav-h:52px;
-  --ease:cubic-bezier(.25,.46,.45,.94);
-  --ease-out:cubic-bezier(0,0,.2,1);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--sf);background:var(--white);color:var(--ink);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.47059}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-button{font-family:var(--sf);cursor:pointer;border:none;background:none}
-
-/* ── NAV ── */
-.site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 24px;
-  background:rgba(7,11,51,0.88);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:background .35s var(--ease),border-color .35s;
-}
-.site-nav.is-light{
-  background:rgba(255,255,255,.82);
-  border-bottom-color:rgba(0,0,0,.1);
-}
-.nav-brand{display:flex;align-items:center;gap:0;flex-shrink:0}
-.nav-brand img{height:20px;width:auto;transition:opacity .3s}
-.logo-dark{display:none}
-.site-nav.is-light .logo-dark{display:block}
-.site-nav.is-light .logo-white{display:none}
-.nav-sep{width:1px;height:16px;background:rgba(255,255,255,.22);
-  margin:0 12px;transition:background .35s}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
-.nav-links{
-  position:absolute;left:50%;transform:translateX(-50%);
-  display:flex;gap:24px;list-style:none;
-}
-.nav-links a{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;
-}
-.site-nav.is-light .nav-links a{color:rgba(29,29,31,.7)}
-.nav-links a:hover{color:#fff}
-.site-nav.is-light .nav-links a:hover{color:var(--ink)}
-.nav-links a.active{color:#fff}
-.site-nav.is-light .nav-links a.active{color:var(--ink)}
-.nav-cta{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;flex-shrink:0;
-}
-.site-nav.is-light .nav-cta{color:rgba(29,29,31,.7)}
-.nav-cta:hover{color:#fff}
-.site-nav.is-light .nav-cta:hover{color:var(--ink)}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .site-nav{padding:0 16px}
-}
-
-/* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
-  font-family:var(--sf);font-weight:400;border-radius:980px;
-  transition:background .2s,transform .15s,opacity .2s}
-.btn-blue{
-  font-size:14px;padding:12px 22px;
-  background:var(--blue);color:#fff;
-}
-.btn-blue:hover{background:var(--blue-dk);transform:translateY(-1px)}
-.btn-outline-white{
-  font-size:14px;padding:11px 22px;
-  border:1px solid rgba(255,255,255,.42);color:rgba(255,255,255,.9);
-}
-.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7)}
-.btn-outline-dark{
-  font-size:14px;padding:11px 22px;
-  border:1px solid rgba(0,0,0,.25);color:var(--ink);
-}
-.btn-outline-dark:hover{background:rgba(0,0,0,.05)}
-.btn-text{
-  font-size:14px;color:var(--blue);gap:4px;border-radius:0;
-  transition:gap .2s;
-}
-.btn-text:hover{gap:8px}
-.btn-text::after{content:'›';font-size:18px;line-height:1}
-.btn-gold{
-  font-size:14px;padding:12px 22px;
-  background:var(--gold);color:#fff;
-}
-.btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px)}
-
-/* ── PAGE HERO (subpages) ── */
-.page-hero{min-height:560px;
-  padding-top:calc(var(--nav-h) + 80px);
-  padding-bottom:80px;
-  padding-inline:44px;
-  background:var(--ink);
-  position:relative;overflow:hidden;
-}
-.page-hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(181,137,78,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(181,137,78,.04) 1px,transparent 1px);
-  background-size:80px 80px;
-}
-.page-hero-bg-img{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:1;
-}
-.page-hero-bg-img::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:1;
-}
-.page-hero-inner{position:relative;z-index:2;max-width:800px}
-.page-eyebrow{
-  font-size:11px;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:20px;
-  display:flex;align-items:center;gap:12px;
-}
-.page-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
-.page-hero h1{
-  font-family:var(--serif);
-  font-size:clamp(44px,6.5vw,88px);
-  font-weight:400;line-height:1.0;
-  letter-spacing:-.01em;
-  color:#fff;
-  margin-bottom:24px;
-}
-.page-hero h1 em{font-style:italic;color:var(--gold-lt)}
-.page-hero-sub{
-  font-size:clamp(15px,1.8vw,18px);
-  font-weight:300;line-height:1.7;
-  color:rgba(255,255,255,.55);
-  max-width:500px;
-}
-@media(max-width:680px){.page-hero{padding-inline:20px}}
-
-/* ── LAYOUT ── */
-.wrap{max-width:1200px;margin-inline:auto;padding-inline:44px}
-.wrap-sm{max-width:860px;margin-inline:auto;padding-inline:44px}
-@media(max-width:680px){.wrap,.wrap-sm{padding-inline:20px}}
-
-/* ── SECTION LABELS ── */
-.eyebrow{
-  font-size:11px;font-weight:500;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);
-  text-align:center;margin-bottom:14px;
-}
-.eyebrow-left{text-align:left}
-.section-h{
-  font-family:var(--serif);
-  font-size:clamp(30px,4vw,52px);
-  font-weight:400;line-height:1.07;
-  letter-spacing:-.01em;
-  color:var(--ink);text-align:center;
-}
-.section-h em{font-style:italic;color:var(--gold)}
-.section-h-left{text-align:left}
-.section-h-white{color:#fff}
-.lede{
-  font-size:17px;font-weight:300;line-height:1.7;
-  color:var(--mid);text-align:center;
-  max-width:580px;margin-inline:auto;
-}
-.lede-left{text-align:left;margin-inline:0}
-.lede-white{color:rgba(255,255,255,.55)}
-.divider{width:40px;height:1px;background:var(--gold);margin:22px 0}
-
-/* ── FADE ANIMATIONS ── */
-.f{opacity:0;transform:translateY(24px);
-  transition:opacity .75s var(--ease),transform .75s var(--ease)}
-.f.in{opacity:1;transform:translateY(0)}
-.f.d1{transition-delay:.08s}.f.d2{transition-delay:.16s}
-.f.d3{transition-delay:.24s}.f.d4{transition-delay:.32s}
-
-/* ── FOOTER ── */
-.site-footer{
-  background:#000;
-  border-top:1px solid rgba(255,255,255,.07);
-  padding:60px 44px 36px;
-}
-.footer-grid{
-  max-width:1200px;margin-inline:auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  margin-bottom:28px;
-}
-.footer-brand img{height:18px;width:auto;opacity:.65;margin-bottom:14px}
-.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.footer-logos img{height:16px;width:auto;opacity:.6}
-.footer-logo-sep{width:1px;height:13px;background:rgba(255,255,255,.18)}
-.footer-tagline{
-  font-size:13px;font-weight:300;line-height:1.6;
-  color:rgba(255,255,255,.3);max-width:240px;
-}
-.footer-col-head{
-  font-size:10px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.22);margin-bottom:16px;
-}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{
-  font-size:13px;font-weight:300;
-  color:rgba(255,255,255,.42);transition:color .2s;
-}
-.footer-links a:hover{color:rgba(255,255,255,.8)}
-.footer-bottom{
-  max-width:1200px;margin-inline:auto;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-}
-.footer-legal{font-size:11px;font-weight:300;color:rgba(255,255,255,.18)}
-.footer-dre{font-size:11px;font-weight:300;color:rgba(255,255,255,.18);text-align:right}
-@media(max-width:860px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .site-footer{padding:48px 20px 28px}
-  .footer-bottom{flex-direction:column}
-  .footer-dre{text-align:left}
-}
-
-/* Brand override */
-
-/* ── PLAYFAIR as primary display/header font ── */
-h1,h2,h3,h4,.section-h,.page-hero h1,.hero-h,.hero-headline,
-.agent-name,.svc-title,.phase-title,.testi-text,
-.statement-q,.form-box-title,.prop-cta-h,.compass-card-h,
-.prop-price,.stat-n,.footer-brand-name,.footer-logo,
-.contact-headline,.split-left h1,.team-name,
-.concierge-box .cb-label,.step-title,.buyer-type-title{
-  font-family:'Playfair Display',Georgia,serif !important;
-}
-/* Montserrat for everything else — nav, body, labels, buttons */
-body,p,a,button,input,textarea,select,
-.nav-links a,.nav-cta,.eyebrow,.section-label,.page-eyebrow,
-.btn,.contact-label,.svc-num,.agent-role,.testi-author,
-.footer-col-head,.footer-links a,.footer-legal,.footer-dre,
-.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,
-.phase-desc,.contact-val,.check-list li,.cb-row,
-.split-agent-role,.hero-eyebrow,.hero-sub,.page-hero-sub,
-.prop-addr,.prop-city,.prop-meta span,.plisting-addr,
-.plisting-city,.plisting-specs span,.agent-creds span,
-.agent-creds a,.testi-author,.footer-tagline{
-  font-family:'Montserrat',-apple-system,sans-serif !important;
-}
-
-body{font-family:'Montserrat',-apple-system,sans-serif}
-.nav-links a,.nav-cta,.eyebrow,.section-label,.btn,.contact-label,.svc-num,
-.agent-role,.testi-author,.footer-col-head,.footer-links a,.footer-legal,
-.footer-dre,.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,.phase-desc,
-.contact-val,.check-list li,.cb-row,.split-agent-role,.hero-eyebrow{
-  font-family:'Montserrat',-apple-system,sans-serif !important;
-}
-:root{
-  --forest:#1c3d31;--navy:#070B33;--compass-blue:#0064e5;
-  --brass:#ffc13c;--brass-dk:#e6a800;--cream:#efdbc0;
-  --light-grey:#f7edf0;--white:#ffffff;--ink:#1a1a1a;
-  --mid:#5A5A5A;--subtle:#86868b;--rule:#d2d2d7;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'Montserrat',-apple-system,sans-serif;
-}
-/* Fix nav to match homepage */
-.site-nav,.nav{
-  background:rgba(7,11,51,0.82) !important;
-  border-bottom:1px solid rgba(255,255,255,.08) !important;
-}
-.site-nav.is-light,.nav.scrolled{
-  background:rgba(255,255,255,.90) !important;
-  border-bottom-color:rgba(0,0,0,.1) !important;
-}
-/* Fix nav link colors */
-.nav-links a,.nav-cta,.site-nav:not(.is-light) .nav-links a{color:rgba(255,255,255,.78) !important}
-.site-nav.is-light .nav-links a{color:rgba(28,61,49,.7) !important}
-.nav-cta{background:var(--brass) !important;color:var(--navy) !important;
-  border-radius:2px !important;border:none !important;
-  font-size:11px !important;font-weight:600 !important;letter-spacing:.1em !important;text-transform:uppercase !important;
-  padding:9px 20px !important;}
-.nav-cta:hover{background:var(--brass-dk) !important}
-/* Gold accents */
-.eyebrow,.section-label,.page-eyebrow,.svc-num,.phase-num,.agent-role{color:var(--brass) !important}
-.section-h em,.page-hero h1 em,.hero-h em,.hero-headline em,.prop-cta-h em{color:var(--brass) !important}
-/* Forest green for light backgrounds */
-.section-dark{background:var(--forest) !important}
-.statement{background:var(--forest) !important}
-.compass-adv,.compass-section{background-color:var(--navy) !important}
-/* Fix team photo heads */
-.agent-photo,.team-card-photo{background-position:top center !important}
-.agent-photo img{object-position:top center !important}
-/* Brass dividers */
-.divider{background:var(--brass) !important}
-/* Left-side eyebrow borders */
-.eyebrow::before,.eyebrow::after,.page-eyebrow::before{background:var(--brass) !important}
-/* Testimonial accent */
-.testi-card,.testimonial{border-left:3px solid var(--brass) !important;border-top:none !important;border-right:none !important;border-bottom:none !important}
-/* Buttons */
-.btn-primary,.btn-blue,.btn-gold{background:var(--brass) !important;color:var(--navy) !important;border-radius:2px !important}
-.btn-primary:hover,.btn-blue:hover,.btn-gold:hover{background:var(--brass-dk) !important}
-.btn-dark,.btn-forest{background:var(--forest) !important;color:#fff !important;border-radius:2px !important}
-/* Phase/check list accents */
-.phase-num,.check-list li::before,.step-n{color:var(--brass) !important}
-.phase-stat{background:rgba(255,193,60,.15) !important;color:var(--brass) !important}
-/* Stats */
-.stat-n{color:var(--forest) !important}
-.stat-n sup{color:var(--brass) !important}
-/* Valuation CTA bg */
-.valuation-cta{background:var(--forest) !important}
-/* Filter pills */
-.filter-pill.active,.filter-btn.active{background:var(--forest) !important;border-color:var(--forest) !important}
-/* Prop badges */
-.badge-sale{background:var(--compass-blue) !important}
-.badge-pending{background:var(--brass) !important;color:var(--navy) !important}
-/* Footer */
-.site-footer,footer{background:var(--navy) !important}
-/* Compass advantage cards */
-.compass-card:hover,.compass-card:hover{border-color:rgba(255,193,60,.3) !important}
-/* Nav CTA override for subpages using different class names */
-.nav-cta,.nav a.btn,.nav-cta-btn{
-  background:var(--brass) !important;color:var(--navy) !important;
-  border:none !important;
-}
-
-
-/* ====================================================================
-   AMRE 2026 site update — typography refresh, readability bump,
-   footer contrast, hero re-flow.
-   ==================================================================== */
-.hero-h, .section-h, .page-hero h1, .svc-title, .agent-name, .compass-card-h, .prop-cta-h, .prop-price, .form-box-title, .statement-q, .testi-text {
-  font-family: var(--sans);
-  font-weight: 500;
-  letter-spacing: -.015em;
-}
-.hero-h em, .section-h em, .page-hero h1 em, .prop-cta-h em, .compass-card-h em {
-  font-style: italic; font-weight: 400;
-}
-.statement-q, .testi-text { font-weight: 400; font-style: italic; }
-.prop-price { font-weight: 600; letter-spacing: 0; }
-.hero-h { line-height: 1.05; }
-.page-hero h1 { line-height: 1.05; }
-.section-h { line-height: 1.12; }
-.lede { font-size: 18px; line-height: 1.7; }
-.svc-desc, .compass-card-p, .agent-bio, .faq-a p { font-size: 15px; line-height: 1.78; }
-.testi-text { font-size: 17px; line-height: 1.65; }
-.contact-val { font-size: 15px; }
-.form-box-sub { font-size: 14px; }
-.page-hero-sub, .hero-sub { font-size: clamp(15px, 1.7vw, 18px); line-height: 1.7; }
-.footer-tagline { color: rgba(255,255,255,.62); font-size: 13px; max-width: 260px; }
-.footer-col-head { color: rgba(255,255,255,.55); font-size: 10px; }
-.footer-links a { color: rgba(255,255,255,.72); font-size: 13px; }
-.footer-links a:hover { color: #fff; }
-.footer-legal { color: rgba(255,255,255,.50); font-size: 11px; }
-.footer-dre { color: rgba(255,255,255,.40); font-size: 11px; }
-.hero-content { max-width: 880px; }
-.hero-h { font-size: clamp(44px, 6.2vw, 84px); }
-@media (max-width: 680px) { .hero-content { max-width: 100%; } }
-
-/* ═══════════════════════════════════════════════
-   GLOBAL MOBILE FIXES — text overflow, layout
-═══════════════════════════════════════════════ */
-@media(max-width:860px){
-  /* Prevent any horizontal overflow */
-  html,body{overflow-x:hidden;width:100%}
-  *{max-width:100%;word-break:break-word}
-
-  /* Section padding — tighter on mobile */
-  section,[class*="-section"],[class*="section-"]{padding-left:20px !important;padding-right:20px !important}
-  .wrap,.wrap-sm{padding-inline:20px !important}
-
-  /* Hero — full width, correct padding */
-  .hero,.page-hero{padding-left:20px !important;padding-right:20px !important}
-  .hero-h{font-size:clamp(36px,10vw,56px) !important}
-  .hero-listing{display:none !important}
-
-  /* Nav — no overflow */
-  .nav-links{display:none !important}
-  .site-nav,.nav{padding:0 16px !important}
-  .nav-brand img{max-height:18px}
-
-  /* Stats bar */
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-
-  /* Service cards */
-  .svc-grid{grid-template-columns:1fr !important}
-
-  /* Properties grid */
-  .props-grid,.plisting-grid{grid-template-columns:1fr !important}
-
-  /* Compass advantage */
-  .compass-grid{grid-template-columns:1fr !important}
-  .compass-inner{grid-template-columns:1fr !important;gap:40px}
-
-  /* Team cards */
-  .team-grid,.agent-card,.agent-card-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-photo,.team-card-photo{min-height:260px !important}
-  .agent-photo-grad,.team-card-photo-grad{
-    background:linear-gradient(to bottom,transparent 50%,var(--white,#fff)) !important
-  }
-  .agent-info,.team-card-body{padding:28px 20px !important}
-  .agent-name,.team-name{font-size:clamp(24px,7vw,34px) !important}
-
-  /* Testimonials */
-  .testi-grid,.testimonials-grid{grid-template-columns:1fr !important}
-
-  /* Contact split */
-  .contact-split{grid-template-columns:1fr !important}
-  .split-left,.split-right{padding-inline:20px !important}
-
-  /* Two-col layouts */
-  .two-col-layout,.calc-layout,
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns:1fr 1.2fr"],
-  [style*="grid-template-columns:1fr 1fr"]{
-    grid-template-columns:1fr !important;
-    gap:32px !important;
-  }
-  .contact-grid{grid-template-columns:1fr !important}
-  .contact-form-box{padding:24px 18px !important}
-
-  /* Phase cards */
-  .phases-grid,.phase-stats-row{grid-template-columns:1fr !important}
-
-  /* Buyer types */
-  .buyer-types-grid,.bt-card{width:100% !important}
-  .buyer-types-grid{display:flex;flex-direction:column;gap:14px}
-
-  /* Values grid */
-  .values-grid{grid-template-columns:1fr 1fr !important}
-
-  /* Footer */
-  .footer-grid{grid-template-columns:1fr 1fr !important;gap:24px}
-  .footer-bottom{flex-direction:column !important}
-
-  /* Text sizes — prevent clamp from being too big */
-  .section-h,.section-headline{font-size:clamp(26px,8vw,40px) !important}
-  .lede{font-size:15px !important}
-  h1{font-size:clamp(34px,9vw,52px) !important}
-
-  /* Tables / process steps */
-  .process-step{grid-template-columns:1fr !important}
-  .step-extra,.step-n{display:none !important}
-
-  /* Concierge */
-  .concierge-layout,.two-col-layout{grid-template-columns:1fr !important}
-
-  /* Agent profile on team page */
-  .agent-profile,.agent-profile-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-content-col{padding:32px 20px !important}
-
-  /* Intent chips wrap properly */
-  .intent-chips{gap:8px !important}
-  .chip{font-size:11px !important;padding:7px 12px !important}
-}
-
-@media(max-width:480px){
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-  .footer-grid{grid-template-columns:1fr !important}
-  .values-grid{grid-template-columns:1fr !important}
-  .hero-btns,.hero-actions{flex-direction:column !important;align-items:flex-start !important}
-  .hero-btns .btn,.hero-actions .btn,.hero-actions a{width:100% !important;justify-content:center !important}
-  .agent-creds{font-size:11px !important}
-  .testi-card{padding:22px 16px !important}
-}
-
-/* dark bg text — lighter, bigger */
-.section-dark p,.section-dark li,.compass-card-p,.phase-desc,.statement-q,
-[style*="background:var(--forest)"] p,[style*="background:var(--navy)"] p{
-  color:rgba(255,255,255,.78)!important;font-size:clamp(14px,1.5vw,16px)!important;
-}
-
-/* ── HAMBURGER + MOBILE DRAWER ── */
-.nav-right{display:flex;align-items:center;gap:12px}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;
-  flex-shrink:0}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;
-  transition:transform .25s,opacity .2s,width .25s}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham-btn.open span:nth-child(2){opacity:0;width:0}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{
-  position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;
-  background:rgba(7,11,51,0.97);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  display:flex;flex-direction:column;
-  padding:32px 24px 48px;
-  transform:translateY(-110%);opacity:0;
-  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;
-  pointer-events:none}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a{
-  display:block;color:#fff;font-family:var(--sans);
-  font-size:clamp(20px,5vw,26px);font-weight:300;
-  letter-spacing:-.01em;padding:20px 0;
-  transition:color .2s,padding-left .2s}
-.mobile-drawer a:hover{color:var(--brass,#ffc13c);padding-left:8px}
-.mobile-drawer .drawer-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  margin-top:32px;width:100%;
-  background:var(--blue,#0064e5);color:#fff!important;border-radius:980px;
-  font-size:16px!important;font-weight:500!important;padding:16px 32px!important;
-  border-bottom:none!important;letter-spacing:.02em}
-.mobile-drawer .drawer-cta:hover{background:#0049a8;padding-left:32px!important}
-@media(max-width:860px){
-  .nav-links{display:none!important}
-  .nav-cta{display:none!important}
-  .ham-btn{display:flex}
-}
-@media(min-width:861px){
-  .mobile-drawer{display:none!important}
-}
-
-</style>
-<link rel="stylesheet" href="/assets/css/site-overrides.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://amre.group/venice/#webpage","url":"https://amre.group/venice/","name":"Venice Real Estate | AMRE Real Estate Group | Compass Beverly Hills","description":"Real estate in Venice, CA — buyer and seller advisory from AMRE at Compass. Silicon Beach, the canals, Abbot Kinney, and architectural homes.","isPartOf":{"@id":"https://amre.group/#website"},"about":[{"@id":"https://amre.group/#organization"},{"@id":"https://amre.group/venice/#place"}],"inLanguage":"en-US","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2","p"]}},{"@type":"Place","@id":"https://amre.group/venice/#place","name":"Venice","containedInPlace":[{"@type":"AdministrativeArea","name":"Los Angeles County"},{"@type":"State","name":"California"}]},{"@type":["RealEstateAgent","LocalBusiness"],"@id":"https://amre.group/#organization","name":"AMRE Real Estate Group","url":"https://amre.group/","telephone":"+13237198585","email":"michael.abraham@compass.com","address":{"@type":"PostalAddress","streetAddress":"9454 Wilshire Blvd, Suite 100","addressLocality":"Beverly Hills","addressRegion":"CA","postalCode":"90212","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Venice Beach"},{"@type":"Place","name":"Venice Canals"},{"@type":"Place","name":"Abbot Kinney"},{"@type":"Place","name":"Silicon Beach"},{"@type":"Place","name":"Silver Triangle"},{"@type":"Place","name":"Oakwood"}],"priceRange":"$$$","parentOrganization":{"@type":"Organization","name":"Compass","url":"https://www.compass.com/","identifier":"CA DRE #01991628"},"sameAs":["https://www.instagram.com/amre.group/","https://www.linkedin.com/company/amre-real-estate-group/","https://www.facebook.com/amre.grp","https://www.youtube.com/@AMRE_Real_Estate"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"17","bestRating":"5"},"review":[{"@type":"Review","@id":"https://amre.group/venice/#review-1","author":{"@type":"Person","name":"Kevin Maynard"},"datePublished":"2026-01-06","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Michael and Ania were absolutely terrific. They found the perfect tenants for my home and handled all the details so that it was a seamless transition for me."},{"@type":"Review","@id":"https://amre.group/venice/#review-2","author":{"@type":"Person","name":"David Crowley"},"datePublished":"2025-11-06","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"If you're looking for trusted real estate guidance in Los Angeles or the South Bay, look no further than Michael Abraham and the AMRE Real Estate Group."},{"@type":"Review","@id":"https://amre.group/venice/#review-3","author":{"@type":"Person","name":"Jessica Choi"},"datePublished":"2025-05-06","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Collaborating with Ania and Michael has been remarkable. Their insightful vision and commitment to high quality is exceptional."}]},{"@type":"Service","@id":"https://amre.group/venice/#service","serviceType":"Real Estate Representation in Venice","name":"AMRE Real Estate Group — Venice Buyer & Seller Advisory","description":"Buyer and seller representation in Venice, Los Angeles. Architecture-trained perspective on canal homes, walk-street bungalows, and Silicon Beach inventory. Compass Concierge for sellers.","provider":{"@id":"https://amre.group/#organization"},"areaServed":{"@id":"https://amre.group/venice/#place"}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://amre.group/venice/#faq","mainEntity":[{"@type":"Question","name":"What makes Venice real estate unique compared to other Westside neighborhoods?","acceptedAnswer":{"@type":"Answer","text":"Venice combines coastal California living with a genuine urban creative culture that no other LA neighborhood replicates — the result of the canals, the boardwalk, Abbot Kinney, and the Silicon Beach tech employers. Median single-family prices run approximately $2.5M, with canal homes $3–7M and beach-block estates $8–12M. Walk streets, canal homes, and beach-block estates represent three distinct micro-markets within a few blocks of each other."}},{"@type":"Question","name":"What is Silicon Beach and how does it affect Venice real estate?","acceptedAnswer":{"@type":"Answer","text":"Silicon Beach is the cluster of tech and media companies headquartered in Venice and Playa Vista — Snap Inc., Google, IMAX, and Beats Electronics among them. These employers recruit thousands of well-compensated employees into the local market, sustaining demand for rental and ownership inventory and supporting the premium pricing Venice commands."}},{"@type":"Question","name":"Are Venice canal homes subject to special regulations?","acceptedAnswer":{"@type":"Answer","text":"Yes. Venice canal properties lie within the Venice Canals Historic District, which restricts modifications to structures visible from the canals. Permit history, certificate of occupancy status, and zoning compliance are critical due diligence items. Canal properties are also subject to flood zone considerations — insurance costs and lender requirements should be verified early in every acquisition."}},{"@type":"Question","name":"What is the Venice RSO and does it apply to all rentals?","acceptedAnswer":{"@type":"Answer","text":"Venice is within the City of Los Angeles, and the LA Rent Stabilization Ordinance applies to most rental units built before October 1978 with two or more units. For buyers of multifamily properties, RSO compliance, allowable rent increases, and relocation assistance obligations are first-pass underwriting items. We run RSO analysis on every multifamily acquisition."}},{"@type":"Question","name":"What price range should I expect for Venice single-family homes?","acceptedAnswer":{"@type":"Answer","text":"As of mid-2026, Venice single-family homes range from approximately $1.5M for smaller inland bungalows to $12M+ for beach-block estates. Canal homes typically trade between $3M and $7M. Architect-designed properties can command a 15–25% premium over comparable non-designed inventory. All figures are approximate and market-dependent."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://amre.group/venice/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},{"@type":"ListItem","position":2,"name":"Neighborhoods","item":"https://amre.group/properties/"},{"@type":"ListItem","position":3,"name":"Venice","item":"https://amre.group/venice/"}]}</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Shared design system -->
+<link rel="stylesheet" href="/assets/css/amre.css">
 </head>
 <body>
-<div id="site-nav-mount"></div>
 
-<!-- Mobile navigation drawer -->
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js"></script>
+<div id="amre-nav"></div>
 
-<!-- ════════════════ HERO ════════════════ -->
-<section style="position:relative;overflow:hidden;padding:calc(var(--nav-h) + 120px) 24px 120px;text-align:center;color:#fff;min-height:680px;display:flex;align-items:center;justify-content:center">
-  <div style="position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/venice/neighborhood-hero.webp');background-size:cover;background-position:center 60%"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.42) 0%,rgba(0,0,0,0.65) 100%)"></div>
-  <div style="position:relative;z-index:2">
-    <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--brass);margin-bottom:24px">Neighborhood Focus · Venice</p>
-    <h1 style="font-family:var(--serif);font-size:clamp(48px,8vw,96px);font-weight:400;line-height:1;margin-bottom:32px"><span>Venice</span><br><em style="color:var(--brass);font-style:italic">real estate.</em></h1>
-    <p style="font-size:clamp(16px,2vw,20px);line-height:1.65;color:rgba(255,255,255,0.82);max-width:780px;margin:0 auto">The original California beach town — reinvented as Silicon Beach. Architectural bungalows, canal homes, and Abbot Kinney's global creative economy, anchored by Snap, Google, IMAX, and the Pacific.</p>
-    <p style="margin-top:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,193,60,.85);font-weight:500">Abbot Kinney Blvd · Venice Canals · Silicon Beach</p>
-  </div>
-</section>
-
-<!-- ════════════════ ABOUT ════════════════ -->
-<section style="background:#fff;padding:72px 24px" aria-label="About Venice">
-  <div style="max-width:880px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">About Venice</p>
-    <h2 style="text-align:center;margin-bottom:36px;font-family:var(--serif);font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.1;color:var(--ink)">A market with <em style="color:var(--forest);font-style:italic">character.</em></h2>
-    <p style="font-size:18px;line-height:1.7;color:#3a3a3c;text-align:center;margin-bottom:24px">Venice was founded in 1905 as a resort town modeled on its Italian namesake — canals, gondolas, and colonnaded arcades. Today its 16 miles of canal remain one of LA's most extraordinary assets, while the neighborhood has evolved into one of the most coveted residential markets on the Westside. Abbot Kinney Boulevard anchors the commercial identity: boutique hotels, gallery-turned-retail, farm-to-table dining, and the persistent energy of a neighborhood that has never quite given up on being cool.</p>
-    <p style="font-size:18px;line-height:1.7;color:#3a3a3c;text-align:center">AMRE represents buyers and sellers throughout Venice — the canal-adjacent homes of the Dell, Carroll, and Linnie Canals, the architect-designed inventory of the Silver Triangle and Oakwood, the multifamily plays along Main Street and Lincoln, and the beach-block estates. Venice median single-family pricing runs $2.5–3M. Silicon Beach employers — Snap, Google, IMAX, Beats — sustain demand from well-compensated buyer pools.</p>
-  </div>
-</section>
-
-<!-- ════════════════ AT A GLANCE ════════════════ -->
-<section style="background:var(--light);padding:72px 24px" aria-label="Venice at a glance">
-  <div style="max-width:1100px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">At a glance</p>
-    <h2 style="text-align:center;margin-bottom:64px;font-family:var(--serif);font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.1;color:var(--ink)">Venice — <em style="color:var(--forest);font-style:italic">six things to know.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px">
-      <div><div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">01</div><h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Venice Canals Historic District</h3><p style="font-size:15px;line-height:1.78;color:#5a5a5a">Sixteen blocks of navigable canals with single-family homes on narrow lots — one of the most unique residential micro-markets in the United States. Inventory turns rarely; architecture ranges from 1910 bungalows to contemporary custom builds.</p></div>
-<div><div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">02</div><h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Abbot Kinney Boulevard</h3><p style="font-size:15px;line-height:1.78;color:#5a5a5a">The commercial spine of Venice: boutique retail, design-forward restaurants, art galleries, and the weekly First Fridays. Proximity to Abbot Kinney is a meaningful price driver for residential and mixed-use inventory alike.</p></div>
-<div><div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">03</div><h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Silicon Beach</h3><p style="font-size:15px;line-height:1.78;color:#5a5a5a">Snap Inc., Google, Beats Electronics, IMAX, and dozens of venture-backed startups — all within cycling distance. Buyer profile skews younger, wealthier, and tech-adjacent.</p></div>
-<div><div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">04</div><h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Architectural inventory</h3><p style="font-size:15px;line-height:1.78;color:#5a5a5a">Venice has the highest concentration of architect-designed single-family homes of any comparable Westside neighborhood. Frank Gehry worked here early in his career. AMRE's architecture background is a direct advantage in underwriting these assets.</p></div>
-<div><div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">05</div><h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Beach block and walk streets</h3><p style="font-size:15px;line-height:1.78;color:#5a5a5a">Venice's signature walk streets — pedestrian-only lanes between the numbered streets — create a coastal village character unmatched elsewhere in LA. Beach-block homes approach $8–12M for fully rebuilt structures with ocean views.</p></div>
-<div><div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">06</div><h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Multifamily and rent control</h3><p style="font-size:15px;line-height:1.78;color:#5a5a5a">Venice falls within the City of Los Angeles, subject to the LA Rent Stabilization Ordinance for qualifying pre-1978 units. RSO compliance, relocation liability, and rent-roll underwriting are first-pass items for every multifamily acquisition.</p></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/venice/neighborhood-hero.webp')"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">Where We Work · Venice</span>
+    <h1>Venice <em>real estate.</em></h1>
+    <p class="sub">The original California beach town — reinvented as Silicon Beach. Architectural bungalows, canal homes, and Abbot Kinney's creative economy, anchored by Snap, Google, IMAX, and the Pacific.</p>
+    <div class="hero-ctas">
+      <a href="/#contact" class="btn btn-fill">Get a Free Valuation <span class="arrow">&rarr;</span></a>
+      <a href="/properties/" class="btn btn-ghost">Browse Listings</a>
     </div>
   </div>
 </section>
 
-<!-- ════════════════ TESTIMONIALS ════════════════ -->
-<section style="background:#fff;padding:72px 24px" aria-label="Client reviews">
-  <div style="max-width:1100px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">5.0 ★ across 17 Google reviews</p>
-    <h2 style="text-align:center;margin-bottom:48px;font-family:var(--serif);font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.1;color:var(--ink)">What clients <em style="color:var(--forest);font-style:italic">say.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-      <blockquote class="testi-card" itemscope itemtype="https://schema.org/Review" style="background:#fff;padding:32px 28px;border-radius:8px;border-left:3px solid var(--brass);box-shadow:0 1px 3px rgba(0,0,0,.04);margin:0"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2026-01-06"><div style="display:flex;gap:2px;margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p itemprop="reviewBody" style="font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);margin:0 0 16px;font-style:italic">"Michael and Ania were absolutely terrific. They found the perfect tenants for my home and handled all the details so that it was a seamless transition for me."</p><div style="font-size:12px;color:var(--mid);font-style:normal;background:none"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Kevin Maynard</span></span> &nbsp;·&nbsp; Property Owner</div></blockquote>
-      <blockquote class="testi-card" itemscope itemtype="https://schema.org/Review" style="background:#fff;padding:32px 28px;border-radius:8px;border-left:3px solid var(--brass);box-shadow:0 1px 3px rgba(0,0,0,.04);margin:0"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-11-06"><div style="display:flex;gap:2px;margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p itemprop="reviewBody" style="font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);margin:0 0 16px;font-style:italic">"If you're looking for trusted real estate guidance in Los Angeles or the South Bay, look no further than Michael Abraham and the AMRE Real Estate Group."</p><div style="font-size:12px;color:var(--mid);font-style:normal;background:none"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">David Crowley</span></span> &nbsp;·&nbsp; Investor</div></blockquote>
-      <blockquote class="testi-card" itemscope itemtype="https://schema.org/Review" style="background:#fff;padding:32px 28px;border-radius:8px;border-left:3px solid var(--brass);box-shadow:0 1px 3px rgba(0,0,0,.04);margin:0"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-05-06"><div style="display:flex;gap:2px;margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p itemprop="reviewBody" style="font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);margin:0 0 16px;font-style:italic">"Collaborating with Ania and Michael has been remarkable. Their insightful vision and commitment to high quality is exceptional."</p><div style="font-size:12px;color:var(--mid);font-style:normal;background:none"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Jessica Choi</span></span> &nbsp;·&nbsp; Collaborator</div></blockquote>
+<!-- INTRO -->
+<section class="path">
+  <div class="wrap"><div class="head center reveal">
+    <span class="eyebrow" style="justify-content:center">About Venice</span>
+    <h2>A market with <em>character.</em></h2>
+    <p>Venice was founded in 1905 as a resort town modeled on its Italian namesake — canals, gondolas, and colonnaded arcades. Today its 16 miles of canal remain one of <span class="oneline">Los Angeles</span>'s most extraordinary assets, while the neighborhood has evolved into one of the most coveted residential markets on the Westside. AMRE represents buyers and sellers throughout Venice — the canal-adjacent homes of the Dell, Carroll, and Linnie Canals, the architect-designed inventory of the Silver Triangle and Oakwood, the multifamily plays along Main Street and Lincoln, and the beach-block estates.</p>
+  </div></div>
+</section>
+
+<!-- WHY VENICE (6 cards) -->
+<section>
+  <div class="wrap">
+    <div class="head reveal"><span class="eyebrow">Why Venice</span><h2>What makes it <em>Venice.</em></h2></div>
+    <div class="adv-grid">
+      <div class="acard reveal"><div class="num">01</div><h3>The Canals</h3><p>Sixteen blocks of navigable canals with single-family homes on narrow lots — one of the most unique residential micro-markets in the country. Inventory turns rarely; architecture ranges from 1910 bungalows to contemporary custom builds.</p></div>
+      <div class="acard reveal"><div class="num">02</div><h3>Abbot Kinney</h3><p>The commercial spine of Venice: boutique retail, design-forward restaurants, art galleries, and the weekly First Fridays. Proximity to Abbot Kinney is a meaningful price driver for residential and mixed-use inventory alike.</p></div>
+      <div class="acard reveal"><div class="num">03</div><h3>The Boardwalk</h3><p>Three miles of oceanfront — skate park, muscle beach, the Venice Art Walls, and street performers. The most democratic public space in <span class="oneline">Los Angeles</span> and a defining piece of the neighborhood's identity.</p></div>
+      <div class="acard reveal"><div class="num">04</div><h3>Silicon Beach</h3><p>Snap Inc., Google, Beats Electronics, IMAX, and dozens of venture-backed startups — all within cycling distance. The buyer profile skews younger, wealthier, and tech-adjacent, sustaining premium pricing.</p></div>
+      <div class="acard reveal"><div class="num">05</div><h3>Oakwood</h3><p>Venice's historic inland core, now among the most sought-after pockets for architect-designed inventory. Walk streets and small lots create a coastal-village character unmatched elsewhere in the city.</p></div>
+      <div class="acard reveal"><div class="num">06</div><h3>Architect-Designed Homes</h3><p>Venice has the highest concentration of architect-designed single-family homes of any comparable Westside neighborhood — Frank Gehry worked here early on. AMRE's architecture background is a direct advantage in underwriting these assets.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════ NEIGHBORHOOD LIFE ════════════════ -->
-<section style="background:var(--light);padding:72px 24px" aria-label="Venice neighborhood life">
-  <div style="max-width:1160px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">Life in Venice</p>
-    <h2 style="text-align:center;margin-bottom:56px;font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;line-height:1.1;color:var(--ink)">Boardwalk, canals, <em style="color:var(--forest);font-style:italic">and beyond.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-      <div style="background:#fff;border-radius:14px;padding:32px 28px"><div style="font-size:22px;margin-bottom:10px">🍽</div><h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:20px;border-bottom:2px solid var(--light);padding-bottom:12px">Dining</h3><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px"><li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Gjusta</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Heritage bakery and deli on Sunset Avenue — one of LA's most discussed food destinations, open all day</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Felix Trattoria</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Nationally recognized Italian on Abbot Kinney — handmade pasta, wood-fired pizza, deep wine list</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Gjelina</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">The original Abbot Kinney anchor — wood-fired vegetables, farm-sourced small plates, always packed</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Superba Food + Bread</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Lincoln Blvd all-day café with serious bread, weekend brunch, and neighborhood-institution energy</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">The Rose</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Century-old Ocean Park institution — white tablecloths, excellent Sunday brunch, right on Rose Ave</div></li></ul></div>
-      <div style="background:#fff;border-radius:14px;padding:32px 28px"><div style="font-size:22px;margin-bottom:10px">🎭</div><h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:20px;border-bottom:2px solid var(--light);padding-bottom:12px">Culture &amp; Venues</h3><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px"><li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Venice Beach Boardwalk</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Three miles of oceanfront boulevard — skate park, muscle beach, street performers, and the Pacific at your feet</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Venice Art Walls</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Permitted outdoor mural space on the boardwalk — the largest open-air canvas in Los Angeles</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Venice Canals</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Walkable canal-side paths open to the public — the best urban stroll in LA, especially evenings</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Beyond Baroque</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Literary arts center in the Old Venice City Hall (1906) — readings, music, community</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Electric Lodge</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Performing arts center and community gathering point on Electric Ave — theatre, yoga, events</div></li></ul></div>
-      <div style="background:#fff;border-radius:14px;padding:32px 28px"><div style="font-size:22px;margin-bottom:10px">🌿</div><h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:20px;border-bottom:2px solid var(--light);padding-bottom:12px">Parks &amp; Recreation</h3><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px"><li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Venice Beach</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Miles of sand, volleyball courts, and the iconic muscle beach outdoor gym — LA's most democratic public space</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Marina del Rey access</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Venice borders the marina to the south — sailboat rentals, kayaking, and waterfront dining within cycling distance</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Grand Canal walkway</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">The main navigable canal has a public path along its full length — morning rowing and serene residential streetscape</div></li>
-<li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Dog Beach</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">One of LA's few off-leash beach areas at the south end of Venice Beach, beloved by dog-owning residents</div></li></ul></div>
+<!-- MARKET STATS -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="n">$2.5<em>M</em></div><div class="l">Median single-family price</div></div>
+    <div class="stat reveal"><div class="n">16</div><div class="l">Miles of historic canal</div></div>
+    <div class="stat reveal"><div class="n">$8&ndash;12<em>M</em></div><div class="l">Beach-block estates</div></div>
+    <div class="stat reveal"><div class="n">5.0<em>&#9733;</em></div><div class="l">Across 17 Google reviews</div></div>
+  </div>
+</section>
+
+<!-- LIFE IN VENICE (6 cards) -->
+<section>
+  <div class="wrap">
+    <div class="head reveal"><span class="eyebrow">Living Here</span><h2>Life in <em>Venice.</em></h2></div>
+    <div class="adv-grid">
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#9673;</div><h3>Dining &amp; Shopping</h3><p>Gjusta, Felix Trattoria, and Gjelina anchor a nationally recognized food scene, with Superba on Lincoln and the design-forward boutiques of Abbot Kinney Boulevard.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#127958;</div><h3>Beach &amp; Recreation</h3><p>Miles of sand, volleyball courts, the iconic muscle beach gym, Dog Beach at the south end, and the Grand Canal walkway for morning strolls and rowing.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#9906;</div><h3>Getting Around</h3><p>A walkable, bike-first neighborhood bordering Marina del Rey to the south, minutes from Santa Monica and quick access to Lincoln, the 90, and the 405.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#127917;</div><h3>Creative Scene</h3><p>Beyond Baroque in the 1906 Old Venice City Hall, the Electric Lodge performing arts center, the Venice Art Walls, and First Fridays on Abbot Kinney.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#128161;</div><h3>Community</h3><p>Walk streets, canal-side paths, and a tight-knit village character with a persistent creative energy that has defined Venice for more than a century.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#127974;</div><h3>Everyday Essentials</h3><p>Grocers along Lincoln and Rose, neighborhood cafes, medical services minutes away in Marina del Rey and Santa Monica, and easy coastal commuting.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════ CONTACT FORM ════════════════ -->
-<section style="background:#1c3d31;padding:80px 24px" aria-label="Contact CTA">
-  <div style="max-width:720px;margin:0 auto;text-align:center">
-    <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#ffc13c;margin-bottom:20px">Work With AMRE</p>
-    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,4vw,50px);font-weight:400;line-height:1.1;color:#fff;margin-bottom:16px">Considering a move<br>in <em style="color:#ffc13c;font-style:italic">Venice?</em></h2>
-    <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,0.72);margin-bottom:40px">Tell us what you&#39;re looking for. We respond within one business day.</p>
-    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:40px 36px;text-align:left">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <div><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">Your Name</label><input id="nb-name-venice" type="text" placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box"></div>
-        <div><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">Email Address</label><input id="nb-email-venice" type="email" placeholder="jane@example.com" style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box"></div>
-      </div>
-      <div style="margin-bottom:16px"><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">I&#39;m interested in</label><select id="nb-intent-venice" style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(28,61,49,0.95);color:#fff;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box"><option value="buying">Buying in Venice</option><option value="selling">Selling in Venice</option><option value="both">Buying and selling</option><option value="valuation">Home valuation</option><option value="info">Just exploring</option></select></div>
-      <div style="margin-bottom:28px"><label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">Message <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label><textarea id="nb-msg-venice" rows="3" placeholder="Tell us more about what you&#39;re looking for..." style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;outline:none;font-family:inherit;resize:vertical;box-sizing:border-box"></textarea></div>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-        <button onclick="nbSubmit('venice','Venice')" style="display:inline-flex;align-items:center;gap:8px;background:#ffc13c;color:#1a1a1a;font-size:14px;font-weight:600;padding:14px 28px;border-radius:980px;border:none;cursor:pointer;font-family:inherit;letter-spacing:.01em">Send Message <span aria-hidden="true">&#8594;</span></button>
-        <a href="tel:3237198585" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;white-space:nowrap">or call (323) 719-8585</a>
-      </div>
-    </div>
-    <p style="margin-top:18px;font-size:12px;color:rgba(255,255,255,0.35)">We keep your information private. No spam, ever.</p>
-  </div>
-  <script>
-  function nbSubmit(slug, neighborhood) {
-    var name = document.getElementById('nb-name-' + slug).value;
-    var email = document.getElementById('nb-email-' + slug).value;
-    var intent = document.getElementById('nb-intent-' + slug).value;
-    var msg = document.getElementById('nb-msg-' + slug).value;
-    var subject = encodeURIComponent('Inquiry: ' + neighborhood + (intent ? ' — ' + intent : ''));
-    var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + intent + '\n\n' + msg);
-    window.location.href = 'mailto:michael.abraham@compass.com?subject=' + subject + '&body=' + body;
-  }
-  </script>
-</section>
-<style>
-@media(max-width:860px){
-  section[aria-label="Client reviews"] div[style*="repeat(3,1fr)"]{grid-template-columns:1fr !important}
-}
-</style>
-
-<section class="faq-section" itemscope itemtype="https://schema.org/FAQPage" aria-label="Frequently asked questions">
-  <p class="faq-eyebrow">Venice FAQ</p>
-  <h2 class="faq-h2">Venice, <em>explained.</em></h2>
-  <div class="faq-list">
-      <details class="faq-item" itemscope itemtype="https://schema.org/Question"><summary class="faq-q" itemprop="name">What makes Venice real estate unique compared to other Westside neighborhoods?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Venice combines coastal California living with a genuine urban creative culture that no other LA neighborhood replicates — the result of the canals, the boardwalk, Abbot Kinney, and the Silicon Beach tech employers. Median single-family prices run approximately $2.5M, with canal homes $3–7M and beach-block estates $8–12M. Walk streets, canal homes, and beach-block estates represent three distinct micro-markets within a few blocks of each other.</p></div></details>
-<details class="faq-item" itemscope itemtype="https://schema.org/Question"><summary class="faq-q" itemprop="name">What is Silicon Beach and how does it affect Venice real estate?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Silicon Beach is the cluster of tech and media companies headquartered in Venice and Playa Vista — Snap Inc., Google, IMAX, and Beats Electronics among them. These employers recruit thousands of well-compensated employees into the local market, sustaining demand for rental and ownership inventory and supporting the premium pricing Venice commands.</p></div></details>
-<details class="faq-item" itemscope itemtype="https://schema.org/Question"><summary class="faq-q" itemprop="name">Are Venice canal homes subject to special regulations?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. Venice canal properties lie within the Venice Canals Historic District, which restricts modifications to structures visible from the canals. Permit history, certificate of occupancy status, and zoning compliance are critical due diligence items. Canal properties are also subject to flood zone considerations — insurance costs and lender requirements should be verified early in every acquisition.</p></div></details>
-<details class="faq-item" itemscope itemtype="https://schema.org/Question"><summary class="faq-q" itemprop="name">What is the Venice RSO and does it apply to all rentals?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Venice is within the City of Los Angeles, and the LA Rent Stabilization Ordinance applies to most rental units built before October 1978 with two or more units. For buyers of multifamily properties, RSO compliance, allowable rent increases, and relocation assistance obligations are first-pass underwriting items. We run RSO analysis on every multifamily acquisition.</p></div></details>
-<details class="faq-item" itemscope itemtype="https://schema.org/Question"><summary class="faq-q" itemprop="name">What price range should I expect for Venice single-family homes?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">As of mid-2026, Venice single-family homes range from approximately $1.5M for smaller inland bungalows to $12M+ for beach-block estates. Canal homes typically trade between $3M and $7M. Architect-designed properties can command a 15–25% premium over comparable non-designed inventory. All figures are approximate and market-dependent.</p></div></details>
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center;color:var(--clay)">Considering a move in Venice?</span>
+    <h2>Let's talk <em>Venice.</em></h2>
+    <p>Whether it's a canal home, a walk-street bungalow, or a multifamily play, we'll give you an honest, architect-informed read on value. We respond within one business day.</p>
+    <a href="/contact/" class="btn btn-fill">Reach Us <span class="arrow">&rarr;</span></a>
   </div>
 </section>
 
-<!-- ===== RELATED ===== -->
-<section style="background:#f7f5f1;padding:80px 24px;text-align:center" aria-label="Related pages">
-  <div style="max-width:1080px;margin:0 auto">
-    <h3 style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin-bottom:32px;color:#1a1a1a">Explore more</h3>
-    <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap">
-      <a href="/culver-city/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Culver City</a>
-<a href="/santa-monica/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Santa Monica</a>
-<a href="/mar-vista/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Mar Vista</a>
-<a href="/architectural-homes/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Architectural Homes</a>
-<a href="/private-exclusives/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Off-Market Homes</a>
-<a href="/home-valuation/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Home Valuation</a>
+<!-- FAQ -->
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="wrap">
+    <div class="head center reveal"><span class="eyebrow">Common Questions</span><h2>Venice, <em>explained.</em></h2></div>
+    <div class="faq-list">
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What makes Venice real estate unique compared to other Westside neighborhoods?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Venice combines coastal California living with a genuine urban creative culture that no other LA neighborhood replicates — the result of the canals, the boardwalk, Abbot Kinney, and the Silicon Beach tech employers. Median single-family prices run approximately $2.5M, with canal homes $3&ndash;7M and beach-block estates $8&ndash;12M. Walk streets, canal homes, and beach-block estates represent three distinct micro-markets within a few blocks of each other.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What is Silicon Beach and how does it affect Venice real estate?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Silicon Beach is the cluster of tech and media companies headquartered in Venice and Playa Vista — Snap Inc., Google, IMAX, and Beats Electronics among them. These employers recruit thousands of well-compensated employees into the local market, sustaining demand for rental and ownership inventory and supporting the premium pricing Venice commands.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">Are Venice canal homes subject to special regulations?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. Venice canal properties lie within the Venice Canals Historic District, which restricts modifications to structures visible from the canals. Permit history, certificate of occupancy status, and zoning compliance are critical due diligence items. Canal properties are also subject to flood zone considerations — insurance costs and lender requirements should be verified early in every acquisition.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What is the Venice RSO and does it apply to all rentals?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Venice is within the City of <span class="oneline">Los Angeles</span>, and the LA Rent Stabilization Ordinance applies to most rental units built before October 1978 with two or more units. For buyers of multifamily properties, RSO compliance, allowable rent increases, and relocation assistance obligations are first-pass underwriting items. We run RSO analysis on every multifamily acquisition.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What price range should I expect for Venice single-family homes?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">As of mid-2026, Venice single-family homes range from approximately $1.5M for smaller inland bungalows to $12M+ for beach-block estates. Canal homes typically trade between $3M and $7M. Architect-designed properties can command a 15&ndash;25% premium over comparable non-designed inventory. All figures are approximate and market-dependent.</p></div></details>
     </div>
   </div>
 </section>
 
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/#contact">Home Valuation</a></li>
-        <li><a href="/#contact">Investment Advisory</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div>
+<div id="amre-footer"></div>
 
+<script src="/assets/js/amre-chrome.js" defer></script>
 </body>
 </html>
-
