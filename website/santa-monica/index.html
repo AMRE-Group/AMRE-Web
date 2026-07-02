@@ -2,23 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- amre-favicon -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#1c3d31">
-
-<!-- amre-preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://raw.githubusercontent.com">
-<link rel="preconnect" href="https://res.cloudinary.com">
-<link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Santa Monica Real Estate | AMRE Real Estate Group | Compass Beverly Hills</title>
 <meta name="description" content="Real estate in Santa Monica — buyer and seller advisory from AMRE Real Estate Group at Compass Beverly Hills. Architecture-trained perspective, deep local market knowledge.">
 <meta name="robots" content="index,follow">
@@ -30,852 +14,118 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/santa-monica/neighborhood-hero.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/jpeg">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/santa-monica/neighborhood-hero.webp">
-<meta name="twitter:site" content="@AMRE_Real_Estate">
 <meta property="og:url" content="https://amre.group/santa-monica/">
 <meta property="og:site_name" content="AMRE Real Estate Group">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@AMRE_Real_Estate">
 <meta name="twitter:title" content="Santa Monica Real Estate | AMRE Real Estate Group | Compass Beverly Hills">
 <meta name="twitter:description" content="Real estate in Santa Monica — buyer and seller advisory from AMRE Real Estate Group at Compass Beverly Hills. Architecture-trained perspective, deep local market knowledge.">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/santa-monica/neighborhood-hero.webp">
 <!-- Geo / Local SEO -->
 <meta name="geo.region" content="US-CA">
 <meta name="geo.placename" content="Beverly Hills, Los Angeles">
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <!-- Schema.org -->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
-
-:root{
-  --black:#000;--ink:#1d1d1f;--mid:#6e6e73;--subtle:#86868b;
-  --rule:#d2d2d7;--light:#f5f5f7;--white:#fbfbfd;
-  --gold:#b5894e;--gold-lt:#d4aa72;--blue:#0071e3;--blue-dk:#0064c8;
-  --serif:'Playfair Display',Georgia,serif;
-  --sf:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',sans-serif;
-  --nav-h:52px;
-  --ease:cubic-bezier(.25,.46,.45,.94);
-  --ease-out:cubic-bezier(0,0,.2,1);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--sf);background:var(--white);color:var(--ink);
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.47059}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-button{font-family:var(--sf);cursor:pointer;border:none;background:none}
-
-/* ── NAV ── */
-.site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 24px;
-  background:rgba(7,11,51,0.88);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:background .35s var(--ease),border-color .35s;
-}
-.site-nav.is-light{
-  background:rgba(255,255,255,.82);
-  border-bottom-color:rgba(0,0,0,.1);
-}
-.nav-brand{display:flex;align-items:center;gap:0;flex-shrink:0}
-.nav-brand img{height:20px;width:auto;transition:opacity .3s}
-.logo-dark{display:none}
-.site-nav.is-light .logo-dark{display:block}
-.site-nav.is-light .logo-white{display:none}
-.nav-sep{width:1px;height:16px;background:rgba(255,255,255,.22);
-  margin:0 12px;transition:background .35s}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
-.nav-links{
-  position:absolute;left:50%;transform:translateX(-50%);
-  display:flex;gap:24px;list-style:none;
-}
-.nav-links a{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;
-}
-.site-nav.is-light .nav-links a{color:rgba(29,29,31,.7)}
-.nav-links a:hover{color:#fff}
-.site-nav.is-light .nav-links a:hover{color:var(--ink)}
-.nav-links a.active{color:#fff}
-.site-nav.is-light .nav-links a.active{color:var(--ink)}
-.nav-cta{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;flex-shrink:0;
-}
-.site-nav.is-light .nav-cta{color:rgba(29,29,31,.7)}
-.nav-cta:hover{color:#fff}
-.site-nav.is-light .nav-cta:hover{color:var(--ink)}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .site-nav{padding:0 16px}
-}
-
-/* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
-  font-family:var(--sf);font-weight:400;border-radius:980px;
-  transition:background .2s,transform .15s,opacity .2s}
-.btn-blue{
-  font-size:14px;padding:12px 22px;
-  background:var(--blue);color:#fff;
-}
-.btn-blue:hover{background:var(--blue-dk);transform:translateY(-1px)}
-.btn-outline-white{
-  font-size:14px;padding:11px 22px;
-  border:1px solid rgba(255,255,255,.42);color:rgba(255,255,255,.9);
-}
-.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7)}
-.btn-outline-dark{
-  font-size:14px;padding:11px 22px;
-  border:1px solid rgba(0,0,0,.25);color:var(--ink);
-}
-.btn-outline-dark:hover{background:rgba(0,0,0,.05)}
-.btn-text{
-  font-size:14px;color:var(--blue);gap:4px;border-radius:0;
-  transition:gap .2s;
-}
-.btn-text:hover{gap:8px}
-.btn-text::after{content:'›';font-size:18px;line-height:1}
-.btn-gold{
-  font-size:14px;padding:12px 22px;
-  background:var(--gold);color:#fff;
-}
-.btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px)}
-
-/* ── PAGE HERO (subpages) ── */
-.page-hero{min-height:560px;
-  padding-top:calc(var(--nav-h) + 80px);
-  padding-bottom:80px;
-  padding-inline:44px;
-  background:var(--ink);
-  position:relative;overflow:hidden;
-}
-.page-hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(181,137,78,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(181,137,78,.04) 1px,transparent 1px);
-  background-size:80px 80px;
-}
-.page-hero-bg-img{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-  opacity:1;
-}
-.page-hero-bg-img::before{
-  content:'';position:absolute;inset:0;
-  background:rgba(0,0,0,0.45);
-  z-index:1;
-}
-.page-hero-inner{position:relative;z-index:2;max-width:800px}
-.page-eyebrow{
-  font-size:11px;font-weight:500;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:20px;
-  display:flex;align-items:center;gap:12px;
-}
-.page-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
-.page-hero h1{
-  font-family:var(--serif);
-  font-size:clamp(44px,6.5vw,88px);
-  font-weight:400;line-height:1.0;
-  letter-spacing:-.01em;
-  color:#fff;
-  margin-bottom:24px;
-}
-.page-hero h1 em{font-style:italic;color:var(--gold-lt)}
-.page-hero-sub{
-  font-size:clamp(15px,1.8vw,18px);
-  font-weight:300;line-height:1.7;
-  color:rgba(255,255,255,.55);
-  max-width:500px;
-}
-@media(max-width:680px){.page-hero{padding-inline:20px}}
-
-/* ── LAYOUT ── */
-.wrap{max-width:1200px;margin-inline:auto;padding-inline:44px}
-.wrap-sm{max-width:860px;margin-inline:auto;padding-inline:44px}
-@media(max-width:680px){.wrap,.wrap-sm{padding-inline:20px}}
-
-/* ── SECTION LABELS ── */
-.eyebrow{
-  font-size:11px;font-weight:500;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);
-  text-align:center;margin-bottom:14px;
-}
-.eyebrow-left{text-align:left}
-.section-h{
-  font-family:var(--serif);
-  font-size:clamp(30px,4vw,52px);
-  font-weight:400;line-height:1.07;
-  letter-spacing:-.01em;
-  color:var(--ink);text-align:center;
-}
-.section-h em{font-style:italic;color:var(--gold)}
-.section-h-left{text-align:left}
-.section-h-white{color:#fff}
-.lede{
-  font-size:17px;font-weight:300;line-height:1.7;
-  color:var(--mid);text-align:center;
-  max-width:580px;margin-inline:auto;
-}
-.lede-left{text-align:left;margin-inline:0}
-.lede-white{color:rgba(255,255,255,.55)}
-.divider{width:40px;height:1px;background:var(--gold);margin:22px 0}
-
-/* ── FADE ANIMATIONS ── */
-.f{opacity:0;transform:translateY(24px);
-  transition:opacity .75s var(--ease),transform .75s var(--ease)}
-.f.in{opacity:1;transform:translateY(0)}
-.f.d1{transition-delay:.08s}.f.d2{transition-delay:.16s}
-.f.d3{transition-delay:.24s}.f.d4{transition-delay:.32s}
-
-/* ── FOOTER ── */
-.site-footer{
-  background:#000;
-  border-top:1px solid rgba(255,255,255,.07);
-  padding:60px 44px 36px;
-}
-.footer-grid{
-  max-width:1200px;margin-inline:auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  margin-bottom:28px;
-}
-.footer-brand img{height:18px;width:auto;opacity:.65;margin-bottom:14px}
-.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.footer-logos img{height:16px;width:auto;opacity:.6}
-.footer-logo-sep{width:1px;height:13px;background:rgba(255,255,255,.18)}
-.footer-tagline{
-  font-size:13px;font-weight:300;line-height:1.6;
-  color:rgba(255,255,255,.3);max-width:240px;
-}
-.footer-col-head{
-  font-size:10px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.22);margin-bottom:16px;
-}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{
-  font-size:13px;font-weight:300;
-  color:rgba(255,255,255,.42);transition:color .2s;
-}
-.footer-links a:hover{color:rgba(255,255,255,.8)}
-.footer-bottom{
-  max-width:1200px;margin-inline:auto;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-}
-.footer-legal{font-size:11px;font-weight:300;color:rgba(255,255,255,.18)}
-.footer-dre{font-size:11px;font-weight:300;color:rgba(255,255,255,.18);text-align:right}
-@media(max-width:860px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .site-footer{padding:48px 20px 28px}
-  .footer-bottom{flex-direction:column}
-  .footer-dre{text-align:left}
-}
-
-/* Brand override */
-
-/* ── PLAYFAIR as primary display/header font ── */
-h1,h2,h3,h4,.section-h,.page-hero h1,.hero-h,.hero-headline,
-.agent-name,.svc-title,.phase-title,.testi-text,
-.statement-q,.form-box-title,.prop-cta-h,.compass-card-h,
-.prop-price,.stat-n,.footer-brand-name,.footer-logo,
-.contact-headline,.split-left h1,.team-name,
-.concierge-box .cb-label,.step-title,.buyer-type-title{
-  font-family:'Playfair Display',Georgia,serif !important;
-}
-/* Montserrat for everything else — nav, body, labels, buttons */
-body,p,a,button,input,textarea,select,
-.nav-links a,.nav-cta,.eyebrow,.section-label,.page-eyebrow,
-.btn,.contact-label,.svc-num,.agent-role,.testi-author,
-.footer-col-head,.footer-links a,.footer-legal,.footer-dre,
-.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,
-.phase-desc,.contact-val,.check-list li,.cb-row,
-.split-agent-role,.hero-eyebrow,.hero-sub,.page-hero-sub,
-.prop-addr,.prop-city,.prop-meta span,.plisting-addr,
-.plisting-city,.plisting-specs span,.agent-creds span,
-.agent-creds a,.testi-author,.footer-tagline{
-  font-family:'Montserrat',-apple-system,sans-serif !important;
-}
-
-body{font-family:'Montserrat',-apple-system,sans-serif}
-.nav-links a,.nav-cta,.eyebrow,.section-label,.btn,.contact-label,.svc-num,
-.agent-role,.testi-author,.footer-col-head,.footer-links a,.footer-legal,
-.footer-dre,.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,.phase-desc,
-.contact-val,.check-list li,.cb-row,.split-agent-role,.hero-eyebrow{
-  font-family:'Montserrat',-apple-system,sans-serif !important;
-}
-:root{
-  --forest:#1c3d31;--navy:#070B33;--compass-blue:#0064e5;
-  --brass:#ffc13c;--brass-dk:#e6a800;--cream:#efdbc0;
-  --light-grey:#f7edf0;--white:#ffffff;--ink:#1a1a1a;
-  --mid:#5A5A5A;--subtle:#86868b;--rule:#d2d2d7;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'Montserrat',-apple-system,sans-serif;
-}
-/* Fix nav to match homepage */
-.site-nav,.nav{
-  background:rgba(7,11,51,0.82) !important;
-  border-bottom:1px solid rgba(255,255,255,.08) !important;
-}
-.site-nav.is-light,.nav.scrolled{
-  background:rgba(255,255,255,.90) !important;
-  border-bottom-color:rgba(0,0,0,.1) !important;
-}
-/* Fix nav link colors */
-.nav-links a,.nav-cta,.site-nav:not(.is-light) .nav-links a{color:rgba(255,255,255,.78) !important}
-.site-nav.is-light .nav-links a{color:rgba(28,61,49,.7) !important}
-.nav-cta{background:var(--brass) !important;color:var(--navy) !important;
-  border-radius:2px !important;border:none !important;
-  font-size:11px !important;font-weight:600 !important;letter-spacing:.1em !important;text-transform:uppercase !important;
-  padding:9px 20px !important;}
-.nav-cta:hover{background:var(--brass-dk) !important}
-/* Gold accents */
-.eyebrow,.section-label,.page-eyebrow,.svc-num,.phase-num,.agent-role{color:var(--brass) !important}
-.section-h em,.page-hero h1 em,.hero-h em,.hero-headline em,.prop-cta-h em{color:var(--brass) !important}
-/* Forest green for light backgrounds */
-.section-dark{background:var(--forest) !important}
-.statement{background:var(--forest) !important}
-.compass-adv,.compass-section{background-color:var(--navy) !important}
-/* Fix team photo heads */
-.agent-photo,.team-card-photo{background-position:top center !important}
-.agent-photo img{object-position:top center !important}
-/* Brass dividers */
-.divider{background:var(--brass) !important}
-/* Left-side eyebrow borders */
-.eyebrow::before,.eyebrow::after,.page-eyebrow::before{background:var(--brass) !important}
-/* Testimonial accent */
-.testi-card,.testimonial{border-left:3px solid var(--brass) !important;border-top:none !important;border-right:none !important;border-bottom:none !important}
-/* Buttons */
-.btn-primary,.btn-blue,.btn-gold{background:var(--brass) !important;color:var(--navy) !important;border-radius:2px !important}
-.btn-primary:hover,.btn-blue:hover,.btn-gold:hover{background:var(--brass-dk) !important}
-.btn-dark,.btn-forest{background:var(--forest) !important;color:#fff !important;border-radius:2px !important}
-/* Phase/check list accents */
-.phase-num,.check-list li::before,.step-n{color:var(--brass) !important}
-.phase-stat{background:rgba(255,193,60,.15) !important;color:var(--brass) !important}
-/* Stats */
-.stat-n{color:var(--forest) !important}
-.stat-n sup{color:var(--brass) !important}
-/* Valuation CTA bg */
-.valuation-cta{background:var(--forest) !important}
-/* Filter pills */
-.filter-pill.active,.filter-btn.active{background:var(--forest) !important;border-color:var(--forest) !important}
-/* Prop badges */
-.badge-sale{background:var(--compass-blue) !important}
-.badge-pending{background:var(--brass) !important;color:var(--navy) !important}
-/* Footer */
-.site-footer,footer{background:var(--navy) !important}
-/* Compass advantage cards */
-.compass-card:hover,.compass-card:hover{border-color:rgba(255,193,60,.3) !important}
-/* Nav CTA override for subpages using different class names */
-.nav-cta,.nav a.btn,.nav-cta-btn{
-  background:var(--brass) !important;color:var(--navy) !important;
-  border:none !important;
-}
-
-
-/* ====================================================================
-   AMRE 2026 site update — typography refresh, readability bump,
-   footer contrast, hero re-flow.
-   ==================================================================== */
-.hero-h, .section-h, .page-hero h1, .svc-title, .agent-name, .compass-card-h, .prop-cta-h, .prop-price, .form-box-title, .statement-q, .testi-text {
-  font-family: var(--sans);
-  font-weight: 500;
-  letter-spacing: -.015em;
-}
-.hero-h em, .section-h em, .page-hero h1 em, .prop-cta-h em, .compass-card-h em {
-  font-style: italic; font-weight: 400;
-}
-.statement-q, .testi-text { font-weight: 400; font-style: italic; }
-.prop-price { font-weight: 600; letter-spacing: 0; }
-.hero-h { line-height: 1.05; }
-.page-hero h1 { line-height: 1.05; }
-.section-h { line-height: 1.12; }
-.lede { font-size: 18px; line-height: 1.7; }
-.svc-desc, .compass-card-p, .agent-bio, .faq-a p { font-size: 15px; line-height: 1.78; }
-.testi-text { font-size: 17px; line-height: 1.65; }
-.contact-val { font-size: 15px; }
-.form-box-sub { font-size: 14px; }
-.page-hero-sub, .hero-sub { font-size: clamp(15px, 1.7vw, 18px); line-height: 1.7; }
-.footer-tagline { color: rgba(255,255,255,.62); font-size: 13px; max-width: 260px; }
-.footer-col-head { color: rgba(255,255,255,.55); font-size: 10px; }
-.footer-links a { color: rgba(255,255,255,.72); font-size: 13px; }
-.footer-links a:hover { color: #fff; }
-.footer-legal { color: rgba(255,255,255,.50); font-size: 11px; }
-.footer-dre { color: rgba(255,255,255,.40); font-size: 11px; }
-.hero-content { max-width: 880px; }
-.hero-h { font-size: clamp(44px, 6.2vw, 84px); }
-@media (max-width: 680px) { .hero-content { max-width: 100%; } }
-
-/* ═══════════════════════════════════════════════
-   GLOBAL MOBILE FIXES — text overflow, layout
-═══════════════════════════════════════════════ */
-@media(max-width:860px){
-  /* Prevent any horizontal overflow */
-  html,body{overflow-x:hidden;width:100%}
-  *{max-width:100%;word-break:break-word}
-
-  /* Section padding — tighter on mobile */
-  section,[class*="-section"],[class*="section-"]{padding-left:20px !important;padding-right:20px !important}
-  .wrap,.wrap-sm{padding-inline:20px !important}
-
-  /* Hero — full width, correct padding */
-  .hero,.page-hero{padding-left:20px !important;padding-right:20px !important}
-  .hero-h{font-size:clamp(36px,10vw,56px) !important}
-  .hero-listing{display:none !important}
-
-  /* Nav — no overflow */
-  .nav-links{display:none !important}
-  .site-nav,.nav{padding:0 16px !important}
-  .nav-brand img{max-height:18px}
-
-  /* Stats bar */
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-
-  /* Service cards */
-  .svc-grid{grid-template-columns:1fr !important}
-
-  /* Properties grid */
-  .props-grid,.plisting-grid{grid-template-columns:1fr !important}
-
-  /* Compass advantage */
-  .compass-grid{grid-template-columns:1fr !important}
-  .compass-inner{grid-template-columns:1fr !important;gap:40px}
-
-  /* Team cards */
-  .team-grid,.agent-card,.agent-card-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-photo,.team-card-photo{min-height:260px !important}
-  .agent-photo-grad,.team-card-photo-grad{
-    background:linear-gradient(to bottom,transparent 50%,var(--white,#fff)) !important
-  }
-  .agent-info,.team-card-body{padding:28px 20px !important}
-  .agent-name,.team-name{font-size:clamp(24px,7vw,34px) !important}
-
-  /* Testimonials */
-  .testi-grid,.testimonials-grid{grid-template-columns:1fr !important}
-
-  /* Contact split */
-  .contact-split{grid-template-columns:1fr !important}
-  .split-left,.split-right{padding-inline:20px !important}
-
-  /* Two-col layouts */
-  .two-col-layout,.calc-layout,
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns:1fr 1.2fr"],
-  [style*="grid-template-columns:1fr 1fr"]{
-    grid-template-columns:1fr !important;
-    gap:32px !important;
-  }
-  .contact-grid{grid-template-columns:1fr !important}
-  .contact-form-box{padding:24px 18px !important}
-
-  /* Phase cards */
-  .phases-grid,.phase-stats-row{grid-template-columns:1fr !important}
-
-  /* Buyer types */
-  .buyer-types-grid,.bt-card{width:100% !important}
-  .buyer-types-grid{display:flex;flex-direction:column;gap:14px}
-
-  /* Values grid */
-  .values-grid{grid-template-columns:1fr 1fr !important}
-
-  /* Footer */
-  .footer-grid{grid-template-columns:1fr 1fr !important;gap:24px}
-  .footer-bottom{flex-direction:column !important}
-
-  /* Text sizes — prevent clamp from being too big */
-  .section-h,.section-headline{font-size:clamp(26px,8vw,40px) !important}
-  .lede{font-size:15px !important}
-  h1{font-size:clamp(34px,9vw,52px) !important}
-
-  /* Tables / process steps */
-  .process-step{grid-template-columns:1fr !important}
-  .step-extra,.step-n{display:none !important}
-
-  /* Concierge */
-  .concierge-layout,.two-col-layout{grid-template-columns:1fr !important}
-
-  /* Agent profile on team page */
-  .agent-profile,.agent-profile-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-content-col{padding:32px 20px !important}
-
-  /* Intent chips wrap properly */
-  .intent-chips{gap:8px !important}
-  .chip{font-size:11px !important;padding:7px 12px !important}
-}
-
-@media(max-width:480px){
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-  .footer-grid{grid-template-columns:1fr !important}
-  .values-grid{grid-template-columns:1fr !important}
-  .hero-btns,.hero-actions{flex-direction:column !important;align-items:flex-start !important}
-  .hero-btns .btn,.hero-actions .btn,.hero-actions a{width:100% !important;justify-content:center !important}
-  .agent-creds{font-size:11px !important}
-  .testi-card{padding:22px 16px !important}
-}
-
-/* dark bg text — lighter, bigger */
-.section-dark p,.section-dark li,.compass-card-p,.phase-desc,.statement-q,
-[style*="background:var(--forest)"] p,[style*="background:var(--navy)"] p{
-  color:rgba(255,255,255,.78)!important;font-size:clamp(14px,1.5vw,16px)!important;
-}
-
-/* ── HAMBURGER + MOBILE DRAWER ── */
-.nav-right{display:flex;align-items:center;gap:12px}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;
-  flex-shrink:0}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;
-  transition:transform .25s,opacity .2s,width .25s}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham-btn.open span:nth-child(2){opacity:0;width:0}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{
-  position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;
-  background:rgba(7,11,51,0.97);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  display:flex;flex-direction:column;
-  padding:32px 24px 48px;
-  transform:translateY(-110%);opacity:0;
-  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;
-  pointer-events:none}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a{
-  display:block;color:#fff;font-family:var(--sans);
-  font-size:clamp(20px,5vw,26px);font-weight:300;
-  letter-spacing:-.01em;padding:20px 0;
-  transition:color .2s,padding-left .2s}
-.mobile-drawer a:hover{color:var(--brass,#ffc13c);padding-left:8px}
-.mobile-drawer .drawer-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  margin-top:32px;width:100%;
-  background:var(--blue,#0064e5);color:#fff!important;border-radius:980px;
-  font-size:16px!important;font-weight:500!important;padding:16px 32px!important;
-  border-bottom:none!important;letter-spacing:.02em}
-.mobile-drawer .drawer-cta:hover{background:#0049a8;padding-left:32px!important}
-@media(max-width:860px){
-  .nav-links{display:none!important}
-  .nav-cta{display:none!important}
-  .ham-btn{display:flex}
-}
-@media(min-width:861px){
-  .mobile-drawer{display:none!important}
-}
-
-</style>
-<link rel="stylesheet" href="/assets/css/site-overrides.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://amre.group/santa-monica/#webpage","url":"https://amre.group/santa-monica/","name":"Santa Monica Real Estate | AMRE Real Estate Group","description":"Real estate representation in Santa Monica — buyer and seller advisory at Compass Beverly Hills. Architecture-trained perspective, concierge approach. AMRE Real Estate Group.","isPartOf":{"@id":"https://amre.group/#website"},"about":[{"@id":"https://amre.group/#organization"},{"@id":"https://amre.group/santa-monica/#place"}],"inLanguage":"en-US","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2","p"]}},{"@type":"Place","@id":"https://amre.group/santa-monica/#place","name":"Santa Monica","containedInPlace":[{"@type":"AdministrativeArea","name":"Los Angeles County"},{"@type":"State","name":"California"}]},{"@type":["RealEstateAgent","LocalBusiness"],"@id":"https://amre.group/#organization","name":"AMRE Real Estate Group","url":"https://amre.group/","telephone":"+13237198585","email":"michael.abraham@compass.com","address":{"@type":"PostalAddress","streetAddress":"9454 Wilshire Blvd, Suite 100","addressLocality":"Beverly Hills","addressRegion":"CA","postalCode":"90212","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Santa Monica"},{"@type":"Place","name":"Ocean Park"},{"@type":"Place","name":"Sunset Park"},{"@type":"Place","name":"North of Montana"},{"@type":"Place","name":"Mid-City Santa Monica"}],"priceRange":"$$$","parentOrganization":{"@type":"Organization","name":"Compass","url":"https://www.compass.com/","identifier":"CA DRE #01991628"},"sameAs":["https://www.instagram.com/amre.group/","https://www.linkedin.com/company/amre-real-estate-group/","https://www.facebook.com/amre.grp","https://www.youtube.com/@AMRE_Real_Estate"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5","reviewCount":"17","bestRating":"5"},"review":[{"@type":"Review","@id":"https://amre.group/santa-monica/#review-ben-s","author":{"@type":"Person","name":"Ben S."},"datePublished":"2025-10-06","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Michael and Ania are an exceptional real estate team. From start to finish, they guided us through every step of the process with professionalism, patience, and expertise."},{"@type":"Review","@id":"https://amre.group/santa-monica/#review-shaida-tafreshi","author":{"@type":"Person","name":"Shaida Tafreshi"},"datePublished":"2025-10-06","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Michael and Ania were amazing! Best of the best — so collaborative, supportive, and they knew just how to navigate seller-side challenges."},{"@type":"Review","@id":"https://amre.group/santa-monica/#review-kevin-maynard","author":{"@type":"Person","name":"Kevin Maynard"},"datePublished":"2026-01-06","reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"reviewBody":"Michael and Ania were absolutely terrific. They found the perfect tenants for my home and handled all the details so that it was a seamless transition for me."}]},{"@type":"Service","@id":"https://amre.group/santa-monica/#service","serviceType":"Real Estate Representation in Santa Monica","name":"AMRE Real Estate Group — Santa Monica Buyer & Seller Advisory","description":"Buyer and seller representation in Santa Monica. Architecture-trained perspective, Compass Concierge financing for sellers, off-market access for buyers, end-to-end concierge service.","provider":{"@id":"https://amre.group/#organization"},"areaServed":{"@id":"https://amre.group/santa-monica/#place"}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://amre.group/santa-monica/#faq","mainEntity":[{"@type":"Question","name":"What price ranges should I expect in Santa Monica?","acceptedAnswer":{"@type":"Answer","text":"Santa Monica spans a wide price range — from condos starting in the high six figures to multi-million-dollar single-family homes North of Montana and oceanfront estates well into the eight-figure range. North of Montana, Ocean Park, and Sunset Park each have distinct price profiles. We provide current comp analysis on any sub-market."}},{"@type":"Question","name":"How does Santa Monica's rent control affect buyers and sellers?","acceptedAnswer":{"@type":"Answer","text":"Santa Monica has one of the strongest rent-control regimes in California (originally established under the Rent Control Charter Amendment of 1979). For multifamily buyers, this fundamentally shapes underwriting — controlled rents on existing tenants, MAR (Maximum Allowable Rent) calculations, registration with the Rent Control Board, and Ellis Act considerations all matter. We underwrite Santa Monica multifamily transactions with full rent-control diligence."}},{"@type":"Question","name":"What is the Coastal Commission overlay and how does it affect renovations?","acceptedAnswer":{"@type":"Answer","text":"Properties west of the Coastal Zone boundary fall under California Coastal Commission jurisdiction in addition to local permitting. This adds time and complexity to renovations, additions, and especially demolitions or substantial alterations. For coastal-adjacent buyers, we flag CCC implications as part of standard due diligence."}},{"@type":"Question","name":"Should I worry about earthquake retrofits in older Santa Monica buildings?","acceptedAnswer":{"@type":"Answer","text":"For pre-1978 multifamily and certain non-ductile concrete structures, Santa Monica has a mandatory seismic retrofit ordinance. Buyers of affected properties should confirm retrofit status before contingency removal — completed retrofits add value, while pending compliance becomes a future cost. AMRE coordinates with structural engineers on every relevant transaction."}},{"@type":"Question","name":"What's the difference between Santa Monica and Pacific Palisades?","acceptedAnswer":{"@type":"Answer","text":"Santa Monica is its own incorporated city with its own school district (Santa Monica-Malibu Unified), police, and rent control. Pacific Palisades is a neighborhood within the City of Los Angeles — different schools (LAUSD), different police, no city-wide rent control. Boundary lines along Adelaide Drive and Chautauqua Boulevard are sharply consequential; we always confirm jurisdiction."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://amre.group/santa-monica/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},{"@type":"ListItem","position":2,"name":"Neighborhoods","item":"https://amre.group/properties/"},{"@type":"ListItem","position":3,"name":"Santa Monica","item":"https://amre.group/santa-monica/"}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/amre.css">
 </head>
 <body>
-<div id="site-nav-mount"></div>
+<div id="amre-nav"></div>
 
-<!-- Mobile navigation drawer -->
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js"></script>
-
-<!-- ════════════════ HERO ════════════════ -->
-<section style="position:relative;overflow:hidden;padding:calc(var(--nav-h) + 120px) 24px 120px;text-align:center;color:#fff;min-height:680px;display:flex;align-items:center;justify-content:center">
-  <div style="position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/santa-monica/neighborhood-hero.webp');background-size:cover;background-position:center 60%"></div>
-  <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.42) 0%,rgba(0,0,0,0.65) 100%)"></div>
-  <div style="position:relative;z-index:2">
-    <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--brass);margin-bottom:24px">Neighborhood Focus · Santa Monica</p>
-    <h1 style="font-family:var(--serif);font-size:clamp(48px,8vw,96px);font-weight:400;line-height:1;margin-bottom:32px"><span>Santa Monica</span><br><em style="color:var(--brass);font-style:italic">real estate.</em></h1>
-    <p style="font-size:clamp(16px,2vw,20px);line-height:1.65;color:rgba(255,255,255,0.82);max-width:780px;margin:0 auto">Coastal expertise across a market defined by ocean proximity, walkability, and unique rent-control and Coastal Commission regulatory dynamics.</p>
-    <p style="margin-top:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,193,60,.85);font-weight:500">Santa Monica Pier · Pacific Wheel · Bergamot Station</p>
-  </div>
-</section>
-
-<!-- ════════════════ ABOUT ════════════════ -->
-<section style="background:#fff;padding:72px 24px" aria-label="About Santa Monica">
-  <div style="max-width:880px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">About Santa Monica</p>
-    <h2 style="text-align:center;margin-bottom:36px;font-family:var(--serif);font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.1;color:var(--ink)">A market with <em style="color:var(--forest);font-style:italic">character.</em></h2>
-    <p style="font-size:18px;line-height:1.7;color:#3a3a3c;text-align:center;margin-bottom:24px">Santa Monica is where Los Angeles meets the ocean — and where the rules change. Rent control under Costa-Hawkins, the California Coastal Commission overlay, distinct local building codes, and a deep stock of duplexes and triplexes built before 1979 all shape what you can buy, sell, and develop here. Beneath all of that, the four primary sub-markets — North of Montana, Sunset Park, Ocean Park, and Mid-City — each have their own lifestyle, price profile, and buyer type.</p>
-    <p style="font-size:18px;line-height:1.7;color:#3a3a3c;text-align:center">AMRE represents buyers and sellers across Santa Monica, with particular strength in the multi-unit and architecturally significant residential segments. Michael's architect background and the team's familiarity with coastal compliance, tenant estoppels, and rent-board protocols make us a meaningful partner whether you're acquiring a duplex on Ocean Park, selling a North-of-Montana single-family, or navigating a 1031 exchange. The Pier, the Pacific Wheel, Bergamot Station's gallery district, the Annenberg Community Beach House, and Third Street Promenade are the cultural anchors.</p>
-  </div>
-</section>
-
-<!-- ════════════════ AT A GLANCE — 6 highlights ════════════════ -->
-<section style="background:var(--light);padding:72px 24px" aria-label="Santa Monica at a glance">
-  <div style="max-width:1100px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">At a glance</p>
-    <h2 style="text-align:center;margin-bottom:64px;font-family:var(--serif);font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.1;color:var(--ink)">Santa Monica — <em style="color:var(--forest);font-style:italic">six things to know.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px">
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">01</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">North of Montana</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Single-family premium-priced homes north of Montana Avenue. School-district demand and walkability to the village core drive pricing. Period homes and contemporary rebuilds in roughly equal measure.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">02</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Ocean Park & Sunset Park</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Beach-adjacent character neighborhoods with high density of duplexes, triplexes, and architecturally significant single-family homes. Owner-occupant and small-investor crossover. Main Street's restaurants and shops are the village core.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">03</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Multi-family & rent-control</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Pre-1979 buildings carry rent-control implications under Costa-Hawkins. Estoppel certificates, tenant histories, and Santa Monica Rent Control Board compliance matter. We've represented investors in this segment.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">04</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Coastal Commission overlay</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Properties west of Lincoln Boulevard fall in the coastal zone. Permitting, additions, and short-term-rental rules differ from the rest of LA and require Commission approval for many actions.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">05</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Cultural anchors</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Santa Monica Pier with the Pacific Wheel and Pier Aquarium. Bergamot Station — LA's largest gallery complex. The California Heritage Museum on Main Street. Annenberg Community Beach House. Third Street Promenade for shopping and dining.</p>
-      </div>
-      <div>
-        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">06</div>
-        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Beach access & lifestyle premium</h3>
-        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Properties within walking distance of the beach (especially in Ocean Park and Mid-City) command a measurable premium. Beach access points, bike-path proximity, and the coastal trail influence pricing block by block.</p>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/santa-monica/neighborhood-hero.webp')"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">Where We Work &middot; Santa Monica</span>
+    <h1>Santa Monica <em>real estate.</em></h1>
+    <p class="sub">Coastal expertise across a market defined by ocean proximity, walkability, and the unique rent-control and Coastal Commission dynamics that make Santa Monica unlike anywhere else in <span class="oneline">Los Angeles</span>.</p>
+    <div class="hero-ctas">
+      <a href="/#contact" class="btn btn-fill">Get a Free Valuation <span class="arrow">&rarr;</span></a>
+      <a href="/properties/" class="btn btn-ghost">Browse Listings</a>
     </div>
   </div>
 </section>
 
-<!-- ════════════════ TESTIMONIALS ════════════════ -->
-<section style="background:#fff;padding:72px 24px" aria-label="Client reviews">
-  <div style="max-width:1100px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">5.0 ★ across 17 Google reviews</p>
-    <h2 style="text-align:center;margin-bottom:48px;font-family:var(--serif);font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.1;color:var(--ink)">What clients <em style="color:var(--forest);font-style:italic">say.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
-      <blockquote class="testi-card" itemscope itemtype="https://schema.org/Review" style="background:#fff;padding:32px 28px;border-radius:8px;border-left:3px solid var(--brass);box-shadow:0 1px 3px rgba(0,0,0,.04);margin:0"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-10-06"><div style="display:flex;gap:2px;margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p itemprop="reviewBody" style="font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);margin:0 0 16px;font-style:italic">"Michael and Ania are an exceptional real estate team. From start to finish, they guided us through every step of the process with professionalism, patience, and expertise."</p><div style="font-size:12px;color:var(--mid);font-style:normal;background:none"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Ben S.</span></span> &nbsp;·&nbsp; Client</div></blockquote>
-      <blockquote class="testi-card" itemscope itemtype="https://schema.org/Review" style="background:#fff;padding:32px 28px;border-radius:8px;border-left:3px solid var(--brass);box-shadow:0 1px 3px rgba(0,0,0,.04);margin:0"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2025-10-06"><div style="display:flex;gap:2px;margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p itemprop="reviewBody" style="font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);margin:0 0 16px;font-style:italic">"Michael and Ania were amazing! Best of the best — so collaborative, supportive, and they knew just how to navigate seller-side challenges."</p><div style="font-size:12px;color:var(--mid);font-style:normal;background:none"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Shaida Tafreshi</span></span> &nbsp;·&nbsp; Seller</div></blockquote>
-      <blockquote class="testi-card" itemscope itemtype="https://schema.org/Review" style="background:#fff;padding:32px 28px;border-radius:8px;border-left:3px solid var(--brass);box-shadow:0 1px 3px rgba(0,0,0,.04);margin:0"><div itemprop="itemReviewed" itemscope itemtype="https://schema.org/RealEstateAgent"><meta itemprop="name" content="AMRE Real Estate Group"><meta itemprop="url" content="https://amre.group/"></div><div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating"><meta itemprop="ratingValue" content="5"><meta itemprop="bestRating" content="5"></div><meta itemprop="datePublished" content="2026-01-06"><div style="display:flex;gap:2px;margin-bottom:16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#ffc13c" stroke="#ffc13c" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><p itemprop="reviewBody" style="font-family:var(--serif);font-size:17px;line-height:1.55;color:var(--ink);margin:0 0 16px;font-style:italic">"Michael and Ania were absolutely terrific. They found the perfect tenants for my home and handled all the details so that it was a seamless transition for me."</p><div style="font-size:12px;color:var(--mid);font-style:normal;background:none"><span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Kevin Maynard</span></span> &nbsp;·&nbsp; Property Owner</div></blockquote>
+<!-- INTRO -->
+<section class="path">
+  <div class="wrap"><div class="head center reveal">
+    <span class="eyebrow" style="justify-content:center">About Santa Monica</span>
+    <h2>A market with <em>character.</em></h2>
+    <p>Santa Monica is where <span class="oneline">Los Angeles</span> meets the ocean — and where the rules change. Rent control under Costa-Hawkins, the California Coastal Commission overlay, distinct local building codes, and a deep stock of pre-1979 duplexes and triplexes all shape what you can buy, sell, and develop here. Beneath it all, four sub-markets — North of Montana, Sunset Park, Ocean Park, and Mid-City — each carry their own lifestyle, price profile, and buyer type. Michael's architect background and the team's fluency with coastal compliance, tenant estoppels, and rent-board protocols make AMRE a meaningful partner whether you're acquiring a duplex in Ocean Park, selling North of Montana, or navigating a 1031 exchange.</p>
+  </div></div>
+</section>
+
+<!-- WHY SANTA MONICA (6 cards) -->
+<section>
+  <div class="wrap">
+    <div class="head reveal"><span class="eyebrow">Why Santa Monica</span><h2>Santa Monica — <em>six things to know.</em></h2></div>
+    <div class="adv-grid">
+      <div class="acard reveal"><div class="num">01</div><h3>North of Montana</h3><p>Premium-priced single-family homes north of Montana Avenue. School-district demand and walkability to the village core drive pricing — period homes and contemporary rebuilds in roughly equal measure.</p></div>
+      <div class="acard reveal"><div class="num">02</div><h3>Ocean Park</h3><p>Beach-adjacent character neighborhood with a high density of duplexes, triplexes, and architecturally significant homes. Main Street's restaurants and shops are the village core, drawing owner-occupant and small-investor crossover.</p></div>
+      <div class="acard reveal"><div class="num">03</div><h3>Sunset Park</h3><p>A quieter, residential pocket of bungalows and mid-century homes near Clover Park and the airport corridor — steady owner-occupant demand and relative value versus the beach blocks.</p></div>
+      <div class="acard reveal"><div class="num">04</div><h3>The Pier &amp; Beach</h3><p>The historic 1909 Santa Monica Pier, the Pacific Wheel, and 3.5 miles of state beach. Properties within walking distance — especially in Ocean Park and Mid-City — command a measurable coastal premium.</p></div>
+      <div class="acard reveal"><div class="num">05</div><h3>Third Street Promenade</h3><p>Open-air pedestrian shopping, dining, and street performance seven days a week — the retail and hospitality heart of downtown Santa Monica and a magnet for foot traffic year-round.</p></div>
+      <div class="acard reveal"><div class="num">06</div><h3>Bergamot &amp; the Arts</h3><p>Bergamot Station Arts Center — a converted rail depot housing LA's largest gallery complex — plus the California Heritage Museum and Annenberg Community Beach House anchor the city's cultural life.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════ NEIGHBORHOOD LIFE ════════════════ -->
-<section style="background:var(--light);padding:72px 24px" aria-label="Santa Monica neighborhood life">
-  <div style="max-width:1160px;margin:0 auto">
-    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">Life in Santa Monica</p>
-    <h2 style="text-align:center;margin-bottom:56px;font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;line-height:1.1;color:var(--ink)">Dining, culture, <em style="color:var(--forest);font-style:italic">and beyond.</em></h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
-      <div style="background:#fff;border-radius:14px;padding:32px 28px">
-        <div style="font-size:22px;margin-bottom:10px">🍽</div>
-        <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:20px;border-bottom:2px solid var(--light);padding-bottom:12px">Dining</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px">
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Mélisse</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Josiah Citrin's Michelin-starred fine dining on Wilshire — an enduring LA dining landmark</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Cassia</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Bryant Ng's acclaimed Southeast Asian brasserie on Broadway — perpetual best-of lists</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Bay Cities Italian Deli</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Legendary Lincoln Blvd deli — the Godmother sandwich has a near-religious following</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Rustic Canyon Wine Bar</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Neighbourhood cornerstone on Wilshire — farm-to-table Californian, excellent natural wine</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Gjusta</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Venice-adjacent bakery, provisions, and all-day café — worth any wait at any hour</div></li>
-        </ul>
-      </div>
-      <div style="background:#fff;border-radius:14px;padding:32px 28px">
-        <div style="font-size:22px;margin-bottom:10px">🎭</div>
-        <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:20px;border-bottom:2px solid var(--light);padding-bottom:12px">Culture &amp; Venues</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px">
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Santa Monica Pier</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Historic 1909 pier with Pacific Park amusement rides — LA's most photographed landmark</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Third Street Promenade</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Pedestrian shopping, dining, and street performance — open air, seven days a week</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Montana Avenue</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Boutique-lined residential shopping corridor — independent retail, coffee, neighbourhood rhythm</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Bergamot Station Arts Center</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Converted 1875 rail depot housing multiple galleries and the Santa Monica Museum of Art</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Annenberg Community Beach House</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Historic Marion Davies estate converted to public beach club — pools, events, open programming</div></li>
-        </ul>
-      </div>
-      <div style="background:#fff;border-radius:14px;padding:32px 28px">
-        <div style="font-size:22px;margin-bottom:10px">🌿</div>
-        <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:#1a1a1a;margin-bottom:20px;border-bottom:2px solid var(--light);padding-bottom:12px">Parks &amp; Recreation</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px">
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Palisades Park</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Clifftop park above PCH — sweeping Pacific views, 26 manicured acres along Ocean Ave</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Tongva Park & Ken Genser Square</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">Award-winning landscape by James Corner Field Operations — the High Line team</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Santa Monica State Beach</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">3.5 miles of Pacific shoreline — volleyball, bike path, fire rings, lifeguard towers</div></li>
-          <li style="border-bottom:1px solid #f0f0f0;padding-bottom:12px"><div style="font-weight:600;font-size:13px;color:#1a1a1a;margin-bottom:3px;font-family:-apple-system,BlinkMacSystemFont,sans-serif">Marvin Braude Bike Trail</div><div style="font-size:13px;line-height:1.55;color:#5a5a5a">The Strand — 22 miles of coastal path from Pacific Palisades to Palos Verdes</div></li>
-        </ul>
-      </div>
+<!-- MARKET STATS -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><div class="n">4</div><div class="l">Distinct sub-markets</div></div>
+    <div class="stat reveal"><div class="n">3.5<em>mi</em></div><div class="l">Of Pacific shoreline</div></div>
+    <div class="stat reveal"><div class="n">5.0<em>&#9733;</em></div><div class="l">Across 17 Google reviews</div></div>
+    <div class="stat reveal"><div class="n">1979</div><div class="l">Rent-control cutoff year</div></div>
+  </div>
+</section>
+
+<!-- LIFE IN SANTA MONICA (6 cards) -->
+<section>
+  <div class="wrap">
+    <div class="head reveal"><span class="eyebrow">Living Here</span><h2>Life in <em>Santa Monica.</em></h2></div>
+    <div class="adv-grid">
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#127958;</div><h3>Beach &amp; Recreation</h3><p>Santa Monica State Beach, the Marvin Braude Bike Trail (the Strand), Palisades Park above PCH, and the award-winning Tongva Park — coastal recreation woven through daily life.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#9673;</div><h3>Dining &amp; Shopping</h3><p>Michelin-starred M&eacute;lisse, Cassia, and Rustic Canyon; the legendary Bay Cities deli; plus boutique-lined Montana Avenue and the Third Street Promenade.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#9906;</div><h3>Getting Around</h3><p>Walkable village cores, the Expo Line terminus downtown, quick access to the 10 and PCH, and a bike-first street network from the beach to Mid-City.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#127979;</div><h3>Schools</h3><p>The Santa Monica-Malibu Unified School District — a distinct city district that is a major driver of North-of-Montana and Sunset Park demand.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#127912;</div><h3>Arts &amp; Culture</h3><p>Bergamot Station's galleries and the Santa Monica Museum of Art, the California Heritage Museum, and the historic Marion Davies estate at the Annenberg Beach House.</p></div>
+      <div class="acard reveal"><div class="num" style="font-style:normal">&#127974;</div><h3>Everyday Essentials</h3><p>Farmers markets, the coastal trail, Providence Saint John's nearby, and concierge-level services — a self-contained beach city inside <span class="oneline">Los Angeles</span>.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════ CONTACT FORM ════════════════ -->
-<section style="background:#1c3d31;padding:80px 24px" aria-label="Contact CTA">
-  <div style="max-width:720px;margin:0 auto;text-align:center">
-    <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#ffc13c;margin-bottom:20px">Work With AMRE</p>
-    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,4vw,50px);font-weight:400;line-height:1.1;color:#fff;margin-bottom:16px">Considering a move<br>in <em style="color:#ffc13c;font-style:italic">Santa Monica?</em></h2>
-    <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,0.72);margin-bottom:40px">Tell us what you&#39;re looking for. We respond within one business day.</p>
-    <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:40px 36px;text-align:left">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
-        <div>
-          <label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">Your Name</label>
-          <input id="nb-name-santa-monica" type="text" placeholder="Jane Smith" style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box">
-        </div>
-        <div>
-          <label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">Email Address</label>
-          <input id="nb-email-santa-monica" type="email" placeholder="jane@example.com" style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box">
-        </div>
-      </div>
-      <div style="margin-bottom:16px">
-        <label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">I&#39;m interested in</label>
-        <select id="nb-intent-santa-monica" style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(28,61,49,0.95);color:#fff;font-size:15px;outline:none;font-family:inherit;box-sizing:border-box">
-          <option value="buying">Buying in Santa Monica</option>
-          <option value="selling">Selling in Santa Monica</option>
-          <option value="both">Buying and selling</option>
-          <option value="valuation">Home valuation</option>
-          <option value="info">Just exploring</option>
-        </select>
-      </div>
-      <div style="margin-bottom:28px">
-        <label style="display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-bottom:7px">Message <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-        <textarea id="nb-msg-santa-monica" rows="3" placeholder="Tell us more about what you&#39;re looking for..." style="width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;background:rgba(255,255,255,0.08);color:#fff;font-size:15px;outline:none;font-family:inherit;resize:vertical;box-sizing:border-box"></textarea>
-      </div>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-        <button onclick="nbSubmit('santa-monica','Santa Monica')" style="display:inline-flex;align-items:center;gap:8px;background:#ffc13c;color:#1a1a1a;font-size:14px;font-weight:600;padding:14px 28px;border-radius:980px;border:none;cursor:pointer;font-family:inherit;letter-spacing:.01em">Send Message <span aria-hidden="true">&#8594;</span></button>
-        <a href="tel:3237198585" style="font-size:14px;color:rgba(255,255,255,0.6);text-decoration:none;white-space:nowrap">or call (323) 719-8585</a>
-      </div>
-    </div>
-    <p style="margin-top:18px;font-size:12px;color:rgba(255,255,255,0.35)">We keep your information private. No spam, ever.</p>
-  </div>
-  <script>
-  function nbSubmit(slug, neighborhood) {
-    var name = document.getElementById('nb-name-' + slug).value;
-    var email = document.getElementById('nb-email-' + slug).value;
-    var intent = document.getElementById('nb-intent-' + slug).value;
-    var msg = document.getElementById('nb-msg-' + slug).value;
-    var subject = encodeURIComponent('Inquiry: ' + neighborhood + (intent ? ' — ' + intent : ''));
-    var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nInterest: ' + intent + '\n\n' + msg);
-    window.location.href = 'mailto:michael.abraham@compass.com?subject=' + subject + '&body=' + body;
-  }
-  </script>
-</section>
-
-<style>
-@media(max-width:860px){
-  section[aria-label="Client reviews"] div[style*="repeat(3,1fr)"]{grid-template-columns:1fr !important}
-}
-</style>
-<section class="faq-section" itemscope itemtype="https://schema.org/FAQPage" aria-label="Frequently asked questions">
-  <p class="faq-eyebrow">Santa Monica FAQ</p>
-  <h2 class="faq-h2">Santa Monica, <em>explained.</em></h2>
-  <div class="faq-list">
-      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
-        <summary class="faq-q" itemprop="name">What price ranges should I expect in Santa Monica?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Santa Monica spans a wide price range — from condos starting in the high six figures to multi-million-dollar single-family homes North of Montana and oceanfront estates well into the eight-figure range. North of Montana, Ocean Park, and Sunset Park each have distinct price profiles. We provide current comp analysis on any sub-market.</p>
-        </div>
-      </details>
-      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
-        <summary class="faq-q" itemprop="name">How does Santa Monica's rent control affect buyers and sellers?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Santa Monica has one of the strongest rent-control regimes in California (originally established under the Rent Control Charter Amendment of 1979). For multifamily buyers, this fundamentally shapes underwriting — controlled rents on existing tenants, MAR (Maximum Allowable Rent) calculations, registration with the Rent Control Board, and Ellis Act considerations all matter. We underwrite Santa Monica multifamily transactions with full rent-control diligence.</p>
-        </div>
-      </details>
-      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
-        <summary class="faq-q" itemprop="name">What is the Coastal Commission overlay and how does it affect renovations?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Properties west of the Coastal Zone boundary fall under California Coastal Commission jurisdiction in addition to local permitting. This adds time and complexity to renovations, additions, and especially demolitions or substantial alterations. For coastal-adjacent buyers, we flag CCC implications as part of standard due diligence.</p>
-        </div>
-      </details>
-      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
-        <summary class="faq-q" itemprop="name">Should I worry about earthquake retrofits in older Santa Monica buildings?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">For pre-1978 multifamily and certain non-ductile concrete structures, Santa Monica has a mandatory seismic retrofit ordinance. Buyers of affected properties should confirm retrofit status before contingency removal — completed retrofits add value, while pending compliance becomes a future cost. AMRE coordinates with structural engineers on every relevant transaction.</p>
-        </div>
-      </details>
-      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
-        <summary class="faq-q" itemprop="name">What's the difference between Santa Monica and Pacific Palisades?</summary>
-        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-          <p itemprop="text">Santa Monica is its own incorporated city with its own school district (Santa Monica-Malibu Unified), police, and rent control. Pacific Palisades is a neighborhood within the City of Los Angeles — different schools (LAUSD), different police, no city-wide rent control. Boundary lines along Adelaide Drive and Chautauqua Boulevard are sharply consequential; we always confirm jurisdiction.</p>
-        </div>
-      </details>
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="justify-content:center;color:var(--clay)">Buying or Selling in Santa Monica?</span>
+    <h2>Let's talk <em>Santa Monica.</em></h2>
+    <p>Whether you're eyeing a duplex in Ocean Park or listing North of Montana, we'll give you an honest, architect-informed read on value — with full coastal and rent-control diligence.</p>
+    <a href="/contact/" class="btn btn-fill">Reach Us <span class="arrow">&rarr;</span></a>
   </div>
 </section>
 
-<!-- ===== RELATED ===== -->
-<section style="background:#f7f5f1;padding:80px 24px;text-align:center" aria-label="Related pages">
-  <div style="max-width:1080px;margin:0 auto">
-    <h3 style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin-bottom:32px;color:#1a1a1a">Explore more</h3>
-    <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap">
-      <a href="/brentwood/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Brentwood</a>
-      <a href="/malibu/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Malibu</a>
-      <a href="/beverly-hills/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Beverly Hills</a>
-      <a href="/architectural-homes/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Architectural Homes</a>
-      <a href="/private-exclusives/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Off-Market Homes</a>
-      <a href="/home-valuation/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Home Valuation</a>
+<!-- FAQ -->
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="wrap">
+    <div class="head center reveal"><span class="eyebrow">Common Questions</span><h2>Santa Monica, <em>explained.</em></h2></div>
+    <div class="faq-list">
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What price ranges should I expect in Santa Monica?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Santa Monica spans a wide price range — from condos starting in the high six figures to multi-million-dollar single-family homes North of Montana and oceanfront estates well into the eight-figure range. North of Montana, Ocean Park, and Sunset Park each have distinct price profiles. We provide current comp analysis on any sub-market.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">How does Santa Monica's rent control affect buyers and sellers?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Santa Monica has one of the strongest rent-control regimes in California (originally established under the Rent Control Charter Amendment of 1979). For multifamily buyers, this fundamentally shapes underwriting — controlled rents on existing tenants, MAR (Maximum Allowable Rent) calculations, registration with the Rent Control Board, and Ellis Act considerations all matter. We underwrite Santa Monica multifamily transactions with full rent-control diligence.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What is the Coastal Commission overlay and how does it affect renovations?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Properties west of the Coastal Zone boundary fall under California Coastal Commission jurisdiction in addition to local permitting. This adds time and complexity to renovations, additions, and especially demolitions or substantial alterations. For coastal-adjacent buyers, we flag CCC implications as part of standard due diligence.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">Should I worry about earthquake retrofits in older Santa Monica buildings?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">For pre-1978 multifamily and certain non-ductile concrete structures, Santa Monica has a mandatory seismic retrofit ordinance. Buyers of affected properties should confirm retrofit status before contingency removal — completed retrofits add value, while pending compliance becomes a future cost. AMRE coordinates with structural engineers on every relevant transaction.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What's the difference between Santa Monica and Pacific Palisades?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Santa Monica is its own incorporated city with its own school district (Santa Monica-Malibu Unified), police, and rent control. Pacific Palisades is a neighborhood within the City of Los Angeles — different schools (LAUSD), different police, no city-wide rent control. Boundary lines along Adelaide Drive and Chautauqua Boulevard are sharply consequential; we always confirm jurisdiction.</p></div></details>
     </div>
   </div>
 </section>
 
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/#contact">Home Valuation</a></li>
-        <li><a href="/#contact">Investment Advisory</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div>
-
+<div id="amre-footer"></div>
+<script src="/assets/js/amre-chrome.js" defer></script>
 </body>
 </html>
-
