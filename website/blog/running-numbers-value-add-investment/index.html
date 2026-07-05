@@ -2,522 +2,110 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- amre-favicon -->
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<meta name="theme-color" content="#1c3d31">
-
-<!-- amre-preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://raw.githubusercontent.com">
-<link rel="preconnect" href="https://res.cloudinary.com">
-<link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
-<title>Running the Numbers on a Value-Add Real Estate Investment | The AMRE Journal</title>
-<meta name="description" content="How to underwrite a value-add real estate investment in Los Angeles. Pro forma framework, key metrics, and what makes a deal pencil out.">
-<meta name="author" content="AMRE Real Estate Group">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Value-Add Real Estate: Running the Numbers (LA)</title>
+<meta name="description" content="How to underwrite a value-add real&nbsp;estate deal in Los&nbsp;Angeles — the pro forma framework, ROI and IRR math, and what makes a deal pencil out.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://amre.group/blog/running-numbers-value-add-investment/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Running the Numbers on a Value-Add Real Estate Investment | The AMRE Journal">
-<meta property="og:description" content="How to underwrite a value-add real estate investment in Los Angeles. Pro forma framework, key metrics, and what makes a deal pencil out.">
-<meta property="og:image" content="https://amre.group/blog/og/running-numbers-value-add-investment.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/jpeg">
-<meta name="twitter:image" content="https://amre.group/blog/og/running-numbers-value-add-investment.png">
+<meta property="og:title" content="Value-Add Real Estate: Running the Numbers (LA)">
+<meta property="og:description" content="The pro forma framework, ROI and IRR math, and what makes a value-add deal actually pencil out in Los Angeles.">
 <meta property="og:url" content="https://amre.group/blog/running-numbers-value-add-investment/">
+<meta property="og:image" content="https://amre.group/blog/og/running-numbers-value-add-investment.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Running the Numbers on a Value-Add Real Estate Investment | The AMRE Journal">
-<meta name="twitter:description" content="How to underwrite a value-add real estate investment in Los Angeles. Pro forma framework, key metrics, and what makes a deal pencil out.">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Running the Numbers on a Value-Add Real Estate Investment", "description": "A step-by-step framework for analyzing whether a fixer-upper actually pencils out — before you fall in love with the potential and overlook the math.", "author": {"@type": "Person", "name": "Michael Abraham", "jobTitle": "REALTOR®", "worksFor": {"@type": "RealEstateAgent", "name": "AMRE Real Estate Group"}, "url": "https://amre.group/about/", "@id": "https://amre.group/about/#michael-abraham"}, "publisher": {"@type": "Organization", "@id": "https://amre.group/#organization", "name": "AMRE Real Estate Group", "url": "https://amre.group/", "logo": {"@type": "ImageObject", "url": "https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-black.svg", "width": 600, "height": 60}}, "url": "https://amre.group/blog/running-numbers-value-add-investment/", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://amre.group/blog/running-numbers-value-add-investment/"}, "keywords": "Investing, Strategy", "@id": "https://amre.group/blog/running-numbers-value-add-investment/#article", "image": {"@type": "ImageObject", "url": "https://amre.group/blog/og/running-numbers-value-add-investment.png", "width": 1200, "height": 630}, "inLanguage": "en-US", "isPartOf": {"@type": "Blog", "@id": "https://amre.group/blog/#blog", "name": "The AMRE Journal", "url": "https://amre.group/blog/"}, "datePublished": "2026-04-25T15:04:00-08:00", "dateModified": "2026-05-06T12:00:00-08:00", "wordCount": 655, "isAccessibleForFree": true, "articleSection": "Investing", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", "h2", ".article-lede"]}}</script>
-<link rel="stylesheet" href="/assets/css/site-overrides.css">
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
-body{font-family:'Montserrat',-apple-system,sans-serif;font-weight:300;background:#fff;color:#1a1a1a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
-button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background:none}
-
-/* NAV */
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(7,11,51,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background .35s,border-color .35s}
-.site-nav.is-light{background:rgba(255,255,255,0.92);border-bottom-color:rgba(0,0,0,.1)}
-.nav-brand{display:flex;align-items:center;flex-shrink:0}
-.nav-amre{height:22px;width:auto}.nav-compass{height:15px;width:auto;opacity:.85}
-.logo-white{display:block}.logo-dark{display:none}
-.site-nav.is-light .logo-dark{display:block}.site-nav.is-light .logo-white{display:none}
-.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.25);margin:0 14px;transition:background .35s}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
-.nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:28px;list-style:none}
-.nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap}
-.site-nav.is-light .nav-links a{color:rgba(7,11,51,.65)}
-.nav-links a:hover{color:#fff}
-.site-nav.is-light .nav-links a:hover{color:#1c3d31}
-.nav-cta{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;border-radius:2px;background:#ffc13c;color:#070B33;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0}
-.nav-cta:hover{background:#e6a800;transform:translateY(-1px)}
-
-/* HAMBURGER + DRAWER */
-.nav-right{display:flex;align-items:center;gap:12px}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s,width .25s}
-.site-nav.is-light .ham-btn span{background:#070B33}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham-btn.open span:nth-child(2){opacity:0;width:0}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{position:fixed;top:56px;left:0;right:0;bottom:0;z-index:498;background:rgba(7,11,51,0.97);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);display:flex;flex-direction:column;padding:32px 24px 48px;transform:translateY(-110%);opacity:0;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;pointer-events:none}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a{display:block;color:#fff;font-family:'Montserrat',sans-serif;font-size:clamp(20px,5vw,26px);font-weight:300;letter-spacing:-.01em;padding:20px 0;transition:color .2s,padding-left .2s}
-.mobile-drawer a:hover{color:#ffc13c;padding-left:8px}
-.mobile-drawer .drawer-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:32px;width:100%;background:#0064e5;color:#fff!important;border-radius:980px;font-size:16px!important;font-weight:500!important;padding:16px 32px!important;border-bottom:none!important;letter-spacing:.02em}
-.mobile-drawer .drawer-cta:hover{background:#0049a8}
-
-@media(max-width:860px){.nav-links{display:none!important}.nav-cta{display:none!important}.ham-btn{display:flex}}
-@media(min-width:861px){.mobile-drawer{display:none!important}}
-
-/* FOOTER */
-.site-footer{background:#070B33;border-top:1px solid rgba(255,255,255,.07);padding:64px 44px 36px}
-.footer-grid{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px}
-.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.footer-logos img{height:16px;width:auto;opacity:.55}
-.footer-sep{width:1px;height:13px;background:rgba(255,255,255,.2)}
-.footer-tagline{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.85);max-width:240px}
-.footer-col-head{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:16px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.45);transition:color .2s}
-.footer-links a:hover{color:rgba(255,255,255,.9)}
-.footer-bottom{max-width:1200px;margin-inline:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.footer-legal,.footer-dre{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.22);line-height:1.5}
-@media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.site-footer{padding:48px 20px 28px}.footer-bottom{flex-direction:column}}
-@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
-
-/* ── BLOG / JOURNAL ── */
-:root{
-  --forest:#1c3d31;--navy:#070B33;--brass:#ffc13c;--brass-dk:#e6a800;
-  --ink:#1a1a1a;--mid:#5A5A5A;--subtle:#86868b;--rule:#d2d2d7;
-  --offwhite:#f7edf0;--cream:#efdbc0;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'Montserrat',-apple-system,sans-serif;
-  --nav-h:56px;--ease:cubic-bezier(.25,.46,.45,.94);
-}
-
-/* JOURNAL HERO */
-.journal-hero{
-  background:var(--forest);position:relative;overflow:hidden;
-  padding:calc(var(--nav-h) + 88px) 44px 80px;
-}
-.journal-hero-inner{max-width:1200px;margin-inline:auto;position:relative;z-index:2}
-.journal-hero h1{
-  font-family:var(--serif);font-size:clamp(48px,7vw,88px);font-weight:400;
-  line-height:1.0;letter-spacing:-.01em;color:#fff;margin-bottom:20px;
-}
-.journal-hero h1 em{font-style:italic;color:var(--brass)}
-.journal-hero-sub{
-  font-family:var(--sans);font-size:clamp(15px,1.7vw,18px);font-weight:300;
-  line-height:1.7;color:rgba(255,255,255,.78);max-width:620px;
-}
-.journal-hero-eyebrow{
-  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--brass);margin-bottom:18px;
-  display:flex;align-items:center;gap:12px;
-}
-.journal-hero-eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--brass)}
-@media(max-width:680px){.journal-hero{padding-inline:20px}}
-
-/* FILTER BAR */
-.journal-filter-section{background:#fff;padding:36px 44px 0;border-bottom:1px solid var(--rule);position:sticky;top:var(--nav-h);z-index:40;}
-.journal-filter-inner{max-width:1200px;margin-inline:auto}
-.journal-filter-row{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:20px}
-.tag-pill{
-  font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.06em;
-  padding:7px 14px;border-radius:980px;border:1px solid var(--rule);
-  background:#fff;color:var(--mid);cursor:pointer;
-  transition:all .2s var(--ease);white-space:nowrap;
-}
-.tag-pill:hover{border-color:var(--forest);color:var(--forest)}
-.tag-pill.active{background:var(--forest);color:#fff;border-color:var(--forest)}
-.journal-count{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.04em;color:var(--subtle);padding-bottom:14px;}
-@media(max-width:680px){.journal-filter-section{padding:28px 20px 0}}
-
-/* GRID */
-.journal-grid-section{background:#fff;padding:48px 44px 96px}
-.journal-grid-inner{max-width:1200px;margin-inline:auto}
-.journal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-@media(max-width:1024px){.journal-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
-@media(max-width:680px){.journal-grid-section{padding:32px 20px 64px}.journal-grid{grid-template-columns:1fr;gap:20px}}
-
-.journal-card{
-  display:flex;flex-direction:column;
-  background:#fff;border:1px solid var(--rule);border-radius:6px;
-  overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,border-color .2s;
-  text-decoration:none;color:inherit;
-}
-.journal-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(28,61,49,.08);border-color:rgba(28,61,49,.2)}
-.journal-card-tags{padding:20px 22px 0;display:flex;flex-wrap:wrap;gap:6px}
-.card-tag-pill{
-  font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;padding:3px 9px;border-radius:980px;
-}
-.card-tag-pill.primary{background:var(--forest);color:#fff}
-.card-tag-pill.secondary{background:#eef0f2;color:var(--mid)}
-.journal-card-body{padding:14px 22px 22px;flex:1;display:flex;flex-direction:column}
-.journal-card h2{
-  font-family:var(--serif);font-size:21px;font-weight:500;line-height:1.25;
-  color:var(--ink);margin-bottom:12px;
-}
-.journal-card p{
-  font-family:var(--sans);font-size:13.5px;font-weight:300;line-height:1.65;
-  color:var(--mid);margin-bottom:18px;flex:1;
-}
-.journal-card-meta{
-  display:flex;align-items:center;gap:10px;
-  font-family:var(--sans);font-size:11px;font-weight:500;
-  color:var(--subtle);letter-spacing:.04em;
-}
-.journal-card-arrow{
-  margin-left:auto;font-size:18px;color:var(--brass-dk);
-  transition:transform .25s var(--ease);
-}
-.journal-card:hover .journal-card-arrow{transform:translateX(4px)}
-
-/* EMPTY STATE */
-.journal-empty{text-align:center;padding:60px 20px;font-family:var(--sans);color:var(--subtle);font-size:14px}
-
-/* ── ARTICLE PAGE ── */
-.article-hero{
-  background:var(--forest);position:relative;overflow:hidden;
-  padding:calc(var(--nav-h) + 64px) 44px 64px;
-}
-.article-hero-inner{max-width:760px;margin-inline:auto;position:relative;z-index:2}
-.article-hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.article-hero-tag{
-  font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;padding:5px 12px;border-radius:980px;
-  background:rgba(255,255,255,.12);color:#fff;
-  border:1px solid rgba(255,255,255,.2);text-decoration:none;
-  transition:all .2s;
-}
-.article-hero-tag:hover{background:var(--brass);color:var(--navy);border-color:var(--brass)}
-.article-hero h1{
-  font-family:var(--serif);font-size:clamp(34px,5.5vw,56px);font-weight:400;
-  line-height:1.1;letter-spacing:-.005em;color:#fff;margin-bottom:24px;
-}
-.article-hero h1 em{font-style:italic;color:var(--brass)}
-.article-lede{
-  font-family:var(--serif);font-size:clamp(18px,2.2vw,22px);font-weight:400;
-  font-style:italic;line-height:1.55;color:rgba(255,255,255,.85);
-  padding-left:20px;border-left:3px solid var(--brass);margin-bottom:32px;
-}
-.article-byline{
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-  padding-top:24px;border-top:1px solid rgba(255,255,255,.15);
-}
-.article-byline-avatar{
-  width:48px;height:48px;border-radius:50%;
-  background:var(--brass);color:var(--navy);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--sans);font-size:14px;font-weight:600;flex-shrink:0;
-}
-.article-byline-text{display:flex;flex-direction:column;gap:2px}
-.article-byline-name{font-family:var(--sans);font-size:13px;font-weight:600;color:#fff}
-.article-byline-meta{font-family:var(--sans);font-size:11px;font-weight:300;color:rgba(255,255,255,.6)}
-.article-byline-divider{width:1px;height:32px;background:rgba(255,255,255,.18)}
-.article-byline-time{display:flex;flex-direction:column;gap:2px}
-.article-byline-time-label{font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.article-byline-time-val{font-family:var(--sans);font-size:13px;font-weight:400;color:#fff}
-@media(max-width:680px){.article-hero{padding:calc(var(--nav-h) + 40px) 20px 48px}}
-
-/* BREADCRUMB */
-.breadcrumb-bar{background:#fff;border-bottom:1px solid var(--rule)}
-.breadcrumb{
-  max-width:760px;margin-inline:auto;padding:14px 44px;
-  font-family:var(--sans);font-size:11px;font-weight:500;line-height:1.5;
-  color:var(--subtle);
-}
-.breadcrumb a{color:var(--forest);text-decoration:none;transition:color .2s}
-.breadcrumb a:hover{color:var(--navy);text-decoration:underline}
-.breadcrumb .sep{margin:0 6px;opacity:.5}
-.breadcrumb .current{color:var(--subtle)}
-@media(max-width:680px){.breadcrumb{padding:12px 20px}}
-
-/* ARTICLE BODY */
-.article-body-section{background:#fff;padding:64px 44px 48px}
-.article-body{
-  max-width:680px;margin-inline:auto;
-  font-family:var(--sans);font-size:17px;font-weight:300;line-height:1.78;color:#2c2c2c;
-}
-.article-body p{margin:0 0 24px}
-.article-body p strong{font-weight:600;color:var(--ink)}
-.article-body p em{font-style:italic}
-.article-body h2{
-  font-family:var(--serif);font-size:clamp(26px,3vw,34px);font-weight:500;
-  line-height:1.2;color:var(--ink);
-  margin:48px 0 20px;letter-spacing:-.005em;
-}
-.article-body h3{
-  font-family:var(--serif);font-size:clamp(20px,2.3vw,24px);font-weight:500;
-  line-height:1.3;color:var(--ink);
-  margin:40px 0 16px;
-}
-.article-body ul,.article-body ol{margin:0 0 24px;padding-left:24px}
-.article-body li{margin-bottom:8px;line-height:1.7}
-.article-body li p{margin:0}
-.article-body li strong{font-weight:600;color:var(--ink)}
-.article-body hr{border:0;border-top:1px solid var(--rule);margin:48px 0}
-.article-body blockquote{
-  border-left:3px solid var(--brass);
-  padding:0 0 0 24px;margin:32px 0;
-  font-family:var(--serif);font-style:italic;font-size:20px;
-  line-height:1.55;color:var(--ink);
-}
-.article-body a{color:var(--forest);font-weight:500;border-bottom:1px solid rgba(28,61,49,.3);transition:color .2s,border-color .2s}
-.article-body a:hover{color:var(--brass-dk);border-bottom-color:var(--brass-dk)}
-@media(max-width:680px){.article-body-section{padding:40px 20px 32px}.article-body{font-size:16px}}
-
-/* CTA CARD */
-.article-cta-section{background:#fff;padding:32px 44px 64px}
-.article-cta-card{
-  max-width:680px;margin-inline:auto;background:var(--forest);
-  border-radius:8px;padding:44px 48px;
-  display:flex;align-items:center;gap:32px;flex-wrap:wrap;
-  position:relative;overflow:hidden;
-}
-.article-cta-card::before{
-  content:'';position:absolute;right:-40px;top:-40px;
-  width:200px;height:200px;border-radius:50%;
-  background:radial-gradient(circle,rgba(255,193,60,.18) 0%,transparent 70%);
-}
-.article-cta-text{flex:1;min-width:240px;position:relative;z-index:1}
-.article-cta-eyebrow{
-  font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--brass);margin-bottom:10px;
-}
-.article-cta-h{
-  font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.25;color:#fff;margin-bottom:8px;
-}
-.article-cta-sub{
-  font-family:var(--sans);font-size:13.5px;font-weight:300;line-height:1.65;color:rgba(255,255,255,.72);
-}
-.article-cta-btn{
-  font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;padding:14px 28px;background:var(--brass);color:var(--navy);
-  text-decoration:none;border-radius:2px;
-  transition:background .2s,transform .15s;white-space:nowrap;position:relative;z-index:1;
-}
-.article-cta-btn:hover{background:var(--brass-dk);transform:translateY(-1px)}
-@media(max-width:680px){.article-cta-section{padding:24px 20px 48px}.article-cta-card{padding:32px 28px;flex-direction:column;align-items:flex-start;gap:20px}.article-cta-btn{width:100%;text-align:center}}
-
-/* AUTHOR BIO */
-.article-author-section{background:#fff;padding:0 44px 64px}
-.article-author{
-  max-width:680px;margin-inline:auto;
-  display:flex;gap:20px;align-items:flex-start;
-  padding:32px 0;border-top:1px solid var(--rule);
-}
-.article-author-avatar{
-  width:64px;height:64px;border-radius:50%;
-  background:var(--forest);color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--sans);font-size:18px;font-weight:500;flex-shrink:0;
-}
-.article-author-content{flex:1}
-.article-author-eyebrow{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:6px}
-.article-author-name{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:6px}
-.article-author-bio{font-family:var(--sans);font-size:13.5px;font-weight:300;line-height:1.7;color:var(--mid)}
-.article-author-bio a{color:var(--forest);font-weight:500;border-bottom:1px solid rgba(28,61,49,.3);text-decoration:none}
-.article-author-bio a:hover{color:var(--brass-dk);border-bottom-color:var(--brass-dk)}
-@media(max-width:680px){.article-author-section{padding:0 20px 48px}}
-
-/* RELATED */
-.article-related-section{background:var(--offwhite);padding:72px 44px 80px}
-.article-related-inner{max-width:1100px;margin-inline:auto}
-.article-related-h{font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:8px;text-align:center}
-.article-related-sub{font-family:var(--sans);font-size:13px;font-weight:400;color:var(--mid);text-align:center;margin-bottom:36px}
-.article-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:860px){.article-related-grid{grid-template-columns:1fr}}
-@media(max-width:680px){.article-related-section{padding:48px 20px 64px}}
-
-</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","headline":"Running the Numbers on a Value-Add Real Estate Investment","description":"A step-by-step framework for underwriting a value-add real estate deal in Los Angeles — the pro forma, ROI and IRR math, and what makes a fixer-upper actually pencil out.","image":"https://amre.group/blog/og/running-numbers-value-add-investment.png","datePublished":"2026-04-25","dateModified":"2026-05-06","author":{"@type":"Person","name":"Michael Abraham","url":"https://amre.group/about/"},"publisher":{"@type":"Organization","name":"AMRE Real Estate Group","logo":{"@type":"ImageObject","url":"https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-black.svg"}},"mainEntityOfPage":"https://amre.group/blog/running-numbers-value-add-investment/","articleSection":"Investing"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},{"@type":"ListItem","position":2,"name":"Journal","item":"https://amre.group/blog/"},{"@type":"ListItem","position":3,"name":"Running the Numbers on a Value-Add Real Estate Investment","item":"https://amre.group/blog/running-numbers-value-add-investment/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes a value-add real estate deal pencil out?","acceptedAnswer":{"@type":"Answer","text":"A deal pencils when the total all-in cost (purchase + renovation + closing, holding, and financing costs) sits comfortably below the post-renovation resale value supported by real comps. On our Mid-City example, ~$1.22M all-in against a ~$1.6M resale at $825/SF produced roughly $309K net profit, a 25% ROI, and a 6-month IRR near 49%."}},{"@type":"Question","name":"How do you calculate ROI and IRR on a flip?","acceptedAnswer":{"@type":"Answer","text":"ROI is net profit divided by total cash invested. IRR annualizes that return over the hold period — a 25% ROI realized in six months annualizes to roughly a 49% IRR, which is why timeline discipline matters as much as the spread."}},{"@type":"Question","name":"What is the breakeven price per square foot?","acceptedAnswer":{"@type":"Answer","text":"Breakeven is the resale price per square foot at which net profit hits zero after all costs. On the example deal, breakeven was about $670/SF against a target exit of $825/SF — the gap between those two numbers is your margin of safety."}}]}]}</script>
+<link rel="stylesheet" href="/assets/css/amre.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://amre.group/"}, {"@type": "ListItem", "position": 2, "name": "Journal", "item": "https://amre.group/blog/"}, {"@type": "ListItem", "position": 3, "name": "Running the Numbers on a Value-Add Real Estate Investment", "item": "https://amre.group/blog/running-numbers-value-add-investment/"}]}</script>
-<div id="site-nav-mount"></div>
+<div id="amre-nav"></div>
 
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js"></script><article itemscope itemtype="https://schema.org/Article">
+<article itemscope itemtype="https://schema.org/BlogPosting">
+<section class="article-hero"><div class="wrap">
+  <div class="article-tags"><span class="article-tag">Investing</span><span class="article-tag">Strategy</span></div>
+  <h1 itemprop="headline">Running the Numbers on a <em>Value-Add</em> Deal.</h1>
+  <p class="article-lede">A step-by-step framework for analyzing whether a fixer-upper actually pencils out — before you fall in love with the potential and overlook the math.</p>
+  <div class="article-byline"><img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-solo.webp" alt="Michael Abraham"><div><div class="n">Michael Abraham</div><div class="m">Principal Agent, Architect · <time datetime="2026-04-25">April 25, 2026</time> · 6 min read</div></div></div>
+</div></section>
 
-<section class="article-hero">
-  <div class="article-hero-inner">
-    <div class="article-hero-tags"><a href="/blog/?tag=Investing" class="article-hero-tag">Investing</a><a href="/blog/?tag=Strategy" class="article-hero-tag">Strategy</a></div>
-    <h1 itemprop="headline">Running the Numbers on a Value-Add Real Estate Investment</h1>
-    <p class="article-lede" itemprop="description">A step-by-step framework for analyzing whether a fixer-upper actually pencils out — before you fall in love with the potential and overlook the math.</p>
-    <div class="article-byline">
-      <div class="article-byline-avatar">MA</div>
-      <div class="article-byline-text" itemprop="author" itemscope itemtype="https://schema.org/Person">
-        <div class="article-byline-name" itemprop="name">Michael Abraham</div>
-        <div class="article-byline-meta">REALTOR® · DRE# 02242095 · AMRE Real Estate Group</div>
-      </div>
-      <div class="article-byline-divider"></div>
-      <div class="article-byline-time">
-        <div class="article-byline-time-label">Read time</div>
-        <div class="article-byline-time-val">2 min</div>
-      </div>
-    </div>
+<section class="article"><div class="wrap prose" itemprop="articleBody">
+  <p>Few investment vehicles offer the stability, control, and wealth-building potential of <strong>real&nbsp;estate</strong> in an uncertain economy. Executed well, a value-add flip can generate significant short-term returns while laying groundwork for long-term financial freedom. But "potential" is not a number — and the fastest way to lose money is to fall in love with a property before you underwrite it.</p>
+
+  <p>So let's run a real one. <strong>2932 Farmdale Ave</strong> is a 3-bed, 2-bath single-family home — 1,955 sq&nbsp;ft on a 5,851 sq&nbsp;ft lot — in the rapidly appreciating West Adams / Mid-City corner of <strong>Los&nbsp;Angeles</strong>. It traded at <strong>$899,303</strong> (about $460/SF), well below the $750–$1,000/SF that renovated comps command. That spread is the whole opportunity. Here is how we pressure-test it.</p>
+
+  <h2>The all-in cost, <em>line by line.</em></h2>
+  <p>Purchase price is only the beginning. A pro forma that stops there is how deals blow up. Every dollar of renovation, closing, carrying, and financing cost has to be stacked before you can talk about profit.</p>
+
+  <div class="infographic">
+    <h4>All-in investment — 2932 Farmdale Ave</h4>
+    <div class="cap">Total capital deployed before a single dollar of resale comes back. Add a 10% contingency for delays and surprises.</div>
+    <div class="bar-row"><span class="lbl">Purchase</span><div class="bar" style="width:100%;background:#1c3d31">$899,303</div></div>
+    <div class="bar-row"><span class="lbl">Renovation</span><div class="bar" style="width:26%;background:#3a3a3c">$234,600 · $120/SF</div></div>
+    <div class="bar-row"><span class="lbl">Carrying (6 mo)</span><div class="bar" style="width:9%;background:#5a5a5a">$33,000</div></div>
+    <div class="bar-row"><span class="lbl">Loan interest</span><div class="bar" style="width:8%;background:#5a5a5a">$28,000</div></div>
+    <div class="bar-row"><span class="lbl">Closing / holding</span><div class="bar" style="width:7%;background:#5a5a5a">$26,979</div></div>
+    <div class="bar-row"><span class="lbl">Total in</span><div class="bar" style="width:100%;background:#e6a800;color:#1a1a1a">$1,221,882</div></div>
   </div>
-</section>
 
-<div class="breadcrumb-bar">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a>
-    <span class="sep">›</span>
-    <a href="/blog/">Journal</a>
-    <span class="sep">›</span>
-    <span class="current">Running the Numbers on a Value-Add Real Estate Investment</span>
-  </nav>
-</div>
+  <h2>Where the deal <em>pencils.</em></h2>
+  <p>Renovated comps support $750–$1,000/SF. Underwrite conservatively at a <strong>$825/SF target exit</strong>, and this 1,955 sq&nbsp;ft home resells around <strong>$1,611,375</strong>. Subtract 5% selling costs and your all-in basis, and the profit is real — not aspirational.</p>
 
-<section class="article-body-section">
-  <div class="article-body" itemprop="articleBody">
-<p>Few investment vehicles offer the stability, control, and wealth-building potential of real estate in an uncertain economic climate. When executed strategically, flipping properties can generate significant short-term returns while laying the groundwork for long-term financial freedom.</p><p>Enter 2932 Farmdale Ave, a prime opportunity in one of LA's most rapidly appreciating neighborhoods. With the right renovation approach, this Mid-City gem has all the ingredients for a high-yield flip: a prime location, significant upside, and strong demand. This report breaks down the numbers, risks, and rewards to reveal why this project could be your next winning Investment.</p><h3>📊 Investment Summary</h3><p>2932 Farmdale Ave is a 3-bedroom, 2-bath single-family home in the booming West Adams/Mid-City area of Los Angeles. It offers 1,955 square feet of living space on a 5,851-square-foot lot. The house sold for $899,303 ($460 per square foot), offering a strong value-adding opportunity through renovation.</p><p>A $ 120-per-square-foot renovation budget—totaling approximately $234,600—positions this asset well for resale in a market where similar homes trade between $750 and $1,000 per square foot post-renovation.</p><h3>💰 Total Investment Summary</h3><ul><li><p><strong>Purchase Price</strong>: $899,303</p></li><li><p><strong>Renovation Cost (@ $120/SF)</strong>: $234,600</p></li><li><p><strong>Closing &amp; Holding Costs (estimated 3%)</strong>: $26,979</p></li><li><p><strong>Carrying Costs (6 months PITI at ~$5,500/month)</strong>: $33,000</p></li><li><p><strong>Construction Loan Interest (8% APR on $700,000 loan)</strong>: $28,000</p></li><li><p><strong>Total Investment</strong>: <strong>$1,221,882</strong></p></li></ul><p>📌 <em>Be sure to include a 10% contingency for unexpected project delays or costs</em></p><h3>📈 Resale Value Potential</h3><p>Comps in the area suggest a resale price range based on post-renovation PPSF of $750 to $1,000. Given Farmdale's size and location, a resale between $1.5M and $1.65M is reasonable.</p><ul><li><p><strong>Target Resale PPSF</strong>: $800 to $850</p></li><li><p><strong>At $825 PPSF</strong>, the projected sale price is approximately <strong>$1,611,375</strong></p></li></ul><h3>📅 ROI &amp; Profit Projections (Based on a 6-Month Flip)</h3><p><strong>At $725 PPSF</strong></p><ul><li><p>Sale Price: ~$1,417,375</p></li><li><p>Selling Costs (5%): ~$70,869</p></li><li><p>Net Profit: ~$125,376</p></li><li><p>ROI: ~10.3%</p></li><li><p>IRR (6-month): ~20.9%</p></li></ul><p><strong>At $775 PPSF</strong></p><ul><li><p>Sale Price: ~$1,514,125</p></li><li><p>Selling Costs (5%): ~$75,706</p></li><li><p>Net Profit: ~$216,537</p></li><li><p>ROI: ~17.7%</p></li><li><p>IRR: ~35.5%</p></li></ul><p><strong>At $800 PPSF</strong></p><ul><li><p>Sale Price: ~$1,564,000</p></li><li><p>Selling Costs (5%): ~$78,200</p></li><li><p>Net Profit: ~$263,918</p></li><li><p>ROI: ~21.6%</p></li><li><p>IRR: ~42.7%</p></li></ul><p><strong>At $825 PPSF</strong></p><ul><li><p>Sale Price: ~$1,611,375</p></li><li><p>Selling Costs (5%): ~$80,569</p></li><li><p>Net Profit: ~$309,494</p></li><li><p>ROI: ~25.3%</p></li><li><p>IRR: ~49.3%</p></li></ul><p>📌 <em>IRR assumes all cash is invested upfront, and Profit is realized in month 6.</em></p><h3>📊 Key Investment Metrics</h3><ul><li><p><strong>ROI Range</strong>: ~10% to 25%, depending on resale price</p></li><li><p><strong>6-Month IRR</strong>: ~21% to ~49%</p></li><li><p><strong>Profit Margin</strong>: ~19% to 25% of resale value</p></li><li><p><strong>Breakeven PPSF</strong>: Approximately $670</p></li><li><p><strong>Target Exit PPSF</strong>: $825</p></li></ul><h3>📉 Timeline</h3><ul><li><p><strong>Month 0</strong>: Acquisition</p></li><li><p><strong>Months 1–4</strong>: Renovation period</p></li><li><p><strong>Month 5</strong>: Listing and marketing</p></li><li><p><strong>Month 6</strong>: Sales and profit realization</p></li></ul><h3>🏛️ Investment Rating: A-</h3><p><strong>Location</strong>: Excellent (West Adams, 90016, near Culver City)</p><p><strong>Profitability Potential</strong>: Strong (up to 25% ROI)</p><p><strong>Renovation Risk</strong>: Moderate (1930s construction, likely complete systems upgrade)</p><p><strong>Market Trend</strong>: Positive (high buyer demand, upward price pressure)</p><h3>📌 Exit Strategy</h3><p><strong>Recommended</strong>: Fix &amp; Flip (6-month hold)</p><ul><li><p>Ideal for active investors with project management capacity</p></li><li><p>Strong resale market with limited supply</p></li></ul><p><strong>Alternative</strong>: Hold as a rental</p><ul><li><p>Estimated market rent: $5,000–$6,000/month</p></li><li><p>Potential 5–6% cap rate with room to add value through an ADU</p></li></ul><h3>🔧 Final Thoughts</h3><p>This property offers strong margins, high resale potential, and a short turnaround timeline. With comps supporting a $ 1.6 M+ resale and a conservative renovation budget, 2932 Farmdale Ave stands out as a top-tier flip candidate with a projected 6-month IRR exceeding 40%.</p>
+  <div class="a-stats">
+    <div class="a-stat"><div class="n">25<em>%</em></div><div class="l">ROI at $825/SF exit</div></div>
+    <div class="a-stat"><div class="n">~49<em>%</em></div><div class="l">6-month IRR</div></div>
+    <div class="a-stat"><div class="n">$309<em>K</em></div><div class="l">Net profit (value-add upside)</div></div>
   </div>
-</section>
 
-<section class="article-cta-section">
-  <div class="article-cta-card">
-    <div class="article-cta-text">
-      <p class="article-cta-eyebrow">Have questions?</p>
-      <p class="article-cta-h">Let's talk about your situation.</p>
-      <p class="article-cta-sub">Whether you're buying, selling, or just exploring options — get expert guidance from someone who's lived these markets every day.</p>
-    </div>
-    <a href="/contact/" class="article-cta-btn">Ask a Question</a>
+  <p>Run the sensitivity across exit prices and the discipline becomes obvious — the difference between a $725/SF and an $825/SF exit is more than <strong>$180,000</strong> of profit on the same building.</p>
+
+  <div class="infographic">
+    <h4>Net profit by exit price per square foot</h4>
+    <div class="cap">Illustrative: same all-in basis, four resale scenarios. Breakeven is ~$670/SF, so $825/SF carries a wide margin of safety.</div>
+    <svg viewBox="0 0 620 240" width="100%" role="img" aria-label="Net profit rising from about $125K at $725 per square foot to about $309K at $825 per square foot">
+      <g font-family="Instrument Sans, sans-serif" font-size="12" fill="#5a5a5a">
+        <rect x="60" y="150" width="90" height="60" rx="6" fill="#1c3d31"/><text x="105" y="140" text-anchor="middle" fill="#1a1a1a" font-weight="600">$125K</text><text x="105" y="228" text-anchor="middle">$725/SF</text>
+        <rect x="200" y="112" width="90" height="98" rx="6" fill="#1c3d31"/><text x="245" y="102" text-anchor="middle" fill="#1a1a1a" font-weight="600">$217K</text><text x="245" y="228" text-anchor="middle">$775/SF</text>
+        <rect x="340" y="90" width="90" height="120" rx="6" fill="#1c3d31"/><text x="385" y="80" text-anchor="middle" fill="#1a1a1a" font-weight="600">$264K</text><text x="385" y="228" text-anchor="middle">$800/SF</text>
+        <rect x="480" y="58" width="90" height="152" rx="6" fill="#e6a800"/><text x="525" y="48" text-anchor="middle" fill="#1a1a1a" font-weight="600">$309K</text><text x="525" y="228" text-anchor="middle">$825/SF</text>
+      </g>
+    </svg>
   </div>
-</section>
 
-<section class="article-author-section">
-  <div class="article-author">
-    <div class="article-author-avatar">MA</div>
-    <div class="article-author-content">
-      <p class="article-author-eyebrow">About the author</p>
-      <p class="article-author-name">Michael Abraham</p>
-      <p class="article-author-bio">Michael Abraham is a REALTOR® and the founder of AMRE Real Estate Group at Compass Beverly Hills. He works with sellers, buyers, and investors across Los Angeles — with particular expertise in duplexes, multifamily, and emerging neighborhoods. <a href="/contact/">Get in touch</a> or browse <a href="/blog/">the full journal</a>.</p>
-    </div>
-  </div>
-</section>
+  <h2>The metrics that <em>matter.</em></h2>
+  <ul>
+    <li><strong>ROI range:</strong> ~10% to 25%, depending on where the market lets you exit.</li>
+    <li><strong>6-month IRR:</strong> ~21% to ~49% — annualized, because timeline is everything on a flip.</li>
+    <li><strong>Breakeven PPSF:</strong> ~$670/SF. Your target of $825/SF is the cushion.</li>
+    <li><strong>Alternative exit:</strong> hold as a rental at $5,000–$6,000/mo for a 5–6% cap rate, with <a href="/blog/power-duplex-ownership-los-angeles/">ADU and value-add upside</a> layered on top.</li>
+  </ul>
 
+  <blockquote>Potential is a story. A pro forma is a decision. Never confuse the two.</blockquote>
+
+  <div class="a-callout"><h4>What makes a deal pencil</h4><ul>
+    <li>All-in basis (purchase + reno + closing, holding, financing) sits well below comp-supported resale.</li>
+    <li>The exit price you underwrite is <em>conservative</em> — real comps, not the top of the range.</li>
+    <li>Breakeven PPSF leaves a visible margin of safety below your target exit.</li>
+    <li>You've budgeted a 10% contingency and a realistic 6-month timeline.</li>
+    <li>The fallback exit — hold, rent, or <a href="/blog/1031-exchange-los-angeles/">1031 into the next deal</a> — still works if the flip market softens.</li>
+  </ul></div>
+
+  <p>This is the same underwriting we run for every <a href="/buyers/">buyer and investor</a> we work with: cap rate, cash-on-cash, ROI, and IRR on real comps — architect-informed diligence on the renovation scope so the budget is grounded, not guessed.</p>
+
+  <div class="article-cta"><h3>Thinking about a value-add deal?</h3><p>We underwrite LA fixers the way investors do — the numbers first, the story second. Send us the address and we'll run the pro forma.</p><a href="/contact/" class="btn btn-fill">Talk to AMRE <span class="arrow">&rarr;</span></a></div>
+</div></section>
 </article>
 
-<section class="article-related-section">
-  <div class="article-related-inner">
-    <h2 class="article-related-h">Keep reading</h2>
-    <p class="article-related-sub">More from The AMRE Journal</p>
-    <div class="article-related-grid">
-      <a href="/blog/investment-analysis-4-unit-west-adams/" class="journal-card">
-  <div class="journal-card-tags"><span class="card-tag-pill primary">Investing</span><span class="card-tag-pill secondary">Multifamily</span></div>
-  <div class="journal-card-body">
-    <h2>Investment Analysis: 4-Unit Property in West Adams</h2>
-    <p>A pro forma breakdown on a real West Adams quad — what it earns, costs, and whether it cash-flows.</p>
-    <div class="journal-card-meta"><span>Read article</span><span class="journal-card-arrow">›</span></div>
+<section class="related"><div class="wrap">
+  <div class="head reveal"><span class="eyebrow">Keep Reading</span><h2>More from the <em>Journal.</em></h2></div>
+  <div class="jrn-grid">
+    <a class="jcard reveal" href="/blog/investment-analysis-4-unit-west-adams/"><div class="cat">Investing</div><h3>Investment Analysis: 4-Unit Property in West Adams</h3><p>A pro forma breakdown on a real West Adams quad — what it earns, costs, and whether it cash-flows.</p><span class="go">Read article →</span></a>
+    <a class="jcard reveal" href="/blog/power-duplex-ownership-los-angeles/"><div class="cat">Investing</div><h3>The Power of Duplex Ownership in Los Angeles</h3><p>Owner-occupy a duplex, let a tenant carry half the mortgage, and build $1M+ in equity over 10 years.</p><span class="go">Read article →</span></a>
+    <a class="jcard reveal" href="/blog/1031-exchange-los-angeles/"><div class="cat">Investing</div><h3>1031 Exchange in LA: 2026 Investor Primer</h3><p>The 45/180-day rules, California's clawback, and trade-up strategy.</p><span class="go">Read article →</span></a>
   </div>
-</a>
-<a href="/blog/power-duplex-ownership-los-angeles/" class="journal-card">
-  <div class="journal-card-tags"><span class="card-tag-pill primary">Investing</span><span class="card-tag-pill secondary">Multifamily</span><span class="card-tag-pill secondary">LA Market</span></div>
-  <div class="journal-card-body">
-    <h2>The Power of Duplex Ownership in Los Angeles</h2>
-    <p>How owner-occupying a duplex in Los Angeles can dramatically reduce housing costs while building $1M+ in equity over 10 years.</p>
-    <div class="journal-card-meta"><span>Read article</span><span class="journal-card-arrow">›</span></div>
-  </div>
-</a>
-<a href="/blog/5-minute-read-over-500k/" class="journal-card">
-  <div class="journal-card-tags"><span class="card-tag-pill primary">Investing</span><span class="card-tag-pill secondary">Multifamily</span></div>
-  <div class="journal-card-body">
-    <h2>5-Minute Read = Over $500K: A South LA Duplex Case Study</h2>
-    <p>How one South LA duplex could build $600K+ in equity while you live there. Real numbers, real strategy.</p>
-    <div class="journal-card-meta"><span>Read article</span><span class="journal-card-arrow">›</span></div>
-  </div>
-</a>
+  <div style="text-align:center;margin-top:44px" class="reveal"><a href="/blog/" class="btn btn-line">View all articles <span class="arrow">&rarr;</span></a></div>
+</div></section>
 
-    </div>
-  </div>
-</section>
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/contact/">Home Valuation</a></li>
-        <li><a href="/contact/">Investment Advisory</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div><script>
-(function(){
-  var nav=document.getElementById('siteNav');
-  if(nav){function upd(){nav.classList.toggle('is-light',window.scrollY>80)} upd(); window.addEventListener('scroll',upd,{passive:true});}
-  var btn=document.getElementById('hamBtn'),drawer=document.getElementById('mobileDrawer');
-  if(btn&&drawer){
-    btn.addEventListener('click',function(){var open=btn.classList.toggle('open');btn.setAttribute('aria-expanded',open);drawer.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';});
-    drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';});});
-  }
-})();
-</script>
+<div id="amre-footer"></div>
+<script src="/assets/js/amre-chrome.js" defer></script>
 </body>
 </html>
