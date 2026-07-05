@@ -25,6 +25,7 @@
   main{max-width:980px;margin:0 auto;padding:24px 16px 60px}
   section{margin-top:34px}
   h2{font-size:20px;color:var(--navy);margin-bottom:14px}
+  h3{font-size:15px;color:var(--navy);margin:20px 0 10px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
   .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
@@ -39,6 +40,14 @@
   .p-open{background:#fdeaea;color:var(--red)}
   .p-sched{background:#fff4e0;color:var(--amber)}
   .p-pend{background:#eceef4;color:#4a5578}
+  .escrow-hub{background:linear-gradient(180deg,#fff,#faf9f5);border:2px solid var(--gold);border-radius:14px;padding:22px;margin-top:28px}
+  .escrow-hub .hd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .escrow-hub .hd h2{margin:0}
+  .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+  .kv .item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .kv .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+  .kv .v{font-weight:700;color:var(--navy);margin-top:2px;font-size:15px}
+  .kv .v a{color:var(--navy)}
   .terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
   .term{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
   .term .l{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
@@ -80,11 +89,11 @@
 </header>
 
 <nav class="sticky"><div class="in">
-  <a href="#thisweek">This Week</a>
-  <a href="#deliverables">Escrow Deliverables</a>
+  <a href="#escrow">Escrow</a>
   <a href="#timeline">Timeline</a>
+  <a href="#files">Files Required</a>
+  <a href="#checklist">Checklist</a>
   <a href="#terms">Terms</a>
-  <a href="#documents">Documents</a>
   <a href="#contacts">Contacts</a>
 </div></nav>
 
@@ -92,18 +101,69 @@
 <div class="stats" style="margin-top:24px">
   <div class="stat"><div class="n">$737K</div><div class="l">All-Cash Price</div></div>
   <div class="stat"><div class="n" id="dEmd">—</div><div class="l">Days to EMD Wire</div></div>
-  <div class="stat"><div class="n">2</div><div class="l">TCs on File</div></div>
+  <div class="stat"><div class="n" id="ckDone">2/11</div><div class="l">Checklist Complete</div></div>
   <div class="stat"><div class="n">TBD</div><div class="l">Close of Escrow</div></div>
 </div>
 
-<section id="thisweek">
-  <h2>This Week — Critical</h2>
-  <div class="alert"><strong>Mon Jul 6, early afternoon:</strong> Buyers wire EMD from PNC Bank, Palm Springs — they depart for Delaware Tue Jul 7. Chartwell must deliver wire instructions Monday morning (securely; buyers to verify by phone before wiring — wire-fraud precaution).</div>
-  <div class="note"><strong>Also Monday:</strong> buyer walk-through requested before departure (per Tim McTavish) · send fully executed RPA to buyer's agent + both TCs · file completed 3 Phase Addendum.</div>
+<section id="escrow" class="escrow-hub">
+  <div class="hd"><h2>Escrow — Key Information</h2></div>
+  <div class="kv">
+    <div class="item"><div class="k">Escrow Company</div><div class="v">Chartwell Escrow</div></div>
+    <div class="item"><div class="k">Escrow Officer</div><div class="v">Holly Hanks<br><a href="mailto:hhanks@chartwellescrow.com" style="font-weight:400;font-size:13px">hhanks@chartwellescrow.com</a></div></div>
+    <div class="item"><div class="k">Escrow Number</div><div class="v">TBD — pending open</div></div>
+    <div class="item"><div class="k">Purchase Price</div><div class="v">$737,000 · All Cash</div></div>
+    <div class="item"><div class="k">EMD</div><div class="v">Wire from PNC Palm Springs<br><span style="font-weight:400;font-size:13px">Mon Jul 6, early afternoon</span></div></div>
+    <div class="item"><div class="k">Close of Escrow</div><div class="v">TBD — per RPA / timeline letter</div></div>
+  </div>
+  <div class="alert"><strong>Critical — Mon Jul 6:</strong> Buyers depart for Delaware Tue Jul 7. Chartwell must deliver wire instructions Monday morning, securely; buyers to verify by phone before wiring (wire-fraud precaution). Buyer walk-through also requested Monday before departure.</div>
 </section>
 
-<section id="deliverables">
-  <h2>Escrow Deliverables — What We Need & When</h2>
+<section id="timeline">
+  <h2>Escrow Timeline</h2>
+  <div class="card" style="padding:0;overflow-x:auto">
+  <table>
+    <tr><th>Date</th><th>Milestone</th><th>Status</th></tr>
+    <tr><td>Jul 3</td><td>All-cash offer received (Tim McTavish, Desert Sotheby's)</td><td><span class="pill p-done">Done</span></td></tr>
+    <tr><td>Jul 4</td><td>Seller Counter Offer 1 — $737,000 — signed by both sellers</td><td><span class="pill p-done">Done</span></td></tr>
+    <tr><td>Jul 6 AM</td><td>Wire instructions to buyers (Chartwell, secure delivery)</td><td><span class="pill p-sched">Monday</span></td></tr>
+    <tr><td>Jul 6 PM</td><td>EMD wire from PNC Palm Springs · buyer walk-through · RPA distributed</td><td><span class="pill p-sched">Monday</span></td></tr>
+    <tr><td>Jul 7</td><td>Buyers depart for Delaware</td><td><span class="pill p-pend">Tuesday</span></td></tr>
+    <tr><td>~Jul 11</td><td>Seller disclosures delivered (7 days from acceptance — verify per RPA)</td><td><span class="pill p-open">Open</span></td></tr>
+    <tr><td>~Jul 13</td><td>Prelim title report expected (~1 week after open)</td><td><span class="pill p-pend">Pending</span></td></tr>
+    <tr><td>TBD</td><td>Buyer investigation contingency removal (per RPA — verify day count)</td><td><span class="pill p-pend">Pending</span></td></tr>
+    <tr><td>TBD</td><td>Grant deed signing (notary) → Close of escrow</td><td><span class="pill p-pend">TBD</span></td></tr>
+  </table>
+  </div>
+  <div class="note">COE and contingency day counts pending confirmation against the fully executed RPA and Chartwell's escrow timeline letter (source of truth). Dashboard will be updated when received.</div>
+</section>
+
+<section id="files">
+  <h2>Files Required</h2>
+  <div class="card">
+    <h3 style="margin-top:0">Into escrow now</h3>
+    <ul class="docs">
+      <li>✅ Seller Counter Offer 1 — signed by both sellers (Jul 4)</li>
+      <li>✅ 3 Phase Addendum — completed · <strong>needs to be filed with TC/escrow</strong></li>
+      <li>⬜ Fully executed RPA — distribute to Chartwell, Tim McTavish, Steve Seager, Matt Bauer</li>
+    </ul>
+    <h3>Seller disclosures (due ~7 days from acceptance)</h3>
+    <ul class="docs">
+      <li>⬜ TDS · SPQ · Statewide Buyer/Seller Advisory · Wire Fraud Advisory</li>
+      <li>⬜ NHD report · Megan's Law disclosure · smoke/CO + water-heater compliance</li>
+      <li>⬜ Lead-based paint disclosure (if built pre-1978 — verify year built)</li>
+    </ul>
+    <h3>Through escrow / closing</h3>
+    <ul class="docs">
+      <li>⬜ Escrow instructions + opening package (sign &amp; return)</li>
+      <li>⬜ Preliminary title report (review on receipt)</li>
+      <li>⬜ FIRPTA certification</li>
+      <li>⬜ Grant deed (sign via escrow near closing, notarized)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="checklist">
+  <h2>Checklist — Who / What / When</h2>
   <div class="card" style="padding:0;overflow-x:auto">
   <table>
     <tr><th>Item</th><th>Responsible</th><th>Due</th><th>Status</th></tr>
@@ -111,28 +171,13 @@
     <tr><td>3 Phase Addendum — file completed copy</td><td>Michael / TC</td><td>Mon Jul 6</td><td><span class="pill p-done">Completed — to file</span></td></tr>
     <tr><td>Wire instructions to buyers (secure delivery)</td><td>Chartwell (Holly Hanks)</td><td>Mon Jul 6 AM</td><td><span class="pill p-sched">Requested</span></td></tr>
     <tr><td>EMD wire from PNC Bank, Palm Springs</td><td>Buyers</td><td>Mon Jul 6, early PM</td><td><span class="pill p-sched">Scheduled</span></td></tr>
+    <tr><td>Buyer walk-through before departure</td><td>Michael / Tim</td><td>Mon Jul 6</td><td><span class="pill p-open">Confirm access</span></td></tr>
     <tr><td>Escrow opening package / instructions</td><td>Chartwell</td><td>~2 business days after open</td><td><span class="pill p-pend">Pending</span></td></tr>
     <tr><td>Seller disclosures (TDS, SPQ, advisories)</td><td>Sellers</td><td>7 days from acceptance (per RPA — verify)</td><td><span class="pill p-open">Open</span></td></tr>
     <tr><td>NHD report order</td><td>TC / Escrow</td><td>This week</td><td><span class="pill p-open">Open</span></td></tr>
     <tr><td>Preliminary title report</td><td>Chartwell / Title</td><td>~1 week after open</td><td><span class="pill p-pend">Pending</span></td></tr>
     <tr><td>Buyer investigation contingency removal</td><td>Buyers</td><td>Per RPA — verify day count</td><td><span class="pill p-pend">Pending</span></td></tr>
-    <tr><td>Grant deed signing (notary)</td><td>Sellers</td><td>Near COE</td><td><span class="pill p-pend">Pending</span></td></tr>
-    <tr><td>Close of escrow</td><td>All parties</td><td>TBD — confirm from RPA / escrow timeline</td><td><span class="pill p-pend">TBD</span></td></tr>
-  </table>
-  </div>
-  <div class="note">COE and contingency day counts pending confirmation against the fully executed RPA and Chartwell's escrow timeline letter (source of truth). Dashboard will be updated when received.</div>
-</section>
-
-<section id="timeline">
-  <h2>Timeline</h2>
-  <div class="card">
-  <table>
-    <tr><th>Date</th><th>Milestone</th><th></th></tr>
-    <tr><td>Jul 3</td><td>All-cash offer received (Tim McTavish, Desert Sotheby's)</td><td><span class="pill p-done">Done</span></td></tr>
-    <tr><td>Jul 4</td><td>Seller Counter Offer 1 — $737,000 — signed by both sellers</td><td><span class="pill p-done">Done</span></td></tr>
-    <tr><td>Jul 6</td><td>EMD wire (PNC Palm Springs) · walk-through · RPA distributed</td><td><span class="pill p-sched">Monday</span></td></tr>
-    <tr><td>Jul 7</td><td>Buyers depart for Delaware</td><td><span class="pill p-pend">Tuesday</span></td></tr>
-    <tr><td>TBD</td><td>Close of escrow</td><td><span class="pill p-pend">TBD</span></td></tr>
+    <tr><td>Grant deed signing (notary) → COE</td><td>Sellers / All</td><td>TBD</td><td><span class="pill p-pend">TBD</span></td></tr>
   </table>
   </div>
 </section>
@@ -144,21 +189,6 @@
     <div class="term"><div class="l">Financing</div><div class="v">All Cash</div></div>
     <div class="term"><div class="l">EMD</div><div class="v">Wire — Mon Jul 6</div></div>
     <div class="term"><div class="l">Escrow</div><div class="v">Chartwell Escrow</div></div>
-  </div>
-</section>
-
-<section id="documents">
-  <h2>Documents</h2>
-  <div class="card">
-    <ul class="docs">
-      <li>✅ Seller Counter Offer 1 — signed by both sellers (Jul 4)</li>
-      <li>✅ 3 Phase Addendum — completed · <strong>needs to be filed with TC/escrow</strong></li>
-      <li>⬜ Fully executed RPA — distribute to Tim McTavish, Steve Seager, Matt Bauer, Chartwell</li>
-      <li>⬜ TDS · SPQ · Statewide Buyer/Seller Advisory · Wire Fraud Advisory</li>
-      <li>⬜ NHD report · Megan's Law disclosure · smoke/CO + water-heater compliance</li>
-      <li>⬜ Preliminary title report (review on receipt)</li>
-      <li>⬜ Grant deed (sign via escrow near closing)</li>
-    </ul>
   </div>
 </section>
 
@@ -178,7 +208,7 @@
 
 <footer>
   AMRE Real Estate Group · Compass · Michael Abraham DRE# 02242095<br>
-  Last updated Jul 5, 2026 at 10:47 AM PT
+  Last updated Jul 5, 2026 at 11:02 AM PT
 </footer>
 
 <script>
@@ -196,6 +226,13 @@ document.getElementById('code').addEventListener('keydown',function(e){if(e.key=
   var t=new Date(2026,6,6); now.setHours(0,0,0,0);
   var d=Math.round((t-now)/86400000);
   document.getElementById('dEmd').textContent=d>0?d:(d===0?'Today':'Done');
+})();
+
+// Checklist progress from pills
+(function(){
+  var rows=document.querySelectorAll('#checklist table tr');
+  var total=rows.length-1, done=document.querySelectorAll('#checklist .p-done').length;
+  document.getElementById('ckDone').textContent=done+'/'+total;
 })();
 
 // Logo swap (falls back to text wordmarks if images missing)
