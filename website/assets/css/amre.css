@@ -345,3 +345,9 @@
   .bar-row .lbl{flex:0 0 130px;font-size:.82rem;color:var(--ink-2)}
   .bar-row .bar{height:34px;border-radius:8px;display:flex;align-items:center;padding:0 12px;color:#fff;font-size:.82rem;font-weight:600;white-space:nowrap}
   @media(max-width:640px){.a-stats,.a-flow{grid-template-columns:1fr}.bar-row .lbl{flex-basis:90px}}
+
+  /* buttons inside article prose must keep button styling (not gold underlined link) */
+  .prose a.btn{text-decoration:none}
+  .prose a.btn-fill{color:var(--ink)}
+  .prose a.btn-ink,.prose a.btn-ghost,.article-cta a.btn{color:var(--bone)}
+  .prose a.btn-fill{color:var(--ink)}
