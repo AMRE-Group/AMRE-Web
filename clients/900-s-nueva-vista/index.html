@@ -27,7 +27,7 @@
   h2{font-size:20px;color:var(--navy);margin-bottom:14px}
   h3{font-size:15px;color:var(--navy);margin:20px 0 10px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:28px}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
   .stat .n{font-size:26px;font-weight:700;color:var(--navy)}
   .stat .l{font-size:12px;color:var(--muted);margin-top:2px}
@@ -40,7 +40,7 @@
   .p-open{background:#fdeaea;color:var(--red)}
   .p-sched{background:#fff4e0;color:var(--amber)}
   .p-pend{background:#eceef4;color:#4a5578}
-  .escrow-hub{background:linear-gradient(180deg,#fff,#faf9f5);border:2px solid var(--gold);border-radius:14px;padding:22px;margin-top:28px}
+  .escrow-hub{background:linear-gradient(180deg,#fff,#faf9f5);border:2px solid var(--gold);border-radius:14px;padding:22px;margin-top:24px}
   .escrow-hub .hd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
   .escrow-hub .hd h2{margin:0}
   .kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
@@ -98,13 +98,6 @@
 </div></nav>
 
 <main>
-<div class="stats" style="margin-top:24px">
-  <div class="stat"><div class="n">$737K</div><div class="l">All-Cash Price</div></div>
-  <div class="stat"><div class="n" id="dEmd">—</div><div class="l">Days to EMD Wire</div></div>
-  <div class="stat"><div class="n" id="ckDone">2/11</div><div class="l">Checklist Complete</div></div>
-  <div class="stat"><div class="n">TBD</div><div class="l">Close of Escrow</div></div>
-</div>
-
 <section id="escrow" class="escrow-hub">
   <div class="hd"><h2>Escrow — Key Information</h2></div>
   <div class="kv">
@@ -117,6 +110,13 @@
   </div>
   <div class="alert"><strong>Critical — Mon Jul 6:</strong> Buyers depart for Delaware Tue Jul 7. Chartwell must deliver wire instructions Monday morning, securely; buyers to verify by phone before wiring (wire-fraud precaution). Buyer walk-through also requested Monday before departure.</div>
 </section>
+
+<div class="stats">
+  <div class="stat"><div class="n">$737K</div><div class="l">All-Cash Price</div></div>
+  <div class="stat"><div class="n" id="dEmd">—</div><div class="l">Days to EMD Wire</div></div>
+  <div class="stat"><div class="n" id="ckDone">2/11</div><div class="l">Checklist Complete</div></div>
+  <div class="stat"><div class="n">TBD</div><div class="l">Close of Escrow</div></div>
+</div>
 
 <section id="timeline">
   <h2>Escrow Timeline</h2>
@@ -208,7 +208,7 @@
 
 <footer>
   AMRE Real Estate Group · Compass · Michael Abraham DRE# 02242095<br>
-  Last updated Jul 5, 2026 at 11:02 AM PT
+  Last updated Jul 5, 2026 at 11:06 AM PT
 </footer>
 
 <script>
