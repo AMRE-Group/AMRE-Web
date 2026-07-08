@@ -146,7 +146,8 @@ header.nav.solid .ham span{background:var(--ink)}
 .ph-hero::before{content:"";position:absolute;inset:auto -80px -120px auto;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,193,60,.18),transparent 70%)}
 .ph-hero .eyebrow{color:#ffd98a}
 .ph-hero .eyebrow::before{background:var(--clay)}
-.ph-hero h1{position:relative;font-size:clamp(2.6rem,6vw,4.6rem);font-weight:300;margin:20px 0 16px;letter-spacing:-.03em;color:#fff;max-width:16ch}
+.ph-hero h1{position:relative;font-size:clamp(1.9rem,4.4vw,3.6rem);font-weight:300;margin:20px 0 16px;letter-spacing:-.03em;color:#fff;max-width:none;white-space:nowrap}
+@media(max-width:640px){.ph-hero h1{white-space:normal}}
 .ph-hero h1 em{color:var(--clay)}
 .ph-hero .lede{position:relative;font-size:clamp(1.02rem,1.5vw,1.2rem);color:rgba(255,255,255,.82);max-width:56ch}
 
