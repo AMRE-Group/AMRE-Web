@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- amre-favicon -->
+<link rel="icon" type="image/svg+xml" href="https://amre.group/favicon.svg">
+<link rel="icon" type="image/x-icon" href="https://amre.group/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="https://amre.group/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://amre.group/assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://amre.group/apple-touch-icon.png">
+<link rel="manifest" href="https://amre.group/site.webmanifest">
+<meta name="theme-color" content="#1c3d31">
+
+<!-- amre-preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+<title>Seller Net Proceeds Calculator | AMRE Real Estate Group</title>
+<meta name="description" content="Estimate what you'd walk away with after selling your Los Angeles home. Free seller net proceeds calculator by AMRE Real Estate Group at Compass Beverly Hills — get a detailed, itemized breakdown of commission, mortgage payoff, and closing costs.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://amre.group/tools/net-proceeds-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seller Net Proceeds Calculator | AMRE Real Estate Group">
+<meta property="og:description" content="Estimate what you'd walk away with after selling your Los Angeles home — commission, mortgage payoff, and closing costs, broken down instantly.">
+<meta property="og:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-group-exterior-formal.jpg">
+<meta property="og:url" content="https://amre.group/tools/net-proceeds-calculator/">
+<meta property="og:site_name" content="AMRE Real Estate Group">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Seller Net Proceeds Calculator | AMRE Real Estate Group">
+<meta name="twitter:description" content="Estimate what you'd walk away with after selling your Los Angeles home — commission, mortgage payoff, and closing costs, broken down instantly.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-group-exterior-formal.jpg">
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="Los Angeles, California">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://amre.group/tools/net-proceeds-calculator/#app",
+  "name": "Seller Net Proceeds Calculator",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "description": "Free seller net proceeds calculator for Los Angeles real estate. Estimate commission, mortgage payoff, and closing costs to see what you'd walk away with — by AMRE Real Estate Group.",
+  "url": "https://amre.group/tools/net-proceeds-calculator/",
+  "inLanguage": "en-US",
+  "isAccessibleForFree": true,
+  "provider": { "@id": "https://amre.group/#organization" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": [
+    "Estimated net proceeds calculation",
+    "Commission estimate",
+    "Mortgage payoff tracking",
+    "Itemized closing cost breakdown",
+    "Transfer tax estimate",
+    "Title & escrow fee estimate"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is a seller net proceeds calculator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It's a close estimate based on typical Los Angeles-area seller costs — transfer taxes, escrow and title fees, and commission. It doesn't account for prorations, HOA dues, repair credits, or your specific loan terms, so your actual estimated closing statement from escrow will be more precise." }
+    },
+    {
+      "@type": "Question",
+      "name": "What closing costs does a seller typically pay in Los Angeles?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Sellers typically pay real estate commission, city and county transfer taxes, an owner's title insurance policy, escrow/settlement fees, and smaller items like recording fees, wire fees, and a home warranty." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the City of Los Angeles transfer tax rate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The City of Los Angeles documentary transfer tax is 0.45% of the sale price, plus the Los Angeles County transfer tax of 0.11%, both typically paid by the seller." }
+    }
+  ]
+}
+</script>
+
+<style>
+/* ═══ AMRE Design System (tokens + shared chrome) ═══ */
+:root{
+  --bone:#faf7f1; --bone-2:#efe7d8; --card:#ffffff;
+  --ink:#1a1a1a; --ink-2:#3a3a3c; --mute:#5a5a5a;
+  --clay:#ffc13c; --clay-dk:#e6a800;
+  --sage:#163328; --dark:#1c3d31;
+  --line:rgba(43,46,42,.14); --line-2:rgba(43,46,42,.08);
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Instrument Sans',-apple-system,Segoe UI,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bone);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.02em}
+em{font-style:italic;color:var(--dark)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+.eyebrow{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dark);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--clay)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border-radius:100px;transition:.35s var(--ease);cursor:pointer;border:1px solid transparent}
+.btn-fill{background:var(--clay);color:var(--ink)}
+.btn-fill:hover:not(:disabled){background:var(--clay-dk);transform:translateY(-2px)}
+.btn-fill:disabled{opacity:.6;cursor:wait}
+.btn-line{border-color:var(--line);color:var(--ink)}
+.btn-line:hover{border-color:var(--ink);transform:translateY(-2px)}
+.arrow{transition:transform .35s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* NAV (mounted by amre-chrome.js) */
+header.nav{position:fixed;inset:0 0 auto 0;z-index:60;transition:.4s var(--ease);padding:20px 0}
+header.nav.solid{background:rgba(250,247,241,.9);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-2);padding:12px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img.amre{height:22px;width:auto}
+.brand img.comp{height:15px;width:auto}
+.brand .sep{width:1px;height:20px;background:rgba(255,255,255,.4)}
+header.nav.solid .brand .sep{background:var(--line)}
+.logo-dark{display:none}
+header.nav.solid .logo-white{display:none}
+header.nav.solid .logo-dark{display:block}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.9);transition:.3s;letter-spacing:.01em}
+header.nav.solid .nav-links a{color:var(--ink-2)}
+.nav-links a:hover{color:#fff}
+header.nav.solid .nav-links a:hover{color:var(--clay-dk)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.ham span{width:24px;height:2px;background:#fff;transition:.3s}
+header.nav.solid .ham span{background:var(--ink)}
+@media(max-width:860px){.nav-links{display:none}.ham{display:flex}}
+
+/* Compact page header (matches /contact/ pattern) */
+.ph-hero{position:relative;padding-top:clamp(150px,20vh,220px);padding-bottom:clamp(56px,8vw,88px);background:var(--dark);color:#fff;overflow:hidden}
+.ph-hero::before{content:"";position:absolute;inset:auto -80px -120px auto;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,193,60,.18),transparent 70%)}
+.ph-hero .eyebrow{color:#ffd98a}
+.ph-hero .eyebrow::before{background:var(--clay)}
+.ph-hero h1{position:relative;font-size:clamp(2.6rem,6vw,4.6rem);font-weight:300;margin:20px 0 16px;letter-spacing:-.03em;color:#fff;max-width:16ch}
+.ph-hero h1 em{color:var(--clay)}
+.ph-hero .lede{position:relative;font-size:clamp(1.02rem,1.5vw,1.2rem);color:rgba(255,255,255,.82);max-width:56ch}
+
+/* SECTION */
+section{padding:clamp(56px,8vw,96px) 0}
+.head{max-width:780px;margin-bottom:clamp(28px,4vw,40px)}
+.head h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:300;margin:16px 0 12px;letter-spacing:-.03em}
+.head p{color:var(--mute);font-size:1.02rem;max-width:56ch}
+
+/* CALCULATOR GRID */
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+@media(max-width:900px){.calc-grid{grid-template-columns:1fr}}
+.pcard{background:var(--card);border:1px solid var(--line-2);border-radius:22px;padding:clamp(28px,3vw,36px)}
+.pcard h3{font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:20px;font-family:var(--sans)}
+
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.85rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.field .hint{display:block;font-size:.74rem;font-weight:400;color:var(--mute);margin-top:4px}
+.inp{position:relative}
+.inp .pre,.inp .post{position:absolute;top:0;height:46px;display:flex;align-items:center;color:var(--mute);font-size:.95rem;pointer-events:none}
+.inp .pre{left:14px}
+.inp .post{right:14px}
+.inp input{width:100%;height:46px;border:1px solid var(--line);border-radius:10px;padding:0 14px 0 28px;font-size:1rem;font-family:var(--sans);font-variant-numeric:tabular-nums;background:#fff;color:var(--ink);transition:border-color .15s,box-shadow .15s}
+.inp input.pct{padding:0 34px 0 14px}
+.inp input:focus{outline:none;border-color:var(--dark);box-shadow:0 0 0 3px rgba(28,61,49,.1)}
+
+details{margin-top:8px;font-size:.82rem;color:var(--mute)}
+details summary{cursor:pointer;font-weight:600;color:var(--dark)}
+details .body{padding:10px 0 2px;line-height:1.6}
+
+/* RESULT CARD */
+.result{background:var(--dark);color:#fff;border:none}
+.result h3{color:rgba(255,255,255,.6)}
+.net{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3rem);font-weight:400;letter-spacing:-.02em;margin:2px 0 4px;font-variant-numeric:tabular-nums}
+.netlabel{font-size:.8rem;color:rgba(255,255,255,.65);margin-bottom:22px}
+.line{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-top:1px solid rgba(255,255,255,.14);font-size:.92rem}
+.line span:first-child{color:rgba(255,255,255,.75)}
+.line .val{font-variant-numeric:tabular-nums;font-weight:600}
+.line.minus .val{color:#ffd4cf}
+.line.total{border-top:1px solid rgba(255,255,255,.32);margin-top:6px;padding-top:14px;font-weight:700;font-size:1rem}
+.cta-inline{margin-top:20px}
+.cta-inline .btn{width:100%;justify-content:center}
+.cta-inline .sub{text-align:center;color:rgba(255,255,255,.6);font-size:.76rem;margin:10px 0 0}
+
+/* LEAD GATE */
+.gate,.detail{background:var(--card);border:1px solid var(--line-2);border-radius:22px;padding:clamp(28px,3vw,36px);margin-top:22px;display:none}
+.gate h3,.detail h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:6px;letter-spacing:0;text-transform:none;color:var(--ink)}
+.gate p.lead{color:var(--mute);font-size:.92rem;margin:0 0 22px}
+.grow-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.grow-2{grid-template-columns:1fr}}
+.gate .field-i{margin-bottom:14px}
+.gate label{display:block;font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.gate input{width:100%;height:46px;border:1px solid var(--line);border-radius:10px;padding:0 14px;font-family:var(--sans);font-size:.95rem;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.gate input:focus{outline:none;border-color:var(--dark);box-shadow:0 0 0 3px rgba(28,61,49,.1)}
+.gate .optional{font-weight:400;color:#9a9a9a}
+.gate .submit{width:100%;height:48px;border:none;border-radius:100px;cursor:pointer;background:var(--dark);color:#fff;font-family:var(--sans);font-size:.85rem;font-weight:600;letter-spacing:.02em;transition:opacity .15s}
+.gate .submit:hover:not(:disabled){opacity:.9}
+.gate .submit:disabled{opacity:.55;cursor:wait}
+.gate .privacy{font-size:.72rem;color:var(--mute);text-align:center;margin:14px 0 0;line-height:1.5}
+.gate .err{font-size:.8rem;color:#a73a2a;background:#fdf2f0;border:1px solid #f5d4cd;border-radius:10px;padding:12px 14px;display:none;margin-top:12px}
+.gate .err.show{display:block}
+
+/* DETAIL BREAKDOWN */
+.dgroup{margin-bottom:16px}
+.dgroup .gh{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:700;margin:0 0 8px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.drow{display:flex;justify-content:space-between;padding:8px 0;font-size:.92rem}
+.drow span:last-child{font-variant-numeric:tabular-nums}
+.drow.grand{border-top:2px solid var(--ink);margin-top:10px;padding-top:14px;font-weight:700;font-size:1.15rem;color:var(--dark);font-family:var(--serif)}
+
+.disclaimer{margin-top:22px;background:#fff7e6;border:1px solid #f0d9a8;border-radius:16px;padding:18px 22px;font-size:.85rem;color:#6b551f;line-height:1.6}
+.disclaimer strong{color:#5a4718}
+
+/* FOOTER (mounted by amre-chrome.js) */
+footer{background:var(--dark);color:rgba(244,241,234,.7);padding:0 0 40px}
+.foot-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding:64px 0 44px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand{max-width:340px}
+.foot-logos{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.foot-logos img{height:20px;width:auto}
+.fsep{width:1px;height:18px;background:rgba(255,255,255,.3)}
+.foot-cols{display:flex;gap:clamp(40px,6vw,88px);flex-wrap:wrap}
+.foot-cols h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.5);margin-bottom:16px;font-weight:600}
+.foot-cols a{display:block;color:rgba(244,241,234,.78);font-size:.9rem;margin-bottom:10px;transition:.3s}
+.foot-cols a:hover{color:var(--clay)}
+.foot-bot{padding-top:28px;font-size:.78rem;color:rgba(244,241,234,.45);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.disclosure{background:var(--card);padding:32px 0}
+.disclosure-in{display:flex;align-items:center;gap:32px}
+.disclosure-in p{font-size:.72rem;font-weight:300;line-height:1.7;color:var(--mute);flex:1}
+.disclosure-in p a{color:#0064e5;text-decoration:underline}
+.disclosure-in img{height:60px;width:auto;flex-shrink:0}
+@media(max-width:720px){.disclosure-in{flex-direction:column;gap:18px;text-align:center}}
+</style>
+</head>
+<body>
+
+<div id="amre-nav"></div>
+
+<section class="ph-hero">
+  <div class="wrap">
+    <span class="eyebrow">AMRE &middot; Seller Tools</span>
+    <h1>What will you <em>walk away</em> with?</h1>
+    <p class="lede">Get an instant estimate of your net proceeds after commission, mortgage payoff, and closing costs — then unlock a full itemized breakdown built from real Los Angeles escrow figures.</p>
+  </div>
+</section>
+
+<section style="padding-top:clamp(40px,6vw,64px)">
+  <div class="wrap">
+    <div class="calc-grid">
+      <div class="pcard">
+        <h3>Your Numbers</h3>
+        <div class="field">
+          <label for="price">Estimated sale price</label>
+          <div class="inp"><span class="pre">$</span><input type="text" id="price" inputmode="numeric" value="2,000,000"></div>
+        </div>
+        <div class="field">
+          <label for="comm">Total commission
+            <span class="hint">Typically 5&ndash;6% total (both agents combined)</span>
+          </label>
+          <div class="inp"><input type="text" id="comm" class="pct" inputmode="decimal" value="5.5"><span class="post">%</span></div>
+        </div>
+        <div class="field">
+          <label for="mortgage">Remaining mortgage balance
+            <span class="hint">Amount still owed on your loan(s)</span>
+          </label>
+          <div class="inp"><span class="pre">$</span><input type="text" id="mortgage" inputmode="numeric" value="350,000"></div>
+        </div>
+        <div class="field">
+          <label for="costs">Estimated closing costs
+            <span class="hint">Transfer taxes, escrow, title &amp; fees (auto-estimated &mdash; edit if known)</span>
+          </label>
+          <div class="inp"><span class="pre">$</span><input type="text" id="costs" inputmode="numeric" value="21,008"></div>
+        </div>
+        <details>
+          <summary>What's in "closing costs"?</summary>
+          <div class="body">
+            This bundles the typical Los Angeles-area seller costs: City of LA transfer tax (0.45%), LA County transfer tax (0.11%), owner's title insurance policy, escrow/settlement fee, and smaller items (recording, wires, disclosures, home warranty). It's auto-calculated from your sale price — your actual escrow statement will itemize each one exactly.
+          </div>
+        </details>
+      </div>
+
+      <div class="pcard result">
+        <h3>Estimated Result</h3>
+        <div class="net" id="net">$0</div>
+        <div class="netlabel">Estimated net proceeds to you</div>
+        <div class="line minus"><span>Sale price</span><span class="val" id="rPrice">$0</span></div>
+        <div class="line minus"><span>Less: commission</span><span class="val" id="rComm">$0</span></div>
+        <div class="line minus"><span>Less: mortgage payoff</span><span class="val" id="rMort">$0</span></div>
+        <div class="line minus"><span>Less: closing costs</span><span class="val" id="rCost">$0</span></div>
+        <div class="line total"><span>Estimated net proceeds</span><span class="val" id="rNet">$0</span></div>
+        <div class="cta-inline">
+          <button type="button" class="btn btn-fill" id="unlockBtn">See your full breakdown <span class="arrow">&rarr;</span></button>
+          <p class="sub">Get a detailed, itemized report by email.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lead gate -->
+    <div class="gate" id="gate">
+      <h3>Get your full itemized breakdown</h3>
+      <p class="lead">Enter your info and we'll unlock the detailed report below, plus email you a copy for your records.</p>
+      <form id="leadForm">
+        <div class="field-i">
+          <label for="lName">Full name</label>
+          <input type="text" id="lName" name="full_name" required>
+        </div>
+        <div class="grow-2">
+          <div class="field-i">
+            <label for="lEmail">Email address</label>
+            <input type="email" id="lEmail" name="email" required>
+          </div>
+          <div class="field-i">
+            <label for="lPhone">Phone <span class="optional">(optional)</span></label>
+            <input type="text" id="lPhone" name="phone" inputmode="tel">
+          </div>
+        </div>
+        <div class="field-i">
+          <label for="lAddress">Home address <span class="optional">(optional)</span></label>
+          <input type="text" id="lAddress" name="address" placeholder="123 Main St, Los Angeles, CA">
+        </div>
+        <button type="submit" class="submit" id="gateSubmit">Unlock full breakdown</button>
+        <p class="privacy">We respect your privacy. Your information is used only to share your estimate and helpful home-selling insights. No spam.</p>
+        <div class="err" id="gateErr">Something went wrong sending your report — your breakdown is unlocked below, but please try again or <a href="/contact/">contact us</a> to get a copy by email.</div>
+      </form>
+    </div>
+
+    <!-- Detailed breakdown -->
+    <div class="detail" id="detail">
+      <h3>Your detailed estimate</h3>
+      <div class="dgroup">
+        <p class="gh">Sale</p>
+        <div class="drow"><span>Estimated sale price</span><span id="dPrice">$0</span></div>
+      </div>
+      <div class="dgroup">
+        <p class="gh">Commission</p>
+        <div class="drow"><span id="dCommLbl">Total commission</span><span id="dComm">$0</span></div>
+      </div>
+      <div class="dgroup">
+        <p class="gh">Loan payoff</p>
+        <div class="drow"><span>Remaining mortgage balance</span><span id="dMort">$0</span></div>
+      </div>
+      <div class="dgroup">
+        <p class="gh">Closing costs</p>
+        <div class="drow"><span>City of LA transfer tax (0.45%)</span><span id="dCity">$0</span></div>
+        <div class="drow"><span>LA County transfer tax (0.11%)</span><span id="dCounty">$0</span></div>
+        <div class="drow"><span>Escrow / settlement fee</span><span id="dEscrow">$0</span></div>
+        <div class="drow"><span>Owner's title policy</span><span id="dTitle">$0</span></div>
+        <div class="drow"><span>Other fees (recording, wires, disclosures, home warranty)</span><span id="dOther">$0</span></div>
+        <div class="drow"><span>Total closing costs</span><span id="dCosts">$0</span></div>
+      </div>
+      <div class="drow grand"><span>Estimated net proceeds</span><span id="dNet">$0</span></div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>For informational purposes only.</strong> This calculator provides a rough estimate based on typical Los Angeles-area seller costs and does not account for every fee, proration, credit, or tax that may apply to your sale (including property tax prorations, HOA dues, repair credits, or state/federal withholding). It is not a guarantee, quote, or financial advice. For exact figures, please speak with your escrow officer and a licensed real estate professional, who can prepare an official estimated seller's closing statement for your property.
+    </div>
+  </div>
+</section>
+
+<div id="amre-footer"></div>
+
+<script src="/assets/js/amre-chrome.js" defer></script>
+<script>
+(function(){
+  // ── EmailJS config (same AMRE account used site-wide) ──
+  var EMAILJS_PUBLIC_KEY = 'yWt3TMJ6ysOrH3vH1';
+  var EMAILJS_SERVICE_ID = 'service_rvg801y';
+  // TODO(Michael): create these two templates in EmailJS and paste their IDs here.
+  // See the setup notes provided alongside this file for exact template content.
+  var EMAILJS_TEMPLATE_USER = 'REPLACE_WITH_USER_TEMPLATE_ID';
+  var EMAILJS_TEMPLATE_LEAD = 'REPLACE_WITH_LEAD_TEMPLATE_ID';
+  var EMAILJS_CONFIGURED = EMAILJS_TEMPLATE_USER.indexOf('REPLACE_WITH') !== 0;
+
+  if (typeof emailjs !== 'undefined') {
+    try { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch(e){}
+  }
+
+  var P = document.getElementById('price'),
+      C = document.getElementById('comm'),
+      M = document.getElementById('mortgage'),
+      K = document.getElementById('costs');
+  var costsEdited = false;
+
+  function num(el){ var v = parseFloat((el.value||'').replace(/[^0-9.]/g,'')); return isNaN(v) ? 0 : v; }
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  // Auto closing-cost model derived from real LA escrow statements (validated against
+  // three actual seller closing statements at $2.0M/$2.1M/$2.2M): transfer taxes
+  // (0.45% city + 0.11% county) + escrow/title/misc fees (~0.2725% + $4,357.71 flat).
+  function autoCosts(price){ return price * 0.008325 + 4357.71; }
+  function fmtThousands(el){
+    var raw = el.value.replace(/[^0-9]/g,'');
+    if (raw === '') { el.value = ''; return; }
+    el.value = parseInt(raw,10).toLocaleString('en-US');
+  }
+
+  function calc(){
+    var price = num(P), commPct = num(C), mort = num(M);
+    if (!costsEdited) K.value = Math.round(autoCosts(price)).toLocaleString('en-US');
+    var comm = price * commPct / 100;
+    var costs = num(K);
+    var net = price - comm - mort - costs;
+
+    document.getElementById('rPrice').textContent = money(price);
+    document.getElementById('rComm').textContent = '−' + money(comm);
+    document.getElementById('rMort').textContent = '−' + money(mort);
+    document.getElementById('rCost').textContent = '−' + money(costs);
+    document.getElementById('rNet').textContent = money(net);
+    document.getElementById('net').textContent = money(net);
+
+    // Itemized breakdown, reconciled to whatever total the "costs" field shows
+    var city = price * 0.0045;
+    var county = price * 0.0011;
+    var escrowFee = Math.max(0, 4500 + (price - 2000000) * 0.002);
+    var titleFee = Math.max(0, 3946 + (price - 2000000) * 0.000725);
+    var other = costs - city - county - escrowFee - titleFee;
+
+    document.getElementById('dPrice').textContent = money(price);
+    document.getElementById('dCommLbl').textContent = 'Total commission (' + (commPct||0) + '%)';
+    document.getElementById('dComm').textContent = money(comm);
+    document.getElementById('dMort').textContent = money(mort);
+    document.getElementById('dCity').textContent = money(city);
+    document.getElementById('dCounty').textContent = money(county);
+    document.getElementById('dEscrow').textContent = money(escrowFee);
+    document.getElementById('dTitle').textContent = money(titleFee);
+    document.getElementById('dOther').textContent = money(other);
+    document.getElementById('dCosts').textContent = money(costs);
+    document.getElementById('dNet').textContent = money(net);
+
+    return { price:price, commPct:commPct, comm:comm, mort:mort, costs:costs, net:net,
+             city:city, county:county, escrowFee:escrowFee, titleFee:titleFee, other:other };
+  }
+
+  function buildReport(d, lead){
+    return [
+      '=== SELLER NET PROCEEDS ESTIMATE ===',
+      'Property: ' + (lead.address || 'Not specified'),
+      '',
+      'Estimated Sale Price: ' + money(d.price),
+      '',
+      '=== COMMISSION ===',
+      'Total Commission (' + d.commPct + '%): ' + money(d.comm),
+      '',
+      '=== LOAN PAYOFF ===',
+      'Remaining Mortgage Balance: ' + money(d.mort),
+      '',
+      '=== ESTIMATED CLOSING COSTS ===',
+      'City of LA Transfer Tax (0.45%): ' + money(d.city),
+      'LA County Transfer Tax (0.11%): ' + money(d.county),
+      'Escrow / Settlement Fee: ' + money(d.escrowFee),
+      "Owner's Title Policy: " + money(d.titleFee),
+      'Other Fees (recording, wires, disclosures, home warranty): ' + money(d.other),
+      'Total Closing Costs: ' + money(d.costs),
+      '',
+      '=== ESTIMATED NET PROCEEDS ===',
+      'Sale Price: ' + money(d.price),
+      '− Commission: ' + money(d.comm),
+      '− Mortgage Payoff: ' + money(d.mort),
+      '− Closing Costs: ' + money(d.costs),
+      '= NET PROCEEDS TO SELLER: ' + money(d.net),
+      '',
+      'This is an informational estimate only, not a guarantee. For exact figures, contact AMRE for a full estimated seller’s closing statement.'
+    ].join('\n');
+  }
+
+  document.getElementById('unlockBtn').addEventListener('click', function(){
+    var g = document.getElementById('gate');
+    g.style.display = 'block';
+    g.scrollIntoView({ behavior:'smooth', block:'center' });
+    var e = document.getElementById('lName'); if (e) setTimeout(function(){ e.focus(); }, 300);
+  });
+
+  document.getElementById('leadForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var name = document.getElementById('lName').value.trim();
+    var email = document.getElementById('lEmail').value.trim();
+    var phone = document.getElementById('lPhone').value.trim();
+    var address = document.getElementById('lAddress').value.trim();
+
+    if (!name) { alert('Please enter your full name.'); return; }
+    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+
+    var btn = document.getElementById('gateSubmit');
+    var errEl = document.getElementById('gateErr');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    errEl.classList.remove('show');
+
+    var d = calc();
+    var lead = { name:name, email:email, phone:phone, address:address };
+    var report = buildReport(d, lead);
+
+    function reveal(){
+      document.getElementById('gate').style.display = 'none';
+      var det = document.getElementById('detail');
+      det.style.display = 'block';
+      det.scrollIntoView({ behavior:'smooth', block:'start' });
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event:'lead_submit', form_type:'seller_net_proceeds', form_source:(window.location.host+window.location.pathname), lead_value:1500, currency:'USD' });
+      } catch(_){}
+    }
+
+    if (!EMAILJS_CONFIGURED || typeof emailjs === 'undefined') {
+      console.log('EmailJS not configured yet — lead captured locally:', lead, report);
+      reveal();
+      return;
+    }
+
+    var params = {
+      to_name: name.split(' ')[0] || name,
+      to_email: email,
+      full_name: name,
+      email: email,
+      phone: phone || 'Not provided',
+      address: address || 'Not specified',
+      sale_price: money(d.price),
+      net_proceeds: money(d.net),
+      full_analysis: report,
+      source: window.location.host + window.location.pathname,
+      reply_to: email
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_USER, params)
+      .then(function(){ return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD, params); })
+      .then(function(){
+        btn.textContent = 'Unlock full breakdown';
+        btn.disabled = false;
+        reveal();
+      })
+      .catch(function(err){
+        console.error('AMRE net-proceeds form: EmailJS error', err);
+        btn.disabled = false;
+        btn.textContent = 'Unlock full breakdown';
+        errEl.classList.add('show');
+        reveal();
+      });
+  });
+
+  [P, M].forEach(function(el){ el.addEventListener('input', function(){ fmtThousands(el); calc(); }); });
+  C.addEventListener('input', calc);
+  K.addEventListener('input', function(){ costsEdited = true; fmtThousands(K); calc(); });
+  K.addEventListener('blur', function(){ if (K.value.trim() === '') { costsEdited = false; calc(); } });
+  calc();
+})();
+</script>
+</body>
+</html>
