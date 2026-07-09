@@ -44,7 +44,7 @@
   .nav{position:fixed;top:0;left:0;width:100%;z-index:60;transition:.4s;padding:22px 0}
   .nav.solid{background:rgba(247,244,238,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 0}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between}
-  .nav-links{display:flex;gap:32px}
+  .nav-links{display:flex;gap:24px}
   .nav-links a{text-decoration:none;color:rgba(255,255,255,.96);font-size:15px;letter-spacing:.18em;text-transform:uppercase;transition:.3s}
   .nav.solid .nav-links a{color:var(--soft)}
   .nav-links a:hover{color:var(--clay)}
@@ -161,16 +161,21 @@
   .poi-row p{color:var(--soft);font-size:15.5px;margin-top:2px}
   .poi-row .tag{font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--label)}
   @media(max-width:680px){.poi-row{grid-template-columns:74px 1fr}.poi-row .tag{display:none}}
-  /* PRESS */
-  .press{padding:78px 0;background:var(--ivory);border-top:1px solid var(--line)}
-  .press-wrap{max-width:900px;display:grid;grid-template-columns:150px 1fr;gap:44px;align-items:center}
-  .press-art svg{width:132px;height:auto;display:block}
-  .press-body .eyebrow{margin-bottom:10px}
-  .press-body h3{font-size:29px;font-weight:400;line-height:1.15;margin-bottom:12px}
-  .press-body p{color:var(--soft);font-size:16px;margin-bottom:16px;max-width:560px}
-  .press-link{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);text-decoration:none;border-bottom:1px solid var(--clay);padding-bottom:3px;transition:.25s}
-  .press-link:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
-  @media(max-width:680px){.press-wrap{grid-template-columns:1fr;gap:22px;text-align:center}.press-art svg{margin:0 auto}.press-body p{margin-left:auto;margin-right:auto}}
+  /* BRINGING SMILES */
+  .press{padding:120px 0;background:var(--ivory);border-top:1px solid var(--line)}
+  .press .head{margin-bottom:46px}
+  .press .head p{color:var(--soft);max-width:740px;margin:22px auto 0;font-size:17px}
+  .press .head p b{color:var(--ink);font-weight:500}
+  .smiles-grid{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+  .smiles-grid figure{margin:0;overflow:hidden;border-radius:6px;background:#e7e0d1}
+  .smiles-grid img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .6s ease}
+  .smiles-grid img:hover{transform:scale(1.04)}
+  .smiles-grid .sm-t{aspect-ratio:3/2}
+  .smiles-grid .sm-feature{grid-column:1;grid-row:1 / span 2}
+  .press-credit{text-align:center;font-size:12px;letter-spacing:.04em;color:var(--label);margin-top:22px}
+  .press-credit a{color:var(--clay);text-decoration:none;border-bottom:1px solid var(--clay);padding-bottom:2px;transition:.25s}
+  .press-credit a:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
+  @media(max-width:820px){.smiles-grid{grid-template-columns:1fr 1fr}.smiles-grid .sm-feature{grid-column:1 / span 2;grid-row:auto;aspect-ratio:16/10}}
 
   /* INQUIRE */
   .inquire{position:relative;padding:150px 0;text-align:center;overflow:hidden;background:var(--green)}
@@ -239,6 +244,7 @@
       <a href="#site">Site Plan</a>
       <a href="#options">Options</a>
       <a href="#setting">Neighborhood</a>
+      <a href="#smiles">Bringing Smiles</a>
     </div>
     <a href="#inquire" class="nav-cta">Inquire</a>
   </div>
@@ -603,32 +609,23 @@
     <p class="note">Drive times are approximate and to be verified.</p>
   </div>
 </section>
-<!-- IN THE PRESS -->
-<section class="press" id="press">
-  <div class="wrap press-wrap">
-    <div class="press-art" aria-hidden="true">
-      <svg viewBox="0 0 120 150" role="img" aria-label="Whimsical fairy tree">
-        <circle cx="60" cy="46" r="38" fill="#3f4a3c"/>
-        <circle cx="34" cy="58" r="22" fill="#48543f"/>
-        <circle cx="86" cy="58" r="22" fill="#48543f"/>
-        <circle cx="30" cy="40" r="2.2" fill="#9c7838"/>
-        <circle cx="92" cy="46" r="2.2" fill="#9c7838"/>
-        <circle cx="74" cy="30" r="1.7" fill="#9c7838"/>
-        <path d="M50 78 h20 v42 q0 8 -6 8 h-8 q-6 0 -6 -8 z" fill="#8f4f38"/>
-        <path d="M44 128 q-8 6 -20 6 M76 128 q8 6 20 6" stroke="#8f4f38" stroke-width="5" fill="none" stroke-linecap="round"/>
-        <circle cx="60" cy="90" r="4" fill="#cdbfa6"/>
-        <path d="M54 106 q0 -9 6 -9 q6 0 6 9 v14 h-12 z" fill="#a8634a"/>
-        <circle cx="63.5" cy="112" r="1.4" fill="#f7f4ee"/>
-        <path d="M18 132 q7 -9 15 0 z" fill="#a8634a"/>
-        <rect x="23.5" y="132" width="4" height="7" fill="#e4dcca"/>
-      </svg>
-    </div>
-    <div class="press-body">
+<!-- BRINGING SMILES -->
+<section class="press" id="smiles">
+  <div class="wrap">
+    <div class="head">
       <div class="eyebrow">As Featured in the Los Angeles Times</div>
-      <h3>Continue the tradition of bringing smiles</h3>
-      <p>Just up the block, a century-old carob tree became a neighborhood landmark when a resident tucked a whole fairy-and-gnome village into its roots — popsicle-stick doors, pinecone-scale shingles, tiny walkways — drawing photographs, fan mail, and daily smiles from passersby. Its next chapter is yours to write.</p>
-      <a class="press-link" href="https://www.latimes.com/home/garden/la-hm-magical-fairy-tree-20171007-story.html" target="_blank" rel="noopener">Read the L.A. Times story &rarr;</a>
+      <div class="rule" style="margin:18px auto"></div>
+      <h2>Bringing Smiles</h2>
+      <p>A short walk from the front door, a 100-year-old carob tree is one of the neighborhood's quiet landmarks. When its roots began buckling the sidewalk, a resident answered not with hazard cones but with whimsy — building a tiny fairy-and-gnome world into the trunk from popsicle-stick doors, pine-cone shingles, and miniature walkways. It draws photographs, fan mail, and small handmade gifts from neighborhood children, and it became a Los Angeles Times story about how a little magic can make strangers smile. <b>Move in, and the tradition of bringing smiles is yours to continue.</b></p>
     </div>
+    <div class="smiles-grid">
+      <figure class="sm-feature"><img class="lb" data-group="smiles" src="847-assets/tree-1.jpg" alt="A resident beside the fairy garden built into the tree's roots"></figure>
+      <figure class="sm-t"><img class="lb" data-group="smiles" src="847-assets/tree-2.jpg" alt="A fairy on a handmade swing hanging from a branch"></figure>
+      <figure class="sm-t"><img class="lb" data-group="smiles" src="847-assets/tree-3.jpg" alt="A gnome tucked into the trunk with tiny ladders"></figure>
+      <figure class="sm-t"><img class="lb" data-group="smiles" src="847-assets/tree-4.jpg" alt="A whimsical popsicle-stick fairy door"></figure>
+      <figure class="sm-t"><img class="lb" data-group="smiles" src="847-assets/tree-5.jpg" alt="The magical tree and garden along the sidewalk"></figure>
+    </div>
+    <p class="press-credit">Photographs by Gina Ferazzi / Los Angeles Times · <a href="https://www.latimes.com/home/garden/la-hm-magical-fairy-tree-20171007-story.html" target="_blank" rel="noopener">Read the full story &rarr;</a></p>
   </div>
 </section>
 <!-- INQUIRE -->
