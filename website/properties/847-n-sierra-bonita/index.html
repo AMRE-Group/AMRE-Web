@@ -161,6 +161,17 @@
   .poi-row p{color:var(--soft);font-size:15.5px;margin-top:2px}
   .poi-row .tag{font-size:13.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--label)}
   @media(max-width:680px){.poi-row{grid-template-columns:74px 1fr}.poi-row .tag{display:none}}
+  /* PRESS */
+  .press{padding:78px 0;background:var(--ivory);border-top:1px solid var(--line)}
+  .press-wrap{max-width:900px;display:grid;grid-template-columns:150px 1fr;gap:44px;align-items:center}
+  .press-art svg{width:132px;height:auto;display:block}
+  .press-body .eyebrow{margin-bottom:10px}
+  .press-body h3{font-size:29px;font-weight:400;line-height:1.15;margin-bottom:12px}
+  .press-body p{color:var(--soft);font-size:16px;margin-bottom:16px;max-width:560px}
+  .press-link{display:inline-block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);text-decoration:none;border-bottom:1px solid var(--clay);padding-bottom:3px;transition:.25s}
+  .press-link:hover{color:var(--clay-deep);border-color:var(--clay-deep)}
+  @media(max-width:680px){.press-wrap{grid-template-columns:1fr;gap:22px;text-align:center}.press-art svg{margin:0 auto}.press-body p{margin-left:auto;margin-right:auto}}
+
   /* INQUIRE */
   .inquire{position:relative;padding:150px 0;text-align:center;overflow:hidden;background:var(--green)}
   .inquire .ph{position:absolute;inset:0;background:repeating-linear-gradient(45deg,#37402f,#37402f 16px,#3f4a3c 16px,#3f4a3c 32px)}
@@ -590,6 +601,34 @@
       <div class="poi-row"><div class="d">12</div><div><h3>Beverly Hills</h3><p>Rodeo Drive luxury shopping and dining to the west.</p></div><div class="tag">Minutes</div></div>
     </div>
     <p class="note">Drive times are approximate and to be verified.</p>
+  </div>
+</section>
+<!-- IN THE PRESS -->
+<section class="press" id="press">
+  <div class="wrap press-wrap">
+    <div class="press-art" aria-hidden="true">
+      <svg viewBox="0 0 120 150" role="img" aria-label="Whimsical fairy tree">
+        <circle cx="60" cy="46" r="38" fill="#3f4a3c"/>
+        <circle cx="34" cy="58" r="22" fill="#48543f"/>
+        <circle cx="86" cy="58" r="22" fill="#48543f"/>
+        <circle cx="30" cy="40" r="2.2" fill="#9c7838"/>
+        <circle cx="92" cy="46" r="2.2" fill="#9c7838"/>
+        <circle cx="74" cy="30" r="1.7" fill="#9c7838"/>
+        <path d="M50 78 h20 v42 q0 8 -6 8 h-8 q-6 0 -6 -8 z" fill="#8f4f38"/>
+        <path d="M44 128 q-8 6 -20 6 M76 128 q8 6 20 6" stroke="#8f4f38" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="60" cy="90" r="4" fill="#cdbfa6"/>
+        <path d="M54 106 q0 -9 6 -9 q6 0 6 9 v14 h-12 z" fill="#a8634a"/>
+        <circle cx="63.5" cy="112" r="1.4" fill="#f7f4ee"/>
+        <path d="M18 132 q7 -9 15 0 z" fill="#a8634a"/>
+        <rect x="23.5" y="132" width="4" height="7" fill="#e4dcca"/>
+      </svg>
+    </div>
+    <div class="press-body">
+      <div class="eyebrow">As Featured in the Los Angeles Times</div>
+      <h3>Continue the tradition of bringing smiles</h3>
+      <p>Just up the block, a century-old carob tree became a neighborhood landmark when a resident tucked a whole fairy-and-gnome village into its roots — popsicle-stick doors, pinecone-scale shingles, tiny walkways — drawing photographs, fan mail, and daily smiles from passersby. Its next chapter is yours to write.</p>
+      <a class="press-link" href="https://www.latimes.com/home/garden/la-hm-magical-fairy-tree-20171007-story.html" target="_blank" rel="noopener">Read the L.A. Times story &rarr;</a>
+    </div>
   </div>
 </section>
 <!-- INQUIRE -->
