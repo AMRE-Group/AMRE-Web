@@ -939,5 +939,131 @@
 
 
 <script src="/assets/js/amre-chrome.js" defer></script>
+<!-- ═══ Off-Market Home Report popup (Cowork) ═══ -->
+<style id="omh-styles">
+.omh-cta{display:inline-flex;align-items:center;gap:9px;border:none;cursor:pointer;font-family:'Instrument Sans',-apple-system,Segoe UI,sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;padding:15px 30px;border-radius:100px;transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s,background .35s}
+.omh-gold{background:linear-gradient(135deg,#ffc13c 0%,#e6a800 100%);color:#1a1a1a;box-shadow:0 8px 22px -8px rgba(230,168,0,.55)}
+.omh-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px -8px rgba(230,168,0,.7);background:linear-gradient(135deg,#ffce5e 0%,#ffc13c 100%)}
+.omh-arrow{transition:transform .35s cubic-bezier(.22,.61,.36,1)}
+.omh-cta:hover .omh-arrow{transform:translateX(4px)}
+.omh-newpill{display:inline-flex;align-items:center;background:#ffc13c;color:#1a1a1a;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;border-radius:100px;line-height:1;font-family:'Instrument Sans',sans-serif}
+.omh-bar{position:fixed;left:0;right:0;bottom:0;z-index:9990;background:linear-gradient(90deg,#163328 0%,#1c3d31 55%,#24503f 100%);color:#fff;display:flex;align-items:center;justify-content:center;gap:16px;padding:15px 20px;flex-wrap:wrap;transform:translateY(120%);transition:transform .4s cubic-bezier(.22,.61,.36,1);border-top:2px solid #ffc13c}
+.omh-bar.omh-on{transform:translateY(0)}
+.omh-bar .omh-msg{font-family:'Instrument Sans',sans-serif;font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:12px}
+.omh-bar .omh-msg b{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:17px}
+.omh-bar .omh-msg .omh-lt{color:rgba(255,255,255,.8);font-weight:400}
+.omh-bar .omh-cta{padding:11px 22px}
+.omh-x{background:none;border:none;color:rgba(255,255,255,.6);font-size:20px;cursor:pointer;line-height:1;padding:0 4px}
+.omh-x:hover{color:#fff}
+.omh-back{position:fixed;inset:0;z-index:9991;background:rgba(20,30,25,.55);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s}
+.omh-back.omh-on{opacity:1;pointer-events:auto}
+.omh-modal{position:relative;background:#fff;width:100%;max-width:480px;border-radius:20px;padding:34px 34px 22px;box-shadow:0 30px 80px rgba(23,19,16,.4);transform:translateY(16px);transition:transform .3s cubic-bezier(.22,.61,.36,1);max-height:92vh;overflow-y:auto;overflow-x:hidden;font-family:'Instrument Sans',sans-serif}
+.omh-modal::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#1c3d31 0%,#e6a800 55%,#ffc13c 100%)}
+.omh-modal::after{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(255,193,60,.20),transparent 70%);pointer-events:none}
+.omh-back.omh-on .omh-modal{transform:translateY(0)}
+.omh-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border:none;background:#efe7d8;border-radius:50%;cursor:pointer;font-size:18px;color:#5a5a5a;display:flex;align-items:center;justify-content:center;transition:.2s;z-index:2}
+.omh-close:hover{background:#faf7f1;color:#1a1a1a;transform:rotate(90deg)}
+.omh-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;position:relative;z-index:1}
+.omh-badge .omh-lbl{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#1c3d31}
+.omh-h{font-family:'Fraunces',Georgia,serif;font-size:27px;font-weight:400;line-height:1.12;margin-bottom:10px;position:relative;z-index:1;color:#1a1a1a;letter-spacing:-.02em}
+.omh-sub{font-size:13.5px;font-weight:400;line-height:1.6;color:#3a3a3c;margin-bottom:18px;position:relative;z-index:1}
+.omh-sub b{color:#1c3d31;font-weight:600}
+.omh-trust{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.omh-trust .omh-tb{font-size:11px;font-weight:600;color:#1c3d31;display:flex;align-items:center;gap:5px}
+.omh-trust .omh-tb .omh-tk{color:#e6a800;font-size:13px}
+.omh-proof{display:flex;gap:12px;align-items:flex-start;border-radius:12px;padding:14px 16px;margin-bottom:22px;border-left:3px solid #ffc13c;background:linear-gradient(135deg,rgba(255,193,60,.16) 0%,rgba(28,61,49,.06) 100%)}
+.omh-proof p{font-size:12.5px;font-style:italic;color:#1a1a1a;line-height:1.5}
+.omh-proof p b{font-style:normal;color:#1c3d31;display:block;margin-top:6px;font-size:11px;letter-spacing:.02em}
+.omh-steps{display:flex;align-items:center;gap:8px;margin-bottom:18px}
+.omh-dot{height:4px;flex:1;border-radius:2px;background:rgba(43,46,42,.14);transition:background .3s}
+.omh-dot.omh-don{background:#1c3d31}
+.omh-dot.omh-done{background:#ffc13c}
+.omh-field{margin-bottom:14px}
+.omh-field label{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;color:#5a5a5a;margin-bottom:6px;text-transform:uppercase}
+.omh-field label .omh-opt{color:#9a9a94;font-weight:400;text-transform:none;letter-spacing:0}
+.omh-field label .omh-req{color:#e6a800}
+.omh-field input,.omh-field select{width:100%;font-family:'Instrument Sans',sans-serif;font-size:14px;padding:12px 14px;border:1px solid rgba(43,46,42,.14);border-radius:10px;background:#fbfaf6;color:#1a1a1a;transition:.2s}
+.omh-field input:focus,.omh-field select:focus{outline:none;border-color:#1c3d31;background:#fff;box-shadow:0 0 0 3px rgba(28,61,49,.08)}
+.omh-rowf{display:flex;gap:12px}
+.omh-rowf .omh-field{flex:1}
+.omh-submit{width:100%;height:52px;border:none;border-radius:100px;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#1a1a1a;background:linear-gradient(135deg,#ffc13c 0%,#e6a800 100%);box-shadow:0 8px 22px -8px rgba(230,168,0,.55);transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s,background .3s;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px}
+.omh-submit:hover{transform:translateY(-2px);box-shadow:0 14px 32px -8px rgba(230,168,0,.72);background:linear-gradient(135deg,#ffce5e 0%,#ffc13c 100%)}
+.omh-submit:disabled{opacity:.65;cursor:wait;transform:none;box-shadow:none}
+.omh-backlink{background:none;border:none;color:#5a5a5a;font-size:12px;cursor:pointer;margin-top:12px;text-decoration:underline}
+.omh-backlink:hover{color:#1c3d31}
+.omh-micro{font-size:11px;color:#9a9a94;text-align:center;margin-top:9px;line-height:1.4}
+.omh-hide{display:none}
+.omh-success{text-align:center;padding:14px 0;position:relative;z-index:1}
+.omh-success .omh-check{width:62px;height:62px;border-radius:50%;color:#1a1a1a;font-size:30px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;background:linear-gradient(135deg,#ffc13c 0%,#e6a800 120%);box-shadow:0 10px 26px -8px rgba(230,168,0,.6)}
+.omh-success h3{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:24px;margin-bottom:10px;color:#1c3d31}
+.omh-success p{font-size:13px;color:#3a3a3c;line-height:1.6}
+.omh-success .omh-next{margin-top:18px;padding:12px 14px;border-radius:12px;font-size:12px;color:#1c3d31;text-align:left;background:linear-gradient(135deg,rgba(255,193,60,.16),rgba(28,61,49,.06));border-left:3px solid #ffc13c}
+@media(max-width:520px){.omh-bar .omh-msg{font-size:12px}.omh-bar .omh-msg b{font-size:15px}.omh-modal{padding:30px 22px 20px}.omh-h{font-size:23px}}
+</style>
+<div class="omh-bar" id="omhBar">
+  <span class="omh-msg"><span class="omh-newpill">New</span><b>Our weekly off-market home report</b><span class="omh-lt">&mdash; access for 1 month</span></span>
+  <button class="omh-cta omh-gold" onclick="omhOpen('bar')">See if you're a fit <span class="omh-arrow">&rarr;</span></button>
+  <button class="omh-x" onclick="document.getElementById('omhBar').classList.remove('omh-on')" aria-label="Close">&times;</button>
+</div>
+<div class="omh-back" id="omhBack" onclick="if(event.target===this)omhClose()">
+  <div class="omh-modal" role="dialog" aria-modal="true" aria-label="Off-market report signup">
+    <button class="omh-close" onclick="omhClose()" aria-label="Close">&times;</button>
+    <div id="omhForm">
+      <div class="omh-badge"><span class="omh-newpill">New</span><span class="omh-lbl">1 Month of Access</span></div>
+      <div class="omh-h" id="omhTitle">Find the homes you&rsquo;ve been missing with our weekly Compass Exclusive report.</div>
+      <div class="omh-sub" id="omhSub">It's part of the service we give our buyers &mdash; homes 30&ndash;90 days before they hit MLS, matched to your search. <b>Get access for one month</b>, then keep it going only if it's useful.</div>
+      <div class="omh-trust">
+        <span class="omh-tb"><span class="omh-tk">&check;</span> 1 month of access</span>
+        <span class="omh-tb"><span class="omh-tk">&check;</span> Cancel anytime</span>
+        <span class="omh-tb"><span class="omh-tk">&check;</span> Off-market homes</span>
+      </div>
+      <div class="omh-proof"><p>"We'd been losing bidding wars for 3 months, then Michael &amp; Ania showed us a Compass private exclusive that never went public, and we found the perfect home."<b>&mdash; V.M., Culver City &middot; Closed April 2026</b></p></div>
+      <div class="omh-steps"><div class="omh-dot omh-don" id="omhD1"></div><div class="omh-dot" id="omhD2"></div></div>
+      <form onsubmit="return false">
+        <div id="omhStep1">
+          <div class="omh-field"><label>Email <span class="omh-req">*</span></label><input type="email" id="omhEmail" placeholder="you@email.com"></div>
+          <div class="omh-field"><label>Target neighborhoods <span class="omh-req">*</span></label><input type="text" id="omhNbhd" placeholder="e.g. Culver City, Silver Lake, WeHo"></div>
+          <button class="omh-submit" onclick="omhStep2()">Start my 1-month access <span>&rarr;</span></button>
+          <div class="omh-micro">Takes 20 seconds &middot; First report at the start of next week</div>
+        </div>
+        <div id="omhStep2" class="omh-hide">
+          <div class="omh-rowf">
+            <div class="omh-field"><label>First name <span class="omh-opt">(optional)</span></label><input type="text" id="omhFname" placeholder="First"></div>
+            <div class="omh-field"><label>Phone <span class="omh-opt">(optional)</span></label><input type="tel" id="omhPhone" placeholder="Helps us reach you"></div>
+          </div>
+          <div class="omh-field"><label>Price range <span class="omh-opt">(optional)</span></label><select id="omhPrice"><option value="">Select</option><option>Under $1M</option><option>$1M &ndash; $1.5M</option><option>$1.5M &ndash; $2M</option><option>$2M &ndash; $3M</option><option>$3M &ndash; $5M</option><option>$5M &ndash; $10M</option><option>$10M+</option><option>Not sure yet</option></select></div>
+          <div class="omh-field"><label>When are you looking to buy? <span class="omh-opt">(optional)</span></label><select id="omhTime"><option value="">Select</option><option>Actively searching now</option><option>3&ndash;6 months out</option><option>6&ndash;12 months out</option><option>12+ months / Just watching</option></select></div>
+          <button class="omh-submit" onclick="omhFinish(this)">Send me the report</button>
+          <button class="omh-backlink" onclick="omhStep1()">&larr; Back</button>
+          <div class="omh-micro">You can skip these &mdash; we already have enough to start your access.</div>
+        </div>
+      </form>
+    </div>
+    <div id="omhSuccess" class="omh-success omh-hide">
+      <div class="omh-check">&check;</div>
+      <h3>You're in &mdash; 1 month of access.</h3>
+      <p>Michael &amp; Ania have your criteria. Your first off-market report lands at the start of next week. We'll check in near the end of the month to see if you'd like to keep it going.</p>
+      <div class="omh-next">A notification with your details was just sent to the AMRE team.</div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var opened=false,scrollFired=false,exitFired=false;
+  var SERVICE='service_rvg801y',TEMPLATE='template_s7ggyxb',PUBKEY='yWt3TMJ6ysOrH3vH1';
+  try{if(typeof emailjs!=='undefined')emailjs.init({publicKey:PUBKEY});}catch(e){}
+  window.omhOpen=function(src){document.getElementById('omhBack').classList.add('omh-on');document.body.style.overflow='hidden';opened=true;try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'omh_open',omh_source:src});}catch(e){}};
+  window.omhClose=function(){document.getElementById('omhBack').classList.remove('omh-on');document.body.style.overflow='';};
+  window.omhStep2=function(){var e=document.getElementById('omhEmail').value.trim(),n=document.getElementById('omhNbhd').value.trim();if(!e||e.indexOf('@')<0){alert('Please enter a valid email.');return;}if(!n){alert('Tell us at least one neighborhood.');return;}document.getElementById('omhStep1').classList.add('omh-hide');document.getElementById('omhStep2').classList.remove('omh-hide');document.getElementById('omhD1').className='omh-dot omh-done';document.getElementById('omhD2').className='omh-dot omh-don';document.getElementById('omhTitle').textContent='A few optional details';document.getElementById('omhSub').innerHTML='Skip any of these &mdash; the more you share, the sharper your report. Nothing here is required.';};
+  window.omhStep1=function(){document.getElementById('omhStep2').classList.add('omh-hide');document.getElementById('omhStep1').classList.remove('omh-hide');document.getElementById('omhD1').className='omh-dot omh-don';document.getElementById('omhD2').className='omh-dot';document.getElementById('omhTitle').innerHTML='Find the homes you&rsquo;ve been missing with our weekly Compass Exclusive report.';document.getElementById('omhSub').innerHTML="It's part of the service we give our buyers &mdash; homes 30&ndash;90 days before they hit MLS, matched to your search. <b>Get access for one month</b>, then keep it going only if it's useful.";};
+  function done(){document.getElementById('omhForm').classList.add('omh-hide');document.getElementById('omhSuccess').classList.remove('omh-hide');}
+  window.omhFinish=function(btn){var p={full_name:(document.getElementById('omhFname').value||'').trim()||'Not provided',first_name:(document.getElementById('omhFname').value||'').trim(),email:document.getElementById('omhEmail').value.trim(),phone:(document.getElementById('omhPhone').value||'').trim()||'Not provided',address:document.getElementById('omhNbhd').value.trim(),price_range:document.getElementById('omhPrice').value||'Not specified',timeline:document.getElementById('omhTime').value||'Not specified',inquiry_type:'Buyer - Weekly Off-Market Report (1-mo access)',source:'amre.group/ homepage popup',reply_to:document.getElementById('omhEmail').value.trim()};if(btn){btn.disabled=true;btn.textContent='Sending...';}if(typeof emailjs==='undefined'){done();return;}emailjs.send(SERVICE,TEMPLATE,p).then(function(){try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'lead_submit',form_type:'buyer',form_source:p.source,lead_value:750,currency:'USD'});}catch(e){}done();}).catch(function(err){alert('There was a problem sending. Please try again or call (323) 719-8585.');if(btn){btn.disabled=false;btn.textContent='Send me the report';}});};
+  window.addEventListener('scroll',function(){if(window.scrollY>500){document.getElementById('omhBar').classList.add('omh-on');}var pct=(window.scrollY+window.innerHeight)/document.body.scrollHeight;if(pct>0.5&&!scrollFired&&!opened){scrollFired=true;omhOpen('scroll');}});
+  document.addEventListener('mouseout',function(e){if(e.clientY<=0&&!exitFired&&!opened){exitFired=true;omhOpen('exit');}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')omhClose();});
+})();
+</script>
+<!-- ═══ end Off-Market Home Report popup ═══ -->
+
 </body>
 </html>
