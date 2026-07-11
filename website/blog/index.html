@@ -36,84 +36,31 @@
 <meta name="twitter:title" content="The AMRE Journal | Los Angeles Real Estate Insights">
 <meta name="twitter:description" content="Los Angeles real estate insights, market data, and case studies from AMRE Real Estate Group at Compass Beverly Hills.">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://amre.group/blog/#webpage","url":"https://amre.group/blog/","name":"The AMRE Journal \u2014 LA Real Estate Insights","description":"Insights, market data, neighborhood guides, and case studies on Los Angeles real estate from Michael Abraham at AMRE Real Estate Group, Compass Beverly Hills.","isPartOf":{"@id":"https://amre.group/#website"},"about":{"@id":"https://amre.group/#organization"},"inLanguage":"en-US","mainEntity":{"@id":"https://amre.group/blog/#blog"}},{"@type":"Blog","@id":"https://amre.group/blog/#blog","name":"The AMRE Journal","description":"Insights, market data, and case studies on Los Angeles real estate from AMRE Real Estate Group at Compass Beverly Hills.","url":"https://amre.group/blog/","publisher":{"@id":"https://amre.group/#organization"},"inLanguage":"en-US"}]}</script>
-<link rel="stylesheet" href="/assets/css/site-overrides.css">
+<link rel="stylesheet" href="/assets/css/amre.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
-body{font-family:'Montserrat',-apple-system,sans-serif;font-weight:300;background:#fff;color:#1a1a1a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:var(--sans);font-weight:300;background:#fff;color:#1a1a1a;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background:none}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 
-/* NAV */
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(7,11,51,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background .35s,border-color .35s}
-.site-nav.is-light{background:rgba(255,255,255,0.92);border-bottom-color:rgba(0,0,0,.1)}
-.nav-brand{display:flex;align-items:center;flex-shrink:0}
-.nav-amre{height:22px;width:auto}.nav-compass{height:15px;width:auto;opacity:.85}
-.logo-white{display:block}.logo-dark{display:none}
-.site-nav.is-light .logo-dark{display:block}.site-nav.is-light .logo-white{display:none}
-.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.25);margin:0 14px;transition:background .35s}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
-.nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:28px;list-style:none}
-.nav-links a{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap}
-.site-nav.is-light .nav-links a{color:rgba(7,11,51,.65)}
-.nav-links a:hover{color:#fff}
-.site-nav.is-light .nav-links a:hover{color:#1c3d31}
-.nav-cta{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;border-radius:2px;background:#ffc13c;color:#070B33;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0}
-.nav-cta:hover{background:#e6a800;transform:translateY(-1px)}
 
-/* HAMBURGER + DRAWER */
-.nav-right{display:flex;align-items:center;gap:12px}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s,width .25s}
-.site-nav.is-light .ham-btn span{background:#070B33}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham-btn.open span:nth-child(2){opacity:0;width:0}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{position:fixed;top:56px;left:0;right:0;bottom:0;z-index:498;background:rgba(7,11,51,0.97);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);display:flex;flex-direction:column;padding:32px 24px 48px;transform:translateY(-110%);opacity:0;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;pointer-events:none}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a{display:block;color:#fff;font-family:'Montserrat',sans-serif;font-size:clamp(20px,5vw,26px);font-weight:300;letter-spacing:-.01em;padding:20px 0;transition:color .2s,padding-left .2s}
-.mobile-drawer a:hover{color:#ffc13c;padding-left:8px}
-.mobile-drawer .drawer-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:32px;width:100%;background:#0064e5;color:#fff!important;border-radius:980px;font-size:16px!important;font-weight:500!important;padding:16px 32px!important;border-bottom:none!important;letter-spacing:.02em}
-.mobile-drawer .drawer-cta:hover{background:#0049a8}
-
-@media(max-width:860px){.nav-links{display:none!important}.nav-cta{display:none!important}.ham-btn{display:flex}}
-@media(min-width:861px){.mobile-drawer{display:none!important}}
-
-/* FOOTER */
-.site-footer{background:#070B33;border-top:1px solid rgba(255,255,255,.07);padding:64px 44px 36px}
-.footer-grid{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px}
-.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.footer-logos img{height:16px;width:auto;opacity:.55}
-.footer-sep{width:1px;height:13px;background:rgba(255,255,255,.2)}
-.footer-tagline{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.85);max-width:240px}
-.footer-col-head{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:16px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.45);transition:color .2s}
-.footer-links a:hover{color:rgba(255,255,255,.9)}
-.footer-bottom{max-width:1200px;margin-inline:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.footer-legal,.footer-dre{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:300;color:rgba(255,255,255,.22);line-height:1.5}
-@media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;gap:24px}.site-footer{padding:48px 20px 28px}.footer-bottom{flex-direction:column}}
-@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
 
 /* ── BLOG / JOURNAL ── */
 :root{
-  --forest:#1c3d31;--navy:#070B33;--brass:#ffc13c;--brass-dk:#e6a800;
-  --ink:#1a1a1a;--mid:#5A5A5A;--subtle:#86868b;--rule:#d2d2d7;
-  --offwhite:#f7edf0;--cream:#efdbc0;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:'Montserrat',-apple-system,sans-serif;
-  --nav-h:56px;--ease:cubic-bezier(.25,.46,.45,.94);
+  --forest:var(--dark);--navy:var(--dark);--brass:var(--clay);--brass-dk:var(--clay-dk);
+  --mid:var(--mute);--subtle:#86868b;--rule:var(--line);
+  --offwhite:var(--bone-2);--cream:#efdbc0;
+  --nav-h:0px;
 }
 
 /* JOURNAL HERO */
 .journal-hero{
   background:var(--forest);position:relative;overflow:hidden;
-  padding:calc(var(--nav-h) + 88px) 44px 80px;
+  padding:clamp(96px,13vh,160px) 44px 80px;
 }
 .journal-hero-inner{max-width:1200px;margin-inline:auto;position:relative;z-index:2}
 .journal-hero h1{
@@ -134,7 +81,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 @media(max-width:680px){.journal-hero{padding-inline:20px}}
 
 /* FILTER BAR */
-.journal-filter-section{background:#fff;padding:36px 44px 0;border-bottom:1px solid var(--rule);position:sticky;top:var(--nav-h);z-index:40;}
+.journal-filter-section{background:#fff;padding:36px 44px 0;border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:40;}
 .journal-filter-inner{max-width:1200px;margin-inline:auto}
 .journal-filter-row{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:20px}
 .tag-pill{
@@ -195,7 +142,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 /* ── ARTICLE PAGE ── */
 .article-hero{
   background:var(--forest);position:relative;overflow:hidden;
-  padding:calc(var(--nav-h) + 64px) 44px 64px;
+  padding:clamp(88px,12vh,140px) 44px 56px;
 }
 .article-hero-inner{max-width:760px;margin-inline:auto;position:relative;z-index:2}
 .article-hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
@@ -351,10 +298,7 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","@id":"https://amre.group/blog/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},{"@type":"ListItem","position":2,"name":"Journal","item":"https://amre.group/blog/"}]}</script>
 </head>
 <body>
-<div id="site-nav-mount"></div>
-
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js"></script><section class="journal-hero">
+<div id="amre-nav"></div><section class="journal-hero">
   <div class="journal-hero-inner">
     <p class="journal-hero-eyebrow">The AMRE Journal</p>
     <h1>Real estate, written <em>plainly.</em></h1>
@@ -1033,77 +977,9 @@ button{font-family:'Montserrat',sans-serif;cursor:pointer;border:none;background
   </div>
 </section>
 
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/contact/">Home Valuation</a></li>
-        <li><a href="/contact/">Investment Advisory</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#e5888c868d848089cb848797848d8488a5868a8895849696cb868a88">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-(function(){
-  var nav=document.getElementById('siteNav');
-  if(nav){function upd(){nav.classList.toggle('is-light',window.scrollY>80)} upd(); window.addEventListener('scroll',upd,{passive:true});}
-  var btn=document.getElementById('hamBtn'),drawer=document.getElementById('mobileDrawer');
-  if(btn&&drawer){
-    btn.addEventListener('click',function(){var open=btn.classList.toggle('open');btn.setAttribute('aria-expanded',open);drawer.classList.toggle('open',open);document.body.style.overflow=open?'hidden':'';});
-    drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){btn.classList.remove('open');drawer.classList.remove('open');document.body.style.overflow='';});});
-  }
-})();
-</script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a069e9b00f652bff',t:'MTc4MDYwNzMwNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a069f194de9f91ef',t:'MTc4MDYwNzYyOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<div id="amre-footer"></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a069e9b00f652bff',t:'MTc4MDYwNzMwNg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a069f194de9f91ef',t:'MTc4MDYwNzYyOQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script src="/assets/js/amre-chrome.js" defer></script>
+</body>
 </html>
 
 
