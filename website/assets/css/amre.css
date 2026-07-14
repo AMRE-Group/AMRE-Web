@@ -200,7 +200,7 @@
   @media(max-width:900px){.jrn-grid{grid-template-columns:1fr}}
 
   /* CTA */
-  .cta{background:var(--dark);color:#fff;text-align:center}
+  .cta{background:#0d0d0d;color:#fff;text-align:center}
   .cta h2{font-size:clamp(2.4rem,6vw,5rem);font-weight:300;letter-spacing:-.03em;color:#fff}
   .cta h2 em{color:var(--clay)}
   .cta p{max-width:46ch;margin:20px auto 34px;color:rgba(255,255,255,.85);font-size:1.1rem}
