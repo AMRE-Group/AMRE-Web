@@ -193,6 +193,63 @@
 </style>
 </head>
 <body>
+<!-- PRIVATE LISTING GATE ============================================= -->
+<style>
+  body.amre-locked{overflow:hidden;height:100vh}
+  #amre-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+    background:rgba(28,33,29,.55);-webkit-backdrop-filter:blur(24px) saturate(.85);backdrop-filter:blur(24px) saturate(.85);
+    font-family:'Jost',system-ui,-apple-system,sans-serif;padding:24px}
+  #amre-gate .card{width:100%;max-width:430px;background:#fbfaf6;border:1px solid #e2dcd0;border-radius:4px;
+    padding:46px 40px;text-align:center;box-shadow:0 34px 90px rgba(0,0,0,.4);animation:agin .5s ease both}
+  @keyframes agin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  #amre-gate .lock{font-size:30px;line-height:1;margin-bottom:16px}
+  #amre-gate .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#a8634a;margin-bottom:14px}
+  #amre-gate h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;font-size:30px;color:#23211d;line-height:1.15;margin-bottom:12px}
+  #amre-gate p{font-size:14px;color:#4a453c;line-height:1.65;margin-bottom:24px}
+  #amre-gate input{width:100%;padding:14px;border:1px solid #cdbfa6;border-radius:3px;background:#fff;
+    font-size:15px;font-family:inherit;color:#23211d;text-align:center;letter-spacing:.05em;margin-bottom:12px}
+  #amre-gate input:focus{outline:none;border-color:#a8634a}
+  #amre-gate button{width:100%;padding:14px;border:none;border-radius:3px;background:#1c3d31;color:#f7f4ee;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-family:inherit;cursor:pointer;transition:background .2s}
+  #amre-gate button:hover{background:#23483a}
+  #amre-gate .err{color:#8f4f38;font-size:12.5px;min-height:15px;margin-top:11px;letter-spacing:.02em}
+  #amre-gate .req{display:block;margin-top:22px;font-size:12.5px;letter-spacing:.04em;color:#635c4c;text-decoration:none;border-top:1px solid #e2dcd0;padding-top:19px}
+  #amre-gate .req a{color:#a8634a;text-decoration:none;font-weight:500}
+  #amre-gate .req a:hover{text-decoration:underline}
+</style>
+<div id="amre-gate" role="dialog" aria-modal="true" aria-label="Private listing access">
+  <div class="card">
+    <div class="lock">&#128274;</div>
+    <div class="eyebrow">Private Listing</div>
+    <h2>By private access only</h2>
+    <p>This property is shared privately. Enter the access password to view the full listing, or request access below.</p>
+    <form id="amre-gate-form" autocomplete="off">
+      <input id="amre-gate-pw" type="password" placeholder="Access password" aria-label="Access password" autofocus>
+      <button type="submit">Unlock Listing</button>
+      <div class="err" id="amre-gate-err" aria-live="polite"></div>
+    </form>
+    <span class="req">Don&rsquo;t have the password? <a href="mailto:michael.abraham@compass.com?subject=Access%20request%3A%20Mulholland%20Estate%20(private%20listing)">Request access &rarr;</a></span>
+  </div>
+</div>
+<script>
+(function(){
+  var PASSWORD = "AMREMulholland2026";           /* <-- change here to update the password */
+  var KEY = "amre-unlock-14405-mulholland";
+  var gate = document.getElementById('amre-gate');
+  function unlock(){ if(gate&&gate.parentNode){gate.parentNode.removeChild(gate);} document.body.classList.remove('amre-locked'); }
+  try{ if(sessionStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
+  document.body.classList.add('amre-locked');
+  var form=document.getElementById('amre-gate-form'), err=document.getElementById('amre-gate-err');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=(document.getElementById('amre-gate-pw').value||'').trim();
+    if(v.toLowerCase()===PASSWORD.toLowerCase()){ try{sessionStorage.setItem(KEY,'1');}catch(e){} unlock(); }
+    else { err.textContent='Incorrect password. Please try again or request access.'; document.getElementById('amre-gate-pw').select(); }
+  });
+})();
+</script>
+<!-- END PRIVATE LISTING GATE ========================================= -->
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap">
