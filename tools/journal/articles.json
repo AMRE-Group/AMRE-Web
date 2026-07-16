@@ -1,37 +1,629 @@
 {
   "articles": [
-    {"slug": "power-duplex-ownership-los-angeles", "title": "The Power of Duplex Ownership in Los Angeles", "tags": ["Investing", "Multifamily", "LA Market"], "lede": "Buying a duplex in LA isn't just about finding a home — it's a proven strategy for dramatically reducing housing costs while building over $1 million in equity within 10 years.", "excerpt": "How owner-occupying a duplex in Los Angeles can dramatically reduce housing costs while building $1M+ in equity over 10 years.", "metaDesc": "How owner-occupying a duplex in Los Angeles can reduce your housing costs in half while building $1M+ in equity over 10 years.", "related": ["why-buying-duplex-real-estate-success", "los-angeles-king-of-duplex", "investment-analysis-4-unit-west-adams"]},
-    {"slug": "35-years-housing-appreciation-los-angeles", "title": "35 Years of Housing Appreciation in Los Angeles (1989–2024)", "tags": ["Market Data", "LA Market"], "lede": "From a median home price of $124,800 in 1989 to $906,000 in 2024, Los Angeles values have surged 626% — more than 7x in nominal terms — through every cycle, correction, and recovery.", "excerpt": "A data-driven look at how LA real estate has performed across three and a half decades — and what it means for buyers today.", "metaDesc": "35 years of Los Angeles housing data (1989-2024) reveals the long-term appreciation patterns every LA buyer and investor should understand.", "related": ["national-home-price-appreciation-since-1990", "los-angeles-real-estate-market-2025", "la-apartment-market-shifts-q2"]},
-    {"slug": "is-tic-right-for-me", "title": "Is a TIC Right for Me?", "tags": ["Buying", "Strategy"], "lede": "Tenants in Common (TIC) ownership offers a clever workaround for LA's high prices — typically 15–30% less than comparable condos, with prime-location access and lower property taxes thanks to Prop 13.", "excerpt": "Tenants in Common ownership offers a unique path into LA real estate. Here's how to know if it fits your goals.", "metaDesc": "TIC (Tenants in Common) ownership in Los Angeles explained. Pros, cons, financing differences, and whether it's right for your homebuying goals.", "related": ["499k-los-angeles-buyer-guide", "unlocking-benefits-homeownership", "navigating-us-real-estate-market"]},
-    {"slug": "why-buying-duplex-real-estate-success", "title": "Why Buying a Duplex Is Your Ticket to Real Estate Success in LA", "tags": ["Investing", "Multifamily"], "lede": "Owner-occupying a duplex lets you leverage primary residence financing while a tenant helps pay your mortgage — a powerful combination that's hard to replicate with any other real estate strategy.", "excerpt": "Owner-occupying a duplex lets you leverage primary residence financing while your tenant helps pay the mortgage.", "metaDesc": "Why buying a duplex in Los Angeles is one of the smartest first moves in real estate. Owner-occupant financing and equity growth.", "related": ["power-duplex-ownership-los-angeles", "los-angeles-king-of-duplex", "running-numbers-value-add-investment"]},
-    {"slug": "unlocking-benefits-homeownership", "title": "Unlocking the Benefits of Homeownership: Is It the Right Move for You?", "tags": ["Buying", "First-Time Buyers"], "lede": "From building equity to tax advantages, ownership consistently outperforms renting over the long term — but only if you can answer one critical question first.", "excerpt": "From building equity to tax advantages — a clear-eyed breakdown of why ownership outperforms renting long-term.", "metaDesc": "Should you buy or keep renting? A practical breakdown of the benefits of homeownership for first-time buyers in Los Angeles.", "related": ["50k-grant-first-home-west-adams", "navigating-us-real-estate-market", "is-tic-right-for-me"]},
-    {"slug": "national-home-price-appreciation-since-1990", "title": "National Home Price Appreciation Since 1990", "tags": ["Market Data"], "lede": "National housing data paints a striking picture: real estate has consistently rewarded patient, long-term owners — even through recessions, rate spikes, and policy shifts.", "excerpt": "National data shows real estate has consistently rewarded patient, long-term owners through every cycle.", "metaDesc": "30+ year look at national home price appreciation in the US. What the long-term trend means for buyers, investors, and anyone considering real estate.", "related": ["35-years-housing-appreciation-los-angeles", "los-angeles-real-estate-market-2025", "market-rate-update-2025"]},
-    {"slug": "missing-markets-secret-comeback", "title": "Missing the Market's Secret Comeback?", "tags": ["Market Trends"], "lede": "While headlines scream about a sluggish housing market, contract pending volumes are running 14% higher than this same time last year. The data is moving — but most outlets won't catch up for another quarter.", "excerpt": "The contrarian read: contract pending volumes are running 14% above last year while headlines say otherwise.", "metaDesc": "Discover the LA neighborhoods quietly making a comeback. Underpriced submarkets with strong fundamentals smart buyers are watching.", "related": ["sunset-park-santa-monicas-hidden-gem", "how-long-beach-changing-la", "los-angeles-real-estate-market-2025"]},
-    {"slug": "modern-2-bedroom-prime-location", "title": "Modern 2-Bedroom in a Prime Location", "tags": ["Listings"], "lede": "A featured property showcasing what today's Los Angeles renter expects — and what smart investors should be delivering to maximize returns in any submarket.", "excerpt": "A featured rental that shows what today's LA renter expects and what smart investors should deliver.", "metaDesc": "What today's renters want in Los Angeles: a featured property breakdown showing the design and amenities driving top rental income.", "related": ["running-numbers-value-add-investment", "investment-analysis-4-unit-west-adams", "500000-home-los-angeles"]},
-    {"slug": "running-numbers-value-add-investment", "title": "Running the Numbers on a Value-Add Real Estate Investment", "tags": ["Investing", "Strategy"], "lede": "A step-by-step framework for analyzing whether a fixer-upper actually pencils out — before you fall in love with the potential and overlook the math.", "excerpt": "A step-by-step framework for analyzing whether a fixer-upper pencils out — before you fall in love with it.", "metaDesc": "How to underwrite a value-add real estate investment in Los Angeles. Pro forma framework, key metrics, and what makes a deal pencil out.", "related": ["investment-analysis-4-unit-west-adams", "power-duplex-ownership-los-angeles", "5-minute-read-over-500k"]},
-    {"slug": "navigating-us-real-estate-market", "title": "Navigating the U.S. Real Estate Market: Tips & Trends for Home Buyers", "tags": ["Buying", "Market Trends"], "lede": "A practical guide to reading market conditions and making smart moves in today's evolving real estate landscape — from rate cycles to inventory dynamics.", "excerpt": "A practical guide to reading market conditions and making smart moves in today's evolving landscape.", "metaDesc": "How home buyers should navigate today's US real estate market. Key trends, what to watch, and practical tips for making a smart purchase.", "related": ["unlocking-benefits-homeownership", "market-rate-update-2025", "price-reductions-sweet-spot-buyers"]},
-    {"slug": "power-selling-with-compass", "title": "The Power of Selling with Compass: Your Home, Your Future", "tags": ["Selling"], "lede": "How Compass's platform — from Private Exclusives to the 3-Phased Marketing Strategy and Concierge program — consistently helps sellers net more on their home sale.", "excerpt": "How Compass's platform helps sellers net more — from Private Exclusives to the 3-Phased Marketing Strategy.", "metaDesc": "Why selling with Compass nets you more. Private Exclusives, the 3-Phased Marketing Strategy, and Concierge program explained.", "related": ["getting-the-right-offer", "los-angeles-real-estate-market-2025", "price-reductions-sweet-spot-buyers"]},
-    {"slug": "mortgage-rates-2-year-low-refi-boom", "title": "Mortgage Surge: Rates Hit a 2-Year Low, Sparking a Refi Boom", "tags": ["Financing"], "lede": "What falling mortgage rates mean for buyers waiting on the sidelines, and for current homeowners who may finally have an opening to refinance into something better.", "excerpt": "What falling rates mean for buyers on the sidelines and homeowners considering refinancing.", "metaDesc": "Mortgage rates hit a 2-year low. What it means for LA home buyers and homeowners considering a refinance. Timing, math, and next steps.", "related": ["market-rate-update-2025", "navigating-us-real-estate-market", "unlocking-benefits-homeownership"]},
-    {"slug": "los-angeles-king-of-duplex", "title": "Los Angeles: King of the Duplex", "tags": ["Investing", "Multifamily", "LA Market"], "lede": "Why LA's unique zoning history, density goals, and lot patterns have made it the single best city in America to own a duplex — both as a homeowner and as an investor.", "excerpt": "Why LA's unique zoning history and density goals have made it the best city in America to own a duplex.", "metaDesc": "Los Angeles is uniquely positioned as the best US city for duplex ownership. Zoning, density, and market dynamics explained.", "related": ["power-duplex-ownership-los-angeles", "why-buying-duplex-real-estate-success", "investment-analysis-4-unit-west-adams"]},
-    {"slug": "market-rate-update-2025", "title": "Market & Rate Update: What This Means for Real Estate in 2025", "tags": ["Market Trends", "Financing"], "lede": "Where mortgage rates are headed and how the shift is reshaping buyer demand, inventory levels, and deal terms across the Los Angeles real estate market.", "excerpt": "Where rates are headed and how the shift is reshaping buyer demand, inventory, and deal terms across LA.", "metaDesc": "2025 mortgage rate outlook and what it means for the Los Angeles real estate market. Buyer demand, inventory, and deal-making trends.", "related": ["mortgage-rates-2-year-low-refi-boom", "los-angeles-real-estate-market-2025", "price-reductions-sweet-spot-buyers"]},
-    {"slug": "los-angeles-real-estate-market-2025", "title": "Los Angeles Real Estate Market 2025", "tags": ["Market Trends", "LA Market"], "lede": "A comprehensive review of supply, demand, pricing trends, and neighborhood-level performance across Los Angeles County going into 2025.", "excerpt": "A comprehensive review of supply, demand, pricing, and neighborhood-level performance across LA County.", "metaDesc": "The complete 2025 Los Angeles real estate market report. Supply, demand, pricing trends, and neighborhood-level analysis.", "related": ["35-years-housing-appreciation-los-angeles", "la-apartment-market-shifts-q2", "2025-year-to-buy-real-estate-la"]},
-    {"slug": "price-reductions-sweet-spot-buyers", "title": "Nearly 40% of Homes Have Price Reductions — Why That's a Sweet Spot for Buyers", "tags": ["Buying", "Market Trends"], "lede": "Rising price-reduction rates signal a meaningful shift in negotiating leverage that prepared buyers can take full advantage of right now — if they know how to read the signal.", "excerpt": "Rising reduction rates signal a shift in negotiating leverage prepared buyers can take advantage of.", "metaDesc": "40% of LA homes show price reductions. Why this is a buyer's sweet spot and how to capitalize on shifting negotiating leverage.", "related": ["navigating-us-real-estate-market", "getting-the-right-offer", "los-angeles-real-estate-market-2025"]},
-    {"slug": "50k-grant-first-home-west-adams", "title": "How a $50K Grant Makes Buying Your First Home in West Adams Possible", "tags": ["Buying", "First-Time Buyers"], "lede": "A deep dive into the down payment assistance programs that are quietly opening doors for first-time buyers in West Adams and other emerging Los Angeles neighborhoods.", "excerpt": "Down payment assistance programs are quietly opening doors for first-time buyers in West Adams and beyond.", "metaDesc": "How a $50,000 grant can help you buy your first home in West Adams. Down payment assistance and first-time buyer strategies.", "related": ["unlocking-benefits-homeownership", "investment-analysis-4-unit-west-adams", "499k-los-angeles-buyer-guide"]},
-    {"slug": "leveraging-ai-global-workforce", "title": "Leveraging AI, a Global Workforce, and the \"Buy Back Your Time\" Strategy", "tags": ["Strategy"], "lede": "How forward-thinking real estate professionals and investors are using AI tools and remote talent to scale their practices, reclaim their hours, and focus on higher-value work.", "excerpt": "How real estate pros are using AI tools and remote talent to scale, reclaim hours, and focus on what matters.", "metaDesc": "How real estate pros are using AI tools and global talent to scale their business and reclaim time. Strategies and frameworks.", "related": ["future-real-estate-innovation-automation", "running-numbers-value-add-investment", "power-selling-with-compass"]},
-    {"slug": "investment-analysis-4-unit-west-adams", "title": "Investment Analysis: 4-Unit Property in West Adams", "tags": ["Investing", "Multifamily"], "lede": "A detailed pro forma breakdown on a real West Adams 4-unit property — what it earns, what it costs, and whether the numbers actually cash-flow at today's rates.", "excerpt": "A pro forma breakdown on a real West Adams quad — what it earns, costs, and whether it cash-flows.", "metaDesc": "Real investment analysis of a 4-unit property in West Adams, LA. Pro forma breakdown, cash flow, and return projections.", "related": ["50k-grant-first-home-west-adams", "running-numbers-value-add-investment", "power-duplex-ownership-los-angeles"]},
-    {"slug": "sunset-park-santa-monicas-hidden-gem", "title": "Sunset Park: Santa Monica's Hidden Gem", "tags": ["Neighborhoods", "LA Market"], "lede": "Why this underpriced Santa Monica neighborhood is quietly attracting some of the most discerning buyers on the Westside — and what that means for value-seekers today.", "excerpt": "Why this underpriced Santa Monica neighborhood is quietly attracting discerning Westside buyers.", "metaDesc": "Sunset Park: Santa Monica's most undervalued neighborhood. Why it's attracting smart Westside buyers and what to know.", "related": ["dream-beach-property-under-1-million", "how-long-beach-changing-la", "missing-markets-secret-comeback"]},
-    {"slug": "la-apartment-market-shifts-q2", "title": "Market Shifts in the Los Angeles Apartment Market: Q2 2023 vs Q2 2024", "tags": ["Market Data", "LA Market"], "lede": "A data snapshot comparing year-over-year vacancy rates, rents, and absorption across the major Los Angeles apartment corridors — and the trends most landlords missed.", "excerpt": "A year-over-year data comparison across LA's major apartment corridors — vacancy, rents, absorption.", "metaDesc": "Year-over-year analysis of the Los Angeles apartment market: vacancy, rent growth, and absorption across LA submarkets.", "related": ["los-angeles-real-estate-market-2025", "35-years-housing-appreciation-los-angeles", "investment-analysis-4-unit-west-adams"]},
-    {"slug": "how-long-beach-changing-la", "title": "How Long Beach Is Changing the LA Real Estate Game", "tags": ["Neighborhoods", "LA Market"], "lede": "Long Beach is no longer just the affordable alternative to greater Los Angeles — it's becoming a destination in its own right, with implications for buyers and investors.", "excerpt": "Long Beach is no longer just affordable — it's becoming a destination in its own right.", "metaDesc": "Long Beach is reshaping the LA real estate game. Why this rising market is attracting buyers and investors.", "related": ["sunset-park-santa-monicas-hidden-gem", "missing-markets-secret-comeback", "los-angeles-real-estate-market-2025"]},
-    {"slug": "palm-springs-modernism-week-2024", "title": "Discover Palm Springs Modernism Week 2024", "tags": ["Lifestyle"], "lede": "A celebration of mid-century architecture, design culture, and the enduring real estate investment appeal of Palm Springs — both as a getaway and as a portfolio play.", "excerpt": "A celebration of mid-century architecture and the enduring investment appeal of Palm Springs real estate.", "metaDesc": "Palm Springs Modernism Week 2024: a guide to the architecture, events, and real estate appeal of this iconic desert market.", "related": ["sunset-park-santa-monicas-hidden-gem", "how-long-beach-changing-la", "leveraging-ai-global-workforce"]},
-    {"slug": "getting-the-right-offer", "title": "It's Not Just About Getting Offers — It's About Getting the Right One", "tags": ["Buying", "Selling", "Strategy"], "lede": "Why the highest offer is rarely the strongest, and how to evaluate competing bids the way an experienced agent does — looking past the headline number to the terms that actually close.", "excerpt": "Why the highest offer is rarely the strongest, and how to evaluate competing bids like an expert.", "metaDesc": "How to evaluate real estate offers like a pro. Why the highest bid isn't always the strongest, and what terms matter most.", "related": ["power-selling-with-compass", "price-reductions-sweet-spot-buyers", "navigating-us-real-estate-market"]},
-    {"slug": "2025-year-to-buy-real-estate-la", "title": "Is 2025 the Year to Buy Real Estate in LA?", "tags": ["Buying", "LA Market", "Market Trends"], "lede": "The Los Angeles real estate landscape in 2025 is undergoing significant transformations — driven by recent events, evolving market dynamics, and shifting buyer leverage.", "excerpt": "The 2025 LA real estate landscape: challenges, opportunities, and what prospective buyers need to know.", "metaDesc": "Is 2025 the right year to buy in Los Angeles? An honest look at challenges, opportunities, and what prospective buyers need to know.", "related": ["los-angeles-real-estate-market-2025", "market-rate-update-2025", "navigating-us-real-estate-market"]},
-    {"slug": "499k-los-angeles-buyer-guide", "title": "$499K in Los Angeles: A Buyer's Guide", "tags": ["Buying", "First-Time Buyers", "Listings"], "lede": "Affordable LA living is real — if you know where to look. A remodeled TIC unit in West Adams for under $500K shows what's possible when you understand the alternative ownership structures.", "excerpt": "Affordable LA living is real. A West Adams TIC under $500K shows what alternative ownership unlocks.", "metaDesc": "Buying in Los Angeles for $499K: a real example using TIC ownership to break into the LA market affordably.", "related": ["is-tic-right-for-me", "50k-grant-first-home-west-adams", "500000-home-los-angeles"]},
-    {"slug": "5-minute-read-over-500k", "title": "5-Minute Read = Over $500K: A South LA Duplex Case Study", "tags": ["Investing", "Multifamily"], "lede": "How one South LA duplex could build you $600,000+ in equity — while you live there. Real numbers on a Hyde Park-area property where the tenant helps cover your mortgage.", "excerpt": "How one South LA duplex could build $600K+ in equity while you live there. Real numbers, real strategy.", "metaDesc": "South LA duplex case study: how the right property builds $600K+ in equity over time while you owner-occupy.", "related": ["power-duplex-ownership-los-angeles", "running-numbers-value-add-investment", "500000-home-los-angeles"]},
-    {"slug": "500000-home-los-angeles", "title": "A $500,000 Home in Los Angeles", "tags": ["Listings", "First-Time Buyers"], "lede": "A real two-unit duplex at 3127 W 60th St in View Park-Windsor Hills shows what $500K still buys in Los Angeles — and the investment math behind it.", "excerpt": "A two-unit duplex in View Park-Windsor Hills shows what $500K still buys — and the investment math.", "metaDesc": "A real $500,000 home in Los Angeles: View Park-Windsor Hills duplex case study with full investment analysis.", "related": ["499k-los-angeles-buyer-guide", "5-minute-read-over-500k", "investment-analysis-4-unit-west-adams"]},
-    {"slug": "california-migration-trends-2023", "title": "California Migration Trends in 2023", "tags": ["Market Data"], "lede": "Over 422,000 residents moved to California from other states while nearly 690,000 left — but 89% of those who moved stayed within the state. The story behind the headlines.", "excerpt": "California's 2023 migration data: what 422K inflows and 690K outflows actually reveal about the state.", "metaDesc": "California migration data 2023: who's moving in, who's moving out, and what 89% of in-state movers reveal.", "related": ["los-angeles-real-estate-market-2025", "missing-markets-secret-comeback", "how-long-beach-changing-la"]},
-    {"slug": "estate-planning-for-real-estate-owners", "title": "Estate Planning for Real Estate Owners", "tags": ["Strategy"], "lede": "Owning real estate is a significant investment — and proper estate planning ensures your properties are protected, managed, and passed on according to your wishes. A clear guide to trusts and tax implications.", "excerpt": "How to use trusts and estate structures to protect, manage, and pass on real estate the way you want.", "metaDesc": "Estate planning for real estate owners: trusts, tax implications, and how to protect and pass on properties effectively.", "related": ["leveraging-ai-global-workforce", "investment-analysis-4-unit-west-adams", "power-duplex-ownership-los-angeles"]},
-    {"slug": "dream-beach-property-under-1-million", "title": "Finding Your Dream Beach Property Under $1 Million", "tags": ["Buying", "Neighborhoods"], "lede": "Searching for a beachside home under $1 million in Los Angeles is challenging — but after touring 30+ properties across Santa Monica, Brentwood, West LA, and Westwood, the patterns reveal where the value lives.", "excerpt": "30+ properties touring later: where the real value lives in LA's beach markets under $1M.", "metaDesc": "Finding a beach property under $1M in Los Angeles. A neighborhood-by-neighborhood guide to Santa Monica, Brentwood, West LA, and beyond.", "related": ["sunset-park-santa-monicas-hidden-gem", "how-long-beach-changing-la", "missing-markets-secret-comeback"]},
-    {"slug": "future-real-estate-innovation-automation", "title": "The Future of Real Estate: Innovation, Automation, and a More Human Industry", "tags": ["Strategy"], "lede": "The real estate industry is undergoing a profound transformation — market dynamics, emerging technologies, and shifting consumer expectations are converging to redefine how properties are bought, sold, and experienced.", "excerpt": "Innovation, automation, and AI are converging to redefine how real estate is bought, sold, and lived in.", "metaDesc": "How innovation and automation are reshaping real estate. The technologies and trends every buyer, seller, and agent should understand.", "related": ["leveraging-ai-global-workforce", "power-selling-with-compass", "navigating-us-real-estate-market"]},
-    {"slug": "real-estate-smartest-investment-youll-ever-make", "title": "Not Just a Roof Over Your Head: Real Estate Is the Smartest Investment You'll Ever Make", "tags": ["Buying", "Strategy"], "lede": "Every smart financial move requires sacrifice — but real estate is different. It leverages your investment in ways stocks and 401Ks can't, with appreciation, tax benefits, and a place to live built in.", "excerpt": "Real estate leverages your investment in ways stocks and 401Ks can't. The case for ownership.", "metaDesc": "Why real estate may be the smartest investment you'll ever make. Leverage, appreciation, tax benefits, and the long-term wealth case.", "related": ["unlocking-benefits-homeownership", "power-duplex-ownership-los-angeles", "estate-planning-for-real-estate-owners"]}
+    {
+      "slug": "westside-real-estate-market",
+      "title": "Westside Los Angeles Real Estate Market 2026",
+      "excerpt": "The Westside LA housing market in 2026 — Santa Monica $3.37M, Venice $2.79M, Culver City $1.6M, city by city.",
+      "lede": "The Westside LA housing market in 2026 — Santa Monica $3.37M, Venice $2.79M, Culver City $1.6M, city by city.",
+      "metaDesc": "The Westside LA housing market in 2026 — Santa Monica $3.37M, Venice $2.79M, Culver City $1.6M, city by city.",
+      "tags": [
+        "Market Data",
+        "Neighborhoods",
+        "LA Market"
+      ],
+      "related": [
+        "santa-monica-real-estate-market",
+        "venice-real-estate-market",
+        "culver-city-real-estate-market"
+      ]
+    },
+    {
+      "slug": "west-adams-real-estate-market",
+      "title": "West Adams Real Estate Market 2026",
+      "excerpt": "West Adams Corridor home prices in 2026: blended median $1.28M, values ~2x over the decade, Market Action Index 37. ZIP-by-ZIP.",
+      "lede": "West Adams Corridor home prices in 2026: blended median $1.28M, values ~2x over the decade, Market Action Index 37. ZIP-by-ZIP.",
+      "metaDesc": "West Adams Corridor home prices in 2026: blended median $1.28M, values ~2x over the decade, Market Action Index 37. ZIP-by-ZIP.",
+      "tags": [
+        "Market Data",
+        "Neighborhoods",
+        "LA Market"
+      ],
+      "related": [
+        "50k-grant-first-home-west-adams",
+        "living-in-west-adams-los-angeles-neighborhood-guide",
+        "35-years-housing-appreciation-los-angeles"
+      ]
+    },
+    {
+      "slug": "bel-air-real-estate-market",
+      "title": "Bel Air Real Estate Market 2026 (90077)",
+      "excerpt": "Bel Air (90077) home prices in 2026: median list $9.5M, $1,379/sq ft, 154 median DOM, Market Action Index 25 and rising.",
+      "lede": "Bel Air (90077) home prices in 2026: median list $9.5M, $1,379/sq ft, 154 median DOM, Market Action Index 25 and rising.",
+      "metaDesc": "Bel Air (90077) home prices in 2026: median list $9.5M, $1,379/sq ft, 154 median DOM, Market Action Index 25 and rising.",
+      "tags": [
+        "Market Data",
+        "Neighborhoods",
+        "Luxury"
+      ],
+      "related": [
+        "navigating-luxury-real-estate-beverly-hills-bel-air",
+        "living-in-bel-air-neighborhood-guide",
+        "westside-real-estate-market"
+      ]
+    },
+    {
+      "slug": "culver-city-real-estate-market",
+      "title": "Culver City Real Estate Market 2026",
+      "excerpt": "Culver City home prices in 2026: median list $1.6M, $984/sq ft, 28-day median, Market Action Index 43 (Westside’s strongest, cooling).",
+      "lede": "Culver City home prices in 2026: median list $1.6M, $984/sq ft, 28-day median, Market Action Index 43 (Westside’s strongest, cooling).",
+      "metaDesc": "Culver City home prices in 2026: median list $1.6M, $984/sq ft, 28-day median, Market Action Index 43 (Westside’s strongest, cooling).",
+      "tags": [
+        "Market Data",
+        "Neighborhoods",
+        "LA Market"
+      ],
+      "related": [
+        "westside-real-estate-market",
+        "santa-monica-real-estate-market",
+        "living-in-culver-city-neighborhood-guide"
+      ]
+    },
+    {
+      "slug": "venice-real-estate-market",
+      "title": "Venice CA Real Estate Market 2026",
+      "excerpt": "Venice, CA home prices in 2026: median list $2.79M, $1,277/sq ft, Market Action Index 31. Sales are outpacing listings.",
+      "lede": "Venice, CA home prices in 2026: median list $2.79M, $1,277/sq ft, Market Action Index 31. Sales are outpacing listings.",
+      "metaDesc": "Venice, CA home prices in 2026: median list $2.79M, $1,277/sq ft, Market Action Index 31. Sales are outpacing listings.",
+      "tags": [
+        "Market Data",
+        "Neighborhoods",
+        "LA Market"
+      ],
+      "related": [
+        "westside-real-estate-market",
+        "santa-monica-real-estate-market",
+        "condos-for-sale-venice-ca"
+      ]
+    },
+    {
+      "slug": "santa-monica-real-estate-market",
+      "title": "Santa Monica Real Estate Market 2026",
+      "excerpt": "Santa Monica home prices in 2026: median list $3.37M, $1,687/sq ft, 104 avg days on market, Market Action Index 33 and cooling.",
+      "lede": "Santa Monica home prices in 2026: median list $3.37M, $1,687/sq ft, 104 avg days on market, Market Action Index 33 and cooling.",
+      "metaDesc": "Santa Monica home prices in 2026: median list $3.37M, $1,687/sq ft, 104 avg days on market, Market Action Index 33 and cooling.",
+      "tags": [
+        "Market Data",
+        "Neighborhoods",
+        "LA Market"
+      ],
+      "related": [
+        "westside-real-estate-market",
+        "venice-real-estate-market",
+        "living-in-santa-monica-neighborhood-guide"
+      ]
+    },
+    {
+      "slug": "power-duplex-ownership-los-angeles",
+      "title": "The Power of Duplex Ownership in Los Angeles",
+      "tags": [
+        "Investing",
+        "Multifamily",
+        "LA Market"
+      ],
+      "lede": "Buying a duplex in LA isn't just about finding a home — it's a proven strategy for dramatically reducing housing costs while building over $1 million in equity within 10 years.",
+      "excerpt": "How owner-occupying a duplex in Los Angeles can dramatically reduce housing costs while building $1M+ in equity over 10 years.",
+      "metaDesc": "How owner-occupying a duplex in Los Angeles can reduce your housing costs in half while building $1M+ in equity over 10 years.",
+      "related": [
+        "why-buying-duplex-real-estate-success",
+        "los-angeles-king-of-duplex",
+        "investment-analysis-4-unit-west-adams"
+      ]
+    },
+    {
+      "slug": "35-years-housing-appreciation-los-angeles",
+      "title": "35 Years of Housing Appreciation in Los Angeles (1989–2024)",
+      "tags": [
+        "Market Data",
+        "LA Market"
+      ],
+      "lede": "From a median home price of $124,800 in 1989 to $906,000 in 2024, Los Angeles values have surged 626% — more than 7x in nominal terms — through every cycle, correction, and recovery.",
+      "excerpt": "A data-driven look at how LA real estate has performed across three and a half decades — and what it means for buyers today.",
+      "metaDesc": "35 years of Los Angeles housing data (1989-2024) reveals the long-term appreciation patterns every LA buyer and investor should understand.",
+      "related": [
+        "national-home-price-appreciation-since-1990",
+        "los-angeles-real-estate-market-2025",
+        "la-apartment-market-shifts-q2"
+      ]
+    },
+    {
+      "slug": "is-tic-right-for-me",
+      "title": "Is a TIC Right for Me?",
+      "tags": [
+        "Buying",
+        "Strategy"
+      ],
+      "lede": "Tenants in Common (TIC) ownership offers a clever workaround for LA's high prices — typically 15–30% less than comparable condos, with prime-location access and lower property taxes thanks to Prop 13.",
+      "excerpt": "Tenants in Common ownership offers a unique path into LA real estate. Here's how to know if it fits your goals.",
+      "metaDesc": "TIC (Tenants in Common) ownership in Los Angeles explained. Pros, cons, financing differences, and whether it's right for your homebuying goals.",
+      "related": [
+        "499k-los-angeles-buyer-guide",
+        "unlocking-benefits-homeownership",
+        "navigating-us-real-estate-market"
+      ]
+    },
+    {
+      "slug": "why-buying-duplex-real-estate-success",
+      "title": "Why Buying a Duplex Is Your Ticket to Real Estate Success in LA",
+      "tags": [
+        "Investing",
+        "Multifamily"
+      ],
+      "lede": "Owner-occupying a duplex lets you leverage primary residence financing while a tenant helps pay your mortgage — a powerful combination that's hard to replicate with any other real estate strategy.",
+      "excerpt": "Owner-occupying a duplex lets you leverage primary residence financing while your tenant helps pay the mortgage.",
+      "metaDesc": "Why buying a duplex in Los Angeles is one of the smartest first moves in real estate. Owner-occupant financing and equity growth.",
+      "related": [
+        "power-duplex-ownership-los-angeles",
+        "los-angeles-king-of-duplex",
+        "running-numbers-value-add-investment"
+      ]
+    },
+    {
+      "slug": "unlocking-benefits-homeownership",
+      "title": "Unlocking the Benefits of Homeownership: Is It the Right Move for You?",
+      "tags": [
+        "Buying",
+        "First-Time Buyers"
+      ],
+      "lede": "From building equity to tax advantages, ownership consistently outperforms renting over the long term — but only if you can answer one critical question first.",
+      "excerpt": "From building equity to tax advantages — a clear-eyed breakdown of why ownership outperforms renting long-term.",
+      "metaDesc": "Should you buy or keep renting? A practical breakdown of the benefits of homeownership for first-time buyers in Los Angeles.",
+      "related": [
+        "50k-grant-first-home-west-adams",
+        "navigating-us-real-estate-market",
+        "is-tic-right-for-me"
+      ]
+    },
+    {
+      "slug": "national-home-price-appreciation-since-1990",
+      "title": "National Home Price Appreciation Since 1990",
+      "tags": [
+        "Market Data"
+      ],
+      "lede": "National housing data paints a striking picture: real estate has consistently rewarded patient, long-term owners — even through recessions, rate spikes, and policy shifts.",
+      "excerpt": "National data shows real estate has consistently rewarded patient, long-term owners through every cycle.",
+      "metaDesc": "30+ year look at national home price appreciation in the US. What the long-term trend means for buyers, investors, and anyone considering real estate.",
+      "related": [
+        "35-years-housing-appreciation-los-angeles",
+        "los-angeles-real-estate-market-2025",
+        "market-rate-update-2025"
+      ]
+    },
+    {
+      "slug": "missing-markets-secret-comeback",
+      "title": "Missing the Market's Secret Comeback?",
+      "tags": [
+        "Market Trends"
+      ],
+      "lede": "While headlines scream about a sluggish housing market, contract pending volumes are running 14% higher than this same time last year. The data is moving — but most outlets won't catch up for another quarter.",
+      "excerpt": "The contrarian read: contract pending volumes are running 14% above last year while headlines say otherwise.",
+      "metaDesc": "Discover the LA neighborhoods quietly making a comeback. Underpriced submarkets with strong fundamentals smart buyers are watching.",
+      "related": [
+        "sunset-park-santa-monicas-hidden-gem",
+        "how-long-beach-changing-la",
+        "los-angeles-real-estate-market-2025"
+      ]
+    },
+    {
+      "slug": "modern-2-bedroom-prime-location",
+      "title": "Modern 2-Bedroom in a Prime Location",
+      "tags": [
+        "Listings"
+      ],
+      "lede": "A featured property showcasing what today's Los Angeles renter expects — and what smart investors should be delivering to maximize returns in any submarket.",
+      "excerpt": "A featured rental that shows what today's LA renter expects and what smart investors should deliver.",
+      "metaDesc": "What today's renters want in Los Angeles: a featured property breakdown showing the design and amenities driving top rental income.",
+      "related": [
+        "running-numbers-value-add-investment",
+        "investment-analysis-4-unit-west-adams",
+        "500000-home-los-angeles"
+      ]
+    },
+    {
+      "slug": "running-numbers-value-add-investment",
+      "title": "Running the Numbers on a Value-Add Real Estate Investment",
+      "tags": [
+        "Investing",
+        "Strategy"
+      ],
+      "lede": "A step-by-step framework for analyzing whether a fixer-upper actually pencils out — before you fall in love with the potential and overlook the math.",
+      "excerpt": "A step-by-step framework for analyzing whether a fixer-upper pencils out — before you fall in love with it.",
+      "metaDesc": "How to underwrite a value-add real estate investment in Los Angeles. Pro forma framework, key metrics, and what makes a deal pencil out.",
+      "related": [
+        "investment-analysis-4-unit-west-adams",
+        "power-duplex-ownership-los-angeles",
+        "5-minute-read-over-500k"
+      ]
+    },
+    {
+      "slug": "navigating-us-real-estate-market",
+      "title": "Navigating the U.S. Real Estate Market: Tips & Trends for Home Buyers",
+      "tags": [
+        "Buying",
+        "Market Trends"
+      ],
+      "lede": "A practical guide to reading market conditions and making smart moves in today's evolving real estate landscape — from rate cycles to inventory dynamics.",
+      "excerpt": "A practical guide to reading market conditions and making smart moves in today's evolving landscape.",
+      "metaDesc": "How home buyers should navigate today's US real estate market. Key trends, what to watch, and practical tips for making a smart purchase.",
+      "related": [
+        "unlocking-benefits-homeownership",
+        "market-rate-update-2025",
+        "price-reductions-sweet-spot-buyers"
+      ]
+    },
+    {
+      "slug": "power-selling-with-compass",
+      "title": "The Power of Selling with Compass: Your Home, Your Future",
+      "tags": [
+        "Selling"
+      ],
+      "lede": "How Compass's platform — from Private Exclusives to the 3-Phased Marketing Strategy and Concierge program — consistently helps sellers net more on their home sale.",
+      "excerpt": "How Compass's platform helps sellers net more — from Private Exclusives to the 3-Phased Marketing Strategy.",
+      "metaDesc": "Why selling with Compass nets you more. Private Exclusives, the 3-Phased Marketing Strategy, and Concierge program explained.",
+      "related": [
+        "getting-the-right-offer",
+        "los-angeles-real-estate-market-2025",
+        "price-reductions-sweet-spot-buyers"
+      ]
+    },
+    {
+      "slug": "mortgage-rates-2-year-low-refi-boom",
+      "title": "Mortgage Surge: Rates Hit a 2-Year Low, Sparking a Refi Boom",
+      "tags": [
+        "Financing"
+      ],
+      "lede": "What falling mortgage rates mean for buyers waiting on the sidelines, and for current homeowners who may finally have an opening to refinance into something better.",
+      "excerpt": "What falling rates mean for buyers on the sidelines and homeowners considering refinancing.",
+      "metaDesc": "Mortgage rates hit a 2-year low. What it means for LA home buyers and homeowners considering a refinance. Timing, math, and next steps.",
+      "related": [
+        "market-rate-update-2025",
+        "navigating-us-real-estate-market",
+        "unlocking-benefits-homeownership"
+      ]
+    },
+    {
+      "slug": "los-angeles-king-of-duplex",
+      "title": "Los Angeles: King of the Duplex",
+      "tags": [
+        "Investing",
+        "Multifamily",
+        "LA Market"
+      ],
+      "lede": "Why LA's unique zoning history, density goals, and lot patterns have made it the single best city in America to own a duplex — both as a homeowner and as an investor.",
+      "excerpt": "Why LA's unique zoning history and density goals have made it the best city in America to own a duplex.",
+      "metaDesc": "Los Angeles is uniquely positioned as the best US city for duplex ownership. Zoning, density, and market dynamics explained.",
+      "related": [
+        "power-duplex-ownership-los-angeles",
+        "why-buying-duplex-real-estate-success",
+        "investment-analysis-4-unit-west-adams"
+      ]
+    },
+    {
+      "slug": "market-rate-update-2025",
+      "title": "Market & Rate Update: What This Means for Real Estate in 2025",
+      "tags": [
+        "Market Trends",
+        "Financing"
+      ],
+      "lede": "Where mortgage rates are headed and how the shift is reshaping buyer demand, inventory levels, and deal terms across the Los Angeles real estate market.",
+      "excerpt": "Where rates are headed and how the shift is reshaping buyer demand, inventory, and deal terms across LA.",
+      "metaDesc": "2025 mortgage rate outlook and what it means for the Los Angeles real estate market. Buyer demand, inventory, and deal-making trends.",
+      "related": [
+        "mortgage-rates-2-year-low-refi-boom",
+        "los-angeles-real-estate-market-2025",
+        "price-reductions-sweet-spot-buyers"
+      ]
+    },
+    {
+      "slug": "los-angeles-real-estate-market-2025",
+      "title": "Los Angeles Real Estate Market 2025",
+      "tags": [
+        "Market Trends",
+        "LA Market"
+      ],
+      "lede": "A comprehensive review of supply, demand, pricing trends, and neighborhood-level performance across Los Angeles County going into 2025.",
+      "excerpt": "A comprehensive review of supply, demand, pricing, and neighborhood-level performance across LA County.",
+      "metaDesc": "The complete 2025 Los Angeles real estate market report. Supply, demand, pricing trends, and neighborhood-level analysis.",
+      "related": [
+        "35-years-housing-appreciation-los-angeles",
+        "la-apartment-market-shifts-q2",
+        "2025-year-to-buy-real-estate-la"
+      ]
+    },
+    {
+      "slug": "price-reductions-sweet-spot-buyers",
+      "title": "Nearly 40% of Homes Have Price Reductions — Why That's a Sweet Spot for Buyers",
+      "tags": [
+        "Buying",
+        "Market Trends"
+      ],
+      "lede": "Rising price-reduction rates signal a meaningful shift in negotiating leverage that prepared buyers can take full advantage of right now — if they know how to read the signal.",
+      "excerpt": "Rising reduction rates signal a shift in negotiating leverage prepared buyers can take advantage of.",
+      "metaDesc": "40% of LA homes show price reductions. Why this is a buyer's sweet spot and how to capitalize on shifting negotiating leverage.",
+      "related": [
+        "navigating-us-real-estate-market",
+        "getting-the-right-offer",
+        "los-angeles-real-estate-market-2025"
+      ]
+    },
+    {
+      "slug": "50k-grant-first-home-west-adams",
+      "title": "How a $50K Grant Makes Buying Your First Home in West Adams Possible",
+      "tags": [
+        "Buying",
+        "First-Time Buyers"
+      ],
+      "lede": "A deep dive into the down payment assistance programs that are quietly opening doors for first-time buyers in West Adams and other emerging Los Angeles neighborhoods.",
+      "excerpt": "Down payment assistance programs are quietly opening doors for first-time buyers in West Adams and beyond.",
+      "metaDesc": "How a $50,000 grant can help you buy your first home in West Adams. Down payment assistance and first-time buyer strategies.",
+      "related": [
+        "unlocking-benefits-homeownership",
+        "investment-analysis-4-unit-west-adams",
+        "499k-los-angeles-buyer-guide"
+      ]
+    },
+    {
+      "slug": "leveraging-ai-global-workforce",
+      "title": "Leveraging AI, a Global Workforce, and the \"Buy Back Your Time\" Strategy",
+      "tags": [
+        "Strategy"
+      ],
+      "lede": "How forward-thinking real estate professionals and investors are using AI tools and remote talent to scale their practices, reclaim their hours, and focus on higher-value work.",
+      "excerpt": "How real estate pros are using AI tools and remote talent to scale, reclaim hours, and focus on what matters.",
+      "metaDesc": "How real estate pros are using AI tools and global talent to scale their business and reclaim time. Strategies and frameworks.",
+      "related": [
+        "future-real-estate-innovation-automation",
+        "running-numbers-value-add-investment",
+        "power-selling-with-compass"
+      ]
+    },
+    {
+      "slug": "investment-analysis-4-unit-west-adams",
+      "title": "Investment Analysis: 4-Unit Property in West Adams",
+      "tags": [
+        "Investing",
+        "Multifamily"
+      ],
+      "lede": "A detailed pro forma breakdown on a real West Adams 4-unit property — what it earns, what it costs, and whether the numbers actually cash-flow at today's rates.",
+      "excerpt": "A pro forma breakdown on a real West Adams quad — what it earns, costs, and whether it cash-flows.",
+      "metaDesc": "Real investment analysis of a 4-unit property in West Adams, LA. Pro forma breakdown, cash flow, and return projections.",
+      "related": [
+        "50k-grant-first-home-west-adams",
+        "running-numbers-value-add-investment",
+        "power-duplex-ownership-los-angeles"
+      ]
+    },
+    {
+      "slug": "sunset-park-santa-monicas-hidden-gem",
+      "title": "Sunset Park: Santa Monica's Hidden Gem",
+      "tags": [
+        "Neighborhoods",
+        "LA Market"
+      ],
+      "lede": "Why this underpriced Santa Monica neighborhood is quietly attracting some of the most discerning buyers on the Westside — and what that means for value-seekers today.",
+      "excerpt": "Why this underpriced Santa Monica neighborhood is quietly attracting discerning Westside buyers.",
+      "metaDesc": "Sunset Park: Santa Monica's most undervalued neighborhood. Why it's attracting smart Westside buyers and what to know.",
+      "related": [
+        "dream-beach-property-under-1-million",
+        "how-long-beach-changing-la",
+        "missing-markets-secret-comeback"
+      ]
+    },
+    {
+      "slug": "la-apartment-market-shifts-q2",
+      "title": "Market Shifts in the Los Angeles Apartment Market: Q2 2023 vs Q2 2024",
+      "tags": [
+        "Market Data",
+        "LA Market"
+      ],
+      "lede": "A data snapshot comparing year-over-year vacancy rates, rents, and absorption across the major Los Angeles apartment corridors — and the trends most landlords missed.",
+      "excerpt": "A year-over-year data comparison across LA's major apartment corridors — vacancy, rents, absorption.",
+      "metaDesc": "Year-over-year analysis of the Los Angeles apartment market: vacancy, rent growth, and absorption across LA submarkets.",
+      "related": [
+        "los-angeles-real-estate-market-2025",
+        "35-years-housing-appreciation-los-angeles",
+        "investment-analysis-4-unit-west-adams"
+      ]
+    },
+    {
+      "slug": "how-long-beach-changing-la",
+      "title": "How Long Beach Is Changing the LA Real Estate Game",
+      "tags": [
+        "Neighborhoods",
+        "LA Market"
+      ],
+      "lede": "Long Beach is no longer just the affordable alternative to greater Los Angeles — it's becoming a destination in its own right, with implications for buyers and investors.",
+      "excerpt": "Long Beach is no longer just affordable — it's becoming a destination in its own right.",
+      "metaDesc": "Long Beach is reshaping the LA real estate game. Why this rising market is attracting buyers and investors.",
+      "related": [
+        "sunset-park-santa-monicas-hidden-gem",
+        "missing-markets-secret-comeback",
+        "los-angeles-real-estate-market-2025"
+      ]
+    },
+    {
+      "slug": "palm-springs-modernism-week-2024",
+      "title": "Discover Palm Springs Modernism Week 2024",
+      "tags": [
+        "Lifestyle"
+      ],
+      "lede": "A celebration of mid-century architecture, design culture, and the enduring real estate investment appeal of Palm Springs — both as a getaway and as a portfolio play.",
+      "excerpt": "A celebration of mid-century architecture and the enduring investment appeal of Palm Springs real estate.",
+      "metaDesc": "Palm Springs Modernism Week 2024: a guide to the architecture, events, and real estate appeal of this iconic desert market.",
+      "related": [
+        "sunset-park-santa-monicas-hidden-gem",
+        "how-long-beach-changing-la",
+        "leveraging-ai-global-workforce"
+      ]
+    },
+    {
+      "slug": "getting-the-right-offer",
+      "title": "It's Not Just About Getting Offers — It's About Getting the Right One",
+      "tags": [
+        "Buying",
+        "Selling",
+        "Strategy"
+      ],
+      "lede": "Why the highest offer is rarely the strongest, and how to evaluate competing bids the way an experienced agent does — looking past the headline number to the terms that actually close.",
+      "excerpt": "Why the highest offer is rarely the strongest, and how to evaluate competing bids like an expert.",
+      "metaDesc": "How to evaluate real estate offers like a pro. Why the highest bid isn't always the strongest, and what terms matter most.",
+      "related": [
+        "power-selling-with-compass",
+        "price-reductions-sweet-spot-buyers",
+        "navigating-us-real-estate-market"
+      ]
+    },
+    {
+      "slug": "2025-year-to-buy-real-estate-la",
+      "title": "Is 2025 the Year to Buy Real Estate in LA?",
+      "tags": [
+        "Buying",
+        "LA Market",
+        "Market Trends"
+      ],
+      "lede": "The Los Angeles real estate landscape in 2025 is undergoing significant transformations — driven by recent events, evolving market dynamics, and shifting buyer leverage.",
+      "excerpt": "The 2025 LA real estate landscape: challenges, opportunities, and what prospective buyers need to know.",
+      "metaDesc": "Is 2025 the right year to buy in Los Angeles? An honest look at challenges, opportunities, and what prospective buyers need to know.",
+      "related": [
+        "los-angeles-real-estate-market-2025",
+        "market-rate-update-2025",
+        "navigating-us-real-estate-market"
+      ]
+    },
+    {
+      "slug": "499k-los-angeles-buyer-guide",
+      "title": "$499K in Los Angeles: A Buyer's Guide",
+      "tags": [
+        "Buying",
+        "First-Time Buyers",
+        "Listings"
+      ],
+      "lede": "Affordable LA living is real — if you know where to look. A remodeled TIC unit in West Adams for under $500K shows what's possible when you understand the alternative ownership structures.",
+      "excerpt": "Affordable LA living is real. A West Adams TIC under $500K shows what alternative ownership unlocks.",
+      "metaDesc": "Buying in Los Angeles for $499K: a real example using TIC ownership to break into the LA market affordably.",
+      "related": [
+        "is-tic-right-for-me",
+        "50k-grant-first-home-west-adams",
+        "500000-home-los-angeles"
+      ]
+    },
+    {
+      "slug": "5-minute-read-over-500k",
+      "title": "5-Minute Read = Over $500K: A South LA Duplex Case Study",
+      "tags": [
+        "Investing",
+        "Multifamily"
+      ],
+      "lede": "How one South LA duplex could build you $600,000+ in equity — while you live there. Real numbers on a Hyde Park-area property where the tenant helps cover your mortgage.",
+      "excerpt": "How one South LA duplex could build $600K+ in equity while you live there. Real numbers, real strategy.",
+      "metaDesc": "South LA duplex case study: how the right property builds $600K+ in equity over time while you owner-occupy.",
+      "related": [
+        "power-duplex-ownership-los-angeles",
+        "running-numbers-value-add-investment",
+        "500000-home-los-angeles"
+      ]
+    },
+    {
+      "slug": "500000-home-los-angeles",
+      "title": "A $500,000 Home in Los Angeles",
+      "tags": [
+        "Listings",
+        "First-Time Buyers"
+      ],
+      "lede": "A real two-unit duplex at 3127 W 60th St in View Park-Windsor Hills shows what $500K still buys in Los Angeles — and the investment math behind it.",
+      "excerpt": "A two-unit duplex in View Park-Windsor Hills shows what $500K still buys — and the investment math.",
+      "metaDesc": "A real $500,000 home in Los Angeles: View Park-Windsor Hills duplex case study with full investment analysis.",
+      "related": [
+        "499k-los-angeles-buyer-guide",
+        "5-minute-read-over-500k",
+        "investment-analysis-4-unit-west-adams"
+      ]
+    },
+    {
+      "slug": "california-migration-trends-2023",
+      "title": "California Migration Trends in 2023",
+      "tags": [
+        "Market Data"
+      ],
+      "lede": "Over 422,000 residents moved to California from other states while nearly 690,000 left — but 89% of those who moved stayed within the state. The story behind the headlines.",
+      "excerpt": "California's 2023 migration data: what 422K inflows and 690K outflows actually reveal about the state.",
+      "metaDesc": "California migration data 2023: who's moving in, who's moving out, and what 89% of in-state movers reveal.",
+      "related": [
+        "los-angeles-real-estate-market-2025",
+        "missing-markets-secret-comeback",
+        "how-long-beach-changing-la"
+      ]
+    },
+    {
+      "slug": "estate-planning-for-real-estate-owners",
+      "title": "Estate Planning for Real Estate Owners",
+      "tags": [
+        "Strategy"
+      ],
+      "lede": "Owning real estate is a significant investment — and proper estate planning ensures your properties are protected, managed, and passed on according to your wishes. A clear guide to trusts and tax implications.",
+      "excerpt": "How to use trusts and estate structures to protect, manage, and pass on real estate the way you want.",
+      "metaDesc": "Estate planning for real estate owners: trusts, tax implications, and how to protect and pass on properties effectively.",
+      "related": [
+        "leveraging-ai-global-workforce",
+        "investment-analysis-4-unit-west-adams",
+        "power-duplex-ownership-los-angeles"
+      ]
+    },
+    {
+      "slug": "dream-beach-property-under-1-million",
+      "title": "Finding Your Dream Beach Property Under $1 Million",
+      "tags": [
+        "Buying",
+        "Neighborhoods"
+      ],
+      "lede": "Searching for a beachside home under $1 million in Los Angeles is challenging — but after touring 30+ properties across Santa Monica, Brentwood, West LA, and Westwood, the patterns reveal where the value lives.",
+      "excerpt": "30+ properties touring later: where the real value lives in LA's beach markets under $1M.",
+      "metaDesc": "Finding a beach property under $1M in Los Angeles. A neighborhood-by-neighborhood guide to Santa Monica, Brentwood, West LA, and beyond.",
+      "related": [
+        "sunset-park-santa-monicas-hidden-gem",
+        "how-long-beach-changing-la",
+        "missing-markets-secret-comeback"
+      ]
+    },
+    {
+      "slug": "future-real-estate-innovation-automation",
+      "title": "The Future of Real Estate: Innovation, Automation, and a More Human Industry",
+      "tags": [
+        "Strategy"
+      ],
+      "lede": "The real estate industry is undergoing a profound transformation — market dynamics, emerging technologies, and shifting consumer expectations are converging to redefine how properties are bought, sold, and experienced.",
+      "excerpt": "Innovation, automation, and AI are converging to redefine how real estate is bought, sold, and lived in.",
+      "metaDesc": "How innovation and automation are reshaping real estate. The technologies and trends every buyer, seller, and agent should understand.",
+      "related": [
+        "leveraging-ai-global-workforce",
+        "power-selling-with-compass",
+        "navigating-us-real-estate-market"
+      ]
+    },
+    {
+      "slug": "real-estate-smartest-investment-youll-ever-make",
+      "title": "Not Just a Roof Over Your Head: Real Estate Is the Smartest Investment You'll Ever Make",
+      "tags": [
+        "Buying",
+        "Strategy"
+      ],
+      "lede": "Every smart financial move requires sacrifice — but real estate is different. It leverages your investment in ways stocks and 401Ks can't, with appreciation, tax benefits, and a place to live built in.",
+      "excerpt": "Real estate leverages your investment in ways stocks and 401Ks can't. The case for ownership.",
+      "metaDesc": "Why real estate may be the smartest investment you'll ever make. Leverage, appreciation, tax benefits, and the long-term wealth case.",
+      "related": [
+        "unlocking-benefits-homeownership",
+        "power-duplex-ownership-los-angeles",
+        "estate-planning-for-real-estate-owners"
+      ]
+    }
   ]
 }

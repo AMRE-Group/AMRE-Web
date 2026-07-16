@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Angeles Market Reports — Home Prices by Neighborhood | AMRE</title>
+<meta name="description" content="Weekly Los Angeles market reports by neighborhood — Santa Monica, Venice, Culver City, Bel Air, West Adams and the Westside. Search by location, sorted by latest update. AMRE at Compass.">
+<meta name="author" content="AMRE Real Estate Group">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://amre.group/market-reports/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Los Angeles Market Reports by Neighborhood | AMRE">
+<meta property="og:description" content="Weekly LA market reports — Santa Monica, Venice, Culver City, Bel Air, West Adams and the Westside. Search by location, sorted by latest update.">
+<meta property="og:image" content="https://amre.group/santa-monica/neighborhood-hero.webp">
+<meta property="og:url" content="https://amre.group/market-reports/">
+<meta property="og:site_name" content="AMRE Real Estate Group">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Los Angeles Market Reports by Neighborhood | AMRE">
+<meta name="twitter:description" content="Weekly LA market reports — search by location, sorted by latest update.">
+<meta name="twitter:image" content="https://amre.group/santa-monica/neighborhood-hero.webp">
+<link rel="stylesheet" href="/assets/css/amre.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://amre.group/market-reports/#webpage", "url": "https://amre.group/market-reports/", "name": "Los Angeles Market Reports | AMRE Real Estate Group", "description": "Weekly Los Angeles neighborhood market reports from AMRE at Compass — Santa Monica, Venice, Culver City, Bel Air, West Adams and the wider Westside.", "isPartOf": {"@id": "https://amre.group/#website"}, "inLanguage": "en-US"}, {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://amre.group/west-adams-market-report/", "name": "West Adams Corridor Market Report"}, {"@type": "ListItem", "position": 2, "url": "https://amre.group/santa-monica-market-report/", "name": "Santa Monica Market Report"}, {"@type": "ListItem", "position": 3, "url": "https://amre.group/venice-market-report/", "name": "Venice Market Report"}, {"@type": "ListItem", "position": 4, "url": "https://amre.group/culver-city-market-report/", "name": "Culver City Market Report"}, {"@type": "ListItem", "position": 5, "url": "https://amre.group/bel-air-market-report/", "name": "Bel Air Market Report"}, {"@type": "ListItem", "position": 6, "url": "https://amre.group/westside-market-report/", "name": "Westside Corridor Market Report"}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://amre.group/"}, {"@type": "ListItem", "position": 2, "name": "Market Reports", "item": "https://amre.group/market-reports/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which Los Angeles neighborhoods have a weekly market report?", "acceptedAnswer": {"@type": "Answer", "text": "AMRE publishes weekly single-family market reports for Santa Monica, Venice, Culver City, Bel Air (90077) and the West Adams Corridor, plus a full Westside corridor overview. Brentwood, Mar Vista, Marina del Rey and Pacific Palisades are available on request for your specific street."}}, {"@type": "Question", "name": "How often are the market reports updated?", "acceptedAnswer": {"@type": "Answer", "text": "Each report is refreshed weekly with current pricing, inventory, days on market and the Market Action Index. The dates on each card show when that report was last updated."}}, {"@type": "Question", "name": "What is the Market Action Index?", "acceptedAnswer": {"@type": "Answer", "text": "The Market Action Index measures the pace of sales against available inventory. Readings above 30 generally favor sellers and below 30 favor buyers — but the direction of the index week to week matters as much as the number."}}, {"@type": "Question", "name": "Can I get a report for a neighborhood you don’t list?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Request a custom report and we’ll build a tailored read for your street anywhere in Los Angeles — pricing, comparable activity and how your home would position today."}}]}]}</script>
+<style>
+.mrx-controls{position:sticky;top:0;z-index:40;background:var(--bone);border-bottom:1px solid var(--line);padding:18px 0}
+.mrx-controls .wrap{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.mrx-search{flex:1;min-width:240px;display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:100px;padding:11px 18px}
+.mrx-search input{border:none;background:none;outline:none;font-family:var(--sans);font-size:.95rem;color:var(--ink);width:100%}
+.mrx-filters{display:flex;gap:8px;flex-wrap:wrap}
+.mrx-pill{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--mute);background:var(--card);border:1px solid var(--line);border-radius:100px;padding:9px 16px;cursor:pointer;transition:all .2s}
+.mrx-pill.on{background:var(--dark);color:var(--bone);border-color:var(--dark)}
+.mrx-sort{font-family:var(--sans);font-size:.85rem;color:var(--ink);border:1px solid var(--line);border-radius:100px;padding:9px 14px;background:var(--card)}
+.mrx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:clamp(40px,5vw,64px) 0}
+@media(max-width:960px){.mrx-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.mrx-grid{grid-template-columns:1fr}}
+.mrx-card{background:var(--card);border:1px solid var(--line-2);border-radius:22px;padding:26px;display:flex;flex-direction:column;box-shadow:0 30px 70px -55px rgba(23,19,16,.5)}
+.mrx-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.mrx-region{font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-dk);background:var(--bone-2);border-radius:100px;padding:6px 12px}
+.mrx-date{font-size:.74rem;color:var(--mute)}
+.mrx-card h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--dark);margin:0 0 8px}
+.mrx-blurb{color:var(--mute);font-size:.92rem;margin:0 0 18px;flex:0 0 auto}
+.mrx-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:18px}
+.mrx-metrics div{text-align:center}
+.mrx-metrics b{display:block;font-family:var(--serif);font-size:1.15rem;color:var(--dark);font-weight:500}
+.mrx-metrics span{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.mrx-actions{margin-top:auto;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.mrx-actions .btn{width:100%;justify-content:center}
+.mrx-analysis{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--clay-dk);text-decoration:none}
+.mrx-analysis:hover{text-decoration:underline}
+.mrx-empty{text-align:center;color:var(--mute);padding:40px 0;display:none}
+.mrx-req{background:var(--bone-2);padding:clamp(40px,5vw,72px) 0}
+.mrx-req-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.mrx-req-pill{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:100px;padding:10px 18px}
+</style>
+</head>
+<body>
+<div id="amre-nav"></div>
+
+<section class="hero" style="min-height:56svh">
+  <div class="hero-bg" style="background-image:url('https://amre.group/santa-monica/neighborhood-hero.webp')"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <span class="eyebrow">The AMRE Market Desk</span>
+    <h1>Los Angeles <em>market&nbsp;reports.</em></h1>
+    <p class="sub">Weekly, neighborhood-by-neighborhood reads on pricing, inventory and market balance — search by location and open the report that matters to your block.</p>
+  </div>
+</section>
+
+<div class="mrx-controls">
+  <div class="wrap">
+    <label class="mrx-search"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a7f72" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="search" id="mrxSearch" placeholder="Search a neighborhood — Santa Monica, Venice, Bel Air…" aria-label="Search market reports by location"></label>
+    <div class="mrx-filters" id="mrxFilters">
+      <button class="mrx-pill on" data-region="All">All</button>
+      <button class="mrx-pill" data-region="Westside">Westside</button>
+      <button class="mrx-pill" data-region="West Adams">West Adams</button>
+      <button class="mrx-pill" data-region="Bel Air">Bel Air</button>
+    </div>
+    <select class="mrx-sort" id="mrxSort" aria-label="Sort market reports">
+      <option value="date">Latest update</option>
+      <option value="price-desc">Price: high to low</option>
+      <option value="price-asc">Price: low to high</option>
+      <option value="az">A–Z</option>
+    </select>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="mrx-grid" id="mrxGrid">
+    <article class="mrx-card reveal" data-name="west adams corridor" data-region="West Adams" data-date="2026-07-15" data-price="1280000">
+      <div class="mrx-card-top">
+        <span class="mrx-region">West Adams</span>
+        <span class="mrx-date">Updated Jul 15, 2026</span>
+      </div>
+      <h3>West Adams Corridor</h3>
+      <p class="mrx-blurb">Five neighborhoods, one corridor — values roughly doubled over the decade.</p>
+      <div class="mrx-metrics">
+        <div><b>$1.28M</b><span>Median list</span></div>
+        <div><b>$624–827</b><span>$/sq ft</span></div>
+        <div><b>37</b><span>Market Action</span></div>
+      </div>
+      <div class="mrx-actions">
+        <a href="/west-adams-market-report/" class="btn btn-fill">View the report <span class="arrow">&rarr;</span></a>
+        <a href="/blog/west-adams-real-estate-market/" class="mrx-analysis">Read the analysis &rsaquo;</a>
+      </div>
+    </article>
+    <article class="mrx-card reveal" data-name="santa monica" data-region="Westside" data-date="2026-07-14" data-price="3370000">
+      <div class="mrx-card-top">
+        <span class="mrx-region">Westside</span>
+        <span class="mrx-date">Updated Jul 14, 2026</span>
+      </div>
+      <h3>Santa Monica</h3>
+      <p class="mrx-blurb">Balanced on paper, cool in practice — the Westside’s priciest submarket.</p>
+      <div class="mrx-metrics">
+        <div><b>$3.37M</b><span>Median list</span></div>
+        <div><b>$1,687</b><span>$/sq ft</span></div>
+        <div><b>33</b><span>Market Action</span></div>
+      </div>
+      <div class="mrx-actions">
+        <a href="/santa-monica-market-report/" class="btn btn-fill">View the report <span class="arrow">&rarr;</span></a>
+        <a href="/blog/santa-monica-real-estate-market/" class="mrx-analysis">Read the analysis &rsaquo;</a>
+      </div>
+    </article>
+    <article class="mrx-card reveal" data-name="venice" data-region="Westside" data-date="2026-07-14" data-price="2790000">
+      <div class="mrx-card-top">
+        <span class="mrx-region">Westside</span>
+        <span class="mrx-date">Updated Jul 14, 2026</span>
+      </div>
+      <h3>Venice</h3>
+      <p class="mrx-blurb">Sales outpacing new listings — a floor forming under prices on the coast.</p>
+      <div class="mrx-metrics">
+        <div><b>$2.79M</b><span>Median list</span></div>
+        <div><b>$1,277</b><span>$/sq ft</span></div>
+        <div><b>31</b><span>Market Action</span></div>
+      </div>
+      <div class="mrx-actions">
+        <a href="/venice-market-report/" class="btn btn-fill">View the report <span class="arrow">&rarr;</span></a>
+        <a href="/blog/venice-real-estate-market/" class="mrx-analysis">Read the analysis &rsaquo;</a>
+      </div>
+    </article>
+    <article class="mrx-card reveal" data-name="culver city" data-region="Westside" data-date="2026-07-14" data-price="1600000">
+      <div class="mrx-card-top">
+        <span class="mrx-region">Westside</span>
+        <span class="mrx-date">Updated Jul 14, 2026</span>
+      </div>
+      <h3>Culver City</h3>
+      <p class="mrx-blurb">The Westside’s strongest — and fastest — seller’s market, and its value play.</p>
+      <div class="mrx-metrics">
+        <div><b>$1.6M</b><span>Median list</span></div>
+        <div><b>$984</b><span>$/sq ft</span></div>
+        <div><b>43</b><span>Market Action</span></div>
+      </div>
+      <div class="mrx-actions">
+        <a href="/culver-city-market-report/" class="btn btn-fill">View the report <span class="arrow">&rarr;</span></a>
+        <a href="/blog/culver-city-real-estate-market/" class="mrx-analysis">Read the analysis &rsaquo;</a>
+      </div>
+    </article>
+    <article class="mrx-card reveal" data-name="bel air" data-region="Bel Air" data-date="2026-07-14" data-price="9500000">
+      <div class="mrx-card-top">
+        <span class="mrx-region">Bel Air</span>
+        <span class="mrx-date">Updated Jul 14, 2026</span>
+      </div>
+      <h3>Bel Air</h3>
+      <p class="mrx-blurb">Ultra-luxury 90077 — technically a buyer’s market, quietly warming.</p>
+      <div class="mrx-metrics">
+        <div><b>$9.5M</b><span>Median list</span></div>
+        <div><b>$1,379</b><span>$/sq ft</span></div>
+        <div><b>25</b><span>Market Action</span></div>
+      </div>
+      <div class="mrx-actions">
+        <a href="/bel-air-market-report/" class="btn btn-fill">View the report <span class="arrow">&rarr;</span></a>
+        <a href="/blog/bel-air-real-estate-market/" class="mrx-analysis">Read the analysis &rsaquo;</a>
+      </div>
+    </article>
+    <article class="mrx-card reveal" data-name="westside corridor" data-region="Westside" data-date="2026-07-14" data-price="3370000">
+      <div class="mrx-card-top">
+        <span class="mrx-region">Westside</span>
+        <span class="mrx-date">Updated Jul 14, 2026</span>
+      </div>
+      <h3>Westside Corridor</h3>
+      <p class="mrx-blurb">The full corridor overview — Santa Monica to Venice to Culver City, city by city.</p>
+      <div class="mrx-metrics">
+        <div><b>3 cities</b><span>Median list</span></div>
+        <div><b>Varies</b><span>$/sq ft</span></div>
+        <div><b>31–43</b><span>Market Action</span></div>
+      </div>
+      <div class="mrx-actions">
+        <a href="/westside-market-report/" class="btn btn-fill">View the report <span class="arrow">&rarr;</span></a>
+        <a href="/blog/westside-real-estate-market/" class="mrx-analysis">Read the analysis &rsaquo;</a>
+      </div>
+    </article>
+    </div>
+    <p class="mrx-empty" id="mrxEmpty">No reports match that search. Try another neighborhood — or request a custom report below.</p>
+  </div>
+</section>
+
+<section class="mrx-req">
+  <div class="wrap">
+    <div class="head reveal"><span class="eyebrow">On Request</span><h2>Don’t see your <em>street?</em></h2><p>We prepare tailored reads on request for these Westside neighborhoods — and anywhere else in Los Angeles. Same weekly discipline, focused on your block.</p></div>
+    <div class="mrx-req-pills"><span class="mrx-req-pill">Brentwood</span><span class="mrx-req-pill">Mar Vista</span><span class="mrx-req-pill">Marina del Rey</span><span class="mrx-req-pill">Pacific Palisades</span></div>
+    <div style="margin-top:28px"><a href="/contact/" class="btn btn-fill">Request a custom report <span class="arrow">&rarr;</span></a></div>
+  </div>
+</section>
+
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="wrap">
+    <div class="head center reveal"><span class="eyebrow">Market Reports FAQ</span><h2>How the reports <em>work.</em></h2></div>
+    <div class="faq-list"><details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">Which Los Angeles neighborhoods have a weekly market report?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">AMRE publishes weekly single-family market reports for Santa Monica, Venice, Culver City, Bel Air (90077) and the West Adams Corridor, plus a full Westside corridor overview. Brentwood, Mar Vista, Marina del Rey and Pacific Palisades are available on request for your specific street.</p></div></details><details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">How often are the market reports updated?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Each report is refreshed weekly with current pricing, inventory, days on market and the Market Action Index. The dates on each card show when that report was last updated.</p></div></details><details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">What is the Market Action Index?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">The Market Action Index measures the pace of sales against available inventory. Readings above 30 generally favor sellers and below 30 favor buyers — but the direction of the index week to week matters as much as the number.</p></div></details><details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">Can I get a report for a neighborhood you don’t list?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. Request a custom report and we’ll build a tailored read for your street anywhere in Los Angeles — pricing, comparable activity and how your home would position today.</p></div></details></div>
+  </div>
+</section>
+
+<div id="amre-footer"></div>
+<script src="/assets/js/amre-chrome.js" defer></script>
+<script>
+(function(){
+  var grid=document.getElementById('mrxGrid'),cards=[].slice.call(grid.querySelectorAll('.mrx-card'));
+  var search=document.getElementById('mrxSearch'),sort=document.getElementById('mrxSort'),empty=document.getElementById('mrxEmpty');
+  var region='All';
+  function apply(){
+    var q=(search.value||'').toLowerCase().trim();
+    var shown=0;
+    cards.forEach(function(c){
+      var okR=region==='All'||c.getAttribute('data-region')===region;
+      var okQ=!q||c.getAttribute('data-name').indexOf(q)>-1||c.getAttribute('data-region').toLowerCase().indexOf(q)>-1;
+      var vis=okR&&okQ;c.style.display=vis?'':'none';if(vis)shown++;
+    });
+    empty.style.display=shown?'none':'block';
+  }
+  function doSort(){
+    var v=sort.value;
+    var vis=cards.slice();
+    vis.sort(function(a,b){
+      if(v==='az')return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+      if(v==='price-asc')return (+a.getAttribute('data-price'))-(+b.getAttribute('data-price'));
+      if(v==='price-desc')return (+b.getAttribute('data-price'))-(+a.getAttribute('data-price'));
+      return b.getAttribute('data-date').localeCompare(a.getAttribute('data-date'));
+    });
+    vis.forEach(function(c){grid.appendChild(c);});
+  }
+  search.addEventListener('input',apply);
+  sort.addEventListener('change',doSort);
+  document.getElementById('mrxFilters').addEventListener('click',function(e){
+    var b=e.target.closest('.mrx-pill');if(!b)return;
+    [].slice.call(this.querySelectorAll('.mrx-pill')).forEach(function(p){p.classList.remove('on');});
+    b.classList.add('on');region=b.getAttribute('data-region');apply();
+  });
+  doSort();apply();
+})();
+</script>
+</body>
+</html>
