@@ -20,7 +20,7 @@
 <meta name="twitter:description" content="Gated 4 bd · 4 ba Mediterranean residence above the city with panoramic views. Offered at $3,995,000.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -55,20 +55,20 @@
   .lb{cursor:zoom-in}
   .split .media.lb{cursor:zoom-in}
   /* NAV */
-  .nav{position:fixed;top:0;left:0;width:100%;z-index:60;transition:.4s;padding:22px 0}
+  .nav{position:fixed;top:56px;left:0;width:100%;z-index:60;transition:.4s;padding:22px 0}
   .nav.solid{background:rgba(247,244,238,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 0}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between}
-  .nav-links{display:flex;gap:28px}
-  .nav-links a{text-decoration:none;color:rgba(255,255,255,.96);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:.3s}
-  .nav.solid .nav-links a{color:var(--soft)}
-  .nav-links a:hover{color:var(--clay)}
-  .nav-cta{border:1px solid rgba(255,255,255,.6);color:#fff;padding:10px 22px;font-size:13.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:.3s}
-  .nav.solid .nav-cta{border-color:var(--clay);color:var(--clay)}
-  .nav-cta:hover,.nav.solid .nav-cta:hover{background:var(--clay);border-color:var(--clay);color:#fff}
+  .pnav-links{display:flex;gap:28px}
+  .pnav-links a{text-decoration:none;color:rgba(255,255,255,.96);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;transition:.3s}
+  .nav.solid .pnav-links a{color:var(--soft)}
+  .pnav-links a:hover{color:var(--clay)}
+  .pnav-cta{border:1px solid rgba(255,255,255,.6);color:#fff;padding:10px 22px;font-size:13.5px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:.3s}
+  .nav.solid .pnav-cta{border-color:var(--clay);color:var(--clay)}
+  .pnav-cta:hover,.nav.solid .pnav-cta:hover{background:var(--clay);border-color:var(--clay);color:#fff}
   .logo-link{display:inline-flex;align-items:center;line-height:0}
   .logo-img{height:30px;width:auto;display:block;transition:filter .4s,height .4s}
   .nav.solid .logo-img{height:26px;filter:brightness(0) saturate(100%) opacity(.85)}
-  @media(max-width:860px){.nav-links{display:none}}
+  @media(max-width:860px){.pnav-links{display:none}}
   /* HERO */
   .hero{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#141210}
   .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,15,.45) 0%,rgba(20,18,15,.12) 38%,rgba(20,18,15,.6) 100%)}
@@ -191,8 +191,54 @@
   .lbox .lb-count{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:#cdbfa6;font-size:12px;letter-spacing:.2em;cursor:default}
   @media(max-width:600px){.lbox .lb-prev,.lbox .lb-next{font-size:34px;padding:8px 12px}}
 </style>
+
+<style>
+/* ── SHARED SITE CHROME (nav + mobile drawer) — matches amre.group ── */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(7,11,51,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background .35s,border-color .35s}
+.site-nav.is-light{background:rgba(255,255,255,0.92);border-bottom-color:rgba(0,0,0,.06)}
+.nav-brand{display:flex;align-items:center;flex-shrink:0}
+.nav-amre{height:22px;width:auto}
+.nav-compass{height:15px;width:auto;opacity:.85}
+.site-nav .logo-white{display:block}
+.site-nav .logo-dark{display:none}
+.site-nav.is-light .logo-dark{display:block}
+.site-nav.is-light .logo-white{display:none}
+.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.25);margin:0 14px;transition:background .35s}
+.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
+.site-nav .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;flex:1 1 auto;justify-content:center;min-width:0}
+.site-nav .nav-links a{font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap;text-decoration:none}
+.site-nav.is-light .nav-links a{color:rgba(7,11,51,.65)}
+.site-nav .nav-links a:hover{color:#fff}
+.site-nav.is-light .nav-links a:hover{color:#1c3d31}
+.site-nav .nav-links a.active{color:#ffc13c}
+.site-nav.is-light .nav-links a.active{color:#1c3d31}
+.site-nav .nav-cta{font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;border-radius:2px;background:#ffc13c;color:#070B33;border:none;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;text-decoration:none}
+.site-nav .nav-cta:hover{background:#e6a800;transform:translateY(-1px);color:#070B33}
+.nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0}
+.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s,width .25s}
+.site-nav.is-light .ham-btn span{background:#070B33}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0;width:0}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-drawer{position:fixed;top:56px;left:0;right:0;bottom:0;z-index:498;background:rgba(7,11,51,0.97);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);display:flex;flex-direction:column;padding:32px 24px 48px;transform:translateY(-110%);opacity:0;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;pointer-events:none}
+.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
+.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1;margin:0;padding:0}
+.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
+.mobile-drawer a{display:block;color:#fff;font-family:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;font-size:clamp(20px,5vw,26px);font-weight:300;letter-spacing:-.01em;padding:20px 0;transition:color .2s,padding-left .2s;text-decoration:none}
+.mobile-drawer a:hover{color:#ffc13c;padding-left:8px}
+.mobile-drawer .drawer-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:32px;width:100%;background:#0064e5;color:#fff!important;border-radius:980px;font-size:16px!important;font-weight:500!important;padding:16px 32px!important}
+@media(max-width:860px){.site-nav .nav-links{display:none!important}.site-nav .nav-cta{display:none!important}.ham-btn{display:flex}}
+@media(min-width:861px){.mobile-drawer{display:none!important}}
+@media(max-width:680px){.site-nav{padding:0 20px}}
+</style>
 </head>
 <body>
+<!-- ── SHARED SITE NAV ── -->
+<div id="site-nav-mount"></div>
+<div id="site-drawer-mount"></div>
+<script src="/assets/js/site-chrome.js"></script>
+
 <!-- PRIVATE LISTING GATE ============================================= -->
 <style>
   body.amre-locked{overflow:hidden;height:100vh}
@@ -253,14 +299,13 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="logo-link" href="https://amre.group/" target="_blank" rel="noopener" aria-label="AMRE"><img class="logo-img" src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE"></a>
-    <div class="nav-links">
+    <div class="pnav-links">
       <a href="#interiors">Interiors</a>
       <a href="#grounds">Terraces</a>
       <a href="#plans">Floor Plans</a>
       <a href="#setting">Neighborhood</a>
     </div>
-    <a href="#inquire" class="nav-cta">Inquire</a>
+    <a href="#inquire" class="pnav-cta">Inquire</a>
   </div>
 </nav>
 <!-- HERO -->
