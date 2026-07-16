@@ -24,6 +24,7 @@
   // ---- nav links (edit once) ----
   var LINKS = [
     ['/sellers/', 'Sellers'], ['/buyers/', 'Buyers'],
+    ['/market-reports/', 'Market Reports'],
     ['/cash-and-flow/', 'Cash &amp; Flow'], ['/about/', 'About'], ['/contact/', 'Contact'],
     ['/properties/fruitland-401/', 'Recent Sale']
   ];
