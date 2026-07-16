@@ -602,7 +602,44 @@
   .faq-item[open] summary::after{transform:rotate(45deg)}
   .faq-a{padding:0 0 26px}
   .faq-a p{color:var(--mute);font-size:1rem;max-width:74ch;line-height:1.75}
-@media(max-width:600px){.hero h1{font-size:clamp(2.3rem,9vw,3.3rem);letter-spacing:-.02em;max-width:100%}}</style>
+@media(max-width:600px){.hero h1{font-size:clamp(2.3rem,9vw,3.3rem);letter-spacing:-.02em;max-width:100%}}
+/* ── Hero seller/buyer form (hx- namespace, scoped) ── */
+.hero{align-items:center}
+.hero .hero-in.hx-split{display:grid;grid-template-columns:1fr 440px;gap:clamp(32px,5vw,72px);align-items:center;padding-top:150px;padding-bottom:clamp(48px,9vh,96px)}
+.hero .hx-split h1{font-size:clamp(2.6rem,5vw,4.4rem);margin:0 0 20px}
+.hero .hx-split .sub{max-width:56ch}
+.hx-rating{display:inline-flex;align-items:center;gap:11px;margin-bottom:22px}
+.hx-rating .hx-stars{color:var(--clay);font-size:1rem;letter-spacing:3px}
+.hx-rating .hx-score{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#ffe6ad}
+.hx-card{background:var(--bone);color:var(--ink);border-radius:20px;padding:30px;box-shadow:0 30px 80px rgba(10,16,12,.45);border:1px solid rgba(255,255,255,.5)}
+.hx-toggle{display:flex;gap:4px;background:var(--bone-2);border-radius:100px;padding:5px;margin-bottom:24px}
+.hx-toggle button{flex:1;border:none;cursor:pointer;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.04em;padding:11px;border-radius:100px;background:transparent;color:var(--ink-2);transition:.3s var(--ease)}
+.hx-toggle button.on{background:var(--dark);color:#fff}
+.hx-toggle button.on-buy{background:var(--sage);color:#fff}
+.hx-eyebrow{font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--clay-dk);margin-bottom:8px}
+.hx-card h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;line-height:1.15;letter-spacing:-.02em;margin:0 0 18px;color:var(--ink)}
+.hx-card h2 em{font-style:italic;color:var(--dark)}
+.hx-card label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin:2px 0 7px}
+.hx-opt{color:#a3a29c;font-weight:500;text-transform:none;letter-spacing:0}
+.hx-field{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:13px;display:flex;align-items:center;gap:9px;transition:.25s var(--ease)}
+.hx-field:focus-within{border-color:var(--clay);box-shadow:0 0 0 3px rgba(255,193,60,.18)}
+.hx-field input{border:none;outline:none;font-family:var(--sans);font-size:.95rem;width:100%;color:var(--ink);background:transparent}
+.hx-field .hx-pin{color:var(--clay-dk);font-size:1rem}
+.hx-row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.hx-hint{font-size:.78rem;color:var(--mute);margin:-4px 0 18px;line-height:1.4}
+.hx-cta{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:100px;padding:16px;font-family:var(--sans);font-size:.9rem;font-weight:600;letter-spacing:.02em;cursor:pointer;color:var(--ink);background:var(--clay);transition:.35s var(--ease);margin-top:4px}
+.hx-cta:hover{background:var(--clay-dk);transform:translateY(-2px)}
+.hx-fine{font-size:.72rem;color:var(--mute);text-align:center;margin-top:14px;letter-spacing:.01em}
+.hx-card .amre-error{display:none;font-size:.78rem;color:#a3322d;background:rgba(163,50,45,.08);border:1px solid rgba(163,50,45,.2);border-radius:10px;padding:10px 12px;margin-top:12px}
+.hx-card .amre-error.is-visible{display:block}
+.hx-card .amre-success{display:none;text-align:center;padding:24px 6px}
+.hx-card .amre-success.is-visible{display:block}
+.hx-card .amre-success .hx-ok{width:52px;height:52px;border-radius:50%;background:var(--sage);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px}
+.hx-card .amre-success h3{font-family:var(--serif);font-weight:400;font-size:1.4rem;color:var(--ink);margin:0 0 8px}
+.hx-card .amre-success p{font-size:.9rem;color:var(--mute);line-height:1.5;margin:0}
+.hx-hidden{display:none}
+@media(max-width:900px){.hero .hero-in.hx-split{grid-template-columns:1fr;padding-top:120px}.hx-card{max-width:460px}#hxHeadline br{display:none}}
+</style>
 
 <style>
   /* review refinements v2 */
@@ -641,19 +678,59 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-scrim"></div>
-  <div class="wrap hero-in">
-    <span class="eyebrow">Compass Beverly Hills</span>
-    <h1>Los Angeles real estate, <em>done right.</em></h1>
-    <p class="sub">Architect-led advisory for sellers, buyers, and investors of LA's finest properties. 25 years of combined experience.</p>
-    <div class="hero-ctas">
-      <a href="/#contact" class="btn btn-fill">Get a Free Valuation <span class="arrow">→</span></a>
-      <a href="/properties/14405-mulholland-dr/" class="btn btn-ghost">View Featured Property</a>
+  <div class="wrap hero-in hx-split">
+    <div class="hx-pitch">
+      <div class="hx-rating"><span class="hx-stars">★★★★★</span><span class="hx-score">5.0 · 17 Google reviews</span></div>
+      <h1 id="hxHeadline">Sell your home<br>with <em>confidence.</em></h1>
+      <p class="sub" id="hxSub">Leverage our team of professionals to maximize your home value.</p>
     </div>
-  </div>
-  <div class="hero-tag">
-    <div class="k">Featured Listing</div>
-    <div class="v">Bel Air · Private Listing</div>
-    <a href="#featured">$3.995M · 4 BD / 4 BA →</a>
+    <div class="hx-card">
+      <div class="hx-toggle">
+        <button id="hxTabSell" class="on" type="button" onclick="hxSet('sell')">Selling</button>
+        <button id="hxTabBuy" type="button" onclick="hxSet('buy')">Actively buying</button>
+      </div>
+      <div id="hxWrapSell">
+        <form data-amre-form data-form-type="valuation" data-source="amre.group/ (hero — seller)">
+          <div class="hx-eyebrow">Free Maximum Price Report</div>
+          <h2>What's your home <em>worth?</em></h2>
+          <label>Property address</label>
+          <div class="hx-field"><span class="hx-pin">◉</span><input type="text" name="address" placeholder="Enter your home address"></div>
+          <p class="hx-hint">Provide your address for a competitive market analysis — delivered within 48 hours.</p>
+          <div class="hx-row2">
+            <div><label>First name</label><div class="hx-field"><input type="text" name="first_name" required></div></div>
+            <div><label>Last name</label><div class="hx-field"><input type="text" name="last_name"></div></div>
+          </div>
+          <label>Email</label>
+          <div class="hx-field"><input type="email" name="email" placeholder="name@email.com" required></div>
+          <label>Phone <span class="hx-opt">(optional)</span></label>
+          <div class="hx-field"><input type="tel" name="phone" placeholder="(310) 555-0000"></div>
+          <button class="hx-cta amre-submit" type="submit"><span class="amre-btn-text">Share address →</span></button>
+          <div class="amre-error">Something went wrong. Please try again or call (323) 719-8585.</div>
+          <p class="hx-fine">Free, no-obligation valuation. No spam, ever.</p>
+        </form>
+        <div class="amre-success"><div class="hx-ok">✓</div><h3>Report on the way.</h3><p>Michael &amp; Ania will prepare your Maximum Price Report and reach out within 48 hours.</p></div>
+      </div>
+      <div id="hxWrapBuy" class="hx-hidden">
+        <form data-amre-form data-form-type="buyer" data-source="amre.group/ (hero — buyer)">
+          <div class="hx-eyebrow">Private Exclusive Access</div>
+          <h2>See homes <em>before</em> MLS.</h2>
+          <div class="hx-row2">
+            <div><label>First name</label><div class="hx-field"><input type="text" name="first_name" required></div></div>
+            <div><label>Last name</label><div class="hx-field"><input type="text" name="last_name"></div></div>
+          </div>
+          <label>Email</label>
+          <div class="hx-field"><input type="email" name="email" placeholder="name@email.com" required></div>
+          <label>Phone <span class="hx-opt">(optional)</span></label>
+          <div class="hx-field"><input type="tel" name="phone" placeholder="(310) 555-0000"></div>
+          <label>Target neighborhoods</label>
+          <div class="hx-field"><input type="text" name="message" placeholder="e.g. Santa Monica, Venice"></div>
+          <button class="hx-cta amre-submit" type="submit"><span class="amre-btn-text">Request private access →</span></button>
+          <div class="amre-error">Something went wrong. Please try again or call (323) 719-8585.</div>
+          <p class="hx-fine">First off-market report lands next week. Cancel anytime.</p>
+        </form>
+        <div class="amre-success"><div class="hx-ok">✓</div><h3>You're in.</h3><p>We have your criteria — your first off-market report lands next week.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1085,5 +1162,23 @@
 </script>
 <!-- ═══ end Off-Market Home Report popup ═══ -->
 
+<script>
+function hxSet(mode){
+  var tS=document.getElementById('hxTabSell'),tB=document.getElementById('hxTabBuy'),
+      wS=document.getElementById('hxWrapSell'),wB=document.getElementById('hxWrapBuy'),
+      h=document.getElementById('hxHeadline'),s=document.getElementById('hxSub');
+  if(mode==='sell'){tS.className='on';tB.className='';wS.classList.remove('hx-hidden');wB.classList.add('hx-hidden');
+    h.innerHTML='Sell your home<br>with <em>confidence.</em>';s.textContent='Leverage our team of professionals to maximize your home value.';}
+  else{tB.className='on-buy';tS.className='';wB.classList.remove('hx-hidden');wS.classList.add('hx-hidden');
+    h.innerHTML='Find homes before<br><em>everyone else.</em>';s.innerHTML='Compass private exclusives and off-market homes,<br>matched to your search.';}
+  hxLock();
+}
+function hxLock(){var c=document.querySelector('.hx-card'),wS=document.getElementById('hxWrapSell'),wB=document.getElementById('hxWrapBuy');
+  if(!c||!wS||!wB)return;if(window.innerWidth<900){c.style.height='';return;}
+  var rh=wB.classList.contains('hx-hidden');wB.classList.remove('hx-hidden');
+  var t=Math.max(wS.offsetHeight,wB.offsetHeight);if(rh)wB.classList.add('hx-hidden');
+  var cs=getComputedStyle(c);c.style.height=(t+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom))+'px';}
+window.addEventListener('load',hxLock);window.addEventListener('resize',hxLock);
+</script>
 </body>
 </html>
