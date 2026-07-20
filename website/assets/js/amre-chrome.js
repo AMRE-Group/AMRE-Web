@@ -16,7 +16,13 @@
       + '.mobile-drawer nav a.btn{font-family:var(--sans,sans-serif);font-size:.82rem;margin-top:12px;align-self:flex-start;color:var(--ink,#1a1a1a)}'
       + '.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}'
       + '.ham.open span:nth-child(2){opacity:0}'
-      + '.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}';
+      + '.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}'
+      + '.ham{position:relative;z-index:70}'
+      + '.ham.open span,header.nav.solid .ham.open span{background:#fff}'
+      + '.drawer-backdrop{position:fixed;inset:0;background:rgba(12,16,13,.5);opacity:0;visibility:hidden;transition:opacity .4s var(--ease,ease),visibility .4s;z-index:54}'
+      + '.drawer-backdrop.open{opacity:1;visibility:visible}'
+      + '.mobile-drawer{align-items:flex-start;padding-top:110px}'
+      ;
     var st = document.createElement('style'); st.id = 'amre-chrome-css'; st.textContent = css;
     document.head.appendChild(st);
   })();
@@ -90,15 +96,23 @@
   // hamburger drawer
   var ham = document.getElementById('ham'), drawer = document.getElementById('drawer');
   if (ham && drawer) {
-    ham.addEventListener('click', function () {
-      var open = ham.classList.toggle('open');
+    var backdrop = document.createElement('div');
+    backdrop.className = 'drawer-backdrop'; backdrop.id = 'drawerBackdrop';
+    document.body.appendChild(backdrop);
+    var setDrawer = function (open) {
+      ham.classList.toggle('open', open);
       drawer.classList.toggle('open', open);
-      ham.setAttribute('aria-expanded', open);
+      backdrop.classList.toggle('open', open);
+      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
       document.body.style.overflow = open ? 'hidden' : '';
+    };
+    ham.addEventListener('click', function () { setDrawer(!drawer.classList.contains('open')); });
+    backdrop.addEventListener('click', function () { setDrawer(false); });
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Escape' || e.key === 'Esc') && drawer.classList.contains('open')) setDrawer(false);
     });
-    drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () {
-      ham.classList.remove('open'); drawer.classList.remove('open'); document.body.style.overflow = '';
-    }); });
+    drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setDrawer(false); }); });
   }
   // keep "Los Angeles" on one line everywhere (current + future content)
   (function () {
