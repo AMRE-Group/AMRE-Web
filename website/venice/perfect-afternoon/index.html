@@ -59,8 +59,9 @@
 .pa .mapwrap{max-width:880px;margin:0 auto;background:#fff;border:1px solid rgba(43,46,42,.08);border-radius:22px;padding:clamp(18px,3vw,34px)}
 .pa .mapwrap svg{width:100%;height:auto;display:block}
 .pa .maplegend{display:flex;gap:22px;align-items:center;flex-wrap:wrap;margin-top:16px;font-size:.8rem;color:#5a5a5a}
-.pa .maplegend .lg-route{display:inline-flex;align-items:center;gap:9px}
+.pa .maplegend .lg-item{display:inline-flex;align-items:center;gap:9px}
 .pa .maplegend .lg-route i{width:30px;height:0;border-top:4px dotted #e6a800;display:inline-block}
+.pa .maplegend .lg-mark i{width:11px;height:11px;background:#e6a800;transform:rotate(45deg);display:inline-block}
 .pa .maplegend .lg-mute{color:#8a8a8a}
 .pa .tl{max-width:820px;margin:0 auto;position:relative}
 .pa .tl::before{content:"";position:absolute;left:26px;top:12px;bottom:12px;width:2px;background:linear-gradient(#1c3d31,rgba(28,61,49,.15))}
@@ -117,32 +118,44 @@
   <div class="wrap">
     <div class="head center reveal"><span class="eyebrow" style="justify-content:center">The Route</span><h2>The whole loop, <em>mapped.</em></h2></div>
     <div class="mapwrap reveal">
-      <svg viewBox="0 0 760 520" role="img" aria-label="Stylized walking map of Venice: coffee and dinner on Abbot Kinney, the boardwalk, skate park and Muscle Beach along the coast, and the canals to the south.">
-        <rect x="0" y="0" width="235" height="520" fill="#d3e8e0"/>
-        <path d="M0,150 q60,-16 120,0 t120,0" fill="none" stroke="#b2d4c8" stroke-width="2"/>
-        <path d="M0,250 q60,-16 120,0 t120,0" fill="none" stroke="#b2d4c8" stroke-width="2"/>
-        <path d="M0,350 q60,-16 120,0 t120,0" fill="none" stroke="#b2d4c8" stroke-width="2"/>
-        <rect x="235" y="0" width="42" height="520" fill="#f0e7d3"/>
-        <text transform="rotate(-90 70 275)" x="70" y="275" text-anchor="middle" fill="#6b9488" font-family="Instrument Sans,sans-serif" font-size="12" letter-spacing="4">PACIFIC OCEAN</text>
-        <line x1="277" y1="70" x2="308" y2="452" stroke="#c9a961" stroke-width="6" stroke-linecap="round"/>
-        <line x1="498" y1="66" x2="576" y2="474" stroke="#1c3d31" stroke-width="7" stroke-linecap="round"/>
-        <g stroke="#bcdcd0" stroke-width="2"><line x1="312" y1="446" x2="470" y2="446"/><line x1="312" y1="468" x2="470" y2="468"/><line x1="312" y1="490" x2="470" y2="490"/><line x1="345" y1="436" x2="345" y2="496"/><line x1="395" y1="436" x2="395" y2="496"/><line x1="445" y1="436" x2="445" y2="496"/></g>
-        <text transform="rotate(79 552 250)" x="552" y="250" text-anchor="middle" fill="#1c3d31" opacity=".75" font-family="Instrument Sans,sans-serif" font-size="11" letter-spacing="2">ABBOT KINNEY BLVD</text>
-        <text transform="rotate(85 296 232)" x="296" y="232" text-anchor="middle" fill="#9a7f3f" font-family="Instrument Sans,sans-serif" font-size="11" letter-spacing="2">OCEAN FRONT WALK</text>
-        <text x="393" y="420" text-anchor="middle" fill="#6b9488" font-family="Instrument Sans,sans-serif" font-size="11" letter-spacing="2">VENICE CANALS</text>
-        <polyline points="530,112 526,192 272,236 272,306 272,376 366,460 546,410" fill="none" stroke="#e6a800" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="0.1 13"/>
+      <svg viewBox="0 0 760 520" role="img" aria-label="Stylized walking map of Venice: coffee and dinner on Abbot Kinney, west through the walk-streets to the boardwalk, skate park and Muscle Beach along the coast, and the canals to the south.">
+        <rect x="0" y="0" width="180" height="520" fill="#b9d5ef"/>
+        <path d="M0,140 q45,-14 90,0 t90,0" fill="none" stroke="#8fb8e0" stroke-width="2"/>
+        <path d="M0,240 q45,-14 90,0 t90,0" fill="none" stroke="#8fb8e0" stroke-width="2"/>
+        <path d="M0,340 q45,-14 90,0 t90,0" fill="none" stroke="#8fb8e0" stroke-width="2"/>
+        <path d="M0,440 q45,-14 90,0 t90,0" fill="none" stroke="#8fb8e0" stroke-width="2"/>
+        <rect x="180" y="0" width="48" height="520" fill="#f0e7d3"/>
+        <g fill="none"><path d="M204,175 q-2,-10 -1,-18" stroke="#b09a63" stroke-width="3"/><g stroke="#5c8a5f" stroke-width="2.4"><path d="M203,157 q-15,-3 -21,5"/><path d="M203,157 q-9,-11 -19,-9"/><path d="M203,157 q2,-13 0,-17"/><path d="M203,157 q11,-9 21,-6"/><path d="M203,157 q15,0 20,8"/></g></g>
+        <g fill="none"><path d="M214,345 q-2,-10 -1,-18" stroke="#b09a63" stroke-width="3"/><g stroke="#5c8a5f" stroke-width="2.4"><path d="M213,327 q-15,-3 -21,5"/><path d="M213,327 q-9,-11 -19,-9"/><path d="M213,327 q2,-13 0,-17"/><path d="M213,327 q11,-9 21,-6"/><path d="M213,327 q15,0 20,8"/></g></g>
+        <text transform="rotate(-90 58 278)" x="58" y="278" text-anchor="middle" fill="#3d6a99" font-family="Instrument Sans,sans-serif" font-size="12" letter-spacing="4">PACIFIC OCEAN</text>
+        <g stroke="#e6ddc9" stroke-width="4" stroke-linecap="round"><line x1="252" y1="150" x2="428" y2="150"/><line x1="252" y1="210" x2="428" y2="210"/><line x1="252" y1="285" x2="428" y2="285"/><line x1="252" y1="352" x2="428" y2="352"/><line x1="345" y1="150" x2="345" y2="352"/></g>
+        <text x="345" y="137" text-anchor="middle" fill="#b0a688" font-family="Instrument Sans,sans-serif" font-size="10" letter-spacing="3">WALK STREETS</text>
+        <line x1="240" y1="70" x2="268" y2="452" stroke="#c9a961" stroke-width="6" stroke-linecap="round"/>
+        <line x1="430" y1="66" x2="500" y2="474" stroke="#1c3d31" stroke-width="7" stroke-linecap="round"/>
+        <g stroke="#a9cbe6" stroke-width="2"><line x1="312" y1="446" x2="470" y2="446"/><line x1="312" y1="468" x2="470" y2="468"/><line x1="312" y1="490" x2="470" y2="490"/><line x1="345" y1="436" x2="345" y2="496"/><line x1="395" y1="436" x2="395" y2="496"/><line x1="445" y1="436" x2="445" y2="496"/></g>
+        <text transform="rotate(80 514 250)" x="514" y="250" text-anchor="middle" fill="#1c3d31" opacity=".75" font-family="Instrument Sans,sans-serif" font-size="11" letter-spacing="2">ABBOT KINNEY BLVD</text>
+        <text transform="rotate(86 286 232)" x="286" y="232" text-anchor="middle" fill="#9a7f3f" font-family="Instrument Sans,sans-serif" font-size="11" letter-spacing="2">OCEAN FRONT WALK</text>
+        <text x="393" y="420" text-anchor="middle" fill="#3d6a99" font-family="Instrument Sans,sans-serif" font-size="11" letter-spacing="2">VENICE CANALS</text>
+        <g font-family="Instrument Sans,sans-serif" font-size="11" fill="#7a6323">
+          <path d="M335,112 l7,7 -7,7 -7,-7 Z" fill="#e6a800"/><text x="335" y="97" text-anchor="middle">Venice Sign</text>
+          <path d="M300,258 l6,6 -6,6 -6,-6 Z" fill="#e6a800"/><text x="300" y="246" text-anchor="middle">Art Walls</text>
+          <path d="M452,332 l6,6 -6,6 -6,-6 Z" fill="#e6a800"/><text x="442" y="336" text-anchor="end">Gjelina</text>
+          <path d="M252,430 l6,6 -6,6 -6,-6 Z" fill="#e6a800"/><text x="268" y="446" text-anchor="start">Pier</text>
+        </g>
+        <polyline points="455,110 462,188 252,240 252,305 252,368 360,452 486,405" fill="none" stroke="#e6a800" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="0.1 13"/>
         <g font-family="Instrument Sans,sans-serif" font-size="13" font-weight="600">
-          <circle cx="530" cy="112" r="17" fill="#1c3d31" stroke="#e6a800" stroke-width="2.5"/><text x="530" y="117" text-anchor="middle" fill="#fff">1</text><text x="556" y="116" fill="#1c3d31">Coffee</text>
-          <circle cx="526" cy="192" r="16" fill="#1c3d31"/><text x="526" y="197" text-anchor="middle" fill="#fff">2</text><text x="550" y="196" fill="#1c3d31">The boulevard</text>
-          <circle cx="272" cy="236" r="16" fill="#1c3d31"/><text x="272" y="241" text-anchor="middle" fill="#fff">3</text><text x="250" y="240" text-anchor="end" fill="#1c3d31">Boardwalk</text>
-          <circle cx="272" cy="306" r="16" fill="#1c3d31"/><text x="272" y="311" text-anchor="middle" fill="#fff">4</text><text x="250" y="310" text-anchor="end" fill="#1c3d31">Skate park</text>
-          <circle cx="272" cy="376" r="16" fill="#1c3d31"/><text x="272" y="381" text-anchor="middle" fill="#fff">5</text><text x="250" y="380" text-anchor="end" fill="#1c3d31">Muscle Beach</text>
-          <circle cx="366" cy="460" r="16" fill="#1c3d31"/><text x="366" y="465" text-anchor="middle" fill="#fff">6</text><text x="366" y="513" text-anchor="middle" fill="#1c3d31">The canals</text>
-          <circle cx="546" cy="410" r="17" fill="#1c3d31" stroke="#e6a800" stroke-width="2.5"/><text x="546" y="415" text-anchor="middle" fill="#fff">7</text><text x="572" y="414" fill="#1c3d31">Dinner</text>
+          <circle cx="455" cy="110" r="17" fill="#1c3d31" stroke="#e6a800" stroke-width="2.5"/><text x="455" y="115" text-anchor="middle" fill="#fff">1</text><text x="481" y="114" fill="#1c3d31">Coffee</text>
+          <circle cx="462" cy="188" r="16" fill="#1c3d31"/><text x="462" y="193" text-anchor="middle" fill="#fff">2</text><text x="486" y="192" fill="#1c3d31">The boulevard</text>
+          <circle cx="252" cy="240" r="16" fill="#1c3d31"/><text x="252" y="245" text-anchor="middle" fill="#fff">3</text><text x="230" y="244" text-anchor="end" fill="#1c3d31">Boardwalk</text>
+          <circle cx="252" cy="305" r="16" fill="#1c3d31"/><text x="252" y="310" text-anchor="middle" fill="#fff">4</text><text x="230" y="309" text-anchor="end" fill="#1c3d31">Skate park</text>
+          <circle cx="252" cy="368" r="16" fill="#1c3d31"/><text x="252" y="373" text-anchor="middle" fill="#fff">5</text><text x="230" y="372" text-anchor="end" fill="#1c3d31">Muscle Beach</text>
+          <circle cx="360" cy="452" r="16" fill="#1c3d31"/><text x="360" y="457" text-anchor="middle" fill="#fff">6</text><text x="360" y="505" text-anchor="middle" fill="#1c3d31">The canals</text>
+          <circle cx="486" cy="405" r="17" fill="#1c3d31" stroke="#e6a800" stroke-width="2.5"/><text x="486" y="410" text-anchor="middle" fill="#fff">7</text><text x="511" y="409" fill="#1c3d31">Dinner</text>
         </g>
       </svg>
       <div class="maplegend">
-        <span class="lg-route"><i></i>Walking route</span>
+        <span class="lg-item lg-route"><i></i>Walking route</span>
+        <span class="lg-item lg-mark"><i></i>Landmark</span>
         <span>&#9312; start &middot; &#9318; dinner</span>
         <span class="lg-mute">Stylized &mdash; not to scale</span>
       </div>
@@ -176,7 +189,7 @@
         <div class="dot">3</div>
         <div class="when">3:15 PM · The Boardwalk</div>
         <h3>Out to the beach</h3>
-        <p>Cut west toward the water — a ten-minute walk drops you onto the Venice Boardwalk, three miles of oceanfront that doubles as the city's open-air theater. Street performers, artists, and the Pacific on your right the whole way down.</p>
+        <p>Cut west through the walk-streets toward the water — a ten-minute stroll drops you onto the Venice Boardwalk, three miles of oceanfront that doubles as the city's open-air theater. Street performers, artists, and the Pacific on your right the whole way down.</p>
         <p class="where">Ocean Front Walk</p>
       </div>
 
@@ -241,7 +254,7 @@
     <div class="head center reveal"><span class="eyebrow">Good to Know</span><h2>The afternoon, <em>answered.</em></h2></div>
     <div class="faq-list">
       <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">Where should I get coffee on Abbot Kinney?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Intelligentsia Coffee at 1331 Abbot Kinney Blvd is the neighborhood anchor — a light-filled, design-forward roaster that set the tone for third-wave coffee in Venice. It's the natural first stop before browsing the boulevard's boutiques and galleries.</p></div></details>
-      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">How far is Abbot Kinney from the beach?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">About a 10-to-15-minute walk. Abbot Kinney runs a few blocks inland and parallel to the coast, so you can browse the boulevard, then cut west toward the boardwalk, skate park, and Muscle Beach without moving your car.</p></div></details>
+      <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">How far is Abbot Kinney from the beach?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">About a 10-to-15-minute walk. Abbot Kinney runs a few blocks inland and parallel to the coast, so you can browse the boulevard, then cut west through the walk-streets toward the boardwalk, skate park, and Muscle Beach without moving your car.</p></div></details>
       <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">Can you walk through the Venice Canals?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. The Venice Canals Historic District has public pedestrian walkways along the water and arched footbridges connecting them. It's free, open to the public, and one of the most peaceful walks in Los Angeles — best in the golden hour before dinner.</p></div></details>
       <details class="faq-item reveal" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question"><summary itemprop="name">Is the Tasting Kitchen open again?</summary><div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer"><p itemprop="text">Yes. The Tasting Kitchen, by Chef Casey Lane, has reopened at 1633 Abbot Kinney Blvd. Its return brings back one of Venice's most celebrated dinner rooms — a fitting end to an afternoon that begins and ends on Abbot Kinney.</p></div></details>
     </div>
