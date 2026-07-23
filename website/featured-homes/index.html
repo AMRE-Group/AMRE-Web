@@ -36,10 +36,10 @@
   .fh-sec .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
   .fh-sec .sec-head h2{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:300;letter-spacing:-.02em}
   .fh-sec .sec-head .all{font-size:.78rem;font-weight:600;color:var(--clay-dk);white-space:nowrap}
-  .fh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .fh-grid.sold{grid-template-columns:repeat(3,1fr)}
-  @media(max-width:920px){.fh-grid,.fh-grid.sold{grid-template-columns:1fr 1fr}}
-  @media(max-width:640px){.fh-grid,.fh-grid.sold{grid-template-columns:1fr}}
+  .fh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:24px}
+  @media(max-width:640px){.fh-grid{grid-template-columns:1fr}}
+  .fh-more{text-align:center;padding:8px 0 4px}
+  .fh-more a{display:inline-flex;align-items:center;gap:9px}
 
   .fh-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line-2);border-radius:22px;overflow:hidden;transition:.4s var(--ease);color:inherit}
   .fh-card:hover{transform:translateY(-6px);box-shadow:0 30px 70px -34px rgba(23,19,16,.42)}
@@ -106,6 +106,17 @@
       </div>
     </a>
 
+    <a class="fh-card" href="/properties/900-s-nueva-vista-dr/">
+      <div class="fh-img" style="background-image:url('/properties/900-s-nueva-vista-dr/img/hero.jpg')"><span class="fh-badge">For Sale</span></div>
+      <div class="fh-body">
+        <span class="fh-tag">Featured Listing · Palm Springs</span>
+        <h3>900 S Nueva Vista Dr</h3>
+        <div class="fh-price">$745,000</div>
+        <div class="fh-specs"><span><b>3</b>beds</span><span><b>2</b>baths</span><span><b>1,328</b>sq ft</span></div>
+        <span class="fh-go">View listing →</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -125,6 +136,7 @@
     </a>
 
   </div>
+  <div class="fh-more"><a class="btn btn-line" href="/properties/">View all past transactions <span class="arrow">→</span></a></div>
 </section>
 
 <div id="amre-footer"></div>

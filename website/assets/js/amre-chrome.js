@@ -85,7 +85,7 @@
             '<p>Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly&nbsp;Hills.</p>' +
           '</div>' +
           '<div class="foot-cols">' +
-            '<div><h4>Navigate</h4><a href="/sellers/">Sellers</a><a href="/buyers/">Buyers</a><a href="/about/">Team</a><a href="/blog/">Journal</a><a href="/contact/">Contact</a><a href="/properties/">Past Transactions</a><a href="/properties/900-s-nueva-vista-dr/">Featured Property</a><a href="/featured-homes/">Featured Homes</a></div>' +
+            '<div><h4>Navigate</h4><a href="/sellers/">Sellers</a><a href="/buyers/">Buyers</a><a href="/about/">Team</a><a href="/blog/">Journal</a><a href="/contact/">Contact</a><a href="/properties/">Past Transactions</a><a href="/featured-homes/">Featured Homes</a></div>' +
             '<div><h4>Services</h4><a href="/sellers/#three-phase">3-Phase Marketing</a><a href="/sellers/#concierge">Compass Concierge</a><a href="/buyers/">Buyer Advisory</a><a href="/#contact">Home Valuation</a><a href="/#contact">Investment Advisory</a><a href="/tools/investor-calculator/">Investor Calculator</a><a href="/tools/net-proceeds-calculator/">Seller Net Proceeds</a></div>' +
             '<div><h4>Connect</h4><a href="tel:3237198585">(323) 719-8585</a><a href="mailto:michael.abraham@compass.com">Email Us</a><a href="https://www.instagram.com/amre.group/">Instagram</a><a href="https://www.youtube.com/@AMRE_Real_Estate">YouTube</a><a href="https://www.facebook.com/amre.grp">Facebook</a><a href="https://www.linkedin.com/company/amre-real-estate-group/">LinkedIn</a></div>' +
           '</div>' +
