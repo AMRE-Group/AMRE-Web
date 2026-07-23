@@ -35,7 +35,7 @@
     { href: BASE + '/cash-and-flow/', label: 'Cash & Flow', match: /\/cash-and-flow\// },
     { href: BASE + '/about/',   label: 'About',    match: /\/about\//   },
     { href: BASE + '/contact/', label: 'Contact',  match: /\/contact\// },
-     { href: BASE + '/properties/fruitland-401/', label: 'Recent Sale', match: /\/properties\/fruitland-401\// }
+     { href: BASE + '/featured-homes/', label: 'Featured Homes', match: /\/featured-homes\// }
   ];
 
   // ── Right-side actions — edit here, propagates everywhere ──
