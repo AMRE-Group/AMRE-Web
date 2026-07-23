@@ -56,12 +56,26 @@
     }).join('');
   }
 
+  // Email + click-to-call icons, shown left of the CTA
+  var CONTACT_ICONS =
+    '<a class="nav-icon-btn" href="mailto:Michael.Abraham@Compass.com" aria-label="Email us" title="Michael.Abraham@Compass.com">' +
+      '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path>' +
+      '</svg>' +
+    '</a>' +
+    '<a class="nav-icon-btn" href="tel:+13237198585" aria-label="Call us" title="(323) 719-8585">' +
+      '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path>' +
+      '</svg>' +
+    '</a>';
+
   function buildNavActions() {
-    return ACTIONS.map(function (a) {
+    var buttons = ACTIONS.map(function (a) {
       var cls = a.style === 'text' ? 'nav-link-text' : 'nav-cta';
       return '<a href="' + a.href + '" class="' + cls + '">' +
              a.label.replace(/ /g, '&nbsp;') + '</a>';
     }).join('');
+    return CONTACT_ICONS + buttons;
   }
 
   function buildDrawerLinks() {

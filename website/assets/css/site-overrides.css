@@ -119,6 +119,32 @@ body{
 }
 .site-nav.is-light .nav-cta{ background: #ffc13c !important; color: #070B33 !important; }
 
+/* Contact icon buttons (email + click-to-call) left of the Get In Touch CTA */
+.nav-icon-btn{
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: rgba(255,255,255,.9) !important;
+  border: 1px solid rgba(255,255,255,.35);
+  transition: color .2s, border-color .2s, background .2s, transform .15s !important;
+}
+.nav-icon-btn:hover{
+  color: #ffc13c !important;
+  border-color: #ffc13c;
+  transform: translateY(-1px);
+}
+.site-nav.is-light .nav-icon-btn{
+  color: rgba(7,11,51,.75) !important;
+  border-color: rgba(7,11,51,.25);
+}
+.site-nav.is-light .nav-icon-btn:hover{
+  color: #070B33 !important;
+  border-color: #070B33;
+}
+
 /* Logo sizing — match home (AMRE 22px, Compass 15px) */
 .nav-amre   { height: 22px !important; width: auto !important; }
 .nav-compass{ height: 15px !important; width: auto !important; opacity: .85 !important; }
@@ -694,6 +720,7 @@ html body .testi-text{
 @media(max-width:860px){
   .nav-link-text{display:none !important}
   .nav-right .nav-cta{display:none !important}
+  .nav-right .nav-icon-btn{display:none !important}
   .ham-btn{display:flex !important}
 }
 @media(min-width:861px){
