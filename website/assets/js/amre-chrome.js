@@ -22,6 +22,11 @@
       + '.drawer-backdrop{position:fixed;inset:0;background:rgba(12,16,13,.5);opacity:0;visibility:hidden;transition:opacity .4s var(--ease,ease),visibility .4s;z-index:54}'
       + '.drawer-backdrop.open{opacity:1;visibility:visible}'
       + '.mobile-drawer{align-items:flex-start;padding-top:110px}'
+      + '.nav-icon-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.35);transition:.3s}'
+      + '.nav-icon-btn:hover{color:var(--clay,#ffc13c);border-color:var(--clay,#ffc13c);transform:translateY(-1px)}'
+      + 'header.nav.solid .nav-icon-btn{color:var(--ink-2,#3a3a3c);border-color:rgba(26,26,26,.25)}'
+      + 'header.nav.solid .nav-icon-btn:hover{color:var(--ink,#1a1a1a);border-color:var(--ink,#1a1a1a)}'
+      + '@media(max-width:900px){.nav-right .nav-icon-btn{display:none}}'
       ;
     var st = document.createElement('style'); st.id = 'amre-chrome-css'; st.textContent = css;
     document.head.appendChild(st);
@@ -37,6 +42,18 @@
   var active = function (h) { return location.pathname.replace(/\/$/, '') === h.replace(/\/$/, '') ? ' aria-current="page"' : ''; };
   var navLinks = LINKS.map(function (l) { return '<a href="' + l[0] + '"' + active(l[0]) + '>' + l[1] + '</a>'; }).join('');
 
+  var CONTACT_ICONS =
+    '<a class="nav-icon-btn" href="mailto:Michael.Abraham@Compass.com" aria-label="Email us" title="Michael.Abraham@Compass.com">' +
+      '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path>' +
+      '</svg>' +
+    '</a>' +
+    '<a class="nav-icon-btn" href="tel:+13237198585" aria-label="Call us" title="(323) 719-8585">' +
+      '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+        '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path>' +
+      '</svg>' +
+    '</a>';
+
   var navHTML =
     '<header class="nav" id="nav">' +
       '<div class="wrap nav-in">' +
@@ -49,6 +66,7 @@
         '</a>' +
         '<nav class="nav-links">' + navLinks + '</nav>' +
         '<div class="nav-right">' +
+          CONTACT_ICONS +
           '<a href="/contact/" class="btn btn-fill">Get In Touch <span class="arrow">→</span></a>' +
           '<button class="ham" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
         '</div>' +
