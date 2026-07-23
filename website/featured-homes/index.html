@@ -30,9 +30,16 @@
   .fh-head h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:300;letter-spacing:-.03em;margin:18px 0 14px}
   .fh-head p{color:var(--mute);font-size:1.1rem;max-width:56ch}
 
-  .fh-grid{max-width:1240px;margin:0 auto;padding:48px clamp(20px,4vw,48px) clamp(72px,10vw,120px);display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  @media(max-width:920px){.fh-grid{grid-template-columns:1fr 1fr}}
-  @media(max-width:640px){.fh-grid{grid-template-columns:1fr}}
+  .fh-sec{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+  .fh-sec.first{padding-top:44px}
+  .fh-sec.sold{padding-top:56px;padding-bottom:clamp(72px,10vw,120px)}
+  .fh-sec .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+  .fh-sec .sec-head h2{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:300;letter-spacing:-.02em}
+  .fh-sec .sec-head .all{font-size:.78rem;font-weight:600;color:var(--clay-dk);white-space:nowrap}
+  .fh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .fh-grid.sold{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:920px){.fh-grid,.fh-grid.sold{grid-template-columns:1fr 1fr}}
+  @media(max-width:640px){.fh-grid,.fh-grid.sold{grid-template-columns:1fr}}
 
   .fh-card{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line-2);border-radius:22px;overflow:hidden;transition:.4s var(--ease);color:inherit}
   .fh-card:hover{transform:translateY(-6px);box-shadow:0 30px 70px -34px rgba(23,19,16,.42)}
@@ -62,41 +69,62 @@
   <p>A selection of current listings and recent sales across the Los Angeles Westside and the Hills — each presented by AMRE at Compass.</p>
 </section>
 
-<section class="fh-grid">
+<section class="fh-sec first">
+  <div class="sec-head"><h2>Featured &amp; <em>current listings.</em></h2></div>
+  <div class="fh-grid">
 
-  <a class="fh-card" href="/properties/13627-sunset-blvd/">
-    <div class="fh-img" style="background-image:url('https://www.compass.com/m/c7083ac894929b564cd259cf435c4a4c2c311a7dc7dceeb51b862011fa692386/1200x900.webp')"><span class="fh-badge">For Sale</span></div>
-    <div class="fh-body">
-      <span class="fh-tag">Featured Listing · Pacific Palisades</span>
-      <h3>13627 Sunset Blvd</h3>
-      <div class="fh-price">$9,998,000</div>
-      <div class="fh-specs"><span><b>5</b>beds</span><span><b>6</b>baths</span><span><b>4,761</b>sq ft</span></div>
-      <span class="fh-go">View listing →</span>
-    </div>
-  </a>
+    <a class="fh-card" href="/properties/13627-sunset-blvd/">
+      <div class="fh-img" style="background-image:url('https://www.compass.com/m/c7083ac894929b564cd259cf435c4a4c2c311a7dc7dceeb51b862011fa692386/1200x900.webp')"><span class="fh-badge">For Sale</span></div>
+      <div class="fh-body">
+        <span class="fh-tag">Featured Listing · Pacific Palisades</span>
+        <h3>13627 Sunset Blvd</h3>
+        <div class="fh-price">$9,998,000</div>
+        <div class="fh-specs"><span><b>5</b>beds</span><span><b>6</b>baths</span><span><b>4,761</b>sq ft</span></div>
+        <span class="fh-go">View listing →</span>
+      </div>
+    </a>
 
-  <a class="fh-card" href="/properties/private-melrose-compound/">
-    <div class="fh-img" style="background-image:url('/properties/private-melrose-compound/assets/hero.jpg')"><span class="fh-badge">For Sale</span></div>
-    <div class="fh-body">
-      <span class="fh-tag">Our Listing · West Hollywood adj.</span>
-      <h3>847 N Sierra Bonita Ave</h3>
-      <div class="fh-price">$2,200,000</div>
-      <div class="fh-specs"><span><b>7</b>beds</span><span><b>4.5</b>baths</span><span><b>3,391</b>sq ft</span></div>
-      <span class="fh-go">View listing →</span>
-    </div>
-  </a>
+    <a class="fh-card" href="/properties/private-bel-air-estate/">
+      <div class="fh-img" style="background-image:url('/properties/private-bel-air-estate/assets/hero.jpg')"><span class="fh-badge">For Sale</span></div>
+      <div class="fh-body">
+        <span class="fh-tag">Featured Listing · Bel Air</span>
+        <h3>14405 Mulholland Drive</h3>
+        <div class="fh-price">$3,995,000</div>
+        <div class="fh-specs"><span><b>4</b>beds</span><span><b>4</b>baths</span><span><b>4,453</b>sq ft</span></div>
+        <span class="fh-go">View listing →</span>
+      </div>
+    </a>
 
-  <a class="fh-card" href="/properties/mulholland-14423/">
-    <div class="fh-img" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/properties/mulholland-14423/photos/deck-dining-valley.jpg')"><span class="fh-badge sold">Sold</span></div>
-    <div class="fh-body">
-      <span class="fh-tag">Recently Sold · Bel Air</span>
-      <h3>14423 Mulholland Drive</h3>
-      <div class="fh-price">$1,721,000 <small>+1.5% over ask</small></div>
-      <div class="fh-specs"><span><b>3</b>beds</span><span><b>2</b>baths</span><span><b>1,622</b>sq ft</span></div>
-      <span class="fh-go">View case study →</span>
-    </div>
-  </a>
+    <a class="fh-card" href="/properties/private-melrose-compound/">
+      <div class="fh-img" style="background-image:url('/properties/private-melrose-compound/assets/hero.jpg')"><span class="fh-badge">For Sale</span></div>
+      <div class="fh-body">
+        <span class="fh-tag">Our Listing · West Hollywood adj.</span>
+        <h3>847 N Sierra Bonita Ave</h3>
+        <div class="fh-price">$2,200,000</div>
+        <div class="fh-specs"><span><b>7</b>beds</span><span><b>4.5</b>baths</span><span><b>3,391</b>sq ft</span></div>
+        <span class="fh-go">View listing →</span>
+      </div>
+    </a>
 
+  </div>
+</section>
+
+<section class="fh-sec sold">
+  <div class="sec-head"><h2>Recently <em>sold.</em></h2><a class="all" href="/properties/">View all past transactions →</a></div>
+  <div class="fh-grid sold">
+
+    <a class="fh-card" href="/properties/mulholland-14423/">
+      <div class="fh-img" style="background-image:url('https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/properties/mulholland-14423/photos/deck-dining-valley.jpg')"><span class="fh-badge sold">Sold</span></div>
+      <div class="fh-body">
+        <span class="fh-tag">Recently Sold · Bel Air</span>
+        <h3>14423 Mulholland Drive</h3>
+        <div class="fh-price">$1,721,000 <small>+1.5% over ask</small></div>
+        <div class="fh-specs"><span><b>3</b>beds</span><span><b>2</b>baths</span><span><b>1,622</b>sq ft</span></div>
+        <span class="fh-go">View case study →</span>
+      </div>
+    </a>
+
+  </div>
 </section>
 
 <div id="amre-footer"></div>
