@@ -54,6 +54,20 @@
 .mrx-req-pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .mrx-req-pill{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:100px;padding:10px 18px}
 </style>
+<style>
+.gtn{background:var(--bone-2)}
+.gtn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.gtn-card{background:var(--card);border:1px solid var(--line-2);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:.4s var(--ease);box-shadow:0 30px 70px -55px rgba(23,19,16,.5)}
+.gtn-card:hover{transform:translateY(-6px);box-shadow:0 34px 80px -44px rgba(23,19,16,.5)}
+.gtn-img{height:190px;background-size:cover;background-position:center}
+.gtn-body{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+.gtn-tag{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-dk)}
+.gtn-body h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--dark);margin:8px 0 8px}
+.gtn-body p{color:var(--mute);font-size:.92rem;margin:0 0 18px}
+.gtn-body .go{margin-top:auto;font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--clay-dk)}
+@media(max-width:960px){.gtn-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.gtn-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <div id="amre-nav"></div>
@@ -65,6 +79,27 @@
     <span class="eyebrow">The AMRE Market Desk</span>
     <h1>Los Angeles <em>market&nbsp;reports.</em></h1>
     <p class="sub">Weekly, neighborhood-by-neighborhood reads on pricing, inventory and market balance — search by location and open the report that matters to your block.</p>
+  </div>
+</section>
+
+
+<section class="gtn">
+  <div class="wrap">
+    <div class="head reveal"><span class="eyebrow">Start Here</span><h2>Get to know the <em>neighborhoods.</em></h2><p>New to LA or relocating a client? Start with the big picture, then go deep on the Westside's most-talked-about neighborhoods.</p></div>
+    <div class="gtn-grid">
+      <a class="gtn-card reveal" href="/relocating-to-los-angeles/">
+        <div class="gtn-img" style="background-image:url('/relocating-to-los-angeles/img/la-skyline.jpg')"></div>
+        <div class="gtn-body"><span class="gtn-tag">The Big Picture</span><h3>Why Los Angeles Now</h3><p>The museums, campuses, transit, food and 2026&ndash;2028 global events drawing people to LA &mdash; and the everyday case for relocating.</p><span class="go">Read the relocation brief &rsaquo;</span></div>
+      </a>
+      <a class="gtn-card reveal" href="/venice/">
+        <div class="gtn-img" style="background-image:url('/venice/neighborhood-hero.webp')"></div>
+        <div class="gtn-body"><span class="gtn-tag">Neighborhood Guide</span><h3>Venice</h3><p>Silicon Beach, the canals and Abbot Kinney &mdash; plus our hour-by-hour perfect afternoon walking loop.</p><span class="go">Explore Venice &rsaquo;</span></div>
+      </a>
+      <a class="gtn-card reveal" href="/culver-city/">
+        <div class="gtn-img" style="background-image:url('/culver-city/neighborhood-hero.webp')"></div>
+        <div class="gtn-body"><span class="gtn-tag">Neighborhood Guide</span><h3>Culver City</h3><p>Studio town turned dining-and-tech hub on the E Line &mdash; one of the Westside's fastest markets.</p><span class="go">Explore Culver City &rsaquo;</span></div>
+      </a>
+    </div>
   </div>
 </section>
 
