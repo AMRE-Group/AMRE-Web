@@ -244,11 +244,34 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
-
-  // forms that appear later (modals, gates rendered on demand)
-  try {
-    new MutationObserver(function () { apply(); })
-      .observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
   window.addEventListener('load', boot);
+
+  /* Forms that appear later (modals, gates rendered on demand).
+     Heavily DEBOUNCED and self-terminating: an un-throttled observer on an
+     animation-heavy page fires thousands of times a second and locks the tab. */
+  try {
+    var queued = false, checks = 0, obs;
+
+    function pending() {
+      return phoneInputs().some(function (p) {
+        var sc = scopeFor(p);
+        return sc && sc.getAttribute('data-optin-done') !== '1';
+      });
+    }
+
+    obs = new MutationObserver(function () {
+      if (queued) return;
+      queued = true;
+      setTimeout(function () {
+        queued = false;
+        if (++checks > 40) { obs.disconnect(); return; }   // hard ceiling
+        if (!pending()) return;                            // nothing new to do
+        apply();
+      }, 400);
+    });
+    obs.observe(document.body || document.documentElement, { childList: true, subtree: true });
+
+    // stop watching once the page has settled
+    setTimeout(function () { try { obs.disconnect(); } catch (e) {} }, 30000);
+  } catch (e) {}
 })();
