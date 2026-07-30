@@ -1,0 +1,31 @@
+/* AMRE SMS/call consent block — paired with /assets/forms/consent.js */
+.amre-optin{
+  display:flex;gap:12px;align-items:flex-start;
+  background:rgba(0,0,0,.025);
+  border:1px solid rgba(0,0,0,.10);
+  border-radius:12px;
+  padding:14px 16px;
+  margin:14px 0 18px;
+  text-align:left;
+}
+.amre-optin input[type=checkbox]{
+  flex:0 0 auto;width:19px;height:19px;margin:2px 0 0;
+  accent-color:#1c3d31;cursor:pointer;
+}
+.amre-optin label{
+  font-family:inherit;font-size:.8rem;line-height:1.6;font-weight:400;
+  color:#3a3a3c;cursor:pointer;margin:0;letter-spacing:normal;text-transform:none;
+}
+.amre-optin label strong{font-weight:600;color:#1d1d1f}
+.amre-optin label a{color:#1c3d31;text-decoration:underline;text-underline-offset:2px}
+.amre-optin label a:hover{color:#e6a800}
+.amre-optin.is-bad{border-color:#c0392b;background:#fdf5f4}
+.amre-optin.is-bad label{color:#8c2d22}
+/* dark form cards */
+.amre-optin.on-dark,
+[class*="dark"] .amre-optin, .grpt-form-dark .amre-optin{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18);
+}
+[class*="dark"] .amre-optin label, .grpt-form-dark .amre-optin label{color:rgba(255,255,255,.78)}
+[class*="dark"] .amre-optin label strong, .grpt-form-dark .amre-optin label strong{color:#fff}
+[class*="dark"] .amre-optin label a, .grpt-form-dark .amre-optin label a{color:#ffc13c}
