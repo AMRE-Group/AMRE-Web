@@ -87,11 +87,11 @@
           '<div class="foot-cols">' +
             '<div><h4>Navigate</h4><a href="/sellers/">Sellers</a><a href="/buyers/">Buyers</a><a href="/about/">Team</a><a href="/blog/">Journal</a><a href="/contact/">Contact</a><a href="/properties/">Past Transactions</a><a href="/featured-homes/">Featured Homes</a></div>' +
             '<div><h4>Services</h4><a href="/sellers/#three-phase">3-Phase Marketing</a><a href="/sellers/#concierge">Compass Concierge</a><a href="/buyers/">Buyer Advisory</a><a href="/#contact">Home Valuation</a><a href="/#contact">Investment Advisory</a><a href="/tools/investor-calculator/">Investor Calculator</a><a href="/tools/net-proceeds-calculator/">Seller Net Proceeds</a></div>' +
-            '<div><h4>Connect</h4><a href="tel:3237198585">(323) 719-8585</a><a href="mailto:michael.abraham@compass.com">Email Us</a><a href="https://www.instagram.com/amre.group/">Instagram</a><a href="https://www.youtube.com/@AMRE_Real_Estate">YouTube</a><a href="https://www.facebook.com/amre.grp">Facebook</a><a href="https://www.linkedin.com/company/amre-real-estate-group/">LinkedIn</a></div>' +
+            '<div><h4>Connect</h4><a href="tel:3237198585">(323) 719-8585</a><a href="mailto:michael.abraham@compass.com">Email Us</a><a href="https://www.instagram.com/amre.group/">Instagram</a><a href="https://www.youtube.com/@AMRE_Real_Estate">YouTube</a><a href="https://www.facebook.com/amre.grp">Facebook</a><a href="https://www.linkedin.com/company/amre-real-estate-group/">LinkedIn</a><a href="/privacy-policy/">Privacy Policy</a><a href="/terms-and-conditions/">Terms &amp; Conditions</a></div>' +
           '</div>' +
         '</div>' +
         '<div class="foot-bot">' +
-          '<span>© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/">Privacy Policy</a></span>' +
+          '<span>© 2026 AMRE Real Estate Group. All rights reserved. <a href="/privacy-policy/">Privacy Policy</a> · <a href="/terms-and-conditions/">Terms &amp; Conditions</a></span>' +
           '<span>Michael Abraham DRE# 02242095 · Ania De Pourbaix DRE# 01891438 · Compass DRE# 01991628</span>' +
         '</div>' +
       '</div>' +
