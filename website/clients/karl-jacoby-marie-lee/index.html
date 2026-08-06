@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Karl Jacoby &amp; Marie Lee — Property Comparison · AMRE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#1c3d31; --brand-2:#2a5747; --gold:#ffc13c; --cream:#f7f4ec;
+  --surface-1:#ffffff; --plane:#f4f2ec; --ink:#0b0b0b; --ink-2:#52514e; --muted:#7c7a74;
+  --grid:#e6e3da; --axis:#c8c5ba; --border:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --good:#0ca30c; --bad:#d03b3b; --warn:#fab219;
+  --radius:14px;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --serif:"Fraunces",Georgia,serif;
+}
+:root[data-theme="dark"]{
+  --brand:#0f231c; --cream:#1f1f1d;
+  --surface-1:#1a1a19; --plane:#0d0d0d; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--plane);color:var(--ink);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px 64px}
+
+/* ---------- access gate ---------- */
+.gate{position:fixed;inset:0;background:#F5F5F7;display:flex;align-items:center;justify-content:center;z-index:200;padding:24px}
+.gate.hidden{display:none}
+.gate-card{max-width:380px;width:100%;background:#fff;padding:40px 32px;border-radius:22px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.gate-brand{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#6b6b6f;margin-bottom:18px}
+.gate-title{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px;color:#1D1D1F}
+.gate-sub{font-size:13.5px;color:#6b6b6f;margin-bottom:24px;line-height:1.5}
+.gate-input{width:100%;padding:12px 14px;border:1px solid #D2D2D7;border-radius:10px;font:inherit;font-size:15px;margin-bottom:12px;text-align:center}
+.gate-input:focus{outline:none;border-color:var(--brand)}
+.gate-btn{width:100%;padding:12px;border:0;border-radius:10px;background:var(--brand);color:#fff;font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.gate-btn:hover{background:#255043}
+.gate-err{color:#d03b3b;font-size:12.5px;margin-top:10px;min-height:16px}
+/* ---------- dash topnav ---------- */
+.topnav{background:#fff;border-bottom:1px solid #D2D2D7}
+.topnav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1240px;margin:0 auto;padding:13px 20px}
+.topnav-back{font-size:13px;font-weight:600;color:#0071e3;text-decoration:none}
+.topnav-back:hover{text-decoration:underline}
+
+/* ---------- header ---------- */
+header.hero{background:var(--brand);color:#fff;padding:30px 0 34px;margin-bottom:26px}
+.hero .wrap{padding-bottom:0}
+.brandline{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo svg.amre-logo{display:block;height:26px;width:auto;fill:#fff}
+.logo small{display:block;font-size:9.5px;letter-spacing:.2em;color:rgba(255,255,255,.6);font-weight:500;margin-top:7px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(26px,3.4vw,40px);line-height:1.12;margin:22px 0 8px}
+.sub{color:rgba(255,255,255,.72);max-width:70ch;font-size:14.5px;margin:0}
+.themebtn{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;padding:7px 15px;font:inherit;font-size:13px;cursor:pointer}
+.themebtn:hover{background:rgba(255,255,255,.18)}
+
+/* ---------- panels ---------- */
+.panel{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius);
+  padding:20px 22px;margin-bottom:20px}
+.panel h2{font-family:var(--serif);font-weight:600;font-size:19px;margin:0 0 4px}
+.panel .note{color:var(--muted);font-size:13px;margin:0 0 18px}
+
+/* ---------- controls ---------- */
+.ctrlhead{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.seg{display:inline-flex;background:var(--plane);border:1px solid var(--border);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink-2);
+  padding:7px 17px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--brand);color:#fff}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{background:var(--gold);color:#0b0b0b}
+.sliders{display:grid;grid-template-columns:repeat(auto-fit,minmax(196px,1fr));gap:18px 26px}
+.sl label{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;
+  font-weight:600;color:var(--ink-2);margin-bottom:7px;gap:8px}
+.sl .val{font-variant-numeric:tabular-nums;font-size:14px;color:var(--ink);font-weight:700}
+.sl input[type=range]{width:100%;accent-color:var(--brand);height:20px}
+:root[data-theme="dark"] .sl input[type=range]{accent-color:var(--gold)}
+.linkbtn{background:none;border:0;color:var(--ink-2);font:inherit;font-size:13px;
+  text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+.linkbtn:hover{color:var(--ink)}
+
+/* ---------- KPI cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(216px,1fr));gap:14px;margin-bottom:20px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius);
+  padding:16px 17px 17px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--c)}
+.card .cname{font-weight:700;font-size:14px;line-height:1.25;margin:0 0 1px;padding-left:8px}
+.card .cscen{font-size:11.5px;color:var(--muted);margin:0 0 13px;padding-left:8px;min-height:28px}
+.card .big{font-family:var(--serif);font-weight:600;font-size:27px;line-height:1;letter-spacing:-.01em;padding-left:8px;
+  font-variant-numeric:tabular-nums}
+.card .biglab{font-size:11px;color:var(--muted);padding-left:8px;margin-top:5px;letter-spacing:.04em;text-transform:uppercase}
+.card .rows{margin-top:14px;padding-left:8px;border-top:1px solid var(--border);padding-top:11px;display:grid;gap:6px}
+.card .rows div{display:flex;justify-content:space-between;font-size:12.5px;gap:10px}
+.card .rows span:first-child{color:var(--muted)}
+.card .rows span:last-child{font-variant-numeric:tabular-nums;font-weight:600}
+.pos{color:var(--good)} .neg{color:var(--bad)}
+:root[data-theme="dark"] .pos{color:#3fd23f}
+.badge{position:absolute;top:12px;right:12px;background:var(--gold);color:#0b0b0b;font-size:9.5px;
+  font-weight:700;letter-spacing:.09em;padding:3px 8px;border-radius:999px;text-transform:uppercase}
+
+/* ---------- charts ---------- */
+.chartgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:900px){.chartgrid{grid-template-columns:1fr}}
+svg{display:block;width:100%;height:auto;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 14px}
+.legend span{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-2)}
+.legend i{width:11px;height:11px;border-radius:3px;flex:none}
+.tip{position:fixed;pointer-events:none;z-index:60;background:var(--surface-1);border:1px solid var(--border);
+  border-radius:10px;padding:10px 12px;font-size:12.5px;box-shadow:0 8px 26px rgba(0,0,0,.16);
+  min-width:190px;opacity:0;transition:opacity .1s}
+.tip.on{opacity:1}
+.tip .th{font-weight:700;margin-bottom:7px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.tip .tr{display:flex;justify-content:space-between;gap:14px;padding:2px 0}
+.tip .tr b{font-variant-numeric:tabular-nums}
+.tip .tk{display:inline-flex;align-items:center;gap:7px}
+.tip .tk i{width:9px;height:9px;border-radius:2px;flex:none}
+
+/* ---------- table ---------- */
+table{width:100%;border-collapse:collapse;font-size:13px;font-variant-numeric:tabular-nums}
+th,td{text-align:right;padding:9px 9px;border-bottom:1px solid var(--grid);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:190px}
+thead th{white-space:normal;min-width:118px;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+  border-bottom:1px solid var(--axis);vertical-align:bottom}
+thead th .dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px}
+tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-2);padding-top:14px}
+.tblwrap{overflow-x:auto}
+
+/* ---------- footer notes ---------- */
+.notes{font-size:12.5px;color:var(--ink-2);line-height:1.65}
+.notes h3{font-family:var(--serif);font-size:15px;margin:0 0 8px;color:var(--ink)}
+.notes ul{margin:0 0 16px;padding-left:19px}
+.notes li{margin-bottom:6px}
+.disc{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:14px 16px;
+  font-size:11.5px;color:var(--ink-2);line-height:1.6}
+:root[data-theme="dark"] .disc{background:#232322}
+.foot{display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--muted);font-size:11.5px;margin-top:30px}
+.foot-logo{height:17px;width:auto;fill:var(--ink-2);opacity:.75}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <div class="gate-brand">AMRE &middot; Compass</div>
+    <div class="gate-title">Property Comparison</div>
+    <div class="gate-sub">Private &mdash; enter the access code to continue.</div>
+    <form id="gateForm">
+      <input class="gate-input" id="gateInput" type="password" placeholder="Access code" autocomplete="off">
+      <button class="gate-btn" type="submit">Unlock</button>
+      <div class="gate-err" id="gateErr"></div>
+    </form>
+  </div>
+</div>
+
+<main id="dash" style="display:none">
+<div class="topnav"><div class="topnav-inner">
+  <a href="https://amre.group/" style="display:flex;align-items:center;gap:11px;text-decoration:none"><img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-black.svg" alt="AMRE" style="display:block;height:19px;width:auto"><span style="width:1px;height:18px;background:#D2D2D7"></span><img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-black.png" alt="Compass" style="display:block;height:13px;width:auto"></a>
+  <a class="topnav-back" href="https://amre.group/">amre.group &rarr;</a>
+</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandline">
+      <div class="logo"><svg class="amre-logo" viewBox="0 0 981 231.85" role="img" aria-label="AMRE"><path d="M658.05,168.95h-34.87v60.06h-63.93V2.98h103.33c61.67,0,100.42,31.97,100.42,83.63,0,33.26-16.15,57.8-44.24,71.36l48.76,71.04h-68.45l-41.01-60.06ZM658.69,53.35h-35.52v66.2h35.52c26.48,0,39.72-12.27,39.72-32.94s-13.24-33.26-39.72-33.26Z"/><path d="M969,179.84v49h-177V2.84h177v49h-114v39h114v48h-114v41h114Z"/><polygon points="527.16 2.92 474.52 2.92 397.02 133.37 317.59 2.92 264.96 2.92 264.96 176.85 288.03 228.95 324.05 228.95 324.05 112.38 381.85 206.67 410.26 206.67 468.39 109.16 469.03 228.95 527.8 228.95 527.16 2.92"/><path d="M190.56,185.04h-95.58l-17.76,43.91H12L111.78,2.92h62.96l100.1,226.03h-66.52l-17.76-43.91ZM168.16,137.89l-29.06-72.33-29.06,72.33h58.12Z"/></svg><small>ABRAHAM &middot; MICHAEL &middot; REAL ESTATE</small></div>
+      <button class="themebtn" id="themebtn" type="button">Dark mode</button>
+    </div>
+    <h1>Karl &amp; Marie — 10-Year Horizon</h1>
+    <p class="sub">Three Westside properties, five ownership scenarios. Drag the assumptions below and every
+      number on this page re-runs live. Prepared with Ania de Pourbaix, PLG Estates / Compass — August 5, 2026.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- CONTROLS -->
+  <section class="panel">
+    <div class="ctrlhead">
+      <div>
+        <h2>Your assumptions</h2>
+        <p class="note" style="margin-bottom:0">Everything recalculates instantly. Nothing is saved — reload for the baseline.</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <div class="seg" id="horizon" role="group" aria-label="Time horizon">
+          <button type="button" data-h="1">Year 1</button>
+          <button type="button" data-h="5">Year 5</button>
+          <button type="button" data-h="10" aria-pressed="true">Year 10</button>
+        </div>
+        <button class="linkbtn" id="reset" type="button">Reset to baseline</button>
+      </div>
+    </div>
+    <div class="sliders" id="sliders"></div>
+  </section>
+
+  <!-- KPI CARDS -->
+  <div class="cards" id="cards"></div>
+
+  <!-- WEALTH CURVE -->
+  <section class="panel">
+    <h2>Total wealth built, year by year</h2>
+    <p class="note">Principal paid down + appreciation + cumulative cash flow. Above the zero line means the
+      property has more than paid for itself; below means you are funding it out of pocket.</p>
+    <div class="legend" id="legend1"></div>
+    <svg id="chartWealth" viewBox="0 0 940 400" role="img" aria-label="Cumulative wealth built by year for five scenarios"></svg>
+  </section>
+
+  <div class="chartgrid">
+    <!-- MONTHLY CASH FLOW -->
+    <section class="panel">
+      <h2>Monthly cash flow</h2>
+      <p class="note" id="cfnote">Out-of-pocket each month after rental income, at the selected year.</p>
+      <svg id="chartCF" viewBox="0 0 460 384" role="img" aria-label="Net monthly cash flow by scenario"></svg>
+    </section>
+
+    <!-- WEALTH COMPOSITION -->
+    <section class="panel">
+      <h2>Where the wealth comes from</h2>
+      <p class="note" id="compnote">Gains above the line, cash out of pocket below. The dot marks the net result.</p>
+      <div class="legend" id="legend2" style="font-size:12px"></div>
+      <svg id="chartComp" viewBox="0 0 460 356" role="img" aria-label="Composition of wealth built by scenario"></svg>
+    </section>
+  </div>
+
+  <!-- TABLE -->
+  <section class="panel">
+    <div class="ctrlhead" style="margin-bottom:14px">
+      <div>
+        <h2>Full comparison</h2>
+        <p class="note" style="margin-bottom:0">Every figure behind the charts, at the selected horizon.</p>
+      </div>
+    </div>
+    <div class="tblwrap"><table id="tbl"></table></div>
+  </section>
+
+  <!-- NOTES -->
+  <section class="panel">
+    <div class="notes">
+      <h3>How to read this</h3>
+      <ul>
+        <li><b>49 Brooks Ave</b> and <b>2930 Neilson Way</b> are modeled as owner-occupied homes with no rental income —
+          their monthly cost is the price of living there, not an investment loss. If you'd otherwise pay rent
+          elsewhere, subtract that avoided rent from the monthly number shown.</li>
+        <li><b>31 S Venice — Hybrid:</b> you live in the 2BR/2BA year-round; both 1BR units rented at in-place rents, self-managed.</li>
+        <li><b>31 S Venice — Seasonal:</b> you occupy the 2BR/2BA three months a year and rent it furnished for seven
+          (two months held for turnover); 1BR units rented year-round with a 5% management fee. Includes a one-time
+          $20,000 furnishing cost in Year 1.</li>
+        <li><b>31 S Venice — Investment:</b> all three units rented at actual rents, professionally managed at 8%.</li>
+        <li>Property tax is modeled at the <b>new buyer's purchase-price basis</b> (~1.25%), not the seller's lower
+          Prop 13 basis shown on the triplex MLS sheet.</li>
+        <li>Notice how the ranking shifts with time. At Year 5 only the Investment scenario is net positive; by Year 10
+          rising rents push Seasonal solidly positive too, while the two owner-occupied homes and the Hybrid stay
+          negative on a pure-investment basis.</li>
+      </ul>
+      <h3>Things to verify</h3>
+      <ul>
+        <li>The <b>$9,500/mo furnished rate</b> for Venice Unit 2 is an estimate — no furnished comp was in the MLS.
+          Check it against Blueground, Zeus Living, or Furnished Finder before relying on it.</li>
+        <li>49 Brooks shares one wall and the listing notes "shared common area expenses" with no dollar figure —
+          confirm with the listing agent.</li>
+        <li>2930 Neilson Way: confirm no special assessment is pending and review the HOA reserve study.</li>
+        <li>Confirm the triplex's furnished/30-day rental posture against zoning and any rent-stabilization exposure.</li>
+        <li>In the Seasonal scenario the $20,000 furnishing cost appears both in cash-at-closing and in Year-1 cash
+          flow, exactly as in the source model — so its return-on-cash reads slightly conservative.</li>
+      </ul>
+      <div class="disc">
+        Figures derive from PLG Estates / Compass MLS listing sheets read Aug 5, 2026 — 49 Brooks Ave #26860925;
+        31/33/33.5 S Venice #26843155; 2930 Neilson Way #408 #26865247. This model is for illustrative planning
+        purposes only and is not a loan quote, tax opinion, or guarantee of future performance. Appreciation, rent
+        growth, and inflation are planning assumptions, not forecasts. Buyer should independently verify all rents,
+        HOA dues, taxes, and condition, and confirm actual financing terms with a lender.
+      </div>
+      <div class="foot"><svg class="amre-logo foot-logo" viewBox="0 0 981 231.85" role="img" aria-label="AMRE"><path d="M658.05,168.95h-34.87v60.06h-63.93V2.98h103.33c61.67,0,100.42,31.97,100.42,83.63,0,33.26-16.15,57.8-44.24,71.36l48.76,71.04h-68.45l-41.01-60.06ZM658.69,53.35h-35.52v66.2h35.52c26.48,0,39.72-12.27,39.72-32.94s-13.24-33.26-39.72-33.26Z"/><path d="M969,179.84v49h-177V2.84h177v49h-114v39h114v48h-114v41h114Z"/><polygon points="527.16 2.92 474.52 2.92 397.02 133.37 317.59 2.92 264.96 2.92 264.96 176.85 288.03 228.95 324.05 228.95 324.05 112.38 381.85 206.67 410.26 206.67 468.39 109.16 469.03 228.95 527.8 228.95 527.16 2.92"/><path d="M190.56,185.04h-95.58l-17.76,43.91H12L111.78,2.92h62.96l100.1,226.03h-66.52l-17.76-43.91ZM168.16,137.89l-29.06-72.33-29.06,72.33h58.12Z"/></svg><span>Abraham Michael Real Estate &middot; Compass &middot; amre.group</span></div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<div class="tip" id="tip"></div>
+
+<script>
+/* ============================ MODEL ============================ */
+const BASE = { downPct:0.20, rate:0.0675, term:30, closingPct:0.015, taxRate:0.0125,
+               appr:0.035, rentG:0.03, taxG:0.02, infl:0.03 };
+let A = {...BASE};
+let H = 10;
+
+const SC = [
+ { id:'brooks', color:'--s1', name:'49 Brooks Ave', scen:'Owner-Occupied',
+   meta:'Venice · SFR (duplex-style) · 2BD/3BA · 2,128 SF · MLS 26860925',
+   price:2599000, ins:4200, hoaMo:0, maintPct:0.0075,
+   rentMo:0, vac:0.05, mgmt:0, oneTime:0, furn:null },
+
+ { id:'hybrid', color:'--s2', name:'31 S Venice', scen:'Owner-Occupy Hybrid (year-round)',
+   meta:'Venice · Triplex · MLS 26843155 · you live in the 2BR, rent both 1BRs',
+   price:2790000, ins:6000, hoaMo:0, maintPct:0.01,
+   rentMo:7000, vac:0.05, mgmt:0, oneTime:0, furn:null },
+
+ { id:'seasonal', color:'--s3', name:'31 S Venice', scen:'Seasonal 3mo + furnished rental 7mo',
+   meta:'Venice · Triplex · MLS 26843155 · 2BR furnished part-year, 1BRs year-round',
+   price:2790000, ins:6000, hoaMo:0, maintPct:0.01,
+   rentMo:7000, vac:0.05, mgmt:0.05, oneTime:20000,
+   furn:{ rate:9500, months:7, fee:0.12, utilMo:250, utilMonths:7, turnCost:750, turns:2 } },
+
+ { id:'invest', color:'--s4', name:'31 S Venice', scen:'Straight Investment (all 3 rented)',
+   meta:'Venice · Triplex · MLS 26843155 · professionally managed at 8%',
+   price:2790000, ins:6000, hoaMo:0, maintPct:0.01,
+   rentMo:13350, vac:0.05, mgmt:0.08, oneTime:0, furn:null },
+
+ { id:'neilson', color:'--s5', name:'2930 Neilson Way #408', scen:'Owner-Occupied Condo',
+   meta:'Santa Monica · Sea Colony II · 2BD/2BA · 1,456 SF · HOA $1,625/mo · MLS 26865247',
+   price:2495000, ins:1200, hoaMo:1625, maintPct:0.0025,
+   rentMo:0, vac:0.05, mgmt:0, oneTime:0, furn:null }
+];
+
+function pmt(loan, annualRate, years){
+  const i = annualRate/12, n = years*12;
+  return i === 0 ? loan/n : loan*i/(1 - Math.pow(1+i, -n));
+}
+
+function run(s, a){
+  const loan  = s.price*(1-a.downPct);
+  const piMo  = pmt(loan, a.rate, a.term);
+  const piYr  = piMo*12;
+  const close = s.price*a.closingPct;
+  const cash  = s.price*a.downPct + close + s.oneTime;
+
+  const monthlyHousing = piMo + s.price*a.taxRate/12 + s.ins/12 + s.hoaMo + s.price*s.maintPct/12;
+
+  const yrs=[]; let bal=loan, cumP=0, cumCF=0;
+  for(let y=1; y<=10; y++){
+    const k = y-1;
+    const rg = Math.pow(1+a.rentG, k), ig = Math.pow(1+a.infl, k), tg = Math.pow(1+a.taxG, k);
+
+    const grossBase = s.rentMo*12*rg;
+    const effBase   = grossBase*(1-s.vac)*(1-s.mgmt);
+    const grossFurn = s.furn ? s.furn.rate*s.furn.months*rg : 0;
+    const effFurn   = s.furn ? grossFurn*(1-s.furn.fee) : 0;
+    const income    = effBase + effFurn;
+
+    const tax   = s.price*a.taxRate*tg;
+    const ins   = s.ins*ig;
+    const hoa   = s.hoaMo*12*ig;
+    const maint = s.price*s.maintPct*ig;
+    const util  = s.furn ? s.furn.utilMo*s.furn.utilMonths*ig : 0;
+    const turn  = s.furn ? s.furn.turnCost*s.furn.turns*ig : 0;
+    const one   = (y===1) ? s.oneTime : 0;
+
+    const opex = tax+ins+hoa+maint+util+turn;
+    const exp  = opex + piYr + one;
+    const ncf  = income - exp;
+
+    // amortization for the year
+    let pPaid = 0;
+    for(let m=0;m<12;m++){ const int = bal*(a.rate/12); const pr = piMo-int; pPaid+=pr; bal-=pr; }
+    cumP += pPaid; cumCF += ncf;
+
+    const value  = s.price*Math.pow(1+a.appr, y);
+    const equity = value - bal;
+    const apprec = value - s.price;
+
+    yrs.push({ y, income, grossRent:grossBase+grossFurn, tax, ins, hoa, maint, util, turn, one,
+               opex, pi:piYr, exp, ncf, cumCF, pPaid, cumP, bal, value, equity, apprec,
+               wealth: cumP + apprec + cumCF,
+               monthlyCF: (income - (opex + piYr))/12 });
+  }
+  return { s, loan, piMo, close, cash, monthlyHousing, yrs,
+           at:(h)=>{ const r=yrs[h-1]; return {...r, roc: r.wealth/cash}; } };
+}
+
+let M = SC.map(s=>run(s,A));
+
+/* ============================ FORMAT ============================ */
+const f0 = n => (n<0?'−':'')+'$'+Math.round(Math.abs(n)).toLocaleString('en-US');
+const fK = n => { const a=Math.abs(n); const sg=n<0?'−':'';
+  if(a>=1e6) return sg+'$'+(a/1e6).toFixed(a/1e6>=10?1:2)+'M';
+  if(a>=1e3) return sg+'$'+Math.round(a/1e3)+'k'; return sg+'$'+Math.round(a); };
+const fPct = (n,d=1) => (n<0?'−':'')+(Math.abs(n)*100).toFixed(d)+'%';
+const cvar = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+
+/* ============================ CONTROLS ============================ */
+const SLIDERS = [
+  {k:'downPct',   lab:'Down payment',       min:.10, max:.60, step:.01,   fmt:v=>fPct(v,0)},
+  {k:'rate',      lab:'Interest rate',      min:.04, max:.10, step:.00125,fmt:v=>fPct(v,3).replace(/0+%$/,'%').replace(/\.%/,'%')},
+  {k:'appr',      lab:'Appreciation / yr',  min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
+  {k:'rentG',     lab:'Rent growth / yr',   min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
+  {k:'infl',      lab:'Cost inflation / yr',min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
+  {k:'taxRate',   lab:'Property tax rate',  min:.008,max:.02, step:.00025,fmt:v=>fPct(v,3)}
+];
+const slHost = document.getElementById('sliders');
+slHost.innerHTML = SLIDERS.map(s=>`
+  <div class="sl">
+    <label for="sl_${s.k}"><span>${s.lab}</span><span class="val" id="v_${s.k}"></span></label>
+    <input type="range" id="sl_${s.k}" min="${s.min}" max="${s.max}" step="${s.step}">
+  </div>`).join('');
+
+function syncSliders(){
+  SLIDERS.forEach(s=>{
+    document.getElementById('sl_'+s.k).value = A[s.k];
+    document.getElementById('v_'+s.k).textContent = s.fmt(A[s.k]);
+  });
+}
+SLIDERS.forEach(s=>{
+  document.getElementById('sl_'+s.k).addEventListener('input', e=>{
+    A[s.k] = parseFloat(e.target.value); recalc();
+  });
+});
+document.getElementById('reset').addEventListener('click', ()=>{ A={...BASE}; syncSliders(); recalc(); });
+document.getElementById('horizon').addEventListener('click', e=>{
+  const b = e.target.closest('button[data-h]'); if(!b) return;
+  H = +b.dataset.h;
+  [...e.currentTarget.querySelectorAll('button')].forEach(x=>x.setAttribute('aria-pressed', x===b));
+  render();
+});
+document.getElementById('themebtn').addEventListener('click', ()=>{
+  const dark = document.documentElement.dataset.theme === 'dark';
+  document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+  document.getElementById('themebtn').textContent = dark ? 'Dark mode' : 'Light mode';
+  render();
+});
+if(window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches){
+  document.documentElement.dataset.theme='dark';
+  document.getElementById('themebtn').textContent='Light mode';
+}
+
+function recalc(){ M = SC.map(s=>run(s,A)); render(); }
+
+/* ============================ TOOLTIP ============================ */
+const tip = document.getElementById('tip');
+function showTip(html, ev){
+  tip.innerHTML = html; tip.classList.add('on');
+  const r = tip.getBoundingClientRect();
+  let x = ev.clientX + 16, y = ev.clientY - r.height/2;
+  if(x + r.width > innerWidth - 10) x = ev.clientX - r.width - 16;
+  y = Math.max(10, Math.min(y, innerHeight - r.height - 10));
+  tip.style.left = x+'px'; tip.style.top = y+'px';
+}
+function hideTip(){ tip.classList.remove('on'); }
+
+/* ============================ SVG HELPERS ============================ */
+const NS='http://www.w3.org/2000/svg';
+function el(t,a={}){ const n=document.createElementNS(NS,t);
+  for(const k in a) n.setAttribute(k,a[k]); return n; }
+function txt(x,y,s,a={}){ const n=el('text',{x,y,...a}); n.textContent=s; return n; }
+function niceTicks(min,max,count){
+  const span=(max-min)||1, raw=span/count, mag=Math.pow(10,Math.floor(Math.log10(raw)));
+  const norm=raw/mag, step=(norm<1.5?1:norm<3?2:norm<7?5:10)*mag;
+  const lo=Math.floor(min/step)*step, hi=Math.ceil(max/step)*step, out=[];
+  for(let v=lo; v<=hi+step/2; v+=step) out.push(+v.toFixed(6));
+  return out;
+}
+/* rounded-end bar path: 4px radius on the data end only */
+function barPath(x,y,w,h,r,up){
+  r = Math.min(r, w/2, Math.abs(h));
+  if(h<=0) return '';
+  return up
+    ? `M${x},${y+h} L${x},${y+r} Q${x},${y} ${x+r},${y} L${x+w-r},${y} Q${x+w},${y} ${x+w},${y+r} L${x+w},${y+h} Z`
+    : `M${x},${y} L${x},${y+h-r} Q${x},${y+h} ${x+r},${y+h} L${x+w-r},${y+h} Q${x+w},${y+h} ${x+w},${y+h-r} L${x+w},${y} Z`;
+}
+
+/* ============================ CHART 1 · WEALTH CURVE ============================ */
+function drawWealth(){
+  const svg = document.getElementById('chartWealth');
+  svg.innerHTML='';
+  const W=940,Ht=400,ml=76,mr=24,mt=14,mb=42;
+  const pw=W-ml-mr, ph=Ht-mt-mb;
+
+  const all = M.flatMap(m=>m.yrs.map(r=>r.wealth));
+  const ticks = niceTicks(Math.min(0,...all), Math.max(0,...all), 6);
+  const lo=ticks[0], hi=ticks[ticks.length-1];
+  const X = y => ml + (y-1)/9*pw;
+  const Y = v => mt + ph - (v-lo)/(hi-lo)*ph;
+
+  // grid + y labels
+  ticks.forEach(t=>{
+    const zero = Math.abs(t)<1e-6;
+    svg.appendChild(el('line',{x1:ml,x2:ml+pw,y1:Y(t),y2:Y(t),
+      stroke: zero?cvar('--axis'):cvar('--grid'), 'stroke-width': zero?1.5:1}));
+    svg.appendChild(txt(ml-11, Y(t)+4, fK(t), {'text-anchor':'end','font-size':11.5,fill:cvar('--muted'),
+      'font-variant-numeric':'tabular-nums'}));
+  });
+  svg.appendChild(txt(ml-11, mt-2, '', {}));
+  // x labels
+  for(let y=1;y<=10;y++){
+    svg.appendChild(txt(X(y), mt+ph+22, 'Yr '+y, {'text-anchor':'middle','font-size':11.5,fill:cvar('--muted')}));
+  }
+  // highlight selected horizon
+  svg.appendChild(el('line',{x1:X(H),x2:X(H),y1:mt,y2:mt+ph,stroke:cvar('--axis'),
+    'stroke-width':1.5,'stroke-dasharray':'4 4'}));
+
+  // lines
+  M.forEach((m,i)=>{
+    const c = cvar(SC[i].color);
+    const d = m.yrs.map((r,j)=>`${j?'L':'M'}${X(r.y).toFixed(1)},${Y(r.wealth).toFixed(1)}`).join(' ');
+    svg.appendChild(el('path',{d,fill:'none',stroke:c,'stroke-width':2,
+      'stroke-linejoin':'round','stroke-linecap':'round'}));
+    // marker at selected horizon, with 2px surface ring
+    const r = m.yrs[H-1];
+    svg.appendChild(el('circle',{cx:X(H),cy:Y(r.wealth),r:5.5,fill:c,
+      stroke:cvar('--surface-1'),'stroke-width':2}));
+  });
+
+  // hover crosshair
+  const hov = el('line',{x1:0,x2:0,y1:mt,y2:mt+ph,stroke:cvar('--axis'),'stroke-width':1,opacity:0});
+  svg.appendChild(hov);
+  const hit = el('rect',{x:ml,y:mt,width:pw,height:ph,fill:'transparent'});
+  svg.appendChild(hit);
+  hit.addEventListener('mousemove', ev=>{
+    const box = svg.getBoundingClientRect();
+    const px = (ev.clientX-box.left)/box.width*W;
+    let yr = Math.round((px-ml)/pw*9)+1; yr=Math.max(1,Math.min(10,yr));
+    hov.setAttribute('x1',X(yr)); hov.setAttribute('x2',X(yr)); hov.setAttribute('opacity',1);
+    const rows = M.map((m,i)=>({c:cvar(SC[i].color), n:SC[i].scen, v:m.yrs[yr-1].wealth}))
+                  .sort((a,b)=>b.v-a.v);
+    showTip(`<div class="th">Year ${yr} · total wealth built</div>`+
+      rows.map(r=>`<div class="tr"><span class="tk"><i style="background:${r.c}"></i>${r.n}</span><b class="${r.v>=0?'pos':'neg'}">${f0(r.v)}</b></div>`).join(''), ev);
+  });
+  hit.addEventListener('mouseleave', ()=>{ hov.setAttribute('opacity',0); hideTip(); });
+}
+
+/* ============================ CHART 2 · MONTHLY CASH FLOW ============================ */
+function drawCF(){
+  const svg = document.getElementById('chartCF'); svg.innerHTML='';
+  const W=460,Ht=384,ml=62,mr=12,mt=10,mb=106, pw=W-ml-mr, ph=Ht-mt-mb;
+  const vals = M.map(m=>m.at(H).monthlyCF);
+  const ticks = niceTicks(Math.min(0,...vals), Math.max(0,...vals), 5);
+  const lo=ticks[0], hi=ticks[ticks.length-1];
+  const Y = v => mt + ph - (v-lo)/(hi-lo)*ph;
+
+  ticks.forEach(t=>{
+    const zero=Math.abs(t)<1e-6;
+    svg.appendChild(el('line',{x1:ml,x2:ml+pw,y1:Y(t),y2:Y(t),
+      stroke:zero?cvar('--axis'):cvar('--grid'),'stroke-width':zero?1.5:1}));
+    svg.appendChild(txt(ml-9,Y(t)+4,fK(t),{'text-anchor':'end','font-size':11,fill:cvar('--muted'),
+      'font-variant-numeric':'tabular-nums'}));
+  });
+
+  const slot = pw/M.length, bw = Math.min(44, slot-8); // ≥2px surface gap between bars
+  M.forEach((m,i)=>{
+    const v = m.at(H).monthlyCF, c = cvar(SC[i].color);
+    const x = ml + slot*i + (slot-bw)/2;
+    const y0 = Y(0), y1 = Y(v);
+    const up = v>=0;
+    const path = el('path',{d:barPath(x, Math.min(y0,y1), bw, Math.abs(y1-y0), 4, up), fill:c});
+    svg.appendChild(path);
+    // direct label (relief for sub-3:1 contrast slots)
+    svg.appendChild(txt(x+bw/2, up? y1-8 : y1+15, fK(v),
+      {'text-anchor':'middle','font-size':11.5,'font-weight':700,fill:cvar('--ink'),
+       'font-variant-numeric':'tabular-nums'}));
+    axisLabel(svg, x+bw/2, mt+ph+40, i);
+    path.addEventListener('mousemove', ev=>{
+      const r=m.at(H);
+      showTip(`<div class="th">${SC[i].name} · ${SC[i].scen}</div>`+
+        `<div class="tr"><span>Rental income</span><b>${f0(r.income/12)}/mo</b></div>`+
+        `<div class="tr"><span>Housing + operating</span><b>${f0((r.opex+r.pi)/12)}/mo</b></div>`+
+        `<div class="tr" style="border-top:1px solid var(--border);margin-top:5px;padding-top:6px">
+           <span><b>Net</b></span><b class="${r.monthlyCF>=0?'pos':'neg'}">${f0(r.monthlyCF)}/mo</b></div>`, ev);
+    });
+    path.addEventListener('mouseleave', hideTip);
+  });
+}
+const SHORTNAME=['49 Brooks','31 S Venice','31 S Venice','31 S Venice','2930 Neilson'];
+function axisLabel(svg,cx,y,i){
+  svg.appendChild(txt(cx, y, SHORTNAME[i], {'text-anchor':'middle','font-size':10,
+    fill:cvar('--ink-2'),'font-weight':700}));
+  shortScen(SC[i].scen).forEach((t,k)=>svg.appendChild(txt(cx, y+13+k*11.5, t,
+    {'text-anchor':'middle','font-size':9,fill:cvar('--muted')})));
+}
+function shortScen(s){
+  const map = {
+    'Owner-Occupied':['Owner-occupied'],
+    'Owner-Occupy Hybrid (year-round)':['Hybrid','(live in 2BR)'],
+    'Seasonal 3mo + furnished rental 7mo':['Seasonal +','furnished'],
+    'Straight Investment (all 3 rented)':['Investment','(all rented)'],
+    'Owner-Occupied Condo':['Owner-occupied','condo']
+  };
+  return map[s] || [s];
+}
+
+/* ============================ CHART 3 · COMPOSITION ============================ */
+function drawComp(){
+  const svg = document.getElementById('chartComp'); svg.innerHTML='';
+  const W=460,Ht=356,ml=62,mr=12,mt=10,mb=106, pw=W-ml-mr, ph=Ht-mt-mb;
+  const rows = M.map(m=>{ const r=m.at(H);
+    return {pos:r.cumP+r.apprec, neg:r.cumCF<0?r.cumCF:0, posCF:r.cumCF>0?r.cumCF:0,
+            paydown:r.cumP, apprec:r.apprec, cumCF:r.cumCF, net:r.wealth}; });
+  const hiV = Math.max(...rows.map(r=>r.pos+r.posCF), 0);
+  const loV = Math.min(...rows.map(r=>r.neg), 0);
+  const ticks = niceTicks(loV, hiV, 5);
+  const lo=ticks[0], hi=ticks[ticks.length-1];
+  const Y = v => mt + ph - (v-lo)/(hi-lo)*ph;
+
+  ticks.forEach(t=>{
+    const zero=Math.abs(t)<1e-6;
+    svg.appendChild(el('line',{x1:ml,x2:ml+pw,y1:Y(t),y2:Y(t),
+      stroke:zero?cvar('--axis'):cvar('--grid'),'stroke-width':zero?1.5:1}));
+    svg.appendChild(txt(ml-9,Y(t)+4,fK(t),{'text-anchor':'end','font-size':11,fill:cvar('--muted'),
+      'font-variant-numeric':'tabular-nums'}));
+  });
+
+  const slot=pw/rows.length, bw=Math.min(44, slot-8);
+  rows.forEach((r,i)=>{
+    const c=cvar(SC[i].color), x=ml+slot*i+(slot-bw)/2;
+    // positive stack: appreciation (solid) + paydown (75% opacity) — 2px surface gap between segments
+    const segs = [{v:r.apprec,o:1,l:'Appreciation'},{v:r.paydown,o:.55,l:'Loan paydown'}];
+    if(r.cumCF>0) segs.push({v:r.cumCF,o:.3,l:'Cumulative cash flow'});
+    let acc=0;
+    segs.forEach((sg,k)=>{
+      if(sg.v<=0) return;
+      const yTop=Y(acc+sg.v), yBot=Y(acc), h=yBot-yTop-(k? 2:0);
+      if(h<=0){acc+=sg.v;return;}
+      svg.appendChild(el('path',{d:barPath(x,yTop,bw,h,k===0?4:0,true),fill:c,opacity:sg.o}));
+      acc+=sg.v;
+    });
+    if(r.cumCF<0){
+      const yTop=Y(0), h=Y(r.cumCF)-yTop;
+      svg.appendChild(el('path',{d:barPath(x,yTop,bw,h,4,false),fill:cvar('--bad'),opacity:.85}));
+    }
+    // net marker
+    svg.appendChild(el('circle',{cx:x+bw/2,cy:Y(r.net),r:5,fill:cvar('--ink'),
+      stroke:cvar('--surface-1'),'stroke-width':2}));
+    axisLabel(svg, x+bw/2, mt+ph+40, i);
+
+    const hit = el('rect',{x:x-4,y:mt,width:bw+8,height:ph,fill:'transparent'});
+    svg.appendChild(hit);
+    hit.addEventListener('mousemove', ev=>{
+      showTip(`<div class="th">${SC[i].name} · Year ${H}</div>`+
+        `<div class="tr"><span>Appreciation</span><b class="pos">${f0(r.apprec)}</b></div>`+
+        `<div class="tr"><span>Loan paydown</span><b class="pos">${f0(r.paydown)}</b></div>`+
+        `<div class="tr"><span>Cumulative cash flow</span><b class="${r.cumCF>=0?'pos':'neg'}">${f0(r.cumCF)}</b></div>`+
+        `<div class="tr" style="border-top:1px solid var(--border);margin-top:5px;padding-top:6px">
+          <span><b>Net wealth built</b></span><b class="${r.net>=0?'pos':'neg'}">${f0(r.net)}</b></div>`, ev);
+    });
+    hit.addEventListener('mouseleave', hideTip);
+  });
+}
+
+/* ============================ CARDS ============================ */
+function drawCards(){
+  const best = M.reduce((a,b)=> b.at(H).wealth > a.at(H).wealth ? b : a);
+  document.getElementById('cards').innerHTML = M.map((m,i)=>{
+    const r=m.at(H), c=cvar(SC[i].color);
+    return `<div class="card" style="--c:${c}">
+      ${m===best?'<span class="badge">Top result</span>':''}
+      <p class="cname">${SC[i].name}</p>
+      <p class="cscen">${SC[i].scen}</p>
+      <div class="big ${r.wealth>=0?'pos':'neg'}">${f0(r.wealth)}</div>
+      <div class="biglab">Wealth built by year ${H}</div>
+      <div class="rows">
+        <div><span>Cash to close</span><span>${f0(m.cash)}</span></div>
+        <div><span>Cash flow / mo</span><span class="${r.monthlyCF>=0?'pos':'neg'}">${f0(r.monthlyCF)}</span></div>
+        <div><span>Equity at yr ${H}</span><span>${f0(r.equity)}</span></div>
+        <div><span>Return on cash</span><span class="${r.roc>=0?'pos':'neg'}">${fPct(r.roc,0)}</span></div>
+      </div></div>`;
+  }).join('');
+}
+
+/* ============================ LEGEND ============================ */
+function drawLegend(){
+  document.getElementById('legend1').innerHTML = M.map((m,i)=>
+    `<span><i style="background:${cvar(SC[i].color)}"></i>${SC[i].name} — ${SC[i].scen}</span>`).join('');
+  const ink=cvar('--ink');
+  document.getElementById('legend2').innerHTML =
+    `<span><i style="background:${cvar('--ink-2')}"></i>Appreciation <em style="font-style:normal;color:var(--muted)">(solid)</em></span>`+
+    `<span><i style="background:${cvar('--ink-2')};opacity:.5"></i>Loan paydown <em style="font-style:normal;color:var(--muted)">(lighter)</em></span>`+
+    `<span><i style="background:${cvar('--bad')};opacity:.85"></i>Cash out of pocket</span>`+
+    `<span><i style="background:${ink};border-radius:50%"></i>Net result</span>`;
+}
+
+/* ============================ TABLE ============================ */
+function drawTable(){
+  const R = M.map(m=>m.at(H));
+  const head = `<thead><tr><th>Metric</th>${M.map((m,i)=>
+    `<th><span class="dot" style="background:${cvar(SC[i].color)}"></span>${SC[i].name}<br>
+     <span style="font-weight:400;text-transform:none;letter-spacing:0">${SC[i].scen}</span></th>`).join('')}</tr></thead>`;
+  const row = (l,fn,cls) => `<tr><td>${l}</td>${R.map((r,i)=>{
+    const v=fn(r,M[i]); const neg = typeof v==='number' && v<0;
+    return `<td class="${cls?(neg?'neg':'pos'):''}">${typeof v==='number'?(l.includes('Return')?fPct(v,0):f0(v)):v}</td>`;
+  }).join('')}</tr>`;
+  const grp = t => `<tr class="grp"><td colspan="${M.length+1}">${t}</td></tr>`;
+
+  document.getElementById('tbl').innerHTML = head + '<tbody>'
+    + grp('Purchase &amp; financing')
+    + row('Purchase price', (r,m)=>m.s.price)
+    + row('Down payment', (r,m)=>m.s.price*A.downPct)
+    + row('Loan amount', (r,m)=>m.loan)
+    + row('Monthly P&amp;I', (r,m)=>m.piMo)
+    + row('Cash required at closing', (r,m)=>m.cash)
+    + grp('Year 1 monthly')
+    + row('Total monthly housing cost', (r,m)=>m.monthlyHousing)
+    + row('Gross monthly rent', (r,m)=>m.yrs[0].grossRent/12)
+    + row('Net monthly cash flow', (r,m)=>m.yrs[0].monthlyCF, true)
+    + grp(`Year ${H} outcomes`)
+    + row('Cumulative net cash flow', r=>r.cumCF, true)
+    + row('Total principal paydown', r=>r.cumP)
+    + row('Total appreciation', r=>r.apprec)
+    + row('Property value', r=>r.value)
+    + row('Loan balance', r=>r.bal)
+    + row('Equity', r=>r.equity)
+    + row('<b>Total wealth built</b>', r=>r.wealth, true)
+    + row('Return on cash invested', r=>r.roc, true)
+    + '</tbody>';
+}
+
+/* ============================ RENDER ============================ */
+function render(){
+  document.getElementById('cfnote').textContent =
+    `Out-of-pocket each month after rental income, in year ${H}.`;
+  document.getElementById('compnote').textContent =
+    `Gains above the line, cash out of pocket below, through year ${H}. The dot marks the net result.`;
+  drawCards(); drawLegend(); drawWealth(); drawCF(); drawComp(); drawTable();
+}
+syncSliders(); render();
+addEventListener('resize', ()=>{ hideTip(); });
+</script>
+<script>
+  var CODE='jacoby#2026';
+  function unlock(){document.getElementById('gate').classList.add('hidden');document.getElementById('dash').style.display='block';}
+  if(localStorage.getItem('amre_dash_auth')==='true'){if(document.readyState!=='loading')unlock();else document.addEventListener('DOMContentLoaded',unlock);}
+  document.getElementById('gateForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=document.getElementById('gateInput').value.trim();
+    if(v===CODE||v==='amre#compass'){unlock();}
+    else{document.getElementById('gateErr').textContent='Incorrect access code.';document.getElementById('gateInput').value='';document.getElementById('gateInput').focus();}
+  });
+</script>
+<script>/* amre-sso-autounlock */(function(){try{if(localStorage.getItem('amre_dash_auth')!=='true')return;var CODE="jacoby#2026";function go(){var box=document.getElementById('gate');if(!box||box.style.display==='none')return;var inp=document.querySelector('#gateInput,#gate-input');if(inp){inp.value=CODE;inp.dispatchEvent(new Event('input',{bubbles:true}));['keydown','keyup'].forEach(function(t){inp.dispatchEvent(new KeyboardEvent(t,{key:'Enter',keyCode:13,which:13,bubbles:true}));});}var f=document.querySelector('#gateForm,#gate-form');if(f)f.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));var b=document.querySelector('#gate-submit,#gateBtn,#gate-btn,#gate button,#gate [type=submit]');if(b)b.click();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else setTimeout(go,0);}catch(e){}})();</script>
+</body>
+</html>
