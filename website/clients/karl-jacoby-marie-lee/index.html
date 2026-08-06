@@ -386,7 +386,7 @@ const cvar = v => getComputedStyle(document.documentElement).getPropertyValue(v)
 /* ============================ CONTROLS ============================ */
 const SLIDERS = [
   {k:'downPct',   lab:'Down payment',       min:.10, max:.60, step:.01,   fmt:v=>fPct(v,0)},
-  {k:'rate',      lab:'Interest rate',      min:.04, max:.10, step:.00125,fmt:v=>fPct(v,3).replace(/0+%$/,'%').replace(/\.%/,'%')},
+  {k:'rate',      lab:'Interest rate',      min:.04, max:.10, step:.00125,fmt:v=>fPct(v,3).replace(/0%$/,'%')},
   {k:'appr',      lab:'Appreciation / yr',  min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
   {k:'rentG',     lab:'Rent growth / yr',   min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
   {k:'infl',      lab:'Cost inflation / yr',min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
@@ -407,7 +407,9 @@ function syncSliders(){
 }
 SLIDERS.forEach(s=>{
   document.getElementById('sl_'+s.k).addEventListener('input', e=>{
-    A[s.k] = parseFloat(e.target.value); recalc();
+    A[s.k] = parseFloat(e.target.value);
+    document.getElementById('v_'+s.k).textContent = s.fmt(A[s.k]);
+    recalc();
   });
 });
 document.getElementById('reset').addEventListener('click', ()=>{ A={...BASE}; syncSliders(); recalc(); });
