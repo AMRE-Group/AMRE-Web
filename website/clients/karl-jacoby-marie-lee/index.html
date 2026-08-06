@@ -144,7 +144,6 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
 </style>
 </head>
 <body>
-
 <div class="gate" id="gate">
   <div class="gate-card">
     <div class="gate-brand">AMRE &middot; Compass</div>
@@ -202,9 +201,10 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
 
   <!-- WEALTH CURVE -->
   <section class="panel">
-    <h2>Total wealth built, year by year</h2>
-    <p class="note">Principal paid down + appreciation + cumulative cash flow. Above the zero line means the
-      property has more than paid for itself; below means you are funding it out of pocket.</p>
+    <h2>Net result, year by year</h2>
+    <p class="note">What you would actually walk away with if you sold in that year: sale proceeds after
+      costs and loan payoff, plus every dollar of rent collected, minus every dollar you put in, plus the
+      rent you avoided by living there. Above the zero line means you came out ahead.</p>
     <div class="legend" id="legend1"></div>
     <svg id="chartWealth" viewBox="0 0 940 400" role="img" aria-label="Cumulative wealth built by year for five scenarios"></svg>
   </section>
@@ -219,12 +219,21 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
 
     <!-- WEALTH COMPOSITION -->
     <section class="panel">
-      <h2>Where the wealth comes from</h2>
+      <h2>What you get back vs. what you put in</h2>
       <p class="note" id="compnote">Gains above the line, cash out of pocket below. The dot marks the net result.</p>
       <div class="legend" id="legend2" style="font-size:12px"></div>
       <svg id="chartComp" viewBox="0 0 460 356" role="img" aria-label="Composition of wealth built by scenario"></svg>
     </section>
   </div>
+
+  <!-- INVESTOR METRICS -->
+  <section class="panel">
+    <h2>The investor read</h2>
+    <p class="note">The underwriting metrics a lender or an investment partner would ask for first.
+      Cap rate, NOI and DSCR describe the building as a business; IRR and equity multiple describe your money.</p>
+    <div class="tblwrap"><table id="inv"></table></div>
+    <div class="notes" style="margin-top:22px" id="invRead"></div>
+  </section>
 
   <!-- TABLE -->
   <section class="panel">
@@ -240,6 +249,22 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
   <!-- NOTES -->
   <section class="panel">
     <div class="notes">
+      <h3>How the net result is calculated</h3>
+      <p style="margin:0 0 10px">Exit price is the purchase price grown at the appreciation rate you set,
+      compounded to the year you choose. From there:</p>
+      <p style="margin:0 0 14px;padding:11px 14px;background:var(--cream);border-radius:10px;font-weight:600">
+        exit price &minus; cost to sell &minus; loan payoff
+        + rent collected along the way
+        &minus; every dollar you put in
+        + rent you didn&rsquo;t pay elsewhere
+        = <span style="color:var(--brand)">net result</span>
+      </p>
+      <p style="margin:0 0 16px">The last term is what makes the five columns comparable. A home you live in
+      is not a failed investment &mdash; it is shelter you would otherwise be renting. The
+      &ldquo;rent you&rsquo;d otherwise pay&rsquo; slider sets that credit; scenarios where you live on site
+      full-time get all of it, the Seasonal scenario gets three months a year of it, and the pure Investment
+      scenario gets none because you would still be paying rent somewhere else.</p>
+
       <h3>How to read this</h3>
       <ul>
         <li><b>49 Brooks Ave</b> and <b>2930 Neilson Way</b> are modeled as owner-occupied homes with no rental income —
@@ -252,9 +277,9 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
         <li><b>31 S Venice — Investment:</b> all three units rented at actual rents, professionally managed at 8%.</li>
         <li>Property tax is modeled at the <b>new buyer's purchase-price basis</b> (~1.25%), not the seller's lower
           Prop 13 basis shown on the triplex MLS sheet.</li>
-        <li>Notice how the ranking shifts with time. At Year 5 only the Investment scenario is net positive; by Year 10
-          rising rents push Seasonal solidly positive too, while the two owner-occupied homes and the Hybrid stay
-          negative on a pure-investment basis.</li>
+        <li>Notice how the ranking shifts with the time horizon &mdash; and how much it depends on the rent
+          assumption. Slide &ldquo;rent you&rsquo;d otherwise pay&rsquo; to zero and the two owner-occupied homes
+          collapse; set it to what a comparable Venice rental actually costs and the Hybrid moves to the front.</li>
       </ul>
       <h3>Things to verify</h3>
       <ul>
@@ -266,6 +291,10 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
         <li>Confirm the triplex's furnished/30-day rental posture against zoning and any rent-stabilization exposure.</li>
         <li>In the Seasonal scenario the $20,000 furnishing cost appears both in cash-at-closing and in Year-1 cash
           flow, exactly as in the source model — so its return-on-cash reads slightly conservative.</li>
+        <li>Still excluded: mortgage-interest and property-tax deductions, depreciation on the rental units,
+          capital-gains tax at sale, and what the down payment could have earned invested elsewhere. That last
+          one runs roughly $350K over ten years at 5% and applies to all five roughly equally, so it lowers
+          every column without changing the order.</li>
       </ul>
       <div class="disc">
         Figures derive from Compass MLS listing sheets read Aug 5, 2026 — 49 Brooks Ave #26860925;
@@ -286,37 +315,59 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
 <script>
 /* ============================ MODEL ============================ */
 const BASE = { downPct:0.20, rate:0.0675, term:30, closingPct:0.015, taxRate:0.0125,
-               appr:0.035, rentG:0.03, taxG:0.02, infl:0.03 };
+               appr:0.035, rentG:0.03, taxG:0.02, infl:0.03,
+               sellPct:0.06, altRent:9500 };
 let A = {...BASE};
 let H = 10;
 
 const SC = [
- { id:'brooks', color:'--s1', name:'49 Brooks Ave', scen:'Owner-Occupied',
+ { id:'brooks', sf:2128, units:1, occMo:12, color:'--s1', name:'49 Brooks Ave', scen:'Owner-Occupied',
    meta:'Venice · SFR (duplex-style) · 2BD/3BA · 2,128 SF · MLS 26860925',
    price:2599000, ins:4200, hoaMo:0, maintPct:0.0075,
    rentMo:0, vac:0.05, mgmt:0, oneTime:0, furn:null },
 
- { id:'hybrid', color:'--s2', name:'31 S Venice', scen:'Owner-Occupy Hybrid (year-round)',
+ { id:'hybrid', sf:null, units:3, occMo:12, color:'--s2', name:'31 S Venice', scen:'Owner-Occupy Hybrid (year-round)',
    meta:'Venice · Triplex · MLS 26843155 · you live in the 2BR, rent both 1BRs',
    price:2790000, ins:6000, hoaMo:0, maintPct:0.01,
    rentMo:7000, vac:0.05, mgmt:0, oneTime:0, furn:null },
 
- { id:'seasonal', color:'--s3', name:'31 S Venice', scen:'Seasonal 3mo + furnished rental 7mo',
+ { id:'seasonal', sf:null, units:3, occMo:3, color:'--s3', name:'31 S Venice', scen:'Seasonal 3mo + furnished rental 7mo',
    meta:'Venice · Triplex · MLS 26843155 · 2BR furnished part-year, 1BRs year-round',
    price:2790000, ins:6000, hoaMo:0, maintPct:0.01,
    rentMo:7000, vac:0.05, mgmt:0.05, oneTime:20000,
    furn:{ rate:9500, months:7, fee:0.12, utilMo:250, utilMonths:7, turnCost:750, turns:2 } },
 
- { id:'invest', color:'--s4', name:'31 S Venice', scen:'Straight Investment (all 3 rented)',
+ { id:'invest', sf:null, units:3, occMo:0, color:'--s4', name:'31 S Venice', scen:'Straight Investment (all 3 rented)',
    meta:'Venice · Triplex · MLS 26843155 · professionally managed at 8%',
    price:2790000, ins:6000, hoaMo:0, maintPct:0.01,
    rentMo:13350, vac:0.05, mgmt:0.08, oneTime:0, furn:null },
 
- { id:'neilson', color:'--s5', name:'2930 Neilson Way #408', scen:'Owner-Occupied Condo',
+ { id:'neilson', sf:1456, units:1, occMo:12, color:'--s5', name:'2930 Neilson Way #408', scen:'Owner-Occupied Condo',
    meta:'Santa Monica · Sea Colony II · 2BD/2BA · 1,456 SF · HOA $1,625/mo · MLS 26865247',
    price:2495000, ins:1200, hoaMo:1625, maintPct:0.0025,
    rentMo:0, vac:0.05, mgmt:0, oneTime:0, furn:null }
 ];
+
+function irr(flows){                       // flows[0] at t0 (negative), then one per year
+  const npv = r => flows.reduce((t,f,i)=> t + f/Math.pow(1+r,i), 0);
+  let lo=-0.95, hi=5;                      // NPV falls as the discount rate rises
+  if(npv(lo) < 0) return null;             // underwater at any rate
+  if(npv(hi) > 0) return hi;               // off the top of the scale
+  for(let i=0;i<160;i++){
+    const mid=(lo+hi)/2;
+    if(npv(mid) > 0) lo=mid; else hi=mid;
+  }
+  return (lo+hi)/2;
+}
+
+function apprToBreakEven(sc, a, h){        // what appreciation rate makes the net result zero
+  const f = r => run(sc, {...a, appr:r}).yrs[h-1].adj;
+  let lo=-0.05, hi=0.25;
+  if(f(lo) > 0) return lo;                 // already positive with prices falling
+  if(f(hi) < 0) return null;               // cannot get there inside a sane range
+  for(let i=0;i<60;i++){ const mid=(lo+hi)/2; if(f(mid) < 0) lo=mid; else hi=mid; }
+  return (lo+hi)/2;
+}
 
 function pmt(loan, annualRate, years){
   const i = annualRate/12, n = years*12;
@@ -332,7 +383,7 @@ function run(s, a){
 
   const monthlyHousing = piMo + s.price*a.taxRate/12 + s.ins/12 + s.hoaMo + s.price*s.maintPct/12;
 
-  const yrs=[]; let bal=loan, cumP=0, cumCF=0;
+  const yrs=[]; let bal=loan, cumP=0, cumCF=0, cumRent=0;
   for(let y=1; y<=10; y++){
     const k = y-1;
     const rg = Math.pow(1+a.rentG, k), ig = Math.pow(1+a.infl, k), tg = Math.pow(1+a.taxG, k);
@@ -364,13 +415,36 @@ function run(s, a){
     const equity = value - bal;
     const apprec = value - s.price;
 
+    const sellCost = value*a.sellPct;
+    const netProceeds = value - sellCost - bal;
+    cumRent += a.altRent*s.occMo*rg;          // rent avoided this year, grown with rent growth
+
     yrs.push({ y, income, grossRent:grossBase+grossFurn, tax, ins, hoa, maint, util, turn, one,
                opex, pi:piYr, exp, ncf, cumCF, pPaid, cumP, bal, value, equity, apprec,
-               wealth: cumP + apprec + cumCF,
+               noi: income - opex, ds: piYr, dscr: piYr>0 ? (income-opex)/piYr : null,
+               capRate: (income-opex)/s.price, coc: (income-opex-piYr)/cash,
+               exitPrice: value, sellCost, netProceeds, cumRent,
+               wealth: cumP + apprec + cumCF,                       // the original spreadsheet figure
+               adj: netProceeds + cumCF - cash + cumRent,           // corrected: what you walk away with
                monthlyCF: (income - (opex + piYr))/12 });
   }
   return { s, loan, piMo, close, cash, monthlyHousing, yrs,
-           at:(h)=>{ const r=yrs[h-1]; return {...r, roc: r.wealth/cash}; } };
+    at:(h)=>{
+      const r = yrs[h-1];
+      // yearly benefit = property cash flow + rent avoided that year; exit proceeds land in the final year
+      const flows = [-cash];
+      for(let y=1;y<=h;y++){
+        const yr = yrs[y-1];
+        const rentThisYear = a.altRent*s.occMo*Math.pow(1+a.rentG, y-1);
+        flows.push(yr.ncf + rentThisYear + (y===h ? yr.netProceeds : 0));
+      }
+      const contributed = cash + flows.slice(1).filter(f=>f<0).reduce((t,f)=>t-f,0);
+      const returned    = flows.slice(1).filter(f=>f>0).reduce((t,f)=>t+f,0);
+      let beYr = null;
+      for(let y=1;y<=10;y++) if(yrs[y-1].adj >= 0){ beYr = y; break; }
+      return {...r, roc: r.adj/cash, rocOld: r.wealth/cash,
+              irr: irr(flows), eqMult: contributed>0 ? returned/contributed : null, beYr};
+    } };
 }
 
 let M = SC.map(s=>run(s,A));
@@ -390,7 +464,10 @@ const SLIDERS = [
   {k:'appr',      lab:'Appreciation / yr',  min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
   {k:'rentG',     lab:'Rent growth / yr',   min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
   {k:'infl',      lab:'Cost inflation / yr',min:0,   max:.08, step:.0025, fmt:v=>fPct(v,2)},
-  {k:'taxRate',   lab:'Property tax rate',  min:.008,max:.02, step:.00025,fmt:v=>fPct(v,3)}
+  {k:'taxRate',   lab:'Property tax rate',  min:.008,max:.02, step:.00025,fmt:v=>fPct(v,3)},
+  {k:'sellPct',   lab:'Cost to sell at exit',min:0,  max:.10, step:.0025, fmt:v=>fPct(v,2)},
+  {k:'altRent',   lab:'Rent you\u2019d otherwise pay', min:0, max:20000, step:250,
+   fmt:v=>'$'+Math.round(v).toLocaleString('en-US')+'/mo'}
 ];
 const slHost = document.getElementById('sliders');
 slHost.innerHTML = SLIDERS.map(s=>`
@@ -472,7 +549,7 @@ function drawWealth(){
   const W=940,Ht=400,ml=76,mr=24,mt=14,mb=42;
   const pw=W-ml-mr, ph=Ht-mt-mb;
 
-  const all = M.flatMap(m=>m.yrs.map(r=>r.wealth));
+  const all = M.flatMap(m=>m.yrs.map(r=>r.adj));
   const ticks = niceTicks(Math.min(0,...all), Math.max(0,...all), 6);
   const lo=ticks[0], hi=ticks[ticks.length-1];
   const X = y => ml + (y-1)/9*pw;
@@ -498,12 +575,12 @@ function drawWealth(){
   // lines
   M.forEach((m,i)=>{
     const c = cvar(SC[i].color);
-    const d = m.yrs.map((r,j)=>`${j?'L':'M'}${X(r.y).toFixed(1)},${Y(r.wealth).toFixed(1)}`).join(' ');
+    const d = m.yrs.map((r,j)=>`${j?'L':'M'}${X(r.y).toFixed(1)},${Y(r.adj).toFixed(1)}`).join(' ');
     svg.appendChild(el('path',{d,fill:'none',stroke:c,'stroke-width':2,
       'stroke-linejoin':'round','stroke-linecap':'round'}));
     // marker at selected horizon, with 2px surface ring
     const r = m.yrs[H-1];
-    svg.appendChild(el('circle',{cx:X(H),cy:Y(r.wealth),r:5.5,fill:c,
+    svg.appendChild(el('circle',{cx:X(H),cy:Y(r.adj),r:5.5,fill:c,
       stroke:cvar('--surface-1'),'stroke-width':2}));
   });
 
@@ -517,9 +594,9 @@ function drawWealth(){
     const px = (ev.clientX-box.left)/box.width*W;
     let yr = Math.round((px-ml)/pw*9)+1; yr=Math.max(1,Math.min(10,yr));
     hov.setAttribute('x1',X(yr)); hov.setAttribute('x2',X(yr)); hov.setAttribute('opacity',1);
-    const rows = M.map((m,i)=>({c:cvar(SC[i].color), n:SC[i].scen, v:m.yrs[yr-1].wealth}))
+    const rows = M.map((m,i)=>({c:cvar(SC[i].color), n:SC[i].scen, v:m.yrs[yr-1].adj}))
                   .sort((a,b)=>b.v-a.v);
-    showTip(`<div class="th">Year ${yr} · total wealth built</div>`+
+    showTip(`<div class="th">Year ${yr} · net result if sold</div>`+
       rows.map(r=>`<div class="tr"><span class="tk"><i style="background:${r.c}"></i>${r.n}</span><b class="${r.v>=0?'pos':'neg'}">${f0(r.v)}</b></div>`).join(''), ev);
   });
   hit.addEventListener('mouseleave', ()=>{ hov.setAttribute('opacity',0); hideTip(); });
@@ -588,11 +665,17 @@ function shortScen(s){
 function drawComp(){
   const svg = document.getElementById('chartComp'); svg.innerHTML='';
   const W=460,Ht=356,ml=62,mr=12,mt=10,mb=106, pw=W-ml-mr, ph=Ht-mt-mb;
-  const rows = M.map(m=>{ const r=m.at(H);
-    return {pos:r.cumP+r.apprec, neg:r.cumCF<0?r.cumCF:0, posCF:r.cumCF>0?r.cumCF:0,
-            paydown:r.cumP, apprec:r.apprec, cumCF:r.cumCF, net:r.wealth}; });
-  const hiV = Math.max(...rows.map(r=>r.pos+r.posCF), 0);
-  const loV = Math.min(...rows.map(r=>r.neg), 0);
+  const rows = M.map((m,i)=>{ const r=m.at(H);
+    const gains = [ {v:r.netProceeds, o:1,   l:'Net sale proceeds'},
+                    {v:r.cumRent,     o:.5,  l:'Rent you didn\u2019t pay'},
+                    {v:Math.max(r.cumCF,0), o:.28, l:'Cumulative cash flow'} ];
+    const costs = [ {v:m.cash,        l:'Cash in at closing'},
+                    {v:-Math.min(r.cumCF,0), l:'Cash fed in over time'} ];
+    return { gains, costs, net:r.adj, r, m,
+             posTot: gains.reduce((t,g)=>t+g.v,0),
+             negTot: -costs.reduce((t,g)=>t+g.v,0) }; });
+  const hiV = Math.max(...rows.map(r=>r.posTot), 0);
+  const loV = Math.min(...rows.map(r=>r.negTot), 0);
   const ticks = niceTicks(loV, hiV, 5);
   const lo=ticks[0], hi=ticks[ticks.length-1];
   const Y = v => mt + ph - (v-lo)/(hi-lo)*ph;
@@ -608,21 +691,23 @@ function drawComp(){
   const slot=pw/rows.length, bw=Math.min(44, slot-8);
   rows.forEach((r,i)=>{
     const c=cvar(SC[i].color), x=ml+slot*i+(slot-bw)/2;
-    // positive stack: appreciation (solid) + paydown (75% opacity) — 2px surface gap between segments
-    const segs = [{v:r.apprec,o:1,l:'Appreciation'},{v:r.paydown,o:.55,l:'Loan paydown'}];
-    if(r.cumCF>0) segs.push({v:r.cumCF,o:.3,l:'Cumulative cash flow'});
     let acc=0;
-    segs.forEach((sg,k)=>{
+    r.gains.forEach((sg,k)=>{
       if(sg.v<=0) return;
-      const yTop=Y(acc+sg.v), yBot=Y(acc), h=yBot-yTop-(k? 2:0);
+      const yTop=Y(acc+sg.v), yBot=Y(acc), h=yBot-yTop-(k?2:0);
       if(h<=0){acc+=sg.v;return;}
       svg.appendChild(el('path',{d:barPath(x,yTop,bw,h,k===0?4:0,true),fill:c,opacity:sg.o}));
       acc+=sg.v;
     });
-    if(r.cumCF<0){
-      const yTop=Y(0), h=Y(r.cumCF)-yTop;
-      svg.appendChild(el('path',{d:barPath(x,yTop,bw,h,4,false),fill:cvar('--bad'),opacity:.85}));
-    }
+    let dn=0;
+    r.costs.forEach((sg,k)=>{
+      if(sg.v<=0) return;
+      const yTop=Y(-dn), yBot=Y(-dn-sg.v), h=yBot-yTop-(k?2:0);
+      if(h<=0){dn+=sg.v;return;}
+      svg.appendChild(el('path',{d:barPath(x,yTop,bw,h,k===0?0:4,false),
+        fill:cvar('--bad'),opacity:k?0.55:0.9}));
+      dn+=sg.v;
+    });
     // net marker
     svg.appendChild(el('circle',{cx:x+bw/2,cy:Y(r.net),r:5,fill:cvar('--ink'),
       stroke:cvar('--surface-1'),'stroke-width':2}));
@@ -631,12 +716,17 @@ function drawComp(){
     const hit = el('rect',{x:x-4,y:mt,width:bw+8,height:ph,fill:'transparent'});
     svg.appendChild(hit);
     hit.addEventListener('mousemove', ev=>{
-      showTip(`<div class="th">${SC[i].name} · Year ${H}</div>`+
-        `<div class="tr"><span>Appreciation</span><b class="pos">${f0(r.apprec)}</b></div>`+
-        `<div class="tr"><span>Loan paydown</span><b class="pos">${f0(r.paydown)}</b></div>`+
-        `<div class="tr"><span>Cumulative cash flow</span><b class="${r.cumCF>=0?'pos':'neg'}">${f0(r.cumCF)}</b></div>`+
+      const d=r.r;
+      showTip(`<div class="th">${SC[i].name} · sold in year ${H}</div>`+
+        `<div class="tr"><span>Exit price</span><b>${f0(d.exitPrice)}</b></div>`+
+        `<div class="tr"><span>Less cost to sell</span><b class="neg">${f0(-d.sellCost)}</b></div>`+
+        `<div class="tr"><span>Less loan payoff</span><b class="neg">${f0(-d.bal)}</b></div>`+
+        `<div class="tr" style="border-top:1px solid var(--border);margin-top:5px;padding-top:6px"><span>Net sale proceeds</span><b class="pos">${f0(d.netProceeds)}</b></div>`+
+        `<div class="tr"><span>Cumulative cash flow</span><b class="${d.cumCF>=0?'pos':'neg'}">${f0(d.cumCF)}</b></div>`+
+        `<div class="tr"><span>Cash in at closing</span><b class="neg">${f0(-r.m.cash)}</b></div>`+
+        `<div class="tr"><span>Rent you didn\u2019t pay</span><b class="pos">${f0(d.cumRent)}</b></div>`+
         `<div class="tr" style="border-top:1px solid var(--border);margin-top:5px;padding-top:6px">
-          <span><b>Net wealth built</b></span><b class="${r.net>=0?'pos':'neg'}">${f0(r.net)}</b></div>`, ev);
+          <span><b>Net result</b></span><b class="${r.net>=0?'pos':'neg'}">${f0(r.net)}</b></div>`, ev);
     });
     hit.addEventListener('mouseleave', hideTip);
   });
@@ -644,19 +734,21 @@ function drawComp(){
 
 /* ============================ CARDS ============================ */
 function drawCards(){
-  const best = M.reduce((a,b)=> b.at(H).wealth > a.at(H).wealth ? b : a);
+  const best = M.reduce((a,b)=> b.at(H).adj > a.at(H).adj ? b : a);
   document.getElementById('cards').innerHTML = M.map((m,i)=>{
     const r=m.at(H), c=cvar(SC[i].color);
     return `<div class="card" style="--c:${c}">
       ${m===best?'<span class="badge">Top result</span>':''}
       <p class="cname">${SC[i].name}</p>
       <p class="cscen">${SC[i].scen}</p>
-      <div class="big ${r.wealth>=0?'pos':'neg'}">${f0(r.wealth)}</div>
-      <div class="biglab">Wealth built by year ${H}</div>
+      <div class="big ${r.adj>=0?'pos':'neg'}">${f0(r.adj)}</div>
+      <div class="biglab">Net result if sold in year ${H}</div>
       <div class="rows">
-        <div><span>Cash to close</span><span>${f0(m.cash)}</span></div>
+        <div><span>Exit price</span><span>${f0(r.exitPrice)}</span></div>
+        <div><span>Net sale proceeds</span><span>${f0(r.netProceeds)}</span></div>
+        <div><span>Cash to close</span><span class="neg">${f0(-m.cash)}</span></div>
         <div><span>Cash flow / mo</span><span class="${r.monthlyCF>=0?'pos':'neg'}">${f0(r.monthlyCF)}</span></div>
-        <div><span>Equity at yr ${H}</span><span>${f0(r.equity)}</span></div>
+        <div><span>Rent not paid</span><span class="${r.cumRent>0?'pos':''}">${f0(r.cumRent)}</span></div>
         <div><span>Return on cash</span><span class="${r.roc>=0?'pos':'neg'}">${fPct(r.roc,0)}</span></div>
       </div></div>`;
   }).join('');
@@ -668,9 +760,11 @@ function drawLegend(){
     `<span><i style="background:${cvar(SC[i].color)}"></i>${SC[i].name} — ${SC[i].scen}</span>`).join('');
   const ink=cvar('--ink');
   document.getElementById('legend2').innerHTML =
-    `<span><i style="background:${cvar('--ink-2')}"></i>Appreciation <em style="font-style:normal;color:var(--muted)">(solid)</em></span>`+
-    `<span><i style="background:${cvar('--ink-2')};opacity:.5"></i>Loan paydown <em style="font-style:normal;color:var(--muted)">(lighter)</em></span>`+
-    `<span><i style="background:${cvar('--bad')};opacity:.85"></i>Cash out of pocket</span>`+
+    `<span><i style="background:${cvar('--ink-2')}"></i>Net sale proceeds</span>`+
+    `<span><i style="background:${cvar('--ink-2')};opacity:.5"></i>Rent you didn\u2019t pay</span>`+
+    `<span><i style="background:${cvar('--ink-2')};opacity:.28"></i>Cash flow (if positive)</span>`+
+    `<span><i style="background:${cvar('--bad')};opacity:.9"></i>Cash in at closing</span>`+
+    `<span><i style="background:${cvar('--bad')};opacity:.55"></i>Cash fed in over time</span>`+
     `<span><i style="background:${ink};border-radius:50%"></i>Net result</span>`;
 }
 
@@ -697,16 +791,110 @@ function drawTable(){
     + row('Total monthly housing cost', (r,m)=>m.monthlyHousing)
     + row('Gross monthly rent', (r,m)=>m.yrs[0].grossRent/12)
     + row('Net monthly cash flow', (r,m)=>m.yrs[0].monthlyCF, true)
-    + grp(`Year ${H} outcomes`)
-    + row('Cumulative net cash flow', r=>r.cumCF, true)
-    + row('Total principal paydown', r=>r.cumP)
+    + grp(`Exit in year ${H}`)
+    + row('Exit price (purchase price grown at appreciation)', r=>r.exitPrice)
     + row('Total appreciation', r=>r.apprec)
-    + row('Property value', r=>r.value)
-    + row('Loan balance', r=>r.bal)
-    + row('Equity', r=>r.equity)
-    + row('<b>Total wealth built</b>', r=>r.wealth, true)
+    + row('Less cost to sell', r=>-r.sellCost, true)
+    + row('Less loan payoff', r=>-r.bal, true)
+    + row('<b>Net sale proceeds</b>', r=>r.netProceeds)
+    + grp(`Net result in year ${H}`)
+    + row('Net sale proceeds', r=>r.netProceeds)
+    + row('Cumulative net cash flow', r=>r.cumCF, true)
+    + row('Less cash in at closing', (r,m)=>-m.cash, true)
+    + row('Plus rent you did not pay', r=>r.cumRent)
+    + row('<b>NET RESULT</b>', r=>r.adj, true)
     + row('Return on cash invested', r=>r.roc, true)
+    + grp('For reference')
+    + row('Total principal paydown', r=>r.cumP)
+    + row('Loan balance', r=>r.bal)
+    + row('Equity (value less loan)', r=>r.equity)
+    + row('Original model \u201Cwealth built\u201D (no exit or shelter costs)', r=>r.wealth, true)
     + '</tbody>';
+}
+
+/* ============================ INVESTOR METRICS ============================ */
+function drawInvestor(){
+  const R = M.map(m=>m.at(H)), Y1 = M.map(m=>m.yrs[0]);
+  const rented = i => SC[i].rentMo>0 || SC[i].furn;      // does this scenario collect rent at all
+  const dash = '<span style="color:var(--muted)">&mdash;</span>';
+
+  const head = `<thead><tr><th>Metric</th>${M.map((m,i)=>
+    `<th><span class="dot" style="background:${cvar(SC[i].color)}"></span>${SC[i].name}<br>
+     <span style="font-weight:400;text-transform:none;letter-spacing:0">${SC[i].scen}</span></th>`).join('')}</tr></thead>`;
+  const row = (l, fn) => `<tr><td>${l}</td>${M.map((m,i)=>`<td>${fn(R[i],m,i,Y1[i])}</td>`).join('')}</tr>`;
+  const grp = t => `<tr class="grp"><td colspan="${M.length+1}">${t}</td></tr>`;
+  const sgn = (v,txt) => `<span class="${v>=0?'pos':'neg'}">${txt}</span>`;
+
+  document.getElementById('inv').innerHTML = head + '<tbody>'
+  + grp('The asset')
+  + row('Price per unit', (r,m,i)=> f0(m.s.price/m.s.units))
+  + row('Price per SF', (r,m,i)=> m.s.sf ? f0(m.s.price/m.s.sf) : dash)
+  + row('Gross scheduled rent (yr 1)', (r,m,i,y)=> rented(i) ? f0(y.grossRent) : dash)
+  + row('Gross rent multiplier', (r,m,i,y)=> rented(i) ? (m.s.price/y.grossRent).toFixed(1) : dash)
+  + grp('The building as a business (year 1)')
+  + row('Net operating income', (r,m,i,y)=> rented(i) ? f0(y.noi) : dash)
+  + row('Cap rate on purchase price', (r,m,i,y)=> rented(i) ? sgn(y.capRate, fPct(y.capRate,2)) : dash)
+  + row('Annual debt service', (r,m,i,y)=> f0(y.ds))
+  + row('DSCR (NOI &divide; debt service)', (r,m,i,y)=> rented(i)
+      ? `<span class="${y.dscr>=1.2?'pos':'neg'}">${y.dscr.toFixed(2)}&times;</span>` : dash)
+  + grp('Your money')
+  + row('Cash invested', (r,m)=> f0(m.cash))
+  + row('Cash-on-cash return (yr 1)', (r,m,i,y)=> sgn(y.coc, fPct(y.coc,1)))
+  + row(`IRR through year ${H} <span style="font-weight:400;color:var(--muted)">(incl. rent avoided)</span>`,
+      r=> r.irr==null ? '<span class="neg">negative</span>' : sgn(r.irr, fPct(r.irr,1)))
+  + row('Equity multiple', r=> r.eqMult==null ? dash : r.eqMult.toFixed(2)+'&times;')
+  + row('Break-even year', r=> r.beYr ? 'Year '+r.beYr
+      : '<span class="neg">not within 10</span>')
+  + row(`Appreciation needed to break even by yr ${H}`, (r,m,i)=>{
+      const v = apprToBreakEven(SC[i], A, H);
+      return v==null ? '<span class="neg">&gt;25%/yr</span>'
+        : `<span class="${v<=A.appr?'pos':'neg'}">${fPct(v,2)}</span>`; })
+  + '</tbody>';
+
+  const inv = M[3].yrs[0], best = R.map((r,i)=>({i,v:r.irr==null?-99:r.irr})).sort((a,b)=>b.v-a.v)[0];
+  document.getElementById('invRead').innerHTML = `
+    <h3>What these numbers say</h3>
+    <ul>
+      <li><b>The triplex does not pencil as a pure income deal at this price.</b> Fully rented it throws off
+        ${f0(inv.noi)} of NOI against a ${f0(2790000)} price &mdash; a <b>${fPct(inv.capRate,2)} cap rate</b>.
+        The MLS sheet shows a healthier number because it uses the seller&rsquo;s long-held Prop 13 tax basis;
+        reassessed to your purchase price, and with a real maintenance reserve on a 1938 building, the yield
+        lands where it lands. You are buying Venice land and rent growth, not current yield.</li>
+      <li><b>No lender will underwrite this on the rents.</b> DSCR comes in at
+        <b>${inv.dscr.toFixed(2)}&times;</b> against the 1.20&ndash;1.25&times; a DSCR loan wants. Every one of
+        these has to be qualified on personal income, which is worth confirming with the lender before writing.</li>
+      <li><b>Every scenario is negatively levered at ${fPct(A.rate,3)}.</b> Cap rate below borrowing cost means
+        debt is subtracting from return, not adding. That flips if rates come down &mdash; drag the interest-rate
+        slider to 5% and watch the whole board move. Refinance optionality is a real part of this thesis.</li>
+      <li><b>Rent growth is the engine, not appreciation.</b> Cash flow improves every year while the payment
+        stays fixed; that is why the curves bend upward. Set rent growth to 0% and the rental scenarios
+        stop working.</li>
+      <li><b>On a time-weighted basis the ranking is ${SC[best.i].name} &mdash; ${SC[best.i].scen}.</b> IRR is
+        the fairest single comparison here because the five scenarios put in different amounts of cash at
+        different times. Total dollars favour whichever deal is largest; IRR asks what each dollar earned.</li>
+      <li><b>Break-even is a financing question.</b> The break-even row shows the appreciation rate each
+        property needs just to return your capital. Anything below the rate you have set is a margin of safety;
+        anything above it means you are relying on the market to bail out the entry price.</li>
+    </ul>
+    <h3>What is still not in these numbers</h3>
+    <ul>
+      <li><b>Depreciation.</b> On the triplex, roughly 75% of the basis depreciates over 27.5 years &mdash; about
+        ${f0(2790000*0.75/27.5)} a year of paper loss. For the fully rented scenario that shelters most of the
+        rental income and, depending on their situation, may offset other income. It does not show up anywhere
+        above and it is one of the strongest arguments for the Investment scenario.</li>
+      <li><b>Mortgage interest and property tax deductions</b> on the owner-occupied side, subject to the
+        $750K mortgage-interest cap and the SALT limit &mdash; which materially blunts the benefit at these
+        loan sizes.</li>
+      <li><b>Capital gains at exit.</b> The $500K primary-residence exclusion applies only where they have
+        lived two of the last five years; the rental portion faces depreciation recapture at 25%. A 1031
+        exchange is available to the Investment scenario and not to a primary residence.</li>
+      <li><b>Opportunity cost.</b> The cash could be invested elsewhere; at 5% that is roughly
+        ${f0(600000*(Math.pow(1.05,H)-1))} over ${H} years on a $600K stake.</li>
+      <li><b>Rent control exposure.</b> The 1938 triplex is almost certainly subject to LA&rsquo;s Rent
+        Stabilization Ordinance, which caps annual increases well below the ${fPct(A.rentG,2)} modeled here
+        for any sitting tenant. Verify RSO status and each unit&rsquo;s tenancy history before relying on the
+        rent-growth assumption.</li>
+    </ul>`;
 }
 
 /* ============================ RENDER ============================ */
@@ -714,8 +902,8 @@ function render(){
   document.getElementById('cfnote').textContent =
     `Out-of-pocket each month after rental income, in year ${H}.`;
   document.getElementById('compnote').textContent =
-    `Gains above the line, cash out of pocket below, through year ${H}. The dot marks the net result.`;
-  drawCards(); drawLegend(); drawWealth(); drawCF(); drawComp(); drawTable();
+    `What you get back above the line, what you put in below, if you sell in year ${H}. The dot is the net.`;
+  drawCards(); drawLegend(); drawWealth(); drawCF(); drawComp(); drawInvestor(); drawTable();
 }
 syncSliders(); render();
 addEventListener('resize', ()=>{ hideTip(); });
