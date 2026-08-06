@@ -13,7 +13,7 @@
   --brand:#1c3d31; --brand-2:#2a5747; --gold:#ffc13c; --cream:#f7f4ec;
   --surface-1:#ffffff; --plane:#f4f2ec; --ink:#0b0b0b; --ink-2:#52514e; --muted:#7c7a74;
   --grid:#e6e3da; --axis:#c8c5ba; --border:rgba(11,11,11,.10);
-  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300;
   --good:#0ca30c; --bad:#d03b3b; --warn:#fab219;
   --radius:14px;
   --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -23,7 +23,7 @@
   --brand:#0f231c; --cream:#1f1f1d;
   --surface-1:#1a1a19; --plane:#0d0d0d; --ink:#ffffff; --ink-2:#c3c2b7; --muted:#898781;
   --grid:#2c2c2a; --axis:#383835; --border:rgba(255,255,255,.10);
-  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#008300;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -214,7 +214,7 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
     <section class="panel">
       <h2>Monthly cash flow</h2>
       <p class="note" id="cfnote">Out-of-pocket each month after rental income, at the selected year.</p>
-      <svg id="chartCF" viewBox="0 0 460 384" role="img" aria-label="Net monthly cash flow by scenario"></svg>
+      <svg id="chartCF" viewBox="0 0 545 384" role="img" aria-label="Net monthly cash flow by scenario"></svg>
     </section>
 
     <!-- WEALTH COMPOSITION -->
@@ -222,7 +222,7 @@ tr.grp td{background:var(--plane);font-weight:700;font-size:11.5px;letter-spacin
       <h2>What you get back vs. what you put in</h2>
       <p class="note" id="compnote">Gains above the line, cash out of pocket below. The dot marks the net result.</p>
       <div class="legend" id="legend2" style="font-size:12px"></div>
-      <svg id="chartComp" viewBox="0 0 460 356" role="img" aria-label="Composition of wealth built by scenario"></svg>
+      <svg id="chartComp" viewBox="0 0 545 356" role="img" aria-label="Composition of wealth built by scenario"></svg>
     </section>
   </div>
 
@@ -324,6 +324,11 @@ const SC = [
  { id:'brooks', sf:2128, units:1, occMo:12, color:'--s1', name:'49 Brooks Ave', scen:'Owner-Occupied',
    meta:'Venice · SFR (duplex-style) · 2BD/3BA · 2,128 SF · MLS 26860925',
    price:2599000, ins:4200, hoaMo:0, maintPct:0.0075,
+   rentMo:0, vac:0.05, mgmt:0, oneTime:0, furn:null },
+
+ { id:'venice302', sf:1666, units:1, occMo:12, color:'--s6', name:'302 S Venice Blvd', scen:'Owner-Occupied SFR',
+   meta:'Venice · SFR, small-lot subdivision, no common walls · 2BD/3BA · 1,666 SF · MLS PW26061306MR',
+   price:1875000, ins:3200, hoaMo:0, maintPct:0.0075,
    rentMo:0, vac:0.05, mgmt:0, oneTime:0, furn:null },
 
  { id:'hybrid', sf:null, units:3, occMo:12, color:'--s2', name:'31 S Venice', scen:'Owner-Occupy Hybrid (year-round)',
@@ -605,7 +610,7 @@ function drawWealth(){
 /* ============================ CHART 2 · MONTHLY CASH FLOW ============================ */
 function drawCF(){
   const svg = document.getElementById('chartCF'); svg.innerHTML='';
-  const W=460,Ht=384,ml=62,mr=12,mt=10,mb=106, pw=W-ml-mr, ph=Ht-mt-mb;
+  const W=545,Ht=384,ml=62,mr=12,mt=10,mb=106, pw=W-ml-mr, ph=Ht-mt-mb;
   const vals = M.map(m=>m.at(H).monthlyCF);
   const ticks = niceTicks(Math.min(0,...vals), Math.max(0,...vals), 5);
   const lo=ticks[0], hi=ticks[ticks.length-1];
@@ -619,7 +624,7 @@ function drawCF(){
       'font-variant-numeric':'tabular-nums'}));
   });
 
-  const slot = pw/M.length, bw = Math.min(44, slot-8); // ≥2px surface gap between bars
+  const slot = pw/M.length, bw = Math.min(40, slot-8); // ≥2px surface gap between bars
   M.forEach((m,i)=>{
     const v = m.at(H).monthlyCF, c = cvar(SC[i].color);
     const x = ml + slot*i + (slot-bw)/2;
@@ -643,16 +648,17 @@ function drawCF(){
     path.addEventListener('mouseleave', hideTip);
   });
 }
-const SHORTNAME=['49 Brooks','31 S Venice','31 S Venice','31 S Venice','2930 Neilson'];
+const SHORTNAME=['49 Brooks','302 S Venice','31 S Venice','31 S Venice','31 S Venice','2930 Neilson'];
 function axisLabel(svg,cx,y,i){
-  svg.appendChild(txt(cx, y, SHORTNAME[i], {'text-anchor':'middle','font-size':10,
+  svg.appendChild(txt(cx, y, SHORTNAME[i], {'text-anchor':'middle','font-size':9.5,
     fill:cvar('--ink-2'),'font-weight':700}));
-  shortScen(SC[i].scen).forEach((t,k)=>svg.appendChild(txt(cx, y+13+k*11.5, t,
-    {'text-anchor':'middle','font-size':9,fill:cvar('--muted')})));
+  shortScen(SC[i].scen).forEach((t,k)=>svg.appendChild(txt(cx, y+12+k*10.5, t,
+    {'text-anchor':'middle','font-size':8.5,fill:cvar('--muted')})));
 }
 function shortScen(s){
   const map = {
     'Owner-Occupied':['Owner-occupied'],
+    'Owner-Occupied SFR':['Owner-occupied','SFR'],
     'Owner-Occupy Hybrid (year-round)':['Hybrid','(live in 2BR)'],
     'Seasonal 3mo + furnished rental 7mo':['Seasonal +','furnished'],
     'Straight Investment (all 3 rented)':['Investment','(all rented)'],
@@ -664,7 +670,7 @@ function shortScen(s){
 /* ============================ CHART 3 · COMPOSITION ============================ */
 function drawComp(){
   const svg = document.getElementById('chartComp'); svg.innerHTML='';
-  const W=460,Ht=356,ml=62,mr=12,mt=10,mb=106, pw=W-ml-mr, ph=Ht-mt-mb;
+  const W=545,Ht=356,ml=62,mr=12,mt=10,mb=106, pw=W-ml-mr, ph=Ht-mt-mb;
   const rows = M.map((m,i)=>{ const r=m.at(H);
     const gains = [ {v:r.netProceeds, o:1,   l:'Net sale proceeds'},
                     {v:r.cumRent,     o:.5,  l:'Rent you didn\u2019t pay'},
@@ -688,7 +694,7 @@ function drawComp(){
       'font-variant-numeric':'tabular-nums'}));
   });
 
-  const slot=pw/rows.length, bw=Math.min(44, slot-8);
+  const slot=pw/rows.length, bw=Math.min(40, slot-8);
   rows.forEach((r,i)=>{
     const c=cvar(SC[i].color), x=ml+slot*i+(slot-bw)/2;
     let acc=0;
@@ -851,7 +857,7 @@ function drawInvestor(){
         : `<span class="${v<=A.appr?'pos':'neg'}">${fPct(v,2)}</span>`; })
   + '</tbody>';
 
-  const inv = M[3].yrs[0], best = R.map((r,i)=>({i,v:r.irr==null?-99:r.irr})).sort((a,b)=>b.v-a.v)[0];
+  const inv = M[SC.findIndex(x=>x.id==='invest')].yrs[0], best = R.map((r,i)=>({i,v:r.irr==null?-99:r.irr})).sort((a,b)=>b.v-a.v)[0];
   document.getElementById('invRead').innerHTML = `
     <h3>What these numbers say</h3>
     <ul>
