@@ -719,16 +719,16 @@ syncSliders(); render();
 addEventListener('resize', ()=>{ hideTip(); });
 </script>
 <script>
-  var CODE='jacoby#2026';
+  var CODE='karlmarie#2026';
   function unlock(){document.getElementById('gate').classList.add('hidden');document.getElementById('dash').style.display='block';}
   if(localStorage.getItem('amre_dash_auth')==='true'){if(document.readyState!=='loading')unlock();else document.addEventListener('DOMContentLoaded',unlock);}
   document.getElementById('gateForm').addEventListener('submit',function(e){
     e.preventDefault();
     var v=document.getElementById('gateInput').value.trim();
-    if(v===CODE||v==='amre#compass'){unlock();}
+    v=v.toLowerCase();if(v===CODE||v==='amre#compass'){unlock();}
     else{document.getElementById('gateErr').textContent='Incorrect access code.';document.getElementById('gateInput').value='';document.getElementById('gateInput').focus();}
   });
 </script>
-<script>/* amre-sso-autounlock */(function(){try{if(localStorage.getItem('amre_dash_auth')!=='true')return;var CODE="jacoby#2026";function go(){var box=document.getElementById('gate');if(!box||box.style.display==='none')return;var inp=document.querySelector('#gateInput,#gate-input');if(inp){inp.value=CODE;inp.dispatchEvent(new Event('input',{bubbles:true}));['keydown','keyup'].forEach(function(t){inp.dispatchEvent(new KeyboardEvent(t,{key:'Enter',keyCode:13,which:13,bubbles:true}));});}var f=document.querySelector('#gateForm,#gate-form');if(f)f.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));var b=document.querySelector('#gate-submit,#gateBtn,#gate-btn,#gate button,#gate [type=submit]');if(b)b.click();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else setTimeout(go,0);}catch(e){}})();</script>
+<script>/* amre-sso-autounlock */(function(){try{if(localStorage.getItem('amre_dash_auth')!=='true')return;var CODE="karlmarie#2026";function go(){var box=document.getElementById('gate');if(!box||box.style.display==='none')return;var inp=document.querySelector('#gateInput,#gate-input');if(inp){inp.value=CODE;inp.dispatchEvent(new Event('input',{bubbles:true}));['keydown','keyup'].forEach(function(t){inp.dispatchEvent(new KeyboardEvent(t,{key:'Enter',keyCode:13,which:13,bubbles:true}));});}var f=document.querySelector('#gateForm,#gate-form');if(f)f.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));var b=document.querySelector('#gate-submit,#gateBtn,#gate-btn,#gate button,#gate [type=submit]');if(b)b.click();}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else setTimeout(go,0);}catch(e){}})();</script>
 </body>
 </html>
