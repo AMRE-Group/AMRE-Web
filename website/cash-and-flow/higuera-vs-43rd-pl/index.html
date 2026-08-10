@@ -315,7 +315,55 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 }
 
 
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+/* ── BOLD OPENER (mirrors the 1945 Barry Ave layout) ── */
+.cfx .banner{padding:108px 0 44px;}
+.cfx .banner .wrap{max-width:1080px;}
+.cfx .banner-logo{height:34px;width:auto;display:block;margin-bottom:24px;}
+.cfx .banner .eyebrow{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+.cfx .banner .eyebrow b{color:var(--green);font-weight:700;}
+.cfx .banner .stmt{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5.2vw,58px);font-weight:700;line-height:1.02;letter-spacing:-.025em;color:var(--ink);text-wrap:balance;}
+.cfx .banner .stmt .hl{color:var(--green);}
+.cfx .banner .dek{font-family:'Space Grotesk',sans-serif;margin-top:22px;font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--text);max-width:64ch;text-wrap:pretty;}
+
+.cfx .ticker{background:var(--char);color:#ededea;overflow:hidden;}
+.cfx .ticker-track{display:flex;white-space:nowrap;will-change:transform;animation:cf-ticker 38s linear infinite;}
+.cfx .ticker:hover .ticker-track{animation-play-state:paused;}
+.cfx .ticker-seg{display:flex;align-items:center;font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.08em;padding:13px 0;}
+.cfx .ticker-seg span{padding:0 22px;display:inline-flex;align-items:center;gap:8px;}
+.cfx .ticker-seg .dot,.cfx .ticker-seg .up{color:var(--green);}
+.cfx .ticker-seg .lead{color:#fff;font-weight:700;}
+@keyframes cf-ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+.cfx .art-head{max-width:860px;margin:0 auto;padding:54px 28px 0;}
+.cfx .art-tag{display:block;font-family:'Space Mono',monospace;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-dark);margin-bottom:16px;}
+.cfx .art-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4.4vw,46px);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--ink);text-wrap:balance;}
+.cfx .art-title em{font-style:italic;}
+.cfx .art-dek{font-family:'Space Grotesk',sans-serif;margin-top:18px;font-size:17px;line-height:1.55;color:var(--text);text-wrap:pretty;}
+.cfx .art-byline{margin-top:22px;padding-bottom:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--hair);}
+.cfx .art-byline b{color:var(--ink);font-weight:700;}
+.cfx .art-hero{max-width:860px;margin:34px auto 8px;padding:0 28px;}
+.cfx .art-hero img{width:100%;height:clamp(280px,40vw,460px);object-fit:cover;display:block;}
+.cfx .art-cap{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--muted);max-width:860px;margin:10px auto 0;padding:0 28px;}
+
+.cfx .specs-wrap{max-width:860px;margin:0 auto;padding:0 28px;}
+.cfx .specs-key{display:flex;gap:18px;justify-content:flex-end;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:34px 0 8px;}
+.cfx .specs-key i{font-style:normal;display:inline-flex;align-items:center;gap:6px;}
+.cfx .specs-key i::before{content:"";width:8px;height:8px;background:var(--ink);}
+.cfx .specs-key i.b::before{background:var(--green);}
+.cfx .specs{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:0 0 8px;}
+.cfx .spec{background:var(--paper);padding:16px 12px;text-align:center;}
+.cfx .spec .v{font-family:'Space Mono',monospace;font-weight:700;font-size:15px;line-height:1.3;}
+.cfx .spec .v span{display:block;white-space:nowrap;}
+.cfx .spec .v .a{color:var(--ink);}
+.cfx .spec .v .b{color:var(--green);padding-top:4px;margin-top:4px;border-top:1px solid var(--hair);}
+.cfx .spec .k{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+@media(max-width:820px){.cfx .specs{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:680px){
+  .cfx .banner{padding:88px 0 34px;}
+  .cfx .art-head,.cfx .art-hero,.cfx .art-cap,.cfx .specs-wrap{padding-left:20px;padding-right:20px;}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.cfx .ticker-track{animation:none;transform:translateX(0);}*{transition:none!important;}}
 </style>
 </head>
 <body>
@@ -327,81 +375,52 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 
 <main class="cfx">
 
-
-  <!-- OPENER — Cash & Flow masthead, matching the hub -->
-  <section class="cf-open">
+  <!-- BANNER -->
+  <section class="banner" id="top">
     <div class="wrap">
       <img class="banner-logo" src="/cash-and-flow/assets/cashflow-ink.png" alt="Cash &amp; Flow">
-      <div class="eyebrow">
-        <span><b>Cash &amp; Flow</b> &nbsp;&middot;&nbsp; The Breakdown &middot; No. 07</span>
-        <a class="back" href="/cash-and-flow/">&larr; All breakdowns</a>
-      </div>
+      <div class="eyebrow"><span><b>Cash &amp; Flow</b> &nbsp;&middot;&nbsp; The Breakdown &middot; No. 07</span><a class="back" href="/cash-and-flow/">&larr; All breakdowns</a></div>
+      <p class="stmt">Two duplexes, two <span class="hl">playbooks.</span></p>
+      <p class="dek">Same week, same price bracket, same two-unit structure. One has a tenant paying today; the other is delivered completely empty. The numbers are not the same trade.</p>
     </div>
   </section>
 
   <!-- TICKER -->
-  <div class="ticker-bar">
-    <div class="wrap">
-      <div class="ticker-track">
-        <span>8595 HIGUERA ST</span><span class="dim">&middot;</span><span>$1.799M</span><span class="dim">&middot;</span><span>2 UNITS</span><span class="dim">&middot;</span><span class="grn">17.0&times; GRM</span><span class="dim">&middot;</span><span>$8,600 PROJ. GROSS/MO</span><span class="dim">&middot;</span><span>1 TENANTED, 1 VACANT</span><span class="dim">&nbsp;&#9670;&nbsp;</span><span>3118 W 43RD PL</span><span class="dim">&middot;</span><span>$1.398M</span><span class="dim">&middot;</span><span>2 UNITS</span><span class="dim">&middot;</span><span class="grn">$428/SQFT</span><span class="dim">&middot;</span><span>100% VACANT</span>
-      </div>
+  <div class="ticker" aria-label="Deal snapshot">
+    <div class="ticker-track">
+      <div class="ticker-seg"><span class="lead">THIS BREAKDOWN</span><span><span class="dot">&#9656;</span> 8595 HIGUERA ST</span><span>$1.799M</span><span>$1,008/SQFT</span><span class="up">17.0&times; GRM</span><span>$8,600 PROJ. GROSS/MO</span><span>1 OF 2 RENTED</span><span class="dot">&middot;</span><span><span class="dot">&#9656;</span> 3118 W 43RD PL</span><span>$1.398M</span><span class="up">$428/SQFT</span><span>100% VACANT</span><span>$0 SCHEDULED INCOME</span><span class="dot">&middot;</span><span>CULVER CITY</span><span>LEIMERT PARK</span><span>DUPLEX VS DUPLEX</span></div>
+      <div class="ticker-seg" aria-hidden="true"><span class="lead">THIS BREAKDOWN</span><span><span class="dot">&#9656;</span> 8595 HIGUERA ST</span><span>$1.799M</span><span>$1,008/SQFT</span><span class="up">17.0&times; GRM</span><span>$8,600 PROJ. GROSS/MO</span><span>1 OF 2 RENTED</span><span class="dot">&middot;</span><span><span class="dot">&#9656;</span> 3118 W 43RD PL</span><span>$1.398M</span><span class="up">$428/SQFT</span><span>100% VACANT</span><span>$0 SCHEDULED INCOME</span><span class="dot">&middot;</span><span>CULVER CITY</span><span>LEIMERT PARK</span><span>DUPLEX VS DUPLEX</span></div>
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="wrap">
-      <span class="kicker">Culver City vs. Leimert Park</span>
-      <h1>Two duplexes, two <span class="hl">playbooks.</span></h1>
-      <p class="dek">Every deal looks good in the photos. We show you the math &mdash; on a 1947 Culver City duplex and a fully restored 1929 Spanish twin in Leimert Park, both hitting the market the same week.</p>
-      <span class="byline">By <strong>Ania de Pourbaix</strong>, AMRE Real Estate Group &middot; Compass &nbsp;&mdash;&nbsp; August 7, 2026</span>
+  <!-- HEADLINE -->
+  <div class="art-head">
+    <span class="art-tag">Head to head &middot; Culver City vs. Leimert Park &middot; Both new listings</span>
+    <h1 class="art-title">$1.799M with a tenant already paying, against $1.398M delivered <em>100% vacant</em></h1>
+    <p class="art-dek">Every deal looks good in the photos. We ran the rent roll, the expenses the listings leave out, and the cost of actually living in one &mdash; on both duplexes, side by side.</p>
+    <div class="art-byline"><span>By <b>Ania De Pourbaix</b>, AMRE Real Estate Group</span><span>August 7, 2026</span></div>
+  </div>
+
+  <div class="art-hero">
+    <img src="img/card-vs.jpg" alt="8595 Higuera St in Culver City beside 3118 W 43rd Pl in Leimert Park" width="1400" height="875">
+  </div>
+  <p class="art-cap">Left: 8595 Higuera St, Culver City. Right: 3118 W 43rd Pl, Leimert Park. <em>Photos via the listing brokerages.</em></p>
+
+  <div class="specs-wrap">
+    <div class="specs-key"><i>8595 Higuera</i><i class="b">3118 W 43rd Pl</i></div>
+    <div class="specs">
+      <div class="spec"><div class="v"><span class="a">$1.799M</span><span class="b">$1.398M</span></div><div class="k">List Price</div></div>
+      <div class="spec"><div class="v"><span class="a">$1,008</span><span class="b">$428</span></div><div class="k">Price / Sqft</div></div>
+      <div class="spec"><div class="v"><span class="a">1,784</span><span class="b">3,266</span></div><div class="k">Building Sqft</div></div>
+      <div class="spec"><div class="v"><span class="a">1 of 2</span><span class="b">0 of 2</span></div><div class="k">Units Rented</div></div>
+      <div class="spec"><div class="v"><span class="a">17.0&times;</span><span class="b">n/a</span></div><div class="k">GRM Per MLS</div></div>
+      <div class="spec"><div class="v"><span class="a">~3.4%</span><span class="b">~3.9%</span></div><div class="k">Est. Cap &mdash; AMRE</div></div>
     </div>
+    <p class="asterisk-note">Cap rates are AMRE estimates on the assumptions shown further down, not MLS figures. 43rd Pl has no rent history, so its yield rests on an estimated market rent.</p>
   </div>
 
   <div class="wrap lede">
     <p>Both hit the MLS on August 6, and both are two-unit properties under $1.8M &mdash; but they're not the same trade. One's a cash-flowing house-hack with a tenant already in place. The other's a gut-renovated, fully vacant blank slate. We ran the numbers on both.</p>
-
-    <!-- NEW: SPLIT-SCREEN DEAL SWITCHER -->
-    <div class="switch">
-      <div class="switch-head" role="tablist" aria-label="Compare the two deals">
-        <button role="tab" id="tab-a" aria-controls="pane-a" aria-selected="true">
-          <span class="sw-loc">Downtown Culver City</span>
-          <span class="sw-addr">8595 Higuera St</span>
-          <span class="sw-price">$1,799,000 &middot; the cash-flow play</span>
-        </button>
-        <button role="tab" id="tab-b" aria-controls="pane-b" aria-selected="false">
-          <span class="sw-loc">Leimert Park</span>
-          <span class="sw-addr">3118 W 43rd Pl</span>
-          <span class="sw-price">$1,398,000 &middot; the blank-slate play</span>
-        </button>
-      </div>
-      <div class="switch-body">
-        <div class="switch-pane" id="pane-a" role="tabpanel" aria-labelledby="tab-a">
-          <div class="stat-card" style="margin:0;">
-            <div class="cardlbl">At a glance &mdash; per MLS</div>
-            <div class="stat-grid">
-              <div class="stat"><div class="num">$1.799M</div><div class="cap">List Price</div></div>
-              <div class="stat"><div class="num">$1,008</div><div class="cap">Price / Sqft</div></div>
-              <div class="stat"><div class="num">17.0&times;</div><div class="cap">GRM</div></div>
-              <div class="stat"><div class="num">$8,600</div><div class="cap">Proj. Gross / Mo</div></div>
-            </div>
-          </div>
-          <p class="sw-note">A tenant is already paying $3,200/mo. You buy income on day one &mdash; and pay Culver City prices for it.</p>
-        </div>
-        <div class="switch-pane" id="pane-b" role="tabpanel" aria-labelledby="tab-b" hidden>
-          <div class="stat-card" style="margin:0;">
-            <div class="cardlbl">At a glance &mdash; per MLS</div>
-            <div class="stat-grid">
-              <div class="stat"><div class="num">$1.398M</div><div class="cap">List Price</div></div>
-              <div class="stat"><div class="num">$428</div><div class="cap">Price / Sqft</div></div>
-              <div class="stat"><div class="num">Not listed</div><div class="cap">GRM</div></div>
-              <div class="stat"><div class="num">$0</div><div class="cap">Scheduled Income</div></div>
-            </div>
-          </div>
-          <p class="sw-note">Nothing to inherit &mdash; and nothing to point to. You set the first rent, and you underwrite on comps.</p>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- PROPERTY 1 -->
