@@ -518,6 +518,30 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
   .qc .qc-disc-inner strong{color:var(--qcg80);}
   @media(max-width:600px){.qc .qc-disc-inner{padding:22px 20px 36px;}}
 
+  /* fixes 2026-08-14: full-bleed bands, wider address field, inline tips */
+  .qc{max-width:none;}
+  .qc .wrap{max-width:none;}
+  .qc .hero-inner{max-width:1000px;margin:0 auto;}
+  .qc .content{max-width:1080px;margin:0 auto;}
+  .qc .footer-cta .fc-inner{max-width:1000px;margin:0 auto;}
+  .qc .qc-disclaimer{max-width:none;}
+  .qc .qc-disc-inner{max-width:1080px;margin:0 auto;}
+
+  .qc .addr-row{align-items:stretch;}
+  .qc .addr-field{flex:1 1 260px;}
+  .qc .addr-field.addr-main{flex:2.4 1 460px;}
+  .qc .addr-field input[type=text]{width:100%;text-align:left;text-overflow:ellipsis;}
+
+  .qc .field-row .flabel{display:flex;align-items:center;flex-wrap:wrap;gap:0;min-width:0;}
+  .qc .field-row .flabel > .tip-btn{flex:0 0 auto;order:1;}
+  .qc .field-row .flabel > .fsub,
+  .qc .field-row .flabel > .auto-note{flex:1 0 100%;order:2;margin-top:2px;}
+  .qc .units-head > div{display:flex;align-items:center;min-width:0;}
+  .qc .units-head > div > .tip-btn{flex:0 0 auto;}
+
+  .qc #cashout-section .block-head .desc{max-width:none;}
+  @media (max-width:1100px){ .qc #cashout-section .block-head .desc{max-width:640px;} }
+
 </style>
 </head>
 <body>
@@ -544,13 +568,13 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
   <div class="content">
 
     <div class="addr-row">
-      <div class="addr-field">
+      <div class="addr-field addr-main">
         <label>Property Address</label>
         <input id="propAddress" type="text" value="" placeholder="123 Sample St, Los Angeles, CA" />
       </div>
       <div class="addr-field">
         <label>Prepared For</label>
-        <input id="preparedFor" type="text" value="" placeholder="Client name" />
+        <input id="preparedFor" type="text" value="" placeholder="Full Name" />
       </div>
     </div>
 
@@ -787,6 +811,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
   </div>
 
   <div class="footer-cta">
+   <div class="fc-inner">
     <img class="logo qc-logo-inv" src="/cash-and-flow/assets/cashflow-ink.png" alt="Cash &amp; Flow" width="360" height="36">
     <h3>Run the numbers with us</h3>
     <p>Every deal looks good in the photos. Let&rsquo;s check the math &mdash; on this one or the next one.</p>
@@ -797,6 +822,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
     <div class="contact">
       <a href="mailto:team@amre.group">team@amre.group</a> &nbsp;/&nbsp; <a href="tel:3237198585">323.719.8585</a>
     </div>
+   </div>
   </div>
 
 </div>
