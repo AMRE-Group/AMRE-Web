@@ -8,418 +8,477 @@
 <link rel="apple-touch-icon" sizes="180x180" href="https://amre.group/apple-touch-icon.png">
 <meta name="theme-color" content="#1c3d31">
 
-<title>1711–1715 Toberman Street — Marketing &amp; Repositioning Strategy | AMRE at Compass</title>
-<meta name="description" content="A private strategy overview prepared by AMRE Real Estate Group for the ownership of 1711–1715 Toberman Street, Los Angeles.">
+<title>1711&ndash;1715 Toberman Street &mdash; Marketing &amp; Repositioning Strategy | AMRE at Compass</title>
+<meta name="description" content="A private strategy overview prepared by AMRE Real Estate Group for the ownership of 1711-1715 Toberman Street, Los Angeles.">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
 <meta name="googlebot" content="noindex,nofollow">
 <meta name="author" content="Michael Abraham, AMRE Real Estate Group at Compass">
 <meta property="og:type" content="website">
-<meta property="og:title" content="1711–1715 Toberman Street — Marketing &amp; Repositioning Strategy">
+<meta property="og:title" content="1711-1715 Toberman Street - Marketing &amp; Repositioning Strategy">
 <meta property="og:description" content="Private strategy overview prepared by AMRE Real Estate Group at Compass.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/amre.css">
 
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  :root{
-    --ivory:#f7f4ee; --paper:#fbfaf6; --ink:#23211d; --soft:#4a453c;
-    --line:#e2dcd0; --clay:#a8634a; --clay-deep:#8f4f38; --sand:#cdbfa6;
-    --gold:#9c7838; --green:#1c3d31; --label:#635c4c;
-  }
-  html{scroll-behavior:smooth}
-  body{background:var(--ivory);color:var(--ink);font-family:'Jost',system-ui,-apple-system,sans-serif;
-       -webkit-font-smoothing:antialiased;line-height:1.75}
-  .wrap{max-width:940px;margin:0 auto;padding:0 32px}
-  @media(max-width:680px){.wrap{padding:0 20px}}
+/* ===== PAGE-SPECIFIC (tb-) — no global overrides ===== */
 
-  /* HERO */
-  .hero{background:var(--green);color:#f3efe7;padding:150px 32px 84px;text-align:left}
-  .hero .wrap{max-width:940px}
-  .eyebrow{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--sand);margin-bottom:26px}
-  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;font-size:clamp(38px,6vw,68px);
-           line-height:1.08;letter-spacing:-.01em;color:#fff}
-  .hero .sub{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,27px);font-style:italic;
-             color:var(--sand);margin-top:18px;font-weight:300}
-  .hero .meta{margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.16);
-              font-size:13px;color:#a8bcae;letter-spacing:.04em}
-  .hero .meta strong{color:#e8e2d5;font-weight:500}
+/* reading progress */
+.tb-prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--clay);z-index:80;transition:width .1s linear}
 
-  /* INTRO */
-  .intro{background:var(--paper);padding:64px 32px;border-bottom:1px solid var(--line)}
-  .intro p{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.3vw,25px);line-height:1.6;
-           color:var(--soft);font-weight:300}
-  .intro p+p{margin-top:20px}
+/* private ribbon in hero */
+.tb-ribbon{display:inline-flex;align-items:center;gap:10px;font-size:.66rem;letter-spacing:.18em;
+  text-transform:uppercase;font-weight:600;color:rgba(244,241,234,.72);
+  border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:7px 16px;margin-bottom:22px}
+.tb-ribbon .dot{width:6px;height:6px;border-radius:50%;background:var(--clay);flex-shrink:0}
 
-  /* SECTIONS */
-  section.blk{padding:70px 32px}
-  section.blk:nth-of-type(even){background:var(--paper)}
-  .snum{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.28em;color:var(--clay);
-        text-transform:uppercase;margin-bottom:14px;display:block}
-  h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(28px,4vw,42px);
-     line-height:1.15;color:var(--ink);margin-bottom:22px;letter-spacing:-.005em}
-  h3{font-family:'Jost',sans-serif;font-size:13px;letter-spacing:.2em;text-transform:uppercase;
-     color:var(--label);font-weight:500;margin:34px 0 14px}
-  p{font-size:16.5px;color:var(--soft);margin-bottom:16px}
-  p.lead{font-size:18px;color:var(--ink)}
-  strong{color:var(--ink);font-weight:500}
+/* sticky chapter nav */
+.tb-jump{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.94);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-2)}
+.tb-jump-in{max-width:1280px;margin:0 auto;padding:0 clamp(20px,4vw,48px);display:flex;align-items:center;gap:8px}
+.tb-jump-lbl{flex-shrink:0;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  color:var(--mute);padding-right:14px;border-right:1px solid var(--line-2);margin-right:6px}
+.tb-jump-scroll{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;flex:1}
+.tb-jump-scroll::-webkit-scrollbar{display:none}
+.tb-jump a{flex-shrink:0;font-size:.78rem;font-weight:500;color:var(--mute);padding:15px 13px;
+  border-bottom:2px solid transparent;transition:color .25s,border-color .25s;white-space:nowrap}
+.tb-jump a:hover{color:var(--ink)}
+.tb-jump a.on{color:var(--dark);border-bottom-color:var(--clay);font-weight:600}
+@media(max-width:760px){.tb-jump-lbl{display:none}.tb-jump a{font-size:.74rem;padding:13px 10px}}
 
-  ul.list{list-style:none;margin:8px 0 20px}
-  ul.list li{position:relative;padding-left:24px;margin-bottom:10px;font-size:16px;color:var(--soft)}
-  ul.list li:before{content:"";position:absolute;left:0;top:11px;width:8px;height:1px;background:var(--clay)}
+/* at-a-glance summary board */
+.tb-glance{background:var(--bone-2);padding:clamp(36px,5vw,60px) 0;border-bottom:1px solid var(--line-2)}
+.tb-glance .wrap{max-width:1080px}
+.tb-glance h2{font-family:var(--serif);font-size:clamp(1.5rem,2.6vw,2rem);font-weight:400;
+  letter-spacing:-.02em;margin-bottom:8px;color:var(--ink)}
+.tb-glance .sub{font-size:.95rem;color:var(--mute);margin-bottom:28px;max-width:56ch}
+.tb-gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tb-gcard{background:var(--card);border:1px solid var(--line-2);border-radius:16px;padding:24px 22px;
+  display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.tb-gcard:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(28,61,49,.08)}
+.tb-gcard .k{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--clay-dk);margin-bottom:12px}
+.tb-gcard .t{font-family:var(--serif);font-size:1.24rem;font-weight:500;color:var(--ink);line-height:1.25;margin-bottom:8px}
+.tb-gcard p{font-size:.9rem;color:var(--mute);line-height:1.6;margin:0 0 16px}
+.tb-gcard .go{margin-top:auto;font-size:.76rem;font-weight:600;color:var(--dark);display:inline-flex;gap:6px;align-items:center}
+.tb-gcard:hover .go{color:var(--clay-dk)}
+@media(max-width:860px){.tb-gcards{grid-template-columns:1fr}}
 
-  /* PULL STATEMENT */
-  .pull{border-left:2px solid var(--clay);padding:6px 0 6px 26px;margin:32px 0}
-  .pull p{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,2.6vw,27px);line-height:1.45;
-          color:var(--ink);font-style:italic;font-weight:300;margin:0}
+/* section marker inside prose */
+.tb-mark{display:flex;align-items:center;gap:14px;margin:64px 0 4px;padding-top:8px}
+.tb-mark:first-child{margin-top:0}
+.tb-mark .no{font-family:var(--serif);font-size:.95rem;font-weight:500;color:var(--clay-dk);
+  border:1px solid rgba(255,193,60,.5);border-radius:100px;padding:4px 12px;flex-shrink:0}
+.tb-mark .ln{height:1px;background:var(--line-2);flex:1}
+.prose .tb-mark + h2{margin-top:14px}
 
-  /* POSITIONING BAR */
-  .posbar{background:var(--green);color:#fff;padding:30px 34px;margin:30px 0;text-align:center}
-  .posbar .pb-lab{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
-  .posbar .pb-line{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.6vw,26px);
-                   font-weight:300;line-height:1.4;color:#fff}
-  .posbar .pb-line span{color:var(--sand);padding:0 6px}
+/* fact table */
+.tb-facts{background:var(--card);border:1px solid var(--line-2);border-radius:18px;overflow:hidden;margin:30px 0}
+.tb-facts .r{display:grid;grid-template-columns:1fr auto;gap:18px;padding:14px 22px;
+  border-bottom:1px solid var(--line-2);align-items:baseline}
+.tb-facts .r:last-child{border-bottom:none}
+.tb-facts .r:nth-child(odd){background:rgba(239,231,216,.32)}
+.tb-facts .k{font-size:.88rem;color:var(--mute)}
+.tb-facts .v{font-size:.94rem;color:var(--ink);font-weight:600;text-align:right}
 
-  /* FACT TABLE */
-  .facts{border-top:1px solid var(--line);margin-top:8px}
-  .facts .row{display:grid;grid-template-columns:1fr auto;gap:20px;padding:13px 2px;
-              border-bottom:1px solid var(--line);align-items:baseline}
-  .facts .row .k{font-size:14.5px;color:var(--label)}
-  .facts .row .v{font-size:15.5px;color:var(--ink);font-weight:500;text-align:right}
+/* positioning line */
+.tb-pos{background:var(--dark);color:#fff;border-radius:18px;padding:clamp(26px,3.4vw,40px);margin:36px 0;text-align:center}
+.tb-pos .k{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--clay);margin-bottom:14px}
+.tb-pos .v{font-family:var(--serif);font-size:clamp(1.15rem,2.3vw,1.7rem);font-weight:300;line-height:1.4;color:#fff}
+.tb-pos .v i{color:var(--clay);font-style:normal;padding:0 8px;opacity:.8}
 
-  /* METRIC CARDS */
-  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
-           border:1px solid var(--line);margin:28px 0}
-  .metrics .m{background:var(--paper);padding:28px 22px;text-align:center}
-  .metrics .m .mv{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.4vw,42px);
-                  color:var(--clay);font-weight:400;line-height:1}
-  .metrics .m .mk{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--label);margin-top:12px}
-  @media(max-width:640px){.metrics{grid-template-columns:1fr}}
+/* price compare */
+.tb-price{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:34px 0}
+.tb-pcard{border-radius:16px;padding:26px 24px;border:1px solid var(--line-2);background:var(--card)}
+.tb-pcard.new{background:var(--dark);border-color:var(--dark);color:#fff}
+.tb-pcard .k{font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--mute);margin-bottom:10px}
+.tb-pcard.new .k{color:var(--clay)}
+.tb-pcard .amt{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.6rem);font-weight:300;line-height:1;letter-spacing:-.02em}
+.tb-pcard .n{font-size:.84rem;color:var(--mute);margin-top:14px;line-height:1.65}
+.tb-pcard.new .n{color:rgba(244,241,234,.72)}
+.tb-pcard .tag{display:inline-block;margin-top:14px;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:700;border-radius:100px;padding:5px 12px;background:rgba(43,46,42,.07);color:var(--mute)}
+.tb-pcard.new .tag{background:var(--clay);color:var(--ink)}
+@media(max-width:640px){.tb-price{grid-template-columns:1fr}}
 
-  /* PRICE COMPARE */
-  .pcmp{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
-        border:1px solid var(--line);margin:26px 0}
-  .pcmp .c{background:#fff;padding:28px 24px}
-  .pcmp .c.now{background:var(--green);color:#fff}
-  .pcmp .c .lab{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--label);margin-bottom:10px}
-  .pcmp .c.now .lab{color:var(--sand)}
-  .pcmp .c .amt{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4.5vw,40px);font-weight:400;line-height:1.05}
-  .pcmp .c .note{font-size:13.5px;color:var(--label);margin-top:12px;line-height:1.6}
-  .pcmp .c.now .note{color:#b9cabe}
-  @media(max-width:640px){.pcmp{grid-template-columns:1fr}}
+/* bold opening statement */
+.tb-bold{background:var(--dark);color:#fff;border-radius:18px;padding:clamp(30px,4vw,46px);margin:34px 0 30px;
+  position:relative;overflow:hidden}
+.tb-bold::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--clay)}
+.tb-bold p{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:300;line-height:1.18;
+  letter-spacing:-.02em;color:#fff;margin:0 0 16px}
+.tb-bold span{display:block;font-size:.98rem;line-height:1.7;color:rgba(244,241,234,.78);max-width:56ch}
 
-  /* BUYER POOL CHIPS */
-  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 8px}
-  .chips span{border:1px solid var(--line);background:#fff;color:var(--soft);font-size:13px;
-              padding:9px 16px;letter-spacing:.02em}
+/* buyer chips */
+.tb-chips{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0}
+.tb-chips span{background:var(--card);border:1px solid var(--line-2);border-radius:100px;
+  font-size:.83rem;color:var(--ink-2);padding:9px 17px;transition:.3s var(--ease)}
+.tb-chips span:hover{border-color:var(--clay);transform:translateY(-2px)}
 
-  /* QUESTION GRID */
-  .qgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
-         border:1px solid var(--line);margin:24px 0}
-  .qgrid div{background:var(--paper);padding:22px 20px;font-family:'Cormorant Garamond',serif;
-             font-size:20px;color:var(--ink);font-weight:400;font-style:italic}
-  @media(max-width:640px){.qgrid{grid-template-columns:1fr}}
+/* investor questions */
+.tb-q{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:30px 0}
+.tb-q div{background:var(--card);border:1px solid var(--line-2);border-left:3px solid var(--clay);
+  border-radius:0 14px 14px 0;padding:20px 22px;font-family:var(--serif);font-size:1.12rem;
+  font-style:italic;color:var(--ink)}
+@media(max-width:640px){.tb-q{grid-template-columns:1fr}}
 
-  /* NUMBERED STEPS */
-  .steps{counter-reset:s;margin:24px 0}
-  .steps .st{counter-increment:s;position:relative;padding:18px 0 18px 56px;border-bottom:1px solid var(--line)}
-  .steps .st:before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:18px;
-                    font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--clay)}
-  .steps .st .sh{font-size:17px;color:var(--ink);font-weight:500;margin-bottom:4px}
-  .steps .st p{margin:0;font-size:15.5px}
+/* numbered approach list */
+.tb-steps{counter-reset:tbs;margin:30px 0}
+.tb-steps .s{counter-increment:tbs;position:relative;padding:20px 0 20px 58px;border-bottom:1px solid var(--line-2)}
+.tb-steps .s:last-child{border-bottom:none}
+.tb-steps .s::before{content:counter(tbs,decimal-leading-zero);position:absolute;left:0;top:20px;
+  font-family:var(--serif);font-size:1.1rem;color:var(--clay-dk);font-weight:500}
+.tb-steps .s h4{font-family:var(--serif);font-size:1.16rem;font-weight:500;color:var(--ink);margin:0 0 5px}
+.tb-steps .s p{font-size:.93rem;color:var(--mute);margin:0}
 
-  /* CTA */
-  .cta{background:var(--green);color:#fff;padding:76px 32px;text-align:center}
-  .cta h2{color:#fff;margin-bottom:14px}
-  .cta p{color:#b9cabe;max-width:600px;margin:0 auto 30px;font-size:16.5px}
-  .agent{margin-bottom:30px}
-  .agent .an{font-family:'Cormorant Garamond',serif;font-size:26px;color:#fff}
-  .agent .ar{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);margin-top:8px}
-  .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .btns a{text-decoration:none;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
-          padding:16px 32px;transition:.3s}
-  .btn-primary{background:var(--clay);color:#fff}
-  .btn-primary:hover{background:var(--clay-deep)}
-  .btn-ghost{border:1px solid rgba(255,255,255,.55);color:#fff}
-  .btn-ghost:hover{background:#fff;color:var(--green)}
+/* disclaimer */
+.tb-note{background:var(--bone-2);border-top:1px solid var(--line-2);padding:38px 0}
+.tb-note .wrap{max-width:840px}
+.tb-note p{font-size:.8rem;color:var(--mute);line-height:1.8;margin:0}
 
-  /* DISCLAIMER */
-  .disclaim{background:var(--ivory);padding:38px 32px;border-top:1px solid var(--line)}
-  .disclaim p{font-size:12.5px;color:var(--label);line-height:1.8;margin:0}
-
-  /* FOOTER DISCLOSURE */
-  .sf-disclosure{background:#fff;color:#6b665c;padding:30px 40px;display:flex;gap:28px;align-items:center;justify-content:center}
-  .sf-disclosure p{font-size:11px;line-height:1.7;max-width:880px;margin:0}
-  .sf-disclosure a{color:#1c3d31}
-  .sf-eho{height:58px;flex-shrink:0}
-  @media(max-width:860px){.sf-disclosure{flex-direction:column;text-align:center}.sf-eho{height:48px}}
-</style>
-
-<style>
-/* SHARED SITE CHROME (nav + mobile drawer) — matches amre.group */
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(7,11,51,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background .35s,border-color .35s}
-.site-nav.is-light{background:rgba(255,255,255,0.92);border-bottom-color:rgba(0,0,0,.06)}
-.nav-brand{display:flex;align-items:center;flex-shrink:0}
-.nav-amre{height:22px;width:auto}
-@media(max-width:860px){.site-nav .nav-links{display:none!important}.site-nav .nav-cta{display:none!important}.ham-btn{display:flex}}
-@media(min-width:861px){.mobile-drawer{display:none!important}}
-@media(max-width:680px){.site-nav{padding:0 20px}}
+/* back to top */
+.tb-top{position:fixed;right:22px;bottom:22px;z-index:55;width:46px;height:46px;border-radius:50%;
+  background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);
+  box-shadow:0 8px 24px rgba(22,51,40,.28)}
+.tb-top.show{opacity:1;pointer-events:auto}
+.tb-top:hover{transform:translateY(-3px);background:var(--clay);color:var(--ink)}
 </style>
 </head>
 <body>
 
-<div id="site-nav-mount"></div>
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js"></script>
+<div class="tb-prog" id="tbProg"></div>
+<div id="amre-nav"></div>
 
-<!-- HERO -->
-<header class="hero">
+<!-- ===== HERO ===== -->
+<section class="article-hero">
   <div class="wrap">
-    <div class="eyebrow">Private Strategy Overview &middot; Prepared for Ownership</div>
-    <h1>1711–1715<br>Toberman Street</h1>
-    <div class="sub">Repositioning a 12-unit multifamily asset near Downtown Los Angeles</div>
-    <div class="meta"><strong>AMRE Real Estate Group at Compass</strong> &nbsp;&middot;&nbsp; Confidential &nbsp;&middot;&nbsp; Not a public listing page</div>
-  </div>
-</header>
-
-<!-- INTRO -->
-<div class="intro">
-  <div class="wrap">
-    <p>1711–1715 Toberman Street has already been exposed to the market without selling. Our approach would not be to simply relist the same property with new photos and a new agent.</p>
-    <p>We would reposition the opportunity, clarify the investment story, and proactively bring it to the right buyer pool.</p>
-  </div>
-</div>
-
-<!-- 01 PROPERTY OVERVIEW -->
-<section class="blk">
-  <div class="wrap">
-    <span class="snum">01 — Property Overview</span>
-    <h2>What the prior listing reported</h2>
-    <p>Based on the prior listing information, the property was marketed as a 12-unit multifamily investment opportunity across two adjacent LARD1.5-zoned parcels, totaling approximately 9,344 SF of land and approximately 4,525 SF of building area.</p>
-
-    <div class="metrics">
-      <div class="m"><div class="mv">12</div><div class="mk">Units</div></div>
-      <div class="m"><div class="mv">7.23%</div><div class="mk">Cap at prior $1.1M ask</div></div>
-      <div class="m"><div class="mv">100%</div><div class="mk">Rent controlled</div></div>
+    <div class="tb-ribbon"><span class="dot"></span> Private &middot; Prepared for Ownership</div>
+    <div class="article-tags">
+      <span class="article-tag">12 Units</span>
+      <span class="article-tag">Two LARD1.5 Parcels</span>
+      <span class="article-tag">Near Downtown LA</span>
     </div>
-
-    <div class="facts">
-      <div class="row"><div class="k">Units</div><div class="v">12</div></div>
-      <div class="row"><div class="k">Buildings</div><div class="v">4</div></div>
-      <div class="row"><div class="k">Parcels</div><div class="v">1711 &amp; 1715 Toberman (adjacent)</div></div>
-      <div class="row"><div class="k">Zoning</div><div class="v">LARD1.5</div></div>
-      <div class="row"><div class="k">Land area</div><div class="v">&plusmn; 9,344 SF</div></div>
-      <div class="row"><div class="k">Building area</div><div class="v">&plusmn; 4,525 SF</div></div>
-      <div class="row"><div class="k">Gross annual income</div><div class="v">&plusmn; $137,760</div></div>
-      <div class="row"><div class="k">NOI</div><div class="v">&plusmn; $79,477</div></div>
-      <div class="row"><div class="k">Rent control</div><div class="v">100%</div></div>
-      <div class="row"><div class="k">Owner-paid</div><div class="v">Water, gas, electric, gardening</div></div>
-      <div class="row"><div class="k">Rear studio / ADU</div><div class="v">Reported partially complete</div></div>
-      <div class="row"><div class="k">Rental upside</div><div class="v">Reported</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 02 FIRST STEP -->
-<section class="blk">
-  <div class="wrap">
-    <span class="snum">02 — Our First Step</span>
-    <h2>Understand the full property</h2>
-    <p class="lead">Before determining the final pricing and marketing strategy, we would first want to fully understand what is being sold.</p>
-
-    <h3>We would review</h3>
-    <ul class="list">
-      <li>Current rent roll</li>
-      <li>Who the tenants are and how long they have occupied the units</li>
-      <li>Current lease terms</li>
-      <li>Rent-control / RSO status</li>
-      <li>Actual operating expenses</li>
-      <li>Legal and permitted unit count</li>
-      <li>Any unpermitted structures, conversions, or additions</li>
-      <li>Status of the partially completed rear studio / ADU</li>
-      <li>Any outstanding code, permit, or property-condition issues</li>
-      <li>Recent improvements or major system upgrades</li>
-    </ul>
-
-    <div class="pull">
-      <p>The prior marketing appears to contain inconsistencies regarding unit configuration and ADU status. Resolving those questions upfront gives buyers a clearer picture and reduces uncertainty during escrow.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 03 POSITIONING -->
-<section class="blk">
-  <div class="wrap">
-    <span class="snum">03 — How We Would Position It</span>
-    <h2>An income-producing, value-add investment</h2>
-    <p>We would primarily position Toberman as an income-producing, value-add multifamily investment — rather than as a conventional residential property or purely as a development site.</p>
-
-    <div class="posbar">
-      <div class="pb-lab">The Story</div>
-      <div class="pb-line">12 Units Near Downtown LA <span>|</span> Two LARD1.5 Parcels <span>|</span> In-Place Income <span>|</span> Rental Upside <span>|</span> Long-Term Land Value</div>
-    </div>
-
-    <p>The adjacent parcels and zoning provide additional upside, but the immediate investment case should focus on the existing income and the potential to improve operations and rents over time.</p>
-  </div>
-</section>
-
-<!-- 04 PRICING -->
-<section class="blk">
-  <div class="wrap">
-    <span class="snum">04 — Pricing Strategy</span>
-    <h2>Crossing back below $1 million</h2>
-    <p>The property was previously offered at $1,100,000 without selling. Once we verify the current rent roll, expenses, tenant situation, and permitted configuration, we would determine the appropriate asking price.</p>
-
-    <div class="pcmp">
-      <div class="c">
-        <div class="lab">Previously offered</div>
-        <div class="amt">$1,100,000</div>
-        <div class="note">&asymp; 7.23% cap on reported NOI &middot; &asymp; $91,700 per unit &middot; did not sell</div>
-      </div>
-      <div class="c now">
-        <div class="lab">Illustrative repositioned price</div>
-        <div class="amt">$995,000</div>
-        <div class="note">&asymp; 8.0% cap on reported NOI &middot; &asymp; $83,000 per unit &middot; under $1M for 12 units</div>
+    <h1>1711&ndash;1715 Toberman Street: <em>how we would market it</em></h1>
+    <p class="article-lede">The property has already been exposed to the market without selling. Our approach would not be to relist it with new photos and a new agent &mdash; we would reposition the opportunity, clarify the investment story, and proactively bring it to the right buyer pool.</p>
+    <div class="article-byline">
+      <div>
+        <div class="n">Michael Abraham &middot; AMRE Real Estate Group at Compass</div>
+        <div class="m">Strategy overview &middot; approx. 6 min read &middot; not a public listing page</div>
       </div>
     </div>
+  </div>
+</section>
 
-    <p>Based on the previously reported NOI of approximately $79,477, a price around $995,000 would equate to roughly an <strong>8.0% cap rate</strong>, about <strong>$83,000 per unit</strong>, and a total <strong>under $1 million for 12 units</strong>.</p>
+<!-- ===== STICKY CHAPTER NAV ===== -->
+<nav class="tb-jump" id="tbJump" aria-label="Section navigation">
+  <div class="tb-jump-in">
+    <span class="tb-jump-lbl">On this page</span>
+    <div class="tb-jump-scroll">
+      <a href="#overview">Overview</a>
+      <a href="#diligence">Diligence</a>
+      <a href="#positioning">Positioning</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#network">Private Network</a>
+      <a href="#package">Investor Package</a>
+      <a href="#access">Buyer Access</a>
+      <a href="#approach">Our Approach</a>
+      <a href="#summary">Summary</a>
+    </div>
+  </div>
+</nav>
 
-    <div class="pull">
-      <p>Crossing below the $1 million threshold could create a much stronger reason for investors who previously overlooked or passed on the property to reconsider it.</p>
+<!-- ===== AT A GLANCE ===== -->
+<section class="tb-glance">
+  <div class="wrap">
+    <h2>The short version</h2>
+    <p class="sub">Three things would change versus the last time this property was marketed.</p>
+    <div class="tb-gcards">
+      <a class="tb-gcard" href="#diligence">
+        <div class="k">01 &middot; Preparation</div>
+        <div class="t">Verify the asset before pricing it</div>
+        <p>Rent roll, tenancy, expenses, permitted unit count and ADU status resolved upfront &mdash; not raised by buyers in escrow.</p>
+        <span class="go">See the diligence list <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tb-gcard" href="#pricing">
+        <div class="k">02 &middot; Pricing</div>
+        <div class="t">Get back under $1 million</div>
+        <p>At roughly $995,000 the asset prices near an 8.0% cap and about $83,000 per unit &mdash; a different conversation than $1.1M.</p>
+        <span class="go">See the pricing math <span class="arrow">&rarr;</span></span>
+      </a>
+      <a class="tb-gcard" href="#network">
+        <div class="k">03 &middot; Distribution</div>
+        <div class="t">Go private before going public again</div>
+        <p>Direct outreach to multifamily buyers, 1031 exchanges and value-add operators &mdash; without adding another public listing cycle.</p>
+        <span class="go">See the strategy <span class="arrow">&rarr;</span></span>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- 05 PRIVATE INVESTOR STRATEGY -->
-<section class="blk">
+<!-- ===== BODY ===== -->
+<article class="article">
   <div class="wrap">
-    <span class="snum">05 — Private Investor Strategy</span>
-    <h2>Test the market privately first</h2>
-    <p>Because the property has already had significant public MLS exposure, we would not necessarily recommend immediately putting it back on the full MLS. Our first approach could be to bring the opportunity directly to our private investor network.</p>
+    <div class="prose">
 
-    <h3>Who we would go to first</h3>
-    <div class="chips">
-      <span>Multifamily investors</span>
-      <span>1031 exchange buyers</span>
-      <span>Value-add operators</span>
-      <span>Local landlords</span>
-      <span>Developers</span>
-      <span>Cash-flow investors</span>
-      <span>Compass investor relationships</span>
-      <span>Outside brokers with active multifamily buyers</span>
+      <!-- 01 OVERVIEW -->
+      <div class="tb-mark" id="overview"><span class="no">01</span><span class="ln"></span></div>
+      <h2>Property <em>overview</em></h2>
+      <p>Based on the prior listing information, the property was marketed as a 12-unit multifamily investment opportunity across two adjacent LARD1.5-zoned parcels, totaling approximately 9,344 SF of land and approximately 4,525 SF of building area.</p>
+
+      <div class="a-stats">
+        <div class="a-stat"><div class="n"><em>12</em></div><div class="l">Units</div></div>
+        <div class="a-stat"><div class="n"><em>7.23%</em></div><div class="l">Cap at prior $1.1M ask</div></div>
+        <div class="a-stat"><div class="n"><em>100%</em></div><div class="l">Rent controlled</div></div>
+      </div>
+
+      <h3>What the prior listing reported</h3>
+      <div class="tb-facts">
+        <div class="r"><div class="k">Units</div><div class="v">12</div></div>
+        <div class="r"><div class="k">Buildings</div><div class="v">4</div></div>
+        <div class="r"><div class="k">Parcels</div><div class="v">1711 &amp; 1715 Toberman &middot; adjacent</div></div>
+        <div class="r"><div class="k">Zoning</div><div class="v">LARD1.5</div></div>
+        <div class="r"><div class="k">Land area</div><div class="v">&plusmn; 9,344 SF</div></div>
+        <div class="r"><div class="k">Building area</div><div class="v">&plusmn; 4,525 SF</div></div>
+        <div class="r"><div class="k">Gross annual income</div><div class="v">&plusmn; $137,760</div></div>
+        <div class="r"><div class="k">NOI</div><div class="v">&plusmn; $79,477</div></div>
+        <div class="r"><div class="k">Rent control</div><div class="v">100%</div></div>
+        <div class="r"><div class="k">Owner-paid</div><div class="v">Water, gas, electric, gardening</div></div>
+        <div class="r"><div class="k">Rear studio / ADU</div><div class="v">Reported partially complete</div></div>
+        <div class="r"><div class="k">Rental upside</div><div class="v">Reported</div></div>
+      </div>
+
+      <!-- 02 DILIGENCE -->
+      <div class="tb-mark" id="diligence"><span class="no">02</span><span class="ln"></span></div>
+      <h2>Our first step: <em>understand the full property</em></h2>
+      <p>Before determining the final pricing and marketing strategy, we would first want to fully understand what is being sold.</p>
+
+      <div class="a-callout">
+        <h4>What we would review</h4>
+        <ul>
+          <li>Current rent roll</li>
+          <li>Who the tenants are and how long they have occupied the units</li>
+          <li>Current lease terms</li>
+          <li>Rent-control / RSO status</li>
+          <li>Actual operating expenses</li>
+          <li>Legal and permitted unit count</li>
+          <li>Any unpermitted structures, conversions, or additions</li>
+          <li>Status of the partially completed rear studio / ADU</li>
+          <li>Any outstanding code, permit, or property-condition issues</li>
+          <li>Recent improvements or major system upgrades</li>
+        </ul>
+      </div>
+
+      <blockquote>The prior marketing appears to contain inconsistencies regarding unit configuration and ADU status. Resolving those questions upfront gives buyers a much clearer picture and reduces uncertainty during escrow.</blockquote>
+
+      <!-- 03 POSITIONING -->
+      <div class="tb-mark" id="positioning"><span class="no">03</span><span class="ln"></span></div>
+      <h2>How we would <em>position it</em></h2>
+      <p>We would primarily position Toberman as an income-producing, value-add multifamily investment &mdash; rather than as a conventional residential property or purely as a development site.</p>
+
+      <div class="tb-pos">
+        <div class="k">The story</div>
+        <div class="v">12 Units Near Downtown LA <i>/</i> Two LARD1.5 Parcels <i>/</i> In-Place Income <i>/</i> Rental Upside <i>/</i> Long-Term Land Value</div>
+      </div>
+
+      <p>The adjacent parcels and zoning provide additional upside, but the immediate investment case should focus on the existing income and the potential to improve operations and rents over time.</p>
+
+      <!-- 04 PRICING -->
+      <div class="tb-mark" id="pricing"><span class="no">04</span><span class="ln"></span></div>
+      <h2>Pricing <em>strategy</em></h2>
+      <p>The property was previously offered at $1,100,000 without selling. Once we verify the current rent roll, expenses, tenant situation, and permitted configuration, we would determine the appropriate asking price.</p>
+
+      <div class="tb-price">
+        <div class="tb-pcard">
+          <div class="k">Previously offered</div>
+          <div class="amt">$1,100,000</div>
+          <div class="n">&asymp; 7.23% cap on reported NOI<br>&asymp; $91,700 per unit</div>
+          <span class="tag">Did not sell</span>
+        </div>
+        <div class="tb-pcard new">
+          <div class="k">Illustrative repositioned price</div>
+          <div class="amt">$995,000</div>
+          <div class="n">&asymp; 8.0% cap on reported NOI<br>&asymp; $83,000 per unit</div>
+          <span class="tag">Under $1M for 12 units</span>
+        </div>
+      </div>
+
+      <div class="infographic">
+        <h4>Where the cap rate lands</h4>
+        <div class="cap">Against the previously reported NOI of &plusmn; $79,477.</div>
+        <div class="bar-row">
+          <div class="lbl">$1,100,000</div>
+          <div class="bar" style="width:62%;background:#8a9a90">7.23% cap</div>
+        </div>
+        <div class="bar-row">
+          <div class="lbl">$995,000</div>
+          <div class="bar" style="width:78%;background:var(--dark)">8.0% cap</div>
+        </div>
+      </div>
+
+      <blockquote>Crossing below the $1 million threshold could create a much stronger reason for investors who previously overlooked or passed on the property to reconsider it.</blockquote>
+
+      <!-- 05 NETWORK -->
+      <div class="tb-mark" id="network"><span class="no">05</span><span class="ln"></span></div>
+      <h2>Private investor <em>strategy</em></h2>
+
+      <div class="tb-bold">
+        <p>We do not wait for the right buyer to find this property. We go find him.</p>
+        <span>AMRE sells small multifamily by working a named list of investors directly &mdash; not by posting a listing and hoping the market returns to it. That is the part of this assignment we would do differently, and it is the part most likely to sell 1711&ndash;1715 Toberman.</span>
+      </div>
+
+      <p>Because the property has already had significant public MLS exposure, we would not necessarily recommend immediately putting it back on the full MLS. Our first approach could be to bring the opportunity directly to our private investor network.</p>
+
+      <h3>Who we would go to first</h3>
+      <div class="tb-chips">
+        <span>Multifamily investors</span>
+        <span>1031 exchange buyers</span>
+        <span>Value-add operators</span>
+        <span>Local landlords</span>
+        <span>Developers</span>
+        <span>Cash-flow investors</span>
+        <span>Compass investor relationships</span>
+        <span>Outside brokers with active multifamily buyers</span>
+      </div>
+
+      <p>This lets us test pricing and buyer appetite privately, without immediately adding another public listing cycle to the property's history. We can speak directly with qualified investors, explain the opportunity, answer questions, and gather meaningful feedback.</p>
+
+      <div class="a-flow">
+        <div class="a-step">
+          <div class="k">Path A</div>
+          <h4>A buyer emerges privately</h4>
+          <p>If the right buyer is found through our network, there may be no reason to bring the property back to the full market at all.</p>
+        </div>
+        <div class="a-step">
+          <div class="k">Path B</div>
+          <h4>The feedback sharpens the offer</h4>
+          <p>If the private campaign does not produce a buyer, real investor feedback refines pricing and positioning before any relaunch.</p>
+        </div>
+        <div class="a-step">
+          <div class="k">Then</div>
+          <h4>A stronger public return</h4>
+          <p>Any broader launch happens with cleaner documentation, a better financial story, and a price the market has already spoken to.</p>
+        </div>
+      </div>
+
+      <!-- 06 PACKAGE -->
+      <div class="tb-mark" id="package"><span class="no">06</span><span class="ln"></span></div>
+      <h2>Professional <em>investor package</em></h2>
+      <p>Rather than relying primarily on an MLS listing, we would create a clear investor package that allows a buyer to quickly understand and underwrite the property.</p>
+
+      <div class="a-callout">
+        <h4>What the package would include</h4>
+        <ul>
+          <li>Unit-by-unit rent roll</li>
+          <li>Current versus market rents</li>
+          <li>Lease and tenant information</li>
+          <li>Operating expenses</li>
+          <li>NOI and cap-rate analysis</li>
+          <li>Rent-control information</li>
+          <li>Parcel and zoning information</li>
+          <li>Legal / permitted unit status</li>
+          <li>ADU status</li>
+          <li>Property photos, site and building information</li>
+          <li>Recent improvements</li>
+          <li>Potential income and value-add opportunities</li>
+        </ul>
+      </div>
+
+      <h3>It answers the investor's questions immediately</h3>
+      <div class="tb-q">
+        <div>What am I buying?</div>
+        <div>What does it earn today?</div>
+        <div>What is the upside?</div>
+        <div>What are the risks?</div>
+      </div>
+      <p>And above all: what makes this opportunity compelling compared with other Los Angeles multifamily properties?</p>
+
+      <!-- 07 ACCESS -->
+      <div class="tb-mark" id="access"><span class="no">07</span><span class="ln"></span></div>
+      <h2>Better <em>buyer access</em></h2>
+      <p>The previous listing indicated showings with an accepted offer. If practical given the tenants, we would look for a way to provide serious, qualified investors with better access before requiring them to write an offer.</p>
+      <p>Asking a buyer to commit to a 12-unit property without enough visibility into the physical condition creates unnecessary friction and uncertainty. We would balance tenant privacy with giving qualified buyers enough information to become comfortable with the asset.</p>
+
+      <!-- 08 APPROACH -->
+      <div class="tb-mark" id="approach"><span class="no">08</span><span class="ln"></span></div>
+      <h2>What we would <em>do differently</em></h2>
+      <p>Rather than simply placing Toberman back on the MLS and waiting for inquiries, we would:</p>
+
+      <div class="tb-steps">
+        <div class="s"><h4>Understand the property first</h4><p>Rent roll, tenants, expenses, permits, ADU status &mdash; verified before pricing.</p></div>
+        <div class="s"><h4>Resolve questions before buyers raise them</h4><p>Every inconsistency answered in the package, not in escrow.</p></div>
+        <div class="s"><h4>Package the financial story professionally</h4><p>Underwriting-grade material for a small-balance asset.</p></div>
+        <div class="s"><h4>Create a clear value proposition</h4><p>One sentence an investor can repeat to a partner or a lender.</p></div>
+        <div class="s"><h4>Directly approach qualified investors</h4><p>Named outreach, not passive syndication.</p></div>
+        <div class="s"><h4>Test the opportunity privately first</h4><p>Gather real feedback before considering another full MLS launch.</p></div>
+      </div>
+
+      <!-- 09 SUMMARY -->
+      <div class="tb-mark" id="summary"><span class="no">09</span><span class="ln"></span></div>
+      <h2><em>Summary</em></h2>
+      <blockquote>The opportunity is not simply to put 1711&ndash;1715 Toberman back on the market. The opportunity is to reset the story.</blockquote>
+      <p>We would first understand the full scope of the property, clarify the tenant, permit, unit, and ADU issues, package it as a serious investment opportunity, and then proactively bring it to qualified investors.</p>
+      <p>If the right buyer can be found through our private network, we may be able to sell the property without another full public relaunch. If broader exposure becomes necessary, we would then return to the market with a much stronger financial story, cleaner documentation, better positioning, and a pricing strategy informed by actual investor feedback.</p>
+
+      <!-- CTA -->
+      <div class="article-cta">
+        <h3>Let's talk through the numbers</h3>
+        <p>Happy to walk through the rent roll, the pricing scenarios, and the private investor approach whenever it's convenient.</p>
+        <a href="tel:+13237198585" class="btn btn-fill">Call (323) 719-8585 <span class="arrow">&rarr;</span></a>
+        <a href="mailto:michael.abraham@compass.com" class="btn btn-ghost">Email</a>
+      </div>
+
     </div>
-
-    <p>This lets us test pricing and buyer appetite privately, without immediately adding another public listing cycle to the property's history. We can speak directly with qualified investors, explain the opportunity, answer questions, and gather meaningful feedback.</p>
-    <p>If we find the right buyer privately, there may be no reason to bring the property back to the full market. If the private campaign does not generate the desired result, we can use that buyer feedback to refine pricing and positioning before a broader public relaunch.</p>
   </div>
-</section>
+</article>
 
-<!-- 06 INVESTOR PACKAGE -->
-<section class="blk">
+<!-- ===== DISCLAIMER ===== -->
+<div class="tb-note">
   <div class="wrap">
-    <span class="snum">06 — Professional Investor Package</span>
-    <h2>Underwriting material, not a flyer</h2>
-    <p>Rather than relying primarily on an MLS listing, we would create a clear investor package that allows a buyer to quickly understand and underwrite the property.</p>
-
-    <h3>The package would include</h3>
-    <ul class="list">
-      <li>Unit-by-unit rent roll</li>
-      <li>Current versus market rents</li>
-      <li>Lease and tenant information</li>
-      <li>Operating expenses</li>
-      <li>NOI and cap-rate analysis</li>
-      <li>Rent-control information</li>
-      <li>Parcel and zoning information</li>
-      <li>Legal / permitted unit status</li>
-      <li>ADU status</li>
-      <li>Property photos</li>
-      <li>Site and building information</li>
-      <li>Recent improvements</li>
-      <li>Potential income and value-add opportunities</li>
-    </ul>
-
-    <h3>It answers the questions investors care about immediately</h3>
-    <div class="qgrid">
-      <div>What am I buying?</div>
-      <div>What does it earn today?</div>
-      <div>What is the upside?</div>
-      <div>What are the risks?</div>
-    </div>
-    <p>And above all: what makes this opportunity compelling compared with other Los Angeles multifamily properties?</p>
-  </div>
-</section>
-
-<!-- 07 ACCESS -->
-<section class="blk">
-  <div class="wrap">
-    <span class="snum">07 — Better Buyer Access</span>
-    <h2>Reduce friction before the offer, not after</h2>
-    <p>The previous listing indicated showings with an accepted offer. If practical given the tenants, we would look for a way to provide serious, qualified investors with better access before requiring them to write an offer.</p>
-    <p>Asking a buyer to commit to a 12-unit property without enough visibility into the physical condition creates unnecessary friction and uncertainty. We would balance tenant privacy with giving qualified buyers enough information to become comfortable with the asset.</p>
-  </div>
-</section>
-
-<!-- 08 DIFFERENT -->
-<section class="blk">
-  <div class="wrap">
-    <span class="snum">08 — What We Would Do Differently</span>
-    <h2>Clarity, preparation, presentation, proactive outreach</h2>
-    <p>Rather than simply placing Toberman back on the MLS and waiting for inquiries, we would:</p>
-
-    <div class="steps">
-      <div class="st"><div class="sh">Understand the property first</div><p>Rent roll, tenants, expenses, permits, ADU status — verified before pricing.</p></div>
-      <div class="st"><div class="sh">Resolve questions before buyers raise them</div><p>Every inconsistency answered in the package, not in escrow.</p></div>
-      <div class="st"><div class="sh">Package the financial story professionally</div><p>Institutional-quality underwriting material for a small-balance asset.</p></div>
-      <div class="st"><div class="sh">Create a clear value proposition</div><p>One sentence an investor can repeat to a partner or lender.</p></div>
-      <div class="st"><div class="sh">Directly approach qualified investors</div><p>Named outreach, not passive syndication.</p></div>
-      <div class="st"><div class="sh">Test the opportunity privately first</div><p>Gather real feedback before considering another full MLS launch.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 09 SUMMARY -->
-<section class="blk">
-  <div class="wrap">
-    <span class="snum">09 — Summary</span>
-    <h2>The opportunity is to reset the story</h2>
-    <div class="pull">
-      <p>The opportunity is not simply to put 1711–1715 Toberman back on the market. The opportunity is to reset the story.</p>
-    </div>
-    <p>We would first understand the full scope of the property, clarify the tenant, permit, unit, and ADU issues, package it as a serious investment opportunity, and then proactively bring it to qualified investors.</p>
-    <p>If the right buyer can be found through our private network, we may be able to sell the property without another full public relaunch. If broader exposure becomes necessary, we would then return to the market with a much stronger financial story, cleaner documentation, better positioning, and a pricing strategy informed by actual investor feedback.</p>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="wrap">
-    <h2>Let's talk through the numbers</h2>
-    <p>Happy to walk through the rent roll, the pricing scenarios, and the private investor approach whenever it's convenient.</p>
-    <div class="agent">
-      <div class="an">Michael Abraham</div>
-      <div class="ar">AMRE Real Estate Group at Compass &middot; DRE# 02242095</div>
-    </div>
-    <div class="btns">
-      <a href="tel:+13237198585" class="btn-primary">Call (323) 719-8585</a>
-      <a href="mailto:michael.abraham@compass.com" class="btn-ghost">Email</a>
-    </div>
-  </div>
-</section>
-
-<!-- DISCLAIMER -->
-<div class="disclaim">
-  <div class="wrap">
-    <p>This page is a private strategy overview prepared for the ownership of 1711–1715 Toberman Street and is not a public listing, an offer, or a solicitation of an existing agency relationship. All property figures referenced above — including unit count, square footage, income, NOI, cap rate, zoning, and ADU status — are taken from prior public listing information and have not been independently verified by AMRE Real Estate Group or Compass. Pricing scenarios shown are illustrative only and would be revised after verification of the rent roll, operating expenses, tenancy, and permitted configuration. Nothing herein should be relied upon as legal, tax, or investment advice.</p>
+    <p>This page is a private strategy overview prepared for the ownership of 1711&ndash;1715 Toberman Street. It is not a public listing, an offer, or a solicitation of a property already listed with another broker. All property figures referenced above &mdash; including unit count, square footage, income, NOI, cap rate, zoning, and ADU status &mdash; are taken from prior public listing information and have not been independently verified by AMRE Real Estate Group or Compass. Pricing scenarios shown are illustrative only and would be revised after verification of the rent roll, operating expenses, tenancy, and permitted configuration. Nothing herein should be relied upon as legal, tax, or investment advice.</p>
   </div>
 </div>
 
-<!-- FOOTER -->
-<div class="sf-disclosure">
-  <p>AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.</p>
-  <img class="sf-eho" src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity">
-</div>
+<div id="amre-footer"></div>
 
+<button class="tb-top" id="tbTop" aria-label="Back to top">&uarr;</button>
+
+<script src="/assets/js/amre-chrome.js" defer></script>
+<script>
+(function(){
+  var prog = document.getElementById('tbProg');
+  var topBtn = document.getElementById('tbTop');
+  var links = [].slice.call(document.querySelectorAll('.tb-jump a'));
+  var marks = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  var scroller = document.querySelector('.tb-jump-scroll');
+
+  function onScroll(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    topBtn.classList.toggle('show', window.scrollY > 900);
+
+    var idx = -1;
+    for (var i = 0; i < marks.length; i++){
+      if (marks[i] && marks[i].getBoundingClientRect().top <= 160) idx = i;
+    }
+    links.forEach(function(a, i){
+      var on = (i === idx);
+      if (on !== a.classList.contains('on')){
+        a.classList.toggle('on', on);
+        if (on && scroller){
+          var l = a.offsetLeft - scroller.clientWidth / 2 + a.clientWidth / 2;
+          scroller.scrollTo({ left: Math.max(0, l), behavior: 'smooth' });
+        }
+      }
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  topBtn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
 </body>
 </html>
