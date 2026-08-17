@@ -460,6 +460,19 @@
 .amre-modal .amre-submit:hover{background:var(--clay)}
 .amre-modal .amre-error{color:#ffd2c4}
 .amre-modal .amre-error a{color:#fff}
+
+.amre-modal .amre-success{background:transparent;border:none;border-radius:0;padding:8px 0 4px}
+.amre-modal .amre-success-h{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3.4vw,2.1rem);color:#f3ede2;margin:0 0 12px;letter-spacing:.01em}
+.amre-modal .amre-success-p{font-family:var(--sans);font-size:.95rem;color:rgba(255,255,255,.74);max-width:44ch;margin:0 auto 24px;line-height:1.65}
+.amre-modal .amre-success-icon{background:var(--clay-dk);color:var(--sage);width:48px;height:48px;font-size:22px;margin:0 auto 18px}
+.amre-modal .amre-optin{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.18);border-radius:12px;margin:6px 0 22px}
+.amre-modal .amre-optin label{color:rgba(255,255,255,.6);font-size:.76rem}
+.amre-modal .amre-optin label strong{color:rgba(255,255,255,.85)}
+.amre-modal .amre-optin label a{color:rgba(255,255,255,.8)}
+.amre-modal .amre-optin label a:hover{color:var(--clay)}
+.amre-modal .amre-optin input[type=checkbox]{accent-color:var(--clay-dk)}
+.amre-modal .amre-optin.is-bad{border-color:#e2836f;background:rgba(226,131,111,.12)}
+.amre-modal .amre-optin.is-bad label{color:#ffd2c4}
 .amre-alt{text-align:center;margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.5)}
 .amre-alt button{background:none;border:none;font-family:var(--sans);font-size:.82rem;color:rgba(255,255,255,.82);text-decoration:underline;cursor:pointer;padding:0}
 .amre-alt button:hover{color:var(--clay)}
@@ -997,8 +1010,6 @@
             <input class="amre-input" id="wl-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
           <div class="amre-field"><label class="amre-label" for="wl-message">What are you looking for?</label>
             <textarea class="amre-textarea" id="wl-message" name="message" rows="3" placeholder="Neighborhood, timing, or the kind of home you have in mind&hellip;"></textarea></div>
-          <label class="amre-consent"><input type="checkbox" name="optin" required>
-            <span>I agree to be contacted by AMRE Real Estate Group via call, email, and text for real estate services. Reply &lsquo;stop&rsquo; to opt out at any time. Message and data rates may apply. <a href="/terms-and-conditions/">Privacy Policy</a>.</span></label>
           <button type="submit" class="amre-submit"><span class="amre-btn-text">Request Access</span></button>
           <div class="amre-error" role="alert">Something went wrong sending your request. Please try again, call <a href="tel:3237198585">(323) 719-8585</a>, or email <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a> directly.</div>
         </form>
@@ -1041,8 +1052,6 @@
           </div>
           <div class="amre-field"><label class="amre-label" for="wv-notes">Anything we should know?</label>
             <textarea class="amre-textarea" id="wv-notes" name="notes" rows="3" placeholder="Recent updates, timing, or specific questions&hellip;"></textarea></div>
-          <label class="amre-consent"><input type="checkbox" name="optin" required>
-            <span>I agree to be contacted by AMRE Real Estate Group via call, email, and text for real estate services. Reply &lsquo;stop&rsquo; to opt out at any time. Message and data rates may apply. <a href="/terms-and-conditions/">Privacy Policy</a>.</span></label>
           <button type="submit" class="amre-submit"><span class="amre-btn-text">Request Valuation</span></button>
           <div class="amre-error" role="alert">Something went wrong sending your request. Please try again, call <a href="tel:3237198585">(323) 719-8585</a>, or email <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a> directly.</div>
         </form>
