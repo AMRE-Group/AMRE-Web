@@ -403,6 +403,76 @@
 @media(max-width:900px){.hero .hero-in.hx-split{grid-template-columns:1fr;padding-top:120px}.hx-card{max-width:460px}#hxHeadline br{display:none}}
 .team-grid{grid-template-columns:1fr 1fr;align-items:start}
 .foot-legal{max-width:none!important;background:#fff;color:#6a6a6a;width:100vw;position:relative;left:50%;transform:translateX(-50%);margin:28px 0 0!important;padding:24px clamp(20px,5vw,64px)!important;display:flex;gap:26px;align-items:center;justify-content:center;flex-wrap:wrap}
+
+/* ── Westside hero (team banner) ───────────────────────────── */
+.hero-team{min-height:min(92svh,860px);align-items:center}
+.hero-team .hero-bg{background:url('/assets/photos/hero-team-sofa.jpg') 74% center/cover no-repeat}
+.hero-team .hero-bg::after{background:linear-gradient(96deg,rgba(18,42,33,.97) 0%,rgba(18,42,33,.94) 30%,rgba(18,42,33,.8) 44%,rgba(18,42,33,.42) 58%,rgba(18,42,33,.12) 76%,rgba(18,42,33,.2) 100%)}
+.hero-team .hero-scrim{background:rgba(20,28,22,.10)}
+.hero-team .hero-in{padding-top:150px;padding-bottom:clamp(120px,16vh,170px)}
+.hero-pitch{max-width:40rem}
+.hero-team h1{font-size:clamp(2.75rem,5.1vw,4.4rem);font-weight:300;max-width:18ch;margin:22px 0 22px}
+.hero-team .sub{max-width:44ch;margin-bottom:16px}
+.hero-who{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:600;margin-bottom:30px;line-height:1.7}
+.hx-rating{display:inline-flex;align-items:center;gap:11px}
+.hx-rating .hx-stars{color:var(--clay);font-size:1rem;letter-spacing:3px}
+.hx-rating .hx-score{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#ffe6ad}
+.hero-trust{position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(10,24,18,.5);border-top:1px solid rgba(255,255,255,.14);backdrop-filter:blur(8px)}
+.hero-trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:20px;padding-bottom:20px}
+.hero-trust .htn{font-family:var(--serif);font-size:1.55rem;color:#fff;line-height:1;font-weight:300}
+.hero-trust .htl{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-top:7px;font-weight:600}
+@media(max-width:860px){
+  .hero-team .hero-bg{background-position:70% center}
+  .hero-team .hero-bg::after{background:linear-gradient(180deg,rgba(18,42,33,.72) 0%,rgba(18,42,33,.88) 55%,rgba(18,42,33,.96) 100%)}
+  .hero-team .hero-in{padding-top:130px;padding-bottom:150px}
+  .hero-trust .wrap{grid-template-columns:repeat(2,1fr);gap:16px}
+}
+
+/* ── Sticky ask ────────────────────────────────────────────── */
+.amre-sticky{position:fixed;left:0;right:0;bottom:0;z-index:52;background:var(--sage);color:#fff;transform:translateY(110%);transition:.4s var(--ease);box-shadow:0 -14px 40px rgba(0,0,0,.28)}
+.amre-sticky.show{transform:translateY(0)}
+.amre-sticky .wrap{display:flex;align-items:center;gap:18px;padding-top:13px;padding-bottom:13px;flex-wrap:wrap}
+.amre-sticky .st{font-size:.92rem}
+.amre-sticky .st b{font-weight:600}
+.amre-sticky .btn{margin-left:auto;padding:12px 24px;font-size:.8rem}
+@media(max-width:640px){.amre-sticky .st{font-size:.84rem;width:100%}.amre-sticky .btn{margin-left:0;width:100%;justify-content:center}}
+
+/* ── Invitation modal ──────────────────────────────────────── */
+.amre-ov{position:fixed;inset:0;background:rgba(8,16,12,.78);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;z-index:70;padding:20px}
+.amre-ov.show{display:flex}
+.amre-modal{background:var(--sage);color:#fff;width:100%;max-width:720px;max-height:92vh;overflow:auto;position:relative;box-shadow:0 50px 120px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.09)}
+.amre-modal .mx{position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.6rem;line-height:1;color:rgba(255,255,255,.5);cursor:pointer;z-index:3}
+.amre-modal .mx:hover{color:#fff}
+.amre-mtop{padding:clamp(44px,6vw,60px) clamp(26px,7vw,80px) 0;text-align:center}
+.amre-mtop .mk{font-family:var(--sans);font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.68);display:inline-block;padding-bottom:11px;border-bottom:1px solid var(--clay-dk)}
+.amre-mtop h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,4.2vw,2.8rem);letter-spacing:.01em;text-transform:uppercase;color:#f3ede2;margin:24px 0 18px;line-height:1.08}
+.amre-mtop p{font-size:.95rem;color:rgba(255,255,255,.7);max-width:46ch;margin:0 auto;line-height:1.65}
+.amre-mbody{padding:clamp(30px,4vw,40px) clamp(26px,7vw,80px) clamp(38px,5vw,52px)}
+.amre-modal .amre-label{color:rgba(255,255,255,.86);font-weight:400;letter-spacing:.01em;text-transform:none;font-size:.88rem}
+.amre-modal .amre-required{color:var(--clay-dk)}
+.amre-modal .amre-input,.amre-modal .amre-select,.amre-modal .amre-textarea{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.22);border-radius:0;color:#fff;padding:6px 0 10px}
+.amre-modal .amre-input:focus,.amre-modal .amre-select:focus,.amre-modal .amre-textarea:focus{border-color:var(--clay);box-shadow:none;outline:none}
+.amre-modal .amre-select option{color:var(--ink)}
+.amre-modal .amre-field{margin-bottom:22px}
+.amre-modal .amre-consent span{color:rgba(255,255,255,.52);font-size:.76rem;line-height:1.6}
+.amre-modal .amre-consent a{color:rgba(255,255,255,.75)}
+.amre-modal .amre-submit{display:block;margin:6px auto 0;min-width:240px;border-radius:0;background:var(--clay-dk);color:var(--sage);font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:16px 34px}
+.amre-modal .amre-submit:hover{background:var(--clay)}
+.amre-modal .amre-error{color:#ffd2c4}
+.amre-modal .amre-error a{color:#fff}
+.amre-alt{text-align:center;margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.5)}
+.amre-alt button{background:none;border:none;font-family:var(--sans);font-size:.82rem;color:rgba(255,255,255,.82);text-decoration:underline;cursor:pointer;padding:0}
+.amre-alt button:hover{color:var(--clay)}
+.amre-modal .amre-success{display:none;text-align:center;padding:8px 0 4px}
+.amre-modal .amre-success.is-visible{display:block}
+.amre-modal .amre-success-icon{width:48px;height:48px;line-height:48px;border-radius:50%;margin:0 auto 18px;background:var(--clay-dk);color:var(--sage);font-size:1.3rem}
+.amre-modal .amre-success-h{font-family:var(--serif);font-weight:300;font-size:1.9rem;color:#f3ede2;margin-bottom:12px}
+.amre-modal .amre-success-p{font-size:.95rem;color:rgba(255,255,255,.72);max-width:44ch;margin:0 auto 22px;line-height:1.65}
+.amre-help{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;margin-top:4px}
+.amre-help .hk{font-size:.66rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:12px}
+.amre-help .hrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.amre-help a{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:11px 20px;font-size:.85rem;color:#fff;transition:.3s var(--ease)}
+.amre-help a:hover{border-color:var(--clay);color:var(--clay)}
 </style>
 <link rel="stylesheet" href="/assets/forms/consent.css">
 <script src="/assets/forms/consent.js" defer></script>
@@ -412,64 +482,27 @@
 <div id="amre-nav"></div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero hero-team">
   <div class="hero-bg"></div>
   <div class="hero-scrim"></div>
-  <div class="wrap hero-in hx-split">
-    <div class="hx-pitch">
-      <div class="hx-rating"><span class="hx-stars">★★★★★</span><span class="hx-score">5.0 · 17 Google reviews</span></div>
-      <h1 id="hxHeadline">Sell your home <br>with <em>confidence.</em></h1>
-      <p class="sub" id="hxSub">Leverage our team of professionals to maximize your home value.</p>
-    </div>
-    <div class="hx-card">
-      <div class="hx-toggle">
-        <button id="hxTabSell" class="on" type="button" onclick="hxSet('sell')">Selling</button>
-        <button id="hxTabBuy" type="button" onclick="hxSet('buy')">Actively buying</button>
-        <button id="hxTabFtb" type="button" onclick="location.href='/first-time-buyer/'">First Time Buyer</button>
-      </div>
-      <div id="hxWrapSell">
-        <form data-amre-form data-form-type="valuation" data-source="amre.group/ (hero — seller)">
-          <div class="hx-eyebrow">Free Maximum Price Report</div>
-          <h2>What's your home <em>worth?</em></h2>
-          <label>Property address</label>
-          <div class="hx-field"><span class="hx-pin">◉</span><input type="text" name="address" placeholder="Enter your home address"></div>
-          <p class="hx-hint">Provide your address for a competitive market analysis — delivered within 48 hours.</p>
-          <div class="hx-row2">
-            <div><label>First name</label><div class="hx-field"><input type="text" name="first_name" required></div></div>
-            <div><label>Last name</label><div class="hx-field"><input type="text" name="last_name"></div></div>
-          </div>
-          <label>Email</label>
-          <div class="hx-field"><input type="email" name="email" placeholder="name@email.com" required></div>
-          <label>Phone <span class="hx-opt">(optional)</span></label>
-          <div class="hx-field"><input type="tel" name="phone" placeholder="(310) 555-0000"></div>
-          <button class="hx-cta amre-submit" type="submit"><span class="amre-btn-text">Share address →</span></button>
-          <div class="amre-error">Something went wrong. Please try again or call (323) 719-8585.</div>
-          <p class="hx-fine">Free, no-obligation valuation. No spam, ever.</p>
-        </form>
-        <div class="amre-success"><div class="hx-ok">✓</div><h3>Report on the way.</h3><p>Michael &amp; Ania will prepare your Maximum Price Report and reach out within 48 hours.</p></div>
-      </div>
-      <div id="hxWrapBuy" class="hx-hidden">
-        <form data-amre-form data-form-type="buyer" data-source="amre.group/ (hero — buyer)">
-          <div class="hx-eyebrow">Private Exclusive Access</div>
-          <h2>See homes <em>before</em> MLS.</h2>
-          <div class="hx-row2">
-            <div><label>First name</label><div class="hx-field"><input type="text" name="first_name" required></div></div>
-            <div><label>Last name</label><div class="hx-field"><input type="text" name="last_name"></div></div>
-          </div>
-          <label>Email</label>
-          <div class="hx-field"><input type="email" name="email" placeholder="name@email.com" required></div>
-          <label>Phone <span class="hx-opt">(optional)</span></label>
-          <div class="hx-field"><input type="tel" name="phone" placeholder="(310) 555-0000"></div>
-          <label>Target neighborhoods</label>
-          <div class="hx-field"><input type="text" name="message" placeholder="e.g. Santa Monica, Venice"></div>
-          <button class="hx-cta amre-submit" type="submit"><span class="amre-btn-text">Request private access →</span></button>
-          <div class="amre-error">Something went wrong. Please try again or call (323) 719-8585.</div>
-          <p class="hx-fine">First off-market report lands next week. Cancel anytime.</p>
-        </form>
-        <div class="amre-success"><div class="hx-ok">✓</div><h3>You're in.</h3><p>We have your criteria — your first off-market report lands next week.</p></div>
+  <div class="wrap hero-in">
+    <div class="hero-pitch">
+      <div class="hx-rating"><span class="hx-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="hx-score">5.0 &middot; 18 Google reviews</span></div>
+      <h1>Your Westside move,<br><em>guided start to finish.</em></h1>
+      <p class="sub">An architect&rsquo;s eye. A designer&rsquo;s instinct. Two people beside you for every decision, from Brentwood to Venice.</p>
+      <div class="hero-who">Michael Abraham &amp; Ania de Pourbaix &middot; Compass<br>You work with both of us. Every time.</div>
+      <div class="hero-ctas">
+        <button type="button" class="btn btn-fill" data-amre-open="valuation">See what your home is worth <span class="arrow">&rarr;</span></button>
+        <button type="button" class="btn btn-ghost" data-amre-open="list">Join the Westside List</button>
       </div>
     </div>
   </div>
+  <div class="hero-trust"><div class="wrap">
+    <div class="ht"><div class="htn">$60M+</div><div class="htl">Sales volume</div></div>
+    <div class="ht"><div class="htn">98.8%</div><div class="htl">List-to-sale ratio</div></div>
+    <div class="ht"><div class="htn">7</div><div class="htl">Westside neighborhoods</div></div>
+    <div class="ht"><div class="htn">Two</div><div class="htl">Specialists &middot; no hand-offs</div></div>
+  </div></div>
 </section>
 
 
@@ -933,24 +966,140 @@
 </script>
 <!-- ═══ end Off-Market Home Report popup ═══ -->
 
+
+
+<!-- WESTSIDE MODAL -->
+<div class="amre-ov" id="amreOv" role="dialog" aria-modal="true" aria-labelledby="amreMt">
+  <div class="amre-modal">
+    <button class="mx" type="button" aria-label="Close" onclick="amreCloseModal()">&times;</button>
+
+    <div class="amre-mtop">
+      <span class="mk" id="amreMk">By Invitation</span>
+      <h2 id="amreMt">The Westside List</h2>
+      <p id="amreMl">Private and off-market homes from Brentwood to Venice, quiet market notes, and the occasional door we open before anyone else does.</p>
+    </div>
+
+    <div class="amre-mbody">
+
+      <!-- LIST (contact) -->
+      <div id="amrePaneList">
+        <form class="amre-form" data-amre-form data-form-type="contact" data-source="amre.group/ (modal &mdash; Westside List)" novalidate>
+          <input type="hidden" name="inquiry_type" value="Westside List &mdash; private &amp; off-market access">
+          <div class="amre-row-2">
+            <div class="amre-field"><label class="amre-label" for="wl-fname">First name <span class="amre-required">*</span></label>
+              <input class="amre-input" id="wl-fname" name="first_name" type="text" required autocomplete="given-name"></div>
+            <div class="amre-field"><label class="amre-label" for="wl-lname">Last name</label>
+              <input class="amre-input" id="wl-lname" name="last_name" type="text" autocomplete="family-name"></div>
+          </div>
+          <div class="amre-field"><label class="amre-label" for="wl-email">Email <span class="amre-required">*</span></label>
+            <input class="amre-input" id="wl-email" name="email" type="email" required autocomplete="email" inputmode="email"></div>
+          <div class="amre-field"><label class="amre-label" for="wl-phone">Phone</label>
+            <input class="amre-input" id="wl-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          <div class="amre-field"><label class="amre-label" for="wl-message">What are you looking for?</label>
+            <textarea class="amre-textarea" id="wl-message" name="message" rows="3" placeholder="Neighborhood, timing, or the kind of home you have in mind&hellip;"></textarea></div>
+          <label class="amre-consent"><input type="checkbox" name="optin" required>
+            <span>I agree to be contacted by AMRE Real Estate Group via call, email, and text for real estate services. Reply &lsquo;stop&rsquo; to opt out at any time. Message and data rates may apply. <a href="/terms-and-conditions/">Privacy Policy</a>.</span></label>
+          <button type="submit" class="amre-submit"><span class="amre-btn-text">Request Access</span></button>
+          <div class="amre-error" role="alert">Something went wrong sending your request. Please try again, call <a href="tel:3237198585">(323) 719-8585</a>, or email <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a> directly.</div>
+        </form>
+        <div class="amre-success" role="status" aria-live="polite">
+          <div class="amre-success-icon" aria-hidden="true">&#10003;</div>
+          <h3 class="amre-success-h">You&rsquo;re on the list.</h3>
+          <p class="amre-success-p">Michael and Ania will be in touch personally, and you&rsquo;ll see private and off-market Westside homes as they come up. A confirmation is on its way to your inbox.</p>
+          <div class="amre-help"><div class="hk">Need something sooner?</div><div class="hrow"><a href="tel:+13237198585">&#9742; (323) 719-8585</a><a href="mailto:Michael.Abraham@Compass.com">&#9993; Michael.Abraham@Compass.com</a><a href="mailto:Ania.dePourbaix@Compass.com">&#9993; Ania.dePourbaix@Compass.com</a></div></div>
+        </div>
+        <p class="amre-alt" id="amreAltList">Selling this year? <button type="button" onclick="amreSetMode('valuation')">Request a private valuation</button></p>
+      </div>
+
+      <!-- VALUATION -->
+      <div id="amrePaneVal" hidden>
+        <form class="amre-form" data-amre-form data-form-type="valuation" data-source="amre.group/ (modal &mdash; valuation)" novalidate>
+          <div class="amre-row-2">
+            <div class="amre-field"><label class="amre-label" for="wv-fname">First name <span class="amre-required">*</span></label>
+              <input class="amre-input" id="wv-fname" name="first_name" type="text" required autocomplete="given-name"></div>
+            <div class="amre-field"><label class="amre-label" for="wv-lname">Last name</label>
+              <input class="amre-input" id="wv-lname" name="last_name" type="text" autocomplete="family-name"></div>
+          </div>
+          <div class="amre-field"><label class="amre-label" for="wv-email">Email <span class="amre-required">*</span></label>
+            <input class="amre-input" id="wv-email" name="email" type="email" required autocomplete="email" inputmode="email"></div>
+          <div class="amre-field"><label class="amre-label" for="wv-phone">Phone</label>
+            <input class="amre-input" id="wv-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          <div class="amre-field"><label class="amre-label" for="wv-address">Property address <span class="amre-required">*</span></label>
+            <input class="amre-input" id="wv-address" name="address" type="text" required autocomplete="street-address" placeholder="e.g., 123 Main St, Santa Monica, CA 90405"></div>
+          <div class="amre-row-2">
+            <div class="amre-field"><label class="amre-label" for="wv-ptype">Property type</label>
+              <select class="amre-select" id="wv-ptype" name="property_type">
+                <option value="">&mdash; Select &mdash;</option><option value="Single-family home">Single-family home</option>
+                <option value="Condo / Townhouse">Condo / Townhouse</option><option value="Multi-family (2&ndash;4 units)">Multi-family (2&ndash;4 units)</option>
+                <option value="Multi-family (5+ units)">Multi-family (5+ units)</option><option value="Land / Lot">Land / Lot</option><option value="Other">Other</option>
+              </select></div>
+            <div class="amre-field"><label class="amre-label" for="wv-timeline">Timeline</label>
+              <select class="amre-select" id="wv-timeline" name="timeline">
+                <option value="">&mdash; Select &mdash;</option><option value="ASAP">ASAP</option><option value="1&ndash;3 months">1&ndash;3 months</option>
+                <option value="3&ndash;6 months">3&ndash;6 months</option><option value="6&ndash;12 months">6&ndash;12 months</option><option value="Just exploring">Just exploring</option>
+              </select></div>
+          </div>
+          <div class="amre-field"><label class="amre-label" for="wv-notes">Anything we should know?</label>
+            <textarea class="amre-textarea" id="wv-notes" name="notes" rows="3" placeholder="Recent updates, timing, or specific questions&hellip;"></textarea></div>
+          <label class="amre-consent"><input type="checkbox" name="optin" required>
+            <span>I agree to be contacted by AMRE Real Estate Group via call, email, and text for real estate services. Reply &lsquo;stop&rsquo; to opt out at any time. Message and data rates may apply. <a href="/terms-and-conditions/">Privacy Policy</a>.</span></label>
+          <button type="submit" class="amre-submit"><span class="amre-btn-text">Request Valuation</span></button>
+          <div class="amre-error" role="alert">Something went wrong sending your request. Please try again, call <a href="tel:3237198585">(323) 719-8585</a>, or email <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a> directly.</div>
+        </form>
+        <div class="amre-success" role="status" aria-live="polite">
+          <div class="amre-success-icon" aria-hidden="true">&#10003;</div>
+          <h3 class="amre-success-h">Thank you &mdash; we&rsquo;re on it.</h3>
+          <p class="amre-success-p">Michael and Ania will prepare your valuation personally and reach out within 48 hours. A confirmation is on its way to your inbox.</p>
+          <div class="amre-help"><div class="hk">Need something sooner?</div><div class="hrow"><a href="tel:+13237198585">&#9742; (323) 719-8585</a><a href="mailto:Michael.Abraham@Compass.com">&#9993; Michael.Abraham@Compass.com</a><a href="mailto:Ania.dePourbaix@Compass.com">&#9993; Ania.dePourbaix@Compass.com</a></div></div>
+        </div>
+        <p class="amre-alt" id="amreAltVal">Not selling yet? <button type="button" onclick="amreSetMode('list')">Join the Westside List</button></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="amre-sticky" id="amreSticky"><div class="wrap">
+  <div class="st"><b>Curious what your home would bring today?</b> A considered valuation, prepared personally.</div>
+  <button type="button" class="btn btn-fill" data-amre-open="valuation">Request valuation <span class="arrow">&rarr;</span></button>
+</div></div>
+
 <script>
-function hxSet(mode){
-  var tS=document.getElementById('hxTabSell'),tB=document.getElementById('hxTabBuy'),
-      wS=document.getElementById('hxWrapSell'),wB=document.getElementById('hxWrapBuy'),
-      h=document.getElementById('hxHeadline'),s=document.getElementById('hxSub');
-  if(mode==='sell'){tS.className='on';tB.className='';wS.classList.remove('hx-hidden');wB.classList.add('hx-hidden');
-    h.innerHTML='Sell your home<br>with <em>confidence.</em>';s.textContent='Leverage our team of professionals to maximize your home value.';}
-  else{tB.className='on-buy';tS.className='';wB.classList.remove('hx-hidden');wS.classList.add('hx-hidden');
-    h.innerHTML='Find homes before<br><em>everyone else.</em>';s.innerHTML='Compass private exclusives and off-market homes,<br>matched to your search.';}
-  hxLock();
-}
-function hxLock(){var c=document.querySelector('.hx-card'),wS=document.getElementById('hxWrapSell'),wB=document.getElementById('hxWrapBuy');
-  if(!c||!wS||!wB)return;c.style.height='';c.style.minHeight='';if(window.innerWidth<900)return;
-  var rh=wB.classList.contains('hx-hidden');wB.classList.remove('hx-hidden');
-  var t=Math.max(wS.offsetHeight,wB.offsetHeight);if(rh)wB.classList.add('hx-hidden');
-  var cs=getComputedStyle(c);c.style.minHeight=(t+parseFloat(cs.paddingTop)+parseFloat(cs.paddingBottom))+'px';}
-window.addEventListener('load',hxLock);window.addEventListener('resize',hxLock);
-if(document.fonts&&document.fonts.ready){document.fonts.ready.then(hxLock);}setTimeout(hxLock,500);
+(function(){
+  var MODES={
+    list:{k:'By Invitation',t:'The Westside List',
+      l:'Private and off-market homes from Brentwood to Venice, quiet market notes, and the occasional door we open before anyone else does.'},
+    valuation:{k:'Privately Prepared',t:'A Considered Valuation',
+      l:'Not an instant estimate. Michael and Ania walk the comps, the condition and the timing themselves, then send you a considered number and what it would take to reach it.'}
+  };
+  window.amreSetMode=function(m){
+    var c=MODES[m]||MODES.list;
+    document.getElementById('amreMk').innerHTML=c.k;
+    document.getElementById('amreMt').innerHTML=c.t;
+    document.getElementById('amreMl').innerHTML=c.l;
+    document.getElementById('amrePaneList').hidden=(m!=='list');
+    document.getElementById('amrePaneVal').hidden=(m!=='valuation');
+  };
+  window.amreOpenModal=function(m){
+    amreSetMode(m||'list');
+    document.getElementById('amreOv').classList.add('show');
+    document.body.style.overflow='hidden';
+  };
+  window.amreCloseModal=function(){
+    document.getElementById('amreOv').classList.remove('show');
+    document.body.style.overflow='';
+  };
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-amre-open]');
+    if(t){e.preventDefault();amreOpenModal(t.getAttribute('data-amre-open'));}
+  });
+  document.getElementById('amreOv').addEventListener('click',function(e){if(e.target===this)amreCloseModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')amreCloseModal();});
+  window.addEventListener('scroll',function(){
+    document.getElementById('amreSticky').classList.toggle('show',window.scrollY>560);
+  },{passive:true});
+})();
 </script>
+
 </body>
 </html>
