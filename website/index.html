@@ -473,6 +473,12 @@
 .amre-modal .amre-optin input[type=checkbox]{accent-color:var(--clay-dk)}
 .amre-modal .amre-optin.is-bad{border-color:#e2836f;background:rgba(226,131,111,.12)}
 .amre-modal .amre-optin.is-bad label{color:#ffd2c4}
+.amre-modal.is-done .amre-mtop{display:none}
+.amre-modal.is-done .amre-alt{display:none}
+.amre-modal.is-done .amre-mbody{padding-top:clamp(52px,7vw,72px)}
+.amre-done-close{display:inline-flex;align-items:center;gap:8px;margin:22px auto 0;border:1px solid rgba(255,255,255,.3);background:none;color:#fff;font-family:var(--sans);font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:12px 26px;border-radius:100px;cursor:pointer;transition:.3s var(--ease)}
+.amre-done-close:hover{border-color:var(--clay);color:var(--clay)}
+.amre-success .amre-done-wrap{text-align:center}
 .amre-alt{text-align:center;margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.5)}
 .amre-alt button{background:none;border:none;font-family:var(--sans);font-size:.82rem;color:rgba(255,255,255,.82);text-decoration:underline;cursor:pointer;padding:0}
 .amre-alt button:hover{color:var(--clay)}
@@ -1018,6 +1024,7 @@
           <h3 class="amre-success-h">You&rsquo;re on the list.</h3>
           <p class="amre-success-p">Michael and Ania will be in touch personally, and you&rsquo;ll see private and off-market Westside homes as they come up. A confirmation is on its way to your inbox.</p>
           <div class="amre-help"><div class="hk">Need something sooner?</div><div class="hrow"><a href="tel:+13237198585">&#9742; (323) 719-8585</a><a href="mailto:Michael.Abraham@Compass.com">&#9993; Michael.Abraham@Compass.com</a><a href="mailto:ania.d@compass.com">&#9993; ania.d@compass.com</a></div></div>
+          <div class="amre-done-wrap"><button type="button" class="amre-done-close" onclick="amreCloseModal()">Close</button></div>
         </div>
         <p class="amre-alt" id="amreAltList">Selling this year? <button type="button" onclick="amreSetMode('valuation')">Request a private valuation</button></p>
       </div>
@@ -1060,6 +1067,7 @@
           <h3 class="amre-success-h">Thank you &mdash; we&rsquo;re on it.</h3>
           <p class="amre-success-p">Michael and Ania will prepare your valuation personally and reach out within 48 hours. A confirmation is on its way to your inbox.</p>
           <div class="amre-help"><div class="hk">Need something sooner?</div><div class="hrow"><a href="tel:+13237198585">&#9742; (323) 719-8585</a><a href="mailto:Michael.Abraham@Compass.com">&#9993; Michael.Abraham@Compass.com</a><a href="mailto:ania.d@compass.com">&#9993; ania.d@compass.com</a></div></div>
+          <div class="amre-done-wrap"><button type="button" class="amre-done-close" onclick="amreCloseModal()">Close</button></div>
         </div>
         <p class="amre-alt" id="amreAltVal">Not selling yet? <button type="button" onclick="amreSetMode('list')">Join the Westside List</button></p>
       </div>
@@ -1081,6 +1089,17 @@
     valuation:{k:'Privately Prepared',t:'A Considered Valuation',
       l:'Not an instant estimate. Michael and Ania walk the comps, the condition and the timing themselves, then send you a considered number and what it would take to reach it.'}
   };
+  function amreSyncDone(){
+    var ov=document.getElementById('amreOv'), modal=ov.querySelector('.amre-modal');
+    var pane=document.getElementById('amrePaneList').hidden?document.getElementById('amrePaneVal'):document.getElementById('amrePaneList');
+    var s=pane.querySelector('.amre-success');
+    modal.classList.toggle('is-done', !!(s && s.classList.contains('is-visible')));
+  }
+  ['amrePaneList','amrePaneVal'].forEach(function(id){
+    var s=document.getElementById(id).querySelector('.amre-success');
+    if(!s) return;
+    new MutationObserver(amreSyncDone).observe(s,{attributes:true,attributeFilter:['class']});
+  });
   window.amreSetMode=function(m){
     var c=MODES[m]||MODES.list;
     document.getElementById('amreMk').innerHTML=c.k;
@@ -1088,6 +1107,7 @@
     document.getElementById('amreMl').innerHTML=c.l;
     document.getElementById('amrePaneList').hidden=(m!=='list');
     document.getElementById('amrePaneVal').hidden=(m!=='valuation');
+    amreSyncDone();
   };
   window.amreOpenModal=function(m){
     amreSetMode(m||'list');
