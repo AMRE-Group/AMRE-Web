@@ -221,7 +221,7 @@
           </div>
         </div>
 
-        <form class="cf-form" id="amre-contact-form" novalidate>
+        <form class="cf-form" id="amre-contact-form" data-amre-form data-form-type="contact" data-source="amre.group/contact/" novalidate>
           <input type="hidden" id="cf-inquiry-type" name="inquiry_type" value="">
 
           <div class="cf-row-2">
@@ -251,39 +251,30 @@
           </div>
 
           <label class="cf-consent">
-            <input type="checkbox" id="cf-optin" required>
+            <input type="checkbox" id="cf-optin" name="optin" value="Yes" required>
             <span>I agree to be contacted by <strong>AMRE Real Estate Group</strong> by phone call, email, and text message at the number and address I provided, including messages sent using automated technology. Consent is not a condition of purchase. To opt out, reply <strong>STOP</strong> to any text at any time, or click the unsubscribe link in any email. Reply <strong>HELP</strong> for help. Message frequency varies. Message and data rates may apply. See our <a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> &amp; <a href="/terms-and-conditions/" target="_blank" rel="noopener">Terms of Service</a>.</span>
           </label>
 
-          <button type="submit" class="cf-submit" id="cf-submit-btn">
-            <span id="cf-btn-text">Send message</span>
+          <button type="submit" class="cf-submit amre-submit" id="cf-submit-btn">
+            <span id="cf-btn-text" class="amre-btn-text">Send message</span>
           </button>
 
-          <div class="cf-error" id="cf-error" role="alert">
+          <div class="cf-error amre-error" id="cf-error" role="alert">
             Something went wrong sending your message. Please try again, call <a href="tel:3237198585">(323) 719-8585</a>, or email <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a> directly.
           </div>
         </form>
 
-        <div class="cf-success" id="cf-success" role="status" aria-live="polite">
+        <div class="cf-success amre-success" id="cf-success" role="status" aria-live="polite">
           <div class="cf-success-icon" aria-hidden="true">✓</div>
           <h3 class="cf-success-h">Message received.</h3>
           <p class="cf-success-p">Thanks for reaching out — we typically respond within a few hours on business days. A confirmation copy is on its way to your inbox.</p>
         </div>
 
         <script>
+          /* Chips only — submit is handled by the shared /assets/forms/forms.js
+             (this form is data-amre-form). Migrated 2026-08-21; the old inline
+             EmailJS submit script lived here. */
           (function(){
-            // ── EmailJS credentials (shared with investor calculator) ──
-            var EMAILJS_PUBLIC_KEY    = 'yWt3TMJ6ysOrH3vH1';
-            var EMAILJS_SERVICE_ID    = 'service_rvg801y';
-            // TODO: replace these with contact-specific template IDs once created in EmailJS
-            var EMAILJS_TEMPLATE_USER = 'template_xwvinyi';   // Contact Form — Auto Reply
-            var EMAILJS_TEMPLATE_LEAD = 'template_9y2zh4b';   // Contact Form — Lead
-
-            if (typeof emailjs !== 'undefined') {
-              emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-            }
-
-            // ── Chips ──
             var chips       = document.querySelectorAll('.inquiry-chip');
             var hiddenInput = document.getElementById('cf-inquiry-type');
             var selected    = null;
@@ -304,77 +295,6 @@
                   });
                 }
               });
-            });
-
-            // ── Form submit ──
-            var form     = document.getElementById('amre-contact-form');
-            var success  = document.getElementById('cf-success');
-            var errorEl  = document.getElementById('cf-error');
-            var btn      = document.getElementById('cf-submit-btn');
-            var btnText  = document.getElementById('cf-btn-text');
-            if (!form) return;
-
-            form.addEventListener('submit', function(e){
-              e.preventDefault();
-
-              var fname   = document.getElementById('cf-fname').value.trim();
-              var lname   = document.getElementById('cf-lname').value.trim();
-              var email   = document.getElementById('cf-email').value.trim();
-              var phone   = document.getElementById('cf-phone').value.trim();
-              var message = document.getElementById('cf-message').value.trim();
-              var inquiry = document.getElementById('cf-inquiry-type').value;
-              var optin   = document.getElementById('cf-optin').checked;
-
-              if (!fname)                          { alert('Please enter your first name.'); return; }
-              if (!email || !email.includes('@'))  { alert('Please enter a valid email address.'); return; }
-              if (!optin)                          { alert('Please agree to the contact terms to continue.'); return; }
-
-              btn.disabled = true;
-              btnText.textContent = 'Sending…';
-              errorEl.classList.remove('is-visible');
-
-              var params = {
-                to_name:      fname,
-                to_email:     email,
-                full_name:    fname + (lname ? ' ' + lname : ''),
-                first_name:   fname,
-                last_name:    lname || '',
-                email:        email,
-                phone:        phone   || 'Not provided',
-                message:      message || 'No message provided',
-                inquiry_type: inquiry || 'Not specified',
-                optin:        optin ? 'Yes' : 'No',
-                source:       'amre.group/contact/',
-                reply_to:     email
-              };
-
-              if (typeof emailjs === 'undefined') {
-                btn.disabled = false;
-                btnText.textContent = 'Send message';
-                errorEl.classList.add('is-visible');
-                return;
-              }
-
-              emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_USER, params)
-                .then(function(){
-                  return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD, params);
-                })
-                .then(function(){
-                  if (window.dataLayer) { dataLayer.push({event:'lead_submit',form_type:'contact',value:500}); }
-                  if (typeof fbq === 'function') { fbq('track', 'Lead', { value: 500.00, currency: 'USD' }); }
-                  form.style.display = 'none';
-                  success.classList.add('is-visible');
-                  if (window.scrollTo) {
-                    var rect = success.getBoundingClientRect();
-                    window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
-                  }
-                })
-                .catch(function(err){
-                  console.error('EmailJS error:', err);
-                  btn.disabled = false;
-                  btnText.textContent = 'Send message';
-                  errorEl.classList.add('is-visible');
-                });
             });
           })();
         </script>
