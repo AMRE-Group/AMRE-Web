@@ -19,6 +19,10 @@
    4. Stamps proof of consent (checked yes/no, timestamp, language version)
       into every EmailJS payload by wrapping emailjs.send — so the lead
       notification carries an audit trail with no per-page changes.
+   5. Sets `user_message` — a clean copy of the visitor's own words, captured
+      BEFORE the audit trail is appended to `message`. Customer-facing
+      auto-reply templates must render {{user_message}}, never {{message}},
+      so the TCPA audit line never appears in the visitor's inbox.
 
    Change the language ONCE here and it changes site-wide.
    ══════════════════════════════════════════════════════════════════════════ */
@@ -231,6 +235,18 @@
           ' | captured ' + new Date().toISOString() +
           ' | language version ' + VERSION +
           ' | page ' + location.pathname;
+
+        // Customer-facing echo of the visitor's own words, captured BEFORE the
+        // audit trail is appended below. Every auto-reply template renders
+        // {{user_message}}; only internal lead templates use {{message}}.
+        // forms.js sets this too — this covers pages with inline EmailJS forms.
+        if (!params.user_message) {
+          var clean = (params.message || '').split('\n\n— SMS/call/email consent:')[0].trim();
+          if (clean === 'No message provided') clean = '';
+          params.user_message = clean ||
+            'You didn’t include a message — no problem, I’ll follow up with a few questions.';
+        }
+
         if (params.message && params.message.indexOf('consent:') < 0) {
           params.message = params.message + '\n\n— ' + params.optin_detail;
         }
