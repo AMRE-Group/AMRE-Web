@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vendor &amp; Contractor Directory | AMRE Real Estate Group</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Private AMRE vendor and contractor directory.">
+<link rel="icon" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',system-ui,-apple-system,sans-serif;background:#f6f5f1;color:#1b1e2e;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+body.amre-locked{overflow:hidden;height:100vh}
+#amre-gate{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:rgba(7,11,51,.72);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);padding:24px}
+#amre-gate .card{width:100%;max-width:420px;background:#fff;border:1px solid #e4e2da;border-radius:6px;padding:44px 38px;text-align:center;box-shadow:0 34px 90px rgba(0,0,0,.4)}
+#amre-gate .lock{font-size:28px;margin-bottom:14px}
+#amre-gate .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#0064e5;margin-bottom:12px}
+#amre-gate h2{font-family:'Montserrat',sans-serif;font-weight:400;font-size:26px;margin-bottom:10px}
+#amre-gate p{font-size:14px;color:#5a5f70;line-height:1.6;margin-bottom:22px}
+#amre-gate input{width:100%;padding:13px;border:1px solid #cfd2dd;border-radius:4px;font:inherit;font-size:15px;text-align:center;margin-bottom:10px}
+#amre-gate input:focus{outline:none;border-color:#0064e5}
+#amre-gate button{width:100%;padding:13px;border:none;border-radius:980px;background:#070B33;color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+#amre-gate button:hover{background:#0064e5}
+#amre-gate .err{color:#b3402a;font-size:12.5px;min-height:16px;margin-top:10px}
+#amre-gate .req{display:block;margin-top:20px;padding-top:18px;border-top:1px solid #eceae3;font-size:12.5px;color:#6b7080}
+#amre-gate .req a{color:#0064e5}
+.vd-head{background:#070B33;color:#fff;padding:88px 24px 34px}
+.vd-head .in{max-width:1180px;margin:0 auto}
+.vd-head .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#ffc13c;margin-bottom:12px}
+.vd-head h1{font-family:'Montserrat',sans-serif;font-weight:300;font-size:clamp(28px,4vw,42px);letter-spacing:-.02em}
+.vd-head p{margin-top:12px;color:#b9bdd0;font-size:15px;max-width:640px;line-height:1.6}
+.vd-head .meta{margin-top:18px;font-size:12px;letter-spacing:.06em;color:#8a90a8;text-transform:uppercase}
+.vd-tools{position:sticky;top:0;z-index:50;background:rgba(246,245,241,.96);backdrop-filter:blur(12px);border-bottom:1px solid #e4e2da;padding:16px 24px}
+.vd-tools .in{max-width:1180px;margin:0 auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+#q{flex:1 1 300px;min-width:220px;padding:13px 16px;border:1px solid #d5d7e0;border-radius:980px;font:inherit;font-size:15px;background:#fff}
+#q:focus{outline:none;border-color:#0064e5;box-shadow:0 0 0 3px rgba(0,100,229,.12)}
+.count{font-size:13px;color:#6b7080;white-space:nowrap}
+.chips{max-width:1180px;margin:0 auto;padding:0 24px 16px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.02em;padding:8px 15px;border-radius:980px;border:1px solid #d5d7e0;background:#fff;cursor:pointer;color:#3a3f52;transition:.15s}
+.chip:hover{border-color:#0064e5;color:#0064e5}
+.chip.on{background:#070B33;border-color:#070B33;color:#fff}
+.chip .n{opacity:.55;margin-left:5px;font-size:11px}
+.wrap{max-width:1180px;margin:0 auto;padding:26px 24px 80px}
+.grp{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#0064e5;margin:26px 0 12px;padding-bottom:8px;border-bottom:1px solid #e4e2da}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:#fff;border:1px solid #e7e5dd;border-radius:8px;padding:18px 18px 16px;transition:.18s}
+.card:hover{border-color:#c9cbd6;box-shadow:0 8px 24px rgba(7,11,51,.07)}
+.card .trade{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8a90a8;margin-bottom:7px}
+.card h3{font-family:'Montserrat',sans-serif;font-weight:500;font-size:16px;line-height:1.3;margin-bottom:3px}
+.card .who{font-size:13.5px;color:#4c5164;margin-bottom:11px}
+.acts{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px}
+.acts a{font-family:'Montserrat',sans-serif;font-size:11.5px;letter-spacing:.03em;padding:7px 12px;border-radius:980px;border:1px solid #d5d7e0;color:#2a2f42}
+.acts a:hover{background:#070B33;border-color:#070B33;color:#fff}
+.acts a.p{background:#eef4ff;border-color:#cfe0ff;color:#0052bd}
+.note{font-size:13px;color:#5a5f70;line-height:1.55;border-top:1px solid #efedE6;padding-top:10px;margin-top:2px}
+.ref{font-size:12px;color:#8a90a8;margin-top:7px}
+.fee{display:inline-block;font-size:12px;color:#2a6b45;background:#eaf6ef;border-radius:4px;padding:3px 8px;margin-top:8px}
+.empty{padding:60px 0;text-align:center;color:#6b7080}
+.vd-foot{background:#070B33;color:#8a90a8;font-size:12px;line-height:1.7;padding:30px 24px 44px}
+.vd-foot .in{max-width:1180px;margin:0 auto}
+.vd-foot a{color:#ffc13c}
+mark{background:#fff2b8;color:inherit}
+@media(max-width:680px){.vd-head{padding:78px 20px 28px}.wrap,.chips,.vd-tools{padding-left:16px;padding-right:16px}}
+</style>
+</head>
+<body>
+<div id="site-nav-mount"></div>
+<div id="site-drawer-mount"></div>
+<script src="/assets/js/site-chrome.js"></script>
+
+<div id="amre-gate" role="dialog" aria-modal="true" aria-label="Private directory access">
+  <div class="card">
+    <div class="lock">&#128274;</div>
+    <div class="eyebrow">AMRE Internal</div>
+    <h2>Vendor &amp; Contractor Directory</h2>
+    <p>This directory is for AMRE agents, clients and partners. Enter the access password to continue.</p>
+    <form id="amre-gate-form" autocomplete="off">
+      <input id="amre-gate-pw" type="password" placeholder="Access password" aria-label="Access password" autofocus>
+      <button type="submit">Unlock Directory</button>
+      <div class="err" id="amre-gate-err" aria-live="polite"></div>
+    </form>
+    <span class="req">Need the password? <a href="mailto:michael.abraham@compass.com?subject=Access%20request%3A%20AMRE%20Vendor%20Directory">Request access &rarr;</a></span>
+  </div>
+</div>
+<script>
+(function(){
+  var PASSWORDS = ["AMREVendors##"];   /* <-- change password(s) here */
+  var KEY = "amre-unlock-vendors";
+  var gate = document.getElementById('amre-gate');
+  function unlock(){ if(gate&&gate.parentNode){gate.parentNode.removeChild(gate);} document.body.classList.remove('amre-locked'); }
+  try{ if(sessionStorage.getItem(KEY)==='1'){ unlock(); return; } }catch(e){}
+  document.body.classList.add('amre-locked');
+  var form=document.getElementById('amre-gate-form'), err=document.getElementById('amre-gate-err');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=(document.getElementById('amre-gate-pw').value||'').trim();
+    if(PASSWORDS.some(function(p){return v.toLowerCase()===p.toLowerCase()})){ try{sessionStorage.setItem(KEY,'1');}catch(e){} unlock(); }
+    else { err.textContent='Incorrect password. Please try again or request access.'; document.getElementById('amre-gate-pw').select(); }
+  });
+})();
+</script>
+
+<header class="vd-head"><div class="in">
+  <div class="eyebrow">Private &middot; AMRE Internal</div>
+  <h1>Vendor &amp; Contractor Directory</h1>
+  <p>Every trade we&#39;ve vetted, referred or worked with &mdash; searchable by name, trade, company or who referred them. Tap to call, text or email straight from the card.</p>
+  <div class="meta"><span id="tot">&mdash;</span> vendors &middot; Updated August 2026 &middot; <a href="mailto:michael.abraham@compass.com?subject=Add%20a%20vendor%20to%20the%20AMRE%20directory" style="color:#ffc13c">Add a vendor &rarr;</a></div>
+</div></header>
+
+<div class="vd-tools"><div class="in">
+  <input id="q" type="search" placeholder="Search vendor, trade, person, phone, referral&hellip;" autocomplete="off">
+  <span class="count" id="count"></span>
+</div></div>
+<div class="chips" id="chips"></div>
+
+<main class="wrap"><div id="results"></div></main>
+
+<footer class="vd-foot"><div class="in">
+  <strong style="color:#fff">AMRE Real Estate Group</strong> &middot; Michael Abraham, REALTOR&reg;, DRE# 02242095 &middot; <a href="mailto:michael.abraham@compass.com">michael.abraham@compass.com</a><br>
+  Internal reference only. Vendors listed are independent third parties; AMRE and Compass do not warrant their work, licensing or insurance and receive no compensation for referrals. Always confirm current license, bond and insurance before hiring. Do not redistribute this list.
+</div></footer>
+
+<script>
+var DATA=[], ACT='all';
+fetch('vendors.json').then(function(r){return r.json()}).then(function(j){DATA=j;init()});
+function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fmt(d){d=d||'';if(d.length===11&&d[0]==='1')d=d.slice(1);return d.length===10?'('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6):d}
+function hay(v){return [v.co,v.n,v.t,v.g,v.e,v.r,v.note,v.web,fmt(v.c),fmt(v.w),v.c,v.w].join(' ').toLowerCase()}
+function init(){
+  DATA.forEach(function(v){v._h=hay(v)});
+  document.getElementById('tot').textContent=DATA.length;
+  var groups={};DATA.forEach(function(v){groups[v.g]=(groups[v.g]||0)+1});
+  var ks=Object.keys(groups).sort();
+  var html='<button class="chip on" data-g="all">All<span class="n">'+DATA.length+'</span></button>';
+  ks.forEach(function(k){html+='<button class="chip" data-g="'+esc(k)+'">'+esc(k)+'<span class="n">'+groups[k]+'</span></button>'});
+  var chips=document.getElementById('chips');chips.innerHTML=html;
+  chips.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;
+    ACT=b.dataset.g;[].forEach.call(chips.children,function(c){c.classList.toggle('on',c===b)});render()});
+  document.getElementById('q').addEventListener('input',render);
+  render();
+}
+function render(){
+  var q=document.getElementById('q').value.trim().toLowerCase();
+  var terms=q.split(/\s+/).filter(Boolean);
+  var rows=DATA.filter(function(v){
+    if(ACT!=='all'&&v.g!==ACT)return false;
+    return terms.every(function(t){return v._h.indexOf(t)>-1});
+  });
+  document.getElementById('count').textContent=rows.length+' of '+DATA.length+' shown';
+  var out='',last='';
+  rows.forEach(function(v){
+    if(v.g!==last){out+=(last?'</div>':'')+'<div class="grp">'+esc(v.g)+'</div><div class="grid">';last=v.g}
+    out+=card(v);
+  });
+  out+=last?'</div>':'<div class="empty">No vendors match &mdash; try a different word, or clear the filter.</div>';
+  document.getElementById('results').innerHTML=out;
+}
+function card(v){
+  var a='';
+  if(v.c)a+='<a class="p" href="tel:+1'+v.c+'">Call '+fmt(v.c)+'</a><a href="sms:+1'+v.c+'">Text</a>';
+  if(v.w&&v.w!==v.c)a+='<a class="p" href="tel:+1'+v.w+'">Call '+fmt(v.w)+'</a>';
+  if(v.e)a+='<a href="mailto:'+esc(v.e)+'">Email</a>';
+  if(v.web)a+='<a href="'+esc(v.web)+'" target="_blank" rel="noopener">Website</a>';
+  return '<div class="card">'
+    +'<div class="trade">'+esc(v.t||v.g)+'</div>'
+    +'<h3>'+esc(v.co||v.n||'Vendor')+'</h3>'
+    +(v.n&&v.n!==v.co?'<div class="who">'+esc(v.n)+'</div>':'<div class="who" style="color:#a0a4b4">&mdash;</div>')
+    +'<div class="acts">'+(a||'<span style="font-size:12px;color:#a0a4b4">No contact on file</span>')+'</div>'
+    +(v.f?'<div class="fee">'+esc(v.f)+'</div>':'')
+    +(v.note?'<div class="note">'+esc(v.note)+'</div>':'')
+    +(v.r?'<div class="ref">Referred by '+esc(v.r)+'</div>':'')
+    +'</div>';
+}
+</script>
+</body>
+</html>
