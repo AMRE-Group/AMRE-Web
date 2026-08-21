@@ -29,22 +29,25 @@
 .ba-badge.before{background:rgba(26,26,26,.78);color:#fff}
 .ba-badge.after{background:var(--clay-dk);color:#1a1a1a}
 .ba-cell.tall img{aspect-ratio:3/4}
-.hero-img{width:100%;border-radius:18px;margin-top:38px;display:block}
+.article-hero{padding-bottom:0}
+.hero-strad{background:linear-gradient(to bottom,var(--dark) 55%,transparent 55%)}
+.hero-strad .wrap{max-width:840px}
+.hero-img{width:100%;border-radius:18px;padding-top:44px;display:block;box-shadow:0 30px 70px -40px rgba(23,19,16,.5)}
 @media(max-width:700px){.ba-row{grid-template-columns:1fr}}
 .hero-cta{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:13px 26px;border-radius:100px;background:var(--clay-dk);color:#1a1a1a;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:none;cursor:pointer;transition:.3s}
 .hero-cta:hover{background:var(--clay)}
 .hero-img{cursor:pointer}
-.lb{position:fixed;inset:0;z-index:999;background:rgba(12,16,14,.96);display:none;align-items:center;justify-content:center;flex-direction:column}
+.lb{position:fixed;inset:0;z-index:999;background:rgba(250,247,241,.97);display:none;align-items:center;justify-content:center;flex-direction:column}
 .lb.open{display:flex}
-.lb img{max-width:min(92vw,1100px);max-height:76vh;border-radius:12px;object-fit:contain}
-.lb-cap{color:rgba(244,241,234,.85);font-family:var(--sans);font-size:.88rem;margin-top:16px;letter-spacing:.04em}
-.lb-count{color:rgba(244,241,234,.5);font-family:var(--sans);font-size:.75rem;margin-top:5px}
-.lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;width:52px;height:52px;border-radius:50%;font-size:1.5rem;line-height:1;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center}
+.lb img{max-width:min(92vw,1100px);max-height:76vh;border-radius:12px;object-fit:contain;box-shadow:0 30px 80px -40px rgba(23,19,16,.45)}
+.lb-cap{color:var(--ink);font-family:var(--sans);font-size:.88rem;margin-top:16px;letter-spacing:.04em}
+.lb-count{color:var(--mute);font-family:var(--sans);font-size:.75rem;margin-top:5px}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:#fff;border:1px solid var(--line);color:var(--ink);width:52px;height:52px;border-radius:50%;font-size:1.5rem;line-height:1;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center}
 .lb-btn:hover{background:var(--clay-dk);color:#1a1a1a;border-color:var(--clay-dk)}
 .lb-prev{left:clamp(8px,3vw,40px)}
 .lb-next{right:clamp(8px,3vw,40px)}
-.lb-close{position:absolute;top:22px;right:clamp(14px,3vw,40px);background:none;border:none;color:rgba(255,255,255,.7);font-size:2.1rem;cursor:pointer;line-height:1}
-.lb-close:hover{color:#fff}
+.lb-close{position:absolute;top:22px;right:clamp(14px,3vw,40px);background:none;border:none;color:var(--mute);font-size:2.1rem;cursor:pointer;line-height:1}
+.lb-close:hover{color:var(--ink)}
 @media(max-width:700px){.lb-btn{width:42px;height:42px;font-size:1.2rem}}
 </style>
 </head>
@@ -58,8 +61,8 @@
   <p class="article-lede">Buy, rehab, rent, refinance — the full before-and-after of a 1925 Spanish duplex on a West Adams corner lot, room by room, and why we're glad our partnership took it on.</p>
   <div class="article-byline"><img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-solo.webp" alt="Michael Abraham"><div><div class="n">Michael Abraham</div><div class="m">Principal Agent, Architect · <time datetime="2026-08-21">August 21, 2026</time> · 7 min read</div></div></div>
   <button class="hero-cta" onclick="lbOpen(0)">See the final renovation <span aria-hidden="true">&rarr;</span></button>
-  <img class="hero-img" onclick="lbOpen(0)" src="img/hero-corner.jpg" alt="The renovated 1925 Spanish duplex on Bronson Ave, seen from its West Adams corner with both street frontages visible">
 </div></section>
+<div class="hero-strad"><div class="wrap"><img class="hero-img" onclick="lbOpen(0)" src="img/hero-corner.jpg" alt="The renovated 1925 Spanish duplex on Bronson Ave, seen from its West Adams corner with both street frontages visible"></div></div>
 
 <section class="article"><div class="wrap prose" itemprop="articleBody">
   <p><strong>BRRRR</strong> — Buy, Rehab, Rent, Refinance, Repeat — is one of the more disciplined ways to scale a rental portfolio: buy a property below its stabilized value, force equity through renovation, lease it up at market rent, then do a cash-out refinance against the improved value to recycle capital into the next deal. It's a strategy that only works when the underlying property earns it. Our partnership's duplex on <strong>Bronson Ave</strong> in West Adams is a case where it did — and this time we can show you the whole arc in pictures.</p>
