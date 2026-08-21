@@ -152,6 +152,24 @@
     return true;
   }
 
+  // ── find a consent block this form already has ───────────────────────────
+  // Class match first; then a generic sweep so a hand-rolled consent checkbox
+  // (e.g. /contact/'s #cf-optin inside label.cf-consent) is NORMALISED rather
+  // than duplicated. Two checkboxes = the visitor ticks one, the audit trail
+  // reads the other, and every lead gets stamped "consent: NO".
+  var BOX_SEL = '[data-amre-optin], .amre-consent, .amre-optin, .cf-consent, .lg-consent';
+
+  function findBox(scope) {
+    var box = scope.querySelector(BOX_SEL);
+    if (box) return box;
+    var cbs = [].slice.call(scope.querySelectorAll('input[type="checkbox"]'));
+    for (var i = 0; i < cbs.length; i++) {
+      var w = cbs[i].closest ? cbs[i].closest('label, p, div') : null;
+      if (w && /agree|consent|contacted|opt.?in/i.test(w.textContent || '')) return w;
+    }
+    return null;
+  }
+
   // ── enforcement ─────────────────────────────────────────────────────────
   function enforce(scope, box, phone) {
     var cb = box.querySelector('input[type="checkbox"]');
@@ -204,7 +222,7 @@
       var scope = scopeFor(phone);
       if (!scope || scope.getAttribute('data-optin-done') === '1') return;
 
-      var box = scope.querySelector('[data-amre-optin], .amre-consent, .amre-optin, .lg-consent');
+      var box = findBox(scope);
       if (box) {
         if (!normaliseExisting(box)) return;
       } else {
