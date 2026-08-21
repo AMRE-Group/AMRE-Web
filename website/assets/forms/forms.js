@@ -78,6 +78,10 @@
       email:         email,
       phone:         data.phone || 'Not provided',
       message:       msg || 'No message provided',
+      // Customer-facing echo of what the visitor typed. NEVER touched by
+      // consent.js, which appends the consent audit trail to `message` only.
+      // Auto-reply templates must use {{user_message}}, never {{message}}.
+      user_message:  msg || 'You didn’t include a message — no problem, I’ll follow up with a few questions.',
       notes:         data.notes || '',
       inquiry_type:  data.inquiry_type || 'Not specified',
       address:       data.address || '',
@@ -124,7 +128,7 @@
       btn.disabled = true;
       if (btnText) {
         if (!btnText.dataset.original) btnText.dataset.original = btnText.textContent;
-        btnText.textContent = 'Sending\u2026';
+        btnText.textContent = 'Sending…';
       }
       if (errorEl) errorEl.classList.remove('is-visible');
 
