@@ -542,6 +542,41 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
   .qc #cashout-section .block-head .desc{max-width:none;}
   @media (max-width:1100px){ .qc #cashout-section .block-head .desc{max-width:640px;} }
 
+  /* ── print gate + print sheet quality (2026-08-14) ── */
+  .qc .print-val{display:none;}
+  .qc .qc-printhead{display:none;}
+  .qc #printBtn.is-locked{background:var(--qcwhite);color:var(--qcg80);border:1px solid var(--qcg20);}
+  .qc #printBtn.is-locked:hover{border-color:var(--qcblack);color:var(--qcblack);background:var(--qcwhite);}
+
+  @media print{
+    /* values print formatted, inputs hidden */
+    .qc input[type=number]{display:none !important;}
+    .qc .print-val{display:inline !important;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:var(--qcblack);}
+    .qc .addr-field input::placeholder{color:transparent !important;}
+    .qc .addr-field.pf-empty{display:none !important;}
+
+    /* prepared-by header */
+    .qc .qc-printhead{display:flex !important;justify-content:space-between;align-items:flex-end;gap:20px;
+      border-bottom:1px solid var(--qcg20);padding:0 0 10px;margin:0 0 22px;font-size:10.5px;line-height:1.5;
+      letter-spacing:.5px;text-transform:uppercase;color:var(--qcg60);}
+    .qc .qc-printhead .ph-l{font-weight:700;color:var(--qcblack);}
+    .qc .qc-printhead .ph-r{text-align:right;}
+
+    /* ink-safe: no reliance on background graphics */
+    .qc .hero{background:#fff !important;color:#000 !important;border-bottom:2px solid #000;padding:0 0 18px !important;margin-bottom:18px;}
+    .qc .hero .kicker,.qc .hero p.tag{color:#444 !important;}
+    .qc-logo-inv{filter:none !important;}
+    .qc .addr-row{margin-top:0 !important;box-shadow:none !important;}
+    .qc .addr-field{box-shadow:none !important;}
+    .qc .stat-hero{background:#fff !important;color:#000 !important;border:1px solid #000;}
+    .qc .stat-hero .value{color:#000 !important;}
+    .qc .units-head{background:#fff !important;color:#000 !important;border-bottom:2px solid #000;}
+    .qc .footer-cta{background:#fff !important;color:#000 !important;border-top:2px solid #000;clip-path:none;}
+    .qc .footer-cta h3{color:#000 !important;}
+    .qc .footer-cta p{color:#444 !important;}
+    .qc .footer-cta .contact,.qc .footer-cta .contact a{color:#000 !important;border-bottom:none !important;}
+  }
+
 </style>
 </head>
 <body>
@@ -578,10 +613,15 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
       </div>
     </div>
 
+    <div class="qc-printhead" aria-hidden="true">
+      <div class="ph-l"><span id="phFor"></span></div>
+      <div class="ph-r">AMRE Real Estate Group at Compass &middot; 323.719.8585 &middot; team@amre.group<br><span id="phDate"></span></div>
+    </div>
+
     <div class="action-row">
       <div class="qc-toolnote">Change any input &mdash; every return recalculates instantly. Nothing you type here is sent anywhere until you ask for the full breakdown.</div>
       <div class="qc-tools">
-        <button class="add-unit-btn" id="printBtn" type="button">Print / Save as PDF</button>
+        <button class="add-unit-btn is-locked" id="printBtn" type="button">Unlock to print the full breakdown</button>
         <button class="reset-btn" id="resetBtn">Reset to defaults</button>
       </div>
     </div>
@@ -1295,6 +1335,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
     el('gatedZone').setAttribute('aria-hidden','false');
     el('gateForm').hidden = true;
     if(!silent) el('qcSuccess').hidden = false;
+    try { syncPrintBtn(); } catch(e){}
   }
 
   // returning visitor — stay unlocked
@@ -1374,7 +1415,45 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
       .catch(function(err){ console.error('EmailJS error:', err); });
   });
 
-  el('printBtn').addEventListener('click', function(){ window.print(); });
+  // ── print: gated behind the lead form, and formatted for paper ──
+  function syncPrintBtn(){
+    const b = el('printBtn');
+    if(gateWrap.classList.contains('is-open')){
+      b.classList.remove('is-locked'); b.textContent = 'Print / Save as PDF';
+    } else {
+      b.classList.add('is-locked'); b.textContent = 'Unlock to print the full breakdown';
+    }
+  }
+
+  function preparePrint(){
+    document.querySelectorAll('.qc input[type=number]').forEach(function(inp){
+      let sp = inp.nextElementSibling;
+      if(!sp || !sp.classList || !sp.classList.contains('print-val')){
+        sp = document.createElement('span'); sp.className = 'print-val';
+        inp.parentNode.insertBefore(sp, inp.nextSibling);
+      }
+      const v = parseFloat(inp.value);
+      sp.textContent = isNaN(v) ? '\u2014' : v.toLocaleString('en-US', {maximumFractionDigits:2});
+    });
+    const pf = el('preparedFor');
+    pf.closest('.addr-field').classList.toggle('pf-empty', !pf.value.trim());
+    el('phFor').textContent = pf.value.trim() ? 'Prepared for ' + pf.value.trim() : 'Investment analysis';
+    el('phDate').textContent = new Date().toLocaleDateString('en-US',{month:'long', day:'numeric', year:'numeric'});
+  }
+
+  window.addEventListener('beforeprint', preparePrint);
+
+  el('printBtn').addEventListener('click', function(){
+    if(!gateWrap.classList.contains('is-open')){
+      el('gateForm').scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(function(){ try{ el('qcFirst').focus(); }catch(e){} }, 450);
+      return;
+    }
+    preparePrint();
+    window.print();
+  });
+
+  syncPrintBtn();
 
   renderUnits();
   recalc();
