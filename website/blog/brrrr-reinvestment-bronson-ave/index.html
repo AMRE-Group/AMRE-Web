@@ -31,6 +31,21 @@
 .ba-cell.tall img{aspect-ratio:3/4}
 .hero-img{width:100%;border-radius:18px;margin-top:38px;display:block}
 @media(max-width:700px){.ba-row{grid-template-columns:1fr}}
+.hero-cta{display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:13px 26px;border-radius:100px;background:var(--clay-dk);color:#1a1a1a;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:none;cursor:pointer;transition:.3s}
+.hero-cta:hover{background:var(--clay)}
+.hero-img{cursor:pointer}
+.lb{position:fixed;inset:0;z-index:999;background:rgba(12,16,14,.96);display:none;align-items:center;justify-content:center;flex-direction:column}
+.lb.open{display:flex}
+.lb img{max-width:min(92vw,1100px);max-height:76vh;border-radius:12px;object-fit:contain}
+.lb-cap{color:rgba(244,241,234,.85);font-family:var(--sans);font-size:.88rem;margin-top:16px;letter-spacing:.04em}
+.lb-count{color:rgba(244,241,234,.5);font-family:var(--sans);font-size:.75rem;margin-top:5px}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:#fff;width:52px;height:52px;border-radius:50%;font-size:1.5rem;line-height:1;cursor:pointer;transition:.25s;display:flex;align-items:center;justify-content:center}
+.lb-btn:hover{background:var(--clay-dk);color:#1a1a1a;border-color:var(--clay-dk)}
+.lb-prev{left:clamp(8px,3vw,40px)}
+.lb-next{right:clamp(8px,3vw,40px)}
+.lb-close{position:absolute;top:22px;right:clamp(14px,3vw,40px);background:none;border:none;color:rgba(255,255,255,.7);font-size:2.1rem;cursor:pointer;line-height:1}
+.lb-close:hover{color:#fff}
+@media(max-width:700px){.lb-btn{width:42px;height:42px;font-size:1.2rem}}
 </style>
 </head>
 <body>
@@ -42,7 +57,8 @@
   <h1 itemprop="headline">A BRRRR Case Study: Our <em>Bronson Ave</em> Duplex.</h1>
   <p class="article-lede">Buy, rehab, rent, refinance — the full before-and-after of a 1925 Spanish duplex on a West Adams corner lot, room by room, and why we're glad our partnership took it on.</p>
   <div class="article-byline"><img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-michael-solo.webp" alt="Michael Abraham"><div><div class="n">Michael Abraham</div><div class="m">Principal Agent, Architect · <time datetime="2026-08-21">August 21, 2026</time> · 7 min read</div></div></div>
-  <img class="hero-img" src="img/hero-corner.jpg" alt="The renovated 1925 Spanish duplex on Bronson Ave, seen from its West Adams corner with both street frontages visible">
+  <button class="hero-cta" onclick="lbOpen(0)">See the final renovation <span aria-hidden="true">&rarr;</span></button>
+  <img class="hero-img" onclick="lbOpen(0)" src="img/hero-corner.jpg" alt="The renovated 1925 Spanish duplex on Bronson Ave, seen from its West Adams corner with both street frontages visible">
 </div></section>
 
 <section class="article"><div class="wrap prose" itemprop="articleBody">
@@ -145,6 +161,41 @@
 </div></section>
 
 <div id="amre-footer"></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Final renovation photo slideshow">
+  <button class="lb-close" onclick="lbClose()" aria-label="Close">&times;</button>
+  <button class="lb-btn lb-prev" onclick="lbStep(-1)" aria-label="Previous photo">&larr;</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
+  <div class="lb-count" id="lb-count"></div>
+  <button class="lb-btn lb-next" onclick="lbStep(1)" aria-label="Next photo">&rarr;</button>
+</div>
+<script>
+var LB_SLIDES=[
+ ["img/hero-corner.jpg","The corner — both street frontages"],
+ ["img/after-exterior.jpg","The exterior, refinished"],
+ ["img/after-living.jpg","Living room — virtually staged"],
+ ["img/after-dining.jpg","Living & dining — virtually staged"],
+ ["img/after-kitchen.jpg","Kitchen — virtually staged"],
+ ["img/after-bath.jpg","Bathroom, renovated"],
+ ["img/staged-newbath-1.jpg","The new bathroom we added"],
+ ["img/staged-newbath-2.jpg","The new bathroom we added"],
+ ["img/staged-office.jpg","Den / home office — virtually staged"],
+ ["img/staged-arches.jpg","The arches — virtually staged"],
+ ["img/staged-laundry.jpg","New side-by-side laundry"],
+ ["img/staged-garages.jpg","Garages on the second frontage"]
+];
+var lbI=0;
+function lbShow(){var s=LB_SLIDES[lbI];var im=document.getElementById('lb-img');im.src=s[0];im.alt=s[1];
+ document.getElementById('lb-cap').textContent=s[1];
+ document.getElementById('lb-count').textContent=(lbI+1)+' / '+LB_SLIDES.length;}
+function lbOpen(i){lbI=i||0;lbShow();document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+function lbClose(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+function lbStep(d){lbI=(lbI+d+LB_SLIDES.length)%LB_SLIDES.length;lbShow();}
+document.getElementById('lb').addEventListener('click',function(e){if(e.target===this)lbClose();});
+document.addEventListener('keydown',function(e){if(!document.getElementById('lb').classList.contains('open'))return;
+ if(e.key==='Escape')lbClose();if(e.key==='ArrowRight')lbStep(1);if(e.key==='ArrowLeft')lbStep(-1);});
+</script>
 <script src="/assets/js/amre-chrome.js" defer></script>
 </body>
 </html>
