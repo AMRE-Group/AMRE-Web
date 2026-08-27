@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--
+  ===========================================================================
+  AMRE DAILY BRIEF - STANDING LAYOUT (v6 - sunset palette, adopted Aug 26 2026 (layout v5, Aug 24 2026))
+  This file is a WORKING REFERENCE BUILD. Rebuild daily-brief.html from it by
+  replacing the content and keeping the structure, order, and styling exactly.
+
+  WHAT CHANGED IN v5 (Michael's directive, Aug 24 2026):
+   1. COPY IS ACTION ITEMS, NOT PROSE. The v4 builds drifted into multi-sentence
+      narrative paragraphs. They are gone. See VOICE RULES below.
+   2. "THE CONSTRAINT" IS NOW "THE LEAD ENGINE" - same forest card, but
+      PROSPECTIVE. It no longer diagnoses why last month was slow; it lists the
+      dated actions that will produce more leads. See LEAD ENGINE RULES below.
+
+  SECTION ORDER - do not reorder:
+   1. Black masthead: AMRE logo (hosted URL below) + "Daily Brief - <Day Mon D>"
+   2. TODAY - THE ONLY THING THAT MATTERS - 30px headline, ONE short line of
+      context, then a NUMBERED 2-4 step action list. No paragraph.
+   3. Coral "Don't end the day without this" card - the single hard deadline,
+      one sentence of fact + one bolded imperative. Omit the card entirely if
+      there is no real deadline. Never pad it.
+   4. TODAY'S SCOREBOARD - 4 numbers, inputs only. Prefer numbers that indict
+      inaction (past-due tasks, dials logged, unworked signals) over vanity
+      counts. Never trailing revenue here.
+   5. THE SEVEN CALLS - 7 named people, each: name (+ tel: link if known),
+      ONE line of context (facts separated by the middot), then "ASK ->" with a
+      single concrete ask. Three lines per person, hard cap.
+      Rotation when reactive names run short: 2 past clients, 2 sphere/referral
+      sources, 2 active-market owners, 1 agent relationship.
+   6. LEAD -> CLIENT -> CLOSED - rung label per person showing the MOVE
+      ("lead -> client", "signal -> lead", "client -> in contract"). Body is one
+      imperative fragment, 3-8 words. Attach the dollar value where it exists.
+   7. THE LEAD ENGINE - forest card. See LEAD ENGINE RULES below.
+   8. ALSO TODAY - max 4 admin rows, HIGH/MED/LOW + owner chips. One line each.
+   9. WITH ANIA - max 4 items, one line each, phrased as the question.
+  10. WEEK AHEAD - REVENUE-FACING ONLY - one line per day, revenue items bolded.
+      Drop personal entirely unless it blocks a revenue item.
+  11. MONEY - YEAR TO DATE - bars (solid = closed, light = pipeline) + the
+      three commission figures + ONE gap sentence that points at the Lead
+      Engine. Always LAST before the reply card.
+  12. Black CLOSE THE LOOP card - asks for dials / conversations / appointments,
+      and promises the reply is what rebuilds tomorrow's brief. Never drop this.
+
+  VOICE RULES (v5 - the point of the rewrite):
+   - Every line is a fact or an instruction. Nothing else earns space.
+   - NO motivational framing. No "Hormozi lens", no "Martell lens", no coaching
+     asides, no "which is why the top of this page is seven phone calls."
+     Michael reads this on his phone over coffee; he wants the list, not a pep talk.
+   - Context lines are FRAGMENTS joined by the middot, not sentences.
+     Good: "Client - $2.5M - offer deadline tomorrow"
+     Bad:  "They met their financial planner and need to keep funds reserved..."
+   - Asks are imperatives with an object and a deadline.
+     Good: "512 Brooks or Sea Colony #505 - decide today."
+     Bad:  "Send tonight and ask for a yes/no before Tuesday's offer deadline."
+   - If a sentence explains WHY something matters and the reader already knows,
+     cut it. If a fact needs three clauses, it needs its own row instead.
+   - Ladder entries: "BRBC today." / "Sign or park by Friday." That short.
+
+  LEAD ENGINE RULES (v5 - replaces "The constraint"):
+   - Headline states the DEAL GAP and the DAILY CONTACT NUMBER it implies.
+     Compute from finance-data.js: (goals.deals.goal - closed - pending) = deals
+     needed; x goals.contacts_per_deal.target / weeks left in the year = contacts
+     per week; / 5 = per day. Show the arithmetic in one grey subline.
+   - Then a two-column table: 5-8 CONCRETE PROSPECTING ACTIONS, each with a
+     due marker in the right column (today / by Fri / 25 a day / Tue-Thu / weekly).
+   - Every action must name a REAL, EXISTING source Michael can open right now -
+     the Compass Likely-to-Sell digest, the expireds master CSV and its tiers,
+     open-house sign-ins, the investor deal-match list and the named funds,
+     the force-ranked call pool, the Friday doorknocking block.
+     Never write a generic action like "do more outreach" or "post on social."
+   - Lead with measurement if dials are not being logged - an untracked number
+     cannot be improved, and that is the one action that unlocks the rest.
+   - This card is FORWARD-LOOKING. Diagnosis of what went wrong belongs in the
+     scoreboard or ALSO TODAY, not here.
+
+  THE REPLY LOOP - this is a printed promise, honor it:
+   When Michael replies to the brief email, that reply is the input for the next build.
+   Before writing tomorrow's brief, search Gmail for replies on the newest
+   subject:"AMRE Brief" thread and process every one:
+    - activity numbers he reports -> log to Wins, update the scorecard, and show them
+      in the next scoreboard as ACTUALS, not targets
+    - "remove X" / "this deal is done" -> drop from pipeline, CRM, deal cards, tracker
+      chips and counts; re-sync every place the skill's page map lists
+    - new names, prices, referral sources -> add to the pipeline and the finance math
+    - anything worded as a question or an ask -> carry into WITH ANIA verbatim, in his
+      own words, until he says it is resolved
+    - corrections to figures -> fix the source file, not just the brief
+    - requests about the brief itself (format, sections, wording) -> change THIS
+      TEMPLATE too, not only that day's build
+   A reply that is not reflected in the next day's brief breaks the promise printed at
+   the bottom of this page. Confirm back what was folded in.
+
+  RULES:
+   - Palette (v6, SUNSET - Aug 26 2026): ink #0B0B0C / secondary #6E6E73 /
+     dim #A1A1A6 / hairline #E8E8ED. Accent = sunset red #FF3B30 (eyebrows, ASK,
+     flags, links) on tint #FFF1EF. Deep card = navy #292F71 with #A9AEDC muted
+     and #D8DAF2 body; pipeline bar light fill #A9AEDC. Black #000 masthead +
+     reply card, with a 4-cell sunset rule (#FF9500 / #FF3B30 / #AF52DE /
+     #292F71) directly under the masthead. Seven-calls numerals run the same
+     ramp top to bottom. Radii: 26px outer shell, 18px inner cards.
+     This is the dashboard "sunset system" (see dashboard/assets/nav.js)
+     expressed in email-safe HTML: solid table cells, no CSS gradients, no
+     webfonts, all styles inline. NEVER use a CSS gradient here - Outlook drops
+     it; build a gradient as a row of solid-colour <td>s instead.
+     No green as a status colour; red is the accent, not an alarm.
+   - Type: system stack only (-apple-system / SF Pro / Helvetica Neue / Arial).
+     No webfonts, no CDN. 680px shell, white on #F5F5F7.
+   - Logo: hosted URL, NOT base64 - some clients strip data URIs:
+     https://raw.githubusercontent.com/AMRE-Group/AMRE-Web/main/assets/logos/amre-white.png
+     It is a JPEG with a black background, so it must sit on a pure-black band.
+   - Financials come from dashboard/assets/finance-data.js. Never hand-type them.
+   - Footer: "Last updated <Mon D, YYYY> at <H:MM AM/PM> PT", America/Los_Angeles.
+
+  SENDING THE EMAIL (learned the hard way, Aug 24 2026):
+   Pass the FULL HTML inline as the htmlBody argument. Never pass a shell-style
+   variable name or placeholder token - it is transmitted literally and the
+   recipient gets an empty email. After sending, re-fetch the thread and confirm
+   the snippet contains real brief content before reporting success.
+  ===========================================================================
+-->
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AMRE Daily Brief &mdash; reference build v6</title></head>
+<body style="margin:0;padding:0;background-color:#F5F5F7;-webkit-font-smoothing:antialiased;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F5F5F7;"><tr><td align="center" style="padding:32px 12px;">
+<table role="presentation" width="680" cellpadding="0" cellspacing="0" border="0" style="width:680px;max-width:680px;background-color:#FFFFFF;border-radius:26px;overflow:hidden;">
+
+<tr><td style="background-color:#000000;padding:24px 40px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+<td valign="middle"><img src="https://raw.githubusercontent.com/AMRE-Group/AMRE-Web/main/assets/logos/amre-white.png" alt="AMRE" width="150" height="35" style="display:block;border:0;"></td>
+<td align="right" valign="middle" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#8E8E93;">Daily Brief &middot; Wed Aug 26</td>
+</tr></table></td></tr>
+
+<tr><td style="padding:0;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr style="height:4px;">
+<td width="25%" style="background-color:#FF9500;font-size:0;line-height:4px;">&nbsp;</td>
+<td width="25%" style="background-color:#FF3B30;font-size:0;line-height:4px;">&nbsp;</td>
+<td width="25%" style="background-color:#AF52DE;font-size:0;line-height:4px;">&nbsp;</td>
+<td width="25%" style="background-color:#292F71;font-size:0;line-height:4px;">&nbsp;</td>
+</tr></table></td></tr>
+
+<tr><td style="padding:38px 40px 42px;">
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#FF3B30;margin-bottom:12px;">Today &middot; the only thing that matters</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:30px;line-height:1.22;font-weight:700;letter-spacing:-0.9px;color:#0B0B0C;">Alcyona: force an answer today.</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;line-height:1.6;color:#6E6E73;margin-top:14px;">$1,275,000 offer out &middot; Josh Sinatra silent 5 business days &middot; ~$31.9K GCI sitting at zero.</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.7;color:#0B0B0C;margin-top:14px;">
+1. Call Josh Sinatra&#39;s managing broker this morning.<br>
+2. Put a written expiration on Debra&#39;s offer &mdash; 5pm Friday.<br>
+3. Tell Debra the new deadline before you leave the Sales Meeting.
+</div>
+
+<div style="background-color:#FFF1EF;border-radius:18px;padding:20px 26px;margin-top:24px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#FF3B30;margin-bottom:10px;">Don&#39;t end the day without this</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.7;color:#0B0B0C;">847 N Sierra Bonita ($2,150,000 Private Exclusive) debuts at the Beverly Hills Sales Meeting at 11:00am &mdash; the AMRE Conference Meeting is already declined.<br><strong style="font-weight:700;">Be in the room and leave with two showings booked.</strong></div>
+</div>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A1A1A6;margin-bottom:16px;">Today&#39;s scoreboard &middot; the inputs you control</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+<td width="25%" valign="top">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;line-height:1;font-weight:700;letter-spacing:-1.4px;color:#FF3B30;">0</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;color:#0B0B0C;margin-top:8px;">Texts sent</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:#FF3B30;margin-top:2px;">3rd straight day</div></td>
+<td width="25%" valign="top">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;line-height:1;font-weight:700;letter-spacing:-1.4px;color:#0B0B0C;">2</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;color:#0B0B0C;margin-top:8px;">Replies waiting</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:#A1A1A6;margin-top:2px;">Wes &middot; Silvia</div></td>
+<td width="25%" valign="top">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;line-height:1;font-weight:700;letter-spacing:-1.4px;color:#FF3B30;">15</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;color:#0B0B0C;margin-top:8px;">Drafts unsent</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:#FF3B30;margin-top:2px;">oldest 30+ days</div></td>
+<td width="25%" valign="top">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:38px;line-height:1;font-weight:700;letter-spacing:-1.4px;color:#0B0B0C;">1,425</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;color:#0B0B0C;margin-top:8px;">Likely-to-sell</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;color:#A1A1A6;margin-top:2px;">untouched list</div></td>
+</tr></table>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A1A1A6;margin-bottom:24px;">The seven calls</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+
+<tr><td valign="top" width="38" style="padding:0 0 20px;"><div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#FF9500;">01</div></td>
+<td valign="top" style="padding:0 0 20px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#0B0B0C;">Josh Sinatra&#39;s managing broker</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Alcyona listing side &middot; silent 5 business days &middot; ~$31.9K GCI</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0B0B0C;margin-top:5px;"><span style="color:#FF3B30;font-weight:700;">ASK &rarr;</span> A written response to Debra&#39;s offer today.</div>
+</td></tr>
+
+<tr><td valign="top" width="38" style="padding:0 0 20px;"><div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#FF6A2C;">02</div></td>
+<td valign="top" style="padding:0 0 20px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#0B0B0C;">Debra Metzke</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Client &middot; $1,275,000 BCO out on 2132 Alcyona &middot; no counter</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0B0B0C;margin-top:5px;"><span style="color:#FF3B30;font-weight:700;">ASK &rarr;</span> Approve the 5pm Friday expiration.</div>
+</td></tr>
+
+<tr><td valign="top" width="38" style="padding:0 0 20px;"><div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#FF3B30;">03</div></td>
+<td valign="top" style="padding:0 0 20px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#0B0B0C;">Karl Jacoby &amp; Marie Lee</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Client &middot; $2.5M &middot; 512 Brooks &middot; Zoom held Tue, nothing in writing</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0B0B0C;margin-top:5px;"><span style="color:#FF3B30;font-weight:700;">ASK &rarr;</span> Yes/no in writing today &mdash; copy Ania.</div>
+</td></tr>
+
+<tr><td valign="top" width="38" style="padding:0 0 20px;"><div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#E0447F;">04</div></td>
+<td valign="top" style="padding:0 0 20px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#0B0B0C;">Wes &mdash; Reflip Homes &nbsp;<a href="tel:+19496861235" style="font-size:15px;font-weight:400;color:#FF3B30;text-decoration:none;">(949) 686-1235</a></div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Investor &middot; asked for pockets/fixers by text today</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0B0B0C;margin-top:5px;"><span style="color:#FF3B30;font-weight:700;">ASK &rarr;</span> Send West Adams + Private Exclusive inventory. <span style="color:#A1A1A6;">Answer today.</span></div>
+</td></tr>
+
+<tr><td valign="top" width="38" style="padding:0 0 20px;"><div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#AF52DE;">05</div></td>
+<td valign="top" style="padding:0 0 20px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#0B0B0C;">George</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Lead &middot; get-started email sent &middot; no BRBC</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0B0B0C;margin-top:5px;"><span style="color:#FF3B30;font-weight:700;">ASK &rarr;</span> BRBC signed and a tour on the calendar.</div>
+</td></tr>
+
+<tr><td valign="top" width="38" style="padding:0 0 20px;"><div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#6E45A8;">06</div></td>
+<td valign="top" style="padding:0 0 20px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#0B0B0C;">Chin</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Lead &middot; no reply since Monday</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0B0B0C;margin-top:5px;"><span style="color:#FF3B30;font-weight:700;">ASK &rarr;</span> One more touch. No answer by Friday, park it.</div>
+</td></tr>
+
+<tr><td valign="top" width="38" style="padding:0;"><div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700;color:#292F71;">07</div></td>
+<td valign="top" style="padding:0;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#0B0B0C;">Dana Dukelow &nbsp;<a href="tel:+13233941909" style="font-size:15px;font-weight:400;color:#FF3B30;text-decoration:none;">(323) 394-1909</a></div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Likely-to-sell &middot; High &middot; touched Aug 24</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#0B0B0C;margin-top:5px;"><span style="color:#FF3B30;font-weight:700;">ASK &rarr;</span> &ldquo;Two West Adams comps went above ask &mdash; want the number on yours?&rdquo;</div>
+</td></tr>
+
+</table>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A1A1A6;margin-bottom:16px;">Lead &rarr; client &rarr; closed</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td valign="top" style="padding:0 0 12px;border-bottom:1px solid #F0F0F3;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#0B0B0C;">Debra Metzke <span style="font-weight:400;color:#A1A1A6;">&middot; client &rarr; in contract</span></div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Broker call + written expiration today. $1.275M</div>
+</td></tr>
+<tr><td valign="top" style="padding:12px 0;border-bottom:1px solid #F0F0F3;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#0B0B0C;">Karl &amp; Marie <span style="font-weight:400;color:#A1A1A6;">&middot; client &rarr; in contract</span></div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Written yes/no today. $2.5M</div>
+</td></tr>
+<tr><td valign="top" style="padding:12px 0;border-bottom:1px solid #F0F0F3;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#0B0B0C;">George <span style="font-weight:400;color:#FF3B30;">&middot; lead &rarr; client</span></div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">BRBC today.</div>
+</td></tr>
+<tr><td valign="top" style="padding:12px 0;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#0B0B0C;">Wes / Reflip <span style="font-weight:400;color:#FF3B30;">&middot; signal &rarr; lead</span></div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#6E6E73;margin-top:3px;">Send inventory, capture the buy box.</div>
+</td></tr>
+</table>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="background-color:#292F71;border-radius:18px;padding:30px 32px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A9AEDC;">The lead engine &middot; next 30 days</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:23px;line-height:1.3;font-weight:700;letter-spacing:-0.5px;color:#FFFFFF;margin-top:14px;">You need 12 more deals. That&#39;s 66 contacts a day.</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#A9AEDC;margin-top:10px;">20 goal &minus; 4 closed &minus; 4 pipeline = 12, at 499 contacts each, over 18 weeks left.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:22px;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;">
+<tr><td valign="top" style="padding:0 0 12px;font-size:16px;line-height:1.5;color:#FFFFFF;font-weight:700">Restart one SMS drip &mdash; <strong style="color:#FFFFFF;">0 texts sent Mon&ndash;Wed</strong></td>
+<td align="right" valign="top" style="padding:0 0 12px;font-size:14px;color:#A9AEDC;white-space:nowrap;">today</td></tr>
+<tr><td valign="top" style="padding:0 0 12px;font-size:16px;line-height:1.5;color:#D8DAF2">Answer Wes/Reflip with West Adams + Private Exclusive inventory</td>
+<td align="right" valign="top" style="padding:0 0 12px;font-size:14px;color:#A9AEDC;white-space:nowrap;">today</td></tr>
+<tr><td valign="top" style="padding:0 0 12px;font-size:16px;line-height:1.5;color:#D8DAF2">Push the deal-matches out: Trousdale $9M, 3025 Edgehill, 6006 Overhill, 2949 S Harcourt, the $985K West Adams fixer &rarr; RedDoor, Drexel, Pintar, Opuscrest, 2-Stories</td>
+<td align="right" valign="top" style="padding:0 0 12px;font-size:14px;color:#A9AEDC;white-space:nowrap;">this wk</td></tr>
+<tr><td valign="top" style="padding:0 0 12px;font-size:16px;line-height:1.5;color:#D8DAF2">Pull 25 High-likelihood names off the 1,425 Likely-to-Sell list into a dial block</td>
+<td align="right" valign="top" style="padding:0 0 12px;font-size:14px;color:#A9AEDC;white-space:nowrap;">25/day</td></tr>
+<tr><td valign="top" style="padding:0 0 12px;font-size:16px;line-height:1.5;color:#D8DAF2">Work expireds tiers A&ndash;B (Westside) &mdash; the emails are already drafted</td>
+<td align="right" valign="top" style="padding:0 0 12px;font-size:14px;color:#A9AEDC;white-space:nowrap;">Tue/Thu</td></tr>
+<tr><td valign="top" style="padding:0 0 12px;font-size:16px;line-height:1.5;color:#D8DAF2">Clear the ~15 unsent Compass drafts, oldest 30+ days</td>
+<td align="right" valign="top" style="padding:0 0 12px;font-size:14px;color:#A9AEDC;white-space:nowrap;">by Fri</td></tr>
+<tr><td valign="top" style="padding:0 0 12px;font-size:16px;line-height:1.5;color:#D8DAF2">Move one &ldquo;preparing to list&rdquo; &mdash; Reuven Regev / 12753 Appleton or Bradley Steinberg / 1155 S Tremaine &mdash; to a signed listing agreement</td>
+<td align="right" valign="top" style="padding:0 0 12px;font-size:14px;color:#A9AEDC;white-space:nowrap;">by Fri</td></tr>
+<tr><td valign="top" style="padding:0;font-size:16px;line-height:1.5;color:#D8DAF2">Protect Friday 9:30am Grassroots &amp; Doorknocking &mdash; the only block that makes new contacts</td>
+<td align="right" valign="top" style="padding:0;font-size:14px;color:#A9AEDC;white-space:nowrap;">weekly</td></tr>
+</table>
+</div>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A1A1A6;margin-bottom:14px;">Also today</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr><td valign="top" style="padding:0 0 12px;border-bottom:1px solid #F0F0F3;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#0B0B0C;">3457 Stewart showing with Farzin at 2:00pm &mdash; BRBC executed 4:21am</td>
+<td width="118" align="right" valign="top" style="padding:0 0 12px;border-bottom:1px solid #F0F0F3;"><span style="background-color:#FFF1EF;color:#FF3B30;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;padding:4px 9px;border-radius:11px;">HIGH</span> <span style="background-color:#F5F5F7;color:#6E6E73;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;padding:4px 9px;border-radius:11px;">Michael</span></td></tr>
+<tr><td valign="top" style="padding:12px 0;border-bottom:1px solid #F0F0F3;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#0B0B0C;">Log Monday&#39;s Leslee / 14405 Mulholland outcome &mdash; nothing recorded, notetaker failed</td>
+<td width="118" align="right" valign="top" style="padding:12px 0;border-bottom:1px solid #F0F0F3;"><span style="background-color:#F5F5F7;color:#6E6E73;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;padding:4px 9px;border-radius:11px;">MED</span> <span style="background-color:#F5F5F7;color:#6E6E73;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;padding:4px 9px;border-radius:11px;">Michael</span></td></tr>
+<tr><td valign="top" style="padding:12px 0;border-bottom:1px solid #F0F0F3;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#0B0B0C;">Clear the board: drop the DTLA deal and the stale 1677 N Sierra Bonita withdrawal alert</td>
+<td width="118" align="right" valign="top" style="padding:12px 0;border-bottom:1px solid #F0F0F3;"><span style="background-color:#F5F5F7;color:#6E6E73;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;padding:4px 9px;border-radius:11px;">MED</span> <span style="background-color:#F5F5F7;color:#6E6E73;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;padding:4px 9px;border-radius:11px;">Ania</span></td></tr>
+<tr><td valign="top" style="padding:12px 0;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#0B0B0C;">Merge duplicate records &mdash; Farzin Fazeli x3, Nathalie/Natalie Proulx x2</td>
+<td width="118" align="right" valign="top" style="padding:12px 0;"><span style="color:#A1A1A6;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;">LOW</span> <span style="background-color:#F5F5F7;color:#6E6E73;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:10px;font-weight:700;letter-spacing:0.4px;padding:4px 9px;border-radius:11px;">Ania</span></td></tr>
+</table>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A1A1A6;margin-bottom:14px;">With Ania</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#0B0B0C;">
+<div style="margin-bottom:9px;">Who writes the Karl &amp; Marie outcome on 512 Brooks &mdash; you or her?</div>
+<div style="margin-bottom:9px;">What came out of Monday&#39;s 11am on 14405 Mulholland, and did Jeff Saad preview it another way?</div>
+<div style="margin-bottom:9px;">Her calendar still shows both 11am meetings &mdash; can she drop the AMRE Conference one?</div>
+<div>LaHaus reactivation &mdash; yes, no, or negotiate?</div>
+</div>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A1A1A6;margin-bottom:16px;">Week ahead &middot; revenue-facing only</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;">
+<tr><td width="80" valign="top" style="padding:0 0 11px;font-size:15px;font-weight:700;color:#0B0B0C;">Wed 26</td>
+<td valign="top" style="padding:0 0 11px;font-size:15px;line-height:1.55;color:#6E6E73;"><span style="color:#0B0B0C;font-weight:600;">847 debuts at the BH Sales Meeting 11am</span> &middot; <span style="color:#0B0B0C;font-weight:600;">3457 Stewart w/ Farzin 2pm</span> &middot; Mastermind 10am</td></tr>
+<tr><td width="80" valign="top" style="padding:0 0 11px;font-size:15px;font-weight:700;color:#0B0B0C;">Thu 27</td>
+<td valign="top" style="padding:0 0 11px;font-size:15px;line-height:1.55;color:#6E6E73;"><span style="color:#0B0B0C;font-weight:600;">2640 S Bronson insurance inspection 9:30am</span> &middot; walk-thru video 10:30am &middot; Fello demo 1:30pm (Ania)</td></tr>
+<tr><td width="80" valign="top" style="padding:0 0 11px;font-size:15px;font-weight:700;color:#0B0B0C;">Fri 28</td>
+<td valign="top" style="padding:0 0 11px;font-size:15px;line-height:1.55;color:#6E6E73;"><span style="color:#0B0B0C;font-weight:600;">Grassroots &amp; Doorknocking 9:30am</span></td></tr>
+<tr><td width="80" valign="top" style="padding:0;font-size:15px;font-weight:700;color:#0B0B0C;">Tue Sep 1</td>
+<td valign="top" style="padding:0;font-size:15px;line-height:1.55;color:#6E6E73;"><span style="color:#0B0B0C;font-weight:600;">Caravan &amp; Canvassing 11am</span></td></tr>
+</table>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#A1A1A6;margin-bottom:6px;">Money &middot; year to date</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;color:#A1A1A6;margin-bottom:22px;">Solid = closed &nbsp;&middot;&nbsp; light = pipeline &nbsp;&middot;&nbsp; <strong style="font-weight:700;color:#FF3B30;">65.2% of the year gone</strong></div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;margin-bottom:7px;"><tr>
+<td style="font-size:15px;font-weight:700;color:#0B0B0C;">GCI</td>
+<td align="right" style="font-size:15px;color:#6E6E73;">$93,048 booked &nbsp;+&nbsp; $324,644 pipeline &nbsp;/&nbsp; <span style="color:#0B0B0C;font-weight:700;">$1.25M</span></td>
+</tr></table>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;border-radius:5px;overflow:hidden;"><tr style="height:10px;">
+<td width="7.4%" style="background-color:#292F71;font-size:0;line-height:10px;">&nbsp;</td>
+<td width="26.0%" style="background-color:#A9AEDC;font-size:0;line-height:10px;">&nbsp;</td>
+<td width="66.6%" style="background-color:#E8E8ED;font-size:0;line-height:10px;">&nbsp;</td>
+</tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;margin-bottom:7px;"><tr>
+<td style="font-size:15px;font-weight:700;color:#0B0B0C;">Volume</td>
+<td align="right" style="font-size:15px;color:#6E6E73;">$4.40M closed &nbsp;+&nbsp; $13.03M pipeline &nbsp;/&nbsp; <span style="color:#0B0B0C;font-weight:700;">$50M</span></td>
+</tr></table>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:22px;border-radius:5px;overflow:hidden;"><tr style="height:10px;">
+<td width="8.8%" style="background-color:#292F71;font-size:0;line-height:10px;">&nbsp;</td>
+<td width="26.1%" style="background-color:#A9AEDC;font-size:0;line-height:10px;">&nbsp;</td>
+<td width="65.1%" style="background-color:#E8E8ED;font-size:0;line-height:10px;">&nbsp;</td>
+</tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;margin-bottom:7px;"><tr>
+<td style="font-size:15px;font-weight:700;color:#0B0B0C;">Deals</td>
+<td align="right" style="font-size:15px;color:#6E6E73;">4 closed &nbsp;+&nbsp; 4 pipeline &nbsp;/&nbsp; <span style="color:#0B0B0C;font-weight:700;">20</span></td>
+</tr></table>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:24px;border-radius:5px;overflow:hidden;"><tr style="height:10px;">
+<td width="20%" style="background-color:#292F71;font-size:0;line-height:10px;">&nbsp;</td>
+<td width="20%" style="background-color:#A9AEDC;font-size:0;line-height:10px;">&nbsp;</td>
+<td width="60%" style="background-color:#E8E8ED;font-size:0;line-height:10px;">&nbsp;</td>
+</tr></table>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;"><tr>
+<td width="33%" valign="top" style="font-size:14px;line-height:1.5;color:#6E6E73;">Commission booked<br><strong style="font-size:17px;color:#0B0B0C;font-weight:700;">$76,765</strong><br><span style="font-size:13px;color:#A1A1A6;">your share $38,382</span></td>
+<td width="33%" valign="top" style="font-size:14px;line-height:1.5;color:#6E6E73;">In pipeline<br><strong style="font-size:17px;color:#0B0B0C;font-weight:700;">$267,831</strong><br><span style="font-size:13px;color:#A1A1A6;">at the 82.5% split</span></td>
+<td width="34%" valign="top" style="font-size:14px;line-height:1.5;color:#6E6E73;">Year-end if all close<br><strong style="font-size:17px;color:#0B0B0C;font-weight:700;">$344,596</strong><br><span style="font-size:13px;color:#A1A1A6;">your share &asymp; $172,298</span></td>
+</tr></table>
+
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#6E6E73;margin-top:20px;">Everything in the pipeline closing still lands the year at <strong style="color:#0B0B0C;font-weight:700;">33% of goal</strong>. The lead engine above is the gap.</div>
+
+<div style="height:1px;background-color:#E8E8ED;margin:34px 0;"></div>
+
+<div style="background-color:#000000;border-radius:18px;padding:26px 30px;">
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:#8E8E93;margin-bottom:12px;">Close the loop</div>
+<div style="font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.65;color:#FFFFFF;">Reply with <strong style="font-weight:700;">dials</strong> &middot; <strong style="font-weight:700;">conversations</strong> &middot; <strong style="font-weight:700;">appointments</strong> &middot; anything closed. Add/drop names and corrections here too.<br><br><span style="color:#8E8E93;font-size:15px;">It all lands in tomorrow&#39;s brief.</span></div>
+</div>
+
+<div style="text-align:center;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.6;color:#A1A1A6;margin-top:28px;">
+Last updated Aug 26, 2026 at 11:40 AM PT &middot; AMRE Real Estate Group<br>
+<a href="https://dashboard.amre.group/dashboard/briefings/" style="color:#FF3B30;text-decoration:none;font-weight:600;">Briefings Dashboard</a> &nbsp;&middot;&nbsp; <a href="https://www.compass.com/app/lab/overview" style="color:#FF3B30;text-decoration:none;font-weight:600;">Business Tracker</a><br>
+<span style="font-size:12px;color:#A1A1A6;">Ania&#39;s recap received &check; &middot; campaign CSV logs unreachable this run &middot; CRM tab counts used (Hot 16 &middot; Warm 19 &middot; Cold 49 &middot; Clients 11).</span>
+</div>
+
+</td></tr></table>
+</td></tr></table>
+</body>
+</html>
