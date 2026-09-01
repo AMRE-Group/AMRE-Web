@@ -179,6 +179,36 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .banner-cta .bc-btn:hover .bc-arrow{transform:translateX(4px);}
 .cnf .banner-cta .bc-note{font-family:'Space Mono',monospace;font-size:11.5px;line-height:1.5;color:var(--muted);max-width:34ch;}
 @media(max-width:520px){.cnf .banner-cta .bc-btn{width:100%;justify-content:center;}.cnf .banner-cta .bc-note{max-width:none;}}
+/* TWO DOORS */
+.cnf .doors{display:grid;grid-template-columns:1fr 1fr;margin-top:34px;border:1px solid var(--hair);}
+.cnf .door{padding:32px 30px 28px;display:flex;flex-direction:column;gap:12px;min-height:274px;transition:transform .25s var(--ease),box-shadow .25s var(--ease);}
+.cnf .door--a{background:var(--green-tint);}
+.cnf .door--b{background:var(--char);}
+.cnf .door:hover{transform:translateY(-3px);box-shadow:0 20px 44px rgba(14,14,14,.13);z-index:2;}
+.cnf .door:focus-visible{outline:2px solid var(--green-deep);outline-offset:-2px;}
+.cnf .door .dnum{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;}
+.cnf .door--a .dnum{color:var(--green-deep);}
+.cnf .door--b .dnum{color:#3fbf7d;}
+.cnf .door h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3vw,32px);font-weight:700;line-height:1.06;letter-spacing:-.025em;text-wrap:balance;}
+.cnf .door--a h3{color:var(--cf-ink);}
+.cnf .door--b h3{color:#fff;}
+.cnf .door p{font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.5;text-wrap:pretty;}
+.cnf .door--a p{color:var(--body);}
+.cnf .door--b p{color:rgba(255,255,255,.72);}
+.cnf .door ul{list-style:none;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.04em;display:flex;flex-direction:column;gap:6px;margin-top:auto;padding-top:16px;}
+.cnf .door--a ul{border-top:1px solid rgba(7,111,60,.18);}
+.cnf .door--b ul{border-top:1px solid rgba(255,255,255,.14);}
+.cnf .door li::before{content:"\2192 \00a0";}
+.cnf .door--a li{color:var(--muted);}
+.cnf .door--a li::before{color:var(--green-deep);}
+.cnf .door--b li{color:rgba(255,255,255,.6);}
+.cnf .door--b li::before{color:#3fbf7d;}
+.cnf .door .dgo{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;margin-top:14px;}
+.cnf .door--a .dgo{color:var(--green-deep);}
+.cnf .door--b .dgo{color:#3fbf7d;}
+.cnf .door .bc-arrow{transition:transform .2s var(--ease);}
+.cnf .door:hover .bc-arrow{transform:translateX(4px);}
+@media(max-width:760px){.cnf .doors{grid-template-columns:1fr;}.cnf .door{min-height:0;}}
 .cnf .ticker{background:var(--char);color:#ededea;overflow:hidden;}
 .cnf .ticker-track{display:flex;white-space:nowrap;will-change:transform;animation:cf-ticker 42s linear infinite;}
 .cnf .ticker:hover .ticker-track{animation-play-state:paused;}
@@ -287,9 +317,29 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
       <span class="eyebrow"><b>Cash &amp; Flow</b> &nbsp;&middot;&nbsp; LA real estate, run through the numbers</span>
       <p class="stmt">Every deal looks good in the photos. We show you the <span class="hl">math.</span></p>
       <p class="dek">AMRE's investment desk breaks down LA multifamily, duplexes, and house-hacks the way a buyer should see them &mdash; real rents, real financing, real returns.</p>
-      <div class="banner-cta">
-        <a class="bc-btn" href="/cash-and-flow/calculator/">Run your own numbers <span class="bc-arrow">&rarr;</span></a>
-        <span class="bc-note">Free multifamily calculator &mdash; rent roll, financing, cap rate and cash-on-cash.</span>
+      <div class="doors">
+        <a class="door door--a" href="/cash-and-flow/calculator/">
+          <span class="dnum">Door 01 &nbsp;&middot;&nbsp; Your first property</span>
+          <h3>Start with one door.</h3>
+          <p>House-hacks, duplexes, 2&ndash;4 units. What the mortgage actually costs once a tenant is paying part of it.</p>
+          <ul>
+            <li>Rent roll, current vs. pro forma</li>
+            <li>Cap rate, GRM, cash-on-cash</li>
+            <li>Every breakdown we&#39;ve run</li>
+          </ul>
+          <span class="dgo">Open the Quick Calc <span class="bc-arrow">&rarr;</span></span>
+        </a>
+        <a class="door door--b" href="/cash-and-flow/calculator/portfolio/">
+          <span class="dnum">Door 02 &nbsp;&middot;&nbsp; Deploying capital</span>
+          <h3>Or your next five million.</h3>
+          <p>5&ndash;50 units. Sized the way a lender will size it, and measured the way an allocator will measure it.</p>
+          <ul>
+            <li>Agency debt sizing, DSCR, debt yield</li>
+            <li>Hold-period IRR and equity multiple</li>
+            <li>Exit-cap sensitivity grid</li>
+          </ul>
+          <span class="dgo">Open the Portfolio Underwriter <span class="bc-arrow">&rarr;</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -459,6 +509,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <li><a href="/buyers/">Buyer Advisory</a></li>
         <li><a href="/#contact">Investment Advisory</a></li>
         <li><a href="/cash-and-flow/calculator/">Investment Calculator</a></li>
+        <li><a href="/cash-and-flow/calculator/portfolio/">Portfolio Underwriter</a></li>
       </ul>
     </div>
     <div>

@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- amre-favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- SEO -->
+<title>Portfolio Underwriter &mdash; 5+ Unit Multifamily | Cash &amp; Flow | AMRE</title>
+<meta name="description" content="Institutional-grade LA multifamily underwriting for 5-50 unit properties. Agency debt sizing, DSCR and debt yield, year-by-year cash flow, levered IRR and exit-cap sensitivity.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="AMRE Real Estate Group">
+<meta name="keywords" content="multifamily investment calculator, duplex calculator Los Angeles, cap rate calculator, cash on cash return, gross rent multiplier, rental property calculator LA, pro forma rent">
+<link rel="canonical" href="https://amre.group/cash-and-flow/calculator/portfolio/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AMRE Real Estate Group">
+<meta property="og:title" content="Portfolio Underwriter &mdash; Cash &amp; Flow">
+<meta property="og:description" content="Size the loan the way a lender will: DSCR, debt yield, hold-period IRR and exit-cap sensitivity on 5-50 unit LA multifamily.">
+<meta property="og:image" content="https://amre.group/cash-and-flow/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://amre.group/cash-and-flow/calculator/portfolio/">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@AMRE_Real_Estate">
+<meta name="twitter:title" content="Portfolio Underwriter &mdash; Cash &amp; Flow">
+<meta name="twitter:description" content="DSCR, debt yield, levered IRR and exit-cap sensitivity on 5-50 unit LA multifamily.">
+<meta name="twitter:image" content="https://amre.group/cash-and-flow/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&amp;family=Montserrat:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:wght@400;700&amp;family=Anton&amp;family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&amp;display=swap" rel="stylesheet">
+
+<!-- AMRE shared consent (canonical TCPA/A2P language + EmailJS consent stamp) -->
+<link rel="stylesheet" href="/assets/forms/consent.css">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="/assets/forms/consent.js?v=20260821" defer></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TM5NWVRD');</script>
+<!-- End Google Tag Manager -->
+
+<!-- JSON-LD: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebApplication",
+  "name":"Cash & Flow Multifamily Investment Calculator",
+  "url":"https://amre.group/cash-and-flow/calculator/",
+  "applicationCategory":"FinanceApplication",
+  "operatingSystem":"Any",
+  "description":"Interactive Los Angeles multifamily underwriting worksheet: rent roll, financing, operating expenses, NOI, cashflow, cash-on-cash return, gross rent multiplier and cap rate \u2014 current rent vs. pro forma.",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},
+  "publisher":{"@type":"Organization","@id":"https://amre.group/#organization","name":"AMRE Real Estate Group","url":"https://amre.group/"},
+  "inLanguage":"en-US"
+}
+</script>
+<!-- JSON-LD: FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"What is a good cap rate for LA multifamily?","acceptedAnswer":{"@type":"Answer","text":"Small multifamily in Los Angeles has generally traded between roughly 3.5% and 5.5% cap on in-place rents, with rent-controlled buildings at the lower end and vacant or newly delivered product at the higher end. Cap rate alone is not a verdict \u2014 read it next to gross rent multiplier and cash-on-cash return."}},
+    {"@type":"Question","name":"What is the difference between current rent and pro forma rent?","acceptedAnswer":{"@type":"Answer","text":"Current rent is what tenants actually pay today. Pro forma rent is the market rent a unit could achieve once it turns over. In rent-stabilized Los Angeles buildings the gap between the two can be large, and reaching pro forma may take years, so underwrite the current column first."}},
+    {"@type":"Question","name":"How much should I budget for property management?","acceptedAnswer":{"@type":"Answer","text":"For small Los Angeles multifamily, management is typically quoted as a percentage of collected rent \u2014 commonly 4% to 6%. This calculator defaults to 5% of gross scheduled rent and lets you adjust it."}},
+    {"@type":"Question","name":"Does this calculator include debt service in NOI?","acceptedAnswer":{"@type":"Answer","text":"No. Net operating income excludes the mortgage by convention. Debt service is subtracted after NOI to arrive at cashflow, which is how the tables on this page are laid out."}}
+  ]
+}
+</script>
+<!-- JSON-LD: BreadcrumbList -->
+<script type="application/ld+json" id="amre-breadcrumb-jsonld">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},
+  {"@type":"ListItem","position":2,"name":"Cash & Flow","item":"https://amre.group/cash-and-flow/"},
+  {"@type":"ListItem","position":3,"name":"Investment Calculator","item":"https://amre.group/cash-and-flow/calculator/"}
+]}
+</script>
+
+<style>
+
+:root{
+  --forest:#1c3d31; --navy:#070B33; --blue:#0064e5; --brass:#ffc13c; --brass-dk:#e6a800;
+  --white:#ffffff; --ink:#1a1a1a; --mid:#5A5A5A;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
+  --nav-h:56px; --ease:cubic-bezier(.25,.46,.45,.94);
+  /* Cash & Flow palette */
+  --paper:#ffffff; --paper-2:#f7f6f2; --cf-ink:#0e0e0e; --body:#262625;
+  --muted:#76746e; --hair:#e5e3dc; --green:#0b8f4e; --green-deep:#076f3c;
+  --green-tint:#eef7f1; --red:#c4361b; --char:#0d0f0e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--paper);color:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
+
+/* ── NAV (identical to site) ── */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(7,53,35,0.85);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.10);transition:background .35s var(--ease),border-color .35s;}
+.site-nav.is-light{background:rgba(255,255,255,0.94);border-bottom-color:rgba(11,143,78,.18);}
+.nav-right{display:flex;align-items:center;gap:14px;flex-shrink:0;}
+.nav-brand{display:flex;align-items:center;flex-shrink:0;}
+.nav-amre{height:22px;width:auto;}
+.nav-compass{height:15px;width:auto;opacity:.85;}
+.logo-white{display:block;}.logo-dark{display:none;}
+.site-nav.is-light .logo-dark{display:block;}
+.site-nav.is-light .logo-white{display:none;}
+.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.25);margin:0 14px;transition:background .35s;}
+.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15);}
+.nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:26px;list-style:none;}
+.nav-links a{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap;}
+.site-nav.is-light .nav-links a{color:rgba(7,53,35,.62);}
+.nav-links a:hover{color:#fff;}
+.site-nav.is-light .nav-links a:hover{color:var(--green-deep);}
+.nav-links a.active{color:var(--brass);}
+.site-nav.is-light .nav-links a.active{color:var(--green-deep);}
+.nav-cta{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;border-radius:2px;background:var(--brass);color:#0c2c1d;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;}
+.nav-cta:hover{background:var(--brass-dk);transform:translateY(-1px);}
+.site-nav.is-light .nav-cta{background:var(--green-deep);color:#fff;}
+.site-nav.is-light .nav-cta:hover{background:#055c31;}
+.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0;}
+.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s,width .25s;}
+.site-nav.is-light .ham-btn span{background:var(--navy);}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.ham-btn.open span:nth-child(2){opacity:0;width:0;}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-drawer{position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;background:rgba(7,49,32,0.97);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);display:flex;flex-direction:column;padding:32px 24px 48px;transform:translateY(-110%);opacity:0;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;pointer-events:none;}
+.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto;}
+.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1;}
+.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08);}
+.mobile-drawer a{display:block;color:#fff;font-family:var(--sans);font-size:clamp(20px,5vw,26px);font-weight:300;letter-spacing:-.01em;padding:20px 0;transition:color .2s,padding-left .2s;}
+.mobile-drawer a:hover{color:var(--brass);padding-left:8px;}
+.mobile-drawer a.drawer-active{color:var(--brass);}
+.mobile-drawer .drawer-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:32px;width:100%;background:var(--green-deep);color:#fff!important;border-radius:980px;font-size:16px!important;font-weight:500!important;padding:16px 32px!important;border-bottom:none!important;letter-spacing:.02em;}
+.mobile-drawer .drawer-cta:hover{background:#055c31;}
+@media(max-width:860px){.nav-links{display:none!important;}.nav-cta{display:none!important;}.ham-btn{display:flex;}.site-nav{padding:0 20px;}}
+@media(min-width:861px){.mobile-drawer{display:none!important;}}
+
+/* ───────── CASH & FLOW HUB (scoped) ───────── */
+
+.site-footer{background:var(--char);border-top:1px solid rgba(255,255,255,.07);padding:64px 44px 36px;}
+.footer-grid{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px;}
+.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.footer-logos img{height:16px;width:auto;opacity:.6;}
+.footer-sep{width:1px;height:13px;background:rgba(255,255,255,.2);}
+.footer-tagline{font-size:12px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.4);max-width:240px;}
+.footer-col-head{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:16px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);transition:color .2s;}
+.footer-links a:hover{color:rgba(255,255,255,.95);}
+.footer-bottom{max-width:1200px;margin-inline:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.footer-legal,.footer-dre{font-size:10px;font-weight:300;color:rgba(255,255,255,.3);line-height:1.5;}
+.site-footer-disclosure-bar{background:#fff;padding:22px 44px;}
+.site-footer-disclosure{max-width:1200px;margin-inline:auto;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+.site-footer-disclosure-text{font-family:var(--sans);font-size:10px;line-height:1.6;color:#5a5a5a;max-width:1000px;}
+.site-footer-disclosure-text a{color:var(--forest);text-decoration:underline;}
+.site-footer-disclosure-eho img{height:60px;width:auto;display:block;}
+@media(max-width:860px){
+  .footer-grid{grid-template-columns:1fr 1fr!important;gap:24px;}
+  .site-footer{padding:48px 20px 28px;}
+  .footer-bottom{flex-direction:column;}
+  .site-footer-disclosure-bar{padding:18px 20px;}
+  .site-footer-disclosure-eho img{height:48px;}
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+
+/* ───────── QUICK CALC (scoped under .qc) ───────── */
+
+  .qc{
+    --qcblack:#000000;
+    --qcwhite:#ffffff;
+    --qcg05:#f7f7f7;
+    --qcg10:#eeeeee;
+    --qcg20:#dddddd;
+    --qcg40:#b5b5b5;
+    --qcg60:#888888;
+    --qcg80:#444444;
+    --qcpos:#0a7d3c;
+    --qcneg:#b3241c;
+  }
+  .qc *{box-sizing:border-box;}
+  .qc{margin:0;padding:0;background:var(--qcwhite);color:var(--qcblack);font-family:'Archivo',sans-serif;}
+  .qc .wrap{max-width:1080px;margin:0 auto;}
+
+  
+  .qc .hero{
+    position:relative;
+    background:var(--qcblack);
+    color:var(--qcwhite);
+    padding:56px 40px 64px;
+    overflow:hidden;
+    clip-path:polygon(0 0,100% 0,100% 88%,0 100%);
+  }
+  .qc .hero-inner{position:relative;z-index:2;}
+  .qc .logo{
+    display:block;
+    height:clamp(34px,6.2vw,56px);
+    width:auto;
+    margin-bottom:26px;
+  }
+  .qc .kicker{
+    font-family:'Archivo',sans-serif;
+    font-weight:700;
+    letter-spacing:3px;
+    font-size:12px;
+    text-transform:uppercase;
+    color:var(--qcg40);
+    margin-bottom:10px;
+  }
+  .qc .hero h1{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    font-size:clamp(28px,4.4vw,44px);
+    line-height:1.05;
+    margin:0 0 14px;
+    text-transform:uppercase;
+  }
+  .qc .hero p.tag{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--qcg40);
+    max-width:560px;
+    margin:0;
+  }
+
+  
+  .qc .content{padding:0 40px 80px;}
+  .qc .addr-row{
+    display:flex;flex-wrap:wrap;gap:16px;
+    margin:-28px 0 40px;
+    position:relative;z-index:3;
+  }
+  .qc .addr-field{
+    background:var(--qcwhite);
+    border:1px solid var(--qcg20);
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    padding:14px 18px;
+    flex:1;
+    min-width:220px;
+  }
+  .qc .addr-field label{
+    display:block;font-size:11px;font-weight:700;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--qcg60);margin-bottom:6px;
+  }
+  .qc .addr-field input{
+    border:none;outline:none;font-family:'Archivo',sans-serif;font-size:16px;
+    font-weight:600;width:100%;background:transparent;color:var(--qcblack);
+  }
+
+  .qc section.block{margin-bottom:56px;}
+  .qc .block-head{margin-bottom:20px;}
+  .qc .block-head h2{
+    font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
+    font-size:26px;margin:0 0 10px;letter-spacing:0.5px;
+  }
+  .qc .rule{width:56px;height:5px;background:var(--qcblack);margin-bottom:14px;}
+  .qc .block-head .desc{font-size:13.5px;color:var(--qcg80);max-width:640px;line-height:1.5;}
+
+  .qc .grid2{display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+  @media (max-width:760px){.qc .grid2{grid-template-columns:1fr;}}
+
+  .qc .card{border:1px solid var(--qcg20);}
+  .qc .field-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 18px;border-bottom:1px solid var(--qcg10);background:var(--qcwhite);
+  }
+  .qc .field-row:nth-child(odd){background:var(--qcg05);}
+  .qc .field-row:last-child{border-bottom:none;}
+  .qc .field-row .flabel{
+    font-size:12.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--qcg80);
+  }
+  .qc .field-row .fsub{display:block;font-size:10.5px;font-weight:500;letter-spacing:0.5px;color:var(--qcg60);text-transform:none;margin-top:2px;}
+  .qc .input-affix{display:flex;align-items:center;gap:4px;}
+  .qc .input-affix span.affix{font-size:14px;color:var(--qcg60);font-weight:600;}
+  .qc input[type=number], .qc input[type=text]{
+    border:none;background:transparent;outline:none;text-align:right;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:var(--qcblack);
+    width:110px;
+  }
+  .qc select{
+    border:1px solid var(--qcg20);background:var(--qcwhite);font-family:'Archivo',sans-serif;
+    font-weight:700;font-size:13px;padding:6px 8px;color:var(--qcblack);
+  }
+
+  
+  .qc .units-table{border:1px solid var(--qcg20);margin-bottom:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .qc .units-head, .qc .unit-row{
+    display:grid;grid-template-columns:32px 1fr 110px 110px 40px;gap:10px;align-items:center;padding:10px 14px;
+    min-width:500px;
+  }
+  .qc .scroll-hint{display:none;font-size:11px;color:var(--qcg60);font-style:italic;font-family:'Fraunces',serif;margin:-6px 0 14px;}
+  @media (max-width:600px){
+    .qc .scroll-hint{display:block;}
+  }
+  .qc .units-head{
+    background:var(--qcblack);color:var(--qcwhite);font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  }
+  .qc .unit-row{border-top:1px solid var(--qcg10);}
+  .qc .unit-row:nth-child(even){background:var(--qcg05);}
+  .qc .unit-row .input-affix{width:100%;min-width:0;}
+  .qc .unit-row .input-affix input[type=number]{width:auto;flex:1 1 auto;min-width:0;text-align:right;}
+
+  .qc .dual-head{display:flex;justify-content:flex-end;gap:24px;padding:10px 18px 0;}
+  .qc .dual-head span{
+    width:100px;text-align:right;font-size:10.5px;font-weight:700;letter-spacing:1px;
+    text-transform:uppercase;color:var(--qcg60);
+  }
+  .qc .dual-values{display:flex;gap:24px;flex:none;}
+  .qc .dual-values .input-affix{width:100px;justify-content:flex-end;min-width:0;}
+  .qc .dual-values .input-affix input[type=number]{width:auto;flex:1 1 auto;min-width:0;text-align:right;}
+  .qc .unit-num{font-weight:700;color:var(--qcg60);font-size:13px;}
+  .qc .rm-btn{
+    border:1px solid var(--qcg20);background:var(--qcwhite);color:var(--qcg80);cursor:pointer;
+    width:26px;height:26px;font-size:14px;line-height:1;border-radius:2px;
+  }
+  .qc .rm-btn:hover{background:var(--qcblack);color:var(--qcwhite);}
+  .qc .add-unit-btn{
+    display:inline-flex;align-items:center;gap:8px;background:var(--qcblack);color:var(--qcwhite);
+    border:none;padding:10px 18px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12.5px;
+    letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+  }
+  .qc .add-unit-btn:hover{background:var(--qcg80);}
+
+  
+  .qc .stat-hero{
+    background:var(--qcblack);color:var(--qcwhite);padding:36px 40px;margin-bottom:40px;
+    display:flex;flex-wrap:wrap;gap:32px;align-items:flex-end;justify-content:space-between;
+  }
+  .qc .stat-hero .label{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--qcg40);margin-bottom:8px;font-weight:700;}
+  .qc .stat-hero .value{font-family:'Anton',sans-serif;font-size:clamp(38px,6vw,64px);line-height:1;}
+  .qc .stat-hero .sub{font-family:'Fraunces',serif;font-style:italic;color:var(--qcg40);font-size:14px;margin-top:6px;}
+
+  .qc .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .qc .returns-table, .qc .ie-table{width:100%;min-width:460px;border-collapse:collapse;}
+  .qc .returns-table th, .qc .ie-table th{
+    text-align:right;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--qcg60);
+    padding:10px 16px;border-bottom:2px solid var(--qcblack);font-weight:700;
+  }
+  .qc .returns-table th:first-child, .qc .ie-table th:first-child{text-align:left;}
+  .qc .returns-table td, .qc .ie-table td{
+    padding:13px 16px;border-bottom:1px solid var(--qcg10);font-size:14.5px;text-align:right;font-weight:600;
+  }
+  .qc .returns-table td:first-child, .qc .ie-table td:first-child{
+    text-align:left;font-weight:700;text-transform:uppercase;font-size:12.5px;letter-spacing:0.5px;color:var(--qcg80);
+  }
+  .qc .returns-table tr:nth-child(even) td, .qc .ie-table tr:nth-child(even) td{background:var(--qcg05);}
+  .qc .row-strong td{font-weight:800;background:var(--qcg10) !important;}
+  .qc .pos{color:var(--qcpos);}
+  .qc .neg{color:var(--qcneg);}
+  .qc .ie-section-title{
+    font-family:'Anton',sans-serif;font-size:16px;text-transform:uppercase;margin:28px 0 10px;letter-spacing:0.5px;
+  }
+
+  .qc .assump-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:8px;}
+
+  .qc .footer-cta{
+    background:var(--qcblack);color:var(--qcwhite);padding:48px 40px;text-align:left;
+    clip-path:polygon(0 8%,100% 0,100% 100%,0 100%);
+    margin-top:20px;
+  }
+  .qc .footer-cta .logo{margin-bottom:20px;}
+  .qc .footer-cta h3{font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;margin:0 0 8px;}
+  .qc .footer-cta p{color:var(--qcg40);font-size:13px;margin:2px 0;}
+  .qc .footer-cta .contact{margin-top:18px;font-size:12.5px;letter-spacing:0.5px;color:var(--qcg60);}
+
+  .qc .reset-row{display:flex;justify-content:flex-end;margin-bottom:8px;}
+  .qc .reset-btn{
+    background:var(--qcwhite);border:1px solid var(--qcg20);color:var(--qcg80);
+    padding:8px 16px;font-family:'Archivo',sans-serif;font-weight:700;font-size:11.5px;
+    letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+  }
+  .qc .reset-btn:hover{border-color:var(--qcblack);color:var(--qcblack);}
+
+  .qc .action-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:12px;}
+  .qc .email-inline{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+  .qc .email-inline input[type=email]{
+    border:1px solid var(--qcg20);background:var(--qcwhite);padding:9px 12px;
+    font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;width:210px;
+    text-align:left;
+  }
+  .qc .email-note{
+    font-family:'Fraunces',serif;font-style:italic;font-size:12px;color:var(--qcg60);
+    margin:-2px 0 20px;max-width:640px;
+  }
+
+  .qc .bedbath{display:flex;align-items:center;gap:4px;font-size:12.5px;font-weight:600;color:var(--qcblack);}
+  .qc .bedbath input[type=number]{width:34px;flex:0 0 34px;text-align:center;font-size:13px;padding:0;}
+  .qc .bedbath span{color:var(--qcg60);font-weight:700;font-size:11px;}
+  .qc .unit-actions{display:flex;gap:10px;align-items:center;}
+  .qc .remove-unit-btn{
+    display:inline-flex;align-items:center;gap:8px;background:var(--qcwhite);color:var(--qcblack);
+    border:1px solid var(--qcg20);padding:10px 18px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12.5px;
+    letter-spacing:1px;text-transform:uppercase;cursor:pointer;
+  }
+  .qc .remove-unit-btn:hover{border-color:var(--qcblack);}
+  .qc .remove-unit-btn:disabled{opacity:0.4;cursor:not-allowed;}
+  .qc .auto-note{display:block;font-size:10.5px;font-weight:500;letter-spacing:0.3px;color:var(--qcg60);text-transform:none;margin-top:2px;}
+  .qc .auto-note a{color:var(--qcg80);text-decoration:underline;cursor:pointer;font-weight:700;}
+
+  .qc .toggle-group{display:flex;border:1px solid var(--qcg20);}
+  .qc .toggle-group button{
+    flex:1;background:var(--qcwhite);border:none;padding:6px 14px;font-family:'Archivo',sans-serif;
+    font-weight:700;font-size:12.5px;cursor:pointer;color:var(--qcg80);
+  }
+  .qc .toggle-group button.active{background:var(--qcblack);color:var(--qcwhite);}
+
+  .qc .note{font-size:11.5px;color:var(--qcg60);font-style:italic;font-family:'Fraunces',serif;margin-top:10px;}
+
+  
+  .qc .tip-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:15px;height:15px;border-radius:50%;border:1px solid var(--qcg40);
+    background:var(--qcwhite);color:var(--qcg80);font-size:9px;font-weight:800;
+    font-family:'Archivo',sans-serif;cursor:pointer;margin-left:6px;
+    vertical-align:middle;line-height:1;padding:0;flex:none;
+    text-transform:none;letter-spacing:normal;font-style:normal;
+  }
+  .qc .tip-btn:hover, .qc .tip-btn.open{background:var(--qcblack);color:var(--qcwhite);border-color:var(--qcblack);}
+  .qc .tip-btn-dark{background:transparent;border-color:var(--qcg60);color:var(--qcwhite);}
+  .qc .tip-btn-dark:hover, .qc .tip-btn-dark.open{background:var(--qcwhite);color:var(--qcblack);border-color:var(--qcwhite);}
+  .qc #globalTip{
+    position:fixed;max-width:250px;background:var(--qcblack);color:var(--qcwhite);
+    font-family:'Archivo',sans-serif;font-weight:500;font-size:12.5px;line-height:1.45;
+    padding:11px 13px;border-radius:2px;box-shadow:0 10px 28px rgba(0,0,0,0.3);
+    z-index:9999;display:none;text-align:left;text-transform:none;letter-spacing:0;
+  }
+  .qc #globalTip.show{display:block;}
+
+  
+  @media print{
+    @page{ margin:0.5in; }
+    .qc{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .qc .action-row, .qc .email-note, .qc .reset-btn, .qc .add-unit-btn, .qc .remove-unit-btn, .qc .rm-btn, .qc .tip-btn, .qc #globalTip, .qc .auto-note a{ display:none !important; }
+    .qc .hero{ clip-path:none; }
+    .qc section.block{ break-inside:avoid; page-break-inside:avoid; }
+    .qc .footer-cta{ break-inside:avoid; page-break-inside:avoid; clip-path:none; }
+    .qc .units-table, .qc .card, .qc .returns-table, .qc .ie-table{ break-inside:avoid; }
+    .qc input[type=number], .qc input[type=text]{
+      border:none !important; background:transparent !important; color:var(--qcblack) !important;
+    }
+    .qc .toggle-group{ border:none; }
+    .qc .toggle-group button{ border:1px solid var(--qcg20); background:transparent !important; color:var(--qcg40) !important; }
+    .qc .toggle-group button.active{ border:1px solid var(--qcblack); background:transparent !important; color:var(--qcblack) !important; font-weight:800; }
+  }
+
+  /* ══ Site-chrome fit + gate ══ */
+  .qc{max-width:1080px;margin:0 auto;}
+  .qc .hero{padding-top:calc(56px + 48px);}
+  .qc-logo-inv{filter:invert(1);}
+  .qc .footer-cta .contact a{color:var(--qcwhite);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);}
+  .qc .qc-toolnote{font-size:12px;line-height:1.55;color:var(--qcg60);max-width:56ch;}
+  .qc .qc-tools{display:flex;gap:10px;flex-wrap:wrap;}
+  .qc .qc-cta-btns{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 18px;}
+  .qc .qc-cta-btn{display:inline-flex;align-items:center;padding:12px 22px;border:1px solid rgba(255,255,255,.35);color:var(--qcwhite);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s;}
+  .qc .qc-cta-btn:hover{background:rgba(255,255,255,.12);}
+  .qc .qc-cta-primary{background:var(--qcwhite);color:var(--qcblack);border-color:var(--qcwhite);}
+  .qc .qc-cta-primary:hover{background:var(--qcg20);color:var(--qcblack);}
+
+  .qc .qc-gatewrap{position:relative;}
+  .qc .qc-gated{filter:blur(7px);opacity:.5;pointer-events:none;user-select:none;max-height:560px;overflow:hidden;transition:filter .35s ease,opacity .35s ease;}
+  .qc .qc-gatewrap.is-open .qc-gated{filter:none;opacity:1;pointer-events:auto;user-select:auto;max-height:none;overflow:visible;}
+  .qc .qc-gateform[hidden]{display:none !important;}
+  .qc .qc-gateform{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;padding:60px 20px 0;z-index:5;}
+  .qc .qc-gate-card{background:var(--qcwhite);border:1px solid var(--qcg20);box-shadow:0 24px 60px rgba(0,0,0,.16);padding:32px 30px 26px;max-width:440px;width:100%;position:sticky;top:90px;}
+  .qc .qc-gate-kicker{font-size:10.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--qcpos);margin-bottom:10px;}
+  .qc .qc-gate-card h3{font-family:'Anton',sans-serif;font-weight:400;font-size:26px;line-height:1.08;text-transform:uppercase;margin:0 0 10px;}
+  .qc .qc-gate-dek{font-size:13.5px;line-height:1.6;color:var(--qcg80);margin:0 0 20px;}
+  .qc .qc-f2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .qc .qc-field{display:block;margin-bottom:12px;}
+  .qc .qc-field span{display:block;font-size:10.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--qcg60);margin-bottom:5px;}
+  .qc .qc-field input{width:100%;padding:11px 12px;border:1px solid var(--qcg20);border-radius:0;font-family:'Archivo',sans-serif;font-size:14.5px;color:var(--qcblack);background:var(--qcwhite);}
+  .qc .qc-field input:focus{outline:none;border-color:var(--qcblack);}
+  .qc .qc-submit{width:100%;margin-top:6px;padding:15px 18px;background:var(--qcblack);color:var(--qcwhite);border:none;font-family:'Archivo',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;transition:opacity .2s;}
+  .qc .qc-submit:hover{opacity:.85;}
+  .qc .qc-submit:disabled{opacity:.5;cursor:default;}
+  .qc .qc-error{display:none;font-size:12.5px;color:var(--qcneg);margin:2px 0 8px;}
+  .qc .qc-error.show{display:block;}
+  .qc .qc-gate-fine{font-size:11px;line-height:1.5;color:var(--qcg60);margin:12px 0 0;text-align:center;}
+  .qc .qc-gate-success{background:var(--qcg05);border-left:3px solid var(--qcpos);padding:14px 18px;margin:0 40px 24px;font-size:13.5px;line-height:1.6;color:var(--qcg80);}
+  .qc .qc-gate-success strong{color:var(--qcpos);}
+  .qc .amre-optin{margin:14px 0 4px;display:flex;gap:9px;align-items:flex-start;font-size:11px;line-height:1.5;color:var(--qcg60);}
+  .qc .amre-optin input{margin-top:2px;flex:0 0 auto;}
+  .qc .amre-optin.is-bad{outline:2px solid var(--qcneg);outline-offset:4px;}
+  @media(max-width:600px){
+    .qc .qc-f2{grid-template-columns:1fr;}
+    .qc .qc-gate-card{padding:24px 20px 20px;}
+    .qc .qc-gateform{padding-top:28px;}
+    .qc .qc-gate-success{margin:0 20px 20px;}
+  }
+  @media print{
+    .qc .qc-gateform{display:none !important;}
+    .qc .qc-gate-success{display:none !important;}
+    .qc .qc-gated{filter:none !important;opacity:1 !important;max-height:none !important;overflow:visible !important;}
+    .qc .qc-gatewrap:not(.is-open) .qc-gated{display:none !important;}
+    .qc .qc-cta-btns{display:none !important;}
+  }
+
+  /* qc-overflow-fix */
+  .qc{overflow-x:hidden;}
+  .qc .hero,.qc .footer-cta,.qc .content{max-width:100%;}
+
+  .qc .qc-disclaimer{border-top:1px solid var(--qcg20);}
+  .qc .qc-disc-inner{padding:26px 40px 46px;}
+  .qc .qc-disc-inner p{font-size:11.5px;line-height:1.75;color:var(--qcg60);margin:0 0 12px;}
+  .qc .qc-disc-inner strong{color:var(--qcg80);}
+  @media(max-width:600px){.qc .qc-disc-inner{padding:22px 20px 36px;}}
+
+  /* fixes 2026-08-14: full-bleed bands, wider address field, inline tips */
+  .qc{max-width:none;}
+  .qc .wrap{max-width:none;}
+  .qc .hero-inner{max-width:1000px;margin:0 auto;}
+  .qc .content{max-width:1080px;margin:0 auto;}
+  .qc .footer-cta .fc-inner{max-width:1000px;margin:0 auto;}
+  .qc .qc-disclaimer{max-width:none;}
+  .qc .qc-disc-inner{max-width:1080px;margin:0 auto;}
+
+  .qc .addr-row{align-items:stretch;}
+  .qc .addr-field{flex:1 1 260px;}
+  .qc .addr-field.addr-main{flex:2.4 1 460px;}
+  .qc .addr-field input[type=text]{width:100%;text-align:left;text-overflow:ellipsis;}
+
+  .qc .field-row .flabel{display:flex;align-items:center;flex-wrap:wrap;gap:0;min-width:0;}
+  .qc .field-row .flabel > .tip-btn{flex:0 0 auto;order:1;}
+  .qc .field-row .flabel > .fsub,
+  .qc .field-row .flabel > .auto-note{flex:1 0 100%;order:2;margin-top:2px;}
+  .qc .units-head > div{display:flex;align-items:center;min-width:0;}
+  .qc .units-head > div > .tip-btn{flex:0 0 auto;}
+
+  .qc #cashout-section .block-head .desc{max-width:none;}
+  @media (max-width:1100px){ .qc #cashout-section .block-head .desc{max-width:640px;} }
+
+  /* ── print gate + print sheet quality (2026-08-14) ── */
+  .qc .print-val{display:none;}
+  .qc .qc-printhead{display:none;}
+  .qc #printBtn.is-locked{background:var(--qcwhite);color:var(--qcg80);border:1px solid var(--qcg20);}
+  .qc #printBtn.is-locked:hover{border-color:var(--qcblack);color:var(--qcblack);background:var(--qcwhite);}
+
+  @media print{
+    /* values print formatted, inputs hidden */
+    .qc input[type=number]{display:none !important;}
+    .qc .print-val{display:inline !important;font-family:'Archivo',sans-serif;font-weight:700;font-size:15px;color:var(--qcblack);}
+    .qc .addr-field input::placeholder{color:transparent !important;}
+    .qc .addr-field.pf-empty{display:none !important;}
+
+    /* prepared-by header */
+    .qc .qc-printhead{display:flex !important;justify-content:space-between;align-items:flex-end;gap:20px;
+      border-bottom:1px solid var(--qcg20);padding:0 0 10px;margin:0 0 22px;font-size:10.5px;line-height:1.5;
+      letter-spacing:.5px;text-transform:uppercase;color:var(--qcg60);}
+    .qc .qc-printhead .ph-l{font-weight:700;color:var(--qcblack);}
+    .qc .qc-printhead .ph-r{text-align:right;}
+
+    /* ink-safe: no reliance on background graphics */
+    .qc .hero{background:#fff !important;color:#000 !important;border-bottom:2px solid #000;padding:0 0 18px !important;margin-bottom:18px;}
+    .qc .hero .kicker,.qc .hero p.tag{color:#444 !important;}
+    .qc-logo-inv{filter:none !important;}
+    .qc .addr-row{margin-top:0 !important;box-shadow:none !important;}
+    .qc .addr-field{box-shadow:none !important;}
+    .qc .stat-hero{background:#fff !important;color:#000 !important;border:1px solid #000;}
+    .qc .stat-hero .value{color:#000 !important;}
+    .qc .units-head{background:#fff !important;color:#000 !important;border-bottom:2px solid #000;}
+    .qc .footer-cta{background:#fff !important;color:#000 !important;border-top:2px solid #000;clip-path:none;}
+    .qc .footer-cta h3{color:#000 !important;}
+    .qc .footer-cta p{color:#444 !important;}
+    .qc .footer-cta .contact,.qc .footer-cta .contact a{color:#000 !important;border-bottom:none !important;}
+    #site-nav-mount, #site-drawer-mount, .site-nav, .site-drawer, .site-footer{display:none !important;}
+    .qc .addr-field{flex:1 1 45% !important;min-width:0 !important;}
+  }
+
+</style>
+<style>
+
+  /* PORTFOLIO UNDERWRITER - additions */
+  .qc .pf-select{
+    border:1px solid var(--qcg20);background:var(--qcwhite);outline:none;
+    font-family:'Archivo',sans-serif;font-weight:700;font-size:13.5px;color:var(--qcblack);
+    padding:7px 9px;max-width:230px;cursor:pointer;
+  }
+  .qc .pf-select:focus-visible{outline:2px solid var(--qcblack);outline-offset:1px;}
+  .qc .pf-select-wide{max-width:none;width:100%;font-weight:600;}
+
+  .qc .pf-strip{display:flex;flex-wrap:wrap;border:1px solid var(--qcg20);margin-top:24px;}
+  .qc .pf-strip > div{flex:1 1 160px;padding:16px 18px;border-right:1px solid var(--qcg20);}
+  .qc .pf-strip > div:last-child{border-right:none;}
+  .qc .pf-strip .k{font-size:10.5px;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--qcg60);font-weight:700;margin-bottom:5px;}
+  .qc .pf-strip .v{font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;
+    letter-spacing:-.01em;font-variant-numeric:tabular-nums;}
+  .qc .pf-strip .v.neg{color:var(--qcneg);}
+  .qc .pf-strip .v.pos{color:var(--qcpos);}
+  @media(max-width:640px){.qc .pf-strip > div{flex:1 1 50%;border-bottom:1px solid var(--qcg20);}}
+
+  .qc .pf-tiles{display:grid;grid-template-columns:repeat(4,1fr);
+    gap:1px;background:var(--qcg20);border:1px solid var(--qcg20);}
+  @media(max-width:900px){.qc .pf-tiles{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:460px){.qc .pf-tiles{grid-template-columns:1fr;}}
+  .qc .pf-tile{background:var(--qcwhite);padding:24px 22px;display:flex;flex-direction:column;gap:5px;}
+  .qc .pf-tile.is-dark{background:var(--qcblack);}
+  .qc .pf-tile .k{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;
+    color:var(--qcg60);font-weight:700;}
+  .qc .pf-tile.is-dark .k{color:var(--qcg40);}
+  .qc .pf-tile .v{font-family:'Anton',sans-serif;font-size:clamp(21px,2.7vw,31px);
+    line-height:1.05;letter-spacing:0;font-variant-numeric:tabular-nums;
+    overflow-wrap:anywhere;}
+  .qc .pf-tile.is-dark .v{color:var(--qcwhite);}
+  .qc .pf-tile .v.neg{color:var(--qcneg);}
+  .qc .pf-tile .s{font-family:'Fraunces',serif;font-style:italic;font-size:13px;color:var(--qcg60);}
+  .qc .pf-tile.is-dark .s{color:var(--qcg40);}
+
+  .qc .pf-table{width:100%;min-width:640px;border-collapse:collapse;font-variant-numeric:tabular-nums;}
+  .qc .pf-table th{text-align:right;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--qcg60);padding:10px 14px;border-bottom:2px solid var(--qcblack);font-weight:700;white-space:nowrap;}
+  .qc .pf-table th:first-child{text-align:left;}
+  .qc .pf-table td{padding:11px 14px;border-bottom:1px solid var(--qcg10);font-size:13.5px;
+    text-align:right;font-weight:600;white-space:nowrap;}
+  .qc .pf-table td:first-child{text-align:left;font-weight:700;text-transform:uppercase;
+    font-size:12px;letter-spacing:.4px;color:var(--qcg80);}
+  .qc .pf-table tr:last-child td{border-bottom:none;}
+  .qc .pf-table .row-strong td{font-weight:800;background:var(--qcg10) !important;}
+  .qc .pf-table .row-rule td{border-top:2px solid var(--qcblack);}
+  .qc .pf-table td.neg{color:var(--qcneg);}
+
+  .qc .pf-sens td:first-child{background:var(--qcg05);}
+  .qc .pf-sens td.hit{background:var(--qcpos);color:var(--qcwhite);font-weight:800;}
+  .qc .pf-sens td.mid{background:#e8f2ec;}
+  .qc .pf-sens td.base{outline:2px solid var(--qcblack);outline-offset:-2px;}
+
+  .qc .pf-split{margin-top:26px;border:1px solid var(--qcg20);padding:22px 22px 18px;}
+  .qc .pf-split .sp-h{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;
+    color:var(--qcg60);font-weight:700;margin-bottom:16px;}
+  .qc .pf-split .sp-row{display:flex;align-items:center;gap:14px;margin-bottom:11px;}
+  .qc .pf-split .sp-name{flex:0 0 168px;font-size:12.5px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.4px;color:var(--qcg80);}
+  .qc .pf-split .sp-track{flex:1;height:16px;background:var(--qcg10);min-width:60px;}
+  .qc .pf-split .sp-fill{height:100%;background:var(--qcblack);}
+  .qc .pf-split .sp-fill.alt{background:var(--qcg40);}
+  .qc .pf-split .sp-val{flex:0 0 116px;text-align:right;font-weight:800;font-size:14px;
+    font-variant-numeric:tabular-nums;}
+  @media(max-width:600px){
+    .qc .pf-split .sp-name{flex:0 0 100px;font-size:11px;}
+    .qc .pf-split .sp-val{flex:0 0 92px;font-size:12.5px;}
+  }
+
+  .qc .pf-flag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:1.2px;
+    text-transform:uppercase;padding:3px 8px;margin-left:8px;vertical-align:2px;}
+  .qc .pf-flag.ok{background:var(--qcpos);color:#fff;}
+  .qc .pf-flag.bad{background:var(--qcneg);color:#fff;}
+  .qc .pf-flag.warn{background:var(--qcg80);color:#fff;}
+
+  @media print{
+    .qc .pf-tiles{grid-template-columns:repeat(4,1fr) !important;}
+    .qc .pf-tile.is-dark{background:#fff !important;border:1px solid #000;}
+    .qc .pf-tile.is-dark .v{color:#000 !important;}
+    .qc .pf-tile.is-dark .k,.qc .pf-tile.is-dark .s{color:#444 !important;}
+    .qc .pf-sens td.hit{background:#fff !important;color:#000 !important;
+      outline:2px solid #000;outline-offset:-2px;}
+    .qc .pf-sens td.mid{background:#f0f0f0 !important;}
+    .qc .pf-table{min-width:0 !important;font-size:10px;}
+    .qc .pf-table td,.qc .pf-table th{padding:5px 6px;font-size:10px;}
+    .qc .pf-select{border:none;padding:0;}
+    .qc .scroll-hint{display:none !important;}
+  }
+
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TM5NWVRD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="site-nav-mount"></div>
+<div id="site-drawer-mount"></div>
+
+
+<main class="qc">
+
+<div id="globalTip"></div>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <img class="logo qc-logo-inv" src="/cash-and-flow/assets/cashflow-ink.png" alt="Cash &amp; Flow" width="360" height="36">
+      <div class="kicker">Institutional Worksheet</div>
+      <h1>Portfolio Underwriter</h1>
+      <p class="tag">5 to 50 units. Agency debt sizing, DSCR, debt yield and hold-period IRR &mdash; the way a lender and an allocator will look at it.</p>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="addr-row">
+      <div class="addr-field addr-main">
+        <label>Property Address</label>
+        <input id="propAddress" type="text" value="" placeholder="123 Sample St, Los Angeles, CA" />
+      </div>
+      <div class="addr-field">
+        <label>Prepared For</label>
+        <input id="preparedFor" type="text" value="" placeholder="Full Name" />
+      </div>
+    </div>
+
+    <div class="qc-printhead" aria-hidden="true">
+      <div class="ph-l"><span id="phFor"></span></div>
+      <div class="ph-r">AMRE Real Estate Group at Compass &middot; 323.719.8585 &middot; team@amre.group<br><span id="phDate"></span></div>
+    </div>
+
+    <div class="action-row">
+      <div class="qc-toolnote">Change any input &mdash; every return recalculates instantly. Nothing you type here is sent anywhere until you ask for the full underwrite.</div>
+      <div class="qc-tools">
+        <button class="add-unit-btn is-locked" id="printBtn" type="button">Unlock to print the full underwrite</button>
+        <button class="reset-btn" id="resetBtn">Reset to defaults</button>
+      </div>
+    </div>
+
+    <!-- THE ASSET -->
+    <section class="block" id="asset-section">
+      <div class="block-head">
+        <h2>The Asset</h2>
+        <div class="rule"></div>
+        <div class="desc">Price, unit count and vintage. Year built drives LA rent-stabilization exposure, which caps how fast in-place rents can move.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="field-row">
+            <div class="flabel">Purchase Price<button class="tip-btn" type="button" data-tip="The agreed sale price, before financing and closing costs.">i</button></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="price" value="4200000" min="0" step="10000"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Number of Units<button class="tip-btn" type="button" data-tip="Total rentable units. This calculator is built for 5+ unit properties, which are financed as commercial assets rather than residential.">i</button></div>
+            <div class="input-affix"><input type="number" id="units" value="12" min="2" max="200" step="1"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Year Built<button class="tip-btn" type="button" data-tip="Buildings with a certificate of occupancy before Oct 1, 1978 fall under the LA Rent Stabilization Ordinance (RSO), which limits annual increases on sitting tenants.">i</button><span class="fsub" id="rsoSub">&nbsp;</span></div>
+            <div class="input-affix"><input type="number" id="yearBuilt" value="1962" min="1850" max="2030" step="1"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Closing &amp; Diligence Costs<button class="tip-btn" type="button" data-tip="One-time costs to close: loan fees, legal, title, third-party reports, inspections. Added to equity for return math.">i</button><span class="fsub" id="closingSub">2.0% of price</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="closingCosts" value="84000" min="0" step="1000"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Upfront CapEx / Reno Budget<button class="tip-btn" type="button" data-tip="Money spent at or shortly after close to reposition the asset. Counts as equity, not an operating expense.">i</button></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="capex" value="0" min="0" step="5000"></div>
+          </div>
+        </div>
+
+        <div class="stat-hero" style="margin-bottom:0;align-items:center;">
+          <div>
+            <div class="label">Price Per Unit<button class="tip-btn tip-btn-dark" type="button" data-tip="Purchase price divided by unit count &mdash; the first number any multifamily broker or lender will quote back to you.">i</button></div>
+            <div class="value" id="ppuOut">$0</div>
+            <div class="sub" id="ppuSub">&mdash;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCOME -->
+    <section class="block" id="income-section">
+      <div class="block-head">
+        <h2>Income</h2>
+        <div class="rule"></div>
+        <div class="desc">In-place rent is what the property collects today. Market rent is what it would collect fully turned over &mdash; the gap is your value-add, and how fast you can close it is the whole game on a rent-stabilized asset.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="field-row">
+            <div class="flabel">Avg In-Place Rent<button class="tip-btn" type="button" data-tip="Average actual monthly rent per unit today, from the rent roll.">i</button><span class="fsub">per unit / month</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="rentIn" value="1850" min="0" step="25"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Avg Market Rent<button class="tip-btn" type="button" data-tip="What a turned, renovated unit rents for today at market. The spread to in-place rent is the upside.">i</button><span class="fsub" id="spreadSub">&nbsp;</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="rentMkt" value="2600" min="0" step="25"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Years to Reach Market<button class="tip-btn" type="button" data-tip="How long it takes to trend in-place rents up to market through natural turnover and renovation. On an RSO building this is slow &mdash; 5 to 8 years is realistic. On a post-1978 building, 2 to 3.">i</button></div>
+            <div class="input-affix"><input type="number" id="yearsToMkt" value="6" min="1" max="20" step="1"><span class="affix">yr</span></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Other Income<button class="tip-btn" type="button" data-tip="Parking, laundry, storage, pet rent and utility reimbursement (RUBS), per unit per month.">i</button><span class="fsub">per unit / month</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="otherInc" value="45" min="0" step="5"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Vacancy &amp; Credit Loss<button class="tip-btn" type="button" data-tip="Lost income from empty units, non-payment and concessions, as a percent of gross scheduled income. LA multifamily typically underwrites 3-5%.">i</button></div>
+            <div class="input-affix"><input type="number" id="vacancy" value="4" min="0" max="40" step="0.5"><span class="affix">%</span></div>
+          </div>
+        </div>
+
+        <div class="stat-hero" style="margin-bottom:0;align-items:center;">
+          <div>
+            <div class="label">Effective Gross Income<button class="tip-btn tip-btn-dark" type="button" data-tip="Gross scheduled rent plus other income, less vacancy and credit loss. Year one, at in-place rents.">i</button></div>
+            <div class="value" id="egiOut">$0</div>
+            <div class="sub" id="egiSub">&mdash;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPERATING EXPENSES -->
+    <section class="block" id="opex-section">
+      <div class="block-head">
+        <h2>Operating Expenses</h2>
+        <div class="rule"></div>
+        <div class="desc">Per-unit defaults are LA-typical for a 1960s walk-up. A lender will underwrite its own numbers &mdash; and will not accept an expense ratio far below 35%.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="field-row">
+            <div class="flabel">Property Tax<button class="tip-btn" type="button" data-tip="California reassesses to the purchase price on sale. 1.25% of price is the LA County working number including direct assessments. Proposition 13 then caps growth at 2% per year.">i</button><span class="fsub" id="taxSub">of purchase price</span></div>
+            <div class="input-affix"><input type="number" id="taxPct" value="1.25" min="0" max="5" step="0.01"><span class="affix">%</span></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Insurance<button class="tip-btn" type="button" data-tip="Property and liability insurance, per unit per year. California multifamily premiums have risen sharply &mdash; verify with a broker quote, do not assume.">i</button><span class="fsub">per unit / year</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="insUnit" value="750" min="0" step="25"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Repairs &amp; Maintenance<button class="tip-btn" type="button" data-tip="Ongoing turn costs, plumbing, electrical, landscaping and general upkeep, per unit per year.">i</button><span class="fsub">per unit / year</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="maintUnit" value="900" min="0" step="25"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Utilities<button class="tip-btn" type="button" data-tip="Owner-paid water, sewer, trash, gas and common-area power, per unit per year. Master-metered buildings run far higher.">i</button><span class="fsub">per unit / year</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="utilUnit" value="1100" min="0" step="25"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Replacement Reserves<button class="tip-btn" type="button" data-tip="Annual set-aside for roofs, boilers and long-lived systems. Agency lenders require a reserve &mdash; typically $250-$300 per unit per year.">i</button><span class="fsub">per unit / year</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="resUnit" value="275" min="0" step="25"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Admin, Legal &amp; Other<button class="tip-btn" type="button" data-tip="Licenses, LA business tax, RSO registration, accounting, legal and software, per unit per year.">i</button><span class="fsub">per unit / year</span></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="adminUnit" value="325" min="0" step="25"></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Property Management<button class="tip-btn" type="button" data-tip="Third-party management fee as a percent of effective gross income. 4-6% is standard on LA multifamily of this size.">i</button><span class="fsub">of effective gross income</span></div>
+            <div class="input-affix"><input type="number" id="mgmtPct" value="5" min="0" max="20" step="0.25"><span class="affix">%</span></div>
+          </div>
+        </div>
+
+        <div class="stat-hero" style="margin-bottom:0;align-items:center;">
+          <div>
+            <div class="label">Net Operating Income<button class="tip-btn tip-btn-dark" type="button" data-tip="Effective gross income less operating expenses. Excludes debt service and capital expenditure by convention &mdash; this is the number the cap rate is built on.">i</button></div>
+            <div class="value" id="noiOut">$0</div>
+            <div class="sub" id="noiSub">&mdash;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-strip" id="opexStrip"></div>
+    </section>
+
+    <!-- DEBT -->
+    <section class="block" id="debt-section">
+      <div class="block-head">
+        <h2>Debt</h2>
+        <div class="rule"></div>
+        <div class="desc">A commercial loan is sized by the <em>lesser</em> of two constraints &mdash; the loan-to-value cap and the debt-service coverage floor. On a low-cap LA asset, coverage almost always binds first, which is why buyers are surprised by how much equity a deal needs.</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <div class="field-row">
+            <div class="flabel">Loan Program<button class="tip-btn" type="button" data-tip="Presets fill in a current market rate. Rates shown are indicative for September 2026 and move daily &mdash; confirm with your lender.">i</button></div>
+            <div class="input-affix">
+              <select id="loanProgram" class="pf-select">
+                <option value="6.15" data-ltv="80" data-dscr="1.25">Freddie Mac SBL &mdash; 6.15%</option>
+                <option value="6.20" data-ltv="80" data-dscr="1.25">Fannie Mae small balance &mdash; 6.20%</option>
+                <option value="5.90" data-ltv="80" data-dscr="1.25">Freddie Mac large balance &mdash; 5.90%</option>
+                <option value="5.80" data-ltv="80" data-dscr="1.25">Fannie Mae large balance &mdash; 5.80%</option>
+                <option value="6.25" data-ltv="75" data-dscr="1.25">Bank / portfolio &mdash; 6.25%</option>
+                <option value="6.77" data-ltv="75" data-dscr="1.30">CMBS &mdash; 6.77%</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Interest Rate<button class="tip-btn" type="button" data-tip="Annual fixed coupon. Agency loans price off the corresponding Treasury plus a spread.">i</button></div>
+            <div class="input-affix"><input type="number" id="rate" value="6.15" min="0" max="20" step="0.01"><span class="affix">%</span></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Max Loan-to-Value<button class="tip-btn" type="button" data-tip="The lender's ceiling as a percent of purchase price. Agencies go to 80% on purchases, but coverage usually caps the loan below that.">i</button></div>
+            <div class="input-affix"><input type="number" id="ltv" value="70" min="0" max="90" step="1"><span class="affix">%</span></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Minimum DSCR<button class="tip-btn" type="button" data-tip="Debt service coverage ratio floor &mdash; net operating income divided by annual debt service. 1.25x is the standard agency minimum; the loan is sized down until this is met.">i</button></div>
+            <div class="input-affix"><input type="number" id="dscrMin" value="1.25" min="1" max="2" step="0.01"><span class="affix">&times;</span></div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Amortization<button class="tip-btn" type="button" data-tip="The schedule the payment is calculated on. Agency loans commonly amortize over 30 years with a 5, 7 or 10 year term, leaving a balloon at maturity.">i</button></div>
+            <div class="toggle-group" id="amortToggle">
+              <button data-years="25">25 YR</button>
+              <button data-years="30" class="active">30 YR</button>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="flabel">Interest-Only Period<button class="tip-btn" type="button" data-tip="Years of interest-only payments before amortization begins. Boosts early cash flow and IRR; builds no equity.">i</button></div>
+            <div class="input-affix"><input type="number" id="ioYears" value="1" min="0" max="10" step="1"><span class="affix">yr</span></div>
+          </div>
+        </div>
+
+        <div class="stat-hero" style="margin-bottom:0;align-items:center;">
+          <div>
+            <div class="label">Debt Service Coverage<button class="tip-btn tip-btn-dark" type="button" data-tip="Year-one net operating income divided by annual debt service. Below the lender's floor, the loan gets cut.">i</button></div>
+            <div class="value" id="dscrOut">0.00&times;</div>
+            <div class="sub" id="dscrSub">&mdash;</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-strip" id="debtStrip"></div>
+      <div class="note" id="bindNote"></div>
+    </section>
+
+    <!-- YEAR ONE -->
+    <section class="block" id="returns-section">
+      <div class="block-head">
+        <h2>Year One</h2>
+        <div class="rule"></div>
+        <div class="desc">What the deal does in its first twelve months, at in-place rents and the loan the lender will actually write.</div>
+      </div>
+      <div class="pf-tiles" id="y1Tiles"></div>
+    </section>
+
+    <div class="qc-gatewrap" id="gateWrap">
+      <div class="qc-gate-success" id="qcSuccess" hidden>
+        <strong>Unlocked.</strong> A copy of this underwrite is on its way to <span id="qcSentTo"></span>. Change any input above and everything below updates live.
+      </div>
+
+      <div class="qc-gated" id="gatedZone" aria-hidden="true">
+
+        <section class="block" id="exit-section">
+          <div class="block-head">
+            <h2>Hold &amp; Exit</h2>
+            <div class="rule"></div>
+            <div class="desc">Cash flow is the floor; the exit is where most of the return lives. Underwriting an exit cap tighter than your going-in cap is the single most common way a pro forma lies.</div>
+          </div>
+          <div class="grid2">
+            <div class="card">
+              <div class="field-row">
+                <div class="flabel">Hold Period<button class="tip-btn" type="button" data-tip="Years until sale. Match this to your loan term so you are not selling into a prepayment penalty.">i</button></div>
+                <div class="input-affix"><input type="number" id="hold" value="7" min="1" max="30" step="1"><span class="affix">yr</span></div>
+              </div>
+              <div class="field-row">
+                <div class="flabel">Market Rent Growth<button class="tip-btn" type="button" data-tip="Annual growth in market rents, on top of closing the in-place to market gap. LA long-run average is roughly 3%.">i</button></div>
+                <div class="input-affix"><input type="number" id="rentGrowth" value="3" min="-5" max="15" step="0.25"><span class="affix">%</span></div>
+              </div>
+              <div class="field-row">
+                <div class="flabel">Expense Growth<button class="tip-btn" type="button" data-tip="Annual growth in operating expenses. Property tax is grown separately at 2% under Proposition 13.">i</button></div>
+                <div class="input-affix"><input type="number" id="expGrowth" value="3" min="-5" max="15" step="0.25"><span class="affix">%</span></div>
+              </div>
+              <div class="field-row">
+                <div class="flabel">Exit Cap Rate<button class="tip-btn" type="button" data-tip="The cap rate a buyer pays at sale, applied to the following year's net operating income. Underwriting 25-50 basis points above your going-in cap is the disciplined convention.">i</button><span class="fsub" id="capSpreadSub">&nbsp;</span></div>
+                <div class="input-affix"><input type="number" id="exitCap" value="5.25" min="1" max="15" step="0.05"><span class="affix">%</span></div>
+              </div>
+              <div class="field-row">
+                <div class="flabel">Cost of Sale<button class="tip-btn" type="button" data-tip="Brokerage, transfer tax, escrow and legal at disposition. Los Angeles Measure ULA adds 4% above $5.15M and 5.5% above $10.3M &mdash; check the current thresholds.">i</button></div>
+                <div class="input-affix"><input type="number" id="saleCost" value="5" min="0" max="15" step="0.25"><span class="affix">%</span></div>
+              </div>
+            </div>
+
+            <div class="stat-hero" style="margin-bottom:0;align-items:center;">
+              <div>
+                <div class="label">Levered IRR<button class="tip-btn tip-btn-dark" type="button" data-tip="The annualized return on your equity across the full hold, counting every year's cash flow and the net proceeds at sale.">i</button></div>
+                <div class="value" id="irrOut">&mdash;</div>
+                <div class="sub" id="irrSub">&mdash;</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="block" id="proj-section">
+          <div class="block-head">
+            <h2>Cash Flow Projection</h2>
+            <div class="rule"></div>
+            <div class="desc">Year by year, with in-place rents trending to market over your lease-up assumption and property tax growing at the Proposition 13 cap.</div>
+          </div>
+          <div class="table-scroll">
+            <table class="pf-table" id="projTable">
+              <thead id="projHead"></thead>
+              <tbody id="projBody"></tbody>
+            </table>
+          </div>
+          <div class="scroll-hint">&larr; Swipe the table sideways to see every year &rarr;</div>
+        </section>
+
+        <section class="block" id="profit-section">
+          <div class="block-head">
+            <h2>Exit &amp; Total Return</h2>
+            <div class="rule"></div>
+            <div class="desc">What the equity turns into, and where the return actually comes from.</div>
+          </div>
+          <div class="pf-tiles" id="exitTiles"></div>
+          <div class="pf-split" id="attrib"></div>
+        </section>
+
+        <section class="block" id="sens-section">
+          <div class="block-head">
+            <h2>Sensitivity</h2>
+            <div class="rule"></div>
+            <div class="desc">Levered IRR across exit cap and rent growth. The honest question is not what the deal returns if you are right &mdash; it is what it returns if you are wrong.</div>
+          </div>
+          <div class="table-scroll">
+            <table class="pf-table pf-sens" id="sensTable">
+              <thead id="sensHead"></thead>
+              <tbody id="sensBody"></tbody>
+            </table>
+          </div>
+          <div class="scroll-hint">&larr; Swipe the table sideways &rarr;</div>
+          <div class="note">Shaded cells clear a 15% levered IRR. Every other input is held at the values you set above.</div>
+        </section>
+
+      </div>
+
+      <div class="qc-gateform" id="gateForm">
+        <div class="qc-gate-card">
+          <div class="qc-gate-kicker">Full underwrite</div>
+          <h3>See the hold-period return</h3>
+          <p class="qc-gate-dek">Levered IRR, equity multiple, the year-by-year cash flow projection and the exit-cap sensitivity grid. Enter your email and we&rsquo;ll unlock it here <em>and</em> send you a copy of this exact underwrite.</p>
+          <form id="qcLeadForm" novalidate>
+            <div class="qc-f2">
+              <label class="qc-field"><span>First name *</span><input type="text" name="first_name" id="qcFirst" autocomplete="given-name" required></label>
+              <label class="qc-field"><span>Last name</span><input type="text" name="last_name" id="qcLast" autocomplete="family-name"></label>
+            </div>
+            <label class="qc-field"><span>Email *</span><input type="email" name="email" id="qcEmail" autocomplete="email" required></label>
+            <label class="qc-field"><span>Phone</span><input type="tel" name="phone" id="qcPhone" autocomplete="tel" placeholder="Optional &mdash; for a call-back on this deal"></label>
+            <label class="qc-field"><span>Where are you in this?</span>
+              <select name="investor_type" id="qcType" class="pf-select pf-select-wide">
+                <option value="">Select one &mdash; optional</option>
+                <option>Buying my first 5+ unit property</option>
+                <option>Adding to a portfolio I already own</option>
+                <option>Deploying capital for others (fund, family office, syndication)</option>
+                <option>Advisor, lender or broker</option>
+              </select>
+            </label>
+            <div class="qc-error" id="qcError" role="alert"></div>
+            <button type="submit" class="qc-submit amre-submit" id="qcSubmit"><span class="amre-btn-text">Unlock &amp; email me the underwrite</span></button>
+            <p class="qc-gate-fine">One email. No spam, no drip campaign &mdash; unsubscribe any time.</p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-cta">
+   <div class="fc-inner">
+    <img class="logo qc-logo-inv" src="/cash-and-flow/assets/cashflow-ink.png" alt="Cash &amp; Flow" width="360" height="36">
+    <h3>Bring us the rent roll</h3>
+    <p>This models the deal. We&rsquo;ll verify it &mdash; actual rent roll, actual T-12, actual RSO exposure &mdash; and tell you what we think it&rsquo;s worth.</p>
+    <div class="qc-cta-btns">
+      <a class="qc-cta-btn qc-cta-primary" href="/contact/">Have AMRE underwrite a deal &rarr;</a>
+      <a class="qc-cta-btn" href="/cash-and-flow/calculator/">Smaller deal? Use the Quick Calc</a>
+    </div>
+    <div class="contact">
+      <a href="mailto:team@amre.group">team@amre.group</a> &nbsp;/&nbsp; <a href="tel:3237198585">323.719.8585</a>
+    </div>
+   </div>
+  </div>
+
+</div>
+
+  <div class="qc-disclaimer">
+    <div class="qc-disc-inner">
+      <p><strong>How to read this.</strong> Every figure is an estimate you control. Defaults are LA-typical starting points for a 1960s walk-up, not an appraisal: property tax at 1.25% of price growing at the Proposition 13 cap of 2%, management at 5% of effective gross income, reserves at $275 per unit per year. Loan program rates are indicative for September 2026 and move daily. The loan is sized at the lesser of your loan-to-value cap and the amount your year-one net operating income supports at the minimum coverage ratio &mdash; which is how a real lender will size it. Net operating income excludes debt service and capital expenditure by convention.</p>
+      <p>All rents, financing terms, and returns shown are estimates for illustrative purposes only and do not constitute investment, tax, or legal advice. This is not an offer to sell or a solicitation of an offer to buy any security. Broker/Agent does not guarantee the accuracy of square footage, lot size, rent roll, or other property information; buyer is advised to verify all information independently with appropriate professionals. AMRE Real Estate Group at Compass &middot; DRE #02242095. Information deemed reliable but not guaranteed.</p>
+    </div>
+  </div>
+</main>
+
+<!-- SITE FOOTER (recolored charcoal) -->
+<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
+  <meta itemprop="name" content="AMRE Real Estate Group">
+  <meta itemprop="telephone" content="+13237198585">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logos">
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
+        <div class="footer-sep"></div>
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
+      </div>
+      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
+    </div>
+    <div>
+      <div class="footer-col-head">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="/sellers/">Sellers</a></li>
+        <li><a href="/buyers/">Buyers</a></li>
+        <li><a href="/cash-and-flow/">Cash &amp; Flow</a></li>
+        <li><a href="/about/">Team</a></li>
+        <li><a href="/blog/">Journal</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Services</div>
+      <ul class="footer-links">
+        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
+        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
+        <li><a href="/buyers/">Buyer Advisory</a></li>
+        <li><a href="/#contact">Investment Advisory</a></li>
+        <li><a href="/tools/investor-calculator/">Investor Calculator</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Connect</div>
+      <ul class="footer-links">
+        <li><a href="tel:3237198585">(323) 719-8585</a></li>
+        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
+        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
+    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
+  </div>
+</footer>
+<div class="site-footer-disclosure-bar">
+  <div class="site-footer-disclosure">
+    <p class="site-footer-disclosure-text">
+      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
+    </p>
+    <div class="site-footer-disclosure-eho">
+      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  const el = id => document.getElementById(id);
+  const num = id => { const v = parseFloat(el(id).value); return isNaN(v) ? 0 : v; };
+
+  const EMAILJS_PUBLIC_KEY    = 'yWt3TMJ6ysOrH3vH1';
+  const EMAILJS_SERVICE_ID    = 'service_rvg801y';
+  const EMAILJS_TEMPLATE_USER = 'template_11moffh';
+  const EMAILJS_TEMPLATE_LEAD = 'template_9hj0rb7';
+  const UNLOCK_KEY = 'amre_cf_portfolio_unlocked';
+
+  try { if (typeof emailjs !== 'undefined') emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch(e){}
+
+  const DEFAULTS = {
+    price:4200000, units:12, yearBuilt:1962, closingCosts:84000, capex:0,
+    rentIn:1850, rentMkt:2600, yearsToMkt:6, otherInc:45, vacancy:4,
+    taxPct:1.25, insUnit:750, maintUnit:900, utilUnit:1100, resUnit:275,
+    adminUnit:325, mgmtPct:5,
+    rate:6.15, ltv:70, dscrMin:1.25, ioYears:1,
+    hold:7, rentGrowth:3, expGrowth:3, exitCap:5.25, saleCost:5
+  };
+  let amortYears = 30;
+
+  const m0  = n => (n<0?'-':'') + '$' + Math.round(Math.abs(n)).toLocaleString('en-US');
+  const pct = (n,d) => (isFinite(n) ? n.toFixed(d===undefined?2:d) + '%' : '—');
+  const x2  = n => (isFinite(n) ? n.toFixed(2) + '×' : '—');
+
+  function pmtMonthly(annualRatePct, years, principal){
+    const r = annualRatePct/100/12, n = years*12;
+    if(principal<=0) return 0;
+    if(r === 0) return principal/n;
+    return principal * r / (1 - Math.pow(1+r, -n));
+  }
+  function loanConstant(annualRatePct, years){
+    return pmtMonthly(annualRatePct, years, 1) * 12;
+  }
+  function balanceAfter(annualRatePct, years, principal, monthsPaid){
+    const r = annualRatePct/100/12;
+    if(principal<=0) return 0;
+    if(monthsPaid<=0) return principal;
+    const p = pmtMonthly(annualRatePct, years, principal);
+    if(r === 0) return Math.max(0, principal - p*monthsPaid);
+    const g = Math.pow(1+r, monthsPaid);
+    return Math.max(0, principal*g - p*(g-1)/r);
+  }
+  function irr(flows){
+    const npv = r => flows.reduce((s,cf,i) => s + cf/Math.pow(1+r,i), 0);
+    let lo = -0.9499, hi = 4;
+    if(npv(lo) * npv(hi) > 0) return NaN;
+    for(let i=0;i<200;i++){
+      const mid = (lo+hi)/2;
+      if(npv(lo)*npv(mid) <= 0) hi = mid; else lo = mid;
+    }
+    return (lo+hi)/2 * 100;
+  }
+
+  function inputs(){
+    return {
+      price:num('price'), units:Math.max(1,num('units')), yearBuilt:num('yearBuilt'),
+      closingCosts:num('closingCosts'), capex:num('capex'),
+      rentIn:num('rentIn'), rentMkt:num('rentMkt'),
+      yearsToMkt:Math.max(1,num('yearsToMkt')), otherInc:num('otherInc'),
+      vacancy:num('vacancy'), taxPct:num('taxPct'), insUnit:num('insUnit'),
+      maintUnit:num('maintUnit'), utilUnit:num('utilUnit'), resUnit:num('resUnit'),
+      adminUnit:num('adminUnit'), mgmtPct:num('mgmtPct'),
+      rate:num('rate'), ltv:num('ltv'), dscrMin:num('dscrMin'),
+      ioYears:num('ioYears'), amort:amortYears,
+      hold:Math.max(1,num('hold')), rentGrowth:num('rentGrowth'),
+      expGrowth:num('expGrowth'), exitCap:num('exitCap'), saleCost:num('saleCost')
+    };
+  }
+
+  function year(i, t, rentGrowth){
+    const g  = 1 + rentGrowth/100;
+    const eg = 1 + i.expGrowth/100;
+    const trend = Math.min((t-1)/i.yearsToMkt, 1);
+    const rent  = (i.rentIn + (i.rentMkt - i.rentIn)*trend) * Math.pow(g, t-1);
+    const gsi   = rent * i.units * 12;
+    const other = i.otherInc * i.units * 12 * Math.pow(g, t-1);
+    const egi   = (gsi + other) * (1 - i.vacancy/100);
+    const tax   = i.price * i.taxPct/100 * Math.pow(1.02, t-1);
+    const fixed = (i.insUnit + i.maintUnit + i.utilUnit + i.resUnit + i.adminUnit)
+                  * i.units * Math.pow(eg, t-1);
+    const mgmt  = egi * i.mgmtPct/100;
+    const opex  = tax + fixed + mgmt;
+    return { rent, gsi, other, egi, tax, fixed, mgmt, opex, noi: egi - opex };
+  }
+
+  function model(i, rentGrowthOverride, exitCapOverride){
+    const rg = (rentGrowthOverride === undefined) ? i.rentGrowth : rentGrowthOverride;
+    const ec = (exitCapOverride  === undefined) ? i.exitCap    : exitCapOverride;
+
+    const y1 = year(i, 1, rg);
+    const goingInCap = i.price > 0 ? y1.noi / i.price * 100 : 0;
+
+    const k        = loanConstant(i.rate, i.amort);
+    const ltvLoan  = i.price * i.ltv/100;
+    const dscrLoan = (i.dscrMin > 0 && k > 0) ? (y1.noi / i.dscrMin) / k : 0;
+    const loan     = Math.max(0, Math.min(ltvLoan, dscrLoan));
+    const binding  = dscrLoan < ltvLoan ? 'dscr' : 'ltv';
+
+    const amortDS  = loan * k;
+    const ioDS     = loan * i.rate/100;
+    const dsFor    = t => (t <= i.ioYears ? ioDS : amortDS);
+
+    const equity   = i.price - loan + i.closingCosts + i.capex;
+    const dscr1    = amortDS > 0 ? y1.noi / amortDS : Infinity;
+    const debtYield= loan > 0 ? y1.noi / loan * 100 : 0;
+    const cf1      = y1.noi - dsFor(1);
+    const coc1     = equity > 0 ? cf1 / equity * 100 : 0;
+
+    const rows = [];
+    for(let t=1; t<=i.hold; t++){
+      const y = year(i, t, rg);
+      const ds = dsFor(t);
+      rows.push(Object.assign({}, y, { t: t, ds: ds, cf: y.noi - ds }));
+    }
+
+    const yExit    = year(i, i.hold + 1, rg);
+    const gross    = ec > 0 ? yExit.noi / (ec/100) : 0;
+    const amortMos = Math.max(0, (i.hold - i.ioYears)) * 12;
+    const balance  = balanceAfter(i.rate, i.amort, loan, amortMos);
+    const netSale  = gross * (1 - i.saleCost/100) - balance;
+
+    const flows = [-equity];
+    rows.forEach((r,idx) => flows.push(r.cf + (idx === rows.length-1 ? netSale : 0)));
+    const theIRR = irr(flows);
+
+    const cumCF   = rows.reduce((s,r) => s + r.cf, 0);
+    const profit  = cumCF + netSale - equity;
+    const multiple= equity > 0 ? (cumCF + netSale) / equity : 0;
+
+    const valueCreation = gross*(1 - i.saleCost/100) - i.price;
+    const paydown       = loan - balance;
+
+    return { y1:y1, goingInCap:goingInCap, loan:loan, ltvLoan:ltvLoan, dscrLoan:dscrLoan,
+             binding:binding, amortDS:amortDS, ioDS:ioDS, dsFor:dsFor,
+             equity:equity, dscr1:dscr1, debtYield:debtYield, cf1:cf1, coc1:coc1,
+             rows:rows, yExit:yExit, gross:gross, balance:balance,
+             netSale:netSale, irr: theIRR, cumCF:cumCF, profit:profit, multiple:multiple,
+             valueCreation:valueCreation, paydown:paydown,
+             actualLtv: i.price>0 ? loan/i.price*100 : 0 };
+  }
+
+  function tile(k, v, s, dark, neg){
+    return '<div class="pf-tile' + (dark?' is-dark':'') + '"><div class="k">' + k +
+           '</div><div class="v' + (neg?' neg':'') + '">' + v + '</div>' +
+           (s ? '<div class="s">' + s + '</div>' : '') + '</div>';
+  }
+
+  function render(){
+    const i = inputs();
+    const M = model(i);
+
+    el('ppuOut').textContent = m0(i.units>0 ? i.price/i.units : 0);
+    el('ppuSub').textContent = i.units + ' units at ' + m0(i.price);
+    const rso = i.yearBuilt > 0 && i.yearBuilt < 1979;
+    el('rsoSub').innerHTML = rso
+      ? '<span style="color:#b3241c;font-weight:700">Likely RSO &mdash; rent increases capped</span>'
+      : 'Post-1978 &mdash; likely exempt from LA RSO';
+    el('closingSub').textContent = i.price>0
+      ? (i.closingCosts/i.price*100).toFixed(2) + '% of price' : '—';
+
+    el('egiOut').textContent = m0(M.y1.egi);
+    el('egiSub').textContent = m0(M.y1.egi/i.units) + ' per unit / year';
+    const spread = i.rentMkt - i.rentIn;
+    el('spreadSub').innerHTML = spread > 0
+      ? m0(spread) + '/mo below market &mdash; ' + m0(spread*i.units*12) + '/yr of upside'
+      : 'At or above market';
+
+    el('noiOut').textContent = m0(M.y1.noi);
+    el('noiSub').textContent = pct(M.goingInCap) + ' going-in cap rate';
+    const ratio = M.y1.egi>0 ? M.y1.opex/M.y1.egi*100 : 0;
+    el('opexStrip').innerHTML =
+      '<div><div class="k">Total Operating Expenses</div><div class="v">' + m0(M.y1.opex) + '</div></div>' +
+      '<div><div class="k">Expense Ratio</div><div class="v' + (ratio<32?' neg':'') + '">' + pct(ratio,1) +
+        (ratio<32 ? '<span class="pf-flag bad">Thin</span>' : '') + '</div></div>' +
+      '<div><div class="k">Per Unit / Year</div><div class="v">' + m0(M.y1.opex/i.units) + '</div></div>' +
+      '<div><div class="k">Going-In Cap</div><div class="v">' + pct(M.goingInCap) + '</div></div>';
+
+    el('dscrOut').textContent = x2(M.dscr1);
+    el('dscrSub').textContent = 'Sized on the amortizing payment of ' + m0(M.amortDS) + '/yr';
+    el('debtStrip').innerHTML =
+      '<div><div class="k">Loan Amount</div><div class="v">' + m0(M.loan) + '</div></div>' +
+      '<div><div class="k">Actual LTV</div><div class="v">' + pct(M.actualLtv,1) + '</div></div>' +
+      '<div><div class="k">Year 1 Debt Service</div><div class="v">' + m0(M.dsFor(1)) +
+        (i.ioYears > 0 ? '<span class="pf-flag warn">Interest only</span>' : '') + '</div></div>' +
+      '<div><div class="k">Debt Yield</div><div class="v' + (M.debtYield<8?' neg':'') + '">' + pct(M.debtYield,1) + '</div></div>' +
+      '<div><div class="k">Equity Required</div><div class="v">' + m0(M.equity) + '</div></div>';
+
+    el('bindNote').innerHTML = M.binding === 'dscr'
+      ? 'Coverage is binding. At ' + i.ltv + '% LTV the lender would advance ' + m0(M.ltvLoan) +
+        ', but year-one NOI only supports ' + m0(M.dscrLoan) + ' at a ' + i.dscrMin.toFixed(2) +
+        '× floor &mdash; so the loan is cut to that, and you bring ' + m0(M.equity) + ' of equity.'
+      : 'Loan-to-value is binding. Coverage would support ' + m0(M.dscrLoan) + ', so the ' + i.ltv +
+        '% LTV cap of ' + m0(M.ltvLoan) + ' sets the loan. There is coverage headroom here.';
+
+    el('y1Tiles').innerHTML =
+      tile('Net Operating Income', m0(M.y1.noi), pct(M.goingInCap) + ' cap on price') +
+      tile('Cash Flow After Debt', m0(M.cf1), m0(M.cf1/12) + ' per month', false, M.cf1<0) +
+      tile('Cash-on-Cash', pct(M.coc1), 'on ' + m0(M.equity) + ' equity', false, M.coc1<0) +
+      tile('Equity Required', m0(M.equity), 'down, closing and capex', true);
+
+    el('capSpreadSub').textContent =
+      (i.exitCap - M.goingInCap >= 0 ? '+' : '') +
+      Math.round((i.exitCap - M.goingInCap)*100) + ' bps vs. going-in cap';
+    el('irrOut').textContent = isFinite(M.irr) ? pct(M.irr,1) : '—';
+    el('irrSub').textContent = x2(M.multiple) + ' equity multiple over ' + i.hold + ' years';
+
+    const yrs = M.rows.map(r => r.t);
+    el('projHead').innerHTML = '<tr><th>Year</th>' +
+      yrs.map(t => '<th>' + t + '</th>').join('') + '</tr>';
+    const line = (label, fn, strong, rule) =>
+      '<tr class="' + (strong?'row-strong ':'') + (rule?'row-rule':'') + '"><td>' + label + '</td>' +
+      M.rows.map(r => '<td' + (fn(r)<0 ? ' class="neg"' : '') + '>' + m0(fn(r)) + '</td>').join('') + '</tr>';
+    el('projBody').innerHTML =
+      line('Gross Scheduled Rent', r => r.gsi) +
+      line('Other Income',        r => r.other) +
+      line('Vacancy &amp; Credit', r => -((r.gsi + r.other) * i.vacancy/100)) +
+      line('Effective Gross Income', r => r.egi, true) +
+      line('Property Tax',        r => -r.tax) +
+      line('Management',          r => -r.mgmt) +
+      line('Other Operating',     r => -r.fixed) +
+      line('Net Operating Income', r => r.noi, true, true) +
+      line('Debt Service',        r => -r.ds) +
+      line('Cash Flow', r => r.cf, true, true) +
+      '<tr><td>Avg Rent / Unit</td>' +
+        M.rows.map(r => '<td>' + m0(r.rent) + '</td>').join('') + '</tr>';
+
+    el('exitTiles').innerHTML =
+      tile('Levered IRR', isFinite(M.irr)?pct(M.irr,1):'—', i.hold + '-year hold', true, false) +
+      tile('Equity Multiple', x2(M.multiple), 'on ' + m0(M.equity)) +
+      tile('Sale Price', m0(M.gross), 'year ' + (i.hold+1) + ' NOI at ' + pct(i.exitCap)) +
+      tile('Net Sale Proceeds', m0(M.netSale), 'after cost of sale and loan payoff');
+
+    const parts = [
+      ['Cumulative cash flow', M.cumCF, false],
+      ['Value creation',       M.valueCreation, false],
+      ['Principal paydown',    M.paydown, true],
+      ['Closing &amp; capex',  -(i.closingCosts + i.capex), true]
+    ];
+    const scale = Math.max.apply(null, parts.map(p => Math.abs(p[1])).concat([1]));
+    el('attrib').innerHTML = '<div class="sp-h">Where the profit comes from</div>' +
+      parts.map(p =>
+        '<div class="sp-row"><div class="sp-name">' + p[0] + '</div>' +
+        '<div class="sp-track"><div class="sp-fill' + (p[2]?' alt':'') + '" style="width:' +
+          (Math.abs(p[1])/scale*100).toFixed(1) + '%"></div></div>' +
+        '<div class="sp-val">' + m0(p[1]) + '</div></div>').join('') +
+      '<div class="sp-row" style="margin-top:16px;padding-top:14px;border-top:2px solid #000">' +
+        '<div class="sp-name">Total profit</div><div class="sp-track" style="background:none"></div>' +
+        '<div class="sp-val">' + m0(M.profit) + '</div></div>';
+
+    const caps = [-0.5,-0.25,0,0.25,0.5].map(d => +(i.exitCap + d).toFixed(2));
+    const grow = [-2,-1,0,1,2].map(d => +(i.rentGrowth + d).toFixed(2));
+    el('sensHead').innerHTML = '<tr><th>Exit cap \\ Rent growth</th>' +
+      grow.map(g => '<th>' + g.toFixed(2) + '%</th>').join('') + '</tr>';
+    el('sensBody').innerHTML = caps.map(c =>
+      '<tr><td>' + c.toFixed(2) + '%</td>' + grow.map(g => {
+        const r = model(i, g, c).irr;
+        const isBase = (Math.abs(c-i.exitCap)<1e-9 && Math.abs(g-i.rentGrowth)<1e-9);
+        const cls = (isFinite(r) && r>=15 ? 'hit' : (isFinite(r) && r>=10 ? 'mid' : '')) +
+                    (isBase ? ' base' : '');
+        return '<td class="' + cls.trim() + '">' + (isFinite(r) ? r.toFixed(1)+'%' : '—') + '</td>';
+      }).join('') + '</tr>').join('');
+
+    window.__pf = { i: i, M: M };
+  }
+
+  document.querySelectorAll('.qc input[type=number]').forEach(inp => {
+    inp.addEventListener('input', render);
+  });
+  el('propAddress').addEventListener('input', render);
+  el('preparedFor').addEventListener('input', render);
+
+  el('amortToggle').addEventListener('click', e => {
+    const b = e.target.closest('button[data-years]');
+    if(!b) return;
+    amortYears = parseInt(b.dataset.years, 10);
+    el('amortToggle').querySelectorAll('button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    render();
+  });
+
+  el('loanProgram').addEventListener('change', e => {
+    const o = e.target.selectedOptions[0];
+    if(!o || o.value === 'custom') return;
+    el('rate').value    = o.value;
+    el('ltv').value     = o.dataset.ltv;
+    el('dscrMin').value = o.dataset.dscr;
+    render();
+  });
+  el('rate').addEventListener('input', () => { el('loanProgram').value = 'custom'; });
+
+  el('resetBtn').addEventListener('click', () => {
+    Object.keys(DEFAULTS).forEach(k => { if(el(k)) el(k).value = DEFAULTS[k]; });
+    amortYears = 30;
+    el('amortToggle').querySelectorAll('button').forEach(x =>
+      x.classList.toggle('active', x.dataset.years === '30'));
+    el('loanProgram').value = '6.15';
+    el('propAddress').value = ''; el('preparedFor').value = '';
+    render();
+  });
+
+  const tipEl = el('globalTip');
+  let openTipBtn = null;
+  function showTip(btn){
+    tipEl.textContent = btn.getAttribute('data-tip') || '';
+    tipEl.classList.add('show');
+    tipEl.style.left = '0px'; tipEl.style.top = '0px';
+    const rect = btn.getBoundingClientRect(), tr = tipEl.getBoundingClientRect();
+    let left = rect.left, top = rect.bottom + 8;
+    const maxLeft = window.innerWidth - tr.width - 12;
+    if(left > maxLeft) left = Math.max(12, maxLeft);
+    if(left < 12) left = 12;
+    if(top + tr.height > window.innerHeight - 12) top = rect.top - tr.height - 8;
+    tipEl.style.left = left + 'px'; tipEl.style.top = top + 'px';
+  }
+  function hideTip(){
+    tipEl.classList.remove('show');
+    if(openTipBtn) openTipBtn.classList.remove('open');
+    openTipBtn = null;
+  }
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.tip-btn');
+    if(btn){
+      e.preventDefault(); e.stopPropagation();
+      if(openTipBtn === btn){ hideTip(); return; }
+      hideTip(); openTipBtn = btn; btn.classList.add('open'); showTip(btn);
+      return;
+    }
+    if(openTipBtn) hideTip();
+  });
+  window.addEventListener('scroll', hideTip, {passive:true});
+  window.addEventListener('resize', hideTip);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') hideTip(); });
+
+  const gateWrap = el('gateWrap');
+  function unlock(silent){
+    gateWrap.classList.add('is-open');
+    el('gateForm').hidden = true;
+    el('gatedZone').setAttribute('aria-hidden','false');
+    if(!silent) el('qcSuccess').hidden = false;
+    syncPrintBtn();
+  }
+  try { if(localStorage.getItem(UNLOCK_KEY) === '1') unlock(true); } catch(e){}
+
+  function fail(msg){ const e = el('qcError'); e.textContent = msg; e.classList.add('show'); }
+
+  function summaryParams(){
+    const d = window.__pf; if(!d) return {};
+    const i = d.i, M = d.M;
+    return {
+      purchase_price: m0(i.price),
+      unit_count:     String(i.units),
+      price_per_unit: m0(i.price/i.units),
+      noi:            m0(M.y1.noi),
+      cap_rate:       pct(M.goingInCap),
+      loan_amount:    m0(M.loan),
+      dscr:           x2(M.dscr1),
+      debt_yield:     pct(M.debtYield,1),
+      equity:         m0(M.equity),
+      annual_cf:      m0(M.cf1),
+      monthly_cf:     m0(M.cf1/12),
+      coc_return:     pct(M.coc1),
+      hold_years:     String(i.hold),
+      irr:            isFinite(M.irr) ? pct(M.irr,1) : 'n/a',
+      equity_multiple:x2(M.multiple),
+      exit_cap:       pct(i.exitCap),
+      net_sale:       m0(M.netSale),
+      total_profit:   m0(M.profit),
+      full_analysis:  buildSummary()
+    };
+  }
+  function buildSummary(){
+    const d = window.__pf; if(!d) return '';
+    const i = d.i, M = d.M;
+    const L = [];
+    L.push('PORTFOLIO UNDERWRITE — ' + (el('propAddress').value.trim() || 'Unspecified property'));
+    L.push('');
+    L.push('THE ASSET');
+    L.push('  Purchase price: ' + m0(i.price) + '  (' + i.units + ' units, ' + m0(i.price/i.units) + '/unit)');
+    L.push('  Year built: ' + i.yearBuilt + (i.yearBuilt < 1979 ? '  — likely LA RSO' : '  — likely RSO-exempt'));
+    L.push('');
+    L.push('YEAR ONE');
+    L.push('  Effective gross income: ' + m0(M.y1.egi));
+    L.push('  Operating expenses: ' + m0(M.y1.opex) + '  (' + (M.y1.opex/M.y1.egi*100).toFixed(1) + '% of EGI)');
+    L.push('  Net operating income: ' + m0(M.y1.noi));
+    L.push('  Going-in cap rate: ' + pct(M.goingInCap));
+    L.push('');
+    L.push('DEBT');
+    L.push('  Loan amount: ' + m0(M.loan) + '  (' + pct(M.actualLtv,1) + ' LTV, ' +
+           (M.binding === 'dscr' ? 'coverage-constrained' : 'LTV-constrained') + ')');
+    L.push('  Rate / amortization: ' + i.rate.toFixed(2) + '% over ' + i.amort + ' years, ' +
+           i.ioYears + ' yr interest-only');
+    L.push('  Annual debt service: ' + m0(M.dsFor(1)));
+    L.push('  DSCR: ' + x2(M.dscr1) + '   Debt yield: ' + pct(M.debtYield,1));
+    L.push('  Equity required: ' + m0(M.equity));
+    L.push('');
+    L.push('RETURNS');
+    L.push('  Year-one cash flow: ' + m0(M.cf1) + '  (' + pct(M.coc1) + ' cash-on-cash)');
+    L.push('  Hold period: ' + i.hold + ' years at ' + pct(i.rentGrowth) + ' rent growth');
+    L.push('  Exit cap: ' + pct(i.exitCap) + '   Sale price: ' + m0(M.gross));
+    L.push('  Net sale proceeds: ' + m0(M.netSale));
+    L.push('  Levered IRR: ' + (isFinite(M.irr) ? pct(M.irr,1) : 'n/a') +
+           '   Equity multiple: ' + x2(M.multiple));
+    L.push('  Total profit: ' + m0(M.profit));
+    L.push('');
+    L.push('Estimates only. Not investment, tax or legal advice.');
+    L.push('AMRE Real Estate Group at Compass — DRE #02242095');
+    return L.join('\n');
+  }
+
+  el('qcLeadForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    const first = el('qcFirst').value.trim();
+    const last  = el('qcLast').value.trim();
+    const email = el('qcEmail').value.trim();
+    const phone = el('qcPhone').value.trim();
+    const itype = el('qcType').value;
+
+    el('qcError').classList.remove('show');
+    if(!first){ fail('Please enter your first name.'); el('qcFirst').focus(); return; }
+    if(!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){
+      fail('Please enter a valid email address.'); el('qcEmail').focus(); return;
+    }
+
+    const btn = el('qcSubmit');
+    const btnText = btn.querySelector('.amre-btn-text');
+    btn.disabled = true; btnText.textContent = 'Sending…';
+
+    const templateParams = Object.assign({
+      to_name:    first,
+      to_email:   email,
+      reply_to:   email,
+      full_name:  (first + (last ? ' ' + last : '')).trim(),
+      first_name: first,
+      last_name:  last,
+      email:      email,
+      phone:      phone || 'Not provided',
+      investor_type: itype || 'Not provided',
+      property:   el('propAddress').value.trim() || 'Not specified',
+      address:    el('propAddress').value.trim() || 'Not specified',
+      message:    'Requested the full underwrite from the Cash & Flow Portfolio Underwriter.' +
+                  (itype ? ' Investor type: ' + itype + '.' : ''),
+      source:     'amre.group/cash-and-flow/calculator/portfolio/'
+    }, summaryParams());
+
+    try { localStorage.setItem(UNLOCK_KEY, '1'); } catch(e){}
+    el('qcSentTo').textContent = email;
+    unlock(false);
+    try {
+      if(window.dataLayer) window.dataLayer.push({
+        event:'cf_calc_unlock', form_source:'cash-and-flow-portfolio', investor_type: itype || 'unset'
+      });
+    } catch(e){}
+
+    if(typeof emailjs === 'undefined'){ console.warn('EmailJS unavailable'); return; }
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_USER, templateParams)
+      .then(function(){ return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD, templateParams); })
+      .catch(function(err){ console.error('EmailJS error:', err); });
+  });
+
+  function syncPrintBtn(){
+    const b = el('printBtn');
+    if(gateWrap.classList.contains('is-open')){
+      b.classList.remove('is-locked'); b.textContent = 'Print / Save as PDF';
+    } else {
+      b.classList.add('is-locked'); b.textContent = 'Unlock to print the full underwrite';
+    }
+  }
+  function preparePrint(){
+    document.querySelectorAll('.qc input[type=number]').forEach(function(inp){
+      let sp = inp.nextElementSibling;
+      if(!sp || !sp.classList || !sp.classList.contains('print-val')){
+        sp = document.createElement('span'); sp.className = 'print-val';
+        inp.parentNode.insertBefore(sp, inp.nextSibling);
+      }
+      const v = parseFloat(inp.value);
+      sp.textContent = isNaN(v) ? '—' : v.toLocaleString('en-US', {maximumFractionDigits:2});
+    });
+    const pf = el('preparedFor');
+    pf.closest('.addr-field').classList.toggle('pf-empty', !pf.value.trim());
+    el('phFor').textContent = pf.value.trim() ? 'Prepared for ' + pf.value.trim() : 'Portfolio underwrite';
+    el('phDate').textContent = new Date().toLocaleDateString('en-US',{month:'long', day:'numeric', year:'numeric'});
+  }
+  window.addEventListener('beforeprint', preparePrint);
+  el('printBtn').addEventListener('click', function(){
+    if(!gateWrap.classList.contains('is-open')){
+      el('gateForm').scrollIntoView({behavior:'smooth', block:'center'});
+      setTimeout(function(){ try{ el('qcFirst').focus(); }catch(e){} }, 450);
+      return;
+    }
+    preparePrint(); window.print();
+  });
+
+  syncPrintBtn();
+  render();
+})();
+</script>
+<script src="/assets/js/site-chrome.js"></script>
+</body>
+</html>
