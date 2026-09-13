@@ -185,7 +185,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
     --qcg10:#eeeeee;
     --qcg20:#dddddd;
     --qcg40:#b5b5b5;
-    --qcg60:#888888;
+    --qcg60:#666666;
     --qcg80:#444444;
     --qcpos:#0a7d3c;
     --qcneg:#b3241c;
@@ -640,11 +640,11 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <div class="card">
           <div class="field-row">
             <div class="flabel">Purchase Price<button class="tip-btn" type="button" data-tip="The agreed sale price of the property, before financing.">i</button></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="price" value="1000000" min="0" step="1000"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="price" value="1000000" min="0" step="1000" aria-label="Purchase Price ($)"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Down Payment<button class="tip-btn" type="button" data-tip="The portion of the price you pay upfront in cash, as a % of purchase price. The rest is financed with a loan.">i</button><span class="fsub" id="dpDollarSub">$0</span></div>
-            <div class="input-affix"><input type="number" id="downPct" value="20" min="0" max="100" step="0.5"><span class="affix">%</span></div>
+            <div class="input-affix"><input type="number" id="downPct" value="20" min="0" max="100" step="0.5" aria-label="Down Payment (%)"><span class="affix">%</span></div>
           </div>
           <div class="field-row">
             <div class="flabel">Amount Financed<button class="tip-btn" type="button" data-tip="Purchase price minus down payment — the loan principal you're borrowing.">i</button><span class="fsub" id="financedSub">calculated</span></div>
@@ -652,7 +652,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
           </div>
           <div class="field-row">
             <div class="flabel">Interest Rate<button class="tip-btn" type="button" data-tip="The annual interest rate on the loan, used to calculate your monthly payment.">i</button></div>
-            <div class="input-affix"><input type="number" id="rate" value="6.5" min="0" max="20" step="0.05"><span class="affix">%</span></div>
+            <div class="input-affix"><input type="number" id="rate" value="6.5" min="0" max="20" step="0.05" aria-label="Interest Rate (%)"><span class="affix">%</span></div>
           </div>
           <div class="field-row">
             <div class="flabel">Loan Term<button class="tip-btn" type="button" data-tip="The number of years over which the loan is fully amortized (fully paid off).">i</button></div>
@@ -663,7 +663,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
           </div>
           <div class="field-row">
             <div class="flabel">Closing / Upfront Costs<button class="tip-btn" type="button" data-tip="One-time costs to close the deal (fees, inspections, etc.). Added to your down payment to figure cash-on-cash return.">i</button><span class="fsub">for cash-on-cash calc</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="closingCosts" value="15000" min="0" step="500"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="closingCosts" value="15000" min="0" step="500" aria-label="Closing / Upfront Costs ($)"></div>
           </div>
         </div>
 
@@ -706,8 +706,8 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <div class="field-row">
           <div class="flabel">Miscellaneous Income / Mo<button class="tip-btn" type="button" data-tip="Extra monthly income outside of rent — laundry, parking, storage, pet fees, etc.">i</button> <span class="fsub">laundry, parking, storage, etc.</span></div>
           <div class="dual-values">
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="miscCur" value="50" min="0" step="5"></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="miscPro" value="50" min="0" step="5"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="miscCur" value="50" min="0" step="5" aria-label="Miscellaneous Income, Current ($/mo)"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="miscPro" value="50" min="0" step="5" aria-label="Miscellaneous Income, Pro Forma ($/mo)"></div>
           </div>
         </div>
         <div class="field-row">
@@ -732,29 +732,29 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <div class="card">
           <div class="field-row">
             <div class="flabel">Water &amp; Sewer<button class="tip-btn" type="button" data-tip="Prepopulates at $50 per unit per month, based on the number of units above — raise or lower it as needed for the actual property.">i</button><span class="auto-note" id="waterSewerNote"></span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="waterSewer" value="200" min="0" step="5"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="waterSewer" value="200" min="0" step="5" aria-label="Water and Sewer ($/mo)"></div>
           </div>
-          <div class="field-row"><div class="flabel">Gardener</div><div class="input-affix"><span class="affix">$</span><input type="number" id="gardener" value="100" min="0" step="5"></div></div>
-          <div class="field-row"><div class="flabel">Trash</div><div class="input-affix"><span class="affix">$</span><input type="number" id="trash" value="60" min="0" step="5"></div></div>
+          <div class="field-row"><div class="flabel">Gardener</div><div class="input-affix"><span class="affix">$</span><input type="number" id="gardener" value="100" min="0" step="5" aria-label="Gardener ($/mo)"></div></div>
+          <div class="field-row"><div class="flabel">Trash</div><div class="input-affix"><span class="affix">$</span><input type="number" id="trash" value="60" min="0" step="5" aria-label="Trash ($/mo)"></div></div>
           <div class="field-row">
             <div class="flabel">Electric<button class="tip-btn" type="button" data-tip="Often times tenants cover their own electric — but the landlord still typically pays for common-area electric (hallways, laundry room, exterior lighting, etc.).">i</button></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="electric" value="80" min="0" step="5"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="electric" value="80" min="0" step="5" aria-label="Electric ($/mo)"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Property Management<button class="tip-btn" type="button" data-tip="Prepopulates at 5% of gross scheduled rent — the LA norm for small multifamily. Raise or lower it to match your actual management agreement.">i</button><span class="auto-note" id="propMgmtNote"></span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="propMgmt" value="315" min="0" step="5"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="propMgmt" value="315" min="0" step="5" aria-label="Property Management ($/mo)"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Repairs<button class="tip-btn" type="button" data-tip="Estimated monthly budget set aside for repairs and general upkeep. On average, landlords budget $50–$200 per unit per month for repairs.">i</button></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="repairs" value="150" min="0" step="5"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="repairs" value="150" min="0" step="5" aria-label="Repairs ($/mo)"></div>
           </div>
         </div>
 
         <div class="card">
           <div class="field-row"><div class="flabel" style="font-weight:800;">Total Maintenance<button class="tip-btn" type="button" data-tip="The sum of all monthly upkeep costs — water/sewer, gardener, trash, electric, property management and repairs.">i</button></div><div class="input-affix"><b id="totalMaintOut">$0</b></div></div>
-          <div class="field-row"><div class="flabel">Insurance / Mo<button class="tip-btn" type="button" data-tip="Monthly cost of property (landlord) insurance.">i</button></div><div class="input-affix"><span class="affix">$</span><input type="number" id="insurance" value="120" min="0" step="5"></div></div>
-          <div class="field-row"><div class="flabel">Vacancy Rate<button class="tip-btn" type="button" data-tip="The % of rental income assumed lost to vacancy each year — applied to Gross Scheduled Income (GSI).">i</button> <span class="fsub">applied to GSI</span></div><div class="input-affix"><input type="number" id="vacancy" value="5" min="0" max="100" step="0.5"><span class="affix">%</span></div></div>
-          <div class="field-row"><div class="flabel">Property Tax Rate<button class="tip-btn" type="button" data-tip="Estimated annual property tax as a % of purchase price.">i</button> <span class="fsub">applied to price / yr</span></div><div class="input-affix"><input type="number" id="taxRate" value="1.25" min="0" max="10" step="0.05"><span class="affix">%</span></div></div>
+          <div class="field-row"><div class="flabel">Insurance / Mo<button class="tip-btn" type="button" data-tip="Monthly cost of property (landlord) insurance.">i</button></div><div class="input-affix"><span class="affix">$</span><input type="number" id="insurance" value="120" min="0" step="5" aria-label="Insurance ($/mo)"></div></div>
+          <div class="field-row"><div class="flabel">Vacancy Rate<button class="tip-btn" type="button" data-tip="The % of rental income assumed lost to vacancy each year — applied to Gross Scheduled Income (GSI).">i</button> <span class="fsub">applied to GSI</span></div><div class="input-affix"><input type="number" id="vacancy" value="5" min="0" max="100" step="0.5" aria-label="Vacancy Rate (%)"><span class="affix">%</span></div></div>
+          <div class="field-row"><div class="flabel">Property Tax Rate<button class="tip-btn" type="button" data-tip="Estimated annual property tax as a % of purchase price.">i</button> <span class="fsub">applied to price / yr</span></div><div class="input-affix"><input type="number" id="taxRate" value="1.25" min="0" max="10" step="0.05" aria-label="Property Tax Rate (%)"><span class="affix">%</span></div></div>
         </div>
       </div>
     </section>
@@ -782,7 +782,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <strong>Unlocked.</strong> A copy of this analysis is on its way to <span id="qcSentTo"></span>. Change any input above and the numbers below update live.
       </div>
 
-      <div class="qc-gated" id="gatedZone" aria-hidden="true">
+      <div class="qc-gated" id="gatedZone" aria-hidden="true" inert>
 
         <section class="block" id="pro-returns-section">
           <div class="block-head">
@@ -998,8 +998,8 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
           <input type="number" min="0" step="1" placeholder="_" data-idx="${i}" data-field="beds" value="${u.beds || ''}"><span>BR</span> /
           <input type="number" min="0" step="1" placeholder="_" data-idx="${i}" data-field="baths" value="${u.baths || ''}"><span>BA</span>
         </div>
-        <div class="input-affix"><span class="affix">$</span><input type="number" data-idx="${i}" data-field="cur" value="${u.cur}" min="0" step="10"></div>
-        <div class="input-affix"><span class="affix">$</span><input type="number" data-idx="${i}" data-field="pro" value="${u.pro}" min="0" step="10"></div>
+        <div class="input-affix"><span class="affix">$</span><input type="number" data-idx="${i}" data-field="cur" value="${u.cur}" min="0" step="10" aria-label="Unit ${i+1} current rent ($)"></div>
+        <div class="input-affix"><span class="affix">$</span><input type="number" data-idx="${i}" data-field="pro" value="${u.pro}" min="0" step="10" aria-label="Unit ${i+1} pro forma rent ($)"></div>
         <button class="rm-btn" data-idx="${i}" title="Remove unit">&times;</button>
       `;
       body.appendChild(row);
@@ -1335,6 +1335,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
   function unlock(silent){
     gateWrap.classList.add('is-open');
     el('gatedZone').setAttribute('aria-hidden','false');
+    el('gatedZone').removeAttribute('inert');
     el('gateForm').hidden = true;
     if(!silent) el('qcSuccess').hidden = false;
     try { syncPrintBtn(); } catch(e){}
