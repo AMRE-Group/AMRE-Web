@@ -677,7 +677,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TM5NWVRD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-TM5NWVRD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="site-nav-mount"></div>
 <div id="site-drawer-mount"></div>
@@ -702,11 +702,11 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
     <div class="addr-row">
       <div class="addr-field addr-main">
         <label>Property Address</label>
-        <input id="propAddress" type="text" value="" placeholder="123 Sample St, Los Angeles, CA" />
+        <input id="propAddress" type="text" value="" placeholder="123 Sample St, Los Angeles, CA"  aria-label="Property Address"/>
       </div>
       <div class="addr-field">
         <label>Prepared For</label>
-        <input id="preparedFor" type="text" value="" placeholder="Full Name" />
+        <input id="preparedFor" type="text" value="" placeholder="Full Name"  aria-label="Prepared For"/>
       </div>
     </div>
 
@@ -735,23 +735,23 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <div class="card">
           <div class="field-row">
             <div class="flabel">Purchase Price<button class="tip-btn" type="button" data-tip="The agreed sale price, before financing and closing costs.">i</button></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="price" value="4200000" min="0" step="10000"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="price" value="4200000" min="0" step="10000" aria-label="Purchase Price"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Number of Units<button class="tip-btn" type="button" data-tip="Total rentable units. This calculator is built for 5+ unit properties, which are financed as commercial assets rather than residential.">i</button></div>
-            <div class="input-affix"><input type="number" id="units" value="12" min="2" max="200" step="1"></div>
+            <div class="input-affix"><input type="number" id="units" value="12" min="2" max="200" step="1" aria-label="Number of Units"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Year Built<button class="tip-btn" type="button" data-tip="Buildings with a certificate of occupancy before Oct 1, 1978 fall under the LA Rent Stabilization Ordinance (RSO), which limits annual increases on sitting tenants.">i</button><span class="fsub" id="rsoSub">&nbsp;</span></div>
-            <div class="input-affix"><input type="number" id="yearBuilt" value="1962" min="1850" max="2030" step="1"></div>
+            <div class="input-affix"><input type="number" id="yearBuilt" value="1962" min="1850" max="2030" step="1" aria-label="Year Built"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Closing &amp; Diligence Costs<button class="tip-btn" type="button" data-tip="One-time costs to close: loan fees, legal, title, third-party reports, inspections. Added to equity for return math.">i</button><span class="fsub" id="closingSub">2.0% of price</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="closingCosts" value="84000" min="0" step="1000"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="closingCosts" value="84000" min="0" step="1000" aria-label="Closing & Diligence Costs"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Upfront CapEx / Reno Budget<button class="tip-btn" type="button" data-tip="Money spent at or shortly after close to reposition the asset. Counts as equity, not an operating expense.">i</button></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="capex" value="0" min="0" step="5000"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="capex" value="0" min="0" step="5000" aria-label="Upfront CapEx / Reno Budget"></div>
           </div>
         </div>
 
@@ -777,23 +777,23 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <div class="card">
           <div class="field-row">
             <div class="flabel">Avg In-Place Rent<button class="tip-btn" type="button" data-tip="Average actual monthly rent per unit today, from the rent roll.">i</button><span class="fsub">per unit / month</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="rentIn" value="1850" min="0" step="25"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="rentIn" value="1850" min="0" step="25" aria-label="Avg In-Place Rent"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Avg Market Rent<button class="tip-btn" type="button" data-tip="What a turned, renovated unit rents for today at market. The spread to in-place rent is the upside.">i</button><span class="fsub" id="spreadSub">&nbsp;</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="rentMkt" value="2600" min="0" step="25"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="rentMkt" value="2600" min="0" step="25" aria-label="Avg Market Rent"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Years to Reach Market<button class="tip-btn" type="button" data-tip="How long it takes to trend in-place rents up to market through natural turnover and renovation. On an RSO building this is slow &mdash; 5 to 8 years is realistic. On a post-1978 building, 2 to 3.">i</button></div>
-            <div class="input-affix"><input type="number" id="yearsToMkt" value="6" min="1" max="20" step="1"><span class="affix">yr</span></div>
+            <div class="input-affix"><input type="number" id="yearsToMkt" value="6" min="1" max="20" step="1" aria-label="Years to Reach Market"><span class="affix">yr</span></div>
           </div>
           <div class="field-row">
             <div class="flabel">Other Income<button class="tip-btn" type="button" data-tip="Parking, laundry, storage, pet rent and utility reimbursement (RUBS), per unit per month.">i</button><span class="fsub">per unit / month</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="otherInc" value="45" min="0" step="5"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="otherInc" value="45" min="0" step="5" aria-label="Other Income"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Vacancy &amp; Credit Loss<button class="tip-btn" type="button" data-tip="Lost income from empty units, non-payment and concessions, as a percent of gross scheduled income. LA multifamily typically underwrites 3-5%.">i</button></div>
-            <div class="input-affix"><input type="number" id="vacancy" value="4" min="0" max="40" step="0.5"><span class="affix">%</span></div>
+            <div class="input-affix"><input type="number" id="vacancy" value="4" min="0" max="40" step="0.5" aria-label="Vacancy & Credit Loss"><span class="affix">%</span></div>
           </div>
         </div>
 
@@ -819,31 +819,31 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
         <div class="card">
           <div class="field-row">
             <div class="flabel">Property Tax<button class="tip-btn" type="button" data-tip="California reassesses to the purchase price on sale. 1.25% of price is the LA County working number including direct assessments. Proposition 13 then caps growth at 2% per year.">i</button><span class="fsub" id="taxSub">of purchase price</span></div>
-            <div class="input-affix"><input type="number" id="taxPct" value="1.25" min="0" max="5" step="0.01"><span class="affix">%</span></div>
+            <div class="input-affix"><input type="number" id="taxPct" value="1.25" min="0" max="5" step="0.01" aria-label="Property Tax"><span class="affix">%</span></div>
           </div>
           <div class="field-row">
             <div class="flabel">Insurance<button class="tip-btn" type="button" data-tip="Property and liability insurance, per unit per year. California multifamily premiums have risen sharply &mdash; verify with a broker quote, do not assume.">i</button><span class="fsub">per unit / year</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="insUnit" value="750" min="0" step="25"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="insUnit" value="750" min="0" step="25" aria-label="Insurance"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Repairs &amp; Maintenance<button class="tip-btn" type="button" data-tip="Ongoing turn costs, plumbing, electrical, landscaping and general upkeep, per unit per year.">i</button><span class="fsub">per unit / year</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="maintUnit" value="900" min="0" step="25"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="maintUnit" value="900" min="0" step="25" aria-label="Repairs & Maintenance"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Utilities<button class="tip-btn" type="button" data-tip="Owner-paid water, sewer, trash, gas and common-area power, per unit per year. Master-metered buildings run far higher.">i</button><span class="fsub">per unit / year</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="utilUnit" value="1100" min="0" step="25"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="utilUnit" value="1100" min="0" step="25" aria-label="Utilities"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Replacement Reserves<button class="tip-btn" type="button" data-tip="Annual set-aside for roofs, boilers and long-lived systems. Agency lenders require a reserve &mdash; typically $250-$300 per unit per year.">i</button><span class="fsub">per unit / year</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="resUnit" value="275" min="0" step="25"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="resUnit" value="275" min="0" step="25" aria-label="Replacement Reserves"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Admin, Legal &amp; Other<button class="tip-btn" type="button" data-tip="Licenses, LA business tax, RSO registration, accounting, legal and software, per unit per year.">i</button><span class="fsub">per unit / year</span></div>
-            <div class="input-affix"><span class="affix">$</span><input type="number" id="adminUnit" value="325" min="0" step="25"></div>
+            <div class="input-affix"><span class="affix">$</span><input type="number" id="adminUnit" value="325" min="0" step="25" aria-label="Admin, Legal & Other"></div>
           </div>
           <div class="field-row">
             <div class="flabel">Property Management<button class="tip-btn" type="button" data-tip="Third-party management fee as a percent of effective gross income. 4-6% is standard on LA multifamily of this size.">i</button><span class="fsub">of effective gross income</span></div>
-            <div class="input-affix"><input type="number" id="mgmtPct" value="5" min="0" max="20" step="0.25"><span class="affix">%</span></div>
+            <div class="input-affix"><input type="number" id="mgmtPct" value="5" min="0" max="20" step="0.25" aria-label="Property Management"><span class="affix">%</span></div>
           </div>
         </div>
 
@@ -872,7 +872,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
           <div class="field-row">
             <div class="flabel">Loan Program<button class="tip-btn" type="button" data-tip="Presets fill in a current market rate. Rates shown are indicative for September 2026 and move daily &mdash; confirm with your lender.">i</button></div>
             <div class="input-affix">
-              <select id="loanProgram" class="pf-select">
+              <select id="loanProgram" class="pf-select" aria-label="Loan Program">
                 <option value="6.15" data-ltv="80" data-dscr="1.25">Freddie Mac SBL &mdash; 6.15%</option>
                 <option value="6.20" data-ltv="80" data-dscr="1.25">Fannie Mae small balance &mdash; 6.20%</option>
                 <option value="5.90" data-ltv="80" data-dscr="1.25">Freddie Mac large balance &mdash; 5.90%</option>
@@ -885,15 +885,15 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
           </div>
           <div class="field-row">
             <div class="flabel">Interest Rate<button class="tip-btn" type="button" data-tip="Annual fixed coupon. Agency loans price off the corresponding Treasury plus a spread.">i</button></div>
-            <div class="input-affix"><input type="number" id="rate" value="6.15" min="0" max="20" step="0.01"><span class="affix">%</span></div>
+            <div class="input-affix"><input type="number" id="rate" value="6.15" min="0" max="20" step="0.01" aria-label="Interest Rate"><span class="affix">%</span></div>
           </div>
           <div class="field-row">
             <div class="flabel">Max Loan-to-Value<button class="tip-btn" type="button" data-tip="The lender's ceiling as a percent of purchase price. Agencies go to 80% on purchases, but coverage usually caps the loan below that.">i</button></div>
-            <div class="input-affix"><input type="number" id="ltv" value="70" min="0" max="90" step="1"><span class="affix">%</span></div>
+            <div class="input-affix"><input type="number" id="ltv" value="70" min="0" max="90" step="1" aria-label="Max Loan-to-Value"><span class="affix">%</span></div>
           </div>
           <div class="field-row">
             <div class="flabel">Minimum DSCR<button class="tip-btn" type="button" data-tip="Debt service coverage ratio floor &mdash; net operating income divided by annual debt service. 1.25x is the standard agency minimum; the loan is sized down until this is met.">i</button></div>
-            <div class="input-affix"><input type="number" id="dscrMin" value="1.25" min="1" max="2" step="0.01"><span class="affix">&times;</span></div>
+            <div class="input-affix"><input type="number" id="dscrMin" value="1.25" min="1" max="2" step="0.01" aria-label="Minimum DSCR"><span class="affix">&times;</span></div>
           </div>
           <div class="field-row">
             <div class="flabel">Amortization<button class="tip-btn" type="button" data-tip="The schedule the payment is calculated on. Agency loans commonly amortize over 30 years with a 5, 7 or 10 year term, leaving a balloon at maturity.">i</button></div>
@@ -904,7 +904,7 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
           </div>
           <div class="field-row">
             <div class="flabel">Interest-Only Period<button class="tip-btn" type="button" data-tip="Years of interest-only payments before amortization begins. Boosts early cash flow and IRR; builds no equity.">i</button></div>
-            <div class="input-affix"><input type="number" id="ioYears" value="1" min="0" max="10" step="1"><span class="affix">yr</span></div>
+            <div class="input-affix"><input type="number" id="ioYears" value="1" min="0" max="10" step="1" aria-label="Interest-Only Period"><span class="affix">yr</span></div>
           </div>
         </div>
 
@@ -948,23 +948,23 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
             <div class="card">
               <div class="field-row">
                 <div class="flabel">Hold Period<button class="tip-btn" type="button" data-tip="Years until sale. Match this to your loan term so you are not selling into a prepayment penalty.">i</button></div>
-                <div class="input-affix"><input type="number" id="hold" value="7" min="1" max="30" step="1"><span class="affix">yr</span></div>
+                <div class="input-affix"><input type="number" id="hold" value="7" min="1" max="30" step="1" aria-label="Hold Period"><span class="affix">yr</span></div>
               </div>
               <div class="field-row">
                 <div class="flabel">Market Rent Growth<button class="tip-btn" type="button" data-tip="Annual growth in market rents, on top of closing the in-place to market gap. LA long-run average is roughly 3%.">i</button></div>
-                <div class="input-affix"><input type="number" id="rentGrowth" value="3" min="-5" max="15" step="0.25"><span class="affix">%</span></div>
+                <div class="input-affix"><input type="number" id="rentGrowth" value="3" min="-5" max="15" step="0.25" aria-label="Market Rent Growth"><span class="affix">%</span></div>
               </div>
               <div class="field-row">
                 <div class="flabel">Expense Growth<button class="tip-btn" type="button" data-tip="Annual growth in operating expenses. Property tax is grown separately at 2% under Proposition 13.">i</button></div>
-                <div class="input-affix"><input type="number" id="expGrowth" value="3" min="-5" max="15" step="0.25"><span class="affix">%</span></div>
+                <div class="input-affix"><input type="number" id="expGrowth" value="3" min="-5" max="15" step="0.25" aria-label="Expense Growth"><span class="affix">%</span></div>
               </div>
               <div class="field-row">
                 <div class="flabel">Exit Cap Rate<button class="tip-btn" type="button" data-tip="The cap rate a buyer pays at sale, applied to the following year's net operating income. Underwriting 25-50 basis points above your going-in cap is the disciplined convention.">i</button><span class="fsub" id="capSpreadSub">&nbsp;</span></div>
-                <div class="input-affix"><input type="number" id="exitCap" value="5.25" min="1" max="15" step="0.05"><span class="affix">%</span></div>
+                <div class="input-affix"><input type="number" id="exitCap" value="5.25" min="1" max="15" step="0.05" aria-label="Exit Cap Rate"><span class="affix">%</span></div>
               </div>
               <div class="field-row">
                 <div class="flabel">Cost of Sale<button class="tip-btn" type="button" data-tip="Brokerage, transfer tax, escrow and legal at disposition. Los Angeles Measure ULA adds 4% above $5.15M and 5.5% above $10.3M &mdash; check the current thresholds.">i</button></div>
-                <div class="input-affix"><input type="number" id="saleCost" value="5" min="0" max="15" step="0.25"><span class="affix">%</span></div>
+                <div class="input-affix"><input type="number" id="saleCost" value="5" min="0" max="15" step="0.25" aria-label="Cost of Sale"><span class="affix">%</span></div>
               </div>
             </div>
 

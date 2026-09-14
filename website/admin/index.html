@@ -293,10 +293,10 @@ input,textarea,select{font-family:var(--sans)}
     </div>
     <h2>Admin access.</h2>
     <p>For AMRE agents only. Enter your admin password to continue.</p>
-    <input type="password" class="gate-input" id="gate-pw" placeholder="Admin password" autocomplete="off">
+    <input type="password" class="gate-input" id="gate-pw" placeholder="Admin password" autocomplete="off" aria-label="Admin password">
     <div class="gate-pat-group">
       <label>GitHub PAT (session only)</label>
-      <input type="password" class="gate-input" id="gate-pat" placeholder="github_pat_…" autocomplete="off" style="margin-bottom:0">
+      <input type="password" class="gate-input" id="gate-pat" placeholder="github_pat_…" autocomplete="off" style="margin-bottom:0" aria-label="GitHub PAT (session only)">
       <p class="hint">Stored in memory for this tab only. Never saved. Required to add or edit clients.</p>
     </div>
     <button class="btn-gate" onclick="handleGate()">Enter Admin Dashboard</button>
@@ -356,15 +356,15 @@ input,textarea,select{font-family:var(--sans)}
       <input type="hidden" id="edit-index" value="">
       <div class="field">
         <label>Client name (household)</label>
-        <input type="text" id="f-name" placeholder="e.g. Muthyala Family">
+        <input type="text" id="f-name" placeholder="e.g. Muthyala Family" aria-label="Client name (household)">
       </div>
       <div class="field">
         <label>Email (optional, for your reference)</label>
-        <input type="text" id="f-email" placeholder="e.g. vasu@example.com">
+        <input type="text" id="f-email" placeholder="e.g. vasu@example.com" aria-label="Email (optional, for your reference)">
       </div>
       <div class="field">
         <label>Access code</label>
-        <input type="text" id="f-password" placeholder="e.g. muthyala2026" autocomplete="off" autocapitalize="none" oninput="updateStrength(this.value)">
+        <input type="text" id="f-password" placeholder="e.g. muthyala2026" autocomplete="off" autocapitalize="none" oninput="updateStrength(this.value)" aria-label="Access code">
         <div class="pw-strength"><div class="pw-strength-bar" id="pw-bar"></div></div>
         <div class="hint">Clients will type this to log in. Suggest: lastname + year (e.g. muthyala2026). Min 8 characters.</div>
       </div>

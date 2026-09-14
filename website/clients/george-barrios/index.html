@@ -677,7 +677,7 @@
   <h1>Your Path to<br>Homeownership.</h1>
   <p>A private guide prepared for George Barrios by Michael Abraham and Ania De&nbsp;Pourbaix.</p>
   <div id="gate-form">
-    <input id="gate-input" type="password" placeholder="Enter access code" autocomplete="off">
+    <input id="gate-input" type="password" placeholder="Enter access code" autocomplete="off" aria-label="Enter access code">
     <button id="gate-btn">View My Dashboard</button>
     <div id="gate-error">Incorrect code — please try again.</div>
   </div>
@@ -839,25 +839,25 @@
         <div class="ctrl-group">
           <label>Purchase Price</label>
           <div class="val-display" id="disp-price">$1,200,000</div>
-          <input type="range" id="sl-price" min="500000" max="2000000" step="25000" value="1200000">
+          <input type="range" id="sl-price" min="500000" max="2000000" step="25000" value="1200000" aria-label="Purchase Price">
           <div class="range-labels"><span>$500K</span><span>$2M</span></div>
         </div>
         <div class="ctrl-group">
           <label>Down Payment</label>
           <div class="val-display" id="disp-down">20% — $240,000</div>
-          <input type="range" id="sl-down" min="10" max="35" step="5" value="20">
+          <input type="range" id="sl-down" min="10" max="35" step="5" value="20" aria-label="Down Payment">
           <div class="range-labels"><span>10%</span><span>35%</span></div>
         </div>
         <div class="ctrl-group">
           <label>Interest Rate</label>
           <div class="val-display" id="disp-rate">6.75%</div>
-          <input type="range" id="sl-rate" min="550" max="850" step="25" value="675">
+          <input type="range" id="sl-rate" min="550" max="850" step="25" value="675" aria-label="Interest Rate">
           <div class="range-labels"><span>5.5%</span><span>8.5%</span></div>
         </div>
         <div class="ctrl-group">
           <label>Rental Income (Duplex Unit)</label>
           <div class="val-display" id="disp-rent">$2,400 / mo</div>
-          <input type="range" id="sl-rent" min="1200" max="4000" step="100" value="2400">
+          <input type="range" id="sl-rent" min="1200" max="4000" step="100" value="2400" aria-label="Rental Income (Duplex Unit)">
           <div class="range-labels"><span>$1,200</span><span>$4,000</span></div>
         </div>
         <div class="ctrl-group">

@@ -144,17 +144,17 @@
           <div class="grpt-steps"><div class="grpt-dot on" id="grD1"></div><div class="grpt-dot" id="grD2"></div></div>
           <form onsubmit="return false">
             <div id="grStep1">
-              <div class="grpt-field"><label>Email <span class="req">*</span></label><input type="email" id="grEmail" placeholder="you@email.com" autocomplete="email"></div>
+              <div class="grpt-field"><label>Email <span class="req">*</span></label><input type="email" id="grEmail" placeholder="you@email.com" autocomplete="email" aria-label="Email"></div>
               <button class="btn btn-fill grpt-submit" onclick="grStep2()">Send me the report <span class="arrow">&rarr;</span></button>
               <div class="grpt-micro">Takes 10 seconds &middot; That's all we need</div>
             </div>
             <div id="grStep2" class="grpt-hide">
               <div class="grpt-row">
-                <div class="grpt-field"><label>First name <span class="opt">(optional)</span></label><input type="text" id="grFname" placeholder="First"></div>
-                <div class="grpt-field"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="grPhone" placeholder="Helps us reach you"></div>
+                <div class="grpt-field"><label>First name <span class="opt">(optional)</span></label><input type="text" id="grFname" placeholder="First" aria-label="First name"></div>
+                <div class="grpt-field"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="grPhone" placeholder="Helps us reach you" aria-label="Phone"></div>
               </div>
-              <div class="grpt-field"><label>Your property <span class="opt">(optional — for a confidential valuation)</span></label><input type="text" id="grAddr" placeholder="Street address in Venice"></div>
-              <div class="grpt-field"><label>Thinking of selling? <span class="opt">(optional)</span></label><select id="grTime"><option value="">Select</option><option>Within 6 months</option><option>6&ndash;12 months</option><option>Someday &mdash; just watching</option><option>Not selling, just curious</option></select></div>
+              <div class="grpt-field"><label>Your property <span class="opt">(optional — for a confidential valuation)</span></label><input type="text" id="grAddr" placeholder="Street address in Venice" aria-label="Your property"></div>
+              <div class="grpt-field"><label>Thinking of selling? <span class="opt">(optional)</span></label><select id="grTime" aria-label="Thinking of selling?"><option value="">Select</option><option>Within 6 months</option><option>6&ndash;12 months</option><option>Someday &mdash; just watching</option><option>Not selling, just curious</option></select></div>
               <button class="btn btn-fill grpt-submit" onclick="grFinish(this)">Send my report</button>
               <button class="grpt-skip" onclick="grFinish(this)">Skip &mdash; just email the report</button>
               <div class="grpt-micro">All optional &mdash; we already have what we need.</div>

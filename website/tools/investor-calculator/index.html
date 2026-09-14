@@ -356,7 +356,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">The agreed sale price — used to calculate loan amount, estimated taxes, insurance, cap rate, and GRM.</div>
           </div>
         </div>
-        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="pp" value="1000000" oninput="calc()"></div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="pp" value="1000000" oninput="calc()" aria-label="Purchase Price"></div>
       </div>
 
       <!-- Units -->
@@ -367,7 +367,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">Total rentable units including ADUs. Used with the per-unit rent below to compute total rent roll.</div>
           </div>
         </div>
-        <input type="number" id="units" value="2" oninput="calc()">
+        <input type="number" id="units" value="2" oninput="calc()" aria-label="Number of Units">
       </div>
 
       <div class="divider"></div>
@@ -381,7 +381,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">Investment properties typically require 20–30% down. Less than 25% may trigger higher rates on non-owner-occupied loans.</div>
           </div>
         </div>
-        <div class="irow has-suf"><input type="number" id="dp" value="25" oninput="calc()"><div class="suf">%</div></div>
+        <div class="irow has-suf"><input type="number" id="dp" value="25" oninput="calc()" aria-label="Down Payment"><div class="suf">%</div></div>
         <div class="field-hint" id="dp-hint"></div>
       </div>
 
@@ -394,11 +394,11 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">Investment property rates run ~0.5–0.75% above primary residence rates. Contact your lender for a current quote.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="ir" value="6.875" step="0.125" oninput="calc()"><div class="suf">%</div></div>
+          <div class="irow has-suf"><input type="number" id="ir" value="6.875" step="0.125" oninput="calc()" aria-label="Interest Rate"><div class="suf">%</div></div>
         </div>
         <div class="field">
           <div class="field-head"><label>Loan Term</label></div>
-          <select id="lterm" onchange="calc()">
+          <select id="lterm" onchange="calc()" aria-label="Loan Term">
             <option value="15">15 years</option>
             <option value="20">20 years</option>
             <option value="30" selected>30 years</option>
@@ -415,7 +415,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">CA buyer closing costs typically run 2–3% of purchase price: escrow, title, lender fees, transfer tax, and prepaids.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="closing-pct" value="2.5" step="0.25" oninput="calc()"><div class="suf">% of price</div></div>
+          <div class="irow has-suf"><input type="number" id="closing-pct" value="2.5" step="0.25" oninput="calc()" aria-label="Closing Costs"><div class="suf">% of price</div></div>
         </div>
         <div class="field">
           <div class="field-head">
@@ -424,7 +424,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">Lender origination fee — typically 0.5–1% of the loan amount. One point = 1% and can buy down your rate.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="orig-pct" value="1" step="0.25" oninput="calc()"><div class="suf">% of loan</div></div>
+          <div class="irow has-suf"><input type="number" id="orig-pct" value="1" step="0.25" oninput="calc()" aria-label="Loan Origination"><div class="suf">% of loan</div></div>
         </div>
       </div>
 
@@ -436,7 +436,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">Most lenders require 6 months of PITI (principal + interest + taxes + insurance) in reserves after closing. Must be liquid in your account.</div>
           </div>
         </div>
-        <div class="irow has-suf"><input type="number" id="reserves" value="6" step="1" oninput="calc()"><div class="suf">months PITI</div></div>
+        <div class="irow has-suf"><input type="number" id="reserves" value="6" step="1" oninput="calc()" aria-label="Cash Reserves Required"><div class="suf">months PITI</div></div>
         <div class="field-hint" id="reserves-hint"></div>
       </div>
 
@@ -465,7 +465,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">Average rent per unit per month. Multiplied by the unit count to compute total rent roll. Use actuals from the rent roll, or estimated market rents. For rent-controlled buildings, legal rent may be below market.</div>
           </div>
         </div>
-        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="rent" value="3500" oninput="calc()"></div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="rent" value="3500" oninput="calc()" aria-label="Avg Monthly Rent per Unit"></div>
         <div class="field-hint" id="rent-hint"></div>
       </div>
 
@@ -477,7 +477,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">% of time units sit empty. 3–5% is standard for stabilized LA multifamily (~11–18 days/yr per unit). Use 8–10% if turnover is expected.</div>
           </div>
         </div>
-        <div class="irow has-suf"><input type="number" id="vac" value="5" oninput="calc()"><div class="suf">%</div></div>
+        <div class="irow has-suf"><input type="number" id="vac" value="5" oninput="calc()" aria-label="Vacancy Rate"><div class="suf">%</div></div>
         <div class="field-hint">3–5% stabilized · LA metro avg ~5.5%</div>
       </div>
 
@@ -490,7 +490,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">Applied to rent in the 10-year projection. LA multifamily rent growth has historically averaged 3–4%. Important: LA's RSO caps annual increases on covered buildings — typically 4% or less — so 3% is a reasonable long-run blend.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="rent-growth" value="3" step="0.5" oninput="calc()"><div class="suf">% / yr</div></div>
+          <div class="irow has-suf"><input type="number" id="rent-growth" value="3" step="0.5" oninput="calc()" aria-label="Annual Rent Growth"><div class="suf">% / yr</div></div>
         </div>
         <div class="field">
           <div class="field-head">
@@ -499,7 +499,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">Annual property value growth used in the equity projection table. LA multifamily has historically appreciated 4–7% annually.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="apprec" value="6" step="0.5" oninput="calc()"><div class="suf">% / yr</div></div>
+          <div class="irow has-suf"><input type="number" id="apprec" value="6" step="0.5" oninput="calc()" aria-label="Appreciation"><div class="suf">% / yr</div></div>
         </div>
       </div>
 
@@ -515,7 +515,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">Estimated at 1.25% of purchase price — LA County's effective rate including Mello-Roos and special assessments. Override with actual bill once available.</div>
           </div>
         </div>
-        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="taxes" value="12500" oninput="calc()"></div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="taxes" value="12500" oninput="calc()" aria-label="Property Taxes"></div>
         <div class="field-hint derived" id="tax-hint"></div>
       </div>
 
@@ -528,7 +528,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
             <div class="tip-box">Landlord policy covering building, liability, and loss of rents. Estimated at 0.5% of purchase price — LA premiums rose 30%+ in 2024 post-wildfires. Adjust up for wood-frame, hillside, or fire-zone properties.</div>
           </div>
         </div>
-        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="ins" value="5000" oninput="calc()"></div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="ins" value="5000" oninput="calc()" aria-label="Insurance"></div>
         <div class="field-hint derived" id="ins-hint"></div>
       </div>
 
@@ -541,7 +541,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">Covers routine repairs + big-ticket replacements (roof, HVAC, appliances). Standard: 3–5% for newer buildings, 8–12% for older ones.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="maint" value="5" step="1" oninput="calc()"><div class="suf">% rents</div></div>
+          <div class="irow has-suf"><input type="number" id="maint" value="5" step="1" oninput="calc()" aria-label="Maintenance & CapEx"><div class="suf">% rents</div></div>
           <div class="field-hint">3–5% newer · 8–12% older LA stock</div>
         </div>
         <div class="field">
@@ -551,7 +551,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
               <div class="tip-box">Professional PM runs 5–10% of collected rents. Set to 0% if self-managing — but model it if you may hire out or sell.</div>
             </div>
           </div>
-          <div class="irow has-suf"><input type="number" id="mgmt" value="5" step="1" oninput="calc()"><div class="suf">% rents</div></div>
+          <div class="irow has-suf"><input type="number" id="mgmt" value="5" step="1" oninput="calc()" aria-label="Property Mgmt"><div class="suf">% rents</div></div>
           <div class="field-hint">5–10% · 0% if self-managing</div>
         </div>
       </div>
@@ -738,7 +738,7 @@ input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-
           <span class="exit-row-lbl">
             − Sale Costs &nbsp;
             <span class="exit-sale-cost-input">
-              <input type="number" id="sale-cost-pct" value="6" step="0.5" oninput="updateExit()">
+              <input type="number" id="sale-cost-pct" value="6" step="0.5" oninput="updateExit()" aria-label="Cost of Sale (%)">
               <span>% (agent + closing)</span>
             </span>
           </span>
@@ -1475,24 +1475,24 @@ function showSuccess() {
       <div class="modal-row">
         <div class="modal-field">
           <label>First Name *</label>
-          <input type="text" id="m-fname" placeholder="Michael" required>
+          <input type="text" id="m-fname" placeholder="Michael" required aria-label="First Name">
         </div>
         <div class="modal-field">
           <label>Last Name</label>
-          <input type="text" id="m-lname" placeholder="Abraham">
+          <input type="text" id="m-lname" placeholder="Abraham" aria-label="Last Name">
         </div>
       </div>
       <div class="modal-field">
         <label>Email Address *</label>
-        <input type="email" id="m-email" placeholder="you@example.com" required>
+        <input type="email" id="m-email" placeholder="you@example.com" required aria-label="Email Address">
       </div>
       <div class="modal-field">
         <label>Phone (optional)</label>
-        <input type="tel" id="m-phone" placeholder="(323) 555-0100">
+        <input type="tel" id="m-phone" placeholder="(323) 555-0100" aria-label="Phone (optional)">
       </div>
       <div class="modal-field">
         <label>Property Address (optional)</label>
-        <input type="text" id="m-address" placeholder="123 Main St, Culver City, CA">
+        <input type="text" id="m-address" placeholder="123 Main St, Culver City, CA" aria-label="Property Address (optional)">
       </div>
 
       <label class="modal-optin">

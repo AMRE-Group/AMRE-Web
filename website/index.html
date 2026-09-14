@@ -955,18 +955,18 @@
       <div class="omh-steps"><div class="omh-dot omh-don" id="omhD1"></div><div class="omh-dot" id="omhD2"></div></div>
       <form onsubmit="return false">
         <div id="omhStep1">
-          <div class="omh-field"><label>Email <span class="omh-req">*</span></label><input type="email" id="omhEmail" placeholder="you@email.com"></div>
-          <div class="omh-field"><label>Target neighborhoods <span class="omh-req">*</span></label><input type="text" id="omhNbhd" placeholder="e.g. Culver City, Silver Lake, WeHo"></div>
+          <div class="omh-field"><label>Email <span class="omh-req">*</span></label><input type="email" id="omhEmail" placeholder="you@email.com" aria-label="Email"></div>
+          <div class="omh-field"><label>Target neighborhoods <span class="omh-req">*</span></label><input type="text" id="omhNbhd" placeholder="e.g. Culver City, Silver Lake, WeHo" aria-label="Target neighborhoods"></div>
           <button class="omh-submit" onclick="omhStep2()">Start my 1-month access <span>&rarr;</span></button>
           <div class="omh-micro">Takes 20 seconds &middot; First report at the start of next week</div>
         </div>
         <div id="omhStep2" class="omh-hide">
           <div class="omh-rowf">
-            <div class="omh-field"><label>First name <span class="omh-opt">(optional)</span></label><input type="text" id="omhFname" placeholder="First"></div>
-            <div class="omh-field"><label>Phone <span class="omh-opt">(optional)</span></label><input type="tel" id="omhPhone" placeholder="Helps us reach you"></div>
+            <div class="omh-field"><label>First name <span class="omh-opt">(optional)</span></label><input type="text" id="omhFname" placeholder="First" aria-label="First name"></div>
+            <div class="omh-field"><label>Phone <span class="omh-opt">(optional)</span></label><input type="tel" id="omhPhone" placeholder="Helps us reach you" aria-label="Phone"></div>
           </div>
-          <div class="omh-field"><label>Price range <span class="omh-opt">(optional)</span></label><select id="omhPrice"><option value="">Select</option><option>Under $1M</option><option>$1M &ndash; $1.5M</option><option>$1.5M &ndash; $2M</option><option>$2M &ndash; $3M</option><option>$3M &ndash; $5M</option><option>$5M &ndash; $10M</option><option>$10M+</option><option>Not sure yet</option></select></div>
-          <div class="omh-field"><label>When are you looking to buy? <span class="omh-opt">(optional)</span></label><select id="omhTime"><option value="">Select</option><option>Actively searching now</option><option>3&ndash;6 months out</option><option>6&ndash;12 months out</option><option>12+ months / Just watching</option></select></div>
+          <div class="omh-field"><label>Price range <span class="omh-opt">(optional)</span></label><select id="omhPrice" aria-label="Price range"><option value="">Select</option><option>Under $1M</option><option>$1M &ndash; $1.5M</option><option>$1.5M &ndash; $2M</option><option>$2M &ndash; $3M</option><option>$3M &ndash; $5M</option><option>$5M &ndash; $10M</option><option>$10M+</option><option>Not sure yet</option></select></div>
+          <div class="omh-field"><label>When are you looking to buy? <span class="omh-opt">(optional)</span></label><select id="omhTime" aria-label="When are you looking to buy?"><option value="">Select</option><option>Actively searching now</option><option>3&ndash;6 months out</option><option>6&ndash;12 months out</option><option>12+ months / Just watching</option></select></div>
           <button class="omh-submit" onclick="omhFinish(this)">Send me the report</button>
           <button class="omh-backlink" onclick="omhStep1()">&larr; Back</button>
           <div class="omh-micro">You can skip these &mdash; we already have enough to start your access.</div>

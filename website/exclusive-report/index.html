@@ -115,19 +115,19 @@
           <div class="grpt-steps"><div class="grpt-dot on" id="grD1"></div><div class="grpt-dot" id="grD2"></div></div>
           <form onsubmit="return false">
             <div id="grStep1">
-              <div class="grpt-field"><label>Email <span class="req">*</span></label><input type="email" id="grEmail" placeholder="you@email.com" autocomplete="email"></div>
-              <div class="grpt-field"><label>Target neighborhoods <span class="req">*</span></label><input type="text" id="grNbhd" placeholder="e.g. Silver Lake, Los Feliz, Pasadena"></div>
+              <div class="grpt-field"><label>Email <span class="req">*</span></label><input type="email" id="grEmail" placeholder="you@email.com" autocomplete="email" aria-label="Email"></div>
+              <div class="grpt-field"><label>Target neighborhoods <span class="req">*</span></label><input type="text" id="grNbhd" placeholder="e.g. Silver Lake, Los Feliz, Pasadena" aria-label="Target neighborhoods"></div>
               <button class="btn btn-fill grpt-submit" onclick="grStep2()">Send me the report <span class="arrow">&rarr;</span></button>
               <div class="grpt-err" id="grErr">Please enter a valid email address and at least one neighborhood.</div>
               <div class="grpt-micro">Takes 15 seconds &middot; Your first report arrives this week</div>
             </div>
             <div id="grStep2" class="grpt-hide">
               <div class="grpt-row">
-                <div class="grpt-field"><label>First name <span class="opt">(optional)</span></label><input type="text" id="grFname" placeholder="First"></div>
-                <div class="grpt-field"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="grPhone" placeholder="Helps us reach you"></div>
+                <div class="grpt-field"><label>First name <span class="opt">(optional)</span></label><input type="text" id="grFname" placeholder="First" aria-label="First name"></div>
+                <div class="grpt-field"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="grPhone" placeholder="Helps us reach you" aria-label="Phone"></div>
               </div>
-              <div class="grpt-field"><label>Price range <span class="opt">(optional)</span></label><select id="grPrice"><option value="">Select</option><option>Under $1M</option><option>$1M&ndash;$2M</option><option>$2M&ndash;$4M</option><option>$4M&ndash;$7M</option><option>$7M&ndash;$15M</option><option>$15M+</option></select></div>
-              <div class="grpt-field"><label>Timeline <span class="opt">(optional)</span></label><select id="grTime"><option value="">Select</option><option>Actively looking now</option><option>Within 3 months</option><option>3&ndash;6 months</option><option>6&ndash;12 months</option><option>Just watching the market</option></select></div>
+              <div class="grpt-field"><label>Price range <span class="opt">(optional)</span></label><select id="grPrice" aria-label="Price range"><option value="">Select</option><option>Under $1M</option><option>$1M&ndash;$2M</option><option>$2M&ndash;$4M</option><option>$4M&ndash;$7M</option><option>$7M&ndash;$15M</option><option>$15M+</option></select></div>
+              <div class="grpt-field"><label>Timeline <span class="opt">(optional)</span></label><select id="grTime" aria-label="Timeline"><option value="">Select</option><option>Actively looking now</option><option>Within 3 months</option><option>3&ndash;6 months</option><option>6&ndash;12 months</option><option>Just watching the market</option></select></div>
               <button class="btn btn-fill grpt-submit" onclick="grFinish(this)">Send my report</button>
               <button class="grpt-skip" onclick="grFinish(this)">Skip &mdash; just email the report</button>
               <div class="grpt-micro">All optional &mdash; we already have what we need.</div>

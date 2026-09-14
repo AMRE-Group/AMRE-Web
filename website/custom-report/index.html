@@ -115,18 +115,18 @@
           <div class="grpt-steps"><div class="grpt-dot on" id="grD1"></div><div class="grpt-dot" id="grD2"></div></div>
           <form onsubmit="return false">
             <div id="grStep1">
-              <div class="grpt-field"><label>Email <span class="req">*</span></label><input type="email" id="grEmail" placeholder="you@email.com" autocomplete="email"></div>
+              <div class="grpt-field"><label>Email <span class="req">*</span></label><input type="email" id="grEmail" placeholder="you@email.com" autocomplete="email" aria-label="Email"></div>
               <button class="btn btn-fill grpt-submit" onclick="grStep2()">Build my report <span class="arrow">&rarr;</span></button>
               <div class="grpt-err" id="grErr">Please enter a valid email address.</div>
               <div class="grpt-micro">Takes 30 seconds &middot; That's all we need to start</div>
             </div>
             <div id="grStep2" class="grpt-hide">
               <div class="grpt-row">
-                <div class="grpt-field"><label>First name <span class="opt">(optional)</span></label><input type="text" id="grFname" placeholder="First"></div>
-                <div class="grpt-field"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="grPhone" placeholder="Helps us reach you"></div>
+                <div class="grpt-field"><label>First name <span class="opt">(optional)</span></label><input type="text" id="grFname" placeholder="First" aria-label="First name"></div>
+                <div class="grpt-field"><label>Phone <span class="opt">(optional)</span></label><input type="tel" id="grPhone" placeholder="Helps us reach you" aria-label="Phone"></div>
               </div>
-              <div class="grpt-field"><label>Neighborhood or address <span class="opt">(optional — sharpens the report)</span></label><input type="text" id="grAddr" placeholder="City, neighborhood, or street address"></div>
-              <div class="grpt-field"><label>Timeline <span class="opt">(optional)</span></label><select id="grTime"><option value="">Select</option><option>Within 3 months</option><option>3&ndash;6 months</option><option>6&ndash;12 months</option><option>Just researching for now</option></select></div>
+              <div class="grpt-field"><label>Neighborhood or address <span class="opt">(optional — sharpens the report)</span></label><input type="text" id="grAddr" placeholder="City, neighborhood, or street address" aria-label="Neighborhood or address"></div>
+              <div class="grpt-field"><label>Timeline <span class="opt">(optional)</span></label><select id="grTime" aria-label="Timeline"><option value="">Select</option><option>Within 3 months</option><option>3&ndash;6 months</option><option>6&ndash;12 months</option><option>Just researching for now</option></select></div>
               <button class="btn btn-fill grpt-submit" onclick="grFinish(this)">Send my report</button>
               <button class="grpt-skip" onclick="grFinish(this)">Skip &mdash; just email the report</button>
               <div class="grpt-micro">All optional &mdash; we already have what we need.</div>

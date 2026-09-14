@@ -442,7 +442,7 @@
     </div>
     <div class="loc-grid">
       <div class="loc-map">
-        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        <iframe title="Map of 3904 East Boulevard" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://maps.google.com/maps?q=3904%20East%20Blvd%2C%20Los%20Angeles%2C%20CA%2090066&t=&z=14&ie=UTF8&iwloc=&output=embed"></iframe>
       </div>
       <div class="loc-body">
@@ -479,23 +479,23 @@
       <p>Share a few details and we'll be in touch with availability, the full lookbook, and construction updates.</p>
     </div>
     <form class="inq" onsubmit="event.preventDefault();this.reset();alert('Thank you — your request has been received. We will be in touch shortly.');">
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
-      <input type="email" placeholder="Email" required>
-      <input type="tel" placeholder="Phone">
-      <select class="full">
+      <input type="text" placeholder="First Name" required aria-label="First Name">
+      <input type="text" placeholder="Last Name" required aria-label="Last Name">
+      <input type="email" placeholder="Email" required aria-label="Email">
+      <input type="tel" placeholder="Phone" aria-label="Phone">
+      <select class="full" aria-label="I am a">
         <option value="">I am a… (optional)</option>
         <option>Prospective Buyer</option>
         <option>Buyer's Agent</option>
         <option>Other</option>
       </select>
-      <select class="full">
+      <select class="full" aria-label="I'm interested in">
         <option value="">I'm interested in…</option>
         <option>Private Preview</option>
         <option>Hard-Hat Tour</option>
         <option>Lookbook &amp; Construction Updates</option>
       </select>
-      <textarea class="full" placeholder="Message (optional)"></textarea>
+      <textarea class="full" placeholder="Message (optional)" aria-label="Message (optional)"></textarea>
       <button type="submit" class="btn btn-solid full">Submit Request</button>
     </form>
   </div>

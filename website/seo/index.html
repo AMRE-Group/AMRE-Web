@@ -180,7 +180,7 @@ tr:hover td{background:#fafaf9}
   <div class="lock-title">AMRE SEO Intelligence</div>
   <div class="lock-sub">Internal · Restricted</div>
   <div class="lock-form">
-    <input type="password" id="pw" class="lock-input" placeholder="Access code" autocomplete="current-password">
+    <input type="password" id="pw" class="lock-input" placeholder="Access code" autocomplete="current-password" aria-label="Access code">
     <button class="lock-btn" onclick="unlock()">Enter Dashboard</button>
     <div class="lock-err" id="pw-err"></div>
   </div>
@@ -300,7 +300,7 @@ tr:hover td{background:#fafaf9}
             <span class="card-head-title">Top Queries</span>
             <span class="card-count" id="queries-count"></span>
           </div>
-          <input type="text" class="search-input" placeholder="Filter queries…" oninput="filterTable('queries-tbody',this.value)">
+          <input type="text" class="search-input" placeholder="Filter queries…" oninput="filterTable('queries-tbody',this.value)" aria-label="Filter queries…">
         </div>
         <div style="overflow-x:auto">
         <table>
@@ -342,7 +342,7 @@ tr:hover td{background:#fafaf9}
             <span class="card-head-title">Quick Win Opportunities</span>
             <span class="card-head-sub">High impressions · Low CTR</span>
           </div>
-          <input type="text" class="search-input" placeholder="Filter pages…" oninput="filterTable('opps-tbody',this.value)">
+          <input type="text" class="search-input" placeholder="Filter pages…" oninput="filterTable('opps-tbody',this.value)" aria-label="Filter pages…">
         </div>
         <div style="overflow-x:auto">
         <table>
@@ -367,7 +367,7 @@ tr:hover td{background:#fafaf9}
             <span class="card-head-title">Top Pages by Pageviews</span>
             <span class="card-count" id="pages-count"></span>
           </div>
-          <input type="text" class="search-input" placeholder="Filter pages…" oninput="filterTable('pages-tbody',this.value)">
+          <input type="text" class="search-input" placeholder="Filter pages…" oninput="filterTable('pages-tbody',this.value)" aria-label="Filter pages…">
         </div>
         <div style="overflow-x:auto">
         <table>
@@ -390,7 +390,7 @@ tr:hover td{background:#fafaf9}
             <span class="card-head-title">GSC Top Pages</span>
             <span class="card-count" id="gscpages-count"></span>
           </div>
-          <input type="text" class="search-input" placeholder="Filter…" oninput="filterTable('gscpages-tbody',this.value)">
+          <input type="text" class="search-input" placeholder="Filter…" oninput="filterTable('gscpages-tbody',this.value)" aria-label="Filter…">
         </div>
         <div style="overflow-x:auto">
         <table>
