@@ -351,3 +351,15 @@
   .prose a.btn-fill{color:var(--ink)}
   .prose a.btn-ink,.prose a.btn-ghost,.article-cta a.btn{color:var(--bone)}
   .prose a.btn-fill{color:var(--ink)}
+
+  /* ===== ACCESSIBILITY: reduced motion (WCAG 2.3.3 / 2.2.2) ===== */
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .marquee-track{animation:none!important}
+    .hero-bg{animation:none!important;transform:none!important}
+    .reveal{opacity:1!important;transform:none!important;transition:none!important}
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  }
+  /* skip link (injected by chrome scripts) */
+  .amre-skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--dark,#1c3d31);color:#fff;padding:12px 20px;font-weight:600;font-size:.85rem;text-decoration:none}
+  .amre-skip:focus{left:0}

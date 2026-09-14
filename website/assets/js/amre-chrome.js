@@ -27,6 +27,13 @@
       + 'header.nav.solid .nav-icon-btn{color:var(--ink-2,#3a3a3c);border-color:rgba(26,26,26,.25)}'
       + 'header.nav.solid .nav-icon-btn:hover{color:var(--ink,#1a1a1a);border-color:var(--ink,#1a1a1a)}'
       + '@media(max-width:900px){.nav-right .nav-icon-btn{display:none}}'
+      + '.amre-skip{position:absolute;left:-9999px;top:0;z-index:200;background:#1c3d31;color:#fff;padding:12px 20px;font-weight:600;font-size:.85rem;text-decoration:none}'
+      + '.amre-skip:focus{left:0}'
+      + '.marquee{position:relative}'
+      + '.marquee-pause{position:absolute;right:12px;top:50%;transform:translateY(-50%);z-index:3;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:100px;font-size:.7rem;padding:6px 12px;cursor:pointer;line-height:1}'
+      + '.marquee-pause:focus-visible{outline:2px solid #ffc13c;outline-offset:2px}'
+      + '.marquee:hover .marquee-track,.marquee:focus-within .marquee-track,.marquee.is-paused .marquee-track{animation-play-state:paused}'
+      + '@media(prefers-reduced-motion:reduce){.marquee-track{animation:none!important}.hero-bg{animation:none!important;transform:none!important}.reveal{opacity:1!important;transform:none!important;transition:none!important}html{scroll-behavior:auto!important}}'
       ;
     var st = document.createElement('style'); st.id = 'amre-chrome-css'; st.textContent = css;
     document.head.appendChild(st);
@@ -71,7 +78,7 @@
           '<button class="ham" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
         '</div>' +
       '</div>' +
-      '<div class="mobile-drawer" id="drawer" aria-hidden="true"><nav>' + navLinks +
+      '<div class="mobile-drawer" id="drawer" aria-hidden="true" inert><nav>' + navLinks +
         '<a href="/blog/">Journal</a><a href="/contact/" class="btn btn-fill">Get In Touch</a></nav></div>' +
     '</header>';
 
@@ -105,6 +112,37 @@
   mount('amre-nav', navHTML);
   mount('amre-footer', footHTML);
 
+  // ---- skip-to-content link (WCAG 2.4.1) ----
+  (function () {
+    var target = document.querySelector('main') ||
+                 document.querySelector('.hero') ||
+                 document.querySelector('section');
+    if (!target) return;
+    if (!target.id) target.id = 'main-content';
+    if (target.getAttribute('tabindex') === null) target.setAttribute('tabindex', '-1');
+    var skip = document.createElement('a');
+    skip.className = 'amre-skip';
+    skip.href = '#' + target.id;
+    skip.textContent = 'Skip to main content';
+    document.body.insertBefore(skip, document.body.firstChild);
+  })();
+
+  // ---- marquee pause control (WCAG 2.2.2) ----
+  document.querySelectorAll('.marquee').forEach(function (mq) {
+    if (mq.querySelector('.marquee-pause')) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'marquee-pause';
+    b.setAttribute('aria-label', 'Pause scrolling text');
+    b.textContent = 'Pause';
+    b.addEventListener('click', function () {
+      var paused = mq.classList.toggle('is-paused');
+      b.textContent = paused ? 'Play' : 'Pause';
+      b.setAttribute('aria-label', paused ? 'Resume scrolling text' : 'Pause scrolling text');
+    });
+    mq.appendChild(b);
+  });
+
   // nav solidify on scroll
   var nav = document.getElementById('nav');
   if (nav) {
@@ -118,12 +156,21 @@
     backdrop.className = 'drawer-backdrop'; backdrop.id = 'drawerBackdrop';
     document.body.appendChild(backdrop);
     var setDrawer = function (open) {
+      var wasInside = document.activeElement && drawer.contains(document.activeElement);
       ham.classList.toggle('open', open);
       drawer.classList.toggle('open', open);
       backdrop.classList.toggle('open', open);
       ham.setAttribute('aria-expanded', open ? 'true' : 'false');
       drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
       document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        drawer.removeAttribute('inert');
+        var first = drawer.querySelector('a, button');
+        if (first) first.focus();
+      } else {
+        if (wasInside) ham.focus();
+        drawer.setAttribute('inert', '');
+      }
     };
     ham.addEventListener('click', function () { setDrawer(!drawer.classList.contains('open')); });
     backdrop.addEventListener('click', function () { setDrawer(false); });

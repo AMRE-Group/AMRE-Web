@@ -114,7 +114,7 @@
 
   function drawerHTML() {
     return '' +
-      '<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">' +
+      '<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true" inert>' +
         '<ul role="list">' + buildDrawerLinks() + '</ul>' +
       '</div>';
   }
@@ -124,6 +124,53 @@
   var drawerMount = document.getElementById('site-drawer-mount');
   if (navMount)    navMount.outerHTML    = navHTML();
   if (drawerMount) drawerMount.outerHTML = drawerHTML();
+
+  // ---- accessibility CSS (skip link, marquee pause, reduced motion) ----
+  (function () {
+    var css =
+      '.amre-skip{position:absolute;left:-9999px;top:0;z-index:600;background:#1c3d31;color:#fff;padding:12px 20px;font-weight:600;font-size:.85rem;text-decoration:none}'
+      + '.amre-skip:focus{left:0}'
+      + '.marquee{position:relative}'
+      + '.marquee-pause{position:absolute;right:12px;top:50%;transform:translateY(-50%);z-index:3;background:rgba(0,0,0,.6);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:100px;font-size:.7rem;padding:6px 12px;cursor:pointer;line-height:1}'
+      + '.marquee-pause:focus-visible{outline:2px solid #ffc13c;outline-offset:2px}'
+      + '.marquee:hover .marquee-track,.marquee:focus-within .marquee-track,.marquee.is-paused .marquee-track{animation-play-state:paused}'
+      + '@media(prefers-reduced-motion:reduce){.marquee-track{animation:none!important}.hero-bg{animation:none!important;transform:none!important}.reveal,.f{opacity:1!important;transform:none!important;transition:none!important}html{scroll-behavior:auto!important}}';
+    var st = document.createElement('style');
+    st.id = 'amre-a11y-css';
+    st.textContent = css;
+    document.head.appendChild(st);
+  })();
+
+  // ---- skip-to-content link (WCAG 2.4.1) ----
+  (function () {
+    var target = document.querySelector('main') ||
+                 document.querySelector('.page-hero') ||
+                 document.querySelector('section');
+    if (!target) return;
+    if (!target.id) target.id = 'main-content';
+    if (target.getAttribute('tabindex') === null) target.setAttribute('tabindex', '-1');
+    var skip = document.createElement('a');
+    skip.className = 'amre-skip';
+    skip.href = '#' + target.id;
+    skip.textContent = 'Skip to main content';
+    document.body.insertBefore(skip, document.body.firstChild);
+  })();
+
+  // ---- marquee pause control (WCAG 2.2.2) ----
+  document.querySelectorAll('.marquee').forEach(function (mq) {
+    if (mq.querySelector('.marquee-pause')) return;
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'marquee-pause';
+    b.setAttribute('aria-label', 'Pause scrolling text');
+    b.textContent = 'Pause';
+    b.addEventListener('click', function () {
+      var paused = mq.classList.toggle('is-paused');
+      b.textContent = paused ? 'Play' : 'Pause';
+      b.setAttribute('aria-label', paused ? 'Resume scrolling text' : 'Pause scrolling text');
+    });
+    mq.appendChild(b);
+  });
 
   // ── Scroll → light state ──
   (function () {
@@ -139,18 +186,30 @@
     var btn = document.getElementById('hamBtn');
     var drawer = document.getElementById('mobileDrawer');
     if (!btn || !drawer) return;
-    btn.addEventListener('click', function () {
-      var open = btn.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
+    function setDrawer(open) {
+      var wasInside = document.activeElement && drawer.contains(document.activeElement);
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       drawer.classList.toggle('open', open);
+      drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
       document.body.style.overflow = open ? 'hidden' : '';
+      if (open) {
+        drawer.removeAttribute('inert');
+        var first = drawer.querySelector('a, button');
+        if (first) first.focus();
+      } else {
+        if (wasInside) btn.focus();
+        drawer.setAttribute('inert', '');
+      }
+    }
+    btn.addEventListener('click', function () {
+      setDrawer(!drawer.classList.contains('open'));
     });
     drawer.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        btn.classList.remove('open');
-        drawer.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      a.addEventListener('click', function () { setDrawer(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if ((e.key === 'Escape' || e.key === 'Esc') && drawer.classList.contains('open')) setDrawer(false);
     });
   })();
 
