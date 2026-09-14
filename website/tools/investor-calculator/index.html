@@ -8,10 +8,1517 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-PLACEHOLDER_TEST_DO_NOT_USE
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --f:#1c3d31;--n:#070B33;--b:#ffc13c;--ink:#1a1a1a;
+  --mist:#f4f6f3;--bdr:#e2e8e4;--pos:#2e7d52;--neg:#b45309;--tip:#2a2a2a
+}
+body{font-family:'Montserrat',sans-serif;background:var(--mist);color:var(--ink);min-height:100vh}
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(7,11,51,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background .35s ease,border-color .35s}
+.site-nav.is-light{background:rgba(255,255,255,0.92);border-bottom-color:rgba(0,0,0,.1)}
+.nav-brand{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.nav-amre{height:22px;width:auto}
+.nav-compass{height:15px;width:auto;opacity:.85}
+.logo-white{display:block}.logo-dark{display:none}
+.site-nav.is-light .logo-dark{display:block}
+.site-nav.is-light .logo-white{display:none}
+.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.25);margin:0 14px;transition:background .35s}
+.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
+.nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap;text-decoration:none}
+.site-nav.is-light .nav-links a{color:rgba(7,11,51,.65)}
+.nav-links a:hover{color:#fff}
+.site-nav.is-light .nav-links a:hover{color:#1c3d31}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;border-radius:2px;background:#ffc13c;color:#070B33;transition:opacity .2s,transform .15s;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-block}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;padding:7px;background:none;border:none;cursor:pointer}
+.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px}
+.site-nav.is-light .ham-btn span{background:#070B33}
+
+/* HERO */
+.hero{background:var(--f);padding:calc(56px + 56px) 48px 52px;text-align:center}
+.hero-brand{display:block;height:88px;width:auto;max-width:400px;margin:0 auto 20px;mix-blend-mode:screen;filter:brightness(1.1)}
+.eyebrow{display:inline-block;background:rgba(255,193,60,.15);border:1px solid rgba(255,193,60,.35);color:var(--b);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.hero h1{font-family:'Playfair Display',serif;color:white;font-size:clamp(22px,3.5vw,40px);font-weight:700;line-height:1.2;max-width:560px;margin:0 auto 12px}
+.hero p{color:rgba(255,255,255,.55);font-size:13px;max-width:480px;margin:0 auto;line-height:1.75}
+
+/* LAYOUT */
+.wrap{max-width:1080px;margin:0 auto;padding:48px 28px 96px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+
+/* PANELS */
+.panel{background:white;border-radius:14px;padding:30px;border:1px solid var(--bdr);box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.ptitle{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--f);margin-bottom:3px}
+.psub{font-size:10px;font-weight:600;color:#8a9e92;letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px}
+.slabel{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#b0c4b8;margin-bottom:13px;display:block}
+.divider{height:1px;background:var(--bdr);margin:20px 0}
+
+/* FIELDS */
+.field{margin-bottom:16px}
+.field-head{display:flex;align-items:center;gap:6px;margin-bottom:7px}
+.field-head label{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5a7060}
+.field-hint{font-size:10px;color:#8a9e92;margin-top:5px;line-height:1.5;padding:6px 10px;background:var(--mist);border-radius:6px;border-left:2px solid var(--bdr)}
+.field-hint.derived{border-left-color:var(--b);background:rgba(255,193,60,.06)}
+.auto-tag{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:rgba(28,61,49,.1);color:var(--f);border-radius:4px;padding:2px 7px;margin-left:2px;white-space:nowrap}
+
+/* TOOLTIP */
+.tip{position:relative;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;background:var(--bdr);border-radius:50%;cursor:help;flex-shrink:0}
+.tip span{font-size:9px;font-weight:700;color:#7a9280}
+.tip:hover .tip-box{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.tip-box{position:absolute;bottom:calc(100% + 7px);left:50%;transform:translateX(-50%) translateY(4px);background:var(--tip);color:white;font-size:11px;line-height:1.55;padding:10px 13px;border-radius:8px;width:220px;white-space:normal;opacity:0;pointer-events:none;transition:all .2s;z-index:100;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.tip-box::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--tip)}
+.tip-inline{margin-left:6px;vertical-align:middle}
+.tip-inline .tip-box{width:280px;font-size:11px}
+
+/* INPUTS */
+.irow{display:flex;align-items:center}
+.pre,.suf{background:var(--mist);border:1px solid var(--bdr);height:42px;display:flex;align-items:center;padding:0 11px;font-size:13px;font-weight:600;color:#7a9280;flex-shrink:0;white-space:nowrap}
+.pre{border-right:none;border-radius:8px 0 0 8px}
+.suf{border-left:none;border-radius:0 8px 8px 0}
+input[type=number],select{height:42px;border:1px solid var(--bdr);border-radius:8px;padding:0 13px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;color:var(--ink);background:white;outline:none;width:100%;-moz-appearance:textfield;appearance:none}
+input[type=number]:focus,select:focus{border-color:var(--f);box-shadow:0 0 0 3px rgba(28,61,49,.08)}
+input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+.has-pre input{border-left:none;border-radius:0 8px 8px 0}
+.has-suf input{border-right:none;border-radius:8px 0 0 8px}
+
+/* TWO-COL INPUT ROW */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+/* CASH TO CLOSE CARD */
+.ctc-card{background:var(--n);border-radius:10px;padding:16px;margin-top:8px}
+.ctc-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px}
+.ctc-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;margin-bottom:7px}
+.ctc-row:last-of-type{margin-bottom:0}
+.ctc-lbl{color:rgba(255,255,255,.55);font-weight:400}
+.ctc-amt{color:white;font-weight:600;font-family:'Playfair Display',serif;font-size:13px}
+.ctc-amt.reserve{color:rgba(255,193,60,.85)}
+.ctc-sep{height:1px;background:rgba(255,255,255,.1);margin:10px 0}
+.ctc-total-row{display:flex;justify-content:space-between;align-items:center}
+.ctc-total-lbl{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.ctc-total-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--b)}
+
+/* RESULTS */
+.rp{position:sticky;top:76px}
+.kpi{background:var(--f);border-radius:12px;padding:24px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.kpi-lbl{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.kpi-val{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:white;line-height:1}
+.kpi-val .unit{font-size:18px;font-weight:600;color:rgba(255,255,255,.7);margin-left:3px}
+.kpi-sub{font-size:11px;color:rgba(255,255,255,.55);margin-top:8px;line-height:1.5}
+.kpi-mult{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--b);line-height:1}
+.kpi-mult-lbl{font-size:9px;color:rgba(255,255,255,.5);margin-top:5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700}
+.kpi-hint{font-size:10px;color:rgba(255,255,255,.4);margin-top:10px;font-style:italic}
+.badge{background:rgba(255,193,60,.2);border:1px solid rgba(255,193,60,.4);color:var(--b);font-size:10px;font-weight:700;letter-spacing:.05em;padding:5px 12px;border-radius:20px;white-space:nowrap}
+
+/* CoC time-period row */
+.coc-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:18px}
+.coc-card{background:white;border:1px solid var(--bdr);border-radius:10px;padding:11px 9px;text-align:center}
+.coc-lbl{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8a9e92;margin-bottom:4px}
+.coc-val{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--f);line-height:1.1}
+.coc-val.pos{color:var(--pos)} .coc-val.neg{color:var(--neg)} .coc-val.warn{color:#b58105}
+
+/* ADU + Depreciation educational callouts */
+.adu-tip{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,rgba(255,193,60,.10),rgba(255,193,60,.02));border:1px solid rgba(255,193,60,.35);border-radius:10px;padding:14px 16px;margin-bottom:18px}
+.adu-tip-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--b);color:#1a1a1a;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:18px;line-height:1}
+.adu-tip-title{font-size:12px;font-weight:700;color:var(--f);margin-bottom:4px;letter-spacing:.02em}
+.adu-tip-body{font-size:11px;color:#3d4f44;line-height:1.55}
+.adu-tip-body strong{color:var(--f)}
+
+.depreciation-note{background:var(--mist);border:1px solid var(--bdr);border-left:3px solid var(--f);border-radius:8px;padding:12px 16px;margin-bottom:18px;font-size:11px;color:#5a7060;line-height:1.55}
+.depreciation-note strong{color:var(--f);display:block;margin-bottom:3px;font-size:11px;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
+.mgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:18px}
+.mc{background:var(--mist);border-radius:10px;padding:13px 12px;border:1px solid var(--bdr)}
+.mc-lbl{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8a9e92;margin-bottom:5px}
+.mc-val{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--f);line-height:1.1}
+.mc-val.pos{color:var(--pos)}.mc-val.neg{color:var(--neg)}.mc-val.warn{color:#b58105}
+.mc-det{font-size:10px;color:#8a9e92;margin-top:3px;line-height:1.3}
+@media(max-width:520px){.mgrid{grid-template-columns:1fr 1fr}}
+.brow{margin-bottom:12px}
+.brow-hd{display:flex;justify-content:space-between;font-size:10px;font-weight:600;margin-bottom:6px}
+.brow-hd .lbl{color:#5a7060;letter-spacing:.06em;text-transform:uppercase}
+.brow-hd .amt{font-family:'Playfair Display',serif;font-size:13px;color:var(--f)}
+.btrack{height:7px;background:var(--bdr);border-radius:4px;overflow:hidden}
+.bfill{height:100%;border-radius:4px;transition:width .5s ease}
+.bfill.inc{background:var(--f)}.bfill.exp{background:#e8c87a}.bfill.net{background:var(--b)}
+.etbl{width:100%;border-collapse:collapse;font-size:12px}
+.etbl th{text-align:left;font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8a9e92;padding:7px 9px;border-bottom:1px solid var(--bdr)}
+.etbl td{padding:10px 9px;border-bottom:1px solid #f0f0f0;font-weight:500;color:var(--ink)}
+.etbl tr:last-child td{border-bottom:none}
+.etbl .eq{color:var(--pos);font-weight:700}
+.etbl .cf{color:var(--f);font-weight:600}
+.proj-note{font-size:10px;color:#8a9e92;margin-top:8px;line-height:1.5;font-style:italic}
+.ctabox{background:linear-gradient(135deg,var(--n) 0%,#1a2060 100%);border-radius:12px;padding:24px;text-align:center;margin-top:4px}
+.ctabox h3{font-family:'Playfair Display',serif;color:white;font-size:16px;margin-bottom:8px}
+.ctabox p{color:rgba(255,255,255,.5);font-size:11px;margin-bottom:16px;line-height:1.65}
+.ctabtn{background:var(--b);color:var(--n);font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:5px;padding:12px 20px;cursor:pointer;width:100%;transition:opacity .2s}
+.ctabtn:hover{opacity:.85}
+
+/* ── EXIT ANALYSIS ── */
+.exit-panel{background:white;border-radius:14px;border:1px solid var(--bdr);box-shadow:0 2px 12px rgba(0,0,0,.05);margin-bottom:18px;overflow:hidden}
+.exit-header{background:var(--n);padding:20px 24px 16px}
+.exit-header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.exit-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:white}
+.exit-subtitle{font-size:10px;color:rgba(255,255,255,.45);margin-top:3px;font-weight:400}
+.exit-roi-big{text-align:right}
+.exit-roi-lbl{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px}
+.exit-roi-val{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--b);line-height:1}
+.exit-roi-sub{font-size:10px;color:rgba(255,255,255,.4);margin-top:3px}
+
+/* Year selector pills */
+.year-pills{display:flex;gap:6px;flex-wrap:nowrap}
+.yr-pill{flex:1;height:30px;border:1px solid rgba(255,255,255,.2);border-radius:4px;background:transparent;color:rgba(255,255,255,.55);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.yr-pill:hover{border-color:rgba(255,255,255,.5);color:white}
+.yr-pill.active{background:var(--b);border-color:var(--b);color:var(--n)}
+
+/* Cash flow bar chart */
+/* Wealth Growth Chart */
+.wealth-chart{padding:22px 24px 18px}
+.wealth-chart-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--f);margin-bottom:5px}
+.wealth-chart-sub{font-size:10px;color:#8a9e92;margin-bottom:14px;line-height:1.45}
+#wealthSvg{display:block;width:100%;height:auto;aspect-ratio:600/240;overflow:visible}
+.wealth-legend{display:flex;justify-content:center;gap:18px;margin-top:8px;flex-wrap:wrap}
+.wleg-item{display:flex;align-items:center;gap:6px;font-size:10px;color:#5a7060;font-weight:600}
+.wleg-dot{width:10px;height:10px;border-radius:2px;display:inline-block}
+
+/* Exit breakdown */
+.exit-breakdown{padding:20px 24px}
+.exit-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:12px}
+.exit-row:last-of-type{border-bottom:none}
+.exit-row-lbl{color:#6b7280;font-weight:400}
+.exit-row-val{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--ink)}
+.exit-row-val.pos{color:var(--pos)}
+.exit-row-val.neg{color:var(--neg)}
+.exit-row-val.highlight{color:var(--f)}
+.exit-row.total-row{margin-top:4px;padding-top:12px;border-top:2px solid var(--bdr);border-bottom:none}
+.exit-row.total-row .exit-row-lbl{font-weight:700;font-size:13px;color:var(--ink)}
+.exit-row.total-row .exit-row-val{font-size:18px;color:var(--pos)}
+.exit-row.deduct .exit-row-val{color:var(--neg)}
+.exit-sale-cost-input{display:flex;align-items:center;gap:6px}
+.exit-sale-cost-input input{width:52px;height:26px;border:1px solid var(--bdr);border-radius:4px;text-align:center;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--ink);-moz-appearance:textfield}
+.exit-sale-cost-input input::-webkit-outer-spin-button,.exit-sale-cost-input input::-webkit-inner-spin-button{-webkit-appearance:none}
+.exit-sale-cost-input span{font-size:11px;color:#8a9e92}
+
+/* Summary stats row */
+.exit-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--bdr);margin:0 0 0 0;border-top:1px solid var(--bdr)}
+.exit-stat{background:var(--mist);padding:14px 16px;text-align:center}
+.exit-stat-lbl{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8a9e92;margin-bottom:5px}
+.exit-stat-val{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--f)}
+.exit-stat-val.brass{color:#b8860b}
+
+/* ── Return Sources (Where Returns Come From) ── */
+.exit-sources{padding:24px 24px 28px;border-top:1px solid var(--bdr);background:var(--mist)}
+.exit-sources-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--f);margin-bottom:6px}
+.exit-sources-sub{font-size:11px;color:#5a7060;line-height:1.55;margin-bottom:18px}
+.src-row{display:grid;grid-template-columns:170px 1fr 110px;gap:14px;align-items:center;padding:9px 0;font-size:12px}
+.src-row-lbl{color:var(--ink);font-weight:600}
+.src-row-bar{height:8px;background:rgba(28,61,49,.08);border-radius:4px;overflow:hidden}
+.src-row-fill{height:100%;background:var(--f);border-radius:4px;transition:width .5s ease}
+.src-row-fill.brass{background:var(--b)}
+.src-row-fill.neg{background:var(--neg)}
+.src-row-val{font-family:'Playfair Display',serif;font-weight:700;color:var(--f);text-align:right;font-size:15px}
+.src-row-val.neg{color:var(--neg)}
+.src-total{margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#5a7060;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.src-total-val{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--f);text-transform:none;letter-spacing:0}
+@media (max-width:680px){
+  .src-row{grid-template-columns:1fr 90px;grid-template-rows:auto auto;gap:6px 12px}
+  .src-row-lbl{grid-column:1/2;grid-row:1}
+  .src-row-val{grid-column:2/3;grid-row:1}
+  .src-row-bar{grid-column:1/3;grid-row:2}
+}
+
+
+/* ── EMAIL MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(7,11,51,.6);backdrop-filter:blur(6px);z-index:900;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:white;border-radius:20px 20px 0 0;padding:36px 32px 40px;width:100%;max-width:520px;transform:translateY(40px);transition:transform .35s cubic-bezier(.25,.46,.45,.94);max-height:90vh;overflow-y:auto}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-handle{width:40px;height:4px;background:var(--bdr);border-radius:2px;margin:0 auto 24px}
+.modal-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--f);margin-bottom:6px}
+.modal-sub{font-size:12px;color:#8a9e92;line-height:1.6;margin-bottom:24px}
+.modal-field{margin-bottom:16px}
+.modal-field label{display:block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5a7060;margin-bottom:7px}
+.modal-field input{width:100%;height:44px;border:1px solid var(--bdr);border-radius:8px;padding:0 14px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:500;color:var(--ink);outline:none;transition:border-color .2s}
+.modal-field input:focus{border-color:var(--f);box-shadow:0 0 0 3px rgba(28,61,49,.08)}
+.modal-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.modal-optin{display:flex;align-items:flex-start;gap:10px;margin:20px 0 24px;padding:14px;background:var(--mist);border-radius:8px;cursor:pointer}
+.modal-optin input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--f)}
+.modal-optin-text{font-size:11px;color:#5a7060;line-height:1.5}
+.modal-optin-text strong{color:var(--f);font-weight:600}
+.modal-submit{width:100%;height:50px;background:var(--f);color:white;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;border-radius:8px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.modal-submit:hover{background:#153329;transform:translateY(-1px)}
+.modal-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:var(--mist);border-radius:50%;cursor:pointer;font-size:16px;color:#8a9e92;display:flex;align-items:center;justify-content:center}
+.modal-box{position:relative}
+.modal-success{text-align:center;padding:20px 0}
+.modal-success-icon{font-size:48px;margin-bottom:16px}
+.modal-success h3{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--f);margin-bottom:8px}
+.modal-success p{font-size:13px;color:#8a9e92;line-height:1.65;max-width:340px;margin:0 auto 24px}
+.modal-success-done{width:100%;height:44px;background:var(--mist);border:1px solid var(--bdr);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--f);cursor:pointer}
+.modal-error{font-size:11px;color:var(--neg);margin-top:8px;display:none}
+@media(min-width:600px){.modal-overlay{align-items:center}.modal-box{border-radius:20px;margin:20px}}
+
+.foot{background:var(--n);padding:28px 48px 20px;text-align:center;color:rgba(255,255,255,.3);font-size:10px;letter-spacing:.04em}
+.foot strong{color:rgba(255,255,255,.6)}
+
+@media(max-width:860px){.nav-links{display:none}.site-nav{padding:0 20px}.ham-btn{display:flex}}
+@media(max-width:820px){.wrap{grid-template-columns:1fr}.rp{position:static}.hero{padding:calc(56px + 40px) 24px 36px}.wrap{padding:32px 16px 56px}}
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <meta name="description" content="Free multifamily investment calculator for Los Angeles real estate. Analyze cap rates, cash-on-cash return, gross rent multiplier, and deal feasibility in seconds — by AMRE Real Estate Group.">
+  <meta property="og:title" content="Cash &amp; Flow — Multifamily Investment Calculator">
+  <meta property="og:description" content="Free multifamily investment calculator. Analyze cap rates, cash-on-cash return, and deal feasibility in seconds — by AMRE Real Estate Group at Compass Beverly Hills.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-group-exterior-formal.jpg">
+  <meta property="og:url" content="https://amre.group/tools/investor-calculator/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AMRE Real Estate Group">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cash &amp; Flow — Multifamily Investment Calculator">
+  <meta name="twitter:description" content="Free multifamily investment calculator for LA real estate. Cap rates, cash-on-cash return, GRM — by AMRE Real Estate Group.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/photos/amre-group-exterior-formal.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://amre.group/tools/investor-calculator/#app",
+    "name": "Cash & Flow — Multifamily Investment Calculator",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "description": "Free multifamily investment calculator for Los Angeles real estate. Analyze cap rates, cash-on-cash return, gross rent multiplier, and deal feasibility — by AMRE Real Estate Group.",
+    "url": "https://amre.group/tools/investor-calculator/",
+    "inLanguage": "en-US",
+    "isAccessibleForFree": true,
+    "provider": {
+      "@id": "https://amre.group/#organization"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Cap rate calculation",
+      "Cash-on-cash return analysis",
+      "Gross rent multiplier",
+      "Net operating income",
+      "Debt service coverage ratio",
+      "Deal feasibility scoring"
+    ]
+  }
+  </script>
+<link rel="stylesheet" href="/assets/forms/consent.css">
+<script src="/assets/forms/consent.js?v=20260821" defer></script>
 </head>
 <body>
-PLACEHOLDER_TEST_BODY
+
+<nav class="site-nav" id="siteNav" role="navigation" aria-label="Main navigation">
+  <a href="https://amre.group/" class="nav-brand" aria-label="AMRE Real Estate Group">
+    <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE" class="logo-white nav-amre" width="80" height="22">
+    <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-black.svg" alt="AMRE" class="logo-dark nav-amre" width="80" height="22">
+    <div class="nav-sep" aria-hidden="true"></div>
+    <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" class="logo-white nav-compass" width="70" height="15">
+    <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-black.png" alt="Compass" class="logo-dark nav-compass" width="70" height="15">
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://amre.group/sellers/">Sellers</a></li>
+    <li><a href="https://amre.group/buyers/">Buyers</a></li>
+    <li><a href="https://amre.group/cash-and-flow/">Cash &amp; Flow</a></li>
+    <li><a href="https://amre.group/about/">About</a></li>
+    <li><a href="https://amre.group/contact/">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://amre.group/contact/" class="nav-cta">Get&nbsp;In&nbsp;Touch</a>
+    <button class="ham-btn" id="hamBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="hero">
+  <img class="hero-brand" src="data:image/png;base64,PLACEHOLDER_BASE64_TO_BE_REPLACED_IN_NEXT_STEP" alt="Cash &amp; Flow">
+  <div class="eyebrow">Multifamily Investment Calculator</div>
+  <h1>Run the numbers before you run the deal.</h1>
+  <p>Cap rate, cash-on-cash return, NOI, DSCR, and long-term equity projections — instantly. Powered by AMRE Real Estate Group.</p>
+</section>
+
+<div class="wrap">
+
+  <!-- ── LEFT: INPUTS ── -->
+  <div>
+    <div class="panel">
+      <div class="ptitle">Property &amp; Purchase</div>
+      <div class="psub">Acquisition details</div>
+
+      <!-- Purchase Price -->
+      <div class="field">
+        <div class="field-head">
+          <label>Purchase Price</label>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">The agreed sale price — used to calculate loan amount, estimated taxes, insurance, cap rate, and GRM.</div>
+          </div>
+        </div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="pp" value="1000000" oninput="calc()"></div>
+      </div>
+
+      <!-- Units -->
+      <div class="field">
+        <div class="field-head">
+          <label>Number of Units</label>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">Total rentable units including ADUs. Used with the per-unit rent below to compute total rent roll.</div>
+          </div>
+        </div>
+        <input type="number" id="units" value="2" oninput="calc()">
+      </div>
+
+      <div class="divider"></div>
+      <span class="slabel">Financing</span>
+
+      <!-- Down Payment -->
+      <div class="field">
+        <div class="field-head">
+          <label>Down Payment</label>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">Investment properties typically require 20–30% down. Less than 25% may trigger higher rates on non-owner-occupied loans.</div>
+          </div>
+        </div>
+        <div class="irow has-suf"><input type="number" id="dp" value="25" oninput="calc()"><div class="suf">%</div></div>
+        <div class="field-hint" id="dp-hint"></div>
+      </div>
+
+      <!-- Interest Rate + Loan Term side by side -->
+      <div class="two-col">
+        <div class="field">
+          <div class="field-head">
+            <label>Interest Rate</label>
+            <div class="tip" tabindex="0"><span>?</span>
+              <div class="tip-box">Investment property rates run ~0.5–0.75% above primary residence rates. Contact your lender for a current quote.</div>
+            </div>
+          </div>
+          <div class="irow has-suf"><input type="number" id="ir" value="6.875" step="0.125" oninput="calc()"><div class="suf">%</div></div>
+        </div>
+        <div class="field">
+          <div class="field-head"><label>Loan Term</label></div>
+          <select id="lterm" onchange="calc()">
+            <option value="15">15 years</option>
+            <option value="20">20 years</option>
+            <option value="30" selected>30 years</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Closing Costs + Origination -->
+      <div class="two-col">
+        <div class="field">
+          <div class="field-head">
+            <label>Closing Costs</label>
+            <div class="tip" tabindex="0"><span>?</span>
+              <div class="tip-box">CA buyer closing costs typically run 2–3% of purchase price: escrow, title, lender fees, transfer tax, and prepaids.</div>
+            </div>
+          </div>
+          <div class="irow has-suf"><input type="number" id="closing-pct" value="2.5" step="0.25" oninput="calc()"><div class="suf">% of price</div></div>
+        </div>
+        <div class="field">
+          <div class="field-head">
+            <label>Loan Origination</label>
+            <div class="tip" tabindex="0"><span>?</span>
+              <div class="tip-box">Lender origination fee — typically 0.5–1% of the loan amount. One point = 1% and can buy down your rate.</div>
+            </div>
+          </div>
+          <div class="irow has-suf"><input type="number" id="orig-pct" value="1" step="0.25" oninput="calc()"><div class="suf">% of loan</div></div>
+        </div>
+      </div>
+
+      <!-- Reserves -->
+      <div class="field">
+        <div class="field-head">
+          <label>Cash Reserves Required</label>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">Most lenders require 6 months of PITI (principal + interest + taxes + insurance) in reserves after closing. Must be liquid in your account.</div>
+          </div>
+        </div>
+        <div class="irow has-suf"><input type="number" id="reserves" value="6" step="1" oninput="calc()"><div class="suf">months PITI</div></div>
+        <div class="field-hint" id="reserves-hint"></div>
+      </div>
+
+      <!-- Cash to Close Summary -->
+      <div class="ctc-card">
+        <div class="ctc-label">Cash to Close Breakdown</div>
+        <div class="ctc-row"><span class="ctc-lbl">Down Payment</span><span class="ctc-amt" id="ctc-down">—</span></div>
+        <div class="ctc-row"><span class="ctc-lbl">Closing Costs</span><span class="ctc-amt" id="ctc-closing">—</span></div>
+        <div class="ctc-row"><span class="ctc-lbl">Loan Origination</span><span class="ctc-amt" id="ctc-orig">—</span></div>
+        <div class="ctc-row"><span class="ctc-lbl" id="ctc-res-lbl">Reserves (6 mo PITI)</span><span class="ctc-amt reserve" id="ctc-res">—</span></div>
+        <div class="ctc-sep"></div>
+        <div class="ctc-total-row">
+          <span class="ctc-total-lbl">Total Cash Needed</span>
+          <span class="ctc-total-val" id="ctc-total">—</span>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <span class="slabel">Income</span>
+
+      <!-- Rent per unit -->
+      <div class="field">
+        <div class="field-head">
+          <label>Avg Monthly Rent per Unit</label>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">Average rent per unit per month. Multiplied by the unit count to compute total rent roll. Use actuals from the rent roll, or estimated market rents. For rent-controlled buildings, legal rent may be below market.</div>
+          </div>
+        </div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="rent" value="3500" oninput="calc()"></div>
+        <div class="field-hint" id="rent-hint"></div>
+      </div>
+
+      <!-- Vacancy -->
+      <div class="field">
+        <div class="field-head">
+          <label>Vacancy Rate</label>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">% of time units sit empty. 3–5% is standard for stabilized LA multifamily (~11–18 days/yr per unit). Use 8–10% if turnover is expected.</div>
+          </div>
+        </div>
+        <div class="irow has-suf"><input type="number" id="vac" value="5" oninput="calc()"><div class="suf">%</div></div>
+        <div class="field-hint">3–5% stabilized · LA metro avg ~5.5%</div>
+      </div>
+
+      <!-- Annual Growth Assumptions — VISIBLE -->
+      <div class="two-col" style="margin-top:4px">
+        <div class="field">
+          <div class="field-head">
+            <label>Annual Rent Growth</label>
+            <div class="tip" tabindex="0"><span>?</span>
+              <div class="tip-box">Applied to rent in the 10-year projection. LA multifamily rent growth has historically averaged 3–4%. Important: LA's RSO caps annual increases on covered buildings — typically 4% or less — so 3% is a reasonable long-run blend.</div>
+            </div>
+          </div>
+          <div class="irow has-suf"><input type="number" id="rent-growth" value="3" step="0.5" oninput="calc()"><div class="suf">% / yr</div></div>
+        </div>
+        <div class="field">
+          <div class="field-head">
+            <label>Appreciation</label>
+            <div class="tip" tabindex="0"><span>?</span>
+              <div class="tip-box">Annual property value growth used in the equity projection table. LA multifamily has historically appreciated 4–7% annually.</div>
+            </div>
+          </div>
+          <div class="irow has-suf"><input type="number" id="apprec" value="6" step="0.5" oninput="calc()"><div class="suf">% / yr</div></div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <span class="slabel">Annual Expenses</span>
+
+      <!-- Property Taxes -->
+      <div class="field">
+        <div class="field-head">
+          <label>Property Taxes</label>
+          <span class="auto-tag">Auto</span>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">Estimated at 1.25% of purchase price — LA County's effective rate including Mello-Roos and special assessments. Override with actual bill once available.</div>
+          </div>
+        </div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="taxes" value="12500" oninput="calc()"></div>
+        <div class="field-hint derived" id="tax-hint"></div>
+      </div>
+
+      <!-- Insurance -->
+      <div class="field">
+        <div class="field-head">
+          <label>Insurance</label>
+          <span class="auto-tag">Auto</span>
+          <div class="tip" tabindex="0"><span>?</span>
+            <div class="tip-box">Landlord policy covering building, liability, and loss of rents. Estimated at 0.5% of purchase price — LA premiums rose 30%+ in 2024 post-wildfires. Adjust up for wood-frame, hillside, or fire-zone properties.</div>
+          </div>
+        </div>
+        <div class="irow has-pre"><div class="pre">$</div><input type="number" id="ins" value="5000" oninput="calc()"></div>
+        <div class="field-hint derived" id="ins-hint"></div>
+      </div>
+
+      <!-- Maintenance + Mgmt side by side -->
+      <div class="two-col">
+        <div class="field">
+          <div class="field-head">
+            <label>Maintenance &amp; CapEx</label>
+            <div class="tip" tabindex="0"><span>?</span>
+              <div class="tip-box">Covers routine repairs + big-ticket replacements (roof, HVAC, appliances). Standard: 3–5% for newer buildings, 8–12% for older ones.</div>
+            </div>
+          </div>
+          <div class="irow has-suf"><input type="number" id="maint" value="5" step="1" oninput="calc()"><div class="suf">% rents</div></div>
+          <div class="field-hint">3–5% newer · 8–12% older LA stock</div>
+        </div>
+        <div class="field">
+          <div class="field-head">
+            <label>Property Mgmt</label>
+            <div class="tip" tabindex="0"><span>?</span>
+              <div class="tip-box">Professional PM runs 5–10% of collected rents. Set to 0% if self-managing — but model it if you may hire out or sell.</div>
+            </div>
+          </div>
+          <div class="irow has-suf"><input type="number" id="mgmt" value="5" step="1" oninput="calc()"><div class="suf">% rents</div></div>
+          <div class="field-hint">5–10% · 0% if self-managing</div>
+        </div>
+      </div>
+
+    </div><!-- /panel -->
+  </div><!-- /left col -->
+
+  <!-- ── RIGHT: RESULTS ── -->
+  <div class="rp">
+
+    <!-- HERO: Annualized Return over Hold Period -->
+    <div class="kpi">
+      <div>
+        <div class="kpi-lbl"><span id="kpi-yr">10</span>-Year Annualized Return</div>
+        <div class="kpi-val"><span id="r-cagr">—</span><span class="unit">/yr</span></div>
+        <div class="kpi-sub">
+          Total profit: <span id="kpi-profit">—</span> on <span id="kpi-invest">—</span> invested
+        </div>
+        <div class="kpi-hint">→ Adjust hold period using the year pills in Exit Analysis below.</div>
+      </div>
+      <div style="text-align:right">
+        <div class="kpi-mult" id="r-eqmult">—</div>
+        <div class="kpi-mult-lbl">Equity Multiple</div>
+      </div>
+    </div>
+
+    <!-- Cash-on-Cash by Time Period -->
+    <div class="coc-row">
+      <div class="coc-card">
+        <div class="coc-lbl">Year 1 CoC</div>
+        <div class="coc-val" id="coc-y1">—</div>
+      </div>
+      <div class="coc-card">
+        <div class="coc-lbl">5-Yr Avg CoC</div>
+        <div class="coc-val" id="coc-y5">—</div>
+      </div>
+      <div class="coc-card">
+        <div class="coc-lbl">10-Yr Avg CoC</div>
+        <div class="coc-val" id="coc-y10">—</div>
+      </div>
+      <div class="coc-card">
+        <div class="coc-lbl">30-Yr Avg CoC</div>
+        <div class="coc-val" id="coc-y30">—</div>
+      </div>
+    </div>
+
+    <!-- 6 Metrics -->
+    <div class="mgrid">
+      <div class="mc">
+        <div class="mc-lbl">Cap Rate</div>
+        <div class="mc-val" id="r-cap">—</div>
+        <div class="mc-det">LA avg: 4.5–5.5%</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">GRM</div>
+        <div class="mc-val" id="r-grm">—</div>
+        <div class="mc-det">Target: &lt;14×</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">DSCR</div>
+        <div class="mc-val" id="r-dscr">—</div>
+        <div class="mc-det">Lender min: 1.25×</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Price / Unit</div>
+        <div class="mc-val" id="r-ppu">—</div>
+        <div class="mc-det" id="r-ppu-det">LA metro avg ~$283k</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Op. Exp. Ratio</div>
+        <div class="mc-val" id="r-oer">—</div>
+        <div class="mc-det">Healthy: 35–55%</div>
+      </div>
+      <div class="mc">
+        <div class="mc-lbl">Break-Even Occ.</div>
+        <div class="mc-val" id="r-beo">—</div>
+        <div class="mc-det">Target: &lt;90%</div>
+      </div>
+    </div>
+
+    <!-- ADU Upside Callout -->
+    <div class="adu-tip">
+      <div class="adu-tip-icon">+</div>
+      <div>
+        <div class="adu-tip-title">ADU Upside (Not Modeled Above)</div>
+        <div class="adu-tip-body">LA's 2024 streamlined ADU permits make adding an ADU one of the highest-ROI value-add moves in multifamily. A new ADU typically adds <strong>$24,000–$54,000/yr</strong> in rent and <strong>$200,000–$400,000</strong> in property value. The numbers above don't include this — meaning the upside on most LA properties is materially higher than shown.</div>
+      </div>
+    </div>
+
+    <!-- Income vs Expense Bars -->
+    <div class="panel" style="margin-bottom:18px;padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px">
+        <div class="ptitle" style="font-size:15px">Annual Income vs. Expenses</div>
+        <div style="font-size:11px;color:#8a9e92">NOI: <span id="r-noi" style="font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--f)">—</span> <span id="r-noimo">—</span></div>
+      </div>
+      <div class="brow">
+        <div class="brow-hd"><span class="lbl">Effective Income</span><span class="amt" id="b-inc">—</span></div>
+        <div class="btrack"><div class="bfill inc" id="bf-inc" style="width:100%"></div></div>
+      </div>
+      <div class="brow">
+        <div class="brow-hd"><span class="lbl">Total Expenses</span><span class="amt" id="b-exp">—</span></div>
+        <div class="btrack"><div class="bfill exp" id="bf-exp" style="width:65%"></div></div>
+      </div>
+      <div class="brow">
+        <div class="brow-hd"><span class="lbl">Net Cash Flow</span><span class="amt" id="b-net">—</span></div>
+        <div class="btrack"><div class="bfill net" id="bf-net" style="width:35%"></div></div>
+      </div>
+    </div>
+
+    <!-- 10-Year Projection -->
+    <div class="panel" style="margin-bottom:18px;padding:24px">
+      <div class="ptitle" style="font-size:15px;margin-bottom:3px">10-Year Projection</div>
+      <div class="psub" style="margin-bottom:14px">Equity growth &amp; cash flow over time</div>
+      <table class="etbl">
+        <thead><tr><th>Year</th><th>Property Value</th><th>Equity</th><th>Annual CF</th></tr></thead>
+        <tbody id="etbody"></tbody>
+      </table>
+      <div class="proj-note" id="proj-note"></div>
+    </div>
+
+
+    <!-- Exit / Sale Analysis -->
+    <div class="exit-panel">
+      <div class="exit-header">
+        <div class="exit-header-top">
+          <div>
+            <div class="exit-title">Exit &amp; Total Return Analysis</div>
+            <div class="exit-subtitle">If you sold at the end of year…</div>
+          </div>
+          <div class="exit-roi-big">
+            <div class="exit-roi-lbl">Total ROI</div>
+            <div class="exit-roi-val" id="ex-roi">—</div>
+            <div class="exit-roi-sub" id="ex-cagr">— annualized</div>
+          </div>
+        </div>
+        <div class="year-pills" id="yearPills">
+          <button class="yr-pill" onclick="setYear(5)">5</button>
+          <button class="yr-pill active" onclick="setYear(10)">10</button>
+          <button class="yr-pill" onclick="setYear(15)">15</button>
+          <button class="yr-pill" onclick="setYear(20)">20</button>
+          <button class="yr-pill" onclick="setYear(30)">30</button>
+        </div>
+      </div>
+
+      <!-- Wealth Growth Chart -->
+      <div class="wealth-chart">
+        <div class="wealth-chart-title">Total Wealth Built Over Time</div>
+        <div class="wealth-chart-sub">Three engines compound together — appreciation + paydown + cash flow — even when monthly cash flow is modest.</div>
+        <svg id="wealthSvg" viewBox="0 0 600 240" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="wealth-legend">
+          <div class="wleg-item"><span class="wleg-dot" style="background:var(--b)"></span>Appreciation</div>
+          <div class="wleg-item"><span class="wleg-dot" style="background:var(--f)"></span>Paydown</div>
+          <div class="wleg-item"><span class="wleg-dot" style="background:#9bbfa8"></span>Cash Flow</div>
+        </div>
+      </div>
+
+      <!-- Stat summary row -->
+      <div class="exit-stats">
+        <div class="exit-stat">
+          <div class="exit-stat-lbl">Sale Price</div>
+          <div class="exit-stat-val" id="ex-saleprice">—</div>
+        </div>
+        <div class="exit-stat">
+          <div class="exit-stat-lbl">Cumul. Net CF</div>
+          <div class="exit-stat-val" id="ex-cumcf">—</div>
+        </div>
+        <div class="exit-stat">
+          <div class="exit-stat-lbl">Equity Multiple</div>
+          <div class="exit-stat-val brass" id="ex-mult">—</div>
+        </div>
+      </div>
+
+      <!-- Breakdown -->
+      <div class="exit-breakdown">
+        <div class="exit-row">
+          <span class="exit-row-lbl">Sale Price (appreciated value)</span>
+          <span class="exit-row-val highlight" id="ex-val">—</span>
+        </div>
+        <div class="exit-row deduct">
+          <span class="exit-row-lbl">− Remaining Loan Balance</span>
+          <span class="exit-row-val neg" id="ex-loanbal">—</span>
+        </div>
+        <div class="exit-row deduct">
+          <span class="exit-row-lbl">
+            − Sale Costs &nbsp;
+            <span class="exit-sale-cost-input">
+              <input type="number" id="sale-cost-pct" value="6" step="0.5" oninput="updateExit()">
+              <span>% (agent + closing)</span>
+            </span>
+          </span>
+          <span class="exit-row-val neg" id="ex-salecost">—</span>
+        </div>
+        <div class="exit-row">
+          <span class="exit-row-lbl">= Net Equity from Sale</span>
+          <span class="exit-row-val pos" id="ex-netequity">—</span>
+        </div>
+        <div class="exit-row">
+          <span class="exit-row-lbl">+ Cumulative Net Cash Flow
+            <span class="tip tip-inline" tabindex="0"><span>?</span>
+              <div class="tip-box">This is <strong>not</strong> total rent. It's what hits your bank account each year after every deduction:<br><br>Gross Rent − Vacancy − Property Taxes − Insurance − Maintenance − Property Management − Mortgage Payment = <strong>Net Cash Flow</strong><br><br>Then summed across every year of the hold (with rent growing 3%/yr, taxes growing 2%/yr per Prop 13, mortgage frozen for 30 years).</div>
+            </span>
+          </span>
+          <span class="exit-row-val pos" id="ex-cumcf2">—</span>
+        </div>
+        <div class="exit-row deduct">
+          <span class="exit-row-lbl">− Initial Cash Invested</span>
+          <span class="exit-row-val neg" id="ex-invested">—</span>
+        </div>
+        <div class="exit-row total-row">
+          <span class="exit-row-lbl">Total Profit</span>
+          <span class="exit-row-val" id="ex-profit">—</span>
+        </div>
+      </div>
+
+      <!-- Where Your Returns Come From -->
+      <div class="exit-sources">
+        <div class="exit-sources-title">Where Your Returns Come From</div>
+        <div class="exit-sources-sub">Real estate compounds wealth through three engines simultaneously. Even when monthly cash flow is modest, appreciation and tenant-funded loan paydown silently build equity year after year.</div>
+
+        <div class="src-row">
+          <div class="src-row-lbl">Property Appreciation</div>
+          <div class="src-row-bar"><div class="src-row-fill brass" id="src-app-bar" style="width:0%"></div></div>
+          <div class="src-row-val" id="src-app-val">—</div>
+        </div>
+        <div class="src-row">
+          <div class="src-row-lbl">Principal Paydown</div>
+          <div class="src-row-bar"><div class="src-row-fill" id="src-pay-bar" style="width:0%"></div></div>
+          <div class="src-row-val" id="src-pay-val">—</div>
+        </div>
+        <div class="src-row">
+          <div class="src-row-lbl">Cumulative Cash Flow</div>
+          <div class="src-row-bar"><div class="src-row-fill" id="src-cf-bar" style="width:0%"></div></div>
+          <div class="src-row-val" id="src-cf-val">—</div>
+        </div>
+
+        <div class="src-total">
+          <span>Combined Gross Return</span>
+          <span class="src-total-val" id="src-total-val">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Depreciation footnote -->
+    <div class="depreciation-note">
+      <strong>Pre-Tax Returns</strong>
+      All numbers above are before tax. Depreciation typically shelters <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit">$25,000–$40,000/yr</strong> of income from federal and state taxes for a $1M LA multifamily property — meaningfully boosting net-of-tax returns. Consult your CPA for personalized projections.
+    </div>
+
+    <!-- CTA -->
+    <div class="ctabox">
+      <h3>Ready to run this on a real deal?</h3>
+      <p>Our team analyzes income properties across LA County — from duplexes to 20-unit buildings. Get a full underwriting review from AMRE.</p>
+      <button class="ctabtn" onclick="openModal()">📩 Email Me This Analysis</button>
+    </div>
+
+  </div><!-- /right col -->
+</div><!-- /wrap -->
+
+
+<!-- ===== FURTHER READING ===== -->
+<section style="background:#f7f5f1;padding:56px 24px;border-top:1px solid #e8e4dc" aria-label="Further reading">
+  <div style="max-width:780px;margin:0 auto">
+    <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#1c3d31;margin-bottom:18px">Further reading from the Journal</p>
+      <a href="/blog/1031-exchange-los-angeles/" style="display:block;text-decoration:none;border:1px solid #d8d2c6;border-radius:8px;padding:24px 28px;background:#fff;transition:border-color .2s;margin-bottom:14px" onmouseover="this.style.borderColor='#1c3d31'" onmouseout="this.style.borderColor='#d8d2c6'">
+        <span style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1a1a;display:block;margin-bottom:6px">1031 Exchange in Los Angeles: A 2026 Primer &rarr;</span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:300;line-height:1.6;color:#5a5a5a">Defer capital gains by trading up — the 45/180-day rules, California's clawback, and how Measure ULA interacts with an exchange.</span>
+      </a>
+      <a href="/blog/how-to-buy-a-home-in-los-angeles/" style="display:block;text-decoration:none;border:1px solid #d8d2c6;border-radius:8px;padding:24px 28px;background:#fff;transition:border-color .2s" onmouseover="this.style.borderColor='#1c3d31'" onmouseout="this.style.borderColor='#d8d2c6'">
+        <span style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#1a1a1a;display:block;margin-bottom:6px">How to Buy a Home in Los Angeles &rarr;</span>
+        <span style="font-family:'Montserrat',sans-serif;font-size:14px;font-weight:300;line-height:1.6;color:#5a5a5a">The full LA purchase process — useful whether you're acquiring a rental, a replacement property, or a primary residence.</span>
+      </a>
+  </div>
+</section>
+
+<footer class="foot">
+  <strong>Cash &amp; Flow</strong> &nbsp;·&nbsp; A tool by <strong>AMRE Real Estate Group at Compass</strong> &nbsp;·&nbsp; DRE #02242095 &nbsp;·&nbsp; © 2026 &nbsp;·&nbsp; Results are estimates for informational purposes only.
+</footer>
+
+<script>
+function f(n)  { return '$' + Math.round(n).toLocaleString('en-US'); }
+function fp(n) { return n.toFixed(2) + '%'; }
+function gv(id){ return parseFloat(document.getElementById(id).value) || 0; }
+
+function calc() {
+  // ── Inputs ──
+  var pp         = gv('pp');
+  var units      = gv('units');
+  var dpPct      = gv('dp') / 100;
+  var ir         = gv('ir') / 100;
+  var term       = gv('lterm');
+  var closingPct = gv('closing-pct') / 100;
+  var origPct    = gv('orig-pct') / 100;
+  var resMo      = gv('reserves');
+  var rentPerUnit = gv('rent');
+  var totalMonthly = rentPerUnit * units;   // total rent across all units per month
+  var rent       = totalMonthly;            // alias kept for downstream code
+  var vacP       = gv('vac') / 100;
+  var rentGrowth = gv('rent-growth') / 100;
+  var apprec     = gv('apprec') / 100;
+  var taxes      = gv('taxes');
+  var insPct     = 0.005; // 0.5% — used only for hint display
+  var maintP     = gv('maint') / 100;
+  var mgmtP      = gv('mgmt') / 100;
+
+  // ── Derived ──
+  var down    = pp * dpPct;
+  var loan    = pp - down;
+  var ins     = gv('ins'); // dollar input, auto-seeded at 0.35% of price
+  var mr      = ir / 12;
+  var n       = term * 12;
+  var mort    = (mr > 0 && n > 0)
+    ? loan * (mr * Math.pow(1 + mr, n)) / (Math.pow(1 + mr, n) - 1)
+    : (n > 0 ? loan / n : 0);
+  var annDebt = mort * 12;
+
+  var gross   = rent * 12; // rent is total monthly across all units
+  var eff     = gross * (1 - vacP);
+  var maintE  = eff * maintP;
+  var mgmtE   = eff * mgmtP;
+  var opExp   = taxes + ins + maintE + mgmtE;
+  var noi     = eff - opExp;
+  var cf      = noi - annDebt;
+
+  // ── Cash to close ──
+  var closingAmt  = pp * closingPct;
+  var origAmt     = loan * origPct;
+  var monthlyPITI = mort + (taxes + ins) / 12;
+  var reserveAmt  = monthlyPITI * resMo;
+  var totalCash   = down + closingAmt + origAmt + reserveAmt;
+  var invest      = down + closingAmt + origAmt;
+
+  // ── Returns ──
+  var coc  = invest > 0 ? (cf / invest) * 100 : 0;
+  var cap  = pp > 0     ? (noi / pp) * 100    : 0;
+  var grm  = gross > 0  ? pp / gross           : 0;
+  var dscr = annDebt > 0 ? noi / annDebt       : 0;
+  var ppu  = units > 0  ? pp / units           : 0;          // price per unit
+  var oer  = eff > 0    ? (opExp / eff) * 100  : 0;          // operating expense ratio
+  var beo  = gross > 0  ? ((opExp + annDebt) / gross) * 100 : 0; // break-even occupancy %
+
+  // ── Update hints ──
+  document.getElementById('dp-hint').textContent =
+    '= ' + f(down) + ' down · ' + f(loan) + ' loan';
+
+  document.getElementById('rent-hint').textContent =
+    '= ' + f(totalMonthly) + '/mo total · ' + f(gross) + '/yr gross across ' + units + ' units';
+
+  document.getElementById('tax-hint').innerHTML =
+    '📐 1.25% × ' + f(pp) + ' = ' + f(taxes) + '/yr (' + f(taxes/12) + '/mo) · Override with actual bill.';
+
+  document.getElementById('ins-hint').innerHTML =
+    '📐 0.5% of ' + f(pp) + ' = ' + f(Math.round(pp*0.005)) + '/yr · current: ' + f(ins) + '/yr (' + f(ins/12) + '/mo) · override anytime';
+
+  document.getElementById('reserves-hint').textContent =
+    '= ' + f(reserveAmt) + ' required post-close (' + resMo + ' × ' + f(monthlyPITI) + '/mo PITI)';
+
+  // ── Cash-to-close card ──
+  document.getElementById('ctc-down').textContent    = f(down);
+  document.getElementById('ctc-closing').textContent = f(closingAmt);
+  document.getElementById('ctc-orig').textContent    = f(origAmt);
+  document.getElementById('ctc-res').textContent     = f(reserveAmt);
+  document.getElementById('ctc-res-lbl').textContent = 'Reserves (' + resMo + ' mo PITI)';
+  document.getElementById('ctc-total').textContent   = f(totalCash);
+
+  // ── CoC by Time Period (computes year-by-year cash flow up to 30 yrs) ──
+  var cumCFAll = 0;
+  var cocSum = {y1:0, y5:0, y10:0, y30:0};
+  for (var yy = 1; yy <= 30; yy++) {
+    var fR = rent * Math.pow(1 + rentGrowth, yy);
+    var fG = fR * 12;
+    var fE = fG * (1 - vacP);
+    var fOE = taxes * Math.pow(1.02, yy) + ins * Math.pow(1.03, yy) + fE * (maintP + mgmtP);
+    var fCf = fE - fOE - annDebt;
+    cumCFAll += fCf;
+    if (yy === 1)  cocSum.y1  = fCf;
+    if (yy === 5)  cocSum.y5  = cumCFAll / 5;
+    if (yy === 10) cocSum.y10 = cumCFAll / 10;
+    if (yy === 30) cocSum.y30 = cumCFAll / 30;
+  }
+  function setCoc(id, avgCf) {
+    var pct = invest > 0 ? (avgCf / invest) * 100 : 0;
+    var el = document.getElementById(id);
+    el.textContent = (pct >= 0 ? '+' : '') + pct.toFixed(2) + '%';
+    el.className = 'coc-val ' + (pct >= 5 ? 'pos' : pct >= 0 ? 'warn' : 'neg');
+  }
+  setCoc('coc-y1',  cocSum.y1);
+  setCoc('coc-y5',  cocSum.y5);
+  setCoc('coc-y10', cocSum.y10);
+  setCoc('coc-y30', cocSum.y30);
+
+  // ── Metrics ──
+  document.getElementById('r-cap').textContent  = fp(cap);
+  document.getElementById('r-cap').className    = 'mc-val ' + (cap  >= 4.5  ? 'pos' : 'neg');
+
+  document.getElementById('r-grm').textContent  = grm.toFixed(1) + '×';
+  document.getElementById('r-grm').className    = 'mc-val ' + (grm <= 12 ? 'pos' : grm <= 14 ? 'warn' : 'neg');
+
+  document.getElementById('r-dscr').textContent = dscr.toFixed(2) + '×';
+  document.getElementById('r-dscr').className   = 'mc-val ' + (dscr >= 1.25 ? 'pos' : dscr >= 1.0 ? 'warn' : 'neg');
+
+  // NOI now lives in the income/expenses panel header
+  document.getElementById('r-noi').textContent  = f(noi);
+  document.getElementById('r-noimo').textContent = '(' + f(noi/12) + '/mo)';
+
+  // Price per Unit + submarket positioning
+  document.getElementById('r-ppu').textContent  = ppu >= 1_000_000 ? '$' + (ppu/1_000_000).toFixed(2) + 'M' : '$' + Math.round(ppu/1000) + 'k';
+  var ppuLabel =
+    ppu >= 500_000 ? 'Westside / trophy tier' :
+    ppu >= 350_000 ? 'Mid-city / urban core' :
+    ppu >= 250_000 ? 'Eastside / Valley tier' :
+    ppu >  0       ? 'Below LA metro avg ($283k)' : 'LA metro avg ~$283k';
+  document.getElementById('r-ppu-det').textContent = ppuLabel;
+
+  // Operating Expense Ratio (lower is better, but very low = likely understated)
+  document.getElementById('r-oer').textContent = oer.toFixed(0) + '%';
+  document.getElementById('r-oer').className   = 'mc-val ' +
+    (oer >= 35 && oer <= 55 ? 'pos' :
+     oer < 35               ? 'warn' :   // suspiciously low
+                              'neg');     // too high
+
+  // Break-Even Occupancy (lower = more margin)
+  document.getElementById('r-beo').textContent = beo.toFixed(0) + '%';
+  document.getElementById('r-beo').className   = 'mc-val ' +
+    (beo <= 90 ? 'pos' : beo <= 95 ? 'warn' : 'neg');
+
+  // ── Bars ──
+  var mx = Math.max(eff, 1);
+  document.getElementById('b-inc').textContent = f(eff);
+  document.getElementById('b-exp').textContent = f(opExp + annDebt);
+  document.getElementById('b-net').textContent = f(cf);
+  document.getElementById('bf-inc').style.width = '100%';
+  document.getElementById('bf-exp').style.width = Math.min(100, (opExp + annDebt) / mx * 100) + '%';
+  document.getElementById('bf-net').style.width = Math.max(0, Math.min(100, cf / mx * 100)) + '%';
+
+  // ── Projection table ──
+  var rows = '';
+  for (var i = 0; i < [1,3,5,10].length; i++) {
+    var yr  = [1,3,5,10][i];
+    var bal = (mr > 0)
+      ? loan * (Math.pow(1+mr,n) - Math.pow(1+mr,yr*12)) / (Math.pow(1+mr,n) - 1)
+      : Math.max(0, loan - (loan/n) * yr * 12);
+    bal = Math.max(0, bal);
+    var val    = pp * Math.pow(1 + apprec, yr);
+    var eq     = val - bal;
+    var futRent = rent * Math.pow(1 + rentGrowth, yr);
+    var futGross = futRent * 12; // futRent is already total
+    var futEff   = futGross * (1 - vacP);
+    var futOpExp = taxes * Math.pow(1.02, yr) + ins * Math.pow(1.03, yr) + futEff * (maintP + mgmtP);
+    var futCf    = futEff - futOpExp - annDebt;
+    rows += '<tr><td>Yr ' + yr + '</td><td>' + f(val) + '</td><td class="eq">' + f(eq) + '</td><td class="cf">' + f(futCf) + '</td></tr>';
+  }
+  document.getElementById('etbody').innerHTML = rows;
+  document.getElementById('proj-note').textContent =
+    'Assumes ' + (apprec*100).toFixed(0) + '% annual appreciation · ' +
+    (rentGrowth*100).toFixed(0) + '% annual rent growth · taxes grow 2%/yr (Prop 13 cap) · insurance 3%/yr.';
+
+  // ── Store state for exit analysis ──
+  lastCalcData = {
+    pp:pp, loan:loan, mr:mr, n:n, apprec:apprec, rentGrowth:rentGrowth,
+    rent:rent, vacP:vacP, taxes:taxes, ins:ins, maintP:maintP, mgmtP:mgmtP,
+    annDebt:annDebt, invest:invest
+  };
+  updateExit();
+
+  // ── Auto-sync taxes on price change ──
+  var taxEst = Math.round(pp * 0.0125);
+  if (Math.abs(gv('taxes') - taxEst) > 500) {
+    // only auto-update taxes if user hasn't drifted it far
+  } else {
+    document.getElementById('taxes').value = taxEst;
+  }
+}
+
+// Auto-update taxes when price changes
+document.getElementById('pp').addEventListener('input', function() {
+  var p = gv('pp');
+  document.getElementById('taxes').value = Math.round(p * 0.0125);
+  document.getElementById('ins').value   = Math.round(p * 0.005);
+  calc();
+});
+
+
+var selectedYear = 10;
+var lastCalcData = {};
+
+function setYear(yr) {
+  selectedYear = yr;
+  document.querySelectorAll('.yr-pill').forEach(function(p) {
+    var pillYr = parseInt(p.textContent, 10);
+    p.classList.toggle('active', pillYr === yr);
+  });
+  updateExit();
+}
+
+function updateExit() {
+  var d = lastCalcData;
+  if (!d.pp) return;
+  var yr         = selectedYear;
+  var pp         = d.pp;
+  var loan       = d.loan;
+  var mr         = d.mr;
+  var n          = d.n;
+  var apprec     = d.apprec;
+  var rentGrowth = d.rentGrowth;
+  var rent       = d.rent;
+  var vacP       = d.vacP;
+  var taxes      = d.taxes;
+  var ins        = d.ins;
+  var maintP     = d.maintP;
+  var mgmtP      = d.mgmtP;
+  var annDebt    = d.annDebt;
+  var invest     = d.invest;
+  var saleCostPct = (parseFloat(document.getElementById('sale-cost-pct').value) || 6) / 100;
+
+  // Loan balance at year yr
+  var bal = (mr > 0 && n > 0)
+    ? loan * (Math.pow(1+mr,n) - Math.pow(1+mr,yr*12)) / (Math.pow(1+mr,n) - 1)
+    : Math.max(0, loan - (loan/n)*yr*12);
+  bal = Math.max(0, bal);
+
+  var salePrice  = pp * Math.pow(1 + apprec, yr);
+  var saleCost   = salePrice * saleCostPct;
+  var netEquity  = salePrice - bal - saleCost;
+
+  // Cumulative cash flow: sum year 1..selectedYear
+  var cumCF = 0;
+  for (var y = 1; y <= yr; y++) {
+    var futRent  = rent * Math.pow(1 + rentGrowth, y);
+    var futGross = futRent * 12;
+    var futEff   = futGross * (1 - vacP);
+    var futOpExp = taxes * Math.pow(1.02, y) + ins * Math.pow(1.03, y) + futEff * (maintP + mgmtP);
+    var futCf    = futEff - futOpExp - annDebt;
+    cumCF += futCf;
+  }
+
+  var totalProfit = netEquity + cumCF - invest;
+  var totalROI    = invest > 0 ? (totalProfit / invest) * 100 : 0;
+  var cagr        = invest > 0 ? (Math.pow((totalProfit + invest) / invest, 1/yr) - 1) * 100 : 0;
+  var eqMult      = invest > 0 ? (totalProfit + invest) / invest : 0;
+
+  // Update DOM
+  document.getElementById('ex-roi').textContent       = totalROI.toFixed(0) + '%';
+  document.getElementById('ex-cagr').textContent      = cagr.toFixed(1) + '%/yr annualized (CAGR)';
+  document.getElementById('ex-saleprice').textContent = f(salePrice);
+  document.getElementById('ex-cumcf').textContent     = f(cumCF);
+  document.getElementById('ex-mult').textContent      = eqMult.toFixed(2) + '×';
+  document.getElementById('ex-val').textContent       = f(salePrice);
+  document.getElementById('ex-loanbal').textContent   = f(bal);
+  document.getElementById('ex-salecost').textContent  = f(saleCost);
+  document.getElementById('ex-netequity').textContent = f(netEquity);
+  document.getElementById('ex-cumcf2').textContent    = f(cumCF);
+  document.getElementById('ex-invested').textContent  = f(invest);
+  document.getElementById('ex-profit').textContent    = f(totalProfit);
+  document.getElementById('ex-profit').className      = 'exit-row-val ' + (totalProfit >= 0 ? 'pos' : 'neg');
+
+  // ── Where Returns Come From ──
+  var apprecGain = salePrice - pp;     // property value growth
+  var paydown    = loan - bal;          // tenant paid down loan
+  var cfTotal    = cumCF;               // operations
+  var grossReturn = apprecGain + paydown + cfTotal;
+  var maxAbs = Math.max(Math.abs(apprecGain), Math.abs(paydown), Math.abs(cfTotal), 1);
+
+  document.getElementById('src-app-val').textContent = f(apprecGain);
+  document.getElementById('src-pay-val').textContent = f(paydown);
+  document.getElementById('src-cf-val').textContent  = f(cfTotal);
+  document.getElementById('src-app-bar').style.width = (Math.abs(apprecGain) / maxAbs * 100) + '%';
+  document.getElementById('src-pay-bar').style.width = (Math.abs(paydown)    / maxAbs * 100) + '%';
+  document.getElementById('src-cf-bar').style.width  = (Math.abs(cfTotal)    / maxAbs * 100) + '%';
+
+  // Color-code negative cash flow
+  var cfBar = document.getElementById('src-cf-bar');
+  var cfVal = document.getElementById('src-cf-val');
+  if (cfTotal < 0) { cfBar.classList.add('neg'); cfVal.classList.add('neg'); }
+  else             { cfBar.classList.remove('neg'); cfVal.classList.remove('neg'); }
+
+  document.getElementById('src-total-val').textContent = f(grossReturn);
+
+  // ── HERO Banner: Annualized Return over Hold Period ──
+  document.getElementById('kpi-yr').textContent     = yr;
+  var cagrEl = document.getElementById('r-cagr');
+  cagrEl.textContent = (cagr >= 0 ? '+' : '') + cagr.toFixed(1) + '%';
+  document.getElementById('kpi-profit').textContent = f(totalProfit);
+  document.getElementById('kpi-invest').textContent = f(invest);
+  document.getElementById('r-eqmult').textContent   = eqMult.toFixed(2) + '×';
+
+  // ── Wealth Growth Area Chart (SVG) ──
+  renderWealthChart();
+}
+
+// SVG wealth-growth area chart (stacked: cash flow + paydown + appreciation)
+function renderWealthChart() {
+  var d = lastCalcData;
+  if (!d.pp) return;
+  var maxYr = selectedYear;
+
+  // Year-by-year stack values from year 0 to selectedYear
+  var pts = [{yr:0, cumCF:0, paydown:0, apprec:0}];
+  var cumCFh = 0;
+  for (var y = 1; y <= maxYr; y++) {
+    var fR = d.rent * Math.pow(1 + d.rentGrowth, y);
+    var fG = fR * 12;
+    var fE = fG * (1 - d.vacP);
+    var fOE = d.taxes * Math.pow(1.02, y) + d.ins * Math.pow(1.03, y) + fE * (d.maintP + d.mgmtP);
+    cumCFh += fE - fOE - d.annDebt;
+    var balY = (d.mr > 0 && d.n > 0)
+      ? d.loan * (Math.pow(1+d.mr, d.n) - Math.pow(1+d.mr, 12*y)) / (Math.pow(1+d.mr, d.n) - 1)
+      : Math.max(0, d.loan - (d.loan/d.n) * y * 12);
+    var paydownY = d.loan - balY;
+    var apprecY  = d.pp * Math.pow(1 + d.apprec, y) - d.pp;
+    pts.push({yr:y, cumCF:cumCFh, paydown:paydownY, apprec:apprecY});
+  }
+
+  // Find chart bounds
+  var maxTotal = 0, minVal = 0;
+  pts.forEach(function(p) {
+    var tot = p.cumCF + p.paydown + p.apprec;
+    if (tot > maxTotal) maxTotal = tot;
+    if (p.cumCF < minVal) minVal = p.cumCF;
+  });
+  var range = (maxTotal - minVal) || 1;
+
+  // SVG layout
+  var W = 600, H = 240;
+  var padL = 60, padR = 18, padT = 18, padB = 30;
+  var chartW = W - padL - padR;
+  var chartH = H - padT - padB;
+
+  function xC(yr) { return padL + (yr / maxYr) * chartW; }
+  function yC(v)  { return padT + chartH - ((v - minVal) / range) * chartH; }
+
+  function buildPath(getLow, getHigh) {
+    var path = '';
+    pts.forEach(function(p, i) {
+      path += (i === 0 ? 'M ' : ' L ') + xC(p.yr).toFixed(1) + ' ' + yC(getHigh(p)).toFixed(1);
+    });
+    for (var i = pts.length - 1; i >= 0; i--) {
+      path += ' L ' + xC(pts[i].yr).toFixed(1) + ' ' + yC(getLow(pts[i])).toFixed(1);
+    }
+    return path + ' Z';
+  }
+
+  var pathCF  = buildPath(function(p){return 0}, function(p){return p.cumCF});
+  var pathPay = buildPath(function(p){return p.cumCF}, function(p){return p.cumCF + p.paydown});
+  var pathApp = buildPath(function(p){return p.cumCF + p.paydown}, function(p){return p.cumCF + p.paydown + p.apprec});
+
+  // Y-axis grid + labels
+  function fmt$(v) {
+    var sign = v < 0 ? '−' : '';
+    var a = Math.abs(v);
+    if (a >= 1000000) return sign + '$' + (a/1000000).toFixed(1) + 'M';
+    if (a >= 1000)    return sign + '$' + Math.round(a/1000) + 'k';
+    return sign + '$' + Math.round(a);
+  }
+  var gridHtml = '';
+  var ySteps = 4;
+  for (var s = 0; s <= ySteps; s++) {
+    var v = minVal + range * (s / ySteps);
+    var py = yC(v);
+    gridHtml += '<line x1="' + padL + '" x2="' + (W - padR) + '" y1="' + py.toFixed(1) + '" y2="' + py.toFixed(1) + '" stroke="#e8ede8" stroke-width="1" stroke-dasharray="2,3"/>';
+    gridHtml += '<text x="' + (padL - 8) + '" y="' + (py + 3).toFixed(1) + '" text-anchor="end" font-size="10" fill="#8a9e92" font-weight="500">' + fmt$(v) + '</text>';
+  }
+  // Emphasize zero line if data crosses below
+  if (minVal < 0) {
+    var zy = yC(0);
+    gridHtml += '<line x1="' + padL + '" x2="' + (W - padR) + '" y1="' + zy.toFixed(1) + '" y2="' + zy.toFixed(1) + '" stroke="#1a1a1a" stroke-width="1" opacity="0.45"/>';
+  }
+
+  // X-axis year labels
+  var xLabels = '';
+  var stepInc = maxYr <= 5 ? 1 : maxYr <= 10 ? 2 : maxYr <= 20 ? 5 : 5;
+  for (var yi = 0; yi <= maxYr; yi += stepInc) {
+    var px = xC(yi);
+    xLabels += '<text x="' + px.toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10" fill="#8a9e92" font-weight="600">' + (yi === 0 ? 'Today' : 'Y' + yi) + '</text>';
+  }
+  // Always label final year
+  if ((maxYr % stepInc) !== 0) {
+    xLabels += '<text x="' + xC(maxYr).toFixed(1) + '" y="' + (H - 10) + '" text-anchor="middle" font-size="10" fill="#8a9e92" font-weight="600">Y' + maxYr + '</text>';
+  }
+
+  // Final position marker (small dot + value at top-right of chart)
+  var finalTotal = pts[pts.length-1].cumCF + pts[pts.length-1].paydown + pts[pts.length-1].apprec;
+  var finalX = xC(maxYr);
+  var finalY = yC(finalTotal);
+
+  var svgContent =
+    '<defs>' +
+      '<linearGradient id="appGrad" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0%" stop-color="#ffc13c" stop-opacity="0.95"/>' +
+        '<stop offset="100%" stop-color="#ffc13c" stop-opacity="0.65"/>' +
+      '</linearGradient>' +
+    '</defs>' +
+    gridHtml +
+    '<path d="' + pathCF  + '" fill="#9bbfa8" opacity="0.85"/>' +
+    '<path d="' + pathPay + '" fill="#1c3d31" opacity="0.92"/>' +
+    '<path d="' + pathApp + '" fill="url(#appGrad)"/>' +
+    '<circle cx="' + finalX.toFixed(1) + '" cy="' + finalY.toFixed(1) + '" r="4" fill="white" stroke="#1c3d31" stroke-width="2"/>' +
+    '<text x="' + (finalX - 6).toFixed(1) + '" y="' + (finalY - 8).toFixed(1) + '" text-anchor="end" font-size="11" font-weight="700" fill="#1c3d31">' + fmt$(finalTotal) + '</text>' +
+    xLabels;
+
+  document.getElementById('wealthSvg').innerHTML = svgContent;
+}
+
+// Nav scroll
+(function() {
+  var nav = document.getElementById('siteNav');
+  function upd() { nav.classList.toggle('is-light', window.scrollY > 80); }
+  window.addEventListener('scroll', upd, {passive: true});
+  upd();
+})();
+
+// Run on load
+calc();
+
+// ── EmailJS credentials — replace these three values ──
+var EMAILJS_PUBLIC_KEY  = 'yWt3TMJ6ysOrH3vH1';    // EmailJS → Account → Public Key
+var EMAILJS_SERVICE_ID  = 'service_rvg801y';    // EmailJS → Email Services → Service ID
+var EMAILJS_TEMPLATE_USER  = 'template_11moffh';  // template that sends to the user
+var EMAILJS_TEMPLATE_LEAD  = 'template_9hj0rb7';  // template that sends lead to AMRE
+
+(function() {
+  if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+})();
+
+function openModal() {
+  document.getElementById('emailModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('emailModal').classList.remove('open');
+  document.body.style.overflow = '';
+  // Reset to form view
+  setTimeout(function() {
+    document.getElementById('modal-form-view').style.display = 'block';
+    document.getElementById('modal-success-view').style.display = 'none';
+    document.getElementById('modal-submit-btn').disabled = false;
+    document.getElementById('modal-btn-text').textContent = '📩 Email My Analysis';
+    document.getElementById('modal-error').style.display = 'none';
+  }, 400);
+}
+
+function buildAnalysisSummary() {
+  var d = lastCalcData;
+  if (!d.pp) return '';
+  var yr = selectedYear;
+  var saleCostPct = (parseFloat(document.getElementById('sale-cost-pct').value) || 6) / 100;
+
+  // Re-derive exit figures
+  var mr = d.mr, n = d.n, loan = d.loan;
+  var bal = (mr > 0 && n > 0)
+    ? loan * (Math.pow(1+mr,n) - Math.pow(1+mr,yr*12)) / (Math.pow(1+mr,n) - 1)
+    : Math.max(0, loan - (loan/n)*yr*12);
+  bal = Math.max(0, bal);
+  var salePrice = d.pp * Math.pow(1 + d.apprec, yr);
+  var saleCost  = salePrice * saleCostPct;
+  var netEquity = salePrice - bal - saleCost;
+  var cumCF = 0;
+  for (var y = 1; y <= yr; y++) {
+    var fR  = d.rent * Math.pow(1 + d.rentGrowth, y);
+    var fG  = fR * 12;
+    var fE  = fG * (1 - d.vacP);
+    var fOE = d.taxes * Math.pow(1.02, y) + d.ins * Math.pow(1.03, y) + fE * (d.maintP + d.mgmtP);
+    cumCF += fE - fOE - d.annDebt;
+  }
+  var totalProfit = netEquity + cumCF - d.invest;
+  var totalROI    = d.invest > 0 ? (totalProfit / d.invest) * 100 : 0;
+  var cagr        = d.invest > 0 ? (Math.pow((totalProfit + d.invest) / d.invest, 1/yr) - 1) * 100 : 0;
+
+  var gross = d.rent * 12;
+  var eff   = gross * (1 - d.vacP);
+  var opExp = d.taxes + d.ins + eff * d.maintP + eff * d.mgmtP;
+  var noi   = eff - opExp;
+  var cf    = noi - d.annDebt;
+  var cap   = d.pp > 0 ? (noi / d.pp) * 100 : 0;
+  var coc   = d.invest > 0 ? (cf / d.invest) * 100 : 0;
+  var dscr  = d.annDebt > 0 ? noi / d.annDebt : 0;
+  var grm   = gross > 0 ? d.pp / gross : 0;
+  var unitsForEmail = gv('units');
+  var ppu   = unitsForEmail > 0 ? d.pp / unitsForEmail : 0;
+  var oer   = eff > 0 ? (opExp / eff) * 100 : 0;
+  var beo   = gross > 0 ? ((opExp + d.annDebt) / gross) * 100 : 0;
+  var down  = d.pp * (gv('dp') / 100);
+  var closingAmt = d.pp * (gv('closing-pct') / 100);
+  var origAmt    = loan * (gv('orig-pct') / 100);
+  var resMo      = gv('reserves');
+  var monthlyPITI = (d.annDebt/12) + (d.taxes + d.ins)/12;
+  var reserveAmt  = monthlyPITI * resMo;
+  var totalCash   = down + closingAmt + origAmt + reserveAmt;
+
+  return [
+    '=== PROPERTY ANALYSIS ===',
+    'Purchase Price: ' + f(d.pp),
+    'Price per Unit: ' + f(ppu) + ' (' + unitsForEmail + ' units)',
+    'Down Payment: ' + f(down) + ' (' + gv('dp') + '%)',
+    'Loan Amount: ' + f(loan),
+    'Interest Rate: ' + gv('ir') + '% / ' + gv('lterm') + '-yr',
+    '',
+    '=== RETURNS & UNDERWRITING ===',
+    'Cash-on-Cash Return: ' + coc.toFixed(2) + '%',
+    'Cap Rate: ' + cap.toFixed(2) + '%',
+    'GRM: ' + grm.toFixed(1) + 'x',
+    'NOI: ' + f(noi) + '/yr (' + f(noi/12) + '/mo)',
+    'Annual Cash Flow: ' + f(cf) + ' (' + f(cf/12) + '/mo)',
+    'DSCR: ' + dscr.toFixed(2) + 'x',
+    'Operating Expense Ratio: ' + oer.toFixed(0) + '%',
+    'Break-Even Occupancy: ' + beo.toFixed(0) + '%',
+    '',
+    '=== CASH TO CLOSE ===',
+    'Down Payment: ' + f(down),
+    'Closing Costs: ' + f(closingAmt),
+    'Loan Origination: ' + f(origAmt),
+    'Reserves (' + resMo + ' mo): ' + f(reserveAmt),
+    'TOTAL CASH NEEDED: ' + f(totalCash),
+    '',
+    '=== EXIT ANALYSIS (Year ' + yr + ') ===',
+    'Sale Price: ' + f(salePrice),
+    'Remaining Loan: ' + f(bal),
+    'Sale Costs (' + (saleCostPct*100).toFixed(0) + '%): ' + f(saleCost),
+    'Net Equity from Sale: ' + f(netEquity),
+    'Cumulative Cash Flow: ' + f(cumCF),
+    'Total Profit: ' + f(totalProfit),
+    'Total ROI: ' + totalROI.toFixed(0) + '%',
+    'Annualized (CAGR): ' + cagr.toFixed(1) + '%/yr',
+    '',
+    '=== WHERE YOUR RETURNS COME FROM ===',
+    'Property Appreciation: ' + f(salePrice - d.pp),
+    'Principal Paydown (tenant-funded): ' + f(loan - bal),
+    'Cumulative Cash Flow: ' + f(cumCF),
+    'Combined Gross Return: ' + f((salePrice - d.pp) + (loan - bal) + cumCF),
+  ].join('\n');
+}
+
+function submitAnalysis() {
+  var fname   = document.getElementById('m-fname').value.trim();
+  var email   = document.getElementById('m-email').value.trim();
+  var lname   = document.getElementById('m-lname').value.trim();
+  var phone   = document.getElementById('m-phone').value.trim();
+  var address = document.getElementById('m-address').value.trim();
+  var optin   = document.getElementById('m-optin').checked;
+
+  if (!fname) { alert('Please enter your first name.'); return; }
+  if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+
+  var btn = document.getElementById('modal-submit-btn');
+  btn.disabled = true;
+  document.getElementById('modal-btn-text').textContent = 'Sending…';
+  document.getElementById('modal-error').style.display = 'none';
+
+  var analysis = buildAnalysisSummary();
+  var d = lastCalcData;
+  var gross = d.rent * 12;
+  var eff   = gross * (1 - d.vacP);
+  var opExp = d.taxes + d.ins + eff * d.maintP + eff * d.mgmtP;
+  var noi   = eff - opExp;
+  var cf    = noi - d.annDebt;
+  var cap   = d.pp > 0 ? (noi / d.pp) * 100 : 0;
+  var coc   = d.invest > 0 ? (cf / d.invest) * 100 : 0;
+
+  var templateParams = {
+    to_name:       fname,
+    to_email:      email,
+    full_name:     fname + ' ' + lname,
+    phone:         phone || 'Not provided',
+    property:      address || 'Not specified',
+    optin:         optin ? 'Yes — requested AMRE market analysis' : 'No',
+    purchase_price: f(d.pp),
+    annual_cf:     f(cf),
+    monthly_cf:    f(cf/12),
+    cap_rate:      cap.toFixed(2) + '%',
+    coc_return:    coc.toFixed(2) + '%',
+    noi:           f(noi),
+    exit_year:     selectedYear,
+    full_analysis: analysis,
+    reply_to:      email,
+  };
+
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    // Demo mode — show success without actually sending
+    console.log('EmailJS not configured — demo mode. Params:', templateParams);
+    showSuccess();
+    return;
+  }
+
+  // Send user copy
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_USER, templateParams)
+    .then(function() {
+      // Send AMRE lead notification
+      return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_LEAD, templateParams);
+    })
+    .then(function() {
+      showSuccess();
+    })
+    .catch(function(err) {
+      console.error('EmailJS error:', err);
+      btn.disabled = false;
+      document.getElementById('modal-btn-text').textContent = '📩 Email My Analysis';
+      document.getElementById('modal-error').style.display = 'block';
+    });
+}
+
+function showSuccess() {
+  document.getElementById('modal-form-view').style.display = 'none';
+  document.getElementById('modal-success-view').style.display = 'block';
+}
+
+</script>
+
+<!-- ── EMAIL ANALYSIS MODAL ── -->
+<div class="modal-overlay" id="emailModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-handle"></div>
+
+    <!-- Form view -->
+    <div id="modal-form-view">
+      <div class="modal-title">Get Your Analysis.</div>
+      <div class="modal-sub">We'll email you a full breakdown of this deal — cap rate, cash flow, equity projection, and total ROI — formatted and ready to share.</div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>First Name *</label>
+          <input type="text" id="m-fname" placeholder="Michael" required>
+        </div>
+        <div class="modal-field">
+          <label>Last Name</label>
+          <input type="text" id="m-lname" placeholder="Abraham">
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Email Address *</label>
+        <input type="email" id="m-email" placeholder="you@example.com" required>
+      </div>
+      <div class="modal-field">
+        <label>Phone (optional)</label>
+        <input type="tel" id="m-phone" placeholder="(323) 555-0100">
+      </div>
+      <div class="modal-field">
+        <label>Property Address (optional)</label>
+        <input type="text" id="m-address" placeholder="123 Main St, Culver City, CA">
+      </div>
+
+      <label class="modal-optin">
+        <input type="checkbox" id="m-optin" checked>
+        <span class="modal-optin-text"><strong>Send me AMRE's market analysis</strong> for this property type and area. I'd like to hear from the team.</span>
+      </label>
+
+      <button class="modal-submit" id="modal-submit-btn" onclick="submitAnalysis()">
+        <span id="modal-btn-text">📩 Email My Analysis</span>
+      </button>
+      <div class="modal-error" id="modal-error">Something went wrong — please try again or email us directly.</div>
+    </div>
+
+    <!-- Success view -->
+    <div id="modal-success-view" style="display:none">
+      <div class="modal-success">
+        <div class="modal-success-icon">✅</div>
+        <h3>Analysis sent.</h3>
+        <p>Check your inbox — we've emailed your full deal breakdown. The AMRE team will be in touch shortly.</p>
+        <button class="modal-success-done" onclick="closeModal()">Done</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
