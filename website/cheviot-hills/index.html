@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- amre-favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#1c3d31">
+
+<!-- amre-preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="preconnect" href="https://raw.githubusercontent.com">
+<link rel="preconnect" href="https://res.cloudinary.com">
+<link rel="dns-prefetch" href="https://media-production.lp-cdn.com">
+<title>Cheviot Hills Real Estate Guide 2026 | AMRE</title>
+<meta name="description" content="Cheviot Hills real estate: pre-war architecture, hillside lots, Overland Avenue schools, and how it compares with Beverlywood and Rancho Park.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://amre.group/cheviot-hills/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cheviot Hills Real Estate Guide 2026 | AMRE">
+<meta property="og:description" content="Cheviot Hills real estate: pre-war architecture, hillside lots, Overland Avenue schools, and how it compares with Beverlywood and Rancho Park.">
+<meta property="og:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/santa-monica/neighborhood-hero.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://amre.group/cheviot-hills/">
+<meta property="og:site_name" content="AMRE Real Estate Group">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cheviot Hills Real Estate Guide 2026 | AMRE">
+<meta name="twitter:description" content="Cheviot Hills real estate: pre-war architecture, hillside lots, Overland Avenue schools, and how it compares with Beverlywood and Rancho Park.">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/santa-monica/neighborhood-hero.webp">
+<meta name="twitter:site" content="@AMRE_Real_Estate">
+<!-- Geo / Local SEO -->
+<meta name="geo.region" content="US-CA">
+<meta name="geo.placename" content="Beverly Hills, Los Angeles">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<!-- Schema.org -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --black:#000;--ink:#1d1d1f;--mid:#6e6e73;--subtle:#86868b;
+  --rule:#d2d2d7;--light:#f5f5f7;--white:#fbfbfd;
+  --gold:#b5894e;--gold-lt:#d4aa72;--blue:#0071e3;--blue-dk:#0064c8;
+  --serif:'Playfair Display',Georgia,serif;
+  --sf:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Helvetica Neue',sans-serif;
+  --nav-h:52px;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+  --ease-out:cubic-bezier(0,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sf);background:var(--white);color:var(--ink);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.47059}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+button{font-family:var(--sf);cursor:pointer;border:none;background:none}
+
+/* ── NAV ── */
+.site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  height:var(--nav-h);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 24px;
+  background:rgba(7,11,51,0.88);
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  transition:background .35s var(--ease),border-color .35s;
+}
+.site-nav.is-light{
+  background:rgba(255,255,255,.82);
+  border-bottom-color:rgba(0,0,0,.1);
+}
+.nav-brand{display:flex;align-items:center;gap:0;flex-shrink:0}
+.nav-brand img{height:20px;width:auto;transition:opacity .3s}
+.logo-dark{display:none}
+.site-nav.is-light .logo-dark{display:block}
+.site-nav.is-light .logo-white{display:none}
+.nav-sep{width:1px;height:16px;background:rgba(255,255,255,.22);
+  margin:0 12px;transition:background .35s}
+.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
+.nav-links{
+  position:absolute;left:50%;transform:translateX(-50%);
+  display:flex;gap:24px;list-style:none;
+}
+.nav-links a{
+  font-size:12px;font-weight:400;
+  color:rgba(255,255,255,.8);
+  transition:color .2s;white-space:nowrap;
+}
+.site-nav.is-light .nav-links a{color:rgba(29,29,31,.7)}
+.nav-links a:hover{color:#fff}
+.site-nav.is-light .nav-links a:hover{color:var(--ink)}
+.nav-links a.active{color:#fff}
+.site-nav.is-light .nav-links a.active{color:var(--ink)}
+.nav-cta{
+  font-size:12px;font-weight:400;
+  color:rgba(255,255,255,.8);
+  transition:color .2s;white-space:nowrap;flex-shrink:0;
+}
+.site-nav.is-light .nav-cta{color:rgba(29,29,31,.7)}
+.nav-cta:hover{color:#fff}
+.site-nav.is-light .nav-cta:hover{color:var(--ink)}
+@media(max-width:860px){
+  .nav-links{display:none}
+  .site-nav{padding:0 16px}
+}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
+  font-family:var(--sf);font-weight:400;border-radius:980px;
+  transition:background .2s,transform .15s,opacity .2s}
+.btn-blue{
+  font-size:14px;padding:12px 22px;
+  background:var(--blue);color:#fff;
+}
+.btn-blue:hover{background:var(--blue-dk);transform:translateY(-1px)}
+.btn-outline-white{
+  font-size:14px;padding:11px 22px;
+  border:1px solid rgba(255,255,255,.42);color:rgba(255,255,255,.9);
+}
+.btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7)}
+.btn-outline-dark{
+  font-size:14px;padding:11px 22px;
+  border:1px solid rgba(0,0,0,.25);color:var(--ink);
+}
+.btn-outline-dark:hover{background:rgba(0,0,0,.05)}
+.btn-text{
+  font-size:14px;color:var(--blue);gap:4px;border-radius:0;
+  transition:gap .2s;
+}
+.btn-text:hover{gap:8px}
+.btn-text::after{content:'›';font-size:18px;line-height:1}
+.btn-gold{
+  font-size:14px;padding:12px 22px;
+  background:var(--gold);color:#fff;
+}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px)}
+
+/* ── PAGE HERO (subpages) ── */
+.page-hero{min-height:560px;
+  padding-top:calc(var(--nav-h) + 80px);
+  padding-bottom:80px;
+  padding-inline:44px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(181,137,78,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(181,137,78,.04) 1px,transparent 1px);
+  background-size:80px 80px;
+}
+.page-hero-bg-img{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  opacity:1;
+}
+.page-hero-bg-img::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(0,0,0,0.45);
+  z-index:1;
+}
+.page-hero-inner{position:relative;z-index:2;max-width:800px}
+.page-eyebrow{
+  font-size:11px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.page-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold)}
+.page-hero h1{
+  font-family:var(--serif);
+  font-size:clamp(44px,6.5vw,88px);
+  font-weight:400;line-height:1.0;
+  letter-spacing:-.01em;
+  color:#fff;
+  margin-bottom:24px;
+}
+.page-hero h1 em{font-style:italic;color:var(--gold-lt)}
+.page-hero-sub{
+  font-size:clamp(15px,1.8vw,18px);
+  font-weight:300;line-height:1.7;
+  color:rgba(255,255,255,.55);
+  max-width:500px;
+}
+@media(max-width:680px){.page-hero{padding-inline:20px}}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:44px}
+.wrap-sm{max-width:860px;margin-inline:auto;padding-inline:44px}
+@media(max-width:680px){.wrap,.wrap-sm{padding-inline:20px}}
+
+/* ── SECTION LABELS ── */
+.eyebrow{
+  font-size:11px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--blue);
+  text-align:center;margin-bottom:14px;
+}
+.eyebrow-left{text-align:left}
+.section-h{
+  font-family:var(--serif);
+  font-size:clamp(30px,4vw,52px);
+  font-weight:400;line-height:1.07;
+  letter-spacing:-.01em;
+  color:var(--ink);text-align:center;
+}
+.section-h em{font-style:italic;color:var(--gold)}
+.section-h-left{text-align:left}
+.section-h-white{color:#fff}
+.lede{
+  font-size:17px;font-weight:300;line-height:1.7;
+  color:var(--mid);text-align:center;
+  max-width:580px;margin-inline:auto;
+}
+.lede-left{text-align:left;margin-inline:0}
+.lede-white{color:rgba(255,255,255,.55)}
+.divider{width:40px;height:1px;background:var(--gold);margin:22px 0}
+
+/* ── FADE ANIMATIONS ── */
+.f{opacity:0;transform:translateY(24px);
+  transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.f.in{opacity:1;transform:translateY(0)}
+.f.d1{transition-delay:.08s}.f.d2{transition-delay:.16s}
+.f.d3{transition-delay:.24s}.f.d4{transition-delay:.32s}
+
+/* ── FOOTER ── */
+.site-footer{
+  background:#000;
+  border-top:1px solid rgba(255,255,255,.07);
+  padding:60px 44px 36px;
+}
+.footer-grid{
+  max-width:1200px;margin-inline:auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;
+  padding-bottom:40px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  margin-bottom:28px;
+}
+.footer-brand img{height:18px;width:auto;opacity:.65;margin-bottom:14px}
+.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-logos img{height:16px;width:auto;opacity:.6}
+.footer-logo-sep{width:1px;height:13px;background:rgba(255,255,255,.18)}
+.footer-tagline{
+  font-size:13px;font-weight:300;line-height:1.6;
+  color:rgba(255,255,255,.3);max-width:240px;
+}
+.footer-col-head{
+  font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.22);margin-bottom:16px;
+}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{
+  font-size:13px;font-weight:300;
+  color:rgba(255,255,255,.42);transition:color .2s;
+}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+.footer-bottom{
+  max-width:1200px;margin-inline:auto;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.footer-legal{font-size:11px;font-weight:300;color:rgba(255,255,255,.18)}
+.footer-dre{font-size:11px;font-weight:300;color:rgba(255,255,255,.18);text-align:right}
+@media(max-width:860px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .site-footer{padding:48px 20px 28px}
+  .footer-bottom{flex-direction:column}
+  .footer-dre{text-align:left}
+}
+
+/* Brand override */
+
+/* ── PLAYFAIR as primary display/header font ── */
+h1,h2,h3,h4,.section-h,.page-hero h1,.hero-h,.hero-headline,
+.agent-name,.svc-title,.phase-title,.testi-text,
+.statement-q,.form-box-title,.prop-cta-h,.compass-card-h,
+.prop-price,.stat-n,.footer-brand-name,.footer-logo,
+.contact-headline,.split-left h1,.team-name,
+.concierge-box .cb-label,.step-title,.buyer-type-title{
+  font-family:'Playfair Display',Georgia,serif !important;
+}
+/* Montserrat for everything else — nav, body, labels, buttons */
+body,p,a,button,input,textarea,select,
+.nav-links a,.nav-cta,.eyebrow,.section-label,.page-eyebrow,
+.btn,.contact-label,.svc-num,.agent-role,.testi-author,
+.footer-col-head,.footer-links a,.footer-legal,.footer-dre,
+.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,
+.phase-desc,.contact-val,.check-list li,.cb-row,
+.split-agent-role,.hero-eyebrow,.hero-sub,.page-hero-sub,
+.prop-addr,.prop-city,.prop-meta span,.plisting-addr,
+.plisting-city,.plisting-specs span,.agent-creds span,
+.agent-creds a,.testi-author,.footer-tagline{
+  font-family:'Montserrat',-apple-system,sans-serif !important;
+}
+
+body{font-family:'Montserrat',-apple-system,sans-serif}
+.nav-links a,.nav-cta,.eyebrow,.section-label,.btn,.contact-label,.svc-num,
+.agent-role,.testi-author,.footer-col-head,.footer-links a,.footer-legal,
+.footer-dre,.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,.phase-desc,
+.contact-val,.check-list li,.cb-row,.split-agent-role,.hero-eyebrow{
+  font-family:'Montserrat',-apple-system,sans-serif !important;
+}
+:root{
+  --forest:#1c3d31;--navy:#070B33;--compass-blue:#0064e5;
+  --brass:#ffc13c;--brass-dk:#e6a800;--cream:#efdbc0;
+  --light-grey:#f7edf0;--white:#ffffff;--ink:#1a1a1a;
+  --mid:#5A5A5A;--subtle:#86868b;--rule:#d2d2d7;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Montserrat',-apple-system,sans-serif;
+}
+/* Fix nav to match homepage */
+.site-nav,.nav{
+  background:rgba(7,11,51,0.82) !important;
+  border-bottom:1px solid rgba(255,255,255,.08) !important;
+}
+.site-nav.is-light,.nav.scrolled{
+  background:rgba(255,255,255,.90) !important;
+  border-bottom-color:rgba(0,0,0,.1) !important;
+}
+/* Fix nav link colors */
+.nav-links a,.nav-cta,.site-nav:not(.is-light) .nav-links a{color:rgba(255,255,255,.78) !important}
+.site-nav.is-light .nav-links a{color:rgba(28,61,49,.7) !important}
+.nav-cta{background:var(--brass) !important;color:var(--navy) !important;
+  border-radius:2px !important;border:none !important;
+  font-size:11px !important;font-weight:600 !important;letter-spacing:.1em !important;text-transform:uppercase !important;
+  padding:9px 20px !important;}
+.nav-cta:hover{background:var(--brass-dk) !important}
+/* Gold accents */
+.eyebrow,.section-label,.page-eyebrow,.svc-num,.phase-num,.agent-role{color:var(--brass) !important}
+.section-h em,.page-hero h1 em,.hero-h em,.hero-headline em,.prop-cta-h em{color:var(--brass) !important}
+/* Forest green for light backgrounds */
+.section-dark{background:var(--forest) !important}
+.statement{background:var(--forest) !important}
+.compass-adv,.compass-section{background-color:var(--navy) !important}
+/* Fix team photo heads */
+.agent-photo,.team-card-photo{background-position:top center !important}
+.agent-photo img{object-position:top center !important}
+/* Brass dividers */
+.divider{background:var(--brass) !important}
+/* Left-side eyebrow borders */
+.eyebrow::before,.eyebrow::after,.page-eyebrow::before{background:var(--brass) !important}
+/* Testimonial accent */
+.testi-card,.testimonial{border-left:3px solid var(--brass) !important;border-top:none !important;border-right:none !important;border-bottom:none !important}
+/* Buttons */
+.btn-primary,.btn-blue,.btn-gold{background:var(--brass) !important;color:var(--navy) !important;border-radius:2px !important}
+.btn-primary:hover,.btn-blue:hover,.btn-gold:hover{background:var(--brass-dk) !important}
+.btn-dark,.btn-forest{background:var(--forest) !important;color:#fff !important;border-radius:2px !important}
+/* Phase/check list accents */
+.phase-num,.check-list li::before,.step-n{color:var(--brass) !important}
+.phase-stat{background:rgba(255,193,60,.15) !important;color:var(--brass) !important}
+/* Stats */
+.stat-n{color:var(--forest) !important}
+.stat-n sup{color:var(--brass) !important}
+/* Valuation CTA bg */
+.valuation-cta{background:var(--forest) !important}
+/* Filter pills */
+.filter-pill.active,.filter-btn.active{background:var(--forest) !important;border-color:var(--forest) !important}
+/* Prop badges */
+.badge-sale{background:var(--compass-blue) !important}
+.badge-pending{background:var(--brass) !important;color:var(--navy) !important}
+/* Footer */
+.site-footer,footer{background:var(--navy) !important}
+/* Compass advantage cards */
+.compass-card:hover,.compass-card:hover{border-color:rgba(255,193,60,.3) !important}
+/* Nav CTA override for subpages using different class names */
+.nav-cta,.nav a.btn,.nav-cta-btn{
+  background:var(--brass) !important;color:var(--navy) !important;
+  border:none !important;
+}
+
+
+/* ====================================================================
+   AMRE 2026 site update — typography refresh, readability bump,
+   footer contrast, hero re-flow.
+   ==================================================================== */
+.hero-h, .section-h, .page-hero h1, .svc-title, .agent-name, .compass-card-h, .prop-cta-h, .prop-price, .form-box-title, .statement-q, .testi-text {
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: -.015em;
+}
+.hero-h em, .section-h em, .page-hero h1 em, .prop-cta-h em, .compass-card-h em {
+  font-style: italic; font-weight: 400;
+}
+.statement-q, .testi-text { font-weight: 400; font-style: italic; }
+.prop-price { font-weight: 600; letter-spacing: 0; }
+.hero-h { line-height: 1.05; }
+.page-hero h1 { line-height: 1.05; }
+.section-h { line-height: 1.12; }
+.lede { font-size: 18px; line-height: 1.7; }
+.svc-desc, .compass-card-p, .agent-bio, .faq-a p { font-size: 15px; line-height: 1.78; }
+.testi-text { font-size: 17px; line-height: 1.65; }
+.contact-val { font-size: 15px; }
+.form-box-sub { font-size: 14px; }
+.page-hero-sub, .hero-sub { font-size: clamp(15px, 1.7vw, 18px); line-height: 1.7; }
+.footer-tagline { color: rgba(255,255,255,.62); font-size: 13px; max-width: 260px; }
+.footer-col-head { color: rgba(255,255,255,.55); font-size: 10px; }
+.footer-links a { color: rgba(255,255,255,.72); font-size: 13px; }
+.footer-links a:hover { color: #fff; }
+.footer-legal { color: rgba(255,255,255,.50); font-size: 11px; }
+.footer-dre { color: rgba(255,255,255,.40); font-size: 11px; }
+.hero-content { max-width: 880px; }
+.hero-h { font-size: clamp(44px, 6.2vw, 84px); }
+@media (max-width: 680px) { .hero-content { max-width: 100%; } }
+
+/* ═════════════════════════════════════════
+   GLOBAL MOBILE FIXES — text overflow, layout
+═════════════════════════════════════════ */
+@media(max-width:860px){
+  /* Prevent any horizontal overflow */
+  html,body{overflow-x:hidden;width:100%}
+  *{max-width:100%;word-break:break-word}
+
+  /* Section padding — tighter on mobile */
+  section,[class*="-section"],[class*="section-"]{padding-left:20px !important;padding-right:20px !important}
+  .wrap,.wrap-sm{padding-inline:20px !important}
+
+  /* Hero — full width, correct padding */
+  .hero,.page-hero{padding-left:20px !important;padding-right:20px !important}
+  .hero-h{font-size:clamp(36px,10vw,56px) !important}
+  .hero-listing{display:none !important}
+
+  /* Nav — no overflow */
+  .nav-links{display:none !important}
+  .site-nav,.nav{padding:0 16px !important}
+  .nav-brand img{max-height:18px}
+
+  /* Stats bar */
+  .stats-inner{grid-template-columns:1fr 1fr !important}
+
+  /* Service cards */
+  .svc-grid{grid-template-columns:1fr !important}
+
+  /* Properties grid */
+  .props-grid,.plisting-grid{grid-template-columns:1fr !important}
+
+  /* Compass advantage */
+  .compass-grid{grid-template-columns:1fr !important}
+  .compass-inner{grid-template-columns:1fr !important;gap:40px}
+
+  /* Team cards */
+  .team-grid,.agent-card,.agent-card-rev{grid-template-columns:1fr !important;direction:ltr !important}
+  .agent-photo,.team-card-photo{min-height:260px !important}
+  .agent-photo-grad,.team-card-photo-grad{
+    background:linear-gradient(to bottom,transparent 50%,var(--white,#fff)) !important
+  }
+  .agent-info,.team-card-body{padding:28px 20px !important}
+  .agent-name,.team-name{font-size:clamp(24px,7vw,34px) !important}
+
+  /* Testimonials */
+  .testi-grid,.testimonials-grid{grid-template-columns:1fr !important}
+
+  /* Contact split */
+  .contact-split{grid-template-columns:1fr !important}
+  .split-left,.split-right{padding-inline:20px !important}
+
+  /* Two-col layouts */
+  .two-col-layout,.calc-layout,
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns:1fr 1.2fr"],
+  [style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns:1fr !important;
+    gap:32px !important;
+  }
+  .contact-grid{grid-template-columns:1fr !important}
+  .contact-form-box{padding:24px 18px !important}
+
+  /* Phase cards */
+  .phases-grid,.phase-stats-row{grid-template-columns:1fr !important}
+
+  /* Buyer types */
+  .buyer-types-grid,.bt-card{width:100% !important}
+  .buyer-types-grid{display:flex;flex-direction:column;gap:14px}
+
+  /* Values grid */
+  .values-grid{grid-template-columns:1fr 1fr !important}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr 1fr !important;gap:24px}
+  .footer-bottom{flex-direction:column !important}
+
+  /* Text sizes — prevent clamp from being too big */
+  .section-h,.section-headline{font-size:clamp(26px,8vw,40px) !important}
+  .lede{font-size:15px !important}
+  h1{font-size:clamp(34px,9vw,52px) !important}
+
+  /* Tables / process steps */
+  .process-step{grid-template-columns:1fr !important}
+  .step-extra,.step-n{display:none !important}
+
+  /* Concierge */
+  .concierge-layout,.two-col-layout{grid-template-columns:1fr !important}
+
+  /* Agent profile on team page */
+  .agent-profile,.agent-profile-rev{grid-template-columns:1fr !important;direction:ltr !important}
+  .agent-content-col{padding:32px 20px !important}
+
+  /* Intent chips wrap properly */
+  .intent-chips{gap:8px !important}
+  .chip{font-size:11px !important;padding:7px 12px !important}
+}
+
+@media(max-width:480px){
+  .stats-inner{grid-template-columns:1fr 1fr !important}
+  .footer-grid{grid-template-columns:1fr !important}
+  .values-grid{grid-template-columns:1fr !important}
+  .hero-btns,.hero-actions{flex-direction:column !important;align-items:flex-start !important}
+  .hero-btns .btn,.hero-actions .btn,.hero-actions a{width:100% !important;justify-content:center !important}
+  .agent-creds{font-size:11px !important}
+  .testi-card{padding:22px 16px !important}
+}
+
+/* dark bg text — lighter, bigger */
+.section-dark p,.section-dark li,.compass-card-p,.phase-desc,.statement-q,
+[style*="background:var(--forest)"] p,[style*="background:var(--navy)"] p{
+  color:rgba(255,255,255,.78)!important;font-size:clamp(14px,1.5vw,16px)!important;
+}
+
+/* ── HAMBURGER + MOBILE DRAWER ── */
+.nav-right{display:flex;align-items:center;gap:12px}
+.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;
+  flex-shrink:0}
+.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;
+  transition:transform .25s,opacity .2s,width .25s}
+.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham-btn.open span:nth-child(2){opacity:0;width:0}
+.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-drawer{
+  position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;
+  background:rgba(7,11,51,0.97);
+  backdrop-filter:saturate(180%) blur(24px);
+  -webkit-backdrop-filter:saturate(180%) blur(24px);
+  display:flex;flex-direction:column;
+  padding:32px 24px 48px;
+  transform:translateY(-110%);opacity:0;
+  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;
+  pointer-events:none}
+.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
+.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
+.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
+.mobile-drawer a{
+  display:block;color:#fff;font-family:var(--sans);
+  font-size:clamp(20px,5vw,26px);font-weight:300;
+  letter-spacing:-.01em;padding:20px 0;
+  transition:color .2s,padding-left .2s}
+.mobile-drawer a:hover{color:var(--brass,#ffc13c);padding-left:8px}
+.mobile-drawer .drawer-cta{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:32px;width:100%;
+  background:var(--blue,#0064e5);color:#fff!important;border-radius:980px;
+  font-size:16px!important;font-weight:500!important;padding:16px 32px!important;
+  border-bottom:none!important;letter-spacing:.02em}
+.mobile-drawer .drawer-cta:hover{background:#0049a8;padding-left:32px!important}
+@media(max-width:860px){
+  .nav-links{display:none!important}
+  .nav-cta{display:none!important}
+  .ham-btn{display:flex}
+}
+@media(min-width:861px){
+  .mobile-drawer{display:none!important}
+}
+
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://amre.group/cheviot-hills/#webpage","url":"https://amre.group/cheviot-hills/","name":"Cheviot Hills Real Estate Guide 2026 | AMRE Real Estate Group","description":"Cheviot Hills real estate: pre-war architecture, hillside lots, Overland Avenue schools, and how it compares with Beverlywood and Rancho Park.","isPartOf":{"@id":"https://amre.group/#website"},"about":[{"@id":"https://amre.group/#organization"},{"@id":"https://amre.group/cheviot-hills/#place"}],"publisher":{"@id":"https://amre.group/#organization"},"inLanguage":"en-US","dateModified":"2026-09-08","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2","p"]}},{"@type":"Place","@id":"https://amre.group/cheviot-hills/#place","name":"Cheviot Hills","containedInPlace":[{"@type":"AdministrativeArea","name":"Los Angeles County"},{"@type":"State","name":"California"}]},{"@type":["RealEstateAgent","LocalBusiness"],"@id":"https://amre.group/#organization","name":"AMRE Real Estate Group","url":"https://amre.group/","telephone":"+13237198585","address":{"@type":"PostalAddress","streetAddress":"9454 Wilshire Blvd, Suite 100","addressLocality":"Beverly Hills","addressRegion":"CA","postalCode":"90212","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Cheviot Hills"},{"@type":"Place","name":"Rancho Park"},{"@type":"Place","name":"Beverlywood"},{"@type":"Place","name":"Century City"},{"@type":"Place","name":"Westside Los Angeles"}],"priceRange":"$$$","parentOrganization":{"@type":"Organization","name":"Compass","url":"https://www.compass.com/","identifier":"CA DRE #01991628"},"sameAs":["https://www.instagram.com/amre.group/","https://www.linkedin.com/company/amre-real-estate-group/","https://www.facebook.com/amre.grp","https://www.youtube.com/@AMRE_Real_Estate"]},{"@type":"Service","@id":"https://amre.group/cheviot-hills/#service","serviceType":"Real Estate Representation in Cheviot Hills","name":"AMRE Real Estate Group — Cheviot Hills Buyer & Seller Advisory","provider":{"@id":"https://amre.group/#organization"},"areaServed":{"@id":"https://amre.group/cheviot-hills/#place"}},{"@type":"BreadcrumbList","@id":"https://amre.group/cheviot-hills/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},{"@type":"ListItem","position":2,"name":"Westside Neighborhoods","item":"https://amre.group/westside/"},{"@type":"ListItem","position":3,"name":"Cheviot Hills","item":"https://amre.group/cheviot-hills/"}]},{"@type":"FAQPage","@id":"https://amre.group/cheviot-hills/#faq","mainEntity":[{"@type":"Question","name":"Where exactly is Cheviot Hills?","acceptedAnswer":{"@type":"Answer","text":"Cheviot Hills sits on the Westside of Los Angeles between Century City to the north and the Rancho Park and Palms flats to the south, roughly bounded by Pico Boulevard, Motor Avenue, National Boulevard and the Beverlywood edge. It is inside the City of Los Angeles. Boundaries here are defined by street, not by listing description, so we confirm the parcel rather than the label."}},{"@type":"Question","name":"What kind of homes are in Cheviot Hills?","acceptedAnswer":{"@type":"Answer","text":"Predominantly pre-war single-family — Spanish Colonial Revival, Tudor and Traditional houses on curving, hilly streets, with a layer of later remodels and some substantial rebuilds. Lots are generally larger and less regular than the Rancho Park flats below, and grade is a real design factor rather than a footnote."}},{"@type":"Question","name":"Is Cheviot Hills a good place to live?","acceptedAnswer":{"@type":"Answer","text":"It suits buyers who want a quiet, low-density single-family street inside the city, walking or short-driving distance to Century City and Westwood, with a neighborhood park and golf course adjacent. What it does not offer is walkable retail density or much attached housing — for that, Palms and Sawtelle sit immediately south."}},{"@type":"Question","name":"What schools serve Cheviot Hills?","acceptedAnswer":{"@type":"Answer","text":"The neighborhood falls inside Los Angeles Unified School District boundaries, with Overland Avenue Elementary the school most associated with the area. Assignments are made by address and boundaries change, so confirm the assigned school with LAUSD for the specific property before you treat school access as settled."}},{"@type":"Question","name":"How does Cheviot Hills compare with Beverlywood?","acceptedAnswer":{"@type":"Answer","text":"They adjoin, and the housing looks similar from the street, but the governance differs. Much of Beverlywood sits under a homeowners association with architectural and maintenance rules that affect what you can build and how the exterior must be kept. Cheviot Hills is generally not subject to that regime. If a listing straddles the line, the association question comes before the offer."}},{"@type":"Question","name":"What about ADUs and additions in Cheviot Hills?","acceptedAnswer":{"@type":"Answer","text":"California ADU law applies and the larger lots help, but grade is the constraint that decides most Cheviot Hills projects. Slope affects excavation, drainage, retaining, access for construction and the buildable envelope. Michael trained as an architect, and on a hillside parcel that read is the difference between a project that pencils and one that quietly does not."}},{"@type":"Question","name":"Is there rent control in Cheviot Hills?","acceptedAnswer":{"@type":"Answer","text":"The neighborhood is overwhelmingly single-family, so the Los Angeles Rent Stabilization Ordinance is rarely the issue it is in Palms or Sawtelle. Where a property does include a rental unit — a converted structure, a duplex, or an ADU being rented — the applicable rules depend on the building and its certificate of occupancy date. This is general information, not legal advice; confirm with the Los Angeles Housing Department or your attorney."}},{"@type":"Question","name":"What is nearby?","acceptedAnswer":{"@type":"Answer","text":"Cheviot Hills Recreation Center is the neighborhood green, Rancho Park Golf Course and the Hillcrest Country Club sit along the southern and western edges, and Century City is minutes north with offices, the mall and the medical center. The Metro E Line station at Westwood and Pico puts rail within reach of the neighborhood's southern edge."}}]}]}</script>
+</head>
+<body>
+<div id="site-nav-mount"></div>
+
+<!-- Mobile navigation drawer -->
+<div id="site-drawer-mount"></div>
+<script src="/assets/js/site-chrome.js"></script>
+<!-- ════════════════ HERO ════════════════ -->
+<section style="position:relative;overflow:hidden;padding:calc(var(--nav-h) + 120px) 24px 120px;text-align:center;color:#fff;min-height:560px;display:flex;align-items:center;justify-content:center">
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,#0f2a22 0%,#1c3d31 55%,#12332a 100%)"></div>
+  <div style="position:relative;z-index:2">
+    <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--brass);margin-bottom:24px">Neighborhood Focus · Cheviot Hills · 90064</p>
+    <h1 style="font-family:var(--serif);font-size:clamp(40px,6.4vw,76px);font-weight:400;line-height:1.04;margin-bottom:28px"><span>Cheviot Hills</span><br><em style="color:var(--brass);font-style:italic">real estate.</em></h1>
+    <p style="font-size:clamp(16px,2vw,20px);line-height:1.65;color:rgba(255,255,255,0.86);max-width:800px;margin:0 auto">Pre-war architecture on curving hillside streets between Century City and the Rancho Park flats — where grade, boundary lines and the association question decide the deal.</p>
+    <p style="margin-top:28px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,193,60,.85);font-weight:500">Rancho Park · Overland Ave · Beverlywood Edge</p>
+  </div>
+</section>
+
+<!-- ════════════════ DIRECT ANSWER ════════════════ -->
+<section style="background:#fff;padding:64px 24px" aria-label="About Cheviot Hills">
+  <div style="max-width:880px;margin:0 auto">
+    <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b6b6b;margin-bottom:18px">Last updated: September 8, 2026</p>
+    <p style="font-size:18px;line-height:1.7;color:#3a3a3c;margin-bottom:20px"><strong>Cheviot Hills is a low-density, pre-war single-family neighborhood on the Westside of Los Angeles, between Century City and the Rancho Park flats.</strong> Spanish Colonial Revival, Tudor and Traditional houses sit on curving, hilly streets with larger and less regular lots than the flats below. Three things drive value: grade, the exact boundary line, and whether an association governs the parcel.</p><p style="font-size:18px;line-height:1.7;color:#3a3a3c;margin-bottom:20px">It is one of the quieter buys on this side of town, and it is frequently mislabelled. Listings on the Rancho Park side, the Beverlywood side and the Palms side all borrow the name, and each of those carries different rules — an HOA in one direction, denser zoning in another. The parcel decides, not the marketing.</p><p style="font-size:18px;line-height:1.7;color:#3a3a3c;margin-bottom:20px">AMRE represents buyers and sellers here and in the neighborhoods it touches. Michael trained as an architect, which matters more in Cheviot Hills than in most Westside neighborhoods: on a sloped lot, the buildable envelope, the drainage, the retaining and the construction access are the project, and reading them correctly before the offer is the whole advantage.</p>
+  </div>
+</section>
+
+<!-- ════════════════ AT A GLANCE ════════════════ -->
+<section style="background:var(--light);padding:72px 24px" aria-label="Cheviot Hills at a glance">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">At a glance</p>
+    <h2 style="text-align:center;margin-bottom:64px;font-family:var(--serif);font-size:clamp(32px,4.4vw,56px);font-weight:400;line-height:1.1;color:var(--ink)">Cheviot Hills — <em style="color:var(--forest);font-style:italic">six things to know.</em></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px">
+      <div>
+        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">01</div>
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Pre-war architecture</h3>
+        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Spanish Colonial Revival, Tudor and Traditional stock from the neighborhood's early development, much of it remodelled and some of it substantially rebuilt. Original detail, roof form and window systems are where condition surprises live.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">02</div>
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Grade is the variable</h3>
+        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">These are hills, not flats. Slope shapes the buildable envelope, drainage, retaining requirements and what a renovation or addition actually costs. Two similar-looking lots can carry very different project budgets.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">03</div>
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">The Beverlywood edge</h3>
+        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Adjoining Beverlywood is largely governed by a homeowners association with architectural and maintenance rules. Cheviot Hills generally is not. On a boundary street, that question comes before price.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">04</div>
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Overland Avenue and schools</h3>
+        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">The neighborhood sits inside LAUSD boundaries, with Overland Avenue Elementary the school most associated with it. Assignments are by address and boundaries move — confirm with the district for the specific property.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">05</div>
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Parks and golf</h3>
+        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Cheviot Hills Recreation Center is the neighborhood green. Rancho Park Golf Course and the Hillcrest Country Club form the southern and western edges, which is part of why density stays low.</p>
+      </div>
+      <div>
+        <div style="font-family:var(--serif);font-size:42px;line-height:1;color:var(--forest);margin-bottom:16px;font-weight:400">06</div>
+        <h3 style="font-family:var(--serif);font-size:22px;font-weight:500;color:#1a1a1a;margin-bottom:12px">Century City minutes away</h3>
+        <p style="font-size:15px;line-height:1.78;color:#5a5a5a">Offices, the mall and the medical center sit immediately north, and the Metro E Line station at Westwood and Pico is within reach of the southern edge. Short commutes without a commercial corridor running through the neighborhood.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DIAGRAM ════════════════ -->
+<section style="background:#fff;padding:72px 24px" aria-label="Where Cheviot Hills begins and ends">
+  <div style="max-width:980px;margin:0 auto">
+    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">Orientation</p>
+    <h2 style="text-align:center;margin-bottom:40px;font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;line-height:1.1;color:var(--ink)">Where Cheviot Hills begins and ends</h2>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch"><svg viewBox="0 0 900 400" width="900" height="400" role="img" aria-labelledby="chT chD" style="max-width:100%;height:auto;font-family:-apple-system,BlinkMacSystemFont,sans-serif">
+<title id="chT">Schematic map of Cheviot Hills and its adjacent neighborhoods</title>
+<desc id="chD">A simplified diagram placing Cheviot Hills at the centre, bounded by Pico Boulevard to the north, Motor Avenue to the east, National Boulevard to the south and the Beverlywood edge, with Century City above, Rancho Park and Palms below, and the golf course and recreation centre on the western and southern edges.</desc>
+<rect width="900" height="400" fill="#f7f5f1"/>
+<rect x="60" y="20" width="780" height="46" rx="6" fill="#e6e0d3"/>
+<text x="80" y="49" font-size="14" font-weight="600" fill="#4a4a4a">CENTURY CITY &#8593; &nbsp;&nbsp;·&nbsp;&nbsp; PICO BLVD</text>
+<rect x="230" y="86" width="420" height="200" rx="10" fill="#dfe7dc" stroke="#a9bda3" stroke-width="2"/>
+<text x="256" y="126" font-size="22" font-weight="600" fill="#1c3d31">CHEVIOT HILLS</text>
+<text x="256" y="154" font-size="13" fill="#3f5c4e">90064 · pre-war single-family, hillside grade</text>
+<text x="256" y="180" font-size="13" fill="#5a5a5a">Spanish Colonial Revival · Tudor · Traditional</text>
+<text x="256" y="206" font-size="13" fill="#5a5a5a">Curving streets, larger irregular lots</text>
+<text x="256" y="232" font-size="13" fill="#5a5a5a">Cheviot Hills Recreation Center</text>
+<text x="256" y="258" font-size="13" fill="#5a5a5a">Overland Ave Elementary (confirm by address)</text>
+<rect x="60" y="86" width="150" height="200" rx="8" fill="#e2ece2"/>
+<text x="74" y="188" font-size="12" fill="#3f5c4e" transform="rotate(-90 120 188)">GOLF &amp; COUNTRY CLUB EDGE</text>
+<rect x="670" y="86" width="170" height="200" rx="8" fill="#efeadf"/>
+<text x="686" y="120" font-size="13" font-weight="600" fill="#4a4a4a">MOTOR AVE &#8594;</text>
+<text x="686" y="146" font-size="12" fill="#5a5a5a">BEVERLYWOOD</text>
+<text x="686" y="168" font-size="12" fill="#5a5a5a">HOA architectural</text>
+<text x="686" y="188" font-size="12" fill="#5a5a5a">rules apply</text>
+<rect x="60" y="306" width="780" height="72" rx="6" fill="#e2e9ec"/>
+<text x="80" y="336" font-size="14" font-weight="600" fill="#3f6470">NATIONAL BLVD &nbsp;·&nbsp; RANCHO PARK &amp; PALMS &#8595;</text>
+<text x="80" y="362" font-size="12" fill="#5a5a5a">Flats, smaller lots, dense apartment stock, Metro E Line</text>
+</svg></div>
+    <p style="font-size:14px;line-height:1.7;color:#6b6b6b;text-align:center;margin-top:22px;max-width:760px;margin-left:auto;margin-right:auto">Schematic only, not to scale and not a boundary survey. Century City and Pico Boulevard are north, Motor Avenue and the Beverlywood edge east, National Boulevard and the Rancho Park and Palms flats south, the golf and country club edge west. Always confirm the parcel.</p>
+  </div>
+</section>
+
+<!-- ════════════════ DILIGENCE CALLOUT ════════════════ -->
+<section style="background:#1c3d31;padding:72px 24px" aria-label="What we check before you remove a contingency in Cheviot Hills">
+  <div style="max-width:920px;margin:0 auto">
+    <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#ffc13c;margin-bottom:18px">Underwriting checklist</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(28px,3.6vw,44px);font-weight:400;line-height:1.12;color:#fff;margin-bottom:32px">What we check before you remove a contingency in Cheviot Hills</h2>
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffc13c;font-weight:600;padding-top:2px">Association status</div><div style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)">Whether the parcel falls under a homeowners association — Beverlywood's in particular — and what its architectural and maintenance rules permit.</div></div><div style="display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffc13c;font-weight:600;padding-top:2px">Slope and soils</div><div style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)">Grade, drainage, retaining, geotechnical history and construction access. On a hillside lot these determine both feasibility and cost.</div></div><div style="display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffc13c;font-weight:600;padding-top:2px">Permit history</div><div style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)">What was permitted versus what is standing, especially on additions, converted garages, decks and rear structures on sloped parcels.</div></div><div style="display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffc13c;font-weight:600;padding-top:2px">Boundary and jurisdiction</div><div style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)">The exact parcel line relative to Rancho Park, Palms and Beverlywood, and the zoning that follows from it.</div></div><div style="display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffc13c;font-weight:600;padding-top:2px">School assignment</div><div style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)">The assigned LAUSD school confirmed by address rather than by neighborhood name or listing copy.</div></div><div style="display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)"><div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffc13c;font-weight:600;padding-top:2px">Envelope condition</div><div style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)">Roof, windows, original detail and any earlier remodel work — the pre-war stock rewards a close look at what was done and when.</div></div><p style="font-size:13px;line-height:1.7;color:rgba(255,255,255,.55);margin-top:24px">Informational only, not legal advice. Confirm association rules, zoning and permitting with the City of Los Angeles, the relevant association and your own attorney.</p>
+  </div>
+</section>
+
+<section style="background:#fff;padding:72px 24px" aria-label="Pricing">
+  <div style="max-width:880px;margin:0 auto">
+    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">Pricing</p>
+    <h2 style="text-align:center;margin-bottom:36px;font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;line-height:1.1;color:var(--ink)">How pricing actually works <em style="color:var(--forest);font-style:italic">here.</em></h2>
+    <p style="font-size:17px;line-height:1.75;color:#3a3a3c;margin-bottom:20px">Cheviot Hills prices on lot and light before it prices on square footage. A level or gently sloped parcel with usable rear yard, good solar orientation and straightforward construction access trades differently from a steep lot with the same house on it. Buyers who compare only the interior finish tend to overpay for the harder parcel.</p><p style="font-size:17px;line-height:1.75;color:#3a3a3c;margin-bottom:20px">The second lever is whether the house has already had its major work done. A thoughtful, permitted remodel of a pre-war house removes a large block of risk, and the market pays for that. An original house on a good lot is the better project, but it is a project.</p><p style="font-size:17px;line-height:1.75;color:#3a3a3c;margin-bottom:20px">For current sold data across the Westside, start with our <a href="/westside-market-report/" style="color:var(--forest)">Westside market report</a> and then ask us for the Cheviot Hills cut. We would rather hand you live numbers than publish a figure that ages badly.</p><p style="font-size:17px;line-height:1.75;color:#3a3a3c;margin-bottom:20px"><!-- [VERIFY] Cheviot Hills price bands, median $/sf and lot-size ranges pending the market-report data cut; do not publish figures until sourced. --></p>
+  </div>
+</section>
+
+<section style="background:var(--light);padding:72px 24px" aria-label="Neighbors">
+  <div style="max-width:880px;margin:0 auto">
+    <p class="eyebrow" style="text-align:center;color:var(--forest);margin-bottom:16px">Neighbors</p>
+    <h2 style="text-align:center;margin-bottom:36px;font-family:var(--serif);font-size:clamp(28px,4vw,50px);font-weight:400;line-height:1.1;color:var(--ink)">Where it sits on the <em style="color:var(--forest);font-style:italic">Westside.</em></h2>
+    <p style="font-size:17px;line-height:1.75;color:#3a3a3c;margin-bottom:20px">South and west, down the hill, is <a href="/west-los-angeles/" style="color:var(--forest)">West Los Angeles</a> — Rancho Park, Palms and Sawtelle. Flats, smaller lots, far more attached housing, and the Westside's deepest supply of small multifamily. Buyers who want a rental unit attached to the purchase end up there rather than here.</p><p style="font-size:17px;line-height:1.75;color:#3a3a3c;margin-bottom:20px">South-east across National is <a href="/culver-city/" style="color:var(--forest)">Culver City</a>, a separate incorporated city with its own school district and its own rent control. North-west is <a href="/westwood/" style="color:var(--forest)">Westwood</a>, and beyond it the rest of the Westside corridor.</p><p style="font-size:17px;line-height:1.75;color:#3a3a3c;margin-bottom:20px">The <a href="/westside/" style="color:var(--forest)">Westside neighborhood guide</a> lays out every neighborhood we cover side by side.</p>
+  </div>
+</section>
+
+<section class="faq-section" itemscope itemtype="https://schema.org/FAQPage" aria-label="Frequently asked questions">
+  <p class="faq-eyebrow">Cheviot Hills FAQ</p>
+  <h2 class="faq-h2">Cheviot Hills, <em>explained.</em></h2>
+  <div class="faq-list">
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">Where exactly is Cheviot Hills?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Cheviot Hills sits on the Westside of Los Angeles between Century City to the north and the Rancho Park and Palms flats to the south, roughly bounded by Pico Boulevard, Motor Avenue, National Boulevard and the Beverlywood edge. It is inside the City of Los Angeles. Boundaries here are defined by street, not by listing description, so we confirm the parcel rather than the label.</p>
+        </div>
+      </details>
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">What kind of homes are in Cheviot Hills?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Predominantly pre-war single-family — Spanish Colonial Revival, Tudor and Traditional houses on curving, hilly streets, with a layer of later remodels and some substantial rebuilds. Lots are generally larger and less regular than the Rancho Park flats below, and grade is a real design factor rather than a footnote.</p>
+        </div>
+      </details>
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">Is Cheviot Hills a good place to live?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">It suits buyers who want a quiet, low-density single-family street inside the city, walking or short-driving distance to Century City and Westwood, with a neighborhood park and golf course adjacent. What it does not offer is walkable retail density or much attached housing — for that, Palms and Sawtelle sit immediately south.</p>
+        </div>
+      </details>
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">What schools serve Cheviot Hills?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">The neighborhood falls inside Los Angeles Unified School District boundaries, with Overland Avenue Elementary the school most associated with the area. Assignments are made by address and boundaries change, so confirm the assigned school with LAUSD for the specific property before you treat school access as settled.</p>
+        </div>
+      </details>
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">How does Cheviot Hills compare with Beverlywood?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">They adjoin, and the housing looks similar from the street, but the governance differs. Much of Beverlywood sits under a homeowners association with architectural and maintenance rules that affect what you can build and how the exterior must be kept. Cheviot Hills is generally not subject to that regime. If a listing straddles the line, the association question comes before the offer.</p>
+        </div>
+      </details>
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">What about ADUs and additions in Cheviot Hills?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">California ADU law applies and the larger lots help, but grade is the constraint that decides most Cheviot Hills projects. Slope affects excavation, drainage, retaining, access for construction and the buildable envelope. Michael trained as an architect, and on a hillside parcel that read is the difference between a project that pencils and one that quietly does not.</p>
+        </div>
+      </details>
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">Is there rent control in Cheviot Hills?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">The neighborhood is overwhelmingly single-family, so the Los Angeles Rent Stabilization Ordinance is rarely the issue it is in Palms or Sawtelle. Where a property does include a rental unit — a converted structure, a duplex, or an ADU being rented — the applicable rules depend on the building and its certificate of occupancy date. This is general information, not legal advice; confirm with the Los Angeles Housing Department or your attorney.</p>
+        </div>
+      </details>
+      <details class="faq-item" itemscope itemtype="https://schema.org/Question">
+        <summary class="faq-q" itemprop="name">What is nearby?</summary>
+        <div class="faq-a" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+          <p itemprop="text">Cheviot Hills Recreation Center is the neighborhood green, Rancho Park Golf Course and the Hillcrest Country Club sit along the southern and western edges, and Century City is minutes north with offices, the mall and the medical center. The Metro E Line station at Westwood and Pico puts rail within reach of the neighborhood's southern edge.</p>
+        </div>
+      </details>
+  </div>
+</section>
+
+<!-- ===== RELATED ===== -->
+<section style="background:#f7f5f1;padding:80px 24px;text-align:center" aria-label="Related pages">
+  <div style="max-width:1080px;margin:0 auto">
+    <h3 style="font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin-bottom:32px;color:#1a1a1a">Explore more</h3>
+    <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap">
+      <a href="/west-los-angeles/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">West Los Angeles</a>
+      <a href="/culver-city/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Culver City</a>
+      <a href="/westwood/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Westwood</a>
+      <a href="/westside/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Westside Guide</a>
+      <a href="/westside-market-report/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Market Report</a>
+      <a href="/architectural-homes/" style="padding:10px 22px;border:1px solid #1c3d31;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#1c3d31;border-radius:2px;text-decoration:none;transition:background .2s,color .2s" onmouseover="this.style.background='#1c3d31';this.style.color='#fff'" onmouseout="this.style.background='transparent';this.style.color='#1c3d31'">Architectural Homes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CTA ════════════════ -->
+<section style="background:#12332a;padding:80px 24px" aria-label="Contact CTA">
+  <div style="max-width:720px;margin:0 auto;text-align:center">
+    <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:#ffc13c;margin-bottom:20px">Work With AMRE</p>
+    <h2 style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(30px,4vw,50px);font-weight:400;line-height:1.1;color:#fff;margin-bottom:16px">Get Your Free<br><em style="color:#ffc13c;font-style:italic">Cheviot Hills Home Valuation.</em></h2>
+    <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,0.72);margin-bottom:36px">Send the address. We will come back with what the neighborhood is doing, what your house is worth, and — if you are thinking about building — what the lot will actually allow.</p>
+    <div style="display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap">
+      <a href="/home-valuation/" style="display:inline-flex;align-items:center;gap:8px;background:#ffc13c;color:#1a1a1a;font-size:14px;font-weight:600;padding:15px 30px;border-radius:980px;text-decoration:none;letter-spacing:.01em">Get Your Free Cheviot Hills Home Valuation <span aria-hidden="true">&#8594;</span></a>
+      <a href="/contact/" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.35);color:#fff;font-size:14px;font-weight:600;padding:14px 28px;border-radius:980px;text-decoration:none">Talk to a Cheviot Hills Agent</a>
+    </div>
+    <p style="margin-top:22px;font-size:14px;color:rgba(255,255,255,0.6)">or call <a href="tel:3237198585" style="color:rgba(255,255,255,.75);text-decoration:none">(323) 719-8585</a></p>
+  </div>
+</section>
+<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
+  <meta itemprop="name" content="AMRE Real Estate Group">
+  <meta itemprop="telephone" content="+13237198585">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logos">
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
+        <div class="footer-sep"></div>
+        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
+      </div>
+      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
+    </div>
+    <div>
+      <div class="footer-col-head">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="/sellers/">Sellers</a></li>
+        <li><a href="/buyers/">Buyers</a></li>
+        <li><a href="/about/">Team</a></li>
+        <li><a href="/blog/">Journal</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Services</div>
+      <ul class="footer-links">
+        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
+        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
+        <li><a href="/buyers/">Buyer Advisory</a></li>
+        <li><a href="/#contact">Home Valuation</a></li>
+        <li><a href="/#contact">Investment Advisory</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Connect</div>
+      <ul class="footer-links">
+        <li><a href="tel:3237198585">(323) 719-8585</a></li>
+        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
+        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
+        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>  <div class="footer-bottom">
+    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
+    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
+  </div>
+</footer>
+<div class="site-footer-disclosure-bar">
+  <div class="site-footer-disclosure">
+    <p class="site-footer-disclosure-text">
+      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
+    </p>
+    <div class="site-footer-disclosure-eho">
+      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
