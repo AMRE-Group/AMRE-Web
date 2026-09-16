@@ -5,25 +5,22 @@
 (function () {
   'use strict';
 
-  // -- Google Analytics 4, restored 2026-09-16.
-  //    This was the site's GA4 loader on the old site-chrome.js; it was dropped
-  //    when most pages moved to this (amre-chrome.js) nav script, silently killing
-  //    analytics on the homepage, get-started, sellers, buyers, contact, and more.
+  // -- Google Tag Manager (GTM-TM5NWVRD), installed 2026-09-16.
+  //    Replaces the direct-gtag GA4 loader above: this container already existed
+  //    in the Google account (GA4 + Google Ads conversion + Meta Pixel, built by
+  //    a prior agency) but had never been installed on the live site.
   //    Auto-installs on every page that loads amre-chrome.js.
-  (function () {
-    var GA_ID = 'G-B95R68B9EY';
-    if (window.__amre_ga_loaded) return;
-    window.__amre_ga_loaded = true;
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){window.dataLayer.push(arguments);}
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_ID, { anonymize_ip: true });
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s);
-  })();
+  (function (w, d, s, l, i) {
+    if (w.__amre_gtm_loaded) return;
+    w.__amre_gtm_loaded = true;
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0], j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-TM5NWVRD');
 
   var LOGO = 'https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos';
 

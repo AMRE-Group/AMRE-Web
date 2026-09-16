@@ -160,10 +160,10 @@
               window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
             } catch(_){}
           }
-          // ── Analytics: push lead_submit to dataLayer, and fire GA4's generate_lead directly.
-          //    (There is no GTM container on this site -- the dataLayer.push alone reaches
-          //    nothing. gtag() is loaded by amre-chrome.js/site-chrome.js; call it directly
-          //    so this actually shows up as a GA4 key event.) ──
+          // ── Analytics: push lead_submit to dataLayer. GTM (GTM-TM5NWVRD) is now
+          //    installed site-wide and its "Lead Submit" trigger (Custom Event,
+          //    event name lead_submit) fans this out to GA4, Google Ads conversion,
+          //    and Meta Pixel -- no direct gtag() call needed here anymore. ──
           var leadValue = (type === 'valuation') ? 1500 : (type === 'buyer') ? 750 : 500;
           var leadSource = params.source || form.dataset.source || '';
           try {
@@ -175,11 +175,6 @@
               lead_value: leadValue,
               currency: 'USD'
             });
-          } catch(_){}
-          try {
-            if (typeof gtag === 'function') {
-              gtag('event', 'generate_lead', { value: leadValue, currency: 'USD', form_type: type, form_source: leadSource });
-            }
           } catch(_){}
         })
         .catch(function(err){

@@ -261,7 +261,6 @@
       document.getElementById('lgForm').classList.add('off');
       document.getElementById('lgDone').classList.add('on');
       try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_submit',form_type:'general',form_source:p.source,lead_value:500,currency:'USD'}); }catch(e){}
-      try{ if(typeof gtag==='function'){ gtag('event','generate_lead',{value:500,currency:'USD',form_source:p.source}); } }catch(e){}
     }
     if(typeof emailjs==='undefined'){ done(); return; }
     emailjs.send(SERVICE,TPL_INTERNAL,p)
