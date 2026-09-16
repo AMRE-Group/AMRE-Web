@@ -4,6 +4,27 @@
    Styling comes from /assets/css/amre.css. Edit links/markup ONCE here. */
 (function () {
   'use strict';
+
+  // -- Google Analytics 4, restored 2026-09-16.
+  //    This was the site's GA4 loader on the old site-chrome.js; it was dropped
+  //    when most pages moved to this (amre-chrome.js) nav script, silently killing
+  //    analytics on the homepage, get-started, sellers, buyers, contact, and more.
+  //    Auto-installs on every page that loads amre-chrome.js.
+  (function () {
+    var GA_ID = 'G-B95R68B9EY';
+    if (window.__amre_ga_loaded) return;
+    window.__amre_ga_loaded = true;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_ID, { anonymize_ip: true });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+  })();
+
   var LOGO = 'https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos';
 
   // ---- required chrome CSS (injected so nav/drawer are correct on ANY page, even ones that don't inline it) ----
