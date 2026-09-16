@@ -90,7 +90,7 @@
   .lg-form.off{display:none}
 </style>
 <link rel="stylesheet" href="/assets/forms/consent.css">
-<script src="/assets/forms/consent.js?v=20260821" defer></script>
+<script src="/assets/forms/consent.js?v=20260916" defer></script>
 </head>
 <body>
 
@@ -104,6 +104,11 @@
     <p class="eyebrow">AMRE at Compass · Los Angeles</p>
     <h1>Let's talk about your <em>next move.</em></h1>
     <p class="lead">Buying, selling, or just weighing options — tell us how to reach you and an AMRE advisor will follow up personally. No pressure, no obligation.</p>
+
+    <a href="tel:+13237198585" class="btn btn-fill" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:30px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      Call or Text (323) 719-8585
+    </a>
 
     <ul class="lg-points">
       <li>
@@ -160,11 +165,9 @@
           <input type="checkbox" id="lgConsent" name="consent" required
                  aria-describedby="lgConsentText">
           <label for="lgConsent" id="lgConsentText">
-            I agree to be contacted by <strong>AMRE Real Estate Group</strong> by phone call, email, and text message
-            at the number and address I provided, including messages sent using automated technology. Consent is not a
-            condition of purchase. To opt out, reply <strong>STOP</strong> to any text at any time, or click the
-            unsubscribe link in any email. Reply <strong>HELP</strong> for help. Message frequency varies.
-            Message and data rates may apply. See our
+            By submitting, you agree <strong>AMRE Real Estate Group</strong> may contact you by phone, email, or
+            text (may be automated). Consent isn't required to work with us. Reply <strong>STOP</strong> to opt out.
+            Msg &amp; data rates may apply. See our
             <a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> &amp;
             <a href="/terms-and-conditions/" target="_blank" rel="noopener">Terms of Service</a>.
           </label>
@@ -258,6 +261,7 @@
       document.getElementById('lgForm').classList.add('off');
       document.getElementById('lgDone').classList.add('on');
       try{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:'lead_submit',form_type:'general',form_source:p.source,lead_value:500,currency:'USD'}); }catch(e){}
+      try{ if(typeof gtag==='function'){ gtag('event','generate_lead',{value:500,currency:'USD',form_source:p.source}); } }catch(e){}
     }
     if(typeof emailjs==='undefined'){ done(); return; }
     emailjs.send(SERVICE,TPL_INTERNAL,p)
