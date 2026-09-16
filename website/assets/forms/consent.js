@@ -29,19 +29,16 @@
 (function () {
   'use strict';
 
-  var VERSION = '2026-07-30';
+  var VERSION = '2026-09-16';
   var SENDER  = 'AMRE Real Estate Group';
 
   // ── Canonical disclosure. Every required element is present:
   //    explicit opt-in · sender named · STOP to opt out · HELP · frequency
   //    varies · msg &amp; data rates · links to Privacy Policy + Terms.
   var TEXT =
-    'I agree to be contacted by <strong>' + SENDER + '</strong> by phone call, email, and ' +
-    'text message at the number and address I provided, including messages sent using ' +
-    'automated technology. Consent is not a condition of purchase. To opt out, reply ' +
-    '<strong>STOP</strong> to any text at any time, or click the unsubscribe link in any ' +
-    'email. Reply <strong>HELP</strong> for help. Message frequency varies. Message and ' +
-    'data rates may apply. See our ' +
+    'By submitting, you agree <strong>' + SENDER + '</strong> may contact you by phone, ' +
+    'email, or text (may be automated). Consent isn\'t required to work with us. Reply ' +
+    '<strong>STOP</strong> to opt out. Msg &amp; data rates may apply. See our ' +
     '<a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a> &amp; ' +
     '<a href="/terms-and-conditions/" target="_blank" rel="noopener">Terms of Service</a>.';
 
