@@ -160,17 +160,26 @@
               window.scrollTo({ top: window.scrollY + rect.top - 100, behavior: 'smooth' });
             } catch(_){}
           }
-          // ── Analytics: push lead_submit to dataLayer (GTM handles routing to Meta, GA4, Ads) ──
+          // ── Analytics: push lead_submit to dataLayer, and fire GA4's generate_lead directly.
+          //    (There is no GTM container on this site -- the dataLayer.push alone reaches
+          //    nothing. gtag() is loaded by amre-chrome.js/site-chrome.js; call it directly
+          //    so this actually shows up as a GA4 key event.) ──
           var leadValue = (type === 'valuation') ? 1500 : (type === 'buyer') ? 750 : 500;
+          var leadSource = params.source || form.dataset.source || '';
           try {
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
               event: 'lead_submit',
               form_type: type,
-              form_source: params.source || form.dataset.source || '',
+              form_source: leadSource,
               lead_value: leadValue,
               currency: 'USD'
             });
+          } catch(_){}
+          try {
+            if (typeof gtag === 'function') {
+              gtag('event', 'generate_lead', { value: leadValue, currency: 'USD', form_type: type, form_source: leadSource });
+            }
           } catch(_){}
         })
         .catch(function(err){
