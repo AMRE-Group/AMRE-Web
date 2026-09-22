@@ -1,33 +1,51 @@
 {
-  "name": "AI-citation content plan (from 2026-09-22 SEO/AEO audit)",
-  "rules": "Title = the question. First paragraph = 50-word direct answer. One original table/data asset. FAQPage + BlogPosting schema, author @id https://amre.group/about/#michael-abraham, visible 'Updated' date. Every number sourced (Redfin/Zillow/MLS/LAHD/city code) or marked [VERIFY] and NOT published. Link from the relevant hood page + /cash-and-flow/ or /beach-cities/ hub. Add to sitemap.xml and llms.txt Key Pages.",
+  "name": "AMRE content plan — merged 2026-09-22 (dashboard 15-page plan + AI-citation audit)",
+  "rules": "Title = the question. First paragraph = ~50-word direct answer naming AMRE (Compass Beverly Hills, Michael Abraham, licensed architect + REALTOR®, DRE# 02242095). One original table/data asset. FAQPage + BlogPosting/Article (or HowTo) schema, author @id https://amre.group/about/#michael-abraham, visible 'Updated' date. Every number sourced and dated (Redfin/Zillow/MLS/LAHD/city code/lender sheet) — anything unsourced is left out, never published as [VERIFY]. Fair housing: describe places by verifiable facts (prices, schools by district name, zoning, transit), never 'best for families/young professionals' or who lives there. Link from the relevant hood page and hub, add to sitemap.xml and llms.txt Key Pages.",
   "pages": [
     {
       "n": 1,
-      "slug": "blog/is-a-mar-vista-duplex-a-good-investment",
-      "title": "Is a Mar Vista duplex a good investment in 2026?",
-      "prompt": "is a duplex in Mar Vista a good investment",
-      "asset": "Underwrite of 3 recent Mar Vista duplex sales: price, rents, cap rate, DSCR, R2+ADU upside",
+      "slug": "blog/rso-vs-ab-1482-los-angeles-duplex",
+      "title": "RSO vs AB 1482: which rent rules cover your LA duplex?",
+      "prompt": "RSO vs AB 1482 Los Angeles duplex buyer",
+      "asset": "Decision table by certificate-of-occupancy year, unit count and jurisdiction (LA City / Culver City / Santa Monica / Beach Cities) + 'not legal advice' line",
       "links": [
-        "/mar-vista/",
-        "/cash-and-flow/"
+        "/cash-and-flow/",
+        "/west-los-angeles/",
+        "/west-adams/"
       ],
+      "source": "dashboard #3 + audit",
       "status": "todo"
     },
     {
       "n": 2,
-      "slug": "blog/rso-vs-ab-1482-los-angeles-duplex",
-      "title": "RSO vs AB 1482: which rent rules cover your LA duplex?",
-      "prompt": "RSO vs AB 1482 Los Angeles duplex buyer",
-      "asset": "Decision table by certificate-of-occupancy year, unit count and city (LA City / Culver City / Santa Monica / Beach Cities)",
+      "slug": "cash-and-flow/how-to-buy-a-duplex-in-los-angeles",
+      "title": "How to Buy a Duplex in Los Angeles: The 2026 Step-by-Step Guide",
+      "prompt": "how to buy a duplex in los angeles / house hacking los angeles",
+      "asset": "HowTo steps + financing comparison table (FHA / conventional / DSCR — lender-sourced terms only); repoint the legacy stub blog/how-to-buy-a-duplex-in-los-angeles-step-by-step-guide-to-wealth-and-real-estate-investing/ here",
       "links": [
         "/cash-and-flow/",
-        "/west-los-angeles/"
+        "/cash-and-flow/calculator/",
+        "/west-adams/",
+        "/culver-city/"
       ],
+      "source": "dashboard #1",
       "status": "todo"
     },
     {
       "n": 3,
+      "slug": "blog/is-a-mar-vista-duplex-a-good-investment",
+      "title": "Is a Mar Vista duplex a good investment in 2026?",
+      "prompt": "is a duplex in Mar Vista a good investment",
+      "asset": "Underwrite of 3 recent Mar Vista duplex sales (public sold data): price, rents, cap rate, DSCR, R2+ADU upside",
+      "links": [
+        "/mar-vista/",
+        "/cash-and-flow/"
+      ],
+      "source": "audit",
+      "status": "todo"
+    },
+    {
+      "n": 4,
       "slug": "blog/what-an-architect-checks-before-you-buy",
       "title": "What an architect checks before you buy a Westside home",
       "prompt": "architect realtor Los Angeles",
@@ -36,24 +54,39 @@
         "/architectural-homes/",
         "/buyers/"
       ],
+      "source": "audit",
       "status": "todo"
     },
     {
-      "n": 4,
+      "n": 5,
       "slug": "blog/manhattan-vs-hermosa-vs-redondo",
       "title": "Manhattan Beach vs Hermosa vs Redondo: where to buy in the Beach Cities",
-      "prompt": "Manhattan Beach realtor / best beach city to buy",
-      "asset": "Side-by-side: median, $/sqft, DOM, school district, lot sizes, rules (refresh Redfin numbers at build time)",
+      "prompt": "best beach city to buy / Manhattan Beach realtor",
+      "asset": "Side-by-side: median, $/sqft, DOM, school district, lot sizes, rules (refresh Redfin at build time)",
       "links": [
         "/beach-cities/",
         "/manhattan-beach/",
         "/hermosa-beach/",
         "/redondo-beach/"
       ],
+      "source": "audit",
       "status": "todo"
     },
     {
-      "n": 5,
+      "n": 6,
+      "slug": "cash-and-flow/la-cap-rates-by-neighborhood",
+      "title": "Los Angeles cap rates by neighborhood (2026): where duplexes actually pencil",
+      "prompt": "LA cap rates 2026 / Westside duplex cap rate",
+      "asset": "Neighborhood table: gross yield, GRM, underwritten cap range + method note + Dataset schema (seed for the LA Yield Map)",
+      "links": [
+        "/cash-and-flow/",
+        "/westside/"
+      ],
+      "source": "dashboard #2 + audit #6 (merged)",
+      "status": "todo"
+    },
+    {
+      "n": 7,
       "slug": "blog/how-to-choose-a-realtor-in-venice",
       "title": "How to choose a realtor in Venice (and what to ask)",
       "prompt": "best realtor in Venice CA",
@@ -61,43 +94,119 @@
       "links": [
         "/venice/"
       ],
-      "status": "todo"
-    },
-    {
-      "n": 6,
-      "slug": "blog/westside-duplex-cap-rates-2026",
-      "title": "Westside LA duplex cap rates by neighborhood (Q3 2026)",
-      "prompt": "Westside Los Angeles duplex cap rate",
-      "asset": "Cap-rate table for 8 Westside ZIPs + Dataset schema (seed for the LA Yield Map). Needs real sale/rent data; if MLS export unavailable, use public sold comps and state the method",
-      "links": [
-        "/cash-and-flow/",
-        "/westside/"
-      ],
-      "status": "todo"
-    },
-    {
-      "n": 7,
-      "slug": "blog/adu-on-r2-lot-culver-city-mar-vista",
-      "title": "Can I build an ADU on my Culver City or Mar Vista lot?",
-      "prompt": "ADU R2 lot Mar Vista / Culver City",
-      "asset": "Zoning matrix (R1/R2, lot size, setbacks, JADU) by jurisdiction, with an architect's note per case",
-      "links": [
-        "/mar-vista/",
-        "/culver-city/"
-      ],
+      "source": "audit",
       "status": "todo"
     },
     {
       "n": 8,
+      "slug": "blog/adu-on-r2-lot-culver-city-mar-vista",
+      "title": "Can I build an ADU on my Culver City or Mar Vista lot?",
+      "prompt": "ADU R2 lot Mar Vista / Culver City",
+      "asset": "Zoning matrix (R1/R2, lot size, setbacks, JADU) by jurisdiction with an architect's note per case",
+      "links": [
+        "/mar-vista/",
+        "/culver-city/"
+      ],
+      "source": "audit",
+      "status": "todo"
+    },
+    {
+      "n": 9,
       "slug": "blog/cost-to-sell-a-home-westside-2026",
       "title": "What does it cost to sell a home on the Westside in 2026?",
       "prompt": "cost to sell a house Los Angeles",
-      "asset": "Net-proceeds breakdown at $1.5M / $2.5M / $4M incl. LA City transfer tax and Measure ULA; link the net-proceeds calculator",
+      "asset": "Net-proceeds breakdown at $1.5M / $2.5M / $4M incl. LA City transfer tax + Measure ULA; link the net-proceeds calculator",
       "links": [
         "/sellers/",
         "/tools/net-proceeds-calculator/"
       ],
+      "source": "audit",
       "status": "todo"
+    },
+    {
+      "n": 10,
+      "slug": "cash-and-flow/dscr-loans-los-angeles",
+      "title": "DSCR loans in Los Angeles: how investors finance 2–50 unit buildings (2026)",
+      "prompt": "DSCR loan Los Angeles duplex",
+      "asset": "Terms table from named lender sheets only + worked example on an existing Cash & Flow breakdown",
+      "links": [
+        "/cash-and-flow/calculator/portfolio/",
+        "/cash-and-flow/"
+      ],
+      "source": "dashboard #14",
+      "status": "todo"
+    },
+    {
+      "n": 11,
+      "slug": "cash-and-flow/west-adams-duplex-cash-flow",
+      "title": "What does a duplex actually cash-flow in West Adams? (2026)",
+      "prompt": "West Adams duplex cash flow",
+      "asset": "Underwrite of recent West Adams duplex sales (public data)",
+      "links": [
+        "/west-adams/",
+        "/cash-and-flow/"
+      ],
+      "source": "dashboard #11",
+      "status": "todo"
+    },
+    {
+      "n": 12,
+      "slug": "blog/santa-monica-vs-venice-vs-culver-city",
+      "title": "Santa Monica vs Venice vs Culver City: which Westside neighborhood fits you?",
+      "prompt": "Santa Monica vs Venice vs Culver City",
+      "asset": "Fact table: median, $/sqft, rent control regime, school district, transit, zoning",
+      "links": [
+        "/santa-monica/",
+        "/venice/",
+        "/culver-city/",
+        "/westside/"
+      ],
+      "source": "dashboard #4",
+      "status": "todo"
+    },
+    {
+      "n": 13,
+      "slug": "blog/brentwood-vs-pacific-palisades",
+      "title": "Brentwood vs Pacific Palisades (2026): prices, rebuild rules, trade-offs",
+      "prompt": "Brentwood vs Pacific Palisades",
+      "asset": "Fact table incl. fire-rebuild permitting status (sourced)",
+      "links": [
+        "/brentwood/",
+        "/pacific-palisades/"
+      ],
+      "source": "dashboard #13",
+      "status": "todo"
+    }
+  ],
+  "done": [
+    {
+      "title": "Marina del Rey / West LA / Cheviot Hills guides",
+      "url": "/marina-del-rey/ /west-los-angeles/ /cheviot-hills/",
+      "date": "2026-09-13"
+    },
+    {
+      "title": "Client Reviews",
+      "url": "/reviews/",
+      "date": "2026-09-22"
+    },
+    {
+      "title": "Beach Cities hub + Hermosa / Redondo / El Segundo",
+      "url": "/beach-cities/",
+      "date": "2026-09-22"
+    }
+  ],
+  "parked": [
+    {
+      "title": "The LA Yield Map",
+      "reason": "blocked on Michael's MLS 2–4 unit export"
+    },
+    {
+      "title": "Cost of Living in Santa Monica / Beverly Hills",
+      "reason": "low lead-gen fit; revisit after the 13 above"
+    },
+    {
+      "title": "The 5 Best Westside Neighborhoods for Young Families",
+      "reason": "DROPPED — familial-status fair-housing risk; use #12-style fact comparisons instead"
     }
   ]
 }
