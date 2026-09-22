@@ -417,10 +417,11 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 
 /* ── Westside hero (team banner) ───────────────────────────── */
 .hero-team{min-height:min(92svh,860px);align-items:center}
-.hero-team .hero-bg{background:#122a21 url('/assets/photos/hero-team-brick.jpg') right -160px center/auto 100% no-repeat}
+.hero-team{background:#122a21}
+.hero-team .hero-bg{left:44%;background:#122a21 url('/assets/photos/hero-team-brick.jpg') 46% center/cover no-repeat}
 @supports (background-image:image-set(url(x.webp) type('image/webp'))){.hero-team .hero-bg{background-image:image-set(url('/assets/photos/hero-team-brick.webp') type('image/webp'),url('/assets/photos/hero-team-brick.jpg') type('image/jpeg'))}}
-@media(max-width:1180px){.hero-team .hero-bg{background-size:cover;background-position:66% center}}
-.hero-team .hero-bg::after{background:linear-gradient(96deg,rgba(18,42,33,.97) 0%,rgba(18,42,33,.94) 30%,rgba(18,42,33,.8) 44%,rgba(18,42,33,.42) 58%,rgba(18,42,33,.12) 76%,rgba(18,42,33,.2) 100%)}
+@media(max-width:1180px){.hero-team .hero-bg{left:36%}}
+.hero-team .hero-bg::after{background:linear-gradient(90deg,#122a21 0%,rgba(18,42,33,.55) 9%,rgba(18,42,33,.08) 24%,rgba(18,42,33,.05) 80%,rgba(18,42,33,.18) 100%)}
 .hero-team .hero-scrim{background:rgba(20,28,22,.10)}
 .hero-team .hero-in{padding-top:150px;padding-bottom:clamp(120px,16vh,170px)}
 .hero-pitch{max-width:40rem}
@@ -435,7 +436,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 .hero-trust .htn{font-family:var(--serif);font-size:1.55rem;color:#fff;line-height:1;font-weight:300}
 .hero-trust .htl{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-top:7px;font-weight:600}
 @media(max-width:860px){
-  .hero-team .hero-bg{background-position:62% center}
+  .hero-team .hero-bg{left:0;background-position:52% center}
   .hero-team .hero-bg::after{background:linear-gradient(180deg,rgba(18,42,33,.72) 0%,rgba(18,42,33,.88) 55%,rgba(18,42,33,.96) 100%)}
   .hero-team .hero-in{padding-top:130px;padding-bottom:150px}
   .hero-trust .wrap{grid-template-columns:repeat(2,1fr);gap:16px}
