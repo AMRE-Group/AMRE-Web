@@ -1,0 +1,103 @@
+{
+  "name": "AI-citation content plan (from 2026-09-22 SEO/AEO audit)",
+  "rules": "Title = the question. First paragraph = 50-word direct answer. One original table/data asset. FAQPage + BlogPosting schema, author @id https://amre.group/about/#michael-abraham, visible 'Updated' date. Every number sourced (Redfin/Zillow/MLS/LAHD/city code) or marked [VERIFY] and NOT published. Link from the relevant hood page + /cash-and-flow/ or /beach-cities/ hub. Add to sitemap.xml and llms.txt Key Pages.",
+  "pages": [
+    {
+      "n": 1,
+      "slug": "blog/is-a-mar-vista-duplex-a-good-investment",
+      "title": "Is a Mar Vista duplex a good investment in 2026?",
+      "prompt": "is a duplex in Mar Vista a good investment",
+      "asset": "Underwrite of 3 recent Mar Vista duplex sales: price, rents, cap rate, DSCR, R2+ADU upside",
+      "links": [
+        "/mar-vista/",
+        "/cash-and-flow/"
+      ],
+      "status": "todo"
+    },
+    {
+      "n": 2,
+      "slug": "blog/rso-vs-ab-1482-los-angeles-duplex",
+      "title": "RSO vs AB 1482: which rent rules cover your LA duplex?",
+      "prompt": "RSO vs AB 1482 Los Angeles duplex buyer",
+      "asset": "Decision table by certificate-of-occupancy year, unit count and city (LA City / Culver City / Santa Monica / Beach Cities)",
+      "links": [
+        "/cash-and-flow/",
+        "/west-los-angeles/"
+      ],
+      "status": "todo"
+    },
+    {
+      "n": 3,
+      "slug": "blog/what-an-architect-checks-before-you-buy",
+      "title": "What an architect checks before you buy a Westside home",
+      "prompt": "architect realtor Los Angeles",
+      "asset": "12-item pre-offer checklist with LA permit-record examples and remediation cost ranges",
+      "links": [
+        "/architectural-homes/",
+        "/buyers/"
+      ],
+      "status": "todo"
+    },
+    {
+      "n": 4,
+      "slug": "blog/manhattan-vs-hermosa-vs-redondo",
+      "title": "Manhattan Beach vs Hermosa vs Redondo: where to buy in the Beach Cities",
+      "prompt": "Manhattan Beach realtor / best beach city to buy",
+      "asset": "Side-by-side: median, $/sqft, DOM, school district, lot sizes, rules (refresh Redfin numbers at build time)",
+      "links": [
+        "/beach-cities/",
+        "/manhattan-beach/",
+        "/hermosa-beach/",
+        "/redondo-beach/"
+      ],
+      "status": "todo"
+    },
+    {
+      "n": 5,
+      "slug": "blog/how-to-choose-a-realtor-in-venice",
+      "title": "How to choose a realtor in Venice (and what to ask)",
+      "prompt": "best realtor in Venice CA",
+      "asset": "Interview questions + Venice-specific issues: walk streets, Coastal Commission, short-term rental rules, canals",
+      "links": [
+        "/venice/"
+      ],
+      "status": "todo"
+    },
+    {
+      "n": 6,
+      "slug": "blog/westside-duplex-cap-rates-2026",
+      "title": "Westside LA duplex cap rates by neighborhood (Q3 2026)",
+      "prompt": "Westside Los Angeles duplex cap rate",
+      "asset": "Cap-rate table for 8 Westside ZIPs + Dataset schema (seed for the LA Yield Map). Needs real sale/rent data; if MLS export unavailable, use public sold comps and state the method",
+      "links": [
+        "/cash-and-flow/",
+        "/westside/"
+      ],
+      "status": "todo"
+    },
+    {
+      "n": 7,
+      "slug": "blog/adu-on-r2-lot-culver-city-mar-vista",
+      "title": "Can I build an ADU on my Culver City or Mar Vista lot?",
+      "prompt": "ADU R2 lot Mar Vista / Culver City",
+      "asset": "Zoning matrix (R1/R2, lot size, setbacks, JADU) by jurisdiction, with an architect's note per case",
+      "links": [
+        "/mar-vista/",
+        "/culver-city/"
+      ],
+      "status": "todo"
+    },
+    {
+      "n": 8,
+      "slug": "blog/cost-to-sell-a-home-westside-2026",
+      "title": "What does it cost to sell a home on the Westside in 2026?",
+      "prompt": "cost to sell a house Los Angeles",
+      "asset": "Net-proceeds breakdown at $1.5M / $2.5M / $4M incl. LA City transfer tax and Measure ULA; link the net-proceeds calculator",
+      "links": [
+        "/sellers/",
+        "/tools/net-proceeds-calculator/"
+      ],
+      "status": "todo"
+    }
+  ]
+}
