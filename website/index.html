@@ -418,7 +418,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 
 /* reviews carousel */
 .rev .rev-rail{position:relative}
-.rev .rev-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 4px;padding:6px 4px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.rev .rev-track{scroll-behavior:smooth;display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 4px;padding:6px 4px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 .rev .rev-track .rcard{flex:0 0 min(360px,84vw);scroll-snap-align:start;margin:0}
 .rev .rev-track .rcard:hover{transform:none}
 .rev .rev-track blockquote{font-size:1.12rem}
@@ -659,7 +659,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
   </div>
 </section>
 <script>
-(function(){var t=document.getElementById('revTrack');function go(d){var c=t.querySelector('.rcard');t.scrollBy({left:d*((c?c.offsetWidth:340)+22),behavior:'smooth'})}
+(function(){var t=document.getElementById('revTrack');function go(d){var c=t.querySelector('.rcard');t.scrollLeft+=d*((c?c.offsetWidth:340)+22)}
 document.querySelector('.rev-nav.prev').onclick=function(){go(-1)};document.querySelector('.rev-nav.next').onclick=function(){go(1)};})();
 </script>
 
