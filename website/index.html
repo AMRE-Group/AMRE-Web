@@ -417,12 +417,11 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 
 /* ── Westside hero (team banner) ───────────────────────────── */
 .hero-team{min-height:min(92svh,860px);align-items:center}
-.hero-team{background:#122a21 url('/assets/photos/hero-team-brick-tile.jpg') left center/auto 100% repeat-x}
-.hero-team .hero-bg{left:44%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%);mask-image:linear-gradient(90deg,transparent 0,#000 7%);background:#122a21 url('/assets/photos/hero-team-brick.jpg') 46% center/cover no-repeat}
-@supports (background-image:image-set(url(x.webp) type('image/webp'))){.hero-team .hero-bg{background-image:image-set(url('/assets/photos/hero-team-brick.webp') type('image/webp'),url('/assets/photos/hero-team-brick.jpg') type('image/jpeg'))}}
-@media(max-width:1180px){.hero-team .hero-bg{left:36%}}
+.hero-team{background:#122a21}
+.hero-team .hero-bg{background:#122a21 url('/assets/photos/hero-team-street.jpg') right center/cover no-repeat}
+@supports (background-image:image-set(url(x.webp) type('image/webp'))){.hero-team .hero-bg{background-image:image-set(url('/assets/photos/hero-team-street.webp') type('image/webp'),url('/assets/photos/hero-team-street.jpg') type('image/jpeg'))}}
 .hero-team .hero-bg::after{background:linear-gradient(180deg,rgba(18,42,33,.6) 0,rgba(18,42,33,0) 16%)}
-.hero-team .hero-scrim{background:linear-gradient(90deg,rgba(18,42,33,.75) 0%,rgba(18,42,33,.72) 40%,rgba(18,42,33,.3) 58%,rgba(18,42,33,0) 75%)}
+.hero-team .hero-scrim{background:linear-gradient(90deg,rgba(18,42,33,.75) 0%,rgba(18,42,33,.6) 30%,rgba(18,42,33,.2) 50%,rgba(18,42,33,0) 62%)}
 .hero-team .hero-in{padding-top:150px;padding-bottom:clamp(120px,16vh,170px)}
 .hero-pitch{max-width:40rem}
 .hero-team h1{font-size:clamp(2.75rem,5.1vw,4.4rem);font-weight:300;max-width:18ch;margin:22px 0 22px}
@@ -437,7 +436,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 .hero-trust .htl{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.58);margin-top:7px;font-weight:600}
 @media(max-width:860px){
   .hero-team .hero-scrim{background:rgba(20,28,22,.10)}
-  .hero-team .hero-bg{left:0;-webkit-mask-image:none;mask-image:none;background-position:52% center}
+  .hero-team .hero-bg{background-position:80% center}
   .hero-team .hero-bg::after{background:linear-gradient(180deg,rgba(18,42,33,.72) 0%,rgba(18,42,33,.88) 55%,rgba(18,42,33,.96) 100%)}
   .hero-team .hero-in{padding-top:130px;padding-bottom:150px}
   .hero-trust .wrap{grid-template-columns:repeat(2,1fr);gap:16px}
