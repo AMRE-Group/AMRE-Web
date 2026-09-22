@@ -406,6 +406,11 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 .hvid-frame iframe,.hvid-frame #hvidPlayer{position:absolute;inset:0;width:100%;height:100%;border:0}
 .hvid-end{position:absolute;inset:0;z-index:3;display:none;flex-direction:column;align-items:center;justify-content:center;gap:18px;background:rgba(18,42,33,.92);color:#fff;text-align:center;padding:24px}
 .hvid-end.on{display:flex}
+.hvid-poster{position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#0d0d0d}
+.hvid-poster img{width:100%;height:100%;object-fit:cover}
+.hvid-play{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--clay);box-shadow:0 12px 34px -8px rgba(0,0,0,.5);transition:transform .3s var(--ease)}
+.hvid-play::after{content:"";position:absolute;left:34px;top:26px;border-style:solid;border-width:16px 0 16px 26px;border-color:transparent transparent transparent var(--ink)}
+.hvid-poster:hover .hvid-play{transform:scale(1.08)}
 .hvid-end h3{font-family:var(--serif);font-weight:300;font-size:clamp(1.6rem,3vw,2.4rem);color:#fff}
 .hvid-end h3 em{color:var(--clay)}
 .hvid-end .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
@@ -539,7 +544,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
       <p>Team AMRE is led by two senior agents, one process &mdash; see how we guide Westside buyers and sellers from first tour to closing.</p>
     </div>
     <div class="hvid-frame reveal">
-      <iframe id="hvidPlayer" src="https://www.youtube-nocookie.com/embed/wO2vGqnSr5A?rel=0&amp;modestbranding=1&amp;playsinline=1&amp;iv_load_policy=3&amp;enablejsapi=1&amp;origin=https://amre.group" title="Meet Ania &amp; Michael — AMRE Real Estate Group" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+      <button type="button" class="hvid-poster" id="hvidPoster" aria-label="Play video: Why We Love L.A. — AMRE Podcast Ep. 1"><img src="https://i.ytimg.com/vi/wO2vGqnSr5A/maxresdefault.jpg" alt="" loading="lazy"><span class="hvid-play"></span></button>
       <div class="hvid-end" id="hvidEnd">
         <h3>Ready to talk <em>next steps?</em></h3>
         <div class="row">
@@ -552,12 +557,17 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 </section>
 <script>
 (function(){
-  var p;
-  window.onYouTubeIframeAPIReady=function(){
-    p=new YT.Player('hvidPlayer',{events:{onStateChange:function(e){document.getElementById('hvidEnd').classList.toggle('on',e.data===0)}}});
+  var ID='wO2vGqnSr5A',p,box=document.getElementById('hvidPoster').parentNode,end=document.getElementById('hvidEnd');
+  function api(cb){if(window.YT&&YT.Player)return cb();var t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t);window.onYouTubeIframeAPIReady=cb}
+  document.getElementById('hvidPoster').onclick=function(){
+    var f=document.createElement('iframe');f.id='hvidPlayer';
+    f.src='https://www.youtube.com/embed/'+ID+'?autoplay=1&rel=0&playsinline=1&iv_load_policy=3&enablejsapi=1';
+    f.title='Why We Love L.A. — AMRE Podcast Ep. 1';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.referrerPolicy='strict-origin-when-cross-origin';f.allowFullscreen=true;
+    this.replaceWith(f);
+    api(function(){p=new YT.Player('hvidPlayer',{events:{onStateChange:function(e){end.classList.toggle('on',e.data===0)}}})});
   };
-  document.getElementById('hvidReplay').onclick=function(){document.getElementById('hvidEnd').classList.remove('on');if(p){p.seekTo(0);p.playVideo()}};
-  var t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';t.async=true;document.head.appendChild(t);
+  document.getElementById('hvidReplay').onclick=function(){end.classList.remove('on');if(p){p.seekTo(0);p.playVideo()}};
 })();
 </script>
 
