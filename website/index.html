@@ -415,6 +415,27 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 .hvid-end h3 em{color:var(--clay)}
 .hvid-end .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 
+
+/* reviews carousel */
+.rev .rev-rail{position:relative}
+.rev .rev-track{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 4px;padding:6px 4px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.rev .rev-track .rcard{flex:0 0 min(360px,84vw);scroll-snap-align:start;margin:0}
+.rev .rev-track .rcard:hover{transform:none}
+.rev .rev-track blockquote{font-size:1.12rem}
+.rev .rev-nav{position:absolute;top:calc(50% - 36px);z-index:2;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:1.1rem;cursor:pointer;box-shadow:0 10px 30px -14px rgba(23,19,16,.45);transition:.3s var(--ease)}
+.rev .rev-nav:hover{background:var(--ink);color:#fff}
+.rev .rev-nav.prev{left:-20px}.rev .rev-nav.next{right:-20px}
+@media(max-width:760px){.rev .rev-nav{display:none}}
+.rev .rev-foot{text-align:center;margin-top:18px}
+/* hero quick contact */
+.hero-quick{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:20px;font-size:.84rem;font-weight:500}
+.hero-quick a{color:#fff;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px;transition:.3s}
+.hero-quick a:hover{color:var(--clay);border-color:var(--clay)}
+.hero-quick .dot{color:rgba(255,255,255,.4)}
+/* sticky: text + valuation */
+.amre-sticky .wrap .btn.st-text{margin-left:auto}
+.amre-sticky .wrap .btn.st-text + .btn{margin-left:0}
+@media(max-width:640px){.amre-sticky .wrap .btn{width:auto;flex:1}}
 /* ── Westside hero (team banner) ───────────────────────────── */
 .hero-team{min-height:min(92svh,860px);align-items:center}
 .hero-team{background:#122a21}
@@ -528,6 +549,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
         <button type="button" class="btn btn-fill" data-amre-open="valuation">Get My Free Westside Home Valuation <span class="arrow">&rarr;</span></button>
         <button type="button" class="btn btn-ghost" data-amre-open="list">Join the Westside List</button>
       </div>
+      <div class="hero-quick"><a href="sms:+13237198585">Text Michael &middot; (323) 719-8585</a><span class="dot">/</span><a href="https://calendar.app.google/yjBVQ2eqPNbtFY2Z9" target="_blank" rel="noopener">Book a 15-min call &rarr;</a></div>
     </div>
   </div>
   <div class="hero-trust"><div class="wrap">
@@ -552,6 +574,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
         <h3>Ready to talk <em>next steps?</em></h3>
         <div class="row">
           <button type="button" class="btn btn-fill" data-amre-open="valuation">Get My Free Home Valuation <span class="arrow">&rarr;</span></button>
+          <a class="btn btn-ghost" href="https://calendar.app.google/yjBVQ2eqPNbtFY2Z9" target="_blank" rel="noopener">Book a 15-min call</a>
           <button type="button" class="btn btn-ghost" id="hvidReplay">&#8635; Watch again</button>
         </div>
       </div>
@@ -572,6 +595,72 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
   };
   document.getElementById('hvidReplay').onclick=function(){end.classList.remove('on');if(p){p.seekTo(0);p.playVideo()}};
 })();
+</script>
+
+<!-- REVIEWS -->
+<section class="rev" id="reviews">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow" style="justify-content:center">5.0 ★ across 18 Google reviews</span>
+      <h2>What clients <em>say.</em></h2>
+    </div>
+    <div class="rev-rail">
+      <button type="button" class="rev-nav prev" aria-label="Previous reviews">&larr;</button>
+      <div class="rev-track" id="revTrack" tabindex="0" aria-label="Client reviews">
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Michael Abraham and Ania De Pourbaix were absolutely great to work with. Their professionalism, expertise, and attentiveness made our home search experience stress free.”</blockquote>
+        <figcaption class="who">Paulina Flores<span>Buyer · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Ania and Michael are the best! I’ve worked with them on multiple properties and their experience and knowledge truly sets them apart from everyone else.”</blockquote>
+        <figcaption class="who">Kristen Addy<span>Repeat client · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Best of the best — so collaborative, supportive and knew just how to navigate seller side challenges. They made it happen and I never had to stress in stressful situations.”</blockquote>
+        <figcaption class="who">Shaida Tafreshi<span>Seller · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“They know the market extremely well, including the specific attributes and issues of each neighborhood.”</blockquote>
+        <figcaption class="who">Robert Phillippy<span>Condo buyer · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“We met Ania and Michael at an open house and were immediately struck by their professionalism, deep market knowledge, and warm demeanor.”</blockquote>
+        <figcaption class="who">Debbie Buckley<span>New to LA · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“From start to finish, they guided us through every step of the process with professionalism, patience, and expertise.”</blockquote>
+        <figcaption class="who">Ben S<span>Client · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“After the Los Angeles fires, I was overwhelmed by the prospect of finding a new rental home. Ania stepped in and guided me through the process.”</blockquote>
+        <figcaption class="who">Stacie Palmer<span>Renter · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“Michael and Ania found the perfect tenants and handled every detail — a seamless transition. I recommend them without hesitation.”</blockquote>
+        <figcaption class="who">Kevin Maynard<span>Property owner · Google review</span></figcaption>
+      </figure>
+      <figure class="rcard">
+        <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <blockquote>“If you’re looking for trusted real estate guidance in Los Angeles or the South Bay, look no further than Michael Abraham and the AMRE Real Estate Group.”</blockquote>
+        <figcaption class="who">David Crowley<span>Investor · Google review</span></figcaption>
+      </figure>
+      </div>
+      <button type="button" class="rev-nav next" aria-label="Next reviews">&rarr;</button>
+    </div>
+    <div class="rev-foot"><a href="https://www.google.com/maps/place/?q=place_id:ChIJJ6CalhM964ARBsvC6HR__aM" target="_blank" rel="noopener" class="btn btn-line">Read all reviews on Google <span class="arrow">&rarr;</span></a></div>
+  </div>
+</section>
+<script>
+(function(){var t=document.getElementById('revTrack');function go(d){var c=t.querySelector('.rcard');t.scrollBy({left:d*((c?c.offsetWidth:340)+22),behavior:'smooth'})}
+document.querySelector('.rev-nav.prev').onclick=function(){go(-1)};document.querySelector('.rev-nav.next').onclick=function(){go(1)};})();
 </script>
 
 <!-- CHOOSE PATH -->
@@ -774,32 +863,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="rev">
-  <div class="wrap">
-    <div class="head center reveal">
-      <span class="eyebrow" style="justify-content:center">5.0 ★ across 17 Google reviews</span>
-      <h2>What clients <em>say.</em></h2>
-    </div>
-    <div class="rev-grid">
-      <div class="rcard reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Their professionalism, expertise, and attentiveness made our home search stress-free. Extremely knowledgeable in the market."</blockquote>
-        <div class="who">Paulina Flores<span>Buyer</span></div>
-      </div>
-      <div class="rcard reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Michael and Ania found the perfect tenants and handled every detail — a seamless transition. I recommend them without hesitation."</blockquote>
-        <div class="who">Kevin Maynard<span>Property Owner</span></div>
-      </div>
-      <div class="rcard reveal">
-        <div class="stars">★★★★★</div>
-        <blockquote>"The go-to team for buying, selling, and investing in Los Angeles. Trusted guidance from start to finish."</blockquote>
-        <div class="who">David Crowley<span>Investor</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- MARKET REPORTS -->
 <section id="market-reports">
@@ -1144,6 +1208,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 
 <div class="amre-sticky" id="amreSticky"><div class="wrap">
   <div class="st"><b>Curious what your home would bring today?</b> A considered valuation, prepared personally.</div>
+  <a class="btn btn-ghost st-text" href="sms:+13237198585">Text us</a>
   <button type="button" class="btn btn-fill" data-amre-open="valuation">Request valuation <span class="arrow">&rarr;</span></button>
 </div></div>
 
