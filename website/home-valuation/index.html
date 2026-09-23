@@ -40,8 +40,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{
+<style>:root{
   --forest:#1c3d31; --navy:#070B33; --brass:#ffc13c; --brass-dk:#e6a800;
   --ink:#1a1a1a; --mid:#5A5A5A; --offwhite:#f7edf0; --cream:#efdbc0;
   --serif:'Playfair Display',Georgia,serif;
@@ -54,7 +53,6 @@ body{font-family:var(--sans);font-weight:300;color:var(--ink);background:#fff;-w
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 button{font-family:var(--sans);cursor:pointer;border:none;background:none}
-
 .page-hero{
   position:relative;background:var(--forest);color:#fff;
   padding:calc(var(--nav-h) + 96px) 24px 96px;text-align:center;
@@ -85,7 +83,6 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none}
 .btn-outline-white:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.8)}
 .btn-outline-dark{border:1px solid rgba(28,61,49,.35);color:var(--forest)}
 .btn-outline-dark:hover{background:rgba(28,61,49,.06)}
-
 section{padding:96px 24px}
 .container{max-width:1100px;margin:0 auto}
 .section-head{text-align:center;margin-bottom:64px}
@@ -98,7 +95,6 @@ section{padding:96px 24px}
   font-size:clamp(32px,4vw,48px);line-height:1.15;color:var(--ink);
 }
 .section-head h2 em{color:var(--forest);font-style:italic}
-
 .three-up{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
 .feat{padding:32px;background:#fff;border:1px solid rgba(28,61,49,.1);border-radius:2px}
 .feat .num{
@@ -107,150 +103,23 @@ section{padding:96px 24px}
 }
 .feat h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.25;margin-bottom:12px}
 .feat p{font-size:14px;line-height:1.7;color:var(--mid)}
-
 .cta-block{background:var(--offwhite);text-align:center}
 .cta-block .container{max-width:680px}
 .cta-block p{font-size:16px;line-height:1.7;color:var(--mid);margin-bottom:24px}
-
 .contrast-block{background:var(--navy);color:#fff;text-align:center}
 .contrast-block .section-head h2{color:#fff}
 .contrast-block .section-head h2 em{color:var(--brass)}
 .contrast-block .container{max-width:760px}
 .contrast-block p{font-size:16px;line-height:1.7;color:rgba(255,255,255,.78);margin-bottom:24px}
-
-/* Footer */
-.site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:64px 44px 36px;color:#fff}
-.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px}
-.footer-logos{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.footer-sep{width:1px;height:18px;background:rgba(255,255,255,.25)}
-.footer-tagline{font-size:13px;line-height:1.6;color:#fff;max-width:340px}
-.footer-col-head{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;font-weight:600}
-.footer-links{list-style:none}
-.footer-links li{margin-bottom:10px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.72);transition:color .2s}
-.footer-links a:hover{color:var(--brass)}
-.footer-bottom{max-width:1280px;margin:48px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,.08);
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer-legal,.footer-dre{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.04em}
-.site-footer-disclosure-bar{background:#fff;padding:32px 44px;border-top:1px solid rgba(0,0,0,.06)}
-.site-footer-disclosure{max-width:1280px;margin:0 auto;display:flex;gap:32px;align-items:center;flex-wrap:wrap}
-.site-footer-disclosure-text{flex:1;min-width:280px;font-size:11px;line-height:1.7;color:rgba(0,0,0,.6)}
-.site-footer-disclosure-text a{color:rgba(0,0,0,.75);text-decoration:underline}
-.site-footer-disclosure-eho img{height:60px;width:auto}
-
 @media(max-width:860px){
-  .three-up{grid-template-columns:1fr;gap:24px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .site-footer{padding:48px 20px 28px}
-  .site-footer-disclosure-bar{padding:24px 20px}
-  .site-footer-disclosure-eho img{height:48px}
-  section{padding:64px 20px}
+.three-up{grid-template-columns:1fr;gap:24px}
+section{padding:64px 20px}
 }
-@media(max-width:680px){
-  .footer-grid{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column}
-}
-
-/* Valuation form card (mirrors home page) */
 .val-form-card{background:#fff;border:1px solid #d2d2d7;border-radius:18px;padding:44px 40px 36px;max-width:540px;margin:48px auto 0;text-align:left}
 .val-form-card-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6e6e73;margin-bottom:24px;display:block;text-align:center}
 @media(max-width:680px){
-  .val-form-card{padding:32px 22px 28px}
-}
-
-
-/* ── NAV — identical on all pages ── */
-.site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 24px;
-  background:rgba(7,11,51,0.88);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  transition:background .35s var(--ease),border-color .35s;
-}
-.site-nav.is-light{
-  background:rgba(255,255,255,0.92);
-  border-bottom-color:rgba(0,0,0,.1);
-}
-.nav-brand{display:flex;align-items:center;flex-shrink:0}
-.nav-amre{height:22px;width:auto}
-.nav-compass{height:15px;width:auto;opacity:.85}
-.logo-white{display:block}.logo-dark{display:none}
-.site-nav.is-light .logo-dark{display:block}
-.site-nav.is-light .logo-white{display:none}
-.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.25);margin:0 14px;
-  transition:background .35s}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
-.nav-links{
-  position:absolute;left:50%;transform:translateX(-50%);
-  display:flex;gap:28px;list-style:none;
-}
-.nav-links a{
-  font-family:var(--sans);font-size:11px;font-weight:500;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap;
-}
-.site-nav.is-light .nav-links a{color:rgba(7,11,51,.65)}
-.nav-links a:hover{color:#fff}
-.site-nav.is-light .nav-links a:hover{color:var(--forest)}
-.nav-links a.active{color:var(--brass)}
-.site-nav.is-light .nav-links a.active{color:var(--forest)}
-.nav-cta{
-  font-family:var(--sans);font-size:11px;font-weight:600;
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:9px 20px;border-radius:2px;
-  background:var(--brass);color:var(--navy);
-  transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;
-}
-.nav-cta:hover{background:var(--brass-dk);transform:translateY(-1px)}
-.nav-right{display:flex;align-items:center;gap:12px}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;
-  flex-shrink:0}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;
-  transition:transform .25s,opacity .2s,width .25s}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham-btn.open span:nth-child(2){opacity:0;width:0}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{
-  position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;
-  background:rgba(7,11,51,0.97);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  display:flex;flex-direction:column;
-  padding:32px 24px 48px;
-  transform:translateY(-110%);opacity:0;
-  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;
-  pointer-events:none}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a{
-  display:block;color:#fff;font-family:var(--sans);
-  font-size:clamp(20px,5vw,26px);font-weight:300;
-  letter-spacing:-.01em;padding:20px 0;
-  transition:color .2s,padding-left .2s}
-.mobile-drawer a:hover{color:var(--brass,#ffc13c);padding-left:8px}
-.mobile-drawer .drawer-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  margin-top:32px;width:100%;
-  background:var(--brass);color:var(--navy)!important;border-radius:2px;
-  font-size:12px!important;font-weight:600!important;padding:14px 28px!important;
-  letter-spacing:.1em;text-transform:uppercase}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .nav-cta{display:none}
-  .ham-btn{display:flex}
-  .site-nav{padding:0 20px}
-}
-@media(min-width:861px){
-  .mobile-drawer{display:none!important}
-}
-
-</style>
+.val-form-card{padding:32px 22px 28px}
+}</style>
 <link rel="stylesheet" href="/assets/css/site-overrides.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","@id":"https://amre.group/home-valuation/#faq","mainEntity":[{"@type":"Question","name":"How long does an AMRE home valuation take?","acceptedAnswer":{"@type":"Answer","text":"A complete valuation typically takes one to two weeks from initial walkthrough to delivery of a written comparative market analysis. A preliminary value range can be provided within 24–48 hours of the walkthrough, with the formal CMA report following once we've finalized comp adjustments."}},{"@type":"Question","name":"Is there any obligation to list my home if I request a valuation?","acceptedAnswer":{"@type":"Answer","text":"No. Many of our valuations are for clients exploring a future move, planning estate decisions, refinancing, considering a 1031 exchange, or simply curious about current market value. There is no listing requirement, no fee, and no pressure."}},{"@type":"Question","name":"What's the difference between a Zillow Zestimate and a CMA from AMRE?","acceptedAnswer":{"@type":"Answer","text":"A Zestimate is an automated valuation model (AVM) based on public records and broad statistical patterns. A CMA reflects a physical walkthrough of your home, condition adjustments, recent comparable closings in your immediate micro-market, active competition, and pending sales — none of which an AVM can replicate."}},{"@type":"Question","name":"What information do you need from me to start?","acceptedAnswer":{"@type":"Answer","text":"Property address, basic context on the home (condition, recent updates, any upcoming work), and your timeline. We pull tax records, prior MLS history, and comparable closings ourselves; the only thing required from you is access for a brief walkthrough — in person or via FaceTime/Zoom for out-of-state owners."}},{"@type":"Question","name":"Will I receive a written report I can keep?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every valuation is delivered as a written CMA document covering the value range, comparable closings used, condition and feature adjustments, market context, and recommended pricing strategy if you decide to list. The report is yours to keep and reference."}}]}</script>
 <script type="application/ld+json">
@@ -265,13 +134,14 @@ section{padding:96px 24px}
 
 <link rel="stylesheet" href="/assets/forms/consent.css">
 <script src="/assets/forms/consent.js?v=20260821" defer></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/amre-chrome-scoped.css?v=20260923">
 </head>
 <body>
 
 <!-- ========== NAV (rendered by site-chrome.js) ========== -->
-<div id="site-nav-mount"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js?v=20260917"></script>
+<div id="amre-nav"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
+
 
 <!-- ========== HERO ========== -->
 <header class="page-hero">
@@ -453,65 +323,8 @@ section{padding:96px 24px}
   </div>
 </section>
 
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/home-valuation/">Home Valuation</a></li>
-        <li><a href="/clients/">Client Dashboard</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div>
+<div id="amre-footer"><div class="amre-static-foot" hidden><ul><li><a href="/santa-monica/">Santa Monica</a></li><li><a href="/venice/">Venice</a></li><li><a href="/mar-vista/">Mar Vista</a></li><li><a href="/culver-city/">Culver City</a></li><li><a href="/playa-vista/">Playa Vista</a></li><li><a href="/marina-del-rey/">Marina del Rey</a></li><li><a href="/west-los-angeles/">West Los Angeles</a></li><li><a href="/cheviot-hills/">Cheviot Hills</a></li><li><a href="/brentwood/">Brentwood</a></li><li><a href="/pacific-palisades/">Pacific Palisades</a></li><li><a href="/westwood/">Westwood</a></li><li><a href="/beverly-hills/">Beverly Hills</a></li><li><a href="/bel-air/">Bel Air</a></li><li><a href="/west-adams/">West Adams</a></li><li><a href="/manhattan-beach/">Manhattan Beach</a></li><li><a href="/hermosa-beach/">Hermosa Beach</a></li><li><a href="/redondo-beach/">Redondo Beach</a></li><li><a href="/el-segundo/">El Segundo</a></li></ul><p>AMRE Real Estate Group at Compass · 9454 Wilshire Blvd, Suite 100, Beverly Hills, CA 90212 · (323) 719-8585 · Michael Abraham, REALTOR® &amp; licensed architect, DRE# 02242095 · Ania De Pourbaix, REALTOR®, DRE# 01891438</p></div></div>
+<script src="/assets/js/amre-chrome.js?v=20260923" defer></script>
 
 </body>
 </html>

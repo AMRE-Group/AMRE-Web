@@ -51,8 +51,7 @@
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TM5NWVRD');</script>
 <!-- End GTM -->
 
-<style>
-:root{
+<style>:root{
   --forest:#1c3d31; --navy:#070B33; --brass:#ffc13c; --brass-dk:#e6a800;
   --ink:#1a1a1a; --mid:#5A5A5A; --rule:#d2d2d7; --light:#f7f5f1;
   --serif:'Playfair Display',Georgia,serif;
@@ -64,8 +63,6 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{font-family:var(--sans);font-weight:300;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
-
-/* HERO — typographic, no bg image */
 .page-hero{
   position:relative;
   background:linear-gradient(155deg,#0a1d18 0%,var(--forest) 60%,#0e2520 100%);
@@ -114,8 +111,6 @@ img{display:block;max-width:100%}
 .btn-brass:hover{background:var(--brass-dk);transform:translateY(-1px)}
 .btn-outline-white{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
 .btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.08);transform:translateY(-1px)}
-
-/* sections */
 section{padding:96px 24px}
 .wrap{max-width:1080px;margin:0 auto}
 .wrap-sm{max-width:780px;margin:0 auto}
@@ -126,7 +121,6 @@ section{padding:96px 24px}
 .lede.large{font-size:clamp(17px,1.85vw,21px);color:var(--ink);font-weight:400}
 p.body{font-size:16px;line-height:1.78;color:var(--mid);margin-bottom:20px}
 p.body strong{color:var(--ink);font-weight:600}
-
 .band-light{background:var(--light)}
 .band-dark{background:var(--forest);color:#fff}
 .band-dark .section-h{color:#fff}
@@ -134,11 +128,7 @@ p.body strong{color:var(--ink);font-weight:600}
 .band-dark .lede,.band-dark p.body{color:rgba(255,255,255,.85)}
 .band-dark p.body strong{color:#fff}
 .band-dark .eyebrow{color:var(--brass)}
-
-/* INTRO */
 .intro{background:#fff;text-align:center}
-
-/* ARCHITECTS GRID */
 .arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:56px}
 .arch-card{
   background:#fff;padding:36px 32px;border:1px solid var(--rule);border-radius:6px;
@@ -160,8 +150,6 @@ p.body strong{color:var(--ink);font-weight:600}
   padding-top:14px;border-top:1px solid var(--rule);
 }
 .arch-card .works span{color:var(--forest);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:10.5px;display:block;margin-bottom:6px}
-
-/* DIFFERENTIATOR */
 .diff{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .diff-list{margin-top:24px}
 .diff-row{
@@ -173,8 +161,6 @@ p.body strong{color:var(--ink);font-weight:600}
 .diff-num{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--brass);line-height:1}
 .diff-row h4{font-family:var(--serif);font-weight:500;font-size:19px;line-height:1.22;margin-bottom:8px;color:#fff}
 .diff-row p{font-size:15px;line-height:1.65;color:rgba(255,255,255,.82)}
-
-/* SPLIT PROCESS */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
 .split-card{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:40px 36px}
 .split-card .tag{
@@ -192,14 +178,10 @@ p.body strong{color:var(--ink);font-weight:600}
   content:'';width:6px;height:6px;border-radius:50%;background:var(--forest);margin-top:9px;
 }
 .split-card li:last-child{border-bottom:none}
-
-/* CTA */
 .cta{background:var(--navy);color:#fff;text-align:center;padding:120px 24px}
 .cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,5vw,60px);line-height:1.08;color:#fff;margin-bottom:18px}
 .cta h2 em{font-style:italic;color:var(--brass)}
 .cta p{font-size:clamp(16px,1.7vw,19px);line-height:1.7;color:rgba(255,255,255,.82);max-width:680px;margin:0 auto 36px}
-
-/* FAQ */
 .faq{background:#fff;padding:96px 24px}
 .faq h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.4vw,52px);line-height:1.1;color:var(--ink);margin-bottom:48px;text-align:center}
 .faq h2 em{font-style:italic;color:var(--forest)}
@@ -208,60 +190,30 @@ p.body strong{color:var(--ink);font-weight:600}
 .faq-item:last-child{border-bottom:1px solid var(--rule)}
 .faq-q{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.28;color:var(--ink);margin-bottom:12px}
 .faq-a{font-size:15.5px;line-height:1.75;color:var(--mid)}
-
-/* RELATED */
 .related{background:var(--light);padding:80px 24px;text-align:center}
 .related h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin-bottom:32px;color:var(--ink)}
 .related-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
 .related-link{padding:10px 22px;border:1px solid var(--forest);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--forest);border-radius:2px;transition:background .2s,color .2s}
 .related-link:hover{background:var(--forest);color:#fff}
-
-/* FOOTER (locked) */
-.site-footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:64px 44px 36px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:56px;max-width:1320px;margin:0 auto 48px}
-.footer-logos{display:flex;align-items:center;gap:16px;margin-bottom:20px}
-.footer-sep{width:1px;height:20px;background:rgba(255,255,255,.25)}
-.footer-tagline{font-size:13px;line-height:1.65;color:rgba(255,255,255,.78);font-weight:300;max-width:340px}
-.footer-col-head{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin-bottom:18px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:11px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,.72);font-weight:300;transition:color .2s}
-.footer-links a:hover{color:#fff}
-.footer-bottom{max-width:1320px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-.footer-legal,.footer-dre{font-size:11.5px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.6}
-.footer-dre{text-align:right}
-.site-footer-disclosure-bar{background:#fff;padding:36px 44px;border-top:1px solid var(--rule)}
-.site-footer-disclosure{max-width:1320px;margin:0 auto;display:flex;align-items:center;gap:32px}
-.site-footer-disclosure-text{font-size:11.5px;line-height:1.7;color:var(--mid);font-weight:300;flex:1}
-.site-footer-disclosure-text a{color:var(--forest);text-decoration:underline}
-.site-footer-disclosure-eho img{height:60px;width:auto;display:block}
-
 @media(max-width:980px){
-  .arch-grid{grid-template-columns:repeat(2,1fr)}
-  .diff{grid-template-columns:1fr;gap:40px}
-  .split{grid-template-columns:1fr;gap:28px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:36px}
+.arch-grid{grid-template-columns:repeat(2,1fr)}
+.diff{grid-template-columns:1fr;gap:40px}
+.split{grid-template-columns:1fr;gap:28px}
 }
 @media(max-width:680px){
-  section{padding:72px 20px}
-  .page-hero{padding:calc(var(--nav-h) + 80px) 20px 96px;min-height:620px}
-  .arch-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;align-items:flex-start}
-  .footer-dre{text-align:left}
-  .site-footer-disclosure{flex-direction:column;text-align:center;gap:18px}
-  .site-footer-disclosure-eho img{height:48px}
-  .site-footer{padding:48px 20px 28px}
-  .site-footer-disclosure-bar{padding:28px 20px}
-}
-</style>
+section{padding:72px 20px}
+.page-hero{padding:calc(var(--nav-h) + 80px) 20px 96px;min-height:620px}
+.arch-grid{grid-template-columns:1fr}
+}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/amre-chrome-scoped.css?v=20260923">
 </head>
 <body>
 
 <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-TM5NWVRD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div id="site-nav-mount"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js?v=20260917"></script>
+<div id="amre-nav"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
+
 
 <!-- HERO -->
 <section class="page-hero" aria-label="Architectural Homes in Los Angeles">
@@ -515,68 +467,8 @@ p.body strong{color:var(--ink);font-weight:600}
   </div>
 </section>
 
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/properties/">Past Transactions</a></li>
-        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/#contact">Home Valuation</a></li>
-        <li><a href="/#contact">Investment Advisory</a></li>
-        <li><a href="/tools/investor-calculator/">Investor Calculator</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div>
+<div id="amre-footer"><div class="amre-static-foot" hidden><ul><li><a href="/santa-monica/">Santa Monica</a></li><li><a href="/venice/">Venice</a></li><li><a href="/mar-vista/">Mar Vista</a></li><li><a href="/culver-city/">Culver City</a></li><li><a href="/playa-vista/">Playa Vista</a></li><li><a href="/marina-del-rey/">Marina del Rey</a></li><li><a href="/west-los-angeles/">West Los Angeles</a></li><li><a href="/cheviot-hills/">Cheviot Hills</a></li><li><a href="/brentwood/">Brentwood</a></li><li><a href="/pacific-palisades/">Pacific Palisades</a></li><li><a href="/westwood/">Westwood</a></li><li><a href="/beverly-hills/">Beverly Hills</a></li><li><a href="/bel-air/">Bel Air</a></li><li><a href="/west-adams/">West Adams</a></li><li><a href="/manhattan-beach/">Manhattan Beach</a></li><li><a href="/hermosa-beach/">Hermosa Beach</a></li><li><a href="/redondo-beach/">Redondo Beach</a></li><li><a href="/el-segundo/">El Segundo</a></li></ul><p>AMRE Real Estate Group at Compass · 9454 Wilshire Blvd, Suite 100, Beverly Hills, CA 90212 · (323) 719-8585 · Michael Abraham, REALTOR® &amp; licensed architect, DRE# 02242095 · Ania De Pourbaix, REALTOR®, DRE# 01891438</p></div></div>
+<script src="/assets/js/amre-chrome.js?v=20260923" defer></script>
 
 </body>
 </html>

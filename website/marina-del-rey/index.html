@@ -46,8 +46,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <!-- Schema.org -->
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
+<style>@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root{
   --black:#000;--ink:#1d1d1f;--mid:#6e6e73;--subtle:#86868b;
@@ -66,59 +65,6 @@ body{font-family:var(--sf);background:var(--white);color:var(--ink);
 a{text-decoration:none;color:inherit}
 img{display:block;max-width:100%}
 button{font-family:var(--sf);cursor:pointer;border:none;background:none}
-
-/* ── NAV ── */
-.site-nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
-  height:var(--nav-h);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 24px;
-  background:rgba(7,11,51,0.88);
-  backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-  transition:background .35s var(--ease),border-color .35s;
-}
-.site-nav.is-light{
-  background:rgba(255,255,255,.82);
-  border-bottom-color:rgba(0,0,0,.1);
-}
-.nav-brand{display:flex;align-items:center;gap:0;flex-shrink:0}
-.nav-brand img{height:20px;width:auto;transition:opacity .3s}
-.logo-dark{display:none}
-.site-nav.is-light .logo-dark{display:block}
-.site-nav.is-light .logo-white{display:none}
-.nav-sep{width:1px;height:16px;background:rgba(255,255,255,.22);
-  margin:0 12px;transition:background .35s}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15)}
-.nav-links{
-  position:absolute;left:50%;transform:translateX(-50%);
-  display:flex;gap:24px;list-style:none;
-}
-.nav-links a{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;
-}
-.site-nav.is-light .nav-links a{color:rgba(29,29,31,.7)}
-.nav-links a:hover{color:#fff}
-.site-nav.is-light .nav-links a:hover{color:var(--ink)}
-.nav-links a.active{color:#fff}
-.site-nav.is-light .nav-links a.active{color:var(--ink)}
-.nav-cta{
-  font-size:12px;font-weight:400;
-  color:rgba(255,255,255,.8);
-  transition:color .2s;white-space:nowrap;flex-shrink:0;
-}
-.site-nav.is-light .nav-cta{color:rgba(29,29,31,.7)}
-.nav-cta:hover{color:#fff}
-.site-nav.is-light .nav-cta:hover{color:var(--ink)}
-@media(max-width:860px){
-  .nav-links{display:none}
-  .site-nav{padding:0 16px}
-}
-
-/* ── BUTTONS ── */
 .btn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
   font-family:var(--sf);font-weight:400;border-radius:980px;
   transition:background .2s,transform .15s,opacity .2s}
@@ -148,8 +94,6 @@ button{font-family:var(--sf);cursor:pointer;border:none;background:none}
   background:var(--gold);color:#fff;
 }
 .btn-gold:hover{background:var(--gold-lt);transform:translateY(-1px)}
-
-/* ── PAGE HERO (subpages) ── */
 .page-hero{min-height:560px;
   padding-top:calc(var(--nav-h) + 80px);
   padding-bottom:80px;
@@ -198,14 +142,14 @@ button{font-family:var(--sf);cursor:pointer;border:none;background:none}
   color:rgba(255,255,255,.55);
   max-width:500px;
 }
-@media(max-width:680px){.page-hero{padding-inline:20px}}
-
-/* ── LAYOUT ── */
+@media(max-width:680px){
+.page-hero{padding-inline:20px}
+}
 .wrap{max-width:1200px;margin-inline:auto;padding-inline:44px}
 .wrap-sm{max-width:860px;margin-inline:auto;padding-inline:44px}
-@media(max-width:680px){.wrap,.wrap-sm{padding-inline:20px}}
-
-/* ── SECTION LABELS ── */
+@media(max-width:680px){
+.wrap,.wrap-sm{padding-inline:20px}
+}
 .eyebrow{
   font-size:11px;font-weight:500;
   letter-spacing:.18em;text-transform:uppercase;color:var(--blue);
@@ -230,90 +174,21 @@ button{font-family:var(--sf);cursor:pointer;border:none;background:none}
 .lede-left{text-align:left;margin-inline:0}
 .lede-white{color:rgba(255,255,255,.55)}
 .divider{width:40px;height:1px;background:var(--gold);margin:22px 0}
-
-/* ── FADE ANIMATIONS ── */
 .f{opacity:0;transform:translateY(24px);
   transition:opacity .75s var(--ease),transform .75s var(--ease)}
 .f.in{opacity:1;transform:translateY(0)}
-.f.d1{transition-delay:.08s}.f.d2{transition-delay:.16s}
-.f.d3{transition-delay:.24s}.f.d4{transition-delay:.32s}
-
-/* ── FOOTER ── */
-.site-footer{
-  background:#000;
-  border-top:1px solid rgba(255,255,255,.07);
-  padding:60px 44px 36px;
-}
-.footer-grid{
-  max-width:1200px;margin-inline:auto;
-  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
-  gap:40px;
-  padding-bottom:40px;
-  border-bottom:1px solid rgba(255,255,255,.07);
-  margin-bottom:28px;
-}
-.footer-brand img{height:18px;width:auto;opacity:.65;margin-bottom:14px}
-.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.footer-logos img{height:16px;width:auto;opacity:.6}
-.footer-logo-sep{width:1px;height:13px;background:rgba(255,255,255,.18)}
-.footer-tagline{
-  font-size:13px;font-weight:300;line-height:1.6;
-  color:rgba(255,255,255,.3);max-width:240px;
-}
-.footer-col-head{
-  font-size:10px;font-weight:600;
-  letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.22);margin-bottom:16px;
-}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-links a{
-  font-size:13px;font-weight:300;
-  color:rgba(255,255,255,.42);transition:color .2s;
-}
-.footer-links a:hover{color:rgba(255,255,255,.8)}
-.footer-bottom{
-  max-width:1200px;margin-inline:auto;
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-}
-.footer-legal{font-size:11px;font-weight:300;color:rgba(255,255,255,.18)}
-.footer-dre{font-size:11px;font-weight:300;color:rgba(255,255,255,.18);text-align:right}
-@media(max-width:860px){
-  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .site-footer{padding:48px 20px 28px}
-  .footer-bottom{flex-direction:column}
-  .footer-dre{text-align:left}
-}
-
-/* Brand override */
-
-/* ── PLAYFAIR as primary display/header font ── */
-h1,h2,h3,h4,.section-h,.page-hero h1,.hero-h,.hero-headline,
-.agent-name,.svc-title,.phase-title,.testi-text,
-.statement-q,.form-box-title,.prop-cta-h,.compass-card-h,
-.prop-price,.stat-n,.footer-brand-name,.footer-logo,
-.contact-headline,.split-left h1,.team-name,
-.concierge-box .cb-label,.step-title,.buyer-type-title{
+.f.d1{transition-delay:.08s}
+.f.d2{transition-delay:.16s}
+.f.d3{transition-delay:.24s}
+.f.d4{transition-delay:.32s}
+h1,h2,h3,h4,.section-h,.page-hero h1,.hero-h,.hero-headline,.agent-name,.svc-title,.phase-title,.testi-text,.statement-q,.form-box-title,.prop-cta-h,.compass-card-h,.prop-price,.stat-n,.contact-headline,.split-left h1,.team-name,.concierge-box .cb-label,.step-title,.buyer-type-title{
   font-family:'Playfair Display',Georgia,serif !important;
 }
-/* Montserrat for everything else — nav, body, labels, buttons */
-body,p,a,button,input,textarea,select,
-.nav-links a,.nav-cta,.eyebrow,.section-label,.page-eyebrow,
-.btn,.contact-label,.svc-num,.agent-role,.testi-author,
-.footer-col-head,.footer-links a,.footer-legal,.footer-dre,
-.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,
-.phase-desc,.contact-val,.check-list li,.cb-row,
-.split-agent-role,.hero-eyebrow,.hero-sub,.page-hero-sub,
-.prop-addr,.prop-city,.prop-meta span,.plisting-addr,
-.plisting-city,.plisting-specs span,.agent-creds span,
-.agent-creds a,.testi-author,.footer-tagline{
+body,p,a,button,input,textarea,select,.eyebrow,.section-label,.page-eyebrow,.btn,.contact-label,.svc-num,.agent-role,.testi-author,.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,.phase-desc,.contact-val,.check-list li,.cb-row,.split-agent-role,.hero-eyebrow,.hero-sub,.page-hero-sub,.prop-addr,.prop-city,.prop-meta span,.plisting-addr,.plisting-city,.plisting-specs span,.agent-creds span,.agent-creds a,.testi-author{
   font-family:'Montserrat',-apple-system,sans-serif !important;
 }
-
 body{font-family:'Montserrat',-apple-system,sans-serif}
-.nav-links a,.nav-cta,.eyebrow,.section-label,.btn,.contact-label,.svc-num,
-.agent-role,.testi-author,.footer-col-head,.footer-links a,.footer-legal,
-.footer-dre,.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,.phase-desc,
-.contact-val,.check-list li,.cb-row,.split-agent-role,.hero-eyebrow{
+.eyebrow,.section-label,.btn,.contact-label,.svc-num,.agent-role,.testi-author,.form-box-sub,.lede,.svc-desc,.agent-bio,.step-desc,.phase-desc,.contact-val,.check-list li,.cb-row,.split-agent-role,.hero-eyebrow{
   font-family:'Montserrat',-apple-system,sans-serif !important;
 }
 :root{
@@ -324,269 +199,122 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Montserrat',-apple-system,sans-serif;
 }
-/* Fix nav to match homepage */
-.site-nav,.nav{
-  background:rgba(7,11,51,0.82) !important;
-  border-bottom:1px solid rgba(255,255,255,.08) !important;
-}
-.site-nav.is-light,.nav.scrolled{
-  background:rgba(255,255,255,.90) !important;
-  border-bottom-color:rgba(0,0,0,.1) !important;
-}
-/* Fix nav link colors */
-.nav-links a,.nav-cta,.site-nav:not(.is-light) .nav-links a{color:rgba(255,255,255,.78) !important}
-.site-nav.is-light .nav-links a{color:rgba(28,61,49,.7) !important}
-.nav-cta{background:var(--brass) !important;color:var(--navy) !important;
-  border-radius:2px !important;border:none !important;
-  font-size:11px !important;font-weight:600 !important;letter-spacing:.1em !important;text-transform:uppercase !important;
-  padding:9px 20px !important;}
-.nav-cta:hover{background:var(--brass-dk) !important}
-/* Gold accents */
 .eyebrow,.section-label,.page-eyebrow,.svc-num,.phase-num,.agent-role{color:var(--brass) !important}
 .section-h em,.page-hero h1 em,.hero-h em,.hero-headline em,.prop-cta-h em{color:var(--brass) !important}
-/* Forest green for light backgrounds */
 .section-dark{background:var(--forest) !important}
 .statement{background:var(--forest) !important}
 .compass-adv,.compass-section{background-color:var(--navy) !important}
-/* Fix team photo heads */
 .agent-photo,.team-card-photo{background-position:top center !important}
 .agent-photo img{object-position:top center !important}
-/* Brass dividers */
 .divider{background:var(--brass) !important}
-/* Left-side eyebrow borders */
 .eyebrow::before,.eyebrow::after,.page-eyebrow::before{background:var(--brass) !important}
-/* Testimonial accent */
 .testi-card,.testimonial{border-left:3px solid var(--brass) !important;border-top:none !important;border-right:none !important;border-bottom:none !important}
-/* Buttons */
 .btn-primary,.btn-blue,.btn-gold{background:var(--brass) !important;color:var(--navy) !important;border-radius:2px !important}
 .btn-primary:hover,.btn-blue:hover,.btn-gold:hover{background:var(--brass-dk) !important}
 .btn-dark,.btn-forest{background:var(--forest) !important;color:#fff !important;border-radius:2px !important}
-/* Phase/check list accents */
 .phase-num,.check-list li::before,.step-n{color:var(--brass) !important}
 .phase-stat{background:rgba(255,193,60,.15) !important;color:var(--brass) !important}
-/* Stats */
 .stat-n{color:var(--forest) !important}
 .stat-n sup{color:var(--brass) !important}
-/* Valuation CTA bg */
 .valuation-cta{background:var(--forest) !important}
-/* Filter pills */
 .filter-pill.active,.filter-btn.active{background:var(--forest) !important;border-color:var(--forest) !important}
-/* Prop badges */
 .badge-sale{background:var(--compass-blue) !important}
 .badge-pending{background:var(--brass) !important;color:var(--navy) !important}
-/* Footer */
-.site-footer,footer{background:var(--navy) !important}
-/* Compass advantage cards */
 .compass-card:hover,.compass-card:hover{border-color:rgba(255,193,60,.3) !important}
-/* Nav CTA override for subpages using different class names */
-.nav-cta,.nav a.btn,.nav-cta-btn{
-  background:var(--brass) !important;color:var(--navy) !important;
-  border:none !important;
-}
-
-
-/* ====================================================================
-   AMRE 2026 site update — typography refresh, readability bump,
-   footer contrast, hero re-flow.
-   ==================================================================== */
-.hero-h, .section-h, .page-hero h1, .svc-title, .agent-name, .compass-card-h, .prop-cta-h, .prop-price, .form-box-title, .statement-q, .testi-text {
+.hero-h,.section-h,.page-hero h1,.svc-title,.agent-name,.compass-card-h,.prop-cta-h,.prop-price,.form-box-title,.statement-q,.testi-text{
   font-family: var(--sans);
   font-weight: 500;
   letter-spacing: -.015em;
 }
-.hero-h em, .section-h em, .page-hero h1 em, .prop-cta-h em, .compass-card-h em {
+.hero-h em,.section-h em,.page-hero h1 em,.prop-cta-h em,.compass-card-h em{
   font-style: italic; font-weight: 400;
 }
-.statement-q, .testi-text { font-weight: 400; font-style: italic; }
-.prop-price { font-weight: 600; letter-spacing: 0; }
-.hero-h { line-height: 1.05; }
-.page-hero h1 { line-height: 1.05; }
-.section-h { line-height: 1.12; }
-.lede { font-size: 18px; line-height: 1.7; }
-.svc-desc, .compass-card-p, .agent-bio, .faq-a p { font-size: 15px; line-height: 1.78; }
-.testi-text { font-size: 17px; line-height: 1.65; }
-.contact-val { font-size: 15px; }
-.form-box-sub { font-size: 14px; }
-.page-hero-sub, .hero-sub { font-size: clamp(15px, 1.7vw, 18px); line-height: 1.7; }
-.footer-tagline { color: rgba(255,255,255,.62); font-size: 13px; max-width: 260px; }
-.footer-col-head { color: rgba(255,255,255,.55); font-size: 10px; }
-.footer-links a { color: rgba(255,255,255,.72); font-size: 13px; }
-.footer-links a:hover { color: #fff; }
-.footer-legal { color: rgba(255,255,255,.50); font-size: 11px; }
-.footer-dre { color: rgba(255,255,255,.40); font-size: 11px; }
-.hero-content { max-width: 880px; }
-.hero-h { font-size: clamp(44px, 6.2vw, 84px); }
-@media (max-width: 680px) { .hero-content { max-width: 100%; } }
-
-/* ═════════════════════════════════════════
-   GLOBAL MOBILE FIXES — text overflow, layout
-═════════════════════════════════════════ */
+.statement-q,.testi-text{ font-weight: 400; font-style: italic; }
+.prop-price{ font-weight: 600; letter-spacing: 0; }
+.hero-h{ line-height: 1.05; }
+.page-hero h1{ line-height: 1.05; }
+.section-h{ line-height: 1.12; }
+.lede{ font-size: 18px; line-height: 1.7; }
+.svc-desc,.compass-card-p,.agent-bio,.faq-a p{ font-size: 15px; line-height: 1.78; }
+.testi-text{ font-size: 17px; line-height: 1.65; }
+.contact-val{ font-size: 15px; }
+.form-box-sub{ font-size: 14px; }
+.page-hero-sub,.hero-sub{ font-size: clamp(15px, 1.7vw, 18px); line-height: 1.7; }
+.hero-content{ max-width: 880px; }
+.hero-h{ font-size: clamp(44px, 6.2vw, 84px); }
+@media (max-width: 680px){
+.hero-content{ max-width: 100%; }
+}
 @media(max-width:860px){
-  /* Prevent any horizontal overflow */
-  html,body{overflow-x:hidden;width:100%}
-  *{max-width:100%;word-break:break-word}
-
-  /* Section padding — tighter on mobile */
-  section,[class*="-section"],[class*="section-"]{padding-left:20px !important;padding-right:20px !important}
-  .wrap,.wrap-sm{padding-inline:20px !important}
-
-  /* Hero — full width, correct padding */
-  .hero,.page-hero{padding-left:20px !important;padding-right:20px !important}
-  .hero-h{font-size:clamp(36px,10vw,56px) !important}
-  .hero-listing{display:none !important}
-
-  /* Nav — no overflow */
-  .nav-links{display:none !important}
-  .site-nav,.nav{padding:0 16px !important}
-  .nav-brand img{max-height:18px}
-
-  /* Stats bar */
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-
-  /* Service cards */
-  .svc-grid{grid-template-columns:1fr !important}
-
-  /* Properties grid */
-  .props-grid,.plisting-grid{grid-template-columns:1fr !important}
-
-  /* Compass advantage */
-  .compass-grid{grid-template-columns:1fr !important}
-  .compass-inner{grid-template-columns:1fr !important;gap:40px}
-
-  /* Team cards */
-  .team-grid,.agent-card,.agent-card-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-photo,.team-card-photo{min-height:260px !important}
-  .agent-photo-grad,.team-card-photo-grad{
+html,body{overflow-x:hidden;width:100%}
+*{max-width:100%;word-break:break-word}
+section,[class*="-section"],[class*="section-"]{padding-left:20px !important;padding-right:20px !important}
+.wrap,.wrap-sm{padding-inline:20px !important}
+.hero,.page-hero{padding-left:20px !important;padding-right:20px !important}
+.hero-h{font-size:clamp(36px,10vw,56px) !important}
+.hero-listing{display:none !important}
+.stats-inner{grid-template-columns:1fr 1fr !important}
+.svc-grid{grid-template-columns:1fr !important}
+.props-grid,.plisting-grid{grid-template-columns:1fr !important}
+.compass-grid{grid-template-columns:1fr !important}
+.compass-inner{grid-template-columns:1fr !important;gap:40px}
+.team-grid,.agent-card,.agent-card-rev{grid-template-columns:1fr !important;direction:ltr !important}
+.agent-photo,.team-card-photo{min-height:260px !important}
+.agent-photo-grad,.team-card-photo-grad{
     background:linear-gradient(to bottom,transparent 50%,var(--white,#fff)) !important
   }
-  .agent-info,.team-card-body{padding:28px 20px !important}
-  .agent-name,.team-name{font-size:clamp(24px,7vw,34px) !important}
-
-  /* Testimonials */
-  .testi-grid,.testimonials-grid{grid-template-columns:1fr !important}
-
-  /* Contact split */
-  .contact-split{grid-template-columns:1fr !important}
-  .split-left,.split-right{padding-inline:20px !important}
-
-  /* Two-col layouts */
-  .two-col-layout,.calc-layout,
-  [style*="grid-template-columns:1fr 1fr"],
-  [style*="grid-template-columns:1fr 1.2fr"],
-  [style*="grid-template-columns:1fr 1fr"]{
+.agent-info,.team-card-body{padding:28px 20px !important}
+.agent-name,.team-name{font-size:clamp(24px,7vw,34px) !important}
+.testi-grid,.testimonials-grid{grid-template-columns:1fr !important}
+.contact-split{grid-template-columns:1fr !important}
+.split-left,.split-right{padding-inline:20px !important}
+.two-col-layout,.calc-layout,[style*="grid-template-columns:1fr 1fr"],[style*="grid-template-columns:1fr 1.2fr"],[style*="grid-template-columns:1fr 1fr"]{
     grid-template-columns:1fr !important;
     gap:32px !important;
   }
-  .contact-grid{grid-template-columns:1fr !important}
-  .contact-form-box{padding:24px 18px !important}
-
-  /* Phase cards */
-  .phases-grid,.phase-stats-row{grid-template-columns:1fr !important}
-
-  /* Buyer types */
-  .buyer-types-grid,.bt-card{width:100% !important}
-  .buyer-types-grid{display:flex;flex-direction:column;gap:14px}
-
-  /* Values grid */
-  .values-grid{grid-template-columns:1fr 1fr !important}
-
-  /* Footer */
-  .footer-grid{grid-template-columns:1fr 1fr !important;gap:24px}
-  .footer-bottom{flex-direction:column !important}
-
-  /* Text sizes — prevent clamp from being too big */
-  .section-h,.section-headline{font-size:clamp(26px,8vw,40px) !important}
-  .lede{font-size:15px !important}
-  h1{font-size:clamp(34px,9vw,52px) !important}
-
-  /* Tables / process steps */
-  .process-step{grid-template-columns:1fr !important}
-  .step-extra,.step-n{display:none !important}
-
-  /* Concierge */
-  .concierge-layout,.two-col-layout{grid-template-columns:1fr !important}
-
-  /* Agent profile on team page */
-  .agent-profile,.agent-profile-rev{grid-template-columns:1fr !important;direction:ltr !important}
-  .agent-content-col{padding:32px 20px !important}
-
-  /* Intent chips wrap properly */
-  .intent-chips{gap:8px !important}
-  .chip{font-size:11px !important;padding:7px 12px !important}
+.contact-grid{grid-template-columns:1fr !important}
+.contact-form-box{padding:24px 18px !important}
+.phases-grid,.phase-stats-row{grid-template-columns:1fr !important}
+.buyer-types-grid,.bt-card{width:100% !important}
+.buyer-types-grid{display:flex;flex-direction:column;gap:14px}
+.values-grid{grid-template-columns:1fr 1fr !important}
+.section-h,.section-headline{font-size:clamp(26px,8vw,40px) !important}
+.lede{font-size:15px !important}
+h1{font-size:clamp(34px,9vw,52px) !important}
+.process-step{grid-template-columns:1fr !important}
+.step-extra,.step-n{display:none !important}
+.concierge-layout,.two-col-layout{grid-template-columns:1fr !important}
+.agent-profile,.agent-profile-rev{grid-template-columns:1fr !important;direction:ltr !important}
+.agent-content-col{padding:32px 20px !important}
+.intent-chips{gap:8px !important}
+.chip{font-size:11px !important;padding:7px 12px !important}
 }
-
 @media(max-width:480px){
-  .stats-inner{grid-template-columns:1fr 1fr !important}
-  .footer-grid{grid-template-columns:1fr !important}
-  .values-grid{grid-template-columns:1fr !important}
-  .hero-btns,.hero-actions{flex-direction:column !important;align-items:flex-start !important}
-  .hero-btns .btn,.hero-actions .btn,.hero-actions a{width:100% !important;justify-content:center !important}
-  .agent-creds{font-size:11px !important}
-  .testi-card{padding:22px 16px !important}
+.stats-inner{grid-template-columns:1fr 1fr !important}
+.values-grid{grid-template-columns:1fr !important}
+.hero-btns,.hero-actions{flex-direction:column !important;align-items:flex-start !important}
+.hero-btns .btn,.hero-actions .btn,.hero-actions a{width:100% !important;justify-content:center !important}
+.agent-creds{font-size:11px !important}
+.testi-card{padding:22px 16px !important}
 }
-
-/* dark bg text — lighter, bigger */
-.section-dark p,.section-dark li,.compass-card-p,.phase-desc,.statement-q,
-[style*="background:var(--forest)"] p,[style*="background:var(--navy)"] p{
+.section-dark p,.section-dark li,.compass-card-p,.phase-desc,.statement-q,[style*="background:var(--forest)"] p,[style*="background:var(--navy)"] p{
   color:rgba(255,255,255,.78)!important;font-size:clamp(14px,1.5vw,16px)!important;
-}
-
-/* ── HAMBURGER + MOBILE DRAWER ── */
-.nav-right{display:flex;align-items:center;gap:12px}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;
-  width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;
-  flex-shrink:0}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;
-  transition:transform .25s,opacity .2s,width .25s}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham-btn.open span:nth-child(2){opacity:0;width:0}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-drawer{
-  position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;
-  background:rgba(7,11,51,0.97);
-  backdrop-filter:saturate(180%) blur(24px);
-  -webkit-backdrop-filter:saturate(180%) blur(24px);
-  display:flex;flex-direction:column;
-  padding:32px 24px 48px;
-  transform:translateY(-110%);opacity:0;
-  transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;
-  pointer-events:none}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-drawer a{
-  display:block;color:#fff;font-family:var(--sans);
-  font-size:clamp(20px,5vw,26px);font-weight:300;
-  letter-spacing:-.01em;padding:20px 0;
-  transition:color .2s,padding-left .2s}
-.mobile-drawer a:hover{color:var(--brass,#ffc13c);padding-left:8px}
-.mobile-drawer .drawer-cta{
-  display:inline-flex;align-items:center;justify-content:center;
-  margin-top:32px;width:100%;
-  background:var(--blue,#0064e5);color:#fff!important;border-radius:980px;
-  font-size:16px!important;font-weight:500!important;padding:16px 32px!important;
-  border-bottom:none!important;letter-spacing:.02em}
-.mobile-drawer .drawer-cta:hover{background:#0049a8;padding-left:32px!important}
-@media(max-width:860px){
-  .nav-links{display:none!important}
-  .nav-cta{display:none!important}
-  .ham-btn{display:flex}
-}
-@media(min-width:861px){
-  .mobile-drawer{display:none!important}
-}
-
-</style>
+}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://amre.group/marina-del-rey/#webpage","url":"https://amre.group/marina-del-rey/","name":"Marina del Rey Real Estate Guide 2026 | AMRE Real Estate Group","description":"Marina del Rey real estate: the Peninsula, Silver Strand and the mole roads, plus the ground-lease, HOA and coastal-zone checks that decide value.","isPartOf":{"@id":"https://amre.group/#website"},"about":[{"@id":"https://amre.group/#organization"},{"@id":"https://amre.group/marina-del-rey/#place"}],"publisher":{"@id":"https://amre.group/#organization"},"inLanguage":"en-US","dateModified":"2026-09-08","speakable":{"@type":"SpeakableSpecification","cssSelector":["h1","h2","p"]}},{"@type":"Place","@id":"https://amre.group/marina-del-rey/#place","name":"Marina del Rey","containedInPlace":[{"@type":"AdministrativeArea","name":"Los Angeles County"},{"@type":"State","name":"California"}]},{"@type":["RealEstateAgent","LocalBusiness"],"@id":"https://amre.group/#organization","name":"AMRE Real Estate Group","url":"https://amre.group/","telephone":"+13237198585","address":{"@type":"PostalAddress","streetAddress":"9454 Wilshire Blvd, Suite 100","addressLocality":"Beverly Hills","addressRegion":"CA","postalCode":"90212","addressCountry":"US"},"areaServed":[{"@type":"Place","name":"Marina del Rey"},{"@type":"Place","name":"Marina Peninsula"},{"@type":"Place","name":"Silver Strand"},{"@type":"Place","name":"Via Marina"},{"@type":"Place","name":"Admiralty Way"},{"@type":"Place","name":"Westside Los Angeles"}],"priceRange":"$$$","parentOrganization":{"@type":"Organization","name":"Compass","url":"https://www.compass.com/","identifier":"CA DRE #01991628"},"sameAs":["https://www.instagram.com/amre.group/","https://www.linkedin.com/company/amre-real-estate-group/","https://www.facebook.com/amre.grp","https://www.youtube.com/@AMRE_Real_Estate"]},{"@type":"Service","@id":"https://amre.group/marina-del-rey/#service","serviceType":"Real Estate Representation in Marina del Rey","name":"AMRE Real Estate Group — Marina del Rey Buyer & Seller Advisory","provider":{"@id":"https://amre.group/#organization"},"areaServed":{"@id":"https://amre.group/marina-del-rey/#place"}},{"@type":"BreadcrumbList","@id":"https://amre.group/marina-del-rey/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amre.group/"},{"@type":"ListItem","position":2,"name":"Westside Neighborhoods","item":"https://amre.group/westside/"},{"@type":"ListItem","position":3,"name":"Marina del Rey","item":"https://amre.group/marina-del-rey/"}]},{"@type":"FAQPage","@id":"https://amre.group/marina-del-rey/#faq","mainEntity":[{"@type":"Question","name":"Is Marina del Rey a good place to live?","acceptedAnswer":{"@type":"Answer","text":"It suits people who want water access, a short commute to the Playa Vista and El Segundo job corridors, and a low-maintenance home. Most of the housing is attached — condominiums and apartments along the mole roads — with a small band of single-family and townhome product on the Marina Peninsula and Silver Strand. If you want a yard, a large lot, or a traditional street grid, Mar Vista or Playa del Rey will fit better."}},{"@type":"Question","name":"What are the main sub-areas of Marina del Rey?","acceptedAnswer":{"@type":"Answer","text":"Four, broadly. The mole roads that finger into the harbor (Panay Way, Bora Bora Way, Mindanao Way, Marquesas Way and Via Marina) hold most of the condominium and apartment inventory. The Marina Peninsula, west of Via Marina, is the walk-street strip between the main channel and the beach. Silver Strand sits just north of the Peninsula and reads more like Venice. Admiralty Way and the Marina City Club area anchor the eastern edge toward Lincoln Boulevard."}},{"@type":"Question","name":"Is Marina del Rey part of the City of Los Angeles?","acceptedAnswer":{"@type":"Answer","text":"No. Marina del Rey is an unincorporated area of Los Angeles County. Planning, permits, code enforcement and law enforcement run through County agencies rather than the City of Los Angeles, which changes who you call and which rules apply. Neighboring Venice and Playa del Rey are inside the City. Confirming jurisdiction by parcel before you write an offer is not optional here."}},{"@type":"Question","name":"Do Marina del Rey condos sit on leased land?","acceptedAnswer":{"@type":"Answer","text":"Many of the residential developments in the harbor were built on County-owned land under long-term ground leases, so some buildings convey a leasehold interest rather than fee-simple ownership. That affects financing, resale and the remaining lease term you are actually buying. Ask for the ground lease and its expiration in the first week of escrow. We check the title report and the lease term on every Marina del Rey offer."}},{"@type":"Question","name":"What should I look for in the HOA documents?","acceptedAnswer":{"@type":"Answer","text":"Reserves, deferred maintenance, litigation, insurance, and the special-assessment history. Harbor-adjacent buildings carry salt-air exposure, so balconies, railings, window systems and podium waterproofing are the line items that turn into assessments. Also check rental restrictions and whether a boat slip is deeded, assigned, or rented separately from the unit."}},{"@type":"Question","name":"Does the Coastal Commission affect remodels in Marina del Rey?","acceptedAnswer":{"@type":"Answer","text":"Marina del Rey lies inside the California Coastal Zone, so exterior work, additions, demolition and anything affecting public access or views can require coastal review on top of County permits. That adds time and design constraints to a renovation plan. If your purchase depends on a remodel, we price the entitlement risk before you remove the contingency."}},{"@type":"Question","name":"How does Marina del Rey compare with Playa Vista?","acceptedAnswer":{"@type":"Answer","text":"Playa Vista is master-planned, HOA-governed and inland, with newer construction and a single set of community rules. Marina del Rey is older, water-facing, County-governed and building-by-building, so two units a block apart can carry very different ownership structures and monthly costs. Playa Vista is the more predictable purchase; Marina del Rey is the one with water frontage."}},{"@type":"Question","name":"Which schools serve Marina del Rey?","acceptedAnswer":{"@type":"Answer","text":"Marina del Rey falls inside Los Angeles Unified School District boundaries, and assignments are made by address rather than by neighborhood name. Because the harbor sits at the edge of several attendance areas, two buildings on different mole roads can feed different schools. Confirm the assigned school directly with LAUSD for the specific address before you make school access part of your decision."}}]}]}</script>
 <link rel="stylesheet" href="/assets/css/site-overrides.css">
-<style>.amre-g2{display:grid;gap:48px;grid-template-columns:repeat(2,minmax(0,1fr))}.amre-g3{display:grid;gap:48px;grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:760px){.amre-g2,.amre-g3{grid-template-columns:1fr}}</style>
+<style>.amre-g2{display:grid;gap:48px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.amre-g3{display:grid;gap:48px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){
+.amre-g2,.amre-g3{grid-template-columns:1fr}
+}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/amre-chrome-scoped.css?v=20260923">
 </head>
 <body>
-<div id="site-nav-mount"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
+<div id="amre-nav"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
 
 <!-- Mobile navigation drawer -->
-<div id="site-drawer-mount"></div>
-<script src="/assets/js/site-chrome.js?v=20260917"></script>
+
 <!-- ════════════════ HERO ════════════════ -->
 <section style="position:relative;overflow:hidden;padding:calc(var(--nav-h) + 120px) 24px 120px;text-align:center;color:#fff;min-height:560px;display:flex;align-items:center;justify-content:center">
   <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(15,42,34,.80) 0%,rgba(28,61,49,.62) 55%,rgba(18,51,42,.80) 100%),url('img/hero.jpg') center/cover no-repeat"></div><p style="position:absolute;right:16px;bottom:10px;z-index:2;margin:0;font-size:10px;color:rgba(255,255,255,.6)">Photo: <a href="https://commons.wikimedia.org/wiki/File:Marina_del_Rey_P4070297.jpg" rel="noopener" style="color:inherit">Alexander Migl</a>, CC BY-SA 4.0, via Wikimedia Commons</p>
@@ -788,65 +516,8 @@ body{font-family:'Montserrat',-apple-system,sans-serif}
     <p style="margin-top:22px;font-size:14px;color:rgba(255,255,255,0.6)">or call <a href="tel:3237198585" style="color:rgba(255,255,255,.75);text-decoration:none">(323) 719-8585</a></p>
   </div>
 </section>
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/properties/fruitland-401/">Featured Property</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/#contact">Home Valuation</a></li>
-        <li><a href="/#contact">Investment Advisory</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.facebook.com/amre.grp" target="_blank" rel="noopener">Facebook</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div>
+<div id="amre-footer"><div class="amre-static-foot" hidden><ul><li><a href="/santa-monica/">Santa Monica</a></li><li><a href="/venice/">Venice</a></li><li><a href="/mar-vista/">Mar Vista</a></li><li><a href="/culver-city/">Culver City</a></li><li><a href="/playa-vista/">Playa Vista</a></li><li><a href="/marina-del-rey/">Marina del Rey</a></li><li><a href="/west-los-angeles/">West Los Angeles</a></li><li><a href="/cheviot-hills/">Cheviot Hills</a></li><li><a href="/brentwood/">Brentwood</a></li><li><a href="/pacific-palisades/">Pacific Palisades</a></li><li><a href="/westwood/">Westwood</a></li><li><a href="/beverly-hills/">Beverly Hills</a></li><li><a href="/bel-air/">Bel Air</a></li><li><a href="/west-adams/">West Adams</a></li><li><a href="/manhattan-beach/">Manhattan Beach</a></li><li><a href="/hermosa-beach/">Hermosa Beach</a></li><li><a href="/redondo-beach/">Redondo Beach</a></li><li><a href="/el-segundo/">El Segundo</a></li></ul><p>AMRE Real Estate Group at Compass · 9454 Wilshire Blvd, Suite 100, Beverly Hills, CA 90212 · (323) 719-8585 · Michael Abraham, REALTOR® &amp; licensed architect, DRE# 02242095 · Ania De Pourbaix, REALTOR®, DRE# 01891438</p></div></div>
+<script src="/assets/js/amre-chrome.js?v=20260923" defer></script>
 
 </body>
 </html>

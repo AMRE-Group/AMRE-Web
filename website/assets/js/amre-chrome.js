@@ -164,7 +164,9 @@
   // nav solidify on scroll
   var nav = document.getElementById('nav');
   if (nav) {
-    var upd = function () { nav.classList.toggle('solid', window.scrollY > 60); };
+    // pages with a light top section set <body data-nav="solid"> to keep the nav solid
+    var forceSolid = document.body && document.body.getAttribute('data-nav') === 'solid';
+    var upd = function () { nav.classList.toggle('solid', forceSolid || window.scrollY > 60); };
     upd(); window.addEventListener('scroll', upd, { passive: true });
   }
   // hamburger drawer
@@ -214,4 +216,25 @@
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(function (el, i) { el.style.transitionDelay = (i % 3 * 70) + 'ms'; io.observe(el); });
+
+  // -- BreadcrumbList JSON-LD (ported from legacy site-chrome.js 2026-09-23); skipped if page already has one --
+  (function () {
+    try {
+      var has = Array.prototype.some.call(document.querySelectorAll('script[type="application/ld+json"]'), function (s) { return /BreadcrumbList/.test(s.textContent); });
+      if (has || document.getElementById('amre-breadcrumb-jsonld')) return;
+      var path = (location.pathname || '/').replace(/\/+$/, ''), origin = 'https://amre.group';
+      var crumbs = [{ '@type': 'ListItem', position: 1, name: 'Home', item: origin + '/' }];
+      if (path) {
+        var acc = '';
+        path.split('/').filter(Boolean).forEach(function (p, i) {
+          acc += '/' + p;
+          crumbs.push({ '@type': 'ListItem', position: i + 2, name: p.replace(/-/g, ' ').replace(/\b\w/g, function (c) { return c.toUpperCase(); }), item: origin + acc + '/' });
+        });
+      }
+      var tag = document.createElement('script');
+      tag.type = 'application/ld+json'; tag.id = 'amre-breadcrumb-jsonld';
+      tag.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: crumbs });
+      document.head.appendChild(tag);
+    } catch (e) {}
+  })();
 })();

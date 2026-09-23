@@ -93,14 +93,13 @@
 ]}
 </script>
 
-<style>
-:root{
+<style>:root{
   --forest:#1c3d31; --navy:#070B33; --blue:#0064e5; --brass:#ffc13c; --brass-dk:#e6a800;
   --white:#ffffff; --ink:#1a1a1a; --mid:#5A5A5A;
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Montserrat',-apple-system,BlinkMacSystemFont,sans-serif;
   --nav-h:56px; --ease:cubic-bezier(.25,.46,.45,.94);
-  /* Cash & Flow palette */
+  
   --paper:#ffffff; --paper-2:#f7f6f2; --cf-ink:#0e0e0e; --body:#262625;
   --muted:#76746e; --hair:#e5e3dc; --green:#0b8f4e; --green-deep:#076f3c;
   --green-tint:#eef7f1; --red:#c4361b; --char:#0d0f0e;
@@ -110,50 +109,10 @@ html{scroll-behavior:smooth;}
 body{font-family:var(--sans);background:var(--paper);color:var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 a{color:inherit;text-decoration:none;}
 button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
-
-/* ── NAV (identical to site) ── */
-.site-nav{position:fixed;top:0;left:0;right:0;z-index:500;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(7,11,51,0.88);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background .35s var(--ease),border-color .35s;}
-.site-nav.is-light{background:rgba(255,255,255,0.94);border-bottom-color:rgba(0,0,0,.1);}
-.nav-brand{display:flex;align-items:center;flex-shrink:0;}
-.nav-amre{height:22px;width:auto;}
-.nav-compass{height:15px;width:auto;opacity:.85;}
-.logo-white{display:block;}.logo-dark{display:none;}
-.site-nav.is-light .logo-dark{display:block;}
-.site-nav.is-light .logo-white{display:none;}
-.nav-sep{width:1px;height:18px;background:rgba(255,255,255,.25);margin:0 14px;transition:background .35s;}
-.site-nav.is-light .nav-sep{background:rgba(0,0,0,.15);}
-.nav-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:26px;list-style:none;}
-.nav-links a{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.82);transition:color .2s;white-space:nowrap;}
-.site-nav.is-light .nav-links a{color:rgba(7,11,51,.65);}
-.nav-links a:hover{color:#fff;}
-.site-nav.is-light .nav-links a:hover{color:var(--forest);}
-.nav-links a.active{color:var(--brass);}
-.site-nav.is-light .nav-links a.active{color:var(--green-deep);}
-.nav-cta{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;border-radius:2px;background:var(--brass);color:var(--navy);transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;}
-.nav-cta:hover{background:var(--brass-dk);transform:translateY(-1px);}
-.ham-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;cursor:pointer;background:none;border:none;padding:4px;flex-shrink:0;}
-.ham-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .25s,opacity .2s,width .25s;}
-.site-nav.is-light .ham-btn span{background:var(--navy);}
-.ham-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.ham-btn.open span:nth-child(2){opacity:0;width:0;}
-.ham-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-drawer{position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;z-index:498;background:rgba(7,11,51,0.97);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);display:flex;flex-direction:column;padding:32px 24px 48px;transform:translateY(-110%);opacity:0;transition:transform .35s cubic-bezier(.4,0,.2,1),opacity .3s;pointer-events:none;}
-.mobile-drawer.open{transform:translateY(0);opacity:1;pointer-events:auto;}
-.mobile-drawer ul{list-style:none;display:flex;flex-direction:column;gap:0;flex:1;}
-.mobile-drawer li{border-bottom:1px solid rgba(255,255,255,.08);}
-.mobile-drawer a{display:block;color:#fff;font-family:var(--sans);font-size:clamp(20px,5vw,26px);font-weight:300;letter-spacing:-.01em;padding:20px 0;transition:color .2s,padding-left .2s;}
-.mobile-drawer a:hover{color:var(--brass);padding-left:8px;}
-.mobile-drawer .drawer-cta{display:inline-flex;align-items:center;justify-content:center;margin-top:32px;width:100%;background:var(--blue);color:#fff!important;border-radius:980px;font-size:16px!important;font-weight:500!important;padding:16px 32px!important;border-bottom:none!important;letter-spacing:.02em;}
-.mobile-drawer .drawer-cta:hover{background:#0049a8;}
-@media(max-width:860px){.nav-links{display:none!important;}.nav-cta{display:none!important;}.ham-btn{display:flex;}.site-nav{padding:0 20px;}}
-@media(min-width:861px){.mobile-drawer{display:none!important;}}
-
-/* ───────── CASH & FLOW BODY (scoped) ───────── */
 .cnf{background:var(--paper);}
 .cnf .wrap{max-width:860px;margin:0 auto;padding:0 28px;}
 .cnf .mono{font-family:'Space Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;}
 .cnf .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
-
 .cnf .banner{padding:108px 0 44px;}
 .cnf .banner-logo{height:34px;width:auto;display:block;margin-bottom:24px;}
 .cnf .banner .eyebrow{display:block;margin-bottom:20px;}
@@ -161,7 +120,6 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .banner .stmt{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5.2vw,58px);font-weight:700;line-height:1.02;letter-spacing:-.025em;color:var(--cf-ink);max-width:none;text-wrap:balance;}
 .cnf .banner .stmt .hl{color:var(--green);}
 .cnf .banner .dek{font-family:'Space Grotesk',sans-serif;margin-top:22px;font-size:clamp(16px,2vw,20px);line-height:1.5;color:var(--body);max-width:none;text-wrap:pretty;}
-
 .cnf .ticker{background:var(--char);color:#ededea;overflow:hidden;}
 .cnf .ticker-track{display:flex;white-space:nowrap;will-change:transform;animation:cf-ticker 38s linear infinite;}
 .cnf .ticker:hover .ticker-track{animation-play-state:paused;}
@@ -170,7 +128,6 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .ticker-seg .dot,.cnf .ticker-seg .up{color:var(--green);}
 .cnf .ticker-seg .lead{color:#fff;font-weight:700;}
 @keyframes cf-ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-
 .cnf .article{max-width:860px;margin:0 auto;padding:0 28px;}
 .cnf .art-head{padding:54px 0 0;}
 .cnf .art-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-deep);margin-bottom:18px;}
@@ -179,23 +136,19 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .art-dek{font-family:'Space Grotesk',sans-serif;margin-top:18px;font-size:20px;line-height:1.5;color:var(--body);max-width:60ch;text-wrap:pretty;}
 .cnf .art-byline{margin-top:22px;padding-bottom:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'Space Mono',monospace;font-size:12.5px;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--hair);}
 .cnf .art-byline b{color:var(--cf-ink);font-weight:700;}
-
 .cnf .art-hero{max-width:860px;margin:34px auto 8px;padding:0 28px;}
 .cnf .art-hero img{width:100%;height:clamp(280px,40vw,460px);object-fit:cover;display:block;border-radius:2px;}
 .cnf .art-cap{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--muted);max-width:860px;margin:10px auto 0;padding:0 28px;}
-
 .cnf .specs{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);margin:40px 0;}
 .cnf .spec{background:var(--paper);padding:16px 14px;text-align:center;}
 .cnf .spec .v{font-family:'Space Mono',monospace;font-weight:700;font-size:18px;color:var(--cf-ink);}
 .cnf .spec .k{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
-
 .cnf .sec-head{display:flex;align-items:center;gap:14px;margin:52px 0 20px;}
 .cnf .sec-head .tick{width:9px;height:9px;background:var(--green);flex-shrink:0;border-radius:1px;}
 .cnf .sec-head h2{font-family:'Space Mono',monospace;font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cf-ink);}
 .cnf .sec-head .rule{flex:1;height:1px;background:var(--hair);}
 .cnf .article p{font-family:'Space Grotesk',sans-serif;margin:0 0 22px;color:var(--body);}
 .cnf .article p strong{color:var(--cf-ink);}
-
 .cnf .deal-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
 .cnf .deal-card{background:var(--paper-2);border:1px solid var(--hair);border-left:3px solid var(--green);padding:24px 24px 0;}
 .cnf .deal-title{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep);margin-bottom:8px;}
@@ -207,50 +160,40 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .deal-row.total{margin:0 -24px;background:var(--green-tint);border-top:2px solid var(--green);border-bottom:none;padding:16px 24px;}
 .cnf .deal-row.total .key{font-weight:700;color:var(--cf-ink);font-size:14px;}
 .cnf .deal-row.total .val{font-size:22px;color:var(--green-deep);}
-
 .cnf .highlight{background:var(--green-deep);color:#fff;padding:30px;margin:34px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;border-radius:2px;}
 .cnf .highlight .hl-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-bottom:10px;}
 .cnf .highlight .hl-title{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;line-height:1.12;}
 .cnf .highlight .hl-right{text-align:right;flex-shrink:0;}
 .cnf .highlight .hl-big{font-family:'Space Mono',monospace;font-weight:700;font-size:44px;line-height:1;}
 .cnf .highlight .hl-sub{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72);margin-top:6px;}
-
 .cnf .pg{display:grid;gap:3px;margin:30px 0;}
 .cnf .pg.two{grid-template-columns:1fr 1fr;}
 .cnf .pg.three{grid-template-columns:1fr 1fr 1fr;}
 .cnf .pg img{width:100%;object-fit:cover;display:block;}
 .cnf .pg.two img{height:260px;}
 .cnf .pg.three img{height:190px;}
-
 .cnf .flist{list-style:none;margin:6px 0 0;border-top:1px solid var(--hair);}
 .cnf .flist li{display:flex;gap:13px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--hair);font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.5;color:var(--body);}
 .cnf .flist li .ck{color:var(--green);font-weight:700;flex-shrink:0;font-family:'Space Mono',monospace;}
 .cnf .flist li strong{color:var(--cf-ink);}
-
 .cnf .strat{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .cnf .strat-card{border:1px solid var(--hair);padding:22px;background:var(--paper);}
 .cnf .strat-card .s-k{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-deep);margin-bottom:10px;display:flex;align-items:center;gap:9px;}
 .cnf .strat-card .s-k .tick{width:7px;height:7px;background:var(--green);border-radius:1px;}
 .cnf .strat-card .s-b{font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.55;color:var(--body);}
-
-/* HPOZ CALLOUT */
 .cnf .hpoz{display:flex;gap:14px;align-items:flex-start;background:#fffbe9;border:1px solid #f0d97a;border-left:3px solid #c79a14;padding:18px 22px;margin:28px 0;}
 .cnf .hpoz .hp-i{font-family:'Space Mono',monospace;font-weight:700;color:#8a6c0a;flex-shrink:0;}
 .cnf .hpoz .hp-t{font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.55;color:#3d3000;}
 .cnf .hpoz .hp-t strong{color:#1f1900;}
-
-/* FAQ */
 .cnf .faq{margin-top:8px;border-top:1px solid var(--hair);}
 .cnf .faq-item{padding:20px 0;border-bottom:1px solid var(--hair);}
 .cnf .faq-q{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;color:var(--cf-ink);margin-bottom:8px;}
 .cnf .faq-a{font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.55;color:var(--body);text-wrap:pretty;}
-
 .cnf .oh{border:1.5px solid var(--cf-ink);padding:24px 26px;display:flex;align-items:center;gap:26px;flex-wrap:wrap;}
 .cnf .oh .oh-mark{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--cf-ink);padding:7px 12px;flex-shrink:0;}
 .cnf .oh .oh-dates{display:flex;gap:30px;flex-wrap:wrap;}
 .cnf .oh .oh-day{font-family:'Space Mono',monospace;font-weight:700;font-size:15px;color:var(--cf-ink);letter-spacing:.04em;}
 .cnf .oh .oh-time{font-family:'Space Mono',monospace;font-size:13px;color:var(--muted);margin-top:3px;}
-
 .cnf .agent{display:flex;align-items:center;gap:20px;border-top:2px solid var(--cf-ink);padding:26px 0 0;margin-top:8px;}
 .cnf .agent .av{width:60px;height:60px;border-radius:50%;background:var(--green-deep);color:#fff;font-family:'Space Mono',monospace;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .cnf .agent .a-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--cf-ink);}
@@ -258,58 +201,30 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .agent .a-con{font-family:'Space Mono',monospace;font-size:13px;color:var(--body);margin-top:8px;}
 .cnf .agent .a-cta{margin-left:auto;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--cf-ink);color:#fff;padding:12px 20px;border-radius:2px;flex-shrink:0;}
 .cnf .agent .a-cta:hover{background:var(--green-deep);}
-
 .cnf .listed-by{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin-top:14px;line-height:1.55;}
 .cnf .listed-by strong{color:var(--cf-ink);}
-
 .cnf .meta-line{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--muted);margin-top:18px;}
 .cnf .meta-line .on{color:var(--green-deep);font-weight:700;}
 .cnf .art-disc{font-family:'Space Mono',monospace;font-size:11px;line-height:1.7;color:var(--muted);border-top:1px solid var(--hair);margin-top:40px;padding:22px 0 56px;}
-
 @media(max-width:820px){
-  .cnf .deal-cards,.cnf .strat{grid-template-columns:1fr;}
-  .cnf .specs{grid-template-columns:repeat(3,1fr);}
-  .cnf .highlight{flex-direction:column;align-items:flex-start;}
-  .cnf .highlight .hl-right{text-align:left;}
-  .cnf .agent{flex-wrap:wrap;}
-  .cnf .agent .a-cta{margin-left:0;}
+.cnf .deal-cards,.cnf .strat{grid-template-columns:1fr;}
+.cnf .specs{grid-template-columns:repeat(3,1fr);}
+.cnf .highlight{flex-direction:column;align-items:flex-start;}
+.cnf .highlight .hl-right{text-align:left;}
+.cnf .agent{flex-wrap:wrap;}
+.cnf .agent .a-cta{margin-left:0;}
 }
 @media(max-width:680px){
-  .cnf .wrap,.cnf .article,.cnf .art-hero,.cnf .art-cap{padding-left:20px;padding-right:20px;}
-  .cnf .banner{padding:88px 0 34px;}
-  .cnf .pg.two,.cnf .pg.three{grid-template-columns:1fr;}
-  .cnf .pg img{height:240px!important;}
+.cnf .wrap,.cnf .article,.cnf .art-hero,.cnf .art-cap{padding-left:20px;padding-right:20px;}
+.cnf .banner{padding:88px 0 34px;}
+.cnf .pg.two,.cnf .pg.three{grid-template-columns:1fr;}
+.cnf .pg img{height:240px!important;}
 }
-
-/* ── FOOTER (site footer, recolored charcoal to match Cash & Flow) ── */
-.site-footer{background:var(--char);border-top:1px solid rgba(255,255,255,.07);padding:64px 44px 36px;}
-.footer-grid{max-width:1200px;margin-inline:auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px;}
-.footer-logos{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-.footer-logos img{height:16px;width:auto;opacity:.6;}
-.footer-sep{width:1px;height:13px;background:rgba(255,255,255,.2);}
-.footer-tagline{font-size:12px;font-weight:300;line-height:1.6;color:rgba(255,255,255,.6);max-width:240px;}
-.footer-col-head{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:16px;}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-links a{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);transition:color .2s;}
-.footer-links a:hover{color:rgba(255,255,255,.95);}
-.footer-bottom{max-width:1200px;margin-inline:auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.footer-legal,.footer-dre{font-size:10px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.5;}
-.site-footer-disclosure-bar{background:#fff;padding:22px 44px;}
-.site-footer-disclosure{max-width:1200px;margin-inline:auto;display:flex;gap:24px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
-.site-footer-disclosure-text{font-family:var(--sans);font-size:10px;line-height:1.6;color:#5a5a5a;max-width:1000px;}
-.site-footer-disclosure-text a{color:var(--forest);text-decoration:underline;}
-.site-footer-disclosure-eho img{height:60px;width:auto;display:block;}
-@media(max-width:860px){
-  .footer-grid{grid-template-columns:1fr 1fr!important;gap:24px;}
-  .site-footer{padding:48px 20px 28px;}
-  .footer-bottom{flex-direction:column;}
-  .site-footer-disclosure-bar{padding:18px 20px;}
-  .site-footer-disclosure-eho img{height:48px;}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto;}
+.cnf .ticker-track{animation:none;transform:translateX(0);}
+*{transition:none!important;}
 }
-
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.cnf .ticker-track{animation:none;transform:translateX(0);}*{transition:none!important;}}
-
-/* ── INFOGRAPHICS (rent gap + cap) ── */
 .cnf .viz{border:1px solid var(--hair);background:var(--paper);padding:26px 26px 22px;margin:30px 0;}
 .cnf .viz-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
 .cnf .viz-title{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cf-ink);}
@@ -330,23 +245,25 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 .cnf .cap-cell.proj .cv{color:var(--green-deep);}
 .cnf .cap-cell .ck{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
 .cnf .cap-arrow{font-family:'Space Mono',monospace;font-size:24px;color:var(--green);}
-/* ── NEIGHBORHOOD PANEL ── */
 .cnf .hood{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--hair);border:1px solid var(--hair);margin:6px 0 8px;}
 .cnf .hood-item{background:var(--paper);padding:18px 20px;}
 .cnf .hood-item .hk{font-family:'Space Mono',monospace;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green-deep);margin-bottom:6px;}
 .cnf .hood-item .hv{font-family:'Space Grotesk',sans-serif;font-size:15px;line-height:1.45;color:var(--body);}
 .cnf .hood-item .hv strong{color:var(--cf-ink);}
-@media(max-width:680px){.cnf .hood{grid-template-columns:1fr;}.cnf .cap-pair{gap:10px;}.cnf .cap-cell .cv{font-size:28px;}}
-
-</style>
+@media(max-width:680px){
+.cnf .hood{grid-template-columns:1fr;}
+.cnf .cap-pair{gap:10px;}
+.cnf .cap-cell .cv{font-size:28px;}
+}</style>
 <style>:where(img[width][height]){height:auto}</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/amre-chrome-scoped.css?v=20260923">
 </head>
-<body>
+<body data-nav="solid">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-TM5NWVRD" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div id="site-nav-mount"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
-<div id="site-drawer-mount"></div>
+<div id="amre-nav"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
 
 <main class="cnf">
 
@@ -529,66 +446,9 @@ button{font-family:var(--sans);cursor:pointer;border:none;background:none;}
 </main>
 
 <!-- SITE FOOTER (recolored charcoal) -->
-<footer class="site-footer" itemscope itemtype="https://schema.org/RealEstateAgent">
-  <meta itemprop="name" content="AMRE Real Estate Group">
-  <meta itemprop="telephone" content="+13237198585">
-  <div class="footer-grid">
-    <div>
-      <div class="footer-logos">
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group" width="70" decoding="async" loading="lazy">
-        <div class="footer-sep"></div>
-        <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass" width="64" decoding="async" loading="lazy">
-      </div>
-      <p class="footer-tagline">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div>
-      <div class="footer-col-head">Navigate</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/">Sellers</a></li>
-        <li><a href="/buyers/">Buyers</a></li>
-        <li><a href="/cash-and-flow/">Cash &amp; Flow</a></li>
-        <li><a href="/about/">Team</a></li>
-        <li><a href="/blog/">Journal</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Services</div>
-      <ul class="footer-links">
-        <li><a href="/sellers/#three-phase">3-Phase Marketing</a></li>
-        <li><a href="/sellers/#concierge">Compass Concierge</a></li>
-        <li><a href="/buyers/">Buyer Advisory</a></li>
-        <li><a href="/#contact">Investment Advisory</a></li>
-        <li><a href="/tools/investor-calculator/">Investor Calculator</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-head">Connect</div>
-      <ul class="footer-links">
-        <li><a href="tel:3237198585">(323) 719-8585</a></li>
-        <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-        <li><a href="https://www.instagram.com/amre.group/" target="_blank" rel="noopener">Instagram</a></li>
-        <li><a href="https://www.youtube.com/@AMRE_Real_Estate" target="_blank" rel="noopener">YouTube</a></li>
-        <li><a href="https://www.linkedin.com/company/amre-real-estate-group/" target="_blank" rel="noopener">LinkedIn</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-legal">© 2026 AMRE Real Estate Group. All rights reserved. <a href="/terms-and-conditions/" style="color:inherit;text-decoration:underline">Privacy Policy</a></p>
-    <p class="footer-dre">Michael Abraham CA DRE# 02242095 &nbsp;·&nbsp; Ania De Pourbaix CA DRE# 01891438 &nbsp;·&nbsp; Compass DRE# 01991628</p>
-  </div>
-</footer>
-<div class="site-footer-disclosure-bar">
-  <div class="site-footer-disclosure">
-    <p class="site-footer-disclosure-text">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
-    </p>
-    <div class="site-footer-disclosure-eho">
-      <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy" decoding="async">
-    </div>
-  </div>
-</div>
+<div id="amre-footer"><div class="amre-static-foot" hidden><ul><li><a href="/santa-monica/">Santa Monica</a></li><li><a href="/venice/">Venice</a></li><li><a href="/mar-vista/">Mar Vista</a></li><li><a href="/culver-city/">Culver City</a></li><li><a href="/playa-vista/">Playa Vista</a></li><li><a href="/marina-del-rey/">Marina del Rey</a></li><li><a href="/west-los-angeles/">West Los Angeles</a></li><li><a href="/cheviot-hills/">Cheviot Hills</a></li><li><a href="/brentwood/">Brentwood</a></li><li><a href="/pacific-palisades/">Pacific Palisades</a></li><li><a href="/westwood/">Westwood</a></li><li><a href="/beverly-hills/">Beverly Hills</a></li><li><a href="/bel-air/">Bel Air</a></li><li><a href="/west-adams/">West Adams</a></li><li><a href="/manhattan-beach/">Manhattan Beach</a></li><li><a href="/hermosa-beach/">Hermosa Beach</a></li><li><a href="/redondo-beach/">Redondo Beach</a></li><li><a href="/el-segundo/">El Segundo</a></li></ul><p>AMRE Real Estate Group at Compass · 9454 Wilshire Blvd, Suite 100, Beverly Hills, CA 90212 · (323) 719-8585 · Michael Abraham, REALTOR® &amp; licensed architect, DRE# 02242095 · Ania De Pourbaix, REALTOR®, DRE# 01891438</p></div></div>
+<script src="/assets/js/amre-chrome.js?v=20260923" defer></script>
 
-<script src="/assets/js/site-chrome.js?v=20260917"></script>
+
 </body>
 </html>
