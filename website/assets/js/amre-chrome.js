@@ -53,19 +53,61 @@
       + '.marquee:hover .marquee-track,.marquee:focus-within .marquee-track,.marquee.is-paused .marquee-track{animation-play-state:paused}'
       + '@media(prefers-reduced-motion:reduce){.marquee-track{animation:none!important}.hero-bg{animation:none!important;transform:none!important}.reveal{opacity:1!important;transform:none!important;transition:none!important}html{scroll-behavior:auto!important}}'
       ;
+    css +=
+      '#nav .nav-links a{white-space:nowrap}'
+      + '#nav .nav-dd{position:relative;display:flex;align-items:center}'
+      + '#nav .dd-caret{display:inline-block;width:6px;height:6px;margin-left:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);opacity:.8;transition:transform .2s}'
+      + '#nav .nav-dd:hover .dd-caret,#nav .nav-dd:focus-within .dd-caret{transform:translateY(1px) rotate(225deg)}'
+      + '#nav .nav-dd-menu{position:absolute;top:100%;left:50%;padding-top:18px;opacity:0;visibility:hidden;transform:translate(-50%,8px);transition:opacity .2s,transform .2s,visibility .2s;z-index:80}'
+      + '#nav .nav-dd:hover .nav-dd-menu,#nav .nav-dd:focus-within .nav-dd-menu{opacity:1;visibility:visible;transform:translate(-50%,0)}'
+      + '#nav .nav-dd-box{background:#fff;border-radius:16px;box-shadow:0 24px 60px -20px rgba(0,0,0,.35);padding:24px 30px;display:grid;gap:0 40px;text-align:left}'
+      + '#nav .nav-dd-3{grid-template-columns:repeat(3,auto)}#nav .nav-dd-1{grid-template-columns:auto;padding:18px 26px}'
+      + '#nav .nav-links .nav-dd-menu a{display:block;color:#3a3a3c;font-size:.86rem;line-height:1.5;padding:5px 0;font-weight:500;letter-spacing:.01em;text-transform:none}'
+      + '#nav .nav-links .nav-dd-menu a:hover{color:#e6a800}'
+      + '#nav .nav-links .nav-dd-menu .nav-dd-h{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#1c3d31;font-weight:600;padding:0 0 10px}'
+      + '#nav .nav-links .nav-dd-menu .nav-dd-all{margin-top:10px;color:#1c3d31;font-weight:600}'
+      + '#nav .nav-right .btn{white-space:nowrap}'
+      + '@media(max-width:1300px){#nav .nav-links{gap:22px}}@media(max-width:1240px){#nav .nav-links{display:none}#nav .ham{display:flex}}';
     var st = document.createElement('style'); st.id = 'amre-chrome-css'; st.textContent = css;
     document.head.appendChild(st);
   })();
 
   // ---- nav links (edit once) ----
+  // Nav order 2026-09-23: Sellers · Buyers · Neighborhoods ▾ · Featured Homes · Cash & Flow · Insights ▾ · About (7 items).
+  // "Contact" dropped from the bar: the Get In Touch button + email/phone icons cover it.
+  var WESTSIDE = [['/santa-monica/','Santa Monica'],['/venice/','Venice'],['/mar-vista/','Mar Vista'],['/culver-city/','Culver City'],
+    ['/playa-vista/','Playa Vista'],['/marina-del-rey/','Marina del Rey'],['/west-los-angeles/','West Los Angeles'],['/cheviot-hills/','Cheviot Hills'],
+    ['/brentwood/','Brentwood'],['/pacific-palisades/','Pacific Palisades'],['/westwood/','Westwood'],['/beverly-hills/','Beverly Hills'],
+    ['/bel-air/','Bel Air'],['/west-adams/','West Adams']];
+  var BEACH = [['/manhattan-beach/','Manhattan Beach'],['/hermosa-beach/','Hermosa Beach'],['/redondo-beach/','Redondo Beach'],['/el-segundo/','El Segundo']];
+  var INSIGHTS = [['/market-reports/','Market Reports'],['/blog/','Journal']];
+  var active = function (h) { return location.pathname.replace(/\/$/, '') === h.replace(/\/$/, '') ? ' aria-current="page"' : ''; };
+  var a = function (l) { return '<a href="' + l[0] + '"' + active(l[0]) + '>' + l[1] + '</a>'; };
+  var MENUS = {
+    hoods: '<div class="nav-dd-box nav-dd-3">' +
+      '<div><a class="nav-dd-h" href="/westside/">Westside</a>' + WESTSIDE.slice(0, 7).map(a).join('') + '</div>' +
+      '<div><span class="nav-dd-h" aria-hidden="true">&nbsp;</span>' + WESTSIDE.slice(7).map(a).join('') + '</div>' +
+      '<div><a class="nav-dd-h" href="/beach-cities/">Beach Cities</a>' + BEACH.map(a).join('') +
+        '<a class="nav-dd-all" href="/neighborhoods/">All neighborhoods →</a></div></div>',
+    insights: '<div class="nav-dd-box nav-dd-1"><div>' + INSIGHTS.map(a).join('') + '</div></div>'
+  };
   var LINKS = [
     ['/sellers/', 'Sellers'], ['/buyers/', 'Buyers'],
-    ['/market-reports/', 'Market Reports'],
-    ['/cash-and-flow/', 'Cash &amp; Flow'], ['/about/', 'About'], ['/contact/', 'Contact'],
-    ['/featured-homes/', 'Featured Homes']
+    ['/neighborhoods/', 'Neighborhoods', 'hoods'],
+    ['/featured-homes/', 'Featured Homes'],
+    ['/cash-and-flow/', 'Cash &amp; Flow'],
+    ['/market-reports/', 'Insights', 'insights'],
+    ['/about/', 'About']
   ];
-  var active = function (h) { return location.pathname.replace(/\/$/, '') === h.replace(/\/$/, '') ? ' aria-current="page"' : ''; };
-  var navLinks = LINKS.map(function (l) { return '<a href="' + l[0] + '"' + active(l[0]) + '>' + l[1] + '</a>'; }).join('');
+  var navLinks = LINKS.map(function (l) {
+    if (l[2]) return '<div class="nav-dd"><a href="' + l[0] + '" aria-haspopup="true"' + active(l[0]) + '>' + l[1] + '<span class="dd-caret" aria-hidden="true"></span></a><div class="nav-dd-menu">' + MENUS[l[2]] + '</div></div>';
+    return a(l);
+  }).join('');
+  var drawerLinks = LINKS.map(function (l) {
+    if (l[2] === 'hoods') return a(['/westside/', 'Westside Neighborhoods']) + a(['/beach-cities/', 'Beach Cities']);
+    if (l[2] === 'insights') return INSIGHTS.map(a).join('');
+    return a(l);
+  }).join('');
 
   var CONTACT_ICONS =
     '<a class="nav-icon-btn" href="mailto:Michael.Abraham@Compass.com" aria-label="Email us" title="Michael.Abraham@Compass.com">' +
@@ -96,8 +138,8 @@
           '<button class="ham" id="ham" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>' +
         '</div>' +
       '</div>' +
-      '<div class="mobile-drawer" id="drawer" aria-hidden="true" inert><nav>' + navLinks +
-        '<a href="/blog/">Journal</a><a href="/contact/" class="btn btn-fill">Get In Touch</a></nav></div>' +
+      '<div class="mobile-drawer" id="drawer" aria-hidden="true" inert><nav>' + drawerLinks +
+        '<a href="/contact/" class="btn btn-fill">Get In Touch</a></nav></div>' +
     '</header>';
 
   var footHTML =
