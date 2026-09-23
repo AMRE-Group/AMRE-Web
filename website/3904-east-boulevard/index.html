@@ -103,7 +103,7 @@
   .plan-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:70px}
   .plan-row:last-child{margin-bottom:0}
   .plan-row.rev .ptxt{order:2}
-  .plan-img{background:#fff;border:1px solid var(--line);padding:26px}
+  .plan-img{background:#fff;border:1px solid var(--line);padding:26px;cursor:pointer}
   .plan-img img{width:100%}
   .ptxt h3{font-size:2rem;margin:14px 0 14px}
   .ptxt p{color:var(--ink-soft)}
@@ -530,7 +530,7 @@
   tog.onclick=()=>links.classList.toggle('show');
   links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('show'));
   // lightbox
-  const items=[...document.querySelectorAll('#ggrid .g-item img, #pgrid .g-item img')];
+  const items=[...document.querySelectorAll('#ggrid .g-item img, #pgrid .g-item img, #plans .plan-img img')];
   const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg');
   let idx=0;
   function open(i){idx=i;lbimg.src=items[i].src;lb.classList.add('open')}
