@@ -14,7 +14,9 @@
         "/west-adams/"
       ],
       "source": "dashboard #3 + audit",
-      "status": "todo"
+      "status": "done",
+      "date": "2026-09-24",
+      "url": "/blog/rso-vs-ab-1482-los-angeles-duplex/"
     },
     {
       "n": 2,
@@ -193,6 +195,11 @@
       "title": "Beach Cities hub + Hermosa / Redondo / El Segundo",
       "url": "/beach-cities/",
       "date": "2026-09-22"
+    },
+    {
+      "title": "RSO vs AB 1482: which rent rules cover your LA duplex?",
+      "url": "/blog/rso-vs-ab-1482-los-angeles-duplex/",
+      "date": "2026-09-24"
     }
   ],
   "parked": [
