@@ -80,7 +80,7 @@
     ['/brentwood/','Brentwood'],['/pacific-palisades/','Pacific Palisades'],['/westwood/','Westwood'],['/beverly-hills/','Beverly Hills'],
     ['/bel-air/','Bel Air'],['/west-adams/','West Adams']];
   var BEACH = [['/manhattan-beach/','Manhattan Beach'],['/hermosa-beach/','Hermosa Beach'],['/redondo-beach/','Redondo Beach'],['/el-segundo/','El Segundo']];
-  var INSIGHTS = [['/market-reports/','Market Reports'],['/blog/','Journal']];
+  var INSIGHTS = [['/market-reports/','Market Reports'],['/blog/','Journal'],['/relocating-from-new-york/','New York City']];
   var active = function (h) { return location.pathname.replace(/\/$/, '') === h.replace(/\/$/, '') ? ' aria-current="page"' : ''; };
   var a = function (l) { return '<a href="' + l[0] + '"' + active(l[0]) + '>' + l[1] + '</a>'; };
   var MENUS = {
