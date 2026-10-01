@@ -31,7 +31,9 @@
         "/culver-city/"
       ],
       "source": "dashboard #1",
-      "status": "todo"
+      "status": "done",
+      "date": "2026-10-01",
+      "url": "/cash-and-flow/how-to-buy-a-duplex-in-los-angeles/"
     },
     {
       "n": 3,
@@ -200,6 +202,11 @@
       "title": "RSO vs AB 1482: which rent rules cover your LA duplex?",
       "url": "/blog/rso-vs-ab-1482-los-angeles-duplex/",
       "date": "2026-09-24"
+    },
+    {
+      "title": "How to Buy a Duplex in Los Angeles: The 2026 Step-by-Step Guide",
+      "url": "/cash-and-flow/how-to-buy-a-duplex-in-los-angeles/",
+      "date": "2026-10-01"
     }
   ],
   "parked": [
