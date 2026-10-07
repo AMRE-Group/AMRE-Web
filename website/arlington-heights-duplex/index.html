@@ -136,7 +136,7 @@ html{scroll-behavior:smooth}
 .ps .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .ps .chips button{font-family:var(--sans);font-size:.78rem;font-weight:600;padding:8px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;cursor:pointer;transition:.2s}
 .ps .chips button:hover,.ps .chips button.on{background:var(--gold);border-color:var(--gold);color:var(--forest-2)}
-.ps .com-chip{display:flex;align-items:baseline;gap:12px;margin-top:22px;padding:14px 18px;border:1px solid var(--gold);border-radius:16px}
+.ps .com-chip{display:flex;align-items:baseline;justify-content:center;text-align:center;gap:12px;margin-top:22px;padding:14px 18px;border:1px solid var(--gold);border-radius:16px}
 .ps .com-chip b{font-family:var(--serif);font-weight:400;font-size:2rem;color:var(--gold)}
 .ps .com-chip span{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#fff}
 .ps .net-sheet{display:flex;flex-direction:column}
@@ -223,10 +223,10 @@ html{scroll-behavior:smooth}
 .ps .lb.open{display:flex}
 .ps .lb img{max-width:94vw;max-height:88vh;border-radius:12px;object-fit:contain}
 .ps .lb button{position:absolute;background:none;border:0;color:#fff;font-size:2.4rem;cursor:pointer;padding:16px;line-height:1}
-.ps .lb .x{top:10px;right:14px}
+.ps .lb .x{top:10px;right:14px;z-index:5}
 .ps .lb .p{left:8px;top:50%}
 .ps .lb .n{right:8px;top:50%}
-.ps .lb .t{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#cfdad3;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.ps .lb .t{aspect-ratio:auto;height:auto;pointer-events:none;position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#cfdad3;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
 .ps .by-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
 .ps .by-main h3{font-size:2rem}
 .ps .by-main p{color:#cfdad3;margin-bottom:20px}
@@ -378,6 +378,8 @@ html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){.ps .hero-bg img,.ps .tile img,.ps .bt img{transition:none!important;transform:none!important}}
 
 
+.ps .head.wide-head{max-width:none}.ps .head p.wide{max-width:75%;font-size:clamp(1.15rem,1.9vw,1.4rem);line-height:1.5;color:var(--ink)}.ps .head p.ph-note{font-size:1.155rem;color:var(--ink);max-width:none}
+@media(max-width:860px){.ps .head p.wide{max-width:100%}}
 .ps .subnav{position:sticky;top:64px;z-index:40;background:rgba(250,247,241,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.ps .subnav .wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding-block:11px}.ps .subnav a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}.ps .subnav a:hover{color:var(--gold-dk)}
 </style>
 </head>
@@ -472,7 +474,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
         <span class="eyebrow">Your goals</span>
         <h3>Timing and ease</h3>
         <ul>
-          <li><b>Based in Ojai.</b> You would rather not manage a sale from a distance.</li>
+          <li><b>Based in Ojai.</b> You are ready to sell and need a trusted agent to handle it.</li>
           <li><b>El Niño.</b> You want to avoid the headache of winter rains, so timing matters.</li>
           <li><b>Best buyer.</b> Owner-user or investor, whichever pays more.</li>
           <li><b>Clear numbers.</b> Price, strategy, commission and seller costs.</li>
@@ -495,6 +497,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
           <li><b>1617.</b> A good tenant of 2 years. We have the lease.</li>
           <li><b>1619.</b> Can be delivered vacant, which opens the door to owner-users.</li>
           <li><b>Garage.</b> We are checking the lease for tenant storage use.</li>
+          <li><b>To discuss.</b> Are you open to us engaging the tenant on a buyer's behalf for cash for keys?</li>
           <li><b>Updates.</b> Your list of improvements helps our pricing.</li>
         </ul>
       </div>
@@ -561,7 +564,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
       <span class="stamp">Virtually staged · concept images</span><br>
       <span class="eyebrow">The home</span>
       <h2>Restaged and photographed <em>to sell.</em></h2>
-      <p>A first look at how the duplex can present. Final photography follows the restaging.</p>
+      <p class="ph-note">A first look at how the duplex can present. Final photography follows the restaging.</p>
     </div>
     <div class="grid-g">
       <div data-lb class="tile c4 t"><img src="assets/i-5ff87337a0.jpg" alt="Front courtyard, virtually staged"><span class="cap">Front courtyard</span><i class="vs">Virtually staged</i></div>
@@ -588,10 +591,10 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
 
 <section>
   <div class="wrap">
-    <div class="head">
+    <div class="head wide-head">
       <span class="eyebrow">Home preparation · required improvements</span>
       <h2>Targeted prep, <em>up to $20K.</em></h2>
-      <p>You are comfortable spending up to $20K on the improvements that matter. We spend it where buyers notice, starting with the roof and drainage, and we coordinate the vendors and keep the work inside that budget.</p>
+      <p class="wide">You are comfortable spending up to $20K on the improvements that matter. We spend it where buyers notice, starting with the roof and drainage, and we coordinate the vendors and keep the work inside that budget.</p>
     </div>
     <div class="card svc-card">
       <h3>Where the budget goes</h3>
@@ -603,7 +606,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
 
     <div class="prep-grid">
       <div class="card"><span class="eyebrow">Renovation support</span><h3>Sale-ready, made easy</h3><p>We coordinate trusted pros for paint, fixtures and lighting, set the timeline, and keep the work on track.</p></div>
-      <div class="card"><span class="eyebrow">Staging</span><h3>Restaged to sell</h3><p>We work with respected local stagers. Both units are staged for the photos, 1619 as a vacant unit.</p></div>
+      <div class="card"><span class="eyebrow">Staging</span><h3>Restaged to sell</h3><p>We work with respected local stagers. We stage only 1619, delivered vacant. The tenant stays in place in 1617.</p></div>
       <div class="card"><span class="eyebrow">Photography &amp; video</span><h3>Photos, video and aerials</h3><p>Most buyers start online. Professional photos, a listing video and drone views of the lot lead every phase.</p></div>
     </div>
   </div>
@@ -624,13 +627,13 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
       <h2>3-phase marketing strategy to ensure <em>maximum sale value.</em></h2>
     </div>
     <div class="card phase"><div class="n">01</div><div><span class="tag">Phase 1 · Compass Private Exclusive</span><h3>Test the market before going public</h3><p>We market the property quietly to Compass's network of 80,000+ agents and their buyers. You build early interest with no days on market and no public price history, and early-access buyers may pay a premium.</p><span class="stat">80,000+<small>Compass agents reached</small></span></div></div>
-    <div class="card phase"><div class="n">02</div><div><span class="tag">Phase 2 · Compass Coming Soon</span><h3>Build buzz before the official launch</h3><p>We launch on Compass.com and Redfin.com to reach roughly 60 million buyers, still with no days on market. You get engagement data before going live.</p><span class="stat">~60M<small>buyers reached online</small></span></div></div>
+    <div class="card phase"><div class="n">02</div><div><span class="tag">Phase 2 · Compass Coming Soon</span><h3>Build buzz before the official launch</h3><p>We launch on Compass.com and Redfin.com to reach 60M+ buyers, still with no days on market. You get engagement data before going live.</p><span class="stat">60M+<small>buyers reached online</small></span></div></div>
     <div class="card dark phase"><div class="n">03</div><div><span class="tag">Phase 3 · Go Live</span><h3>Launch with confidence</h3><p>The home goes Active on the MLS and all portals, timed using what we learned in Phases 1 and 2 to bring the best price and terms. Digital, social, print and open houses run alongside.</p><span class="stat">MLS<small>and every major portal</small></span></div></div>
     <div class="two">
       <div class="card stat-card"><b>2.9%</b><span>higher prices on average*</span></div>
       <div class="card stat-card"><b>20%</b><span>faster to close on average*</span></div>
     </div>
-    <p class="fn">*Compass 2024 results for its phased marketing, as published on amre.group. Agent count reflects Compass's reported 2026 network.</p>
+    <p class="fn">*Compass 2024 results for its phased marketing, as published on amre.group. Agent count: Compass reported 83,184 brokerage agents at the end of Q2 2026. Buyer reach figure as published on amre.group.</p>
 
     <div class="head" style="margin-top:64px;margin-bottom:22px">
       <span class="eyebrow">Marketing · our comprehensive strategy</span>
