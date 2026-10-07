@@ -389,6 +389,7 @@ html{scroll-behavior:smooth}
 .ps .tl-row li:not(.ck){display:flex;align-items:center;gap:9px}.ps .tl-row li:not(.ck):before{content:'';flex:0 0 16px;width:16px;height:16px;box-sizing:border-box;border-radius:50%;border:1.5px solid currentColor;opacity:.55}
 .ps .tl-row li.ck{display:flex;align-items:center;gap:9px}.ps .tl-row li.ck:before{content:'✓';flex:0 0 16px;width:16px;height:16px;border-radius:50%;background:var(--gold-dk);color:#fff;font-size:.62rem;font-weight:700;line-height:16px;text-align:center}
 @media(min-width:861px){.ps .tl-row{grid-template-columns:64px minmax(200px,300px) 1fr;align-items:start}.ps .tl-row ul{grid-template-columns:1fr;gap:8px}.ps .tl-row h3 .chip{display:block;width:max-content;margin:10px 0 0}}
+.ps .net.rec{margin-top:48px;padding-top:40px;border-top:1px solid var(--line);background:transparent}
 .ps .subnav{position:sticky;top:64px;z-index:40;background:rgba(250,247,241,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.ps .subnav .wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding-block:11px}.ps .subnav a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}.ps .subnav a:hover{color:var(--gold-dk)}
 </style>
 </head>
@@ -433,17 +434,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
 </section>
 <nav class="subnav" aria-label="Sections"><div class="wrap"><a href="#discussed">Discussed</a><a href="#price">Price</a><a href="#buyer">Buyer</a><a href="#photos">Photos</a><a href="#prep">Home prep</a><a href="#marketing">Marketing</a><a href="#timeline">Timeline</a><a href="#about">About</a><a href="#experience">Experience</a></div></nav>
 
-<section class="net" id="price">
-  <div class="wrap">
-    <div class="head">
-      <span class="eyebrow">Our recommendation</span>
-      <h2>Recommended list range: <em>$945K to $975K.</em></h2>
-      <p class="net-lead">Our listing commission is 2.5%, and this is what it covers.</p>
-      <ul class="inc"><li>Residential listing agreement, reviewed with you</li><li>Pricing structure and planning</li><li>Timing and strategy, no rush to sell</li><li>Private Exclusive, Coming Soon, MLS</li><li>Multifamily and house-hack buyer reach via Cash &amp; Flow</li><li>Virtual staging and landing page</li></ul>
-    </div>
-    
-  </div>
-</section>
+
 
 <section id="discussed">
   <div class="wrap">
@@ -486,6 +477,12 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
       </div>
     </div>
     <div class="band">Roof and drainage come first. <em>We address them before buyers find them.</em></div>
+    <div class="net rec" id="price"><div class="head">
+      <span class="eyebrow">Our recommendation</span>
+      <h2>Recommended list range: <em>$945K to $975K.</em></h2>
+      <p class="net-lead">Our listing commission is 2.5%, and this is what it covers.</p>
+      <ul class="inc"><li>Residential listing agreement, reviewed with you</li><li>Pricing structure and planning</li><li>Timing and strategy, no rush to sell</li><li>Private Exclusive, Coming Soon, MLS</li><li>Multifamily and house-hack buyer reach via Cash &amp; Flow</li><li>Virtual staging and landing page</li></ul>
+    </div></div>
   </div>
 </section>
 
