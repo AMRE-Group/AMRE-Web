@@ -438,36 +438,10 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
     <div class="head">
       <span class="eyebrow">Our recommendation</span>
       <h2>Recommended list range: <em>$945K to $975K.</em></h2>
-      <p class="net-lead">Our listing commission is 2.5%. Move the slider to see what you would net at any price in the range.</p>
+      <p class="net-lead">Our listing commission is 2.5%, and this is what it covers.</p>
       <ul class="inc"><li>Residential listing agreement, reviewed with you</li><li>Pricing structure and planning</li><li>Timing and strategy, no rush to sell</li><li>Private Exclusive, Coming Soon, MLS</li><li>Multifamily and house-hack buyer reach via Cash &amp; Flow</li><li>Virtual staging and landing page</li></ul>
     </div>
-    <div class="net-grid">
-      <div class="card dark net-range">
-        <span class="eyebrow">Recommended range</span>
-        <div class="pr-big">$945K – $975K</div>
-        <div class="pr-bar"><i></i></div>
-        <div class="pr-ends"><span>$945,000</span><span>$975,000</span></div>
-        <label class="np-l" for="np">Try a price <b id="np-out">$960,000</b></label>
-        <input id="np" type="range" min="900000" max="1000000" step="5000" value="960000">
-        <div class="chips" role="group" aria-label="Quick prices">
-          <button type="button" data-p="945000">$945K</button>
-          <button type="button" data-p="960000">$960K</button>
-          <button type="button" data-p="975000">$975K</button>
-        </div>
-        <div class="com-chip"><b>2.5%</b><span>AMRE listing commission</span></div>
-      </div>
-      <div class="card net-sheet">
-        <span class="eyebrow">Seller net sheet · estimate</span>
-        <div class="nrow"><span>Sale price</span><b id="n-price"></b></div>
-        <div class="nrow hl"><span>Our listing commission <em>2.5%</em></span><b id="n-list"></b></div>
-        <div class="nrow"><span>Buyer agent commission <em>2.5%</em></span><b id="n-buy"></b></div>
-        <div class="nrow"><span>Transfer taxes <em>City of LA 0.45% + LA County 0.11%</em></span><b id="n-tax"></b></div>
-        <div class="nrow"><span>Escrow, title and other fees <em>estimate, same model as our net proceeds calculator</em></span><b id="n-oth"></b></div>
-        <div class="nrow tot"><span>Total seller costs <em id="n-pct"></em></span><b id="n-tot"></b></div>
-        <div class="nrow net"><span>Estimated net before mortgage payoff</span><b id="n-net"></b></div>
-      </div>
-    </div>
-    <p class="fn">Estimate only. Assumes a 2.5% listing commission and a 2.5% buyer agent commission. Seller costs use the same model as the AMRE seller net proceeds calculator at amre.group/tools/net-proceeds-calculator. Excludes mortgage payoff, prorations, prep costs (budgeted up to $20K), and any tenant-related credits. Final figures come with escrow's estimated closing statement.</p>
+    
   </div>
 </section>
 
@@ -763,23 +737,6 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
 <script>
 (function(){
   var f=function(n){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n)};
-  var np=document.getElementById('np');
-  function calc(){
-    var p=+np.value, l=p*.025, b=p*.025, t=p*.0056, o=p*.002725+4357.71, tot=l+b+t+o;
-    document.getElementById('np-out').textContent=f(p);
-    document.getElementById('n-price').textContent=f(p);
-    document.getElementById('n-list').textContent='− '+f(l);
-    document.getElementById('n-buy').textContent='− '+f(b);
-    document.getElementById('n-tax').textContent='− '+f(t);
-    document.getElementById('n-oth').textContent='− '+f(o);
-    document.getElementById('n-tot').textContent='− '+f(tot);
-    document.getElementById('n-pct').textContent=(tot/p*100).toFixed(2)+'% of price';
-    document.getElementById('n-net').textContent=f(p-tot);
-    document.querySelectorAll('.chips button').forEach(function(x){x.classList.toggle('on',+x.dataset.p===p)});
-  }
-  np.addEventListener('input',calc);
-  document.querySelectorAll('.chips button').forEach(function(x){x.addEventListener('click',function(){np.value=x.dataset.p;calc()})});
-  calc();
   // buyer tabs
   var tabs=document.querySelectorAll('.bx-tabs button');
   tabs.forEach(function(t){t.addEventListener('click',function(){
