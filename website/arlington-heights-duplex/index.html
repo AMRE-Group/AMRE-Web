@@ -400,6 +400,8 @@ html{scroll-behavior:smooth}
 .ps .hero p{font-size:clamp(1.25rem,2.2vw,1.65rem);line-height:1.45;max-width:720px}
 .ps .abn-lead{text-wrap:pretty}
 .ps .facts{max-width:720px}
+.ps .hero-sub{display:grid;width:fit-content;max-width:100%}.ps .hero-sub p{width:0;min-width:100%;max-width:none}.ps .hero-sub .facts{flex-wrap:nowrap;white-space:nowrap;max-width:none;gap:8px 18px}
+@media(max-width:860px){.ps .hero-sub .facts{flex-wrap:wrap;white-space:normal}.ps .hero-sub p{width:auto;min-width:0}}
 .ps .subnav{position:sticky;top:64px;z-index:40;background:rgba(250,247,241,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.ps .subnav .wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding-block:11px}.ps .subnav a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}.ps .subnav a:hover{color:var(--gold-dk)}
 </style>
 </head>
@@ -433,8 +435,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
   <div class="wrap hero-copy">
     <span class="eyebrow">Listing presentation · Prepared for Nicholas Liben</span>
     <h1>1617–1619 5th Ave <em>listing plan.</em></h1>
-    <p>A quiet start, a measured rollout, and a public launch timed to the best buyer and the best price.</p>
-    <div class="facts"><span>1922 Spanish duplex</span><span>2 × 1 BD / 1 BA</span><span>~1,732 SF</span><span>~7,500 SF lot</span><span>Detached 2-car garage</span></div>
+    <div class="hero-sub"><p>A quiet start, a measured rollout, and a public launch timed to the best buyer and the best price.</p><div class="facts"><span>1922 Spanish duplex</span><span>2 × 1 BD / 1 BA</span><span>~1,732 SF</span><span>~7,500 SF lot</span><span>Detached 2-car garage</span></div></div>
     <div class="rng"><small>Recommended list range</small><b>$945K – $975K</b></div>
     <div class="ctas">
       <a href="#marketing" class="btn btn-fill">See the 3-phase plan</a>
