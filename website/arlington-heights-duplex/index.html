@@ -28,7 +28,7 @@ html{scroll-behavior:smooth}
 .ps a{color:inherit;text-decoration:none}
 .ps .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
 .ps .eyebrow{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);font-weight:600}
-.ps section{padding-block:80px}
+.ps section{padding-block:40px}
 .ps .head{max-width:760px;margin-bottom:38px}
 .ps .head h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin:12px 0 14px}
 .ps .head p{color:var(--mute);font-size:1.05rem;max-width:640px}
@@ -245,7 +245,7 @@ html{scroll-behavior:smooth}
 .ps .cmp-row span:nth-child(2){color:var(--forest);font-weight:500}
 .ps .cmp-h{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin-top:10px}
 .ps .divider{padding:0;background:var(--forest-2);color:#fff}
-.ps .divider .wrap{padding-block:52px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ps .divider .wrap{padding-block:26px;display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .ps .divider .eyebrow{color:var(--gold)}
 .ps .divider h2{font-size:clamp(2.2rem,5vw,3.6rem)}
 .ps .divider h2 em{color:var(--gold)}
@@ -335,7 +335,7 @@ html{scroll-behavior:smooth}
 @media(max-width:860px){.ps .net .net-lead{max-width:100%}
 .ps .net .inc{max-width:100%;grid-template-columns:1fr}
 .ps .cf-logo{position:static;display:block;margin-bottom:14px;width:170px}
-.ps section{padding-block:60px}
+.ps section{padding-block:30px}
 .ps .links{display:none}
 .ps .hero,.ps .conc-grid,.ps .team-grid,.ps .plan-grid,.ps .by-grid,.ps .by-cmp,.ps .ab-grid,.ps .pr-grid,.ps .ex-grid,.ps .ex-tools{grid-template-columns:1fr}
 .ps .g3,.ps .prep-grid,.ps .two{grid-template-columns:1fr}
@@ -383,6 +383,9 @@ html{scroll-behavior:smooth}
 .ps h1,.ps h2{font-weight:300;letter-spacing:-.03em;font-optical-sizing:auto}.ps .hero h1{letter-spacing:-.035em}
 .ps .brands{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}.ps .brands small{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--mute);margin-bottom:10px}.ps .brands ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}.ps .brands li{font-family:var(--serif);font-weight:400;font-size:1rem;padding:7px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bone)}
 .ps .cta .contact{font-size:clamp(1.15rem,2.2vw,1.6rem);margin-top:6px}.ps .cta .contact a{color:#fff;border-bottom:1px solid var(--gold)}.ps .cta .contact a:hover{color:var(--gold)}.ps .cta .who{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-top:26px;margin-bottom:8px}
+.ps .head{max-width:none}.ps .head p,.ps .head p.wide,.ps .head p.ph-note,.ps .net .net-lead{font-size:clamp(1.25rem,2.2vw,1.65rem);line-height:1.45;color:var(--ink);max-width:75%}
+.ps .lp{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:44px}.ps .lp-img{position:relative;border-radius:22px;overflow:hidden}.ps .lp-img img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.ps .lp-img .vs{position:absolute;right:10px;bottom:8px;font-style:normal;font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);text-shadow:0 1px 2px rgba(0,0,0,.6)}.ps .lp h3{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:300;letter-spacing:-.03em;margin:10px 0 14px}.ps .lp p{color:var(--ink);font-size:1.1rem;max-width:34em}
+@media(max-width:860px){.ps .head p,.ps .head p.wide,.ps .head p.ph-note,.ps .net .net-lead{max-width:100%}.ps .lp{grid-template-columns:1fr;gap:22px}}
 .ps .subnav{position:sticky;top:64px;z-index:40;background:rgba(250,247,241,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.ps .subnav .wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding-block:11px}.ps .subnav a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}.ps .subnav a:hover{color:var(--gold-dk)}
 </style>
 </head>
@@ -629,8 +632,8 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
       <span class="eyebrow">Marketing · a streamlined and proven process</span>
       <h2>3-phase marketing strategy to ensure <em>maximum sale value.</em></h2>
     </div>
-    <div class="card phase"><div class="n">01</div><div><span class="tag">Phase 1 · Compass Private Exclusive</span><h3>Test the market before going public</h3><p>We market the property quietly to Compass's network of 80,000+ agents and their buyers. You build early interest with no days on market and no public price history, and early-access buyers may pay a premium.</p><div class="brands"><small>Now part of the Compass family of brands</small><ul><li>Compass</li><li>Coldwell Banker</li><li>Sotheby's International Realty</li><li>Century 21</li><li>Corcoran</li><li>Better Homes and Gardens Real Estate</li><li>ERA Real Estate</li><li>Christie's International Real Estate</li><li>@properties</li></ul></div><span class="stat">80,000+<small>Compass agents reached</small></span></div></div>
-    <div class="card phase"><div class="n">02</div><div><span class="tag">Phase 2 · Compass Coming Soon</span><h3>Build buzz before the official launch</h3><p>We launch on Compass.com and Redfin.com to reach 60M+ buyers, still with no days on market. You get engagement data before going live.</p><span class="stat">60M+<small>buyers reached online</small></span></div></div>
+    <div class="card phase"><div class="n">01</div><div><span class="tag">Phase 1 · Compass Private Exclusive</span><h3>Test the market with agents first</h3><p>The focus is on agents. We market the property quietly to Compass's network of 80,000+ agents and their buyers, with no days on market and no public price history. Early-access buyers may pay a premium.</p><div class="brands"><small>Now part of the Compass family of brands</small><ul><li>Compass</li><li>Coldwell Banker</li><li>Sotheby's International Realty</li><li>Century 21</li><li>Corcoran</li><li>Better Homes and Gardens Real Estate</li><li>ERA Real Estate</li><li>Christie's International Real Estate</li><li>@properties</li></ul></div><span class="stat">80,000+<small>Compass agents reached</small></span></div></div>
+    <div class="card phase"><div class="n">02</div><div><span class="tag">Phase 2 · Compass Coming Soon</span><h3>Open it to buyers without an agent</h3><p>The focus expands to buyers who are not yet working with an agent. We launch on Compass.com and Redfin.com to reach 60M+ buyers and see their live reaction, still with no days on market. You get engagement data before going live.</p><span class="stat">60M+<small>buyers reached online</small></span></div></div>
     <div class="card dark phase"><div class="n">03</div><div><span class="tag">Phase 3 · Go Live</span><h3>Launch with confidence</h3><p>The home goes Active on the MLS and all portals, timed using what we learned in Phases 1 and 2 to bring the best price and terms. Digital, social, print and open houses run alongside.</p><span class="stat">MLS<small>and every major portal</small></span></div></div>
     <div class="two">
       <div class="card stat-card"><b>2.9%</b><span>higher prices on average*</span></div>
@@ -648,6 +651,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
       <div><h3>Open houses and events</h3><p>Agent preview, neighbor tour and weekend open houses.</p></div>
       <div><h3>Compass One</h3><p>24/7 visibility into your timeline, documents and listing activity, and a direct line to us from Ojai.</p></div>
     </div>
+<div class="lp"><div class="lp-img"><img src="assets/i-5ff87337a0.jpg" alt="Front courtyard, virtually staged"><i class="vs">Virtually staged</i></div><div><span class="eyebrow">Custom property page</span><h3>Your home gets its own landing page.</h3><p>One page built just for the duplex, with the professional photos, listing video and drone views up front. Every agent, buyer and portal link points to it, and it stays current through all three phases.</p></div></div>
   </div>
 </section>
 
