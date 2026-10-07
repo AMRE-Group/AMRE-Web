@@ -527,6 +527,7 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
 .amre-help .hrow{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .amre-help a{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:11px 20px;font-size:.85rem;color:#fff;transition:.3s var(--ease)}
 .amre-help a:hover{border-color:var(--clay);color:var(--clay)}
+.hero-trust .wrap.ht3{grid-template-columns:repeat(3,1fr)}@media(max-width:720px){.hero-trust .wrap.ht3{grid-template-columns:repeat(2,1fr)}}
 </style>
 <link rel="stylesheet" href="/assets/forms/consent.css">
 <script src="/assets/forms/consent.js?v=20260821" defer></script>
@@ -552,9 +553,8 @@ section.hvid{padding-top:clamp(28px,3vw,40px)}
       <div class="hero-quick"><a href="sms:+13237198585">Text Michael &middot; (323) 719-8585</a><span class="dot">/</span><a href="https://calendar.app.google/yjBVQ2eqPNbtFY2Z9" target="_blank" rel="noopener">Book a 15-min call &rarr;</a></div>
     </div>
   </div>
-  <div class="hero-trust"><div class="wrap">
-    <div class="ht"><div class="htn">$60M+</div><div class="htl">Sales volume</div></div>
-    <div class="ht"><div class="htn">98.8%</div><div class="htl">List-to-sale ratio</div></div>
+  <div class="hero-trust"><div class="wrap ht3">
+    <div class="ht"><div class="htn">25+</div><div class="htl">Years combined experience</div></div>
     <div class="ht"><div class="htn">7</div><div class="htl">Westside neighborhoods</div></div>
     <div class="ht"><div class="htn">Two</div><div class="htl">Specialists &middot; no hand-offs</div></div>
   </div></div>
@@ -715,11 +715,8 @@ document.querySelector('.rev-nav.prev').onclick=function(){go(-1)};document.quer
 
 <!-- STATS -->
 <section class="stats">
-  <div class="wrap stats-grid">
-    <div class="stat reveal"><div class="n">$60<em>M+</em></div><div class="l">Sales Volume</div></div>
-    <div class="stat reveal"><div class="n">98.8<em>%</em></div><div class="l">List-to-Sale Ratio</div></div>
-    <div class="stat reveal"><div class="n">33</div><div class="l">Avg. Days on Market</div></div>
-    <div class="stat reveal"><div class="n">25<em>+</em></div><div class="l">Years Combined</div></div>
+  <div class="wrap stats-grid" style="grid-template-columns:1fr;text-align:center">
+    <div class="stat reveal"><div class="n">25<em>+</em></div><div class="l">Years of Combined Experience</div></div>
   </div>
 </section>
 
