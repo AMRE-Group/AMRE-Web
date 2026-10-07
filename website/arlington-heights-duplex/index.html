@@ -390,6 +390,8 @@ html{scroll-behavior:smooth}
 .ps .tl-row li.ck{display:flex;align-items:center;gap:9px}.ps .tl-row li.ck:before{content:'✓';flex:0 0 16px;width:16px;height:16px;border-radius:50%;background:var(--gold-dk);color:#fff;font-size:.62rem;font-weight:700;line-height:16px;text-align:center}
 @media(min-width:861px){.ps .tl-row{grid-template-columns:64px minmax(200px,300px) 1fr;align-items:start}.ps .tl-row ul{grid-template-columns:1fr;gap:8px}.ps .tl-row h3 .chip{display:block;width:max-content;margin:10px 0 0}}
 .ps .net.rec{margin-top:48px;padding-top:40px;border-top:1px solid var(--line);background:transparent}
+.ps .cl-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.ps .cl-grid .card{padding:24px}.ps .cl-grid h3{font-size:1.35rem}.ps .cl-grid ul{list-style:none}.ps .cl-grid li{padding:8px 0;border-top:1px solid var(--line);font-size:.92rem;color:var(--mute)}.ps .cl-grid .dark li{border-color:rgba(255,255,255,.2);color:#cfdad3}.ps .cl-grid .dark .eyebrow{color:var(--gold)}
+@media(max-width:1000px){.ps .cl-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.ps .cl-grid{grid-template-columns:1fr}}
 .ps .subnav{position:sticky;top:64px;z-index:40;background:rgba(250,247,241,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}.ps .subnav .wrap{display:flex;gap:22px;flex-wrap:wrap;justify-content:center;padding-block:11px}.ps .subnav a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--mute)}.ps .subnav a:hover{color:var(--gold-dk)}
 </style>
 </head>
@@ -432,7 +434,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
     </div>
   </div>
 </section>
-<nav class="subnav" aria-label="Sections"><div class="wrap"><a href="#discussed">Discussed</a><a href="#price">Price</a><a href="#buyer">Buyer</a><a href="#photos">Photos</a><a href="#prep">Home prep</a><a href="#marketing">Marketing</a><a href="#timeline">Timeline</a><a href="#about">About</a><a href="#experience">Experience</a></div></nav>
+<nav class="subnav" aria-label="Sections"><div class="wrap"><a href="#discussed">Discussed</a><a href="#price">Price</a><a href="#buyer">Buyer</a><a href="#photos">Photos</a><a href="#prep">Home prep</a><a href="#marketing">Marketing</a><a href="#close">Offers &amp; close</a><a href="#timeline">Timeline</a><a href="#about">About</a><a href="#experience">Experience</a></div></nav>
 
 
 
@@ -584,6 +586,7 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
       <p class="no-up">Budget: up to $20K · roof and drainage first</p>
     </div>
 
+    <div class="card svc-card"><h3>Our vendor list</h3><div class="svc-chips"><span>Roofing and drainage</span><span>Painters and handymen</span><span>Deep cleaning</span><span>Pest and termite</span><span>Landscaping</span><span>Stagers</span><span>Photo, video and drone</span><span>Inspectors</span></div><p class="no-up">Vetted vendors we know. We get quotes, schedule the work and keep it inside your $20K budget.</p></div>
     <div class="prep-grid">
       <div class="card"><span class="eyebrow">Renovation support</span><h3>Sale-ready, made easy</h3><p>We coordinate trusted pros for paint, fixtures and lighting, set the timeline, and keep the work on track.</p></div>
       <div class="card"><span class="eyebrow">Staging</span><h3>Restaged to sell</h3><p>We work with respected local stagers. We stage only 1619, delivered vacant. The tenant stays in place in 1617.</p></div>
@@ -634,6 +637,21 @@ document.getElementById('gbtn').addEventListener('click',t);i.addEventListener('
 
 
 
+<section id="close">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Offers · escrow · closing</span>
+      <h2>From offers to <em>keys.</em></h2>
+      <p>How we choose the buyer, negotiate the terms and carry the deal through escrow and inspections to close.</p>
+    </div>
+    <div class="cl-grid">
+      <div class="card"><span class="eyebrow">01 · Select a buyer</span><h3>Compare every offer</h3><ul><li>Price, terms and financing strength side by side</li><li>Owner-user and investor offers weighed together</li><li>Proof of funds, loan approval and deposit checked</li><li>You make the final call</li></ul></div>
+      <div class="card"><span class="eyebrow">02 · Negotiate</span><h3>Protect your price and terms</h3><ul><li>Counters on price, timing and contingencies</li><li>Repair and credit requests handled with a plan</li><li>Possession, 1617 tenant and cash for keys terms</li></ul></div>
+      <div class="card"><span class="eyebrow">03 · Escrow &amp; inspections</span><h3>Keep the deal on track</h3><ul><li>Escrow opened and the deposit confirmed</li><li>Disclosures delivered and signed</li><li>Home, roof, termite and sewer inspections scheduled</li><li>Appraisal and contingency removals tracked</li></ul></div>
+      <div class="card dark"><span class="eyebrow">04 · Closing</span><h3>Close with confidence</h3><ul><li>Final walkthrough and loan funding</li><li>Estimated closing statement reviewed with you</li><li>Recording, keys and proceeds sent to you in Ojai</li></ul></div>
+    </div>
+  </div>
+</section>
 <section class="prio" id="timeline">
   <div class="wrap">
     <div class="head">
