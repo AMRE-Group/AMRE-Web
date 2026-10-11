@@ -27,6 +27,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Reassemble chunked media
+        run: |
+          shopt -s globstar nullglob
+          for first in website/**/*.part-000; do
+            out="${first%.part-000}"
+            cat "$out".part-* > "$out"
+            rm -f "$out".part-*
+          done
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
