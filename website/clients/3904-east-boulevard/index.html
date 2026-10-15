@@ -241,6 +241,62 @@
   .next a:hover{background:#151a16}
   @media(max-width:900px){.g-item .cap{opacity:1}}
 
+  /* MARKETING (Arlington template) */
+  .mk-phases{display:grid;gap:18px;margin-top:10px}
+  .mk-ph{display:grid;grid-template-columns:90px 1fr 200px;gap:28px;align-items:start;padding:34px 34px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:border-color .4s,transform .4s}
+  .mk-ph:hover{border-color:rgba(205,183,143,.6);transform:translateY(-3px)}
+  .mk-ph.now{border-color:rgba(205,183,143,.7);background:rgba(205,183,143,.08)}
+  .mk-ph.dark{background:rgba(0,0,0,.25)}
+  .mk-n{font-family:var(--serif);font-size:3.6rem;line-height:1;color:#cdb78f;font-weight:600}
+  .mk-tag{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:#cdb78f;font-weight:500}
+  .mk-here{margin-left:12px;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;background:#cdb78f;color:var(--green-deep);padding:4px 9px;font-weight:600;vertical-align:2px}
+  .mk-body h3{font-size:clamp(1.7rem,2.8vw,2.2rem);color:#fff;margin:10px 0 12px}
+  .mk-body p{color:#d3d7cd;font-size:1rem}
+  .mk-brands{margin-top:18px}
+  .mk-brands small{display:block;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#b9c2b1;margin-bottom:10px}
+  .mk-brands ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .mk-brands li{font-family:var(--serif);font-size:1.02rem;color:#fff;padding:6px 13px;border:1px solid rgba(205,183,143,.4)}
+  .mk-stat{font-family:var(--serif);font-size:2.6rem;font-weight:600;color:#fff;line-height:1;text-align:right}
+  .mk-stat small{display:block;font-family:var(--sans);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:#cdb78f;margin-top:8px;font-weight:500}
+  .mk-plan{background:var(--paper)}
+  .mk-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+  .mk-grid>div{padding:30px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+  .mk-grid h3{font-size:1.5rem;margin-bottom:10px}
+  .mk-grid p{color:var(--ink-soft);font-size:.95rem}
+  .mk-lp{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;margin-top:56px}
+  .mk-lp-img{position:relative;overflow:hidden}
+  .mk-lp-img img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .mk-lp-img i{position:absolute;left:14px;bottom:14px;font-style:normal;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;background:rgba(20,22,19,.7);color:#fff;padding:6px 10px}
+  .mk-lp h3{font-size:clamp(1.9rem,3.2vw,2.6rem);margin:12px 0 14px}
+  .mk-lp p{color:var(--ink-soft);font-size:1.08rem}
+  .cl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .cl{background:#fff;border:1px solid var(--line);padding:30px 24px}
+  .cl.dark{background:var(--green-deep);color:#efe9dd;border-color:var(--green-deep)}
+  .cl.dark .eyebrow{color:#cdb78f}.cl.dark h3{color:#fff}.cl.dark li{color:#d3d7cd;border-color:rgba(255,255,255,.14)}
+  .cl h3{font-size:1.55rem;margin:12px 0 12px}
+  .cl ul{list-style:none}
+  .cl li{font-size:.9rem;color:var(--ink-soft);padding:9px 0;border-top:1px solid var(--line)}
+  .abn{position:relative;min-height:620px;display:flex;align-items:flex-end;color:#fff;padding:0;overflow:hidden}
+  .abn-bg{position:absolute;inset:0}.abn-bg img{width:100%;height:100%;object-fit:cover;object-position:right 30%}
+  .abn-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,22,19,.94) 0%,rgba(20,22,19,.8) 38%,rgba(20,22,19,.1) 70%)}
+  .abn-in{position:relative;z-index:1;padding-top:120px;padding-bottom:80px;width:100%}
+  .abn .eyebrow{color:#cdb78f}
+  .abn h2{font-size:clamp(2.2rem,4vw,3.2rem);color:#fff;margin:14px 0 18px;max-width:500px}
+  .abn p{max-width:470px;font-size:1.15rem;color:#eef0ea}
+  @media(max-width:900px){.abn-scrim{background:linear-gradient(to top,rgba(20,22,19,.92),rgba(20,22,19,.5) 60%,rgba(20,22,19,.15))}}
+  @media(max-width:900px){.mk-ph{grid-template-columns:1fr;gap:12px}.mk-stat{text-align:left}.mk-grid,.cl-grid{grid-template-columns:1fr 1fr}.mk-lp{grid-template-columns:1fr;gap:24px}}
+  @media(max-width:560px){.mk-grid,.cl-grid{grid-template-columns:1fr}}
+
+  p,li,h1,h2,h3,h4{text-wrap:pretty}
+  h1,h2{text-wrap:balance}
+  .ph-blank{background:#e6e0d4 !important;border:1px dashed rgba(43,46,42,.25);display:flex;align-items:center;justify-content:center;cursor:default}
+  .blank-in{text-align:center;padding:20px}
+  .blank-in span{display:block;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:8px}
+  .blank-in b{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--ink-soft)}
+  .split .media.ph-blank{min-height:420px}
+  .yard .media.water{position:relative;background-size:cover;background-position:center}
+  .yard .media.water:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--green-deep) 0%,rgba(44,54,45,.55) 25%,rgba(44,54,45,0) 60%)}
+  @media(max-width:900px){.yard .media.water:before{background:linear-gradient(180deg,var(--green-deep) 0%,rgba(44,54,45,0) 50%)}}
   /* SPACING TWEAK */
   .progress{padding-bottom:55px}.plans{padding-top:55px}
   @media(max-width:560px){.progress{padding-bottom:36px}.plans{padding-top:36px}}
@@ -256,8 +312,21 @@
   .outline span{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
   @media(max-width:900px){.outline ol{grid-template-columns:1fr 1fr}}
 
+  /* BRANDS + COLLECTIONS */
+  .brands{margin-top:24px;padding:30px 34px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03)}
+  .brands .eyebrow{display:block;margin-bottom:6px}
+  .brands p{color:#c8cdc2;font-size:.95rem;margin-bottom:16px}
+  .brand-row{display:flex;flex-wrap:wrap;gap:10px}
+  .brand-row span{font-family:var(--serif);font-size:1.15rem;color:#fff;padding:8px 16px;border:1px solid rgba(205,183,143,.4)}
+  .coll{margin-top:24px;display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;padding:34px 38px;background:#efe9dd;color:var(--ink)}
+  .coll .bell{width:64px;height:64px;border-radius:50%;background:var(--green-deep);color:#cdb78f;display:flex;align-items:center;justify-content:center;font-size:1.6rem}
+  .coll h4{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.15;margin-bottom:8px}
+  .coll p{color:var(--ink-soft);font-size:1rem}
+  .coll a{display:inline-block;margin-top:14px;padding:12px 22px;background:var(--green-deep);color:#fff;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+  @media(max-width:900px){.coll{grid-template-columns:1fr;text-align:center}.coll .bell{margin:0 auto}}
+
   /* CTA */
-  .cta{background:url('/3904-east-boulevard/assets/oct26/backyard-twilight.jpg') center/cover;position:relative;color:#fff;text-align:center}
+  .cta{background:var(--green-deep);position:relative;color:#fff;text-align:center}
   .cta:before{content:"";position:absolute;inset:0;background:rgba(24,27,22,.78)}
   .cta .wrap{position:relative;z-index:2;max-width:760px}
   .cta h2{font-size:clamp(2.2rem,4.6vw,3.4rem);margin:18px 0 18px;color:#fff}
@@ -326,8 +395,8 @@
 </style>
 <div id="gate" aria-label="Password required">
   <div class="box">
-    <h1>3904 East Boulevard</h1>
-    <p>PRIVATE PREVIEW · ENTER ACCESS CODE</p>
+    <h1>3904 East&nbsp;Boulevard</h1>
+    <p>PRIVATE PREVIEW · ENTER ACCESS&nbsp;CODE</p>
     <input id="gpw" type="password" autocomplete="off" placeholder="Access code" aria-label="Access code">
     <button id="gbtn">Enter</button>
     <div class="err" id="gerr">Incorrect code — please try again.</div>
@@ -376,8 +445,8 @@
   <div class="hero-bg"></div>
   <div class="wrap hero-inner">
     <span class="eyebrow">Prepared for Phillip Illoulian · Private Preview · Completion Q4 2026</span>
-    <h1>3904 East Boulevard</h1>
-    <p class="sub">A Modern Mar Vista Estate</p>
+    <h1>3904 East&nbsp;Boulevard</h1>
+    <p class="sub">A Modern Mar Vista&nbsp;Estate</p>
     <div class="stats">6 BD &nbsp;/&nbsp; 6.5 BA &nbsp;·&nbsp; Approx. 5,730 SF &nbsp;·&nbsp; 11,470 SF Lot &nbsp;·&nbsp; Pool &amp; Jacuzzi &nbsp;·&nbsp; 2-Car Garage</div>
   </div>
 </section>
@@ -386,62 +455,38 @@
 <section class="launch" id="launch">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow ey-strong">Compass 3-Phase Launch · Prepared for Phillip Illoulian</span>
-      <h2>How We Take<br>3904 East Boulevard to Market</h2>
-      <p>Start quiet. Build demand. Go live with a tested price and buyers already lined up.</p>
+      <span class="eyebrow ey-strong">Marketing &amp; engagement · Prepared for Phillip Illoulian</span>
+      <h2>How We Take<br>3904 East Boulevard to&nbsp;Market</h2>
+      <p>A streamlined, proven 3-phase marketing strategy to ensure maximum sale&nbsp;value.</p>
     </div>
-    <div class="tl">
-      <div class="tl-track"><div class="tl-fill"></div></div>
-      <div class="ph now">
-        <div class="tl-node">01</div>
-        <div class="ph-card">
-          <div class="ph-img"><img src="/3904-east-boulevard/assets/3904/progress-03.jpg" alt="3904 East Boulevard under construction" loading="lazy"><span class="ph-badge">We are here</span><span class="ph-when">During construction</span></div>
-          <div class="ph-body">
-            <h3>Private Exclusive</h3>
-            <p>Hidden from Zillow, Realtor.com and public MLS search. Days on market stays at zero, with no public price history.</p>
-            <ul>
-              <li>Listed inside the Compass agent platform only</li>
-              <li>Test an ambitious price, adjust quietly</li>
-              <li>Private previews and site walks</li>
-              <li>Every inquiry goes to Michael &amp; Ania</li>
-            </ul>
-            <div class="stat">300,000+ Compass agents</div>
-          </div>
+    <div class="mk-phases">
+      <div class="mk-ph rv now">
+        <div class="mk-n">01</div>
+        <div class="mk-body">
+          <span class="mk-tag">Phase 1 · Compass Private Exclusive</span><span class="mk-here">We are here</span>
+          <h3>Test the market with agents&nbsp;first</h3>
+          <p>The focus is on agents. We market 3904 East quietly to Compass's network of 80,000+ agents and their buyers, with no days on market and no public price history. Early-access buyers may pay a premium: it's brand-new construction on a nearly quarter-acre Mar Vista lot, and some buyers would rather lock it in than compete in a multiple-offer situation. We can stay in this status for an extended&nbsp;period.</p>
+          <div class="mk-brands"><small>Agents across the Compass family of brands will see it</small><ul><li>Compass</li><li>Coldwell&nbsp;Banker</li><li>Sotheby's International&nbsp;Realty</li><li>Century&nbsp;21</li><li>Corcoran</li><li>Better Homes and Gardens Real&nbsp;Estate</li><li>ERA Real&nbsp;Estate</li><li>Christie's Real&nbsp;Estate</li><li>@properties</li></ul></div>
         </div>
+        <div class="mk-stat">80,000+<small>Compass agents reached</small></div>
       </div>
-      <div class="ph">
-        <div class="tl-node">02</div>
-        <div class="ph-card">
-          <div class="ph-img"><img src="/3904-east-boulevard/assets/oct26/kitchen.jpg" alt="Kitchen rendering" loading="lazy"><span class="ph-when">Pre-completion</span></div>
-          <div class="ph-body">
-            <h3>Coming Soon</h3>
-            <p>Public on Compass.com, still off the MLS. The buzz builds, the days-on-market clock doesn't start.</p>
-            <ul>
-              <li>Visible to every agent and buyer online</li>
-              <li>Track views, saves and shares</li>
-              <li>Final photos, video and staging</li>
-              <li>Build the launch-week buyer list</li>
-            </ul>
-            <div class="stat">Live on Compass.com</div>
-          </div>
+      <div class="mk-ph rv">
+        <div class="mk-n">02</div>
+        <div class="mk-body">
+          <span class="mk-tag">Phase 2 · Compass Coming Soon</span>
+          <h3>Open it to buyers without an&nbsp;agent</h3>
+          <p>The focus expands to buyers who aren't working with an agent yet. 3904 East goes on the MLS as Coming Soon (not Active), plus Compass.com, Redfin.com and Compass's international sites, reaching 60M+ buyers. Days on market stays at zero, and it can stay in this status for up to 45 days. You get live engagement data before going&nbsp;live.</p>
         </div>
+        <div class="mk-stat">60M+<small>buyers reached · up to 45 days</small></div>
       </div>
-      <div class="ph">
-        <div class="tl-node">03</div>
-        <div class="ph-card">
-          <div class="ph-img"><img src="/3904-east-boulevard/assets/oct26/front-brick.jpg" alt="Front exterior rendering" loading="lazy"><span class="ph-when">Completion · Q4 2026</span></div>
-          <div class="ph-body">
-            <h3>Going Live</h3>
-            <p>Full launch on the MLS and every major portal, with a market-tested price and demand already in place.</p>
-            <ul>
-              <li>MLS, Zillow, Redfin, Realtor.com</li>
-              <li>Finished photos, video and this site</li>
-              <li>Broker open and open houses</li>
-              <li>Offers reviewed on a set timeline</li>
-            </ul>
-            <div class="stat">MLS + all portals</div>
-          </div>
+      <div class="mk-ph rv dark">
+        <div class="mk-n">03</div>
+        <div class="mk-body">
+          <span class="mk-tag">Phase 3 · Go Live · Completion Q4 2026</span>
+          <h3>Launch with&nbsp;confidence</h3>
+          <p>3904 East goes Active on the MLS and all portals, timed using what we learned in Phases 1 and 2 to bring the best price and terms. Digital, social, print and open houses run&nbsp;alongside.</p>
         </div>
+        <div class="mk-stat">MLS<small>and every major portal</small></div>
       </div>
     </div>
     <div class="why">
@@ -449,29 +494,29 @@
         <div class="dom"><b data-zero>0</b><span>Days on market</span></div>
         <div>
           <span class="eyebrow">Why we start private</span>
-          <h3>Zero Public Footprint.<br>No DOM Clock.</h3>
-          <p>As a Private Exclusive, 3904 East Boulevard is completely hidden from public portals and public MLS search feeds. The days-on-market clock stays at zero. If we test an ambitious price and the market says it's high, we adjust it quietly, with no public price-drop history following the property.</p>
+          <h3>Zero Public Footprint.<br>No DOM&nbsp;Clock.</h3>
+          <p>As a Private Exclusive, 3904 East Boulevard is completely hidden from public portals and public MLS search feeds. The days-on-market clock stays at zero. If we test an ambitious price and the market says it's high, we adjust it quietly, with no public price-drop history following the&nbsp;property.</p>
           <div class="off"><em style="font-style:normal;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#cdb78f;align-self:center">Hidden from</em><span>Zillow</span><span>Realtor.com</span><span>Public MLS feeds</span><span>Price-drop history</span></div>
         </div>
       </div>
       <div class="why-grid">
         <div class="why-c">
           <span class="n">01</span>
-          <span class="big">300,000+</span>
-          <h4>Agents &amp; Premium Buyers, Targeted</h4>
-          <p>We upload the listing directly into the internal Compass platform, putting the build in front of top-producing Compass agents nationwide and their vetted, serious luxury buyers before anyone else sees it.</p>
+          <span class="big">80,000+</span>
+          <h4>Agents &amp; Premium Buyers,&nbsp;Targeted</h4>
+          <p>We upload the listing directly into the internal Compass platform, putting the build in front of agents across every Compass brand nationwide and their vetted, serious luxury buyers before anyone else sees&nbsp;it.</p>
         </div>
         <div class="why-c">
           <span class="n">02</span>
-          <h4>The &ldquo;Exclusive Trailer&rdquo; Leverage</h4>
-          <p>What we tell the buyer already circling:</p>
+          <h4>The &ldquo;Exclusive Trailer&rdquo;&nbsp;Leverage</h4>
+          <p>What we tell the buyer already&nbsp;circling:</p>
           <blockquote>&ldquo;We're putting the finishing touches on the home and soft-launching it privately across our agent network on [date]. If you want to lock this in before other private buyers see it, we need your offer now.&rdquo;</blockquote>
           <span class="fomo">Instant urgency + a backup buyer pool</span>
         </div>
         <div class="why-c">
           <span class="n">03</span>
-          <h4>Seamless Phased Transition</h4>
-          <p>Either way, we win:</p>
+          <h4>Seamless Phased&nbsp;Transition</h4>
+          <p>Either way, we&nbsp;win:</p>
           <div class="paths">
             <div><b>Offer in the private window →</b> we close without ever hitting the open market.</div>
             <div><b>Go live later →</b> we launch on the MLS from strength: refined feedback, zero DOM and active buyer demand.</div>
@@ -479,14 +524,57 @@
         </div>
       </div>
     </div>
+    <div class="coll rv">
+      <div class="bell">&#128276;</div>
+      <div>
+        <h4>Every Compass buyer searching Mar Vista gets&nbsp;notified.</h4>
+        <p>Active Compass clients keep saved searches in Compass Collections. Any buyer with a Compass link and a Mar Vista search will see 3904 East and get an alert as soon as it's&nbsp;shared.</p>
+        <a href="https://cmps.re/MnyryqR" target="_blank" rel="noopener">See Compass Exclusives in Mar Vista now</a>
+      </div>
+    </div>
     <div class="ph-data">
       <div><b data-n="2.9" data-pre="+" data-suf="%">+2.9%</b><span>Higher closing prices vs. straight to MLS</span></div>
       <div><b data-n="20" data-suf="% Faster">20% Faster</b><span>Time to an accepted offer</span></div>
       <div><b data-n="30" data-suf="% Less">30% Less</b><span>Likely to take a price cut</span></div>
     </div>
-    <p class="ph-src">Source: Compass data on homes pre-marketed through Private Exclusive and Coming Soon before MLS.</p>
+    <p class="ph-src">Source: Compass 2024 results for its phased marketing, as published on amre.group. Agent count: Compass reported 83,184 brokerage agents at the end of Q2 2026. Buyer reach figure as published on&nbsp;amre.group.</p>
   </div>
 </section>
+<!-- MARKETING PLAN + CLOSING -->
+<section class="mk-plan" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Marketing · our comprehensive strategy</span>
+      <h2>Our Marketing&nbsp;Plan</h2>
+    </div>
+    <div class="mk-grid">
+      <div class="rv"><h3>Photos, video and&nbsp;aerials</h3><p>Professional photography, a listing video and drone views that put the best version of the home&nbsp;first.</p></div>
+      <div class="rv"><h3>Social, portals and&nbsp;email</h3><p>Instagram, Facebook, LinkedIn and YouTube, plus Compass.com, Zillow and Realtor.com, and targeted email and direct&nbsp;mail.</p></div>
+      <div class="rv"><h3>Open houses and&nbsp;events</h3><p>Agent preview, neighbor tour and weekend open&nbsp;houses.</p></div>
+      <div class="rv"><h3>Compass&nbsp;One</h3><p>24/7 visibility into your timeline, documents and listing activity, and a direct line to&nbsp;us.</p></div>
+    </div>
+    <div class="mk-lp rv">
+      <div class="mk-lp-img"><img src="/3904-east-boulevard/assets/oct15/family-room.jpg" alt="3904 East Boulevard family room rendering" loading="lazy"><i>Rendering</i></div>
+      <div>
+        <span class="eyebrow">Custom property mini website</span>
+        <h3>Your home gets its own mini&nbsp;website.</h3>
+        <p>A landing page built just for 3904 East, with the renderings, construction updates, listing video and drone views up front. Every agent, buyer and portal link points to it, and it stays current through all three&nbsp;phases.</p>
+      </div>
+    </div>
+    <div class="sec-head" style="margin-top:96px">
+      <span class="eyebrow">Offers · escrow · closing</span>
+      <h2>From Offers to&nbsp;Keys</h2>
+      <p>How we choose the buyer, negotiate the terms<br>and carry the deal through escrow to&nbsp;close.</p>
+    </div>
+    <div class="cl-grid">
+      <div class="cl rv"><span class="eyebrow">01 · Select a buyer</span><h3>Compare every&nbsp;offer</h3><ul><li>Price, terms and financing strength side by&nbsp;side</li><li>Every offer weighed on certainty, not just&nbsp;price</li><li>Proof of funds, loan approval and deposit&nbsp;checked</li><li>You make the final&nbsp;call</li></ul></div>
+      <div class="cl rv"><span class="eyebrow">02 · Negotiate</span><h3>Protect your price and&nbsp;terms</h3><ul><li>Counters on price, timing and&nbsp;contingencies</li><li>Repair and credit requests handled with a&nbsp;plan</li><li>Closing timed to&nbsp;completion</li></ul></div>
+      <div class="cl rv"><span class="eyebrow">03 · Escrow Process</span><h3>Keep the deal on&nbsp;track</h3><ul><li>Escrow opened and the deposit&nbsp;confirmed</li><li>Disclosures delivered and&nbsp;signed</li><li>Buyer inspections scheduled and&nbsp;managed</li><li>Appraisal and contingency removals&nbsp;tracked</li></ul></div>
+      <div class="cl rv dark"><span class="eyebrow">04 · Closing</span><h3>Close with&nbsp;confidence</h3><ul><li>Final walkthrough and loan&nbsp;funding</li><li>Estimated closing statement reviewed with&nbsp;you</li><li>Coordinate handoff to the&nbsp;buyer</li><li>Coordinate notary and document signing when&nbsp;needed</li><li>Recording, keys and proceeds sent to&nbsp;you</li></ul></div>
+    </div>
+  </div>
+</section>
+
 <script>
 (function(){
   var s=document.getElementById('launch'); if(!s) return;
@@ -506,20 +594,20 @@
   <div class="wrap">
     <span class="eyebrow">The Residence</span>
     <div class="sec-head" style="margin-bottom:28px">
-      <h2>Modern Westside Living on an Oversized Mar Vista Lot</h2>
+      <h2>Modern Westside Living on an Oversized Mar Vista&nbsp;Lot</h2>
     </div>
-    <p class="lead">A rare opportunity to own a new-construction Mar Vista estate with true scale and privacy. Designed for effortless indoor-outdoor living, the residence pairs a warm modern aesthetic with a pool and jacuzzi, flexible ADU space, and generous room to grow — all on a nearly quarter-acre lot in one of the Westside's most coveted neighborhoods.</p>
+    <p class="lead">A rare opportunity to own a new-construction Mar Vista estate with true scale and privacy. Designed for effortless indoor-outdoor living, the residence pairs a warm modern aesthetic with a pool and jacuzzi, flexible ADU space, and generous room to grow — all on a nearly quarter-acre lot in one of the Westside's most coveted&nbsp;neighborhoods.</p>
     <nav class="outline rv" aria-label="Page outline">
       <span class="ol-t">What's Inside</span>
       <ol>
         <li><a href="#launch"><b>01</b><span>Launch Plan</span></a></li>
-        <li><a href="#gallery"><b>02</b><span>Renderings</span></a></li>
-        <li><a href="#glance"><b>03</b><span>At a Glance</span></a></li>
+        <li><a href="#plan"><b>02</b><span>Marketing &amp; Closing</span></a></li>
+        <li><a href="#gallery"><b>03</b><span>Renderings</span></a></li>
         <li><a href="#progress"><b>04</b><span>Construction</span></a></li>
         <li><a href="#plans"><b>05</b><span>Floor Plans</span></a></li>
         <li><a href="#adu"><b>06</b><span>ADU</span></a></li>
-        <li><a href="#backyard"><b>07</b><span>Backyard</span></a></li>
-        <li><a href="#location"><b>08</b><span>Neighborhood</span></a></li>
+        <li><a href="#location"><b>07</b><span>Neighborhood</span></a></li>
+        <li><a href="#about"><b>08</b><span>About Us</span></a></li>
       </ol>
     </nav>
   </div>
@@ -530,20 +618,20 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Renderings</span>
-      <h2>See It Before It's Built</h2>
-      <p>A preview of the finished residence — warm materials, abundant light, and a seamless flow from the great room to the backyard.</p>
+      <h2>See It Before It's&nbsp;Built</h2>
+      <p>A preview of the finished residence — warm materials, abundant light, and a seamless flow from the great room to the&nbsp;backyard.</p>
     </div>
     <div class="grid-g" id="ggrid">
-      <div class="g-item c8 ar-wide" data-cap="Modern Front Exterior"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/front-brick.jpg" alt="Modern front exterior rendering"><span class="cap">Modern Front Exterior</span></div>
-      <div class="g-item c4 ar-tall" data-cap="Front Entry"><img width="1122" height="1402" src="/3904-east-boulevard/assets/3904/entry-detail.jpg" alt="Front entry detail"><span class="cap">Front Entry</span></div>
-      <div class="g-item c8 ar-wide" data-cap="Rear Yard · Pool · Entertaining"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/backyard-twilight.jpg" alt="Rear yard and pool"><span class="cap">Rear Yard · Pool · Entertaining</span></div>
-      <div class="g-item c4 ar-4x3" data-cap="Butler's Pantry"><img width="1448" height="1086" src="/3904-east-boulevard/assets/3904/butler-pantry.jpg" alt="Butler's pantry"><span class="cap">Butler's Pantry</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Kitchen &amp; Great Room"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/kitchen.jpg" alt="Kitchen and great room"><span class="cap">Kitchen &amp; Great Room</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Living Room &amp; Fireplace"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/living.jpg" alt="Living room with fireplace"><span class="cap">Living Room &amp; Fireplace</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Primary Bath"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/primary-bath.jpg" alt="Primary bath"><span class="cap">Primary Bath</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="ADU Suite"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/adu.jpg" alt="ADU suite"><span class="cap">ADU Suite</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Dining &amp; Kitchen"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/dining.jpg" alt="Dining room and kitchen" loading="lazy"><span class="cap">Dining &amp; Kitchen</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Primary Bedroom"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/primary-bedroom.jpg" alt="Primary bedroom" loading="lazy"><span class="cap">Primary Bedroom</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Front Exterior"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/front-brick.jpg" alt="Front Exterior" loading="lazy"><span class="cap">Front Exterior</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Great Room &amp; Kitchen"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/great-room-kitchen.jpg" alt="Great Room and Kitchen" loading="lazy"><span class="cap">Great Room &amp; Kitchen</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Kitchen &amp; Island"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/kitchen-v2.jpg" alt="Kitchen and Island" loading="lazy"><span class="cap">Kitchen &amp; Island</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Family Room &amp; Patio Sliders"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/family-room.jpg" alt="Family Room and Patio Sliders" loading="lazy"><span class="cap">Family Room &amp; Patio Sliders</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Staircase &amp; Built-In Library"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/staircase-library.jpg" alt="Staircase and Built-In Library" loading="lazy"><span class="cap">Staircase &amp; Built-In Library</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Formal Dining &amp; Fireplace"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/formal-dining.jpg" alt="Formal Dining and Fireplace" loading="lazy"><span class="cap">Formal Dining &amp; Fireplace</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Butler's Pantry"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/butler-pantry-v2.jpg" alt="Butler's Pantry" loading="lazy"><span class="cap">Butler's Pantry</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Upstairs Loft · Vaulted Ceiling"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/upper-loft.jpg" alt="Upstairs Loft — Vaulted Ceiling" loading="lazy"><span class="cap">Upstairs Loft · Vaulted Ceiling</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Primary Suite"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/primary-bedroom-v2.jpg" alt="Primary Suite" loading="lazy"><span class="cap">Primary Suite</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="ADU Suite · Kitchenette &amp; Living"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct15/adu-v2.jpg" alt="ADU Suite — Kitchenette and Living" loading="lazy"><span class="cap">ADU Suite · Kitchenette &amp; Living</span></div>
     </div>
   </div>
 </section>
@@ -552,14 +640,14 @@
 <section class="features" id="glance">
   <div class="wrap" style="text-align:center">
     <span class="eyebrow">At a Glance</span>
-    <div class="sec-head" style="margin-bottom:0"><h2 style="color:#fff">Built for the Way You Live</h2></div>
+    <div class="sec-head" style="margin-bottom:0"><h2 style="color:#fff">Built for the Way You&nbsp;Live</h2></div>
     <div class="feat-grid">
-      <div class="feat"><span class="ic">⬡</span><h3>6 BD / 6.5 BA</h3><p>Generous scale for family, guests, a home office, and flexible living.</p></div>
-      <div class="feat"><span class="ic">▢</span><h3>Approx. 5,730 SF</h3><p>Substantial new-construction square footage across two levels.</p></div>
-      <div class="feat"><span class="ic">◇</span><h3>11,470 SF Lot</h3><p>Nearly a quarter acre — a major Mar Vista differentiator.</p></div>
-      <div class="feat"><span class="ic">≈</span><h3>Pool &amp; Jacuzzi</h3><p>A private backyard oasis built for year-round entertaining.</p></div>
-      <div class="feat"><span class="ic">✦</span><h3>Primary Suite</h3><p>Spa bath, soaking tub, and an oversized walk-in closet.</p></div>
-      <div class="feat"><span class="ic">▤</span><h3>Attached 2-Car Garage</h3><p>Direct-access convenience with abundant storage.</p></div>
+      <div class="feat"><span class="ic">⬡</span><h3>6 BD / 6.5&nbsp;BA</h3><p>Generous scale for family, guests, a home office, and flexible&nbsp;living.</p></div>
+      <div class="feat"><span class="ic">▢</span><h3>Approx. 5,730&nbsp;SF</h3><p>Substantial new-construction square footage across two&nbsp;levels.</p></div>
+      <div class="feat"><span class="ic">◇</span><h3>11,470 SF&nbsp;Lot</h3><p>Nearly a quarter acre — a major Mar Vista&nbsp;differentiator.</p></div>
+      <div class="feat"><span class="ic">≈</span><h3>Pool &amp;&nbsp;Jacuzzi</h3><p>A private backyard oasis built for year-round&nbsp;entertaining.</p></div>
+      <div class="feat"><span class="ic">✦</span><h3>Primary&nbsp;Suite</h3><p>Spa bath, soaking tub, and an oversized walk-in&nbsp;closet.</p></div>
+      <div class="feat"><span class="ic">▤</span><h3>Attached 2-Car&nbsp;Garage</h3><p>Direct-access convenience with abundant&nbsp;storage.</p></div>
     </div>
   </div>
 </section>
@@ -570,8 +658,8 @@
     <div class="sec-head">
       <span class="prog-stamp">As of September 2026</span>
       <span class="eyebrow">On Site</span>
-      <h2>Construction Progress</h2>
-      <p>Fresh from the site. Brick and stucco are complete, wide-plank floors are down, marble counters and the fireplace surround are set, and tile and fixtures are going in. On track for Q4 2026 completion.</p>
+      <h2>Construction&nbsp;Progress</h2>
+      <p>Fresh from the site. Brick and stucco are complete, wide-plank floors are down, marble counters and the fireplace surround are set, and tile and fixtures are going in. On track for Q4 2026&nbsp;completion.</p>
     </div>
     <div class="grid-g" id="pgrid">
       <div class="g-item c8 ar-wide" data-cap="Front Elevation · Brick &amp; Stucco Complete"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/front.jpg" alt="Front Elevation — Brick and Stucco Complete" loading="lazy"><span class="cap">Front Elevation · Brick &amp; Stucco Complete</span></div>
@@ -585,7 +673,7 @@
       <div class="g-item c6 ar-4x3" data-cap="Kitchen Sink · Marble &amp; Bridge Faucet"><img width="960" height="1280" src="/3904-east-boulevard/assets/const-sep26/marble-sink.jpg" alt="Kitchen Sink — Marble and Bridge Faucet" loading="lazy"><span class="cap">Kitchen Sink · Marble &amp; Bridge Faucet</span></div>
       <div class="g-item c6 ar-4x3" data-cap="Steel Window Wall"><img width="960" height="1280" src="/3904-east-boulevard/assets/const-sep26/steel-windows.jpg" alt="Steel Window Wall" loading="lazy"><span class="cap">Steel Window Wall</span></div>
     </div>
-    <p class="prog-note">Active construction site. Photos reflect work in progress and are for illustrative purposes; finishes and details are subject to change.</p>
+    <p class="prog-note">Active construction site. Photos reflect work in progress and are for illustrative purposes; finishes and details are subject to&nbsp;change.</p>
   </div>
 </section>
 
@@ -594,22 +682,22 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Architectural Plans</span>
-      <h2>Two Levels, Thoughtfully Zoned</h2>
-      <p>A flexible main level for entertaining and a private upstairs retreat for rest.</p>
+      <h2>Two Levels, Thoughtfully&nbsp;Zoned</h2>
+      <p>A flexible main level for entertaining and a private upstairs retreat for&nbsp;rest.</p>
     </div>
 
     <div class="plan-row">
       <div class="plan-img"><img width="1559" height="1009" src="/3904-east-boulevard/assets/3904/floorplan-first.jpg" alt="First floor plan"></div>
       <div class="ptxt">
         <span class="eyebrow">First Floor</span>
-        <h3>Entertaining &amp; Flexibility</h3>
-        <p>An open kitchen and great room anchor the main level, flowing to the rear patio for seamless indoor-outdoor living. A dedicated ADU zone offers privacy and independence.</p>
+        <h3>Entertaining &amp;&nbsp;Flexibility</h3>
+        <p>An open kitchen and great room anchor the main level, flowing to the rear patio for seamless indoor-outdoor living. A dedicated ADU zone offers privacy and&nbsp;independence.</p>
         <ul>
-          <li>Open kitchen with island &amp; butler's pantry</li>
-          <li>Family room, living room &amp; formal dining</li>
-          <li>Central hall &amp; covered rear patio</li>
-          <li>Self-contained ADU living/dining &amp; bedroom</li>
-          <li>Attached 2-car garage with direct access</li>
+          <li>Open kitchen with island &amp; butler's&nbsp;pantry</li>
+          <li>Family room, living room &amp; formal&nbsp;dining</li>
+          <li>Central hall &amp; covered rear&nbsp;patio</li>
+          <li>Self-contained ADU living/dining &amp;&nbsp;bedroom</li>
+          <li>Attached 2-car garage with direct&nbsp;access</li>
         </ul>
       </div>
     </div>
@@ -617,14 +705,14 @@
     <div class="plan-row rev">
       <div class="ptxt">
         <span class="eyebrow">Second Floor</span>
-        <h3>The Private Bedroom Level</h3>
-        <p>A serene upstairs floor centered on a flexible den, with a generous primary suite and well-separated secondary bedrooms — each served by its own bath.</p>
+        <h3>The Private Bedroom&nbsp;Level</h3>
+        <p>A serene upstairs floor centered on a flexible den, with a generous primary suite and well-separated secondary bedrooms — each served by its own&nbsp;bath.</p>
         <ul>
-          <li>Primary suite with spa bath &amp; walk-in closet</li>
-          <li>Central den / loft retreat</li>
-          <li>Four secondary bedrooms</li>
-          <li>Multiple full baths</li>
-          <li>Upstairs laundry room</li>
+          <li>Primary suite with spa bath &amp; walk-in&nbsp;closet</li>
+          <li>Central den / loft&nbsp;retreat</li>
+          <li>Four secondary&nbsp;bedrooms</li>
+          <li>Multiple full&nbsp;baths</li>
+          <li>Upstairs laundry&nbsp;room</li>
         </ul>
       </div>
       <div class="plan-img"><img width="1559" height="1009" src="/3904-east-boulevard/assets/3904/floorplan-second.jpg" alt="Second floor plan"></div>
@@ -634,13 +722,13 @@
       <div class="plan-img"><img width="1559" height="1009" src="/3904-east-boulevard/assets/3904/floorplan-adu.jpg" alt="First floor plan with ADU highlighted"></div>
       <div class="ptxt">
         <span class="eyebrow">ADU Highlight</span>
-        <h3>A Home Within the Home</h3>
-        <p>The same first-floor plan, with the self-contained ADU zone shown in accent — a private living/dining area and bedroom with its own bath and entry, ready to flex to guests, family, work, or rental.</p>
+        <h3>A Home Within the&nbsp;Home</h3>
+        <p>The same first-floor plan, with the self-contained ADU zone shown in accent — a private living/dining area and bedroom with its own bath and entry, ready to flex to guests, family, work, or&nbsp;rental.</p>
         <ul>
-          <li>Dedicated ADU living/dining room</li>
-          <li>Private ADU bedroom &amp; full bath</li>
-          <li>Separate entrance for independence</li>
-          <li>Adjacent to kitchen &amp; butler's pantry</li>
+          <li>Dedicated ADU living/dining&nbsp;room</li>
+          <li>Private ADU bedroom &amp; full&nbsp;bath</li>
+          <li>Separate entrance for&nbsp;independence</li>
+          <li>Adjacent to kitchen &amp; butler's&nbsp;pantry</li>
         </ul>
       </div>
     </div>
@@ -649,12 +737,12 @@
 
 <!-- ADU -->
 <section class="split adu" id="adu">
-  <div class="media" style="background-image:url('/3904-east-boulevard/assets/oct26/adu.jpg')"></div>
+  <div class="media" style="background-image:url('/3904-east-boulevard/assets/oct15/adu-v2.jpg')"></div>
   <div class="body">
     <span class="eyebrow">Flexible Living</span>
-    <h2>Built-In Flexibility for Modern Living</h2>
-    <p>The residence's dedicated ADU zone — a private living/dining space, bedroom, and bath with its own entrance — adapts to whatever life calls for.</p>
-    <p>Use it as a guest suite, an in-law residence, a work-from-home retreat, a rental opportunity, or multigenerational living. It's square footage that earns its keep.</p>
+    <h2>Built-In Flexibility for Modern&nbsp;Living</h2>
+    <p>The residence's dedicated ADU zone — a private living/dining space, bedroom, and bath with its own entrance — adapts to whatever life calls&nbsp;for.</p>
+    <p>Use it as a guest suite, an in-law residence, a work-from-home retreat, a rental opportunity, or multigenerational living. It's square footage that earns its&nbsp;keep.</p>
     <div class="tags">
       <span class="tag">Guest Suite</span>
       <span class="tag">In-Law Suite</span>
@@ -669,9 +757,9 @@
 <section class="split yard" id="backyard">
   <div class="body">
     <span class="eyebrow">The Backyard</span>
-    <h2>A Private Backyard Oasis</h2>
-    <p>Floor-to-ceiling sliders dissolve the line between the great room and the outdoors, opening to a resort-style yard made for gathering.</p>
-    <p>A sparkling pool and jacuzzi, generous patio space for outdoor dining and lounging, and mature landscaping for privacy — your own retreat, steps from the kitchen.</p>
+    <h2>A Private Backyard&nbsp;Oasis</h2>
+    <p>Floor-to-ceiling sliders dissolve the line between the great room and the outdoors, opening to a resort-style yard made for&nbsp;gathering.</p>
+    <p>A sparkling pool and jacuzzi, generous patio space for outdoor dining and lounging, and mature landscaping for privacy — your own retreat, steps from the&nbsp;kitchen.</p>
     <div class="tags">
       <span class="tag">Pool &amp; Jacuzzi</span>
       <span class="tag">Outdoor Dining</span>
@@ -679,7 +767,7 @@
       <span class="tag">Indoor-Outdoor Flow</span>
     </div>
   </div>
-  <div class="media" style="background-image:url('/3904-east-boulevard/assets/3904/rear-yard-pool.jpg')"></div>
+  <div class="media water" style="background-image:url('/3904-east-boulevard/assets/oct15/water.jpg')"></div>
 </section>
 
 <!-- LOCATION -->
@@ -687,7 +775,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">The Neighborhood</span>
-      <h2>Mar Vista Scale.<br>Westside Convenience.</h2>
+      <h2>Mar Vista Scale.<br>Westside&nbsp;Convenience.</h2>
     </div>
     <div class="loc-grid">
       <div class="loc-map">
@@ -696,8 +784,8 @@
       </div>
       <div class="loc-body">
         <span class="eyebrow">90066 · Mar Vista</span>
-        <h2 style="font-size:2rem;margin-top:10px">A Quiet Westside Address</h2>
-        <p>Mar Vista pairs a relaxed, residential feel with genuine Westside access — minutes to the beach, Silicon Beach employers, and the dining and retail of Venice, Culver City, and Santa Monica. The oversized lot delivers a sense of space that's increasingly rare this close to the coast.</p>
+        <h2 style="font-size:2rem;margin-top:10px">A Quiet Westside&nbsp;Address</h2>
+        <p>Mar Vista pairs a relaxed, residential feel with genuine Westside access — minutes to the beach, Silicon Beach employers, and the dining and retail of Venice, Culver City, and Santa Monica. The oversized lot delivers a sense of space that's increasingly rare this close to the&nbsp;coast.</p>
         <div class="hl">
           <div><span>~2.5 mi</span>To the Pacific &amp; Venice</div>
           <div><span>~10 min</span>Culver City &amp; Silicon Beach</div>
@@ -708,22 +796,34 @@
     </div>
     <div class="near">
       <div class="near-head">
-        <h3>Around the Neighborhood</h3>
-        <p>Standouts within two miles of the front door: where to eat, shop and gather.</p>
+        <h3>Around the&nbsp;Neighborhood</h3>
+        <p>Standouts within two miles of the front door: where to eat, shop and&nbsp;gather.</p>
       </div>
       <div class="near-grid">
-          <div class="spot rv"><span class="k">Restaurant &amp; Bar · ~0.4 mi</span><h4>The Mar Vista</h4><p>The neighborhood's go-to on Venice Blvd at Grand View for dinner, cocktails and weekend brunch.</p></div>
-          <div class="spot rv"><span class="k">Every Sunday · ~0.4 mi</span><h4>Mar Vista Farmers' Market</h4><p>A Sunday tradition on Grand View Blvd with local produce and food vendors.</p></div>
-          <div class="spot rv"><span class="k">New Dinner Spot · Mar Vista</span><h4>Chez Mar</h4><p>One of Mar Vista's newest restaurants, already on The Infatuation's radar.</p></div>
-          <div class="spot rv"><span class="k">Parks &amp; Recreation · ~0.9 mi</span><h4>Mar Vista Recreation Center</h4><p>The neighborhood park: ball fields, courts, a public pool and playgrounds.</p></div>
-          <div class="spot rv"><span class="k">Japanese Market &amp; Food Hall · ~1.4 mi</span><h4>Mitsuwa Marketplace</h4><p>Japanese grocery and food court on Centinela, home to tempura, ramen and sushi counters.</p></div>
-          <div class="spot rv"><span class="k">Event Venue · ~1.7 mi</span><h4>Barker Hangar</h4><p>Santa Monica Airport's landmark hangar, home to The Other Art Fair and the WestEdge Design Fair.</p></div>
+          <div class="spot rv"><span class="k">Restaurant &amp; Bar · ~0.4 mi</span><h4>The Mar&nbsp;Vista</h4><p>The neighborhood's go-to on Venice Blvd at Grand View for dinner, cocktails and weekend&nbsp;brunch.</p></div>
+          <div class="spot rv"><span class="k">Every Sunday · ~0.4 mi</span><h4>Mar Vista Farmers'&nbsp;Market</h4><p>A Sunday tradition on Grand View Blvd with local produce and food&nbsp;vendors.</p></div>
+          <div class="spot rv"><span class="k">New Dinner Spot · Mar Vista</span><h4>Chez&nbsp;Mar</h4><p>One of Mar Vista's newest restaurants, already on The Infatuation's&nbsp;radar.</p></div>
+          <div class="spot rv"><span class="k">Parks &amp; Recreation · ~0.9 mi</span><h4>Mar Vista Recreation&nbsp;Center</h4><p>The neighborhood park: ball fields, courts, a public pool and&nbsp;playgrounds.</p></div>
+          <div class="spot rv"><span class="k">Japanese Market &amp; Food Hall · ~1.4 mi</span><h4>Mitsuwa&nbsp;Marketplace</h4><p>Japanese grocery and food court on Centinela, home to tempura, ramen and sushi&nbsp;counters.</p></div>
+          <div class="spot rv"><span class="k">Event Venue · ~1.7 mi</span><h4>Barker&nbsp;Hangar</h4><p>Santa Monica Airport's landmark hangar, home to The Other Art Fair and the WestEdge Design&nbsp;Fair.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
+
+<!-- ABOUT -->
+<section class="abn" id="about">
+  <div class="abn-bg"><img src="/arlington-heights-duplex/assets/i-160d1c7492.jpg" alt="Michael Abraham and Ania De Pourbaix"></div>
+  <div class="abn-scrim"></div>
+  <div class="wrap abn-in">
+    <span class="eyebrow">About AMRE · who's guiding you</span>
+    <h2>Real Estate, Architecture &amp; Design,<br>Under One&nbsp;Roof.</h2>
+    <p>AMRE is a full-service real estate team at Compass. We combine 25 years of experience in real estate, architecture, interior design and marketing, so you get one team for the whole sale. You work with both of us, every&nbsp;time.</p>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <a href="#top" class="brand">3904 East Boulevard</a>
@@ -734,7 +834,7 @@
       <a href="#adu">ADU</a>
       <a href="#location">Location</a>
     </div>
-    <p class="fine">3904 East Boulevard · Los Angeles, CA 90066 · Mar Vista. New construction; completion anticipated Q4 2026. Renderings and floor plans are artist's conceptions for illustrative purposes and are subject to change. Square footage and lot size are approximate. This is not an offer to sell or a solicitation to buy where prohibited.</p>
+    <p class="fine">3904 East Boulevard · Los Angeles, CA 90066 · Mar Vista. New construction; completion anticipated Q4 2026. Renderings and floor plans are artist's conceptions for illustrative purposes and are subject to change. Square footage and lot size are approximate. This is not an offer to sell or a solicitation to buy where&nbsp;prohibited.</p>
   </div>
 </footer>
 
@@ -774,7 +874,7 @@
 <div style="background:#ffffff;border-top:1px solid rgba(0,0,0,.08);padding:26px 24px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,sans-serif;">
   <div style="max-width:1100px;margin:0 auto;display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
     <p style="flex:1;min-width:280px;margin:0;font-size:11px;line-height:1.7;color:#3a3a3c;">
-      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener" style="color:#1c3d31;text-decoration:underline;">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. Michael Abraham DRE#&nbsp;02242095 &middot; Ania De Pourbaix DRE#&nbsp;01891438. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.
+      AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener" style="color:#1c3d31;text-decoration:underline;">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. Michael Abraham DRE#&nbsp;02242095 &middot; Ania De Pourbaix DRE#&nbsp;01891438. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a&nbsp;solicitation.
     </p>
     <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR&reg; and Equal Housing Opportunity" style="height:52px;width:auto;flex-shrink:0;display:block;" loading="lazy" decoding="async">
   </div>
