@@ -52,21 +52,24 @@
 
   /* HERO */
   .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
-  .hero-bg{position:absolute;inset:0;background:url('/3904-east-boulevard/overview/img/exterior.jpg') center/cover no-repeat;transform:scale(1.03)}
-  .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,22,19,.72) 0%,rgba(20,22,19,.15) 45%,rgba(20,22,19,.25) 100%)}
+  .hero-bg{position:absolute;inset:0;background:url('/3904-east-boulevard/assets/oct26/front-brick.jpg') center 40%/cover no-repeat;transform:scale(1.03);animation:kb 22s ease-out both}
+  @keyframes kb{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+  .hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,22,19,.85) 0%,rgba(20,22,19,.45) 40%,rgba(20,22,19,.1) 70%,rgba(20,22,19,.3) 100%)}
   .hero-inner{position:relative;z-index:2;padding-bottom:8vh;width:100%}
   .hero .eyebrow{color:#e7e0d2}
   .hero h1{font-size:clamp(3rem,8vw,6.4rem);margin:18px 0 10px;font-weight:400}
-  .hero .sub{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:400;font-style:italic;color:#f0ebe0;margin-bottom:26px}
-  .stats{font-size:.82rem;letter-spacing:.13em;text-transform:uppercase;color:#efe9dd;border-top:1px solid rgba(255,255,255,.28);border-bottom:1px solid rgba(255,255,255,.28);padding:16px 0;margin-bottom:30px;max-width:880px}
+  .hero .sub{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.3rem);font-weight:600;font-style:italic;color:#fff;margin-bottom:22px;text-shadow:0 2px 14px rgba(0,0,0,.55)}
+  .hero h1{text-shadow:0 3px 24px rgba(0,0,0,.45)}
+  .hero .eyebrow{font-weight:600;font-size:.8rem;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  .stats{display:inline-flex;flex-wrap:wrap;gap:6px 0;font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;color:#fff;font-weight:500;background:rgba(20,22,19,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);padding:14px 22px;margin-bottom:30px;max-width:100%;text-shadow:0 1px 8px rgba(0,0,0,.45)}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
 
   /* SECTIONS */
   section{padding:110px 0}
   .sec-head{text-align:center;max-width:760px;margin:0 auto 60px}
   .sec-head h2{font-size:clamp(2.1rem,4.4vw,3.3rem);margin:16px 0 18px}
-  .sec-head p{color:var(--ink-soft);font-size:1.06rem}
-  .lead{font-size:clamp(1.05rem,1.8vw,1.22rem);color:var(--ink-soft);max-width:720px;margin:0 auto;text-align:center}
+  .sec-head p{color:var(--ink-soft);font-size:1.27rem;line-height:1.6}
+  .lead{font-size:clamp(1.26rem,2.1vw,1.46rem);color:var(--ink-soft);max-width:720px;margin:0 auto;text-align:center}
 
   /* INTRO */
   .intro{background:var(--paper);text-align:center}
@@ -80,7 +83,9 @@
   .g-item .cap{position:absolute;left:0;right:0;bottom:0;padding:30px 22px 16px;background:linear-gradient(to top,rgba(20,22,19,.7),transparent);color:#fff;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;opacity:0;transition:.4s}
   .g-item:hover .cap{opacity:1}
   .c12{grid-column:span 12} .c8{grid-column:span 8} .c6{grid-column:span 6} .c4{grid-column:span 4}
-  .ar-wide{aspect-ratio:16/9} .ar-tall{aspect-ratio:3/4} .ar-4x3{aspect-ratio:4/3}
+  .ar-wide{aspect-ratio:16/9} .ar-tall{aspect-ratio:auto}
+  .ar-tall img{position:absolute;inset:0}
+  @media(max-width:900px){.ar-tall{aspect-ratio:3/4}} .ar-4x3{aspect-ratio:4/3}
 
   /* CONSTRUCTION PROGRESS */
   .progress{background:var(--paper)}
@@ -126,6 +131,9 @@
   .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
   .tag{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--line)}
   .yard .tag{border-color:rgba(255,255,255,.3)}
+  .split{padding:0}
+  .yard{min-height:680px}
+  .yard .media{background-position:center 12%;background-size:cover}
 
   /* LOCATION */
   .loc{background:var(--cream-2)}
@@ -140,31 +148,116 @@
 
 
   /* LAUNCH PLAN (client view) */
-  .launch{background:var(--green-deep);color:#efe9dd}
-  .launch .eyebrow{color:#b9c2b1}
+  .launch{position:relative;background:var(--green-deep);color:#efe9dd;overflow:hidden}
+  .launch{background:radial-gradient(ellipse at 15% 0%,rgba(205,183,143,.22),transparent 55%),radial-gradient(ellipse at 90% 100%,rgba(122,140,110,.35),transparent 60%),linear-gradient(160deg,#2c362d 0%,#232b24 55%,#1b211c 100%)}
+  .launch .ey-strong{font-weight:600;color:#e2cc9f;font-size:.8rem;letter-spacing:.28em}
+  .launch .wrap{position:relative;z-index:1}
+  .launch .eyebrow{color:#cdb78f}
   .launch .sec-head h2{color:#fff}
   .launch .sec-head p{color:#c8cdc2}
-  .ph-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.16)}
-  .ph{padding:44px 32px;border-right:1px solid rgba(255,255,255,.16);position:relative}
-  .ph:last-child{border-right:none}
-  .ph .num{font-family:var(--serif);font-size:3rem;color:#cdb78f;line-height:1}
-  .ph .when{display:inline-block;margin:16px 0 6px;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:#b9c2b1;border:1px solid rgba(255,255,255,.22);padding:6px 12px}
-  .ph h3{font-size:1.9rem;color:#fff;margin:10px 0 12px}
-  .ph p{font-size:.95rem;color:#c8cdc2;margin-bottom:14px}
-  .ph ul{list-style:none;margin-top:6px}
-  .ph li{font-size:.88rem;color:#dfe2d9;padding:9px 0;border-top:1px solid rgba(255,255,255,.12)}
-  .ph .stat{margin-top:18px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#cdb78f}
-  .ph-now{background:rgba(255,255,255,.04)}
-  .ph-now .when{background:#cdb78f;color:var(--green-deep);border-color:#cdb78f}
-  .ph-data{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
-  .ph-data div{border:1px solid rgba(255,255,255,.16);padding:26px}
-  .ph-data b{display:block;font-family:var(--serif);font-weight:500;font-size:2.3rem;color:#fff;line-height:1.1}
-  .ph-data span{display:block;font-size:.85rem;color:#c8cdc2;margin-top:6px}
-  .ph-src{text-align:center;font-size:.72rem;color:#9aa394;margin-top:18px}
-  @media(max-width:900px){.ph-grid,.ph-data{grid-template-columns:1fr}.ph{border-right:none;border-bottom:1px solid rgba(255,255,255,.16)}}
+  .tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px}
+  .tl-track{position:absolute;left:16.66%;right:16.66%;top:27px;height:2px;background:rgba(255,255,255,.15)}
+  .tl-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#cdb78f,#e8d9b5);transition:width 2.2s cubic-bezier(.2,.7,.2,1)}
+  .launch.in .tl-fill{width:100%}
+  .tl-node{width:56px;height:56px;margin:0 auto 26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.5rem;font-weight:600;color:#cdb78f;background:var(--green-deep);border:2px solid rgba(205,183,143,.5);position:relative;z-index:2;transition:.5s}
+  .launch.in .tl-node{border-color:#cdb78f}
+  .ph.now .tl-node{background:#cdb78f;color:var(--green-deep)}
+  .ph.now .tl-node:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid #cdb78f;animation:pulse 2s infinite}
+  @keyframes pulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+  .ph{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+  .launch.in .ph{opacity:1;transform:none}
+  .launch.in .ph:nth-child(3){transition-delay:.35s}.launch.in .ph:nth-child(4){transition-delay:.7s}
+  .ph-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);overflow:hidden;transition:transform .45s ease,box-shadow .45s ease,border-color .45s;height:calc(100% - 82px);display:flex;flex-direction:column}
+  .ph-card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(0,0,0,.35);border-color:rgba(205,183,143,.6)}
+  .ph.now .ph-card{border-color:rgba(205,183,143,.7);background:rgba(205,183,143,.08)}
+  .ph-img{position:relative;aspect-ratio:16/10;overflow:hidden}
+  .ph-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+  .ph-card:hover .ph-img img{transform:scale(1.08)}
+  .ph-img:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,22,19,.75),transparent 60%)}
+  .ph-when{position:absolute;left:18px;bottom:14px;z-index:2;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;font-weight:500}
+  .ph.now .ph-badge{position:absolute;top:14px;right:14px;z-index:2;background:#cdb78f;color:var(--green-deep);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:7px 12px}
+  .ph-body{padding:28px 26px 30px;flex:1;display:flex;flex-direction:column}
+  .ph h3{font-size:2rem;color:#fff;margin-bottom:10px}
+  .ph p{font-size:.95rem;color:#c8cdc2;margin-bottom:12px}
+  .ph ul{list-style:none;margin:4px 0 0}
+  .ph li{font-size:.9rem;color:#e6e8e1;padding:9px 0 9px 24px;border-top:1px solid rgba(255,255,255,.1);position:relative}
+  .ph li:before{content:"";position:absolute;left:2px;top:17px;width:10px;height:2px;background:#cdb78f}
+  .ph .stat{margin-top:auto;padding-top:20px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#cdb78f;font-weight:500}
+  .ph-data{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:70px;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+  .ph-data div{padding:34px 26px;text-align:center;border-right:1px solid rgba(255,255,255,.16)}
+  .ph-data div:last-child{border-right:none}
+  .ph-data b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(2.6rem,5vw,3.8rem);color:#cdb78f;line-height:1}
+  .ph-data span{display:block;font-size:.88rem;letter-spacing:.06em;color:#dfe2d9;margin-top:10px}
+  .ph-src{text-align:center;font-size:.72rem;color:#9aa394;margin-top:16px}
+  @media(max-width:900px){.tl{grid-template-columns:1fr;gap:36px}.tl-track{display:none}.ph-card{height:auto}.ph-data{grid-template-columns:1fr}.ph-data div{border-right:none;border-bottom:1px solid rgba(255,255,255,.16)}.ph-data div:last-child{border-bottom:none}}
+
+  /* WHY PRIVATE FIRST */
+  .why{margin-top:90px}
+  .why-hero{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;padding:46px 48px;background:linear-gradient(120deg,rgba(205,183,143,.16),rgba(205,183,143,.04));border:1px solid rgba(205,183,143,.45)}
+  .dom{text-align:center;min-width:200px}
+  .dom b{display:block;font-family:var(--serif);font-weight:600;font-size:clamp(5rem,10vw,8rem);line-height:.9;color:#cdb78f}
+  .dom span{display:block;margin-top:8px;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;color:#e8d9b5;font-weight:500}
+  .why-hero .eyebrow{display:block;margin-bottom:10px}
+  .why-hero h3{font-size:clamp(1.9rem,3.4vw,2.7rem);color:#fff;margin-bottom:14px}
+  .why-hero p{color:#dfe2d9;font-size:1rem}
+  .off{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .off span{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;padding:7px 12px;border:1px solid rgba(255,255,255,.25);color:#e6e8e1}
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+  .why-c{position:relative;padding:40px 30px 34px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);transition:transform .45s,border-color .45s;opacity:0;transform:translateY(30px)}
+  .launch.in .why-c{opacity:1;transform:none;transition:opacity .8s ease 1s,transform .8s ease 1s,border-color .45s}
+  .launch.in .why-c:nth-child(2){transition-delay:1.25s}.launch.in .why-c:nth-child(3){transition-delay:1.5s}
+  .why-c:hover{border-color:rgba(205,183,143,.6)}
+  .why-c .n{position:absolute;top:18px;right:22px;font-family:var(--serif);font-size:3.4rem;line-height:1;color:rgba(205,183,143,.25);font-weight:600}
+  .why-c h4{font-family:var(--serif);font-weight:500;font-size:1.6rem;color:#fff;line-height:1.15;margin-bottom:12px;padding-right:46px}
+  .why-c p{font-size:.94rem;color:#c8cdc2}
+  .why-c .big{display:block;font-family:var(--serif);font-size:2.6rem;font-weight:600;color:#cdb78f;line-height:1;margin-bottom:6px}
+  .why-c blockquote{margin:16px 0 0;padding:16px 18px;border-left:2px solid #cdb78f;background:rgba(0,0,0,.2);font-family:var(--serif);font-style:italic;font-size:1.12rem;line-height:1.45;color:#f0ebe0}
+  .why-c .fomo{display:inline-block;margin-top:14px;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#cdb78f;font-weight:500}
+  .paths{display:grid;gap:10px;margin-top:16px}
+  .paths div{font-size:.88rem;color:#e6e8e1;padding:10px 12px;border:1px solid rgba(255,255,255,.12)}
+  .paths b{color:#cdb78f;font-weight:500;letter-spacing:.06em}
+  @media(max-width:900px){.why-hero{grid-template-columns:1fr;gap:20px;padding:34px 26px;text-align:center}.off{justify-content:center}.why-grid{grid-template-columns:1fr}}
+
+  /* AROUND THE NEIGHBORHOOD */
+  .near{margin-top:56px}
+  .near-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:22px;flex-wrap:wrap}
+  .near-head h3{font-size:clamp(1.7rem,3vw,2.3rem)}
+  .near-head p{color:var(--ink-soft);font-size:1.1rem;max-width:460px}
+  .near-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .spot{background:#fff;border:1px solid var(--line);padding:26px 22px 24px;transition:transform .35s,box-shadow .35s,border-color .35s;position:relative}
+  .spot:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(43,46,42,.12);border-color:var(--gold)}
+  .spot .k{display:inline-block;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px}
+  .spot h4{font-family:var(--serif);font-weight:500;font-size:1.45rem;line-height:1.15;margin-bottom:8px;color:var(--ink)}
+  .spot p{font-size:.88rem;color:var(--ink-soft);line-height:1.6}
+  @media(max-width:900px){.near-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.near-grid{grid-template-columns:1fr}}
+  /* REVEAL + NEXT STEP */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+  .rv.on{opacity:1;transform:none}
+  .next{margin-top:56px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px 36px;background:#cdb78f;color:var(--green-deep)}
+  .next h4{font-family:var(--serif);font-weight:600;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.15}
+  .next p{font-size:.92rem;margin-top:4px;color:#3b3a2c}
+  .next a{display:inline-block;padding:14px 26px;background:var(--green-deep);color:#fff;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:.3s}
+  .next a:hover{background:#151a16}
+  @media(max-width:900px){.g-item .cap{opacity:1}}
+
+  /* SPACING TWEAK */
+  .progress{padding-bottom:55px}.plans{padding-top:55px}
+  @media(max-width:560px){.progress{padding-bottom:36px}.plans{padding-top:36px}}
+  /* PAGE OUTLINE */
+  .outline{margin:54px auto 0;max-width:1000px}
+  .outline .ol-t{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px;display:block}
+  .outline ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);counter-reset:o}
+  .outline li{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .outline a{display:flex;align-items:baseline;gap:12px;padding:18px 20px;text-align:left;transition:background .3s,color .3s}
+  .outline a:hover{background:var(--green-deep);color:#fff}
+  .outline a:hover b{color:#cdb78f}
+  .outline b{font-family:var(--serif);font-weight:500;font-size:1.4rem;color:var(--gold);line-height:1}
+  .outline span{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase}
+  @media(max-width:900px){.outline ol{grid-template-columns:1fr 1fr}}
 
   /* CTA */
-  .cta{background:url('/3904-east-boulevard/assets/3904/rear-yard-pool.jpg') center/cover;position:relative;color:#fff;text-align:center}
+  .cta{background:url('/3904-east-boulevard/assets/oct26/backyard-twilight.jpg') center/cover;position:relative;color:#fff;text-align:center}
   .cta:before{content:"";position:absolute;inset:0;background:rgba(24,27,22,.78)}
   .cta .wrap{position:relative;z-index:2;max-width:760px}
   .cta h2{font-size:clamp(2.2rem,4.6vw,3.4rem);margin:18px 0 18px;color:#fff}
@@ -215,8 +308,6 @@
     .hl{grid-template-columns:1fr}
   }
 </style>
-<link rel="stylesheet" href="/assets/forms/consent.css">
-<script src="/assets/forms/consent.js?v=20260821" defer></script>
 <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body>
@@ -284,7 +375,7 @@
 <section class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="wrap hero-inner">
-    <span class="eyebrow">Prepared for Philip · Private Preview · Completion Q4 2026</span>
+    <span class="eyebrow">Prepared for Phillip Illoulian · Private Preview · Completion Q4 2026</span>
     <h1>3904 East Boulevard</h1>
     <p class="sub">A Modern Mar Vista Estate</p>
     <div class="stats">6 BD &nbsp;/&nbsp; 6.5 BA &nbsp;·&nbsp; Approx. 5,730 SF &nbsp;·&nbsp; 11,470 SF Lot &nbsp;·&nbsp; Pool &amp; Jacuzzi &nbsp;·&nbsp; 2-Car Garage</div>
@@ -295,59 +386,120 @@
 <section class="launch" id="launch">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Compass 3-Phase Launch · Philip</span>
-      <h2>How We Take 3904 East Boulevard to Market</h2>
-      <p>The same playbook developers use for new construction: start quiet, build demand, then go live with a tested price and buyers already lined up.</p>
+      <span class="eyebrow ey-strong">Compass 3-Phase Launch · Prepared for Phillip Illoulian</span>
+      <h2>How We Take<br>3904 East Boulevard to Market</h2>
+      <p>Start quiet. Build demand. Go live with a tested price and buyers already lined up.</p>
     </div>
-    <div class="ph-grid">
-      <div class="ph ph-now">
-        <div class="num">01</div>
-        <span class="when">Start here · During construction</span>
-        <h3>Private Exclusive</h3>
-        <p>We market the home quietly to Compass agents and their buyers. No MLS, no days on market, no public price history.</p>
-        <ul>
-          <li>Renderings, floor plans and progress photos do the selling</li>
-          <li>Private previews and site walks for serious buyers</li>
-          <li>Test pricing and collect real feedback</li>
-          <li>All inquiries go straight to Michael &amp; Ania</li>
-        </ul>
-        <div class="stat">34,000+ Compass agents</div>
+    <div class="tl">
+      <div class="tl-track"><div class="tl-fill"></div></div>
+      <div class="ph now">
+        <div class="tl-node">01</div>
+        <div class="ph-card">
+          <div class="ph-img"><img src="/3904-east-boulevard/assets/3904/progress-03.jpg" alt="3904 East Boulevard under construction" loading="lazy"><span class="ph-badge">We are here</span><span class="ph-when">During construction</span></div>
+          <div class="ph-body">
+            <h3>Private Exclusive</h3>
+            <p>Hidden from Zillow, Realtor.com and public MLS search. Days on market stays at zero, with no public price history.</p>
+            <ul>
+              <li>Listed inside the Compass agent platform only</li>
+              <li>Test an ambitious price, adjust quietly</li>
+              <li>Private previews and site walks</li>
+              <li>Every inquiry goes to Michael &amp; Ania</li>
+            </ul>
+            <div class="stat">300,000+ Compass agents</div>
+          </div>
+        </div>
       </div>
       <div class="ph">
-        <div class="num">02</div>
-        <span class="when">Next · Pre-completion</span>
-        <h3>Coming Soon</h3>
-        <p>The listing goes public on Compass.com, still off the MLS. Buzz builds, but the days-on-market clock doesn't start.</p>
-        <ul>
-          <li>Public on Compass.com for all agents and buyers</li>
-          <li>Track views, saves and shares to fine-tune price</li>
-          <li>Line up final photography, video and staging</li>
-          <li>Build a list of buyers ready for launch week</li>
-        </ul>
-        <div class="stat">Visible on Compass.com</div>
+        <div class="tl-node">02</div>
+        <div class="ph-card">
+          <div class="ph-img"><img src="/3904-east-boulevard/assets/oct26/kitchen.jpg" alt="Kitchen rendering" loading="lazy"><span class="ph-when">Pre-completion</span></div>
+          <div class="ph-body">
+            <h3>Coming Soon</h3>
+            <p>Public on Compass.com, still off the MLS. The buzz builds, the days-on-market clock doesn't start.</p>
+            <ul>
+              <li>Visible to every agent and buyer online</li>
+              <li>Track views, saves and shares</li>
+              <li>Final photos, video and staging</li>
+              <li>Build the launch-week buyer list</li>
+            </ul>
+            <div class="stat">Live on Compass.com</div>
+          </div>
+        </div>
       </div>
       <div class="ph">
-        <div class="num">03</div>
-        <span class="when">Launch · Completion Q4 2026</span>
-        <h3>Going Live</h3>
-        <p>Full launch on the MLS and every major portal, with a market-tested price and demand already in place.</p>
-        <ul>
-          <li>MLS, Zillow, Redfin and Realtor.com</li>
-          <li>Finished photography, video and this listing site</li>
-          <li>Broker open and public open houses</li>
-          <li>Offers reviewed together on a set timeline</li>
-        </ul>
-        <div class="stat">MLS + all portals</div>
+        <div class="tl-node">03</div>
+        <div class="ph-card">
+          <div class="ph-img"><img src="/3904-east-boulevard/assets/oct26/front-brick.jpg" alt="Front exterior rendering" loading="lazy"><span class="ph-when">Completion · Q4 2026</span></div>
+          <div class="ph-body">
+            <h3>Going Live</h3>
+            <p>Full launch on the MLS and every major portal, with a market-tested price and demand already in place.</p>
+            <ul>
+              <li>MLS, Zillow, Redfin, Realtor.com</li>
+              <li>Finished photos, video and this site</li>
+              <li>Broker open and open houses</li>
+              <li>Offers reviewed on a set timeline</li>
+            </ul>
+            <div class="stat">MLS + all portals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why">
+      <div class="why-hero">
+        <div class="dom"><b data-zero>0</b><span>Days on market</span></div>
+        <div>
+          <span class="eyebrow">Why we start private</span>
+          <h3>Zero Public Footprint.<br>No DOM Clock.</h3>
+          <p>As a Private Exclusive, 3904 East Boulevard is completely hidden from public portals and public MLS search feeds. The days-on-market clock stays at zero. If we test an ambitious price and the market says it's high, we adjust it quietly, with no public price-drop history following the property.</p>
+          <div class="off"><em style="font-style:normal;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#cdb78f;align-self:center">Hidden from</em><span>Zillow</span><span>Realtor.com</span><span>Public MLS feeds</span><span>Price-drop history</span></div>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-c">
+          <span class="n">01</span>
+          <span class="big">300,000+</span>
+          <h4>Agents &amp; Premium Buyers, Targeted</h4>
+          <p>We upload the listing directly into the internal Compass platform, putting the build in front of top-producing Compass agents nationwide and their vetted, serious luxury buyers before anyone else sees it.</p>
+        </div>
+        <div class="why-c">
+          <span class="n">02</span>
+          <h4>The &ldquo;Exclusive Trailer&rdquo; Leverage</h4>
+          <p>What we tell the buyer already circling:</p>
+          <blockquote>&ldquo;We're putting the finishing touches on the home and soft-launching it privately across our agent network on [date]. If you want to lock this in before other private buyers see it, we need your offer now.&rdquo;</blockquote>
+          <span class="fomo">Instant urgency + a backup buyer pool</span>
+        </div>
+        <div class="why-c">
+          <span class="n">03</span>
+          <h4>Seamless Phased Transition</h4>
+          <p>Either way, we win:</p>
+          <div class="paths">
+            <div><b>Offer in the private window →</b> we close without ever hitting the open market.</div>
+            <div><b>Go live later →</b> we launch on the MLS from strength: refined feedback, zero DOM and active buyer demand.</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="ph-data">
-      <div><b>+2.9%</b><span>Higher closing prices vs. going straight to MLS</span></div>
-      <div><b>20% Faster</b><span>Time to an accepted offer</span></div>
-      <div><b>30% Less</b><span>Likely to take a price cut</span></div>
+      <div><b data-n="2.9" data-pre="+" data-suf="%">+2.9%</b><span>Higher closing prices vs. straight to MLS</span></div>
+      <div><b data-n="20" data-suf="% Faster">20% Faster</b><span>Time to an accepted offer</span></div>
+      <div><b data-n="30" data-suf="% Less">30% Less</b><span>Likely to take a price cut</span></div>
     </div>
     <p class="ph-src">Source: Compass data on homes pre-marketed through Private Exclusive and Coming Soon before MLS.</p>
   </div>
 </section>
+<script>
+(function(){
+  var s=document.getElementById('launch'); if(!s) return;
+  function count(){ s.querySelectorAll('.ph-data b').forEach(function(b){
+    var n=parseFloat(b.dataset.n),pre=b.dataset.pre||'',suf=b.dataset.suf||'',dec=(b.dataset.n.indexOf('.')>-1)?1:0,t0=null;
+    function step(t){ if(!t0)t0=t; var k=Math.min((t-t0)/1600,1),e=1-Math.pow(1-k,3);
+      b.textContent=pre+(n*e).toFixed(dec)+suf; if(k<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step); }); }
+  if(!('IntersectionObserver' in window)){ s.classList.add('in'); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ s.classList.add('in'); count(); io.disconnect(); } }); },{threshold:.2});
+  io.observe(s);
+})();
+</script>
 
 <!-- INTRO -->
 <section class="intro" id="residence">
@@ -357,6 +509,19 @@
       <h2>Modern Westside Living on an Oversized Mar Vista Lot</h2>
     </div>
     <p class="lead">A rare opportunity to own a new-construction Mar Vista estate with true scale and privacy. Designed for effortless indoor-outdoor living, the residence pairs a warm modern aesthetic with a pool and jacuzzi, flexible ADU space, and generous room to grow — all on a nearly quarter-acre lot in one of the Westside's most coveted neighborhoods.</p>
+    <nav class="outline rv" aria-label="Page outline">
+      <span class="ol-t">What's Inside</span>
+      <ol>
+        <li><a href="#launch"><b>01</b><span>Launch Plan</span></a></li>
+        <li><a href="#gallery"><b>02</b><span>Renderings</span></a></li>
+        <li><a href="#glance"><b>03</b><span>At a Glance</span></a></li>
+        <li><a href="#progress"><b>04</b><span>Construction</span></a></li>
+        <li><a href="#plans"><b>05</b><span>Floor Plans</span></a></li>
+        <li><a href="#adu"><b>06</b><span>ADU</span></a></li>
+        <li><a href="#backyard"><b>07</b><span>Backyard</span></a></li>
+        <li><a href="#location"><b>08</b><span>Neighborhood</span></a></li>
+      </ol>
+    </nav>
   </div>
 </section>
 
@@ -369,20 +534,22 @@
       <p>A preview of the finished residence — warm materials, abundant light, and a seamless flow from the great room to the backyard.</p>
     </div>
     <div class="grid-g" id="ggrid">
-      <div class="g-item c8 ar-wide" data-cap="Modern Front Exterior"><img width="1560" height="1008" src="/3904-east-boulevard/assets/3904/hero-exterior.jpg" alt="Modern front exterior"><span class="cap">Modern Front Exterior</span></div>
+      <div class="g-item c8 ar-wide" data-cap="Modern Front Exterior"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/front-brick.jpg" alt="Modern front exterior rendering"><span class="cap">Modern Front Exterior</span></div>
       <div class="g-item c4 ar-tall" data-cap="Front Entry"><img width="1122" height="1402" src="/3904-east-boulevard/assets/3904/entry-detail.jpg" alt="Front entry detail"><span class="cap">Front Entry</span></div>
-      <div class="g-item c8 ar-wide" data-cap="Rear Yard · Pool · Entertaining"><img width="1448" height="1086" src="/3904-east-boulevard/assets/3904/rear-yard-pool.jpg" alt="Rear yard and pool"><span class="cap">Rear Yard · Pool · Entertaining</span></div>
+      <div class="g-item c8 ar-wide" data-cap="Rear Yard · Pool · Entertaining"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/backyard-twilight.jpg" alt="Rear yard and pool"><span class="cap">Rear Yard · Pool · Entertaining</span></div>
       <div class="g-item c4 ar-4x3" data-cap="Butler's Pantry"><img width="1448" height="1086" src="/3904-east-boulevard/assets/3904/butler-pantry.jpg" alt="Butler's pantry"><span class="cap">Butler's Pantry</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Kitchen &amp; Great Room"><img width="1448" height="1086" src="/3904-east-boulevard/assets/3904/kitchen-great-room.jpg" alt="Kitchen and great room"><span class="cap">Kitchen &amp; Great Room</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Living Room &amp; Fireplace"><img width="1448" height="1086" src="/3904-east-boulevard/assets/3904/living-fireplace.jpg" alt="Living room with fireplace"><span class="cap">Living Room &amp; Fireplace</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Primary Bath"><img width="1448" height="1086" src="/3904-east-boulevard/assets/3904/primary-bath.jpg" alt="Primary bath"><span class="cap">Primary Bath</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="ADU Suite"><img width="1448" height="1086" src="/3904-east-boulevard/assets/3904/adu-suite.jpg" alt="ADU suite"><span class="cap">ADU Suite</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Kitchen &amp; Great Room"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/kitchen.jpg" alt="Kitchen and great room"><span class="cap">Kitchen &amp; Great Room</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Living Room &amp; Fireplace"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/living.jpg" alt="Living room with fireplace"><span class="cap">Living Room &amp; Fireplace</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Primary Bath"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/primary-bath.jpg" alt="Primary bath"><span class="cap">Primary Bath</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="ADU Suite"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/adu.jpg" alt="ADU suite"><span class="cap">ADU Suite</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Dining &amp; Kitchen"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/dining.jpg" alt="Dining room and kitchen" loading="lazy"><span class="cap">Dining &amp; Kitchen</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Primary Bedroom"><img width="1448" height="1086" src="/3904-east-boulevard/assets/oct26/primary-bedroom.jpg" alt="Primary bedroom" loading="lazy"><span class="cap">Primary Bedroom</span></div>
     </div>
   </div>
 </section>
 
 <!-- FEATURES -->
-<section class="features">
+<section class="features" id="glance">
   <div class="wrap" style="text-align:center">
     <span class="eyebrow">At a Glance</span>
     <div class="sec-head" style="margin-bottom:0"><h2 style="color:#fff">Built for the Way You Live</h2></div>
@@ -401,20 +568,22 @@
 <section class="progress" id="progress">
   <div class="wrap">
     <div class="sec-head">
-      <span class="prog-stamp">As of July 2026</span>
+      <span class="prog-stamp">As of September 2026</span>
       <span class="eyebrow">On Site</span>
       <h2>Construction Progress</h2>
-      <p>Recent photos from the field. Exterior stucco is on, windows and doors are set, cabinetry is going in, and interior finishes are underway — on track for Q4 2026 completion.</p>
+      <p>Fresh from the site. Brick and stucco are complete, wide-plank floors are down, marble counters and the fireplace surround are set, and tile and fixtures are going in. On track for Q4 2026 completion.</p>
     </div>
     <div class="grid-g" id="pgrid">
-      <div class="g-item c6 ar-4x3" data-cap="Street View · Exterior &amp; Stucco"><img width="1200" height="1600" src="/3904-east-boulevard/assets/3904/progress-01.jpg" alt="Exterior stucco and framing from the street" loading="lazy"><span class="cap">Street View · Exterior &amp; Stucco</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Kitchen &amp; Great Room · Cabinetry Set"><img width="1600" height="1200" src="/3904-east-boulevard/assets/3904/progress-03.jpg" alt="Kitchen and great room with cabinetry installed" loading="lazy"><span class="cap">Kitchen &amp; Great Room · Cabinetry Set</span></div>
-      <div class="g-item c8 ar-wide" data-cap="Great Room · Windows Installed"><img width="1600" height="1200" src="/3904-east-boulevard/assets/3904/progress-04.jpg" alt="Great room with windows installed" loading="lazy"><span class="cap">Great Room · Windows Installed</span></div>
-      <div class="g-item c4 ar-tall" data-cap="Floating Staircase Framed"><img width="1600" height="1200" src="/3904-east-boulevard/assets/3904/progress-06.jpg" alt="Floating staircase framed" loading="lazy"><span class="cap">Floating Staircase Framed</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Living to Dining Sightline"><img width="1600" height="1200" src="/3904-east-boulevard/assets/3904/progress-05.jpg" alt="Living room to dining sightline" loading="lazy"><span class="cap">Living to Dining Sightline</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Gallery Hall &amp; Wall of Glass"><img width="1600" height="1200" src="/3904-east-boulevard/assets/3904/progress-07.jpg" alt="Gallery hall and wall of glass sliders" loading="lazy"><span class="cap">Gallery Hall &amp; Wall of Glass</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Bedroom Suite · Fireplace Niche"><img width="1600" height="1200" src="/3904-east-boulevard/assets/3904/progress-08.jpg" alt="Bedroom suite with fireplace niche" loading="lazy"><span class="cap">Bedroom Suite · Fireplace Niche</span></div>
-      <div class="g-item c6 ar-4x3" data-cap="Front Elevation Taking Shape"><img width="1200" height="1600" src="/3904-east-boulevard/assets/3904/progress-02.jpg" alt="Front elevation taking shape" loading="lazy"><span class="cap">Front Elevation Taking Shape</span></div>
+      <div class="g-item c8 ar-wide" data-cap="Front Elevation · Brick &amp; Stucco Complete"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/front.jpg" alt="Front Elevation — Brick and Stucco Complete" loading="lazy"><span class="cap">Front Elevation · Brick &amp; Stucco Complete</span></div>
+      <div class="g-item c4 ar-tall" data-cap="Primary Shower · Stone Tile Set"><img width="960" height="1280" src="/3904-east-boulevard/assets/const-sep26/shower.jpg" alt="Primary Shower — Stone Tile Set" loading="lazy"><span class="cap">Primary Shower · Stone Tile Set</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Kitchen &amp; Great Room · Cabinetry In"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/kitchen.jpg" alt="Kitchen and Great Room — Cabinetry In" loading="lazy"><span class="cap">Kitchen &amp; Great Room · Cabinetry In</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Kitchen Island · Marble Waterfall"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/kitchen-island.jpg" alt="Kitchen Island — Marble Waterfall" loading="lazy"><span class="cap">Kitchen Island · Marble Waterfall</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Living Room · Marble Fireplace"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/living-fireplace.jpg" alt="Living Room — Marble Fireplace" loading="lazy"><span class="cap">Living Room · Marble Fireplace</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Staircase · Iron Railing Installed"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/staircase.jpg" alt="Staircase — Iron Railing Installed" loading="lazy"><span class="cap">Staircase · Iron Railing Installed</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Primary Suite · Vaulted Ceiling &amp; Beam"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/primary-suite.jpg" alt="Primary Suite — Vaulted Ceiling and Beam" loading="lazy"><span class="cap">Primary Suite · Vaulted Ceiling &amp; Beam</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Upper Landing · Skylights &amp; Beams"><img width="1280" height="960" src="/3904-east-boulevard/assets/const-sep26/upper-landing.jpg" alt="Upper Landing — Skylights and Beams" loading="lazy"><span class="cap">Upper Landing · Skylights &amp; Beams</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Kitchen Sink · Marble &amp; Bridge Faucet"><img width="960" height="1280" src="/3904-east-boulevard/assets/const-sep26/marble-sink.jpg" alt="Kitchen Sink — Marble and Bridge Faucet" loading="lazy"><span class="cap">Kitchen Sink · Marble &amp; Bridge Faucet</span></div>
+      <div class="g-item c6 ar-4x3" data-cap="Steel Window Wall"><img width="960" height="1280" src="/3904-east-boulevard/assets/const-sep26/steel-windows.jpg" alt="Steel Window Wall" loading="lazy"><span class="cap">Steel Window Wall</span></div>
     </div>
     <p class="prog-note">Active construction site. Photos reflect work in progress and are for illustrative purposes; finishes and details are subject to change.</p>
   </div>
@@ -480,7 +649,7 @@
 
 <!-- ADU -->
 <section class="split adu" id="adu">
-  <div class="media" style="background-image:url('/3904-east-boulevard/assets/3904/adu-suite.jpg')"></div>
+  <div class="media" style="background-image:url('/3904-east-boulevard/assets/oct26/adu.jpg')"></div>
   <div class="body">
     <span class="eyebrow">Flexible Living</span>
     <h2>Built-In Flexibility for Modern Living</h2>
@@ -497,7 +666,7 @@
 </section>
 
 <!-- BACKYARD -->
-<section class="split yard">
+<section class="split yard" id="backyard">
   <div class="body">
     <span class="eyebrow">The Backyard</span>
     <h2>A Private Backyard Oasis</h2>
@@ -518,7 +687,7 @@
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">The Neighborhood</span>
-      <h2>Mar Vista Scale. Westside Convenience.</h2>
+      <h2>Mar Vista Scale.<br>Westside Convenience.</h2>
     </div>
     <div class="loc-grid">
       <div class="loc-map">
@@ -537,47 +706,20 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-  <div class="wrap">
-    <span class="eyebrow" style="color:#cdd2c8">Pre-Completion Access</span>
-    <h2>Private Previews Available</h2>
-    <p>Completion anticipated Q4 2026. Qualified buyers and agents may request early access, construction updates, and private preview opportunities.</p>
-    <a href="#inquire" class="btn btn-light">Request Private Preview</a>
-  </div>
-</section>
-
-<!-- INQUIRY FORM -->
-<section class="form-strip" id="inquire">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">Inquire</span>
-      <h2>Request a Private Preview</h2>
-      <p>Share a few details and we'll be in touch with availability, the full lookbook, and construction updates.</p>
+    <div class="near">
+      <div class="near-head">
+        <h3>Around the Neighborhood</h3>
+        <p>Standouts within two miles of the front door: where to eat, shop and gather.</p>
+      </div>
+      <div class="near-grid">
+          <div class="spot rv"><span class="k">Restaurant &amp; Bar · ~0.4 mi</span><h4>The Mar Vista</h4><p>The neighborhood's go-to on Venice Blvd at Grand View for dinner, cocktails and weekend brunch.</p></div>
+          <div class="spot rv"><span class="k">Every Sunday · ~0.4 mi</span><h4>Mar Vista Farmers' Market</h4><p>A Sunday tradition on Grand View Blvd with local produce and food vendors.</p></div>
+          <div class="spot rv"><span class="k">New Dinner Spot · Mar Vista</span><h4>Chez Mar</h4><p>One of Mar Vista's newest restaurants, already on The Infatuation's radar.</p></div>
+          <div class="spot rv"><span class="k">Parks &amp; Recreation · ~0.9 mi</span><h4>Mar Vista Recreation Center</h4><p>The neighborhood park: ball fields, courts, a public pool and playgrounds.</p></div>
+          <div class="spot rv"><span class="k">Japanese Market &amp; Food Hall · ~1.4 mi</span><h4>Mitsuwa Marketplace</h4><p>Japanese grocery and food court on Centinela, home to tempura, ramen and sushi counters.</p></div>
+          <div class="spot rv"><span class="k">Event Venue · ~1.7 mi</span><h4>Barker Hangar</h4><p>Santa Monica Airport's landmark hangar, home to The Other Art Fair and the WestEdge Design Fair.</p></div>
+      </div>
     </div>
-    <form class="inq" onsubmit="event.preventDefault();this.reset();alert('Thank you — your request has been received. We will be in touch shortly.');">
-      <input type="text" placeholder="First Name" required aria-label="First Name">
-      <input type="text" placeholder="Last Name" required aria-label="Last Name">
-      <input type="email" placeholder="Email" required aria-label="Email">
-      <input type="tel" placeholder="Phone" aria-label="Phone">
-      <select class="full" aria-label="I am a">
-        <option value="">I am a… (optional)</option>
-        <option>Prospective Buyer</option>
-        <option>Buyer's Agent</option>
-        <option>Other</option>
-      </select>
-      <select class="full" aria-label="I'm interested in">
-        <option value="">I'm interested in…</option>
-        <option>Private Preview</option>
-        <option>Hard-Hat Tour</option>
-        <option>Lookbook &amp; Construction Updates</option>
-      </select>
-      <textarea class="full" placeholder="Message (optional)" aria-label="Message (optional)"></textarea>
-      <button type="submit" class="btn btn-solid full">Submit Request</button>
-    </form>
   </div>
 </section>
 
@@ -591,7 +733,6 @@
       <a href="#plans">Floor Plans</a>
       <a href="#adu">ADU</a>
       <a href="#location">Location</a>
-      <a href="#inquire">Request Preview</a>
     </div>
     <p class="fine">3904 East Boulevard · Los Angeles, CA 90066 · Mar Vista. New construction; completion anticipated Q4 2026. Renderings and floor plans are artist's conceptions for illustrative purposes and are subject to change. Square footage and lot size are approximate. This is not an offer to sell or a solicitation to buy where prohibited.</p>
   </div>
@@ -638,5 +779,14 @@
     <img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR&reg; and Equal Housing Opportunity" style="height:52px;width:auto;flex-shrink:0;display:block;" loading="lazy" decoding="async">
   </div>
 </div>
+<script>
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.sec-head, .g-item, .feat, .plan-row, .loc-grid, .rv'));
+  els.forEach(function(e){ if(!e.closest('.launch')||e.classList.contains('rv')) e.classList.add('rv'); });
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('on')}); return; }
+  var io=new IntersectionObserver(function(es){ es.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('on'); io.unobserve(x.target);} }); },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
 </body>
 </html>
