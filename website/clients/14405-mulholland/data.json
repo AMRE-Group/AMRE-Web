@@ -1,0 +1,41 @@
+{
+  "_note": "Source of truth for amre.group/clients/14405-mulholland/. Edit dates (s/e), status (todo/doing/done), fix-list checks and updates here; the page reads it on load.",
+  "updated": "October 29, 2026",
+  "steps": [
+    {
+      "id": "lineup",
+      "status": "doing"
+    }
+  ],
+  "checks": {},
+  "log": [
+    {
+      "d": "2026-10-29",
+      "k": "note",
+      "c": "var(--launch)",
+      "t": "Listing plan set",
+      "x": "House empty by Nov 30, Coming Soon Dec 14, live Jan 7 and a target close around Mar 8."
+    },
+    {
+      "d": "2026-10-29",
+      "k": "text",
+      "c": "var(--move)",
+      "t": "Painter invited",
+      "x": "Master Kim of Little Giant Painting Company is asked to come by Nov 10 for an estimate."
+    },
+    {
+      "d": "2026-10-29",
+      "k": "email",
+      "c": "var(--market)",
+      "t": "Three stagers invited",
+      "x": "Harlow, Odin + Friday and Vesta are asked to see the home on Nov 10, with the listing and floor plan."
+    },
+    {
+      "d": "2026-10-29",
+      "k": "note",
+      "c": "var(--prep)",
+      "t": "Staging research",
+      "x": "Pulled what each stager bid on 14423 Mulholland Dr, the home down the street."
+    }
+  ]
+}
