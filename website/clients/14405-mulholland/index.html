@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>14405 Mulholland Dr · Listing Prep · AMRE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* 14405 Mulholland · client prep portal · v1 · amre.group/clients/14405-mulholland/
+   Read-only for the client. Schedule, statuses, fix list and updates come from data.json beside this page. */
+:root{
+  --bone:#FAF7F1; --card:#FFFFFF; --soft:#F3EEE4; --line:#E6DFD2; --ink:#1A1A1A; --mute:#5F5A52; --dim:#9A9387;
+  --forest:#1C3D31; --gold:#E6A800;
+  --plan:#D89A00;  --plan-t:#FBF3DC;  --plan-on:#1A1A1A;
+  --clear:#C56A3C; --clear-t:#F8EAE2; --clear-on:#FFFFFF;
+  --fix:#1C3D31;   --fix-t:#E3EDE7;   --fix-on:#FFFFFF;
+  --sign:#013F5C;  --sign-t:#E0ECF2;  --sign-on:#FFFFFF;
+  --launch:#6B4E9B;--launch-t:#EFEAF6;--launch-on:#FFFFFF;
+  --done:#CFC8BB;
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--sans);font-size:15.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+p{margin:0;text-wrap:pretty}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:400;text-wrap:balance}
+h2 em,h1 em{font-style:italic;color:var(--forest)}
+
+/* gate */
+#gate{position:fixed;inset:0;z-index:1000;background:var(--bone);display:flex;align-items:center;justify-content:center;padding:24px}
+.gate-shell{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;max-width:440px}
+.gate-brand{font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.gate-brand b{color:var(--forest)}
+#gate h1{font-size:36px;line-height:1.1}
+#gate p{color:var(--mute)}
+#gate-form{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+#gate-input{font:inherit;font-size:16px;border:1px solid var(--line);border-radius:999px;padding:13px 20px;min-width:240px;background:#fff;color:var(--ink);outline:none}
+#gate-input:focus{border-color:var(--forest);box-shadow:0 0 0 4px rgba(28,61,49,.12)}
+#gate-submit{font:inherit;font-size:16px;font-weight:600;border:0;border-radius:999px;background:var(--forest);color:#fff;padding:13px 26px;cursor:pointer}
+.gate-error{color:#B5452A;font-size:14px;min-height:20px}
+#gate.shake .gate-shell{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+body.unlocked #gate{display:none}
+body:not(.unlocked) .page{visibility:hidden}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.88);-webkit-backdrop-filter:saturate(180%) blur(16px);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1120px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.brand{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-right:12px;white-space:nowrap}
+.brand b{color:var(--forest)}
+.top a{flex:0 0 auto;font-size:13px;font-weight:600;color:var(--mute);text-decoration:none;padding:6px 12px;border-radius:999px;white-space:nowrap;display:flex;align-items:center;gap:7px}
+.top a i{width:8px;height:8px;border-radius:50%}
+.top a:hover{background:var(--soft)}
+.top a.active{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:flex;flex-direction:column;gap:48px}
+.sec{display:flex;flex-direction:column;gap:18px;scroll-margin-top:70px}
+.head{display:flex;flex-direction:column;gap:6px}
+.head h2{font-size:clamp(26px,3.2vw,34px);line-height:1.15}
+.head p{color:var(--mute);max-width:64ch}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--clear)}
+.ver{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--plan-t);color:#8A6200;margin-left:8px;letter-spacing:.04em}
+
+/* hero banner: image left */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;background:var(--card);border-radius:26px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.hero-img{position:relative;min-height:380px;background:var(--soft)}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.hero-img .cap{position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.92);color:var(--ink);font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px}
+.hero-txt{padding:36px 36px 32px;display:flex;flex-direction:column;gap:14px;justify-content:center;min-width:0;border-top:6px solid transparent;border-image:linear-gradient(90deg,var(--plan),var(--clear),var(--fix),var(--sign),var(--launch)) 1}
+.hero h1{font-size:clamp(32px,4vw,46px);line-height:1.05}
+.hero p{color:var(--mute);max-width:52ch}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-size:13px;font-weight:600;padding:7px 13px;border-radius:999px;background:var(--soft);color:var(--ink)}
+.pill.on{background:var(--forest);color:#fff}
+.contact{font-size:13.5px;color:var(--mute);border-top:1px solid var(--line);padding-top:14px;display:flex;flex-wrap:wrap;gap:4px 16px}
+.contact b{color:var(--ink);font-weight:600}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kt{background:var(--card);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:4px;position:relative;overflow:hidden;min-width:0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.kt::before{content:"";position:absolute;inset:0 0 auto;height:4px;background:var(--c)}
+.kt .l{font-size:11.5px;font-weight:700;color:var(--mute);text-transform:uppercase;letter-spacing:.1em}
+.kt b{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.kt .s{font-size:13px;color:var(--mute)}
+.kbar{height:6px;border-radius:99px;background:var(--soft);overflow:hidden;margin-top:6px}
+.kbar i{display:block;height:100%;width:0;background:var(--forest);transition:width .4s}
+
+/* path */
+.path{background:var(--card);border-radius:26px;padding:26px 24px 22px;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow-x:auto}
+.path-in{position:relative;display:grid;grid-template-columns:repeat(5,1fr);min-width:620px}
+.path-line{position:absolute;left:10%;right:10%;top:21px;height:4px;border-radius:4px;background:var(--soft)}
+.path-line i{position:absolute;left:0;top:0;bottom:0;border-radius:4px;background:linear-gradient(90deg,var(--plan),var(--clear),var(--fix),var(--sign),var(--launch));transition:width .5s}
+.node{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;padding:0 6px;background:none;border:0;font:inherit;color:inherit;cursor:pointer}
+.dot{width:46px;height:46px;border-radius:50%;background:#fff;border:4px solid var(--c);display:grid;place-items:center;font-weight:700;color:var(--c);position:relative;z-index:1}
+.node.done .dot,.node.here .dot{background:var(--c);color:#fff}
+.node.here .dot{box-shadow:0 0 0 6px color-mix(in srgb,var(--c) 20%,transparent);animation:here 2.4s ease-in-out infinite}
+@keyframes here{50%{box-shadow:0 0 0 12px color-mix(in srgb,var(--c) 7%,transparent)}}
+.node b{font-size:15px;font-weight:600}
+.node small{font-size:12px;color:var(--mute)}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--c);color:#fff;visibility:hidden}
+.node.here .tag{visibility:visible}
+
+/* schedule */
+.bar-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.views{display:flex;background:var(--card);border-radius:999px;padding:4px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.views button{border:0;background:transparent;font:600 13px var(--sans);color:var(--mute);padding:9px 16px;border-radius:999px;cursor:pointer}
+.views button[aria-pressed="true"]{background:var(--forest);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;color:var(--mute)}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:4px;background:var(--c)}
+.gwrap{background:var(--card);border-radius:26px;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow-x:auto}
+.gantt{min-width:820px;display:flex;flex-direction:column;--days:35}
+.g-row{display:grid;grid-template-columns:210px 1fr;border-top:1px solid var(--line)}
+.g-row.hd{border-top:0}
+.g-name{padding:10px 16px;display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:58px;cursor:pointer;border-left:4px solid var(--c,transparent)}
+.g-name span{font-weight:600;font-size:14px}
+.g-name small{font-size:12px;color:var(--mute)}
+.hd .g-name{min-height:44px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);cursor:default;border-left-color:transparent}
+.g-row.sel{background:color-mix(in srgb,var(--c) 7%,#fff)}
+.g-track{position:relative;background-image:repeating-linear-gradient(to right,#F4F0E8 0 1px,transparent 1px calc(100% / var(--days)))}
+.hd .g-track{background-image:none}
+.tick{position:absolute;top:0;bottom:0;border-left:1px solid var(--line);padding:14px 0 0 7px;font-size:12px;font-weight:600;color:var(--mute);white-space:nowrap}
+.hol{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(45deg,rgba(197,106,60,.09) 0 6px,transparent 6px 12px);pointer-events:none}
+.today{position:absolute;top:0;bottom:0;width:2px;background:var(--ink);pointer-events:none}
+.gb{position:absolute;top:14px;height:30px;border:0;border-radius:999px;padding:0 10px;min-width:16px;display:flex;align-items:center;font:700 12px/1 var(--sans);white-space:nowrap;overflow:hidden;cursor:pointer;background:var(--c);color:var(--on);transition:left .45s,width .45s,transform .15s}
+.gb:hover{transform:translateY(-1px)}
+.gb .fill{position:absolute;left:0;top:0;bottom:0;background:rgba(255,255,255,.3);transition:width .4s}
+.gb .lbl{position:relative}
+.gb.done{background:var(--done);color:var(--ink)}
+.gb.sel,.gm.sel .dia{outline:3px solid var(--ink);outline-offset:2px}
+.gm{position:absolute;top:14px;height:30px;border:0;background:transparent;display:flex;align-items:center;gap:8px;padding:0;font:700 12px/1 var(--sans);color:var(--c);cursor:pointer;white-space:nowrap}
+.gm .dia{width:20px;height:20px;transform:rotate(45deg);border-radius:4px;background:var(--c);flex:none}
+.gm.done .dia{background:var(--done)}
+.cal{background:var(--card);border-radius:26px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:16px;overflow-x:auto}
+.cal-in{min-width:700px}
+.cal-m{font-size:13px;font-weight:700;color:var(--mute);margin:0 4px 10px}
+.cal-h,.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-h{margin-bottom:6px}
+.cal-h div{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding:0 8px}
+.day{min-height:100px;border-radius:14px;background:#FCFAF6;padding:8px;display:flex;flex-direction:column;gap:4px;min-width:0;border:1px solid #F1ECE2}
+.day .n{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--dim)}
+.day .n em{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--clear)}
+.day.mo .n{color:var(--ink)}
+.day.today{background:#fff;box-shadow:inset 0 0 0 2px var(--ink)}
+.day.hol{background:repeating-linear-gradient(45deg,#FBF1EB 0 6px,#FCFAF6 6px 12px)}
+.ev{border:0;text-align:left;font:600 12px/1.25 var(--sans);padding:5px 8px;border-radius:8px;background:var(--t);color:var(--ink);border-left:4px solid var(--c);cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ev.done{background:var(--soft);color:var(--mute);border-left-color:var(--done);text-decoration:line-through}
+.ev.sel{box-shadow:0 0 0 2px var(--c)}
+.ev.ms::before{content:"◆ "}
+.detail{background:var(--card);border-radius:26px;box-shadow:0 1px 2px rgba(0,0,0,.05);padding:22px 24px;display:flex;flex-direction:column;gap:6px;border-top:6px solid var(--c,var(--line))}
+.d-when{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.detail h3{font-size:24px}
+.detail p{color:var(--mute);max-width:66ch}
+.d-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.d-meta span{font-size:12.5px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--t,var(--soft))}
+.d-meta .st{background:var(--c);color:var(--on)}
+
+/* fix list */
+.list{background:var(--card);border-radius:26px;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow:hidden}
+.it{display:grid;grid-template-columns:40px 28px 1fr auto;gap:14px;align-items:start;padding:16px 20px;border-top:1px solid var(--line);position:relative}
+.it:first-child{border-top:0}
+.it::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--imp)}
+.rk{font-family:var(--serif);font-size:22px;color:var(--dim);line-height:1.2}
+.ck{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:12px;font-weight:800;color:#fff;margin-top:2px}
+.it.done .ck{background:var(--fix);border-color:var(--fix)}
+.bd{display:flex;flex-direction:column;gap:3px;min-width:0}
+.bd b{font-weight:600}
+.bd p{color:var(--mute);font-size:14px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.chip{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap;background:var(--soft);color:var(--mute)}
+.chip.High{background:var(--clear-t);color:#A04F26}
+.chip.Med{background:var(--plan-t);color:#8A6200}
+.chip.Low{background:var(--sign-t);color:var(--sign)}
+.it.done .bd b,.it.done .bd p{text-decoration:line-through;opacity:.55}
+
+/* cards */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pc{background:var(--card);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px;min-width:0;box-shadow:0 1px 2px rgba(0,0,0,.05);border-top:5px solid var(--c)}
+.pc .who{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.pc h3{font-size:22px}
+.pc .big{font-family:var(--serif);font-size:34px;line-height:1;color:var(--c)}
+.pc p{font-size:14px;color:var(--mute)}
+.bidbar{height:8px;border-radius:99px;background:var(--soft);overflow:hidden}
+.bidbar i{display:block;height:100%;background:var(--c);border-radius:99px}
+.vstat{font-size:12.5px;font-weight:700;color:var(--c);margin-top:auto}
+.vstat.todo{color:var(--mute)}
+.note{font-size:13.5px;color:var(--mute);background:var(--card);border-radius:14px;padding:14px 18px;border-left:4px solid var(--gold)}
+
+/* updates */
+.log{list-style:none;margin:0;padding:0;background:var(--card);border-radius:26px;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow:hidden}
+.log li{display:grid;grid-template-columns:72px 36px 1fr;gap:12px;align-items:start;padding:14px 20px;border-top:1px solid var(--line)}
+.log li:first-child{border-top:0}
+.log time{font-size:12.5px;font-weight:700;color:var(--mute);padding-top:7px}
+.log .ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;background:var(--c)}
+.log b{display:block;font-weight:600}
+.log div span{font-size:13.5px;color:var(--mute)}
+
+/* team */
+.tm{background:var(--card);border-radius:18px;padding:18px;display:flex;gap:14px;align-items:flex-start;min-width:0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.av{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;color:#fff;background:var(--c)}
+.tm div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.tm b{font-weight:600}
+.tm span{font-size:13px;color:var(--mute)}
+.tm em{font-style:normal;font-size:12.5px;font-weight:700;color:var(--c)}
+
+.foot{font-size:12.5px;color:var(--dim);border-top:1px solid var(--line);padding-top:16px;display:flex;flex-direction:column;gap:6px}
+button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+[hidden]{display:none!important}
+
+@media (max-width:900px){.hero{grid-template-columns:1fr}.hero-img{min-height:260px}.kpis{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+  .three{grid-template-columns:1fr}
+  .hero-txt{padding:24px}
+  .it{grid-template-columns:30px 26px 1fr}.chips{grid-column:3;justify-content:flex-start}
+  .log li{grid-template-columns:52px 32px 1fr;padding:14px 16px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="gate-shell">
+    <div class="gate-brand"><b>AMRE</b> &nbsp;|&nbsp; Compass</div>
+    <h1>14405 Mulholland Dr</h1>
+    <p>Your listing prep tracker. Enter the access code from your AMRE team to continue.</p>
+    <form id="gate-form" autocomplete="off">
+      <input id="gate-input" type="password" placeholder="Access code" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Access code">
+      <button id="gate-submit" type="submit">Continue</button>
+    </form>
+    <div class="gate-error" id="gate-error">&nbsp;</div>
+  </div>
+</div>
+
+<div class="page">
+<nav class="top" aria-label="On this page"><div class="top-in" id="wayfind">
+  <span class="brand"><b>AMRE</b> | Compass</span>
+  <a href="#overview" data-s="overview">Overview</a>
+  <a href="#path" data-s="path"><i style="background:var(--plan)"></i>Progress</a>
+  <a href="#schedule" data-s="schedule" data-view="timeline"><i style="background:var(--clear)"></i>Timeline</a>
+  <a href="#schedule" data-s="schedule" data-view="calendar"><i style="background:var(--fix)"></i>Calendar</a>
+  <a href="#fixes" data-s="fixes"><i style="background:var(--sign)"></i>Fix list</a>
+  <a href="#staging" data-s="staging"><i style="background:var(--launch)"></i>Staging</a>
+  <a href="#items" data-s="items">Your items</a>
+  <a href="#updates" data-s="updates">Updates</a>
+  <a href="#team" data-s="team">Team</a>
+</div></nav>
+
+<main class="wrap">
+
+  <section class="sec" id="overview">
+    <div class="hero">
+      <div class="hero-img"><img src="hero.jpg" alt="14405 Mulholland Dr, Bel Air"><span class="cap">14405 Mulholland Dr, Bel Air</span></div>
+      <div class="hero-txt">
+        <span class="eyebrow">Prepared for Leslee Mayo <span class="ver">v1</span></span>
+        <h1>Getting your home <em>ready to list</em></h1>
+        <p>Here is everything happening at 14405 Mulholland Dr before it goes to market: the schedule, the fixes, staging and who is doing what. We update it as work moves.</p>
+        <div class="pills"><span class="pill on" id="h-phase">Phase 1 of 5: Plan</span><span class="pill" id="h-next">Next: Line it up</span></div>
+        <div class="contact"><span>Questions?</span><span><b>Michael Abraham</b> (310) 848-3406</span><span>michael.abraham@compass.com</span></div>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kt" style="--c:var(--plan)"><span class="l">Vendor visits in</span><b id="k-walk">–</b><span class="s" id="k-walk-d">Tue, Nov 10</span></div>
+      <div class="kt" style="--c:var(--launch)"><span class="l">Photo day</span><b id="k-photo">–</b><span class="s" id="k-photo-d">Target Dec 3</span></div>
+      <div class="kt" style="--c:var(--clear)"><span class="l">Schedule</span><b id="k-slip">On track</b><span class="s" id="k-slip-d">Right on plan</span></div>
+      <div class="kt" style="--c:var(--fix)"><span class="l">Fix list</span><b id="k-pct">0%</b><span class="s" id="k-pct-d">0 of 11 done</span><div class="kbar"><i id="k-bar"></i></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="path">
+    <div class="head"><span class="eyebrow">Progress</span><h2>Where we are <em>right now</em></h2><p>Your home moves through five phases on the way to market. The pulsing circle shows the current one.</p></div>
+    <div class="path"><div class="path-in" id="pathIn"><div class="path-line"><i id="pathFill"></i></div></div></div>
+  </section>
+
+  <section class="sec" id="schedule">
+    <div class="head"><span class="eyebrow">Schedule</span><h2>Timeline and <em>calendar</em></h2><p>Tap any step to see what happens and who handles it. Thanksgiving week is shaded.</p></div>
+    <div class="bar-row">
+      <div class="views" role="group" aria-label="View">
+        <button type="button" data-v="timeline" aria-pressed="true">Timeline</button>
+        <button type="button" data-v="calendar" aria-pressed="false">Calendar</button>
+      </div>
+      <div class="legend" aria-hidden="true">
+        <span><i style="--c:var(--plan)"></i>Plan</span>
+        <span><i style="--c:var(--clear)"></i>Clear</span>
+        <span><i style="--c:var(--fix)"></i>Fix</span>
+        <span><i style="--c:var(--sign)"></i>Final walk</span>
+        <span><i style="--c:var(--launch)"></i>Stage and shoot</span>
+      </div>
+    </div>
+    <div class="gwrap" id="v-timeline"><div class="gantt" id="gantt"><div class="g-row hd"><div class="g-name">Step</div><div class="g-track" id="g-scale"></div></div></div></div>
+    <div class="cal" id="v-calendar" hidden><div class="cal-in"><div class="cal-m">November 1 – December 5, 2026</div><div class="cal-h"><div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div></div><div class="cal-g" id="calG"></div></div></div>
+    <div class="detail" id="detail" aria-live="polite">
+      <span class="d-when" id="d-when">–</span>
+      <h3 id="d-name">–</h3>
+      <p id="d-text"></p>
+      <div class="d-meta"><span class="st" id="d-status"></span><span id="d-owner"></span></div>
+    </div>
+  </section>
+
+  <section class="sec" id="fixes">
+    <div class="head"><span class="eyebrow">Fix list</span><h2>Touch-ups, ranked by <em>what buyers notice</em></h2><p>The rooms that lead the listing photos and the showing path come first. A green check means the item is done.</p></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <section class="sec" id="staging">
+    <div class="head"><span class="eyebrow">Staging</span><h2>Staging <em>options</em></h2><p>All three companies bid on 14423 Mulholland Dr, the home down the street. Each one is invited to see your home on Nov 10, and we'll compare their quotes with you.</p></div>
+    <div class="three">
+      <div class="pc" style="--c:var(--fix)"><span class="who">Staged 14423 Mulholland</span><h3>Harlow</h3><span class="big">$7,000</span><div class="bidbar"><i style="width:70%"></i></div><p>Their staging helped 14423 Mulholland Dr sell for $1.721M, over asking, in 8 days.</p><span class="vstat">Invited Oct 29</span></div>
+      <div class="pc" style="--c:var(--plan)"><span class="who">Bid on 14423 Mulholland</span><h3>Odin + Friday</h3><span class="big">$9,400</span><div class="bidbar"><i style="width:94%"></i></div><p>Their bid for the home down the street.</p><span class="vstat">Invited Oct 29</span></div>
+      <div class="pc" style="--c:var(--launch)"><span class="who">Bid on 14423 Mulholland</span><h3>Vesta</h3><span class="big">$10,000</span><div class="bidbar"><i style="width:100%"></i></div><p>Their bid for the home down the street.</p><span class="vstat">Invited Oct 29</span></div>
+    </div>
+    <p class="note">These are the bids for 14423 Mulholland Dr. Your quotes will depend on your home's size and layout, and we'll add them here after the Nov 10 visits.</p>
+  </section>
+
+  <section class="sec" id="items">
+    <div class="head"><span class="eyebrow">Your items</span><h2>Sell, donate or <em>keep</em></h2><p>Send us photos of the pieces you're unsure about. Everything gets one label, and the house needs to be clear by Nov 15 so painting can start.</p></div>
+    <div class="three">
+      <div class="pc" style="--c:var(--plan)"><span class="who">Option 1</span><h3>Sell</h3><p>Items with resale value. We can connect you with a consignment or estate buyer for pickup before Nov 16.</p></div>
+      <div class="pc" style="--c:var(--clear)"><span class="who">Option 2</span><h3>Donate</h3><p>One scheduled pickup. Ask for a receipt for your records.</p></div>
+      <div class="pc" style="--c:var(--fix)"><span class="who">Option 3</span><h3>Keep for staging</h3><p>Pieces the stager can work with, which can lower the staging cost.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="updates">
+    <div class="head"><span class="eyebrow">Updates</span><h2>What's <em>been done</em></h2><p>The latest progress, newest first.</p></div>
+    <ol class="log" id="log"></ol>
+  </section>
+
+  <section class="sec" id="team">
+    <div class="head"><span class="eyebrow">Your team</span><h2>Who's <em>on it</em></h2></div>
+    <div class="three">
+      <div class="tm" style="--c:var(--fix)"><span class="av">MA</span><div><b>Michael Abraham</b><span>AMRE · Compass · (310) 848-3406</span><em>Your main contact</em></div></div>
+      <div class="tm" style="--c:var(--sign)"><span class="av">AD</span><div><b>Ania de Pourbaix</b><span>AMRE · Compass</span><em>Co-listing agent</em></div></div>
+      <div class="tm" style="--c:var(--clear)"><span class="av">MK</span><div><b>Master Kim</b><span>Little Giant Painting Company</span><em>Painting estimate Nov 10</em></div></div>
+      <div class="tm" style="--c:var(--clear)"><span class="av">HM</span><div><b>Handyman</b><span>Lights and garage opening cover</span><em>Being booked</em></div></div>
+      <div class="tm" style="--c:var(--launch)"><span class="av">ST</span><div><b>Stager</b><span>Harlow, Odin + Friday or Vesta</span><em>Choose by Nov 12</em></div></div>
+      <div class="tm" style="--c:var(--plan)"><span class="av">PH</span><div><b>Photographer</b><span>Photos and video</span><em>Shoot Dec 2–3</em></div></div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span id="foot">v1 · Updated October 29, 2026</span>
+    <span>Prepared by AMRE Real Estate Group at Compass for Leslee Mayo. Dates are targets and may shift as vendors confirm.</span>
+  </footer>
+</main>
+</div>
+
+<script>
+(function(){
+  /* gate */
+  var CODE="mulholland2026",SK="mulholland-14405-unlocked";
+  var gate=document.getElementById('gate'),form=document.getElementById('gate-form'),inp=document.getElementById('gate-input'),err=document.getElementById('gate-error');
+  try{if(sessionStorage.getItem(SK)==="1")document.body.classList.add('unlocked');else setTimeout(function(){inp&&inp.focus()},100);}catch(e){}
+  form.addEventListener('submit',function(e){e.preventDefault();
+    if((inp.value||"").trim().toLowerCase()===CODE){try{sessionStorage.setItem(SK,"1")}catch(x){}document.body.classList.add('unlocked');err.innerHTML="&nbsp;";}
+    else{gate.classList.add('shake');err.textContent="That code didn't work. Try again.";setTimeout(function(){gate.classList.remove('shake')},400);inp.select();}
+  });
+
+  var DAY=864e5,START=new Date(2026,10,1),DAYS=35;
+  var PH={plan:{name:'Plan',c:'var(--plan)',t:'var(--plan-t)',on:'var(--plan-on)'},clear:{name:'Clear',c:'var(--clear)',t:'var(--clear-t)',on:'var(--clear-on)'},fix:{name:'Fix',c:'var(--fix)',t:'var(--fix-t)',on:'var(--fix-on)'},sign:{name:'Final walk',c:'var(--sign)',t:'var(--sign-t)',on:'var(--sign-on)'},launch:{name:'Stage and shoot',c:'var(--launch)',t:'var(--launch-t)',on:'var(--launch-on)'}};
+  var PHASES=['plan','clear','fix','sign','launch'];
+  var STEPS=[
+    {id:'lineup',name:'Line up the vendors',s:'2026-11-02',e:'2026-11-06',p:'plan',who:'AMRE',t:'We book the painter, handyman and stagers for Nov 10 and order the garage opening cover.'},
+    {id:'walk',name:'Vendor visits',s:'2026-11-10',e:'2026-11-10',p:'plan',ms:true,who:'AMRE + vendors',t:'The painter, handyman and stagers each walk the house, about 45 minutes apart, and give written quotes.'},
+    {id:'award',name:'Choose vendors',s:'2026-11-12',e:'2026-11-12',p:'plan',who:'Leslee + AMRE',t:'We review the quotes with you, confirm the painter and handyman, pick the stager and order light fixtures.'},
+    {id:'clear',name:'Clear the house',s:'2026-11-13',e:'2026-11-15',p:'clear',who:'Leslee',t:'Sell and donate pickups happen before painting starts.'},
+    {id:'paint',name:'Paint, patch, relight',s:'2026-11-16',e:'2026-11-20',p:'fix',who:'Master Kim + handyman',t:'Work goes through the fix list from top to bottom. The bar fills as items are finished.',linked:true},
+    {id:'punch',name:'Final walk + clean',s:'2026-11-23',e:'2026-11-23',p:'sign',ms:true,who:'Michael',t:'We walk every room and mark anything left. Nothing moves to staging until the list is clear.'},
+    {id:'stage',name:'Staging install',s:'2026-11-30',e:'2026-12-01',p:'launch',who:'Stager',t:'Furniture and decor go in after Thanksgiving week.'},
+    {id:'photo',name:'Photos + video',s:'2026-12-02',e:'2026-12-03',p:'launch',who:'Photographer',t:'Professional photos and video for the listing launch.'}
+  ];
+  var ITEMS=[
+    ['living','Living room','Patch and paint the two hairline cracks next to the fireplace.','High',['Painter']],
+    ['kitchen','Kitchen','Fix the discoloration where the small artwork hung.','High',['Painter']],
+    ['dining','Dining room','Fix the discoloration where the leaves were hung, and patch the cracks.','High',['Painter']],
+    ['hall','Hallway','Patch the hook and drill holes from the Decker painting, then paint.','High',['Painter']],
+    ['office','Office','Repaint the room and handle the wallpaper trim on the header.','High',['Painter']],
+    ['lights','Light fixtures','One matching finish for the nook, the Jack and Jill bath, Bedroom 3 and the storage area.','High',['Handyman']],
+    ['nook','Breakfast nook','Repaint the nook and replace its lights.','Med',['Painter','Handyman']],
+    ['jj','Jack and Jill bath','Replace the 4 can lights and the 1 small can, and fix the small crack.','Med',['Handyman']],
+    ['bed3','Bedroom 3 / office with patio','Patch the wall marks from the paintings and replace the 4 candle lights.','Med',['Painter','Handyman']],
+    ['storage','Storage area','Touch up in the same white and check the 6 overhead lights.','Low',['Painter','Handyman']],
+    ['garage','Garage opening cover','Install a cover sized 30.75" × 32.25".','Low',['Handyman']]
+  ];
+  var LOG=[
+    {d:'2026-10-29',k:'text',c:'var(--clear)',t:'Painter invited',x:'Master Kim of Little Giant Painting Company is asked to come by Nov 10 for an estimate.'},
+    {d:'2026-10-29',k:'email',c:'var(--launch)',t:'Three stagers invited',x:'Harlow, Odin + Friday and Vesta are asked to see the home on Nov 10, with the listing and floor plan.'},
+    {d:'2026-10-29',k:'note',c:'var(--fix)',t:'Staging research',x:'Pulled what each stager bid on 14423 Mulholland Dr, the home down the street.'},
+    {d:'2026-10-29',k:'note',c:'var(--sign)',t:'Prep plan ready',x:'The fix list and schedule are set up on this page.'}
+  ];
+  var IMP={High:'var(--clear)',Med:'var(--plan)',Low:'var(--sign)'};
+  var ICON={text:'SMS',email:'@',note:'✓',call:'☎'};
+  var STATUS={todo:'Not started',doing:'In progress',done:'Done'};
+  var st={status:{},checks:{},sel:null,view:'timeline'};
+  try{var v=sessionStorage.getItem('mulholland-view');if(v)st.view=v}catch(e){}
+
+  function pd(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2])}
+  function add(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n)}
+  function idx(d){return Math.round((d-START)/DAY)}
+  function fmt(d){return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}
+  function short(d){return d.toLocaleDateString('en-US',{month:'short',day:'numeric'})}
+  function pct(n){return (n/DAYS*100)+'%'}
+  function eff(i){return {s:pd(STEPS[i].s),e:pd(STEPS[i].e)}}
+  function sx(id){return STEPS.findIndex(function(s){return s.id===id})}
+  function vars(el,p){el.style.setProperty('--c',PH[p].c);el.style.setProperty('--t',PH[p].t);el.style.setProperty('--on',PH[p].on)}
+  function lp(){return ITEMS.filter(function(x){return st.checks[x[0]]}).length/ITEMS.length}
+  function status(s){var v=st.status[s.id]||'todo';if(s.linked&&lp()===1)v='done';return v}
+  var now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var PLAN_END=pd('2026-12-03');
+
+  var pathIn=document.getElementById('pathIn');
+  var nodes=PHASES.map(function(p,i){var b=document.createElement('button');b.type='button';b.className='node';vars(b,p);
+    b.innerHTML='<span class="dot">'+(i+1)+'</span><b>'+PH[p].name+'</b><small></small><span class="tag">We are here</span>';
+    b.addEventListener('click',function(){select(STEPS.find(function(s){return s.p===p}).id,true)});pathIn.appendChild(b);return b;});
+
+  var g=document.getElementById('gantt'),scale=document.getElementById('g-scale');
+  [0,7,14,21,28].forEach(function(n){var t=document.createElement('div');t.className='tick';t.style.left=pct(n);t.textContent='Week of '+short(add(START,n));scale.appendChild(t)});
+  var ti=idx(today),inRange=ti>=0&&ti<DAYS,hi=idx(new Date(2026,10,26));
+  function overlays(tr){var h=document.createElement('div');h.className='hol';h.style.left=pct(hi);h.style.width=pct(1);tr.appendChild(h);
+    if(inRange){var l=document.createElement('div');l.className='today';l.style.left='calc('+pct(ti+.5)+' - 1px)';tr.appendChild(l)}}
+  overlays(scale);
+  var rows=STEPS.map(function(s){var row=document.createElement('div');row.className='g-row';vars(row,s.p);
+    var nm=document.createElement('div');nm.className='g-name';nm.innerHTML='<span>'+s.name+'</span><small></small>';
+    var tr=document.createElement('div');tr.className='g-track';overlays(tr);
+    var b=document.createElement('button');b.type='button';
+    if(s.ms){b.className='gm';b.innerHTML='<span class="dia"></span><span class="lbl">'+s.name+'</span>'}
+    else{b.className='gb';b.innerHTML=(s.linked?'<span class="fill"></span>':'')+'<span class="lbl"></span>'}
+    b.addEventListener('click',function(){select(s.id)});nm.addEventListener('click',function(){select(s.id)});
+    tr.appendChild(b);row.appendChild(nm);row.appendChild(tr);g.appendChild(row);return {row:row,nm:nm,b:b}});
+
+  var calG=document.getElementById('calG'),cells=[];
+  for(var d=0;d<DAYS;d++){var dt=add(START,d),c=document.createElement('div');
+    c.className='day'+(dt.getMonth()===10?' mo':'')+(d===hi?' hol':'')+(d===ti?' today':'');
+    var lab=(d===0||dt.getDate()===1)?dt.toLocaleDateString('en-US',{month:'short'})+' '+dt.getDate():String(dt.getDate());
+    c.innerHTML='<div class="n"><span>'+lab+'</span>'+(d===hi?'<em>Thanksgiving</em>':d===ti?'<em style="color:var(--ink)">Today</em>':'')+'</div>';
+    calG.appendChild(c);cells.push(c)}
+
+  var list=document.getElementById('list');
+  var itRows=ITEMS.map(function(x,i){var r=document.createElement('div');r.className='it';r.style.setProperty('--imp',IMP[x[3]]);
+    r.innerHTML='<span class="rk">'+(i+1)+'</span><span class="ck" aria-hidden="true">✓</span><div class="bd"><b>'+x[1]+'</b><p>'+x[2]+'</p></div><div class="chips"><span class="chip '+x[3]+'">'+x[3]+' impact</span>'+x[4].map(function(t){return '<span class="chip">'+t+'</span>'}).join('')+'</div>';
+    list.appendChild(r);return r});
+
+  function renderLog(L){document.getElementById('log').innerHTML=L.map(function(e){return '<li><time>'+short(pd(e.d))+'</time><span class="ic" style="--c:'+(e.c||'var(--forest)')+'">'+(ICON[e.k]||'•')+'</span><div><b>'+e.t+'</b><span>'+e.x+'</span></div></li>'}).join('')}
+  renderLog(LOG);
+
+  function setView(v){st.view=v;try{sessionStorage.setItem('mulholland-view',v)}catch(e){}render()}
+  [].forEach.call(document.querySelectorAll('.views button'),function(b){b.addEventListener('click',function(){setView(b.dataset.v)})});
+  var wl=[].slice.call(document.querySelectorAll('#wayfind a'));
+  wl.forEach(function(a){if(a.dataset.view)a.addEventListener('click',function(){setView(a.dataset.view)})});
+  var secs=['overview','path','schedule','fixes','staging','items','updates','team'].map(function(i){return document.getElementById(i)});
+  function spy(){var y=window.scrollY+140,c='overview';secs.forEach(function(s){if(s.offsetTop<=y)c=s.id});
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)c='team';
+    wl.forEach(function(a){a.classList.toggle('active',a.dataset.s===c&&(!a.dataset.view||a.dataset.view===st.view))})}
+  window.addEventListener('scroll',spy,{passive:true});
+  function select(id,jump){st.sel=id;render();if(jump)document.getElementById('schedule').scrollIntoView({behavior:'smooth'})}
+
+  function render(){
+    var L=lp();
+    if(!st.sel||sx(st.sel)<0){var n=STEPS.find(function(s){return status(s)!=='done'});st.sel=(n||STEPS[0]).id}
+    cells.forEach(function(c){[].slice.call(c.querySelectorAll('.ev')).forEach(function(e){e.remove()})});
+    STEPS.forEach(function(s,i){var r=rows[i],E=eff(i),a=idx(E.s),len=idx(E.e)-a+1,v=status(s),sel=st.sel===s.id;
+      var range=len>1?short(E.s)+' – '+short(E.e):fmt(E.s);
+      r.nm.querySelector('small').textContent=range;
+      r.b.classList.toggle('done',v==='done');r.b.classList.toggle('sel',sel);r.row.classList.toggle('sel',sel);
+      if(s.ms){r.b.style.left='calc('+pct(a+.5)+' - 10px)'}
+      else{r.b.style.left=pct(a);r.b.style.width=pct(len);
+        r.b.querySelector('.lbl').textContent=(v==='done'?'✓ ':'')+(s.linked?Math.round(L*100)+'% done':(len>=5?s.name:len>1?len+' days':''));
+        if(s.linked)r.b.querySelector('.fill').style.width=(L*100)+'%'}
+      r.b.setAttribute('aria-label',s.name+', '+range+', '+STATUS[v]);
+      for(var d=Math.max(0,a);d<=Math.min(DAYS-1,a+len-1);d++){var e=document.createElement('button');e.type='button';
+        e.className='ev'+(s.ms?' ms':'')+(v==='done'?' done':'')+(sel?' sel':'');vars(e,s.p);e.textContent=s.name;e.title=s.name+' · '+range;
+        e.addEventListener('click',function(){select(s.id)});cells[d].appendChild(e)}
+    });
+    var here=-1;
+    PHASES.forEach(function(p,i){var ss=STEPS.map(function(s,k){return k}).filter(function(k){return STEPS[k].p===p});
+      var all=ss.every(function(k){return status(STEPS[k])==='done'});if(!all&&here<0)here=i;
+      var a=eff(ss[0]).s,b=eff(ss[ss.length-1]).e;nodes[i].querySelector('small').textContent=a.getTime()===b.getTime()?short(a):short(a)+' – '+short(b);
+      nodes[i].classList.toggle('done',all)});
+    nodes.forEach(function(n,i){n.classList.toggle('here',i===here)});
+    document.getElementById('pathFill').style.width=(here<0?100:here/(PHASES.length-1)*100)+'%';
+    var nx=STEPS.find(function(s){return status(s)!=='done'});
+    document.getElementById('h-phase').textContent=here<0?'All phases done':'Phase '+(here+1)+' of 5: '+PH[PHASES[here]].name;
+    document.getElementById('h-next').textContent=nx?'Next: '+nx.name+' · '+short(eff(sx(nx.id)).s):'Ready to launch';
+    var W=eff(1).s,dl=Math.round((W-today)/DAY);
+    document.getElementById('k-walk').textContent=dl>1?dl+' days':dl===1?'Tomorrow':dl===0?'Today':'Done';
+    document.getElementById('k-walk-d').textContent=fmt(W);
+    var P=eff(STEPS.length-1).e,slip=Math.round((P-PLAN_END)/DAY);
+    document.getElementById('k-photo').textContent=short(P);
+    document.getElementById('k-photo-d').textContent=slip?'Originally Dec 3':'On the Dec 3 target';
+    document.getElementById('k-slip').textContent=slip>0?'+'+slip+(slip>1?' days':' day'):'On track';
+    document.getElementById('k-slip-d').textContent=slip>0?'We moved the dates to fit vendors':'Right on plan';
+    var done=ITEMS.filter(function(x){return st.checks[x[0]]}).length;
+    document.getElementById('k-pct').textContent=Math.round(L*100)+'%';
+    document.getElementById('k-pct-d').textContent=done+' of '+ITEMS.length+' done';
+    document.getElementById('k-bar').style.width=(L*100)+'%';
+    var si=sx(st.sel),S=STEPS[si],SE=eff(si),sl=idx(SE.e)-idx(SE.s)+1,det=document.getElementById('detail');vars(det,S.p);
+    document.getElementById('d-when').textContent=sl>1?fmt(SE.s)+' – '+fmt(SE.e):fmt(SE.s);
+    document.getElementById('d-name').textContent=S.name;
+    document.getElementById('d-text').textContent=S.t;
+    document.getElementById('d-status').textContent=STATUS[status(S)];
+    document.getElementById('d-owner').textContent='Handled by: '+S.who;
+    document.getElementById('v-timeline').hidden=st.view!=='timeline';
+    document.getElementById('v-calendar').hidden=st.view!=='calendar';
+    [].forEach.call(document.querySelectorAll('.views button'),function(b){b.setAttribute('aria-pressed',b.dataset.v===st.view?'true':'false')});
+    itRows.forEach(function(r,i){r.classList.toggle('done',!!st.checks[ITEMS[i][0]])});
+    spy();
+  }
+  render();
+  /* data.json beside this page is the source of truth AMRE updates */
+  fetch('data.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){
+    if(!j)return;
+    (j.steps||[]).forEach(function(x){var s=STEPS[sx(x.id)];if(!s)return;if(x.s)s.s=x.s;if(x.e)s.e=x.e;if(x.status)st.status[x.id]=x.status});
+    if(j.checks)st.checks=j.checks;
+    if(j.log)renderLog(j.log);
+    if(j.updated)document.getElementById('foot').textContent='v1 · Updated '+j.updated;
+    render();
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
