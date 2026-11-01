@@ -53,6 +53,7 @@ body:not(.unlocked) .page{visibility:hidden}
 /* top bar */
 .top{position:sticky;top:0;z-index:50;background:rgba(250,247,241,.9);-webkit-backdrop-filter:saturate(180%) blur(16px);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid var(--line)}
 .top-in{max-width:1120px;margin:0 auto;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.top a.brand{padding:0;background:none;box-shadow:none}
 .brand{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-right:12px;white-space:nowrap}
 .brand b{color:var(--forest)}
 .top a{flex:0 0 auto;font-size:13px;font-weight:600;color:var(--mute);text-decoration:none;padding:6px 12px;border-radius:999px;white-space:nowrap;display:flex;align-items:center;gap:7px}
@@ -285,7 +286,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
 
 <div class="page">
 <nav class="top" aria-label="On this page"><div class="top-in" id="wayfind">
-  <span class="brand"><b>AMRE</b> | Compass</span>
+  <a class="brand" href="https://amre.group/"><b>AMRE</b> | Compass</a>
   <a href="#overview" data-s="overview">Up next</a>
   <a href="#plan" data-s="plan"><i style="background:var(--launch)"></i>The plan</a>
   <a href="#schedule" data-s="schedule" data-view="calendar"><i style="background:var(--market)"></i>Calendar</a>
@@ -303,7 +304,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
     <div class="hero">
       <div class="hero-img"><img src="hero.jpg" alt="14405 Mulholland Dr, Bel Air"><span class="cap">14405 Mulholland Dr, Bel Air</span></div>
       <div class="hero-txt">
-        <span class="eyebrow">Prepared for Leslee Mayo <span class="ver">v2</span></span>
+        <span class="eyebrow">Prepared for Leslee Mayo</span>
         <h1>Your listing plan, <em>start to sold</em></h1>
         <p>Every step for 14405 Mulholland Dr: getting the house ready, the Compass Coming Soon launch, about 60 days on market and the close. We update it as things move.</p>
         <div class="pills"><span class="pill on" id="h-phase">Phase 1 of 6: Plan</span><span class="pill" id="h-next">Next: Line up the vendors</span></div>
@@ -377,9 +378,9 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
   <section class="sec" id="staging">
     <div class="head"><span class="eyebrow">Staging</span><h2>Staging <em>options</em></h2><p>All three companies bid on 14423 Mulholland Dr, the home down the street. Each is invited to see your home on Nov 10, and we'll compare their quotes with you. Install is Dec 9–10.</p></div>
     <div class="three">
-      <div class="pc" style="--c:var(--prep)"><span class="who">Staged 14423 Mulholland</span><h3>Harlow</h3><span class="big">$7,000</span><div class="bidbar"><i style="width:70%"></i></div><p>Their staging helped 14423 Mulholland Dr sell for $1.721M, over asking, in 8 days.</p><span class="vstat">Invited Oct 29</span></div>
-      <div class="pc" style="--c:var(--plan)"><span class="who">Bid on 14423 Mulholland</span><h3>Odin + Friday</h3><span class="big">$9,400</span><div class="bidbar"><i style="width:94%"></i></div><p>Their bid for the home down the street.</p><span class="vstat">Invited Oct 29</span></div>
-      <div class="pc" style="--c:var(--market)"><span class="who">Bid on 14423 Mulholland</span><h3>Vesta</h3><span class="big">$10,000</span><div class="bidbar"><i style="width:100%"></i></div><p>Their bid for the home down the street.</p><span class="vstat">Invited Oct 29</span></div>
+      <div class="pc" style="--c:var(--prep)"><span class="who">Staged 14423 Mulholland</span><h3>Harlow</h3><span class="big">$7,000</span><div class="bidbar"><i style="width:70%"></i></div><p>Their staging helped 14423 Mulholland Dr sell for $1.721M, over asking, in 8 days.</p><span class="vstat">Confirmed · Tue, Nov 10 at 1:00</span></div>
+      <div class="pc" style="--c:var(--plan)"><span class="who">Bid on 14423 Mulholland</span><h3>Odin + Friday</h3><span class="big">$9,400</span><div class="bidbar"><i style="width:94%"></i></div><p>Their bid for the home down the street.</p><span class="vstat">Confirmed · Tue, Nov 10 at 12:00</span></div>
+      <div class="pc" style="--c:var(--market)"><span class="who">Bid on 14423 Mulholland</span><h3>Vesta</h3><span class="big">$10,000</span><div class="bidbar"><i style="width:100%"></i></div><p>Their bid for the home down the street.</p><span class="vstat">Confirmed · Tue, Nov 10 at 11:00</span></div>
     </div>
     <p class="note">These are the bids for 14423 Mulholland Dr. Your quotes will depend on your home's size and layout, and we'll add them here after the Nov 10 visits.</p>
   </section>
@@ -387,7 +388,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
   <section class="sec" id="items">
     <div class="head"><span class="eyebrow">Moving out</span><h2>Sell, donate or <em>keep</em></h2><p>The house needs to be empty by Monday, Nov 30 so prep can start Dec 1. Send us photos of the pieces you're unsure about, and each one gets a label.</p></div>
     <div class="three">
-      <div class="pc" style="--c:var(--plan)"><span class="who">Option 1</span><h3>Sell</h3><p>Items with resale value. We can connect you with a consignment or estate buyer for pickup before Nov 25.</p></div>
+      <div class="pc" style="--c:var(--plan)"><span class="who">Option 1</span><h3>Estate sale</h3><p>Cultured Collection meets us at the house on Nov 10 at 12:30 to plan a sale of the pieces you are not keeping.</p></div>
       <div class="pc" style="--c:var(--move)"><span class="who">Option 2</span><h3>Donate</h3><p>One scheduled pickup before Nov 30. Ask for a receipt for your records.</p></div>
       <div class="pc" style="--c:var(--prep)"><span class="who">Option 3</span><h3>Keep for staging</h3><p>Pieces the stager can use stay behind, which can lower the staging cost.</p></div>
     </div>
@@ -403,7 +404,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
     <div class="three">
       <div class="tm" style="--c:var(--prep)"><span class="av">MA</span><div><b>Michael Abraham</b><span>AMRE · Compass · (310) 848-3406</span><em>Your main contact</em></div></div>
       <div class="tm" style="--c:var(--launch)"><span class="av">AD</span><div><b>Ania de Pourbaix</b><span>AMRE · Compass</span><em>Co-listing agent</em></div></div>
-      <div class="tm" style="--c:var(--move)"><span class="av">MK</span><div><b>Master Kim</b><span>Little Giant Painting Company</span><em>Painting Dec 1–5</em></div></div>
+      <div class="tm" style="--c:var(--move)"><span class="av">MK</span><div><b>Master Kim</b><span>Little Giant Painting Company</span><em>Estimate Nov 10 at 10:00</em></div></div>
       <div class="tm" style="--c:var(--move)"><span class="av">HM</span><div><b>Handyman and cleaners</b><span>Lights, garage cover, final clean</span><em>Being booked</em></div></div>
       <div class="tm" style="--c:var(--market)"><span class="av">ST</span><div><b>Stager</b><span>Harlow, Odin + Friday or Vesta</span><em>Install Dec 9–10</em></div></div>
       <div class="tm" style="--c:var(--plan)"><span class="av">PH</span><div><b>Photographer</b><span>Photos, video and drone</span><em>Shoot Dec 11</em></div></div>
@@ -411,7 +412,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
   </section>
 
   <footer class="foot">
-    <span id="foot">v2 · Updated October 29, 2026</span>
+    <span id="foot">Updated November 1, 2026</span>
     <span>Prepared by AMRE Real Estate Group at Compass for Leslee Mayo. Dates are targets and will shift as vendors confirm and the market responds.</span>
   </footer>
 </main>
@@ -440,9 +441,10 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
   var PHASES=['plan','move','prep','launch','market','close'];
   var STEPS=[
     {id:'lineup',name:'Line up the vendors',s:'2026-11-02',e:'2026-11-06',p:'plan',who:'AMRE',t:'We book the painter, handyman, cleaners and stagers for Nov 10 and order the garage opening cover.'},
-    {id:'walk',name:'Vendor visits',s:'2026-11-10',e:'2026-11-10',p:'plan',ms:1,key:1,who:'AMRE + vendors',t:'The painter, handyman and three stagers each walk the house, about 45 minutes apart, and give written quotes.'},
+    {id:'walk',name:'Vendor visits',s:'2026-11-10',e:'2026-11-10',p:'plan',ms:1,key:1,who:'AMRE + vendors',t:'10:00 Master Kim (painting) · 11:00 Vesta · 12:00 Odin + Friday · 12:30 Cultured Collection (estate sale) · 1:00 Harlow. All three stagers have confirmed. Each gives a written quote.'},
+    {id:'estate',name:'Estate sale consult',s:'2026-11-10',e:'2026-11-10',p:'move',who:'Cultured Collection + AMRE',t:'Samantha from Cultured Collection walks the house at 12:30 to plan an estate sale for the furniture and items you are not taking with you.'},
     {id:'award',name:'Choose vendors',s:'2026-11-12',e:'2026-11-12',p:'plan',who:'Leslee + AMRE',t:'We review the quotes with you, confirm the painter and handyman, pick the stager and order light fixtures.'},
-    {id:'moveout',name:'Sell, donate, move out',s:'2026-11-13',e:'2026-11-29',p:'move',who:'Leslee',t:'Sell and donate pickups, then the move. Pieces the stager wants can stay behind.'},
+    {id:'moveout',name:'Sell, donate, move out',s:'2026-11-13',e:'2026-11-29',p:'move',who:'Leslee',t:'Estate sale, donation pickup, then the move. Pieces the stager wants can stay behind.'},
     {id:'vacant',name:'House empty',s:'2026-11-30',e:'2026-11-30',p:'move',ms:1,key:1,who:'Leslee',t:'The house is empty and the keys or lockbox code are with AMRE, so prep starts the next morning.'},
     {id:'paint',name:'Paint, patch, relight',s:'2026-12-01',e:'2026-12-05',p:'prep',who:'Master Kim + handyman',t:'Work goes through the fix list from top to bottom in the empty house. The bar fills as items are finished.',linked:1},
     {id:'punch',name:'Final walk',s:'2026-12-07',e:'2026-12-07',p:'prep',ms:1,who:'Michael',t:'We walk every room and mark anything left. Nothing moves to cleaning or staging until the list is clear.'},
@@ -451,6 +453,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
     {id:'photo',name:'Photos, video, drone',s:'2026-12-11',e:'2026-12-11',p:'launch',ms:1,key:1,who:'Photographer',t:'Daytime and twilight photos, a video walkthrough and drone shots of the views.'},
     {id:'mkt',name:'Marketing kit',s:'2026-12-11',e:'2026-12-17',p:'launch',who:'AMRE',t:'Five working days to write the listing copy, draw the floor plan, print flyers and the brochure, build the property website and set up the email to agents and social posts.'},
     {id:'soon',name:'Compass Coming Soon',s:'2026-12-14',e:'2027-01-06',p:'launch',key:1,who:'AMRE',t:'Listed as Coming Soon on the MLS, Compass.com, Redfin and international sites, with zero days on market. Buyers with a matching Compass search are notified, and we collect interest over the holidays.'},
+    {id:'intl',name:'International buyer outreach',s:'2026-12-14',e:'2027-01-06',p:'launch',who:'AMRE',t:'We contact agents who represent international buyers directly, so your home is on their radar before it goes live.'},
     {id:'live',name:'Go live on MLS',s:'2027-01-07',e:'2027-01-07',p:'market',ms:1,key:1,who:'AMRE',t:'Full launch: MLS active, email to agents, social posts and printed flyers at the house.'},
     {id:'oh1',name:'Open house',s:'2027-01-10',e:'2027-01-10',p:'market',who:'AMRE',t:'First public open house, Sunday afternoon.'},
     {id:'bo1',name:'Broker open',s:'2027-01-12',e:'2027-01-12',p:'market',ms:1,key:1,who:'AMRE',t:'Tuesday broker open for Westside and Bel Air agents, with flyers and feedback cards.'},
@@ -650,7 +653,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offse
     (j.steps||[]).forEach(function(x){var s=STEPS[sx(x.id)];if(!s)return;if(x.s)s.s=x.s;if(x.e)s.e=x.e;if(x.status)st.status[x.id]=x.status});
     if(j.checks)st.checks=j.checks;
     if(j.log)renderLog(j.log);
-    if(j.updated)document.getElementById('foot').textContent='v2 · Updated '+j.updated;
+    if(j.updated)document.getElementById('foot').textContent='Updated '+j.updated;
     var u=upcoming();st.sel=null;st.m=monthOf(u.length?S_(u[0]):today);
     render();
   }).catch(function(){});
