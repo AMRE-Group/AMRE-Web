@@ -1,6 +1,6 @@
 {
   "_note": "Source of truth for amre.group/clients/14405-mulholland/. Edit dates (s/e), status (todo/doing/done), fix-list checks and updates here; the page reads it on load.",
-  "updated": "October 29, 2026",
+  "updated": "November 1, 2026",
   "steps": [
     {
       "id": "lineup",
@@ -9,6 +9,27 @@
   ],
   "checks": {},
   "log": [
+    {
+      "d": "2026-10-30",
+      "k": "note",
+      "c": "var(--move)",
+      "t": "Estate sale consult booked",
+      "x": "Samantha from Cultured Collection will see the house Tue, Nov 10 at 12:30 to plan the estate sale."
+    },
+    {
+      "d": "2026-10-30",
+      "k": "email",
+      "c": "var(--market)",
+      "t": "All three stagers confirmed",
+      "x": "Vesta at 11:00, Odin + Friday at 12:00 and Harlow at 1:00 on Tue, Nov 10."
+    },
+    {
+      "d": "2026-10-29",
+      "k": "note",
+      "c": "var(--move)",
+      "t": "Painter visit booked",
+      "x": "Master Kim of Little Giant Painting Company comes by Tue, Nov 10 at 10:00 for an estimate."
+    },
     {
       "d": "2026-10-29",
       "k": "note",
