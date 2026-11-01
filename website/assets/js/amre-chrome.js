@@ -281,3 +281,12 @@
     } catch (e) {}
   })();
 })();
+
+/* Newsletter pop-up + signup handler (The AMRE Edition), added 2026-11-01. */
+(function () {
+  if (window.__amreNl || document.querySelector('script[src*="amre-newsletter.js"]')) return;
+  var s = document.createElement('script');
+  s.src = '/assets/js/amre-newsletter.js?v=20261101';
+  s.defer = true;
+  document.head.appendChild(s);
+})();
