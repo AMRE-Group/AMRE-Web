@@ -23,7 +23,7 @@
   })(window, document, 'script', 'dataLayer', 'GTM-TM5NWVRD');
 
   var BASE = '';
-  var LOGO = 'https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos';
+  var LOGO = '/assets/img/logos';
 
   // ── Nav links — edit here, propagates everywhere ──
   var LINKS = [

@@ -87,6 +87,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/amre.css">
 <style>
   :root{
     --ivory:#f7f4ee;
@@ -101,6 +103,17 @@
     --green:#3f4a3c;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  /* Undo shared amre.css bleed: this page keeps its own design, scoped under .ps */
+  .ps :where(section){padding:0}
+  .ps :where(h1,h2,h3){line-height:inherit}
+  .ps .head{max-width:none;margin-bottom:0}
+  .ps .head h2{margin:0;letter-spacing:.005em}
+  .ps .head p{font-size:16px;max-width:none;color:inherit}
+  .ps .hero{display:block;min-height:620px;color:inherit}
+  .ps .hero h1{letter-spacing:.005em;max-width:none}
+  .ps .eyebrow{display:block;font-family:'Jost',-apple-system,sans-serif}
+  .ps .eyebrow::before{content:none}
+  .ps .btn-ghost{background:transparent;backdrop-filter:none}
   html{scroll-behavior:smooth}
   body{font-family:'Jost',-apple-system,sans-serif;color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;font-weight:300}
   p{text-wrap:pretty}
@@ -112,20 +125,6 @@
   .center .rule{margin:22px auto}
   .mock-banner{background:var(--ink);color:var(--sand);text-align:center;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;padding:8px}
 
-  /* NAV */
-  .nav{position:fixed;top:0;left:0;width:100%;z-index:60;transition:.4s;padding:22px 0}
-  .nav.solid{background:rgba(247,244,238,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:14px 0}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between}
-  .logo{font-family:'Cormorant Garamond',serif;font-size:26px;letter-spacing:.5em;color:#fff;transition:.4s;padding-left:.5em}
-  .nav.solid .logo{color:var(--ink)}
-  .nav-links{display:flex;gap:38px}
-  .nav-links a{text-decoration:none;color:rgba(255,255,255,.92);font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
-  .nav.solid .nav-links a{color:var(--soft)}
-  .nav-links a:hover{color:var(--clay)}
-  .nav-cta{border:1px solid rgba(255,255,255,.6);color:#fff;padding:10px 22px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;transition:.3s}
-  .nav.solid .nav-cta{border-color:var(--clay);color:var(--clay)}
-  .nav-cta:hover{background:var(--clay);border-color:var(--clay);color:#fff}
-  @media(max-width:860px){.nav-links{display:none}}
 
   /* HERO */
   .hero{position:relative;height:100vh;min-height:620px;overflow:hidden}
@@ -228,17 +227,6 @@
   .btn-ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
   .btn-ghost:hover{background:#fff;color:var(--ink)}
 
-  /* FOOTER */
-  footer{background:var(--ink);color:#8d877b;text-align:center;padding:54px 40px}
-  footer .logo{position:static;color:var(--ivory);font-size:24px;display:inline-block;margin-bottom:18px}
-  footer .fl{font-size:12px;letter-spacing:.1em;margin:6px 0}
-  footer .dis{font-size:11px;opacity:.6;max-width:680px;margin:22px auto 0;line-height:1.7}
-
-  /* LOGO IMAGE */
-  .logo-link{display:inline-flex;align-items:center;line-height:0}
-  .logo-img{height:30px;width:auto;display:block;transition:filter .4s,height .4s}
-  .nav.solid .logo-img{height:26px;filter:brightness(0) saturate(100%) opacity(.85)}
-  footer .logo-img{height:32px;margin-bottom:18px;opacity:.92}
 
   /* ATTRACTIONS MAP */
   .mapcard{max-width:980px;margin:0 auto 60px;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:30px 34px;box-shadow:0 30px 70px rgba(42,33,24,.08)}
@@ -251,44 +239,13 @@
   .maptitle{text-align:center;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--sand);margin-bottom:14px}
   @media(max-width:680px){.mapcard{padding:18px}}
 
-  /* STANDARD AMRE FOOTER */
-  .site-footer{background:#1c3d31;color:#c4d2c8;text-align:left;padding:66px 40px 34px}
-  .site-footer .sf-top{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.15fr 2fr;gap:54px}
-  .sf-brand .logo-img{height:30px}
-  .sf-compass{height:20px;display:block;margin:16px 0 18px;opacity:.92}
-  .sf-tag{font-size:13.5px;line-height:1.75;color:#9fb1a4;max-width:300px;font-style:italic}
-  .sf-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-  .sf-col h4{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#fff;margin-bottom:16px;font-weight:500}
-  .sf-col ul{list-style:none}
-  .sf-col li{margin-bottom:11px}
-  .sf-col a{color:#a6b8ac;text-decoration:none;font-size:13.5px;transition:color .2s}
-  .sf-col a:hover{color:#fff}
-  .sf-legal{max-width:1160px;margin:48px auto 0;padding-top:26px;border-top:1px solid rgba(255,255,255,.13);font-size:12px;color:#8ea093;line-height:1.9}
-  .sf-legal a{color:#c4d2c8}
-  .sf-dre{margin-top:4px}
-  .sf-disclosure{background:#fff;color:#6b665c;padding:30px 40px;display:flex;gap:28px;align-items:center;justify-content:center}
-  .sf-disclosure p{font-size:11px;line-height:1.7;max-width:880px;margin:0}
-  .sf-disclosure a{color:#1c3d31}
-  .sf-eho{height:58px;flex-shrink:0}
-  @media(max-width:860px){.site-footer .sf-top{grid-template-columns:1fr;gap:34px}.sf-cols{grid-template-columns:1fr 1fr}.sf-disclosure{flex-direction:column;text-align:center}.sf-eho{height:48px}}
 </style>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TM5NWVRD');</script>
 <style>:where(img[width][height]){height:auto}</style>
 </head>
 <body>
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="wrap">
-    <a class="logo-link" href="https://amre.group/" target="_blank" rel="noopener" aria-label="AMRE — visit main site"><img class="logo-img" src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE"></a>
-    <div class="nav-links">
-      <a href="#residence">The Residence</a>
-      <a href="#amenities">Amenities</a>
-      <a href="#tour">Tour</a>
-      <a href="#setting">The Setting</a>
-    </div>
-    <a href="#inquire" class="nav-cta">Inquire</a>
-  </div>
-</nav>
+<div id="amre-nav"><nav class="amre-static-nav" aria-label="Site" hidden><ul><li><a href="/">Home</a></li><li><a href="/buyers/">Buy</a></li><li><a href="/sellers/">Sell</a></li><li><a href="/cash-and-flow/">Cash &amp; Flow investing</a></li><li><a href="/westside/">Westside neighborhoods</a></li><li><a href="/beach-cities/">Beach Cities</a></li><li><a href="/market-reports/">Market reports</a></li><li><a href="/blog/">Journal</a></li><li><a href="/architectural-homes/">Architect realtor</a></li><li><a href="/about/">About AMRE</a></li><li><a href="/reviews/">Reviews</a></li><li><a href="/contact/">Contact</a></li></ul></nav></div>
+<div class="ps">
 
 <!-- HERO -->
 <header class="hero">
@@ -570,65 +527,10 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="sf-top">
-    <div class="sf-brand">
-      <a class="logo-link" href="https://amre.group/" target="_blank" rel="noopener"><img class="logo-img" src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/amre-white.svg" alt="AMRE Real Estate Group"></a>
-      <img class="sf-compass" src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos/compass-white.png" alt="Compass">
-      <p class="sf-tag">Empowering clients to achieve their real estate dreams, one home at a time. Compass Beverly Hills.</p>
-    </div>
-    <div class="sf-cols">
-      <div class="sf-col">
-        <h4>Navigate</h4>
-        <ul>
-          <li><a href="https://amre.group/sellers/">Sellers</a></li>
-          <li><a href="https://amre.group/buyers/">Buyers</a></li>
-          <li><a href="https://amre.group/about/">Team</a></li>
-          <li><a href="https://amre.group/blog/">Journal</a></li>
-          <li><a href="https://amre.group/contact/">Contact</a></li>
-          <li><a href="https://amre.group/properties/">Past Transactions</a></li>
-          <li><a href="https://amre.group/properties/fruitland-401/">Featured Property</a></li>
-        </ul>
-      </div>
-      <div class="sf-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="https://amre.group/sellers/#three-phase">3-Phase Marketing</a></li>
-          <li><a href="https://amre.group/sellers/#concierge">Compass Concierge</a></li>
-          <li><a href="https://amre.group/buyers/">Buyer Advisory</a></li>
-          <li><a href="https://amre.group/#contact">Home Valuation</a></li>
-          <li><a href="https://amre.group/#contact">Investment Advisory</a></li>
-          <li><a href="https://amre.group/tools/investor-calculator/">Investor Calculator</a></li>
-        </ul>
-      </div>
-      <div class="sf-col">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="tel:3237198585">(323) 719-8585</a></li>
-          <li><a href="mailto:michael.abraham@compass.com">Email Us</a></li>
-          <li><a href="https://www.instagram.com/amre.group/">Instagram</a></li>
-          <li><a href="https://www.youtube.com/@AMRE_Real_Estate">YouTube</a></li>
-          <li><a href="https://www.facebook.com/amre.grp">Facebook</a></li>
-          <li><a href="https://www.linkedin.com/company/amre-real-estate-group/">LinkedIn</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="sf-legal">
-    <div>© 2026 AMRE Real Estate Group. All rights reserved. · <a href="https://amre.group/privacy-policy/">Privacy Policy</a> · <a href="https://amre.group/terms-and-conditions/">Terms &amp; Conditions</a></div>
-    <div class="sf-dre">Michael Abraham CA DRE# 02242095 · Ania De Pourbaix CA DRE# 01891438 · Compass DRE# 01991628</div>
-  </div>
-</footer>
-<div class="sf-disclosure">
-  <p>AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.</p>
-  <img class="sf-eho" src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity">
 </div>
 
-<script>
-  const nav=document.getElementById('nav');
-  const onScroll=()=>{nav.classList.toggle('solid',window.scrollY>window.innerHeight*0.8);};
-  window.addEventListener('scroll',onScroll);onScroll();
-</script>
+<div id="amre-footer"><div class="amre-static-foot" hidden><ul><li><a href="/santa-monica/">Santa Monica</a></li><li><a href="/venice/">Venice</a></li><li><a href="/mar-vista/">Mar Vista</a></li><li><a href="/culver-city/">Culver City</a></li><li><a href="/playa-vista/">Playa Vista</a></li><li><a href="/marina-del-rey/">Marina del Rey</a></li><li><a href="/west-los-angeles/">West Los Angeles</a></li><li><a href="/cheviot-hills/">Cheviot Hills</a></li><li><a href="/brentwood/">Brentwood</a></li><li><a href="/pacific-palisades/">Pacific Palisades</a></li><li><a href="/westwood/">Westwood</a></li><li><a href="/beverly-hills/">Beverly Hills</a></li><li><a href="/bel-air/">Bel Air</a></li><li><a href="/west-adams/">West Adams</a></li><li><a href="/manhattan-beach/">Manhattan Beach</a></li><li><a href="/hermosa-beach/">Hermosa Beach</a></li><li><a href="/redondo-beach/">Redondo Beach</a></li><li><a href="/el-segundo/">El Segundo</a></li></ul><p>AMRE Real Estate Group at Compass · 9454 Wilshire Blvd, Suite 100, Beverly Hills, CA 90212 · (323) 719-8585 · Michael Abraham, REALTOR® &amp; licensed architect, DRE# 02242095 · Ania De Pourbaix, REALTOR®, DRE# 01891438</p></div></div>
+
+<script src="/assets/js/amre-chrome.js?v=20261101" defer></script>
 </body>
 </html>
