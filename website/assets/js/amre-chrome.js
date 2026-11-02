@@ -22,7 +22,7 @@
     f.parentNode.insertBefore(j, f);
   })(window, document, 'script', 'dataLayer', 'GTM-TM5NWVRD');
 
-  var LOGO = 'https://raw.githubusercontent.com/Hilex2030/amre-assets/main/assets/logos';
+  var LOGO = '/assets/img/logos';
 
   // ---- required chrome CSS (injected so nav/drawer are correct on ANY page, even ones that don't inline it) ----
   (function () {
@@ -166,7 +166,7 @@
     '</footer>' +
     '<div class="disclosure"><div class="wrap disclosure-in">' +
       '<p>AMRE Real Estate Group is a team of real estate agents affiliated with Compass. <a href="https://www.compass.com/" target="_blank" rel="noopener">Compass</a> is a real estate broker licensed by the State of California and abides by Equal Housing Opportunity laws. License Number 01991628. All material presented herein is intended for informational purposes only and is compiled from sources deemed reliable but has not been verified. Changes in price, condition, sale or withdrawal may be made without notice. No statement is made as to the accuracy of any description. All measurements and square footage are approximate. If your property is currently listed for sale this is not a solicitation.</p>' +
-      '<div><img src="https://raw.githubusercontent.com/Hilex2030/amre-assets/main/website/assets/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy"></div>' +
+      '<div><img src="/assets/img/logos/realtor-eho-dark.jpg" alt="REALTOR® and Equal Housing Opportunity" loading="lazy"></div>' +
     '</div></div>';
 
   function mount(id, html) { var el = document.getElementById(id); if (el) el.outerHTML = html; }
