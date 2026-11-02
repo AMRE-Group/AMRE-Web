@@ -6,7 +6,7 @@ README.md and REVISION-HISTORY.md describe the old `Hilex2030/amre-assets` repo 
 
 ## How to work
 - Patch existing pages. Never rebuild a page from scratch unless Michael asks.
-- Preview locally first (`python3 -m http.server 8000 -d website`), then commit and push only after Michael approves.
+- Preview locally first (`python3 -m http.server 8001 -d website` — 8000 is BizColab's, 8002 is Haps Club's), then commit and push only after Michael approves.
 - Always `git pull` before editing — other sessions edit this repo too.
 - Keep short, plain answers. Show Michael the result, not the process.
 
@@ -15,12 +15,12 @@ README.md and REVISION-HISTORY.md describe the old `Hilex2030/amre-assets` repo 
 - Property pages: `website/properties/<slug>/assets/`, continuing the existing filename series (`fg10` → `fg11`).
 - Site-wide images: `website/assets/img/`.
 - Link-only assets (e.g. for Buffer): `social/YYYY-MM-DD/<slug>.jpg` at repo root.
-- Feature on homepage: add a card right after `<div class="jt-grid">` in `website/index.html`, matching the existing cards.
+- Feature on homepage: add a card to the journal section (`<div class="jrn-grid">` in `website/index.html`), matching the existing cards.
 
 ## Page rules (the #1 gotcha)
-- Nav is injected — top of `<body>`: `<div id="site-nav-mount"></div><div id="site-drawer-mount"></div><script src="/assets/js/site-chrome.js"></script>`. Never hand-build the nav.
-- Footer: copy the exact block from `website/index.html`, from `<footer class="site-footer"` through the `<!-- STICKY` marker.
-- Scope all page-specific CSS under a `.ps` wrapper (`.ps ` prefix on every selector). Never add global `.site-nav` / `.site-footer` rules.
+- Nav and footer are injected by `/assets/js/amre-chrome.js`: use `<div id="amre-nav"></div>`, `<div id="amre-footer"></div>` and the same `amre-chrome.js` script tag as `website/index.html`. Never hand-build the nav or footer.
+- New pages start from a current page that already uses `amre-chrome.js` (e.g. `website/blog/1031-exchange-los-angeles/`). About 96 older pages load no shared chrome — don't copy from those.
+- Don't add global CSS rules that restyle the shared nav or footer.
 - Every page: unique title, meta description, canonical, Open Graph + Twitter tags, JSON-LD (BlogPosting + BreadcrumbList + FAQPage).
 
 ## Images
@@ -33,5 +33,5 @@ README.md and REVISION-HISTORY.md describe the old `Hilex2030/amre-assets` repo 
 - Never invent testimonials, reviews, sales figures or quotes.
 
 ## Verify after deploy
-- Every new page and asset returns 200 on amre.group, the live HTML has the new content, and the footer matches `website/index.html`.
+- Every new page and asset returns 200 on amre.group, the live HTML has the new content, and the nav and footer render.
 - Never say it's live until a fetch confirms it.
