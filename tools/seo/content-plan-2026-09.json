@@ -46,7 +46,9 @@
         "/cash-and-flow/"
       ],
       "source": "audit",
-      "status": "todo"
+      "status": "done",
+      "date": "2026-11-05",
+      "url": "/blog/is-a-mar-vista-duplex-a-good-investment/"
     },
     {
       "n": 4,
@@ -207,6 +209,11 @@
       "title": "How to Buy a Duplex in Los Angeles: The 2026 Step-by-Step Guide",
       "url": "/cash-and-flow/how-to-buy-a-duplex-in-los-angeles/",
       "date": "2026-10-01"
+    },
+    {
+      "title": "Is a Mar Vista duplex a good investment in 2026?",
+      "url": "/blog/is-a-mar-vista-duplex-a-good-investment/",
+      "date": "2026-11-05"
     }
   ],
   "parked": [
