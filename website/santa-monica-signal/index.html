@@ -251,7 +251,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function(){
-  var SERVICE='service_rvg801y',TEAM='template_s7ggyxb',USER='template_9jgb96g',PUBKEY='yWt3TMJ6ysOrH3vH1';
+  var SERVICE='service_rvg801y',TEAM='template_9y2zh4b',USER='template_xwvinyi',PUBKEY='yWt3TMJ6ysOrH3vH1';
   var LSKEY='amre_smsignal_unlocked';
   try{if(typeof emailjs!=='undefined')emailjs.init({publicKey:PUBKEY});}catch(e){}
   function v(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';}
@@ -276,6 +276,7 @@
       price_range:'',timeline:'Not specified',
       message:'Santa Monica Signal (condos) Q3 2026 PDF download unlocked.',
       inquiry_type:'Buyer/Seller - Santa Monica Signal PDF',source:'amre.group/santa-monica-signal/',reply_to:_e};
+    p.user_message='You unlocked the Santa Monica Signal condo report.';
     if(typeof emailjs==='undefined')return;
     emailjs.send(SERVICE,USER,p).then(function(){return emailjs.send(SERVICE,TEAM,p);}).catch(function(){});
   };

@@ -271,7 +271,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 (function(){
-  var SERVICE='service_rvg801y',TEAM='template_s7ggyxb',USER='template_9jgb96g',PUBKEY='yWt3TMJ6ysOrH3vH1';
+  var SERVICE='service_rvg801y',TEAM='template_9y2zh4b',USER='template_xwvinyi',PUBKEY='yWt3TMJ6ysOrH3vH1';
   try{if(typeof emailjs!=='undefined')emailjs.init({publicKey:PUBKEY});}catch(e){}
   function v(id){var el=document.getElementById(id);return el?(el.value||'').trim():'';}
   window.grStep2=function(){
@@ -289,6 +289,8 @@
       price_range:'',timeline:v('grTime')||'Not specified',
       message:'Westside corridor weekly market report signup (report page).',
       inquiry_type:'Seller - Westside Market Report',source:'amre.group/westside-market-report/',reply_to:_e};
+    p.user_message='You asked for the Westside Market Report.';
+    p.message+=' Address: '+p.address+'. Timeline: '+p.timeline+'.';
     if(btn){btn.disabled=true;if(btn.classList.contains('btn'))btn.textContent='Sending...';}
     function done(){document.getElementById('grForm').classList.add('grpt-hide');document.getElementById('grSuccess').classList.remove('grpt-hide');
       try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'lead_submit',form_type:'seller',form_source:p.source,lead_value:1500,currency:'USD'});}catch(x){}}
