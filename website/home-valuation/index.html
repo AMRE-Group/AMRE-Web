@@ -115,6 +115,37 @@ section{padding:96px 24px}
 .three-up{grid-template-columns:1fr;gap:24px}
 section{padding:64px 20px}
 }
+/* Valuation panel, matches the homepage "A Considered Valuation" modal */
+.ps .ps-val{background:#0e2219;padding:calc(var(--nav-h) + 72px) 20px 96px}
+.ps .ps-panel{background:#163328;color:#fff;max-width:720px;margin:0 auto;border:1px solid rgba(255,255,255,.09);box-shadow:0 40px 100px rgba(0,0,0,.35)}
+.ps .ps-top{padding:clamp(44px,6vw,60px) clamp(26px,7vw,80px) 0;text-align:center}
+.ps .ps-top .mk{font-family:'Instrument Sans',-apple-system,sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.68);display:inline-block;padding-bottom:11px;border-bottom:1px solid #e6a800}
+.ps .ps-top h1{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(1.9rem,4.2vw,2.8rem);letter-spacing:.01em;text-transform:uppercase;color:#f3ede2;margin:24px 0 18px;line-height:1.08}
+.ps .ps-top p{font-family:'Instrument Sans',-apple-system,sans-serif;font-size:.95rem;font-weight:400;color:rgba(255,255,255,.7);max-width:46ch;margin:0 auto;line-height:1.65}
+.ps .ps-body{padding:clamp(30px,4vw,40px) clamp(26px,7vw,80px) clamp(38px,5vw,52px);font-family:'Instrument Sans',-apple-system,sans-serif}
+.ps .ps-val .amre-label{color:rgba(255,255,255,.86);font-weight:400;letter-spacing:.01em;text-transform:none;font-size:.88rem}
+.ps .ps-val .amre-required{color:#e6a800}
+.ps .ps-val .amre-input,.ps .ps-val .amre-select,.ps .ps-val .amre-textarea{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.22);border-radius:0;color:#fff;padding:6px 0 10px}
+.ps .ps-val .amre-input::placeholder,.ps .ps-val .amre-textarea::placeholder{color:rgba(255,255,255,.4)}
+.ps .ps-val .amre-input:focus,.ps .ps-val .amre-select:focus,.ps .ps-val .amre-textarea:focus{border-color:#ffc13c;box-shadow:none;outline:none}
+.ps .ps-val .amre-select option{color:#1a1a1a}
+.ps .ps-val .amre-field{margin-bottom:22px}
+.ps .ps-val .amre-consent span{color:rgba(255,255,255,.52);font-size:.76rem;line-height:1.6}
+.ps .ps-val .amre-consent a,.ps .ps-val .amre-consent strong{color:rgba(255,255,255,.75)}
+.ps .ps-val .amre-consent input[type=checkbox]{accent-color:#e6a800}
+.ps .ps-val .amre-submit{display:block;margin:6px auto 0;min-width:240px;border-radius:0;background:#e6a800;color:#163328;font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:16px 34px}
+.ps .ps-val .amre-submit:hover{background:#ffc13c}
+.ps .ps-val .amre-error{color:#ffd2c4}
+.ps .ps-val .amre-error a{color:#fff}
+.ps .ps-val .amre-success{background:transparent;border:none;border-radius:0;text-align:center;padding:8px 0 4px}
+.ps .ps-val .amre-success-h{font-family:'Fraunces',Georgia,serif;font-weight:300;font-size:clamp(1.6rem,3.4vw,2.1rem);color:#f3ede2;margin:0 0 12px;letter-spacing:.01em}
+.ps .ps-val .amre-success-p{font-size:.95rem;color:rgba(255,255,255,.74);max-width:44ch;margin:0 auto;line-height:1.65}
+.ps .ps-val .amre-success-icon{background:#e6a800;color:#163328;width:48px;height:48px;font-size:22px;margin:0 auto 18px}
+.ps .ps-val .amre-optin{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.18);border-radius:12px;margin:6px 0 22px}
+.ps .ps-val .amre-optin label{color:rgba(255,255,255,.6);font-size:.76rem}
+.ps .ps-note{text-align:center;margin-top:24px;font-size:.82rem;color:rgba(255,255,255,.5)}
+.ps .ps-note a{color:rgba(255,255,255,.82);text-decoration:underline}
+@media(max-width:680px){.ps .ps-val{padding:calc(var(--nav-h) + 40px) 0 0}.ps .ps-panel{border-left:0;border-right:0}}
 .val-form-card{background:#fff;border:1px solid #d2d2d7;border-radius:18px;padding:44px 40px 36px;max-width:540px;margin:48px auto 0;text-align:left}
 .val-form-card-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6e6e73;margin-bottom:24px;display:block;text-align:center}
 @media(max-width:680px){
@@ -144,12 +175,15 @@ section{padding:64px 20px}
 
 
 <!-- ========== HERO ========== -->
-<header class="page-hero">
-  <div class="eyebrow">Free Home Valuation</div>
-  <h1>What is your home<br>worth <em>right now?</em></h1>
-  <p class="lede">Not an algorithm. A personal analysis from Michael and Ania — comparable sales, your home's condition, and what would move the needle before you list.</p>
-  <div class="val-form-card">
-    <span class="val-form-card-label">Get your free home valuation</span>
+<div class="ps">
+<header class="ps-val" id="valuation">
+  <div class="ps-panel">
+    <div class="ps-top">
+      <span class="mk">Privately Prepared</span>
+      <h1>A Considered Valuation</h1>
+      <p>Not an instant estimate. Michael and Ania walk the comps, the condition and the timing themselves, then send you a considered number and what it would take to reach it.</p>
+    </div>
+    <div class="ps-body">
     <form class="amre-form" data-amre-form data-form-type="valuation" data-source="amre.group/home-valuation/" novalidate>
         <div class="amre-row-2">
           <div class="amre-field">
@@ -169,7 +203,7 @@ section{padding:64px 20px}
 
         <div class="amre-field">
           <label class="amre-label" for="vf-hval-phone">Phone</label>
-          <input class="amre-input" id="vf-hval-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(optional)">
+          <input class="amre-input" id="vf-hval-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" >
         </div>
 
         <div class="amre-field">
@@ -205,7 +239,7 @@ section{padding:64px 20px}
 
         <div class="amre-field">
           <label class="amre-label" for="vf-hval-notes">Anything we should know?</label>
-          <textarea class="amre-textarea" id="vf-hval-notes" name="notes" rows="4" placeholder="Recent updates, urgency, or specific questions…"></textarea>
+          <textarea class="amre-textarea" id="vf-hval-notes" name="notes" rows="3" placeholder="Recent updates, timing, or specific questions…"></textarea>
         </div>
 
         <label class="amre-consent">
@@ -214,7 +248,7 @@ section{padding:64px 20px}
         </label>
 
         <button type="submit" class="amre-submit">
-          <span class="amre-btn-text">Get my free valuation</span>
+          <span class="amre-btn-text">Request Valuation</span>
         </button>
 
         <div class="amre-error" role="alert">
@@ -224,12 +258,14 @@ section{padding:64px 20px}
 
       <div class="amre-success" role="status" aria-live="polite">
         <div class="amre-success-icon" aria-hidden="true">✓</div>
-        <h3 class="amre-success-h">Valuation requested.</h3>
-        <p class="amre-success-p">Thanks for reaching out. Within 48 hours, you’ll receive a personal CMA from Michael and Ania — not an algorithm. Watch your inbox for confirmation.</p>
+        <h3 class="amre-success-h">Thank you — we’re on it.</h3>
+        <p class="amre-success-p">Michael and Ania will prepare your valuation personally and reach out within 48 hours. A confirmation is on its way to your inbox.</p>
       </div>
-    <p style="font-size:12px;color:#6e6e73;text-align:center;margin-top:14px;font-weight:300;line-height:1.5">No calls. No pressure. Just a real answer from a real agent.</p>
+      <p class="ps-note">No pressure. Just a real answer from Michael and Ania. Prefer to talk? <a href="tel:+13237198585">(323) 719-8585</a></p>
+    </div>
   </div>
 </header>
+</div>
 
 <!-- ========== HOW IT WORKS ========== -->
 <section>
