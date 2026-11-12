@@ -61,7 +61,9 @@
         "/buyers/"
       ],
       "source": "audit",
-      "status": "todo"
+      "status": "done",
+      "date": "2026-11-12",
+      "url": "/blog/what-an-architect-checks-before-you-buy/"
     },
     {
       "n": 5,
