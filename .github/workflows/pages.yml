@@ -44,6 +44,10 @@ jobs:
         with:
           path: ./website
 
+      # deploy-pages can miss an artifact uploaded seconds earlier in the same job (actions/deploy-pages#451)
+      - name: Wait for the artifact to register
+        run: sleep 30
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
